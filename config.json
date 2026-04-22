@@ -1,0 +1,38 @@
+{
+  "taste": {
+    "boost_keywords": [
+      "ai", "llm", "gpt", "claude", "copilot", "ml", "neural", "transformer",
+      "machine learning", "deep learning", "diffusion", "stable diffusion", "midjourney",
+      "dev tool", "cli", "ide", "terminal", "vscode", "neovim", "editor",
+      "privacy", "encryption", "security", "self-hosted", "open source", "foss",
+      "creative", "figma", "blender", "design tool", "generative",
+      "weird", "physics", "space", "biology", "quantum", "neuroscience",
+      "show hn", "launch", "tutorial", "guide", "how-to", "actionable",
+      "python", "rust", "typescript", "webassembly", "wasm",
+      "api", "sdk", "framework", "database", "sqlite", "postgres"
+    ],
+    "skip_keywords": [
+      "politics", "culture war", "sports", "celebrity", "lawsuit", "regulation debate",
+      "fundraising round", "ipo", "stock price", "layoff"
+    ],
+    "flag_for_me_keywords": [
+      "ai product", "prompt engineering", "trade", "product manager",
+      "portfolio", "personal brand", "no-code", "low-code",
+      "claude", "cursor", "copilot", "ai agent", "ai tool"
+    ]
+  },
+  "output_dir": "magazines",
+  "github": {
+    "enabled": false,
+    "repo": "florazhutc/morning-edition",
+    "branch": "gh-pages"
+  },
+  "email": {
+    "enabled": false,
+    "to": "flora.zhu78@gmail.com",
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "smtp_user": "",
+    "smtp_password_env": "MORNING_EDITION_EMAIL_PASSWORD"
+  }
+}

@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — April 22, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;600;700&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; background: #FAF6F0; }
+        section { scroll-snap-align: start; scroll-snap-stop: always; }
+        a:hover { opacity: 0.8; }
+        .masthead { scroll-snap-align: start; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 8vh 6vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .toc { scroll-snap-align: start; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(60px,10vh,100px) clamp(32px,12vw,200px); }
+        .nav-dots { position: fixed; right: clamp(12px,2vw,24px); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+        .colophon { background: #EDEBE5; padding: 6vh 8vw; text-align: center; scroll-snap-align: end; }
+        @media (max-width: 768px) {
+            .nav-dots { display: none; }
+            section, .toc { padding: 48px 24px !important; }
+            .two-col-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+        }
+    </style>
+</head>
+<body>
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div style="margin-bottom:40px;">
+            <div style="width:60px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#8C7A6B;">
+                A Curated Daily Digest · 中英双语晨报
+            </span>
+        </div>
+        <h1 style="font-family:'Fraunces',serif;font-size:clamp(3.5rem,10vw,8rem);font-weight:900;color:#1A1A1A;line-height:0.95;letter-spacing:-0.03em;margin-bottom:16px;">
+            Morning<br><em style="font-style:italic;font-weight:400;color:#C84B31;">Edition</em>
+        </h1>
+        <div style="width:40px;height:1px;background:#D4C5B5;margin:24px auto;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.8vw,1.3rem);color:#8C7A6B;font-weight:400;font-style:italic;">Wednesday</div>
+        <div style="font-family:'Inter',sans-serif;font-size:clamp(0.8rem,1.2vw,0.95rem);color:#B0A090;font-weight:400;letter-spacing:0.1em;margin-top:6px;">April 22, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc">
+        <div style="max-width:700px;margin:0 auto;width:100%;">
+            <div style="margin-bottom:40px;">
+                <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:#8C7A6B;">
+                    In This Issue / 本期提要
+                </span>
+                <div style="width:30px;height:2px;background:#C84B31;margin-top:12px;"></div>
+            </div>
+            <nav>
+        <a href="#story-1" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">01</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Anthropic says OpenClaw-style Claude CLI usage is allowed again <span style="color:#C84B31;">⚡</span></div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Anthropic 表示再次允许使用 OpenClaw 风格的 Claude CLI</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">486 pts</span>
+        </a>
+        <a href="#story-2" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">02</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Framework Laptop 13 Pro</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">框架笔记本电脑 13 Pro</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">1114 pts</span>
+        </a>
+        <a href="#story-3" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">03</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">ChatGPT Images 2.0</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">ChatGPT 图像 2.0</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">678 pts</span>
+        </a>
+        <a href="#story-4" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">04</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Show HN: VidStudio, a browser based video editor that doesn't upload your files</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Show HN：VidStudio，一个基于浏览器的视频编辑器，不会上传您的文件</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">264 pts</span>
+        </a>
+        <a href="#story-5" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">05</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Show HN: Backlit Keyboard API for Python</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">显示 HN：Python 背光键盘 API</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">24 pts</span>
+        </a>
+        <a href="#story-6" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">06</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Laws of Software Engineering</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">软件工程定律</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">914 pts</span>
+        </a>
+        <a href="#story-7" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">07</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">The Vercel breach: OAuth attack exposes risk in platform environment variables</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Vercel 漏洞：OAuth 攻击暴露了平台环境变量的风险</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">299 pts</span>
+        </a>
+        <a href="#story-8" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">08</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">SpaceX says it has agreement to acquire Cursor for $60B <span style="color:#C84B31;">⚡</span></div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">SpaceX表示已同意以$60B收购Cursor</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">479 pts</span>
+        </a>
+        <a href="#story-9" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">09</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Claude Code to be removed from Anthropic's Pro plan? <span style="color:#C84B31;">⚡</span></div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Claude Code 将从 Anthropic 的 Pro 计划中删除？</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">475 pts</span>
+        </a>
+        <a href="#story-10" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">10</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Show HN: GoModel – an open-source AI gateway in Go</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">显示 HN：GoModel – Go 中的开源 AI 网关</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">171 pts</span>
+        </a></nav>
+        </div>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" style="background:#FAF6F0;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(200,75,49,0.06);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">1</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#8C7A6B;letter-spacing:0.05em;">01</span>
+        <span style="width:40px;height:1px;background:#D4C5B5;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#8C7A6B;letter-spacing:0.18em;text-transform:uppercase;">
+            🔬 AI/ML Landscape &nbsp;|&nbsp; 🔬 AI/ML 发展图景
+        </span>
+    </div>
+            
+        <div style="display:inline-flex;align-items:center;gap:6px;background:#C84B31;color:#FAF6F0;
+            padding:4px 14px;border-radius:2px;font-family:'Inter',sans-serif;font-size:0.7rem;
+            font-weight:700;letter-spacing:0.12em;margin-bottom:24px;">
+            ⚡ HIGHLY RELEVANT TO YOU / 高度相关
+        </div>
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A1A1A;margin:0 0 12px 0;">
+            <a href="https://docs.openclaw.ai/providers/anthropic" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Anthropic says OpenClaw-style Claude CLI usage is allowed again</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#8C7A6B;margin:0;">
+            Anthropic 表示再次允许使用 OpenClaw 风格的 Claude CLI
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D2D2D;margin:0 0 12px 0;">Anthropic builds the Claude model family and provides access via an API and
+Claude CLI. In OpenClaw, Anthropic API keys and Claude CLI reuse are both
+supported. Existing legacy Anthropic token profiles are still honored at
+runtime if they are already configured. Anthropic staff told us OpenClaw-style Claude CLI usage is allowed again, so
+OpenClaw treats Claude CLI reuse and claude -p usage as sanctioned for this
+integration unless Anthropic publishes a new policy. For long-lived gateway hosts, Anthropic API keys are still the clearest and
+most predictable production path.</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#8C7A6B;margin:0;">Anthropic 构建了 Claude 模型系列并通过 API 提供访问
+克劳德·CLI。在 OpenClaw 中，Anthropic API 密钥和 Claude CLI 重用都是
+支持。现有的传统 Anthropic 代币配置文件仍然受到尊重
+运行时（如果它们已经配置）。 Anthropic 工作人员告诉我们 OpenClaw 风格的 Claude CLI 再次被允许使用，所以
+OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
+除非 Anthropic 发布新政策，否则将进行整合。对于长期存在的网关主机，Anthropic API 密钥仍然是最清晰和最有效的。
+最可预测的生产路径。</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #C84B31;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#C84B31;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D2D2D;font-style:italic;margin:0 0 12px 0;">Authentication and authorization vulnerabilities remain one of the most exploited attack surfaces. Review your OAuth implementations, token scoping, and third-party integration permissions. A single misconfigured scope can cascade into a full platform compromise.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#8C7A6B;margin:0;">身份验证和授权漏洞仍然是最容易被利用的攻击面之一。检查您的 OAuth 实施、令牌范围和第三方集成权限。单个错误配置的范围可能会导致整个平台的妥协。</p>
+        </div>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #D4C5B5;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#8C7A6B;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice / 社区声音
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#8C7A6B;margin:0 0 8px 0;font-style:italic;">"Peter here from OpenClaw. For context, here’s why our post reads the way it does: Boris from Claude Code said publicly on Twitter that CLI-style usage is allowed. We took that seriously and invested time building around that guidance. I even changed the defaults, so when using the cli we're automatially disabling features that use excessive tokens ..."</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#8C7A6B;opacity:0.8;margin:0;">"彼得来自 OpenClaw。作为上下文，我们的帖子如此解读的原因如下：Claude Code 的 Boris 在 Twitter 上公开表示允许使用 CLI 风格。我们认真对待这一点，并围绕该指导投入了时间。我什至更改了默认设置，因此在使用 cli 时，我们会自动禁用使用过多令牌的功能......"</p>
+        </div>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#8C7A6B;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">docs.openclaw.ai</span>
+        <span style="opacity:0.5;">·</span>
+        <span>486 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>278 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by jmsflknr</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://docs.openclaw.ai/providers/anthropic" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#C84B31;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #C84B31;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47844269" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#8C7A6B;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D4C5B5;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" style="background:#F5F1EA;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(27,42,74,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">2</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#7A8BA0;letter-spacing:0.05em;">02</span>
+        <span style="width:40px;height:1px;background:#C8BFB0;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#7A8BA0;letter-spacing:0.18em;text-transform:uppercase;">
+            🛠 Developer Tooling &nbsp;|&nbsp; 🛠 开发者工具
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1B2A4A;margin:0 0 12px 0;">
+            <a href="https://frame.work/laptop13pro" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Framework Laptop 13 Pro</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#7A8BA0;margin:0;">
+            框架笔记本电脑 13 Pro
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3A3A3A;margin:0 0 12px 0;">Community discussion highlights: I'm really looking forward to having this as the go-to laptop to recommend to devs again. The original Framework chassis was really showing it's age next to e.g. a MacBook Pro or the new XPS 14. Having mainline Linux on a system with 24h+ battery life in a 13&quot; case is pretty damn impressive.</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#7A8BA0;margin:0;">社区讨论亮点：我真的很期待再次将其作为首选笔记本电脑推荐给开发人员。最初的框架底盘确实显示出它的年龄，例如。 MacBook Pro 或新款 XPS 14。在 13 英寸机箱中拥有主线 Linux 且电池续航时间超过 24 小时的系统令人印象深刻。</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #1B2A4A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#1B2A4A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3A3A3A;font-style:italic;margin:0 0 12px 0;">Hardware choices compound over years of daily use. When evaluating developer machines, prioritize repairability, upgrade paths, and ecosystem alignment over raw specs. A repairable laptop with good Linux support may deliver better long-term value than a sealed ultra-premium device.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#7A8BA0;margin:0;">硬件选择会随着多年的日常使用而复杂化。在评估开发机器时，应优先考虑可修复性、升级路径和生态系统一致性，而不是原始规格。具有良好 Linux 支持的可修复笔记本电脑可能比密封的超高端设备提供更好的长期价值。</p>
+        </div>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #C8BFB0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#7A8BA0;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice / 社区声音
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#7A8BA0;margin:0 0 8px 0;font-style:italic;">"As soon as I saw the email announcement for the 13 Pro, my face fell. My assumption was that this was a brand new, incompatible chassis, and that my current 13 would be obsolete, and if I want to go further, I'd have to buy a whole new chassis in one go. Essentially a full laptop replacement, completely betraying the entire point. And then I click ..."</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#7A8BA0;opacity:0.8;margin:0;">"当我看到 13 Pro 的邮件公告时，我的脸就沉了下来。我的假设是，这是一个全新的、不兼容的机箱，我当前的 13 将会过时，如果我想更进一步，我必须一次性购买一个全新的机箱。本质上是一个完整的笔记本电脑替代品，完全背叛了整个要点。然后我点击..."</p>
+        </div>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A8BA0;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">frame.work</span>
+        <span style="opacity:0.5;">·</span>
+        <span>1114 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>573 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by Trollmann</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://frame.work/laptop13pro" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#1B2A4A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #1B2A4A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47852177" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A8BA0;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C8BFB0;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" style="background:#FBF3F0;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(166,61,64,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">3</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#A08070;letter-spacing:0.05em;">03</span>
+        <span style="width:40px;height:1px;background:#D8C4BC;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#A08070;letter-spacing:0.18em;text-transform:uppercase;">
+            🔬 AI/ML Landscape &nbsp;|&nbsp; 🔬 AI/ML 发展图景
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#2A1A16;margin:0 0 12px 0;">
+            <a href="https://openai.com/index/introducing-chatgpt-images-2-0/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">ChatGPT Images 2.0</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#A08070;margin:0;">
+            ChatGPT 图像 2.0
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3D2D28;margin:0 0 12px 0;">Livestream: https://openai.com/live/ System card: https://deploymentsafety.openai.com/chatgpt-images-2-0/chatg...</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#A08070;margin:0;">直播：https://openai.com/live/ 系统卡：https://deploymentsafety.openai.com/chatgpt-images-2-0/chatg...</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #A63D40;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#A63D40;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3D2D28;font-style:italic;margin:0 0 12px 0;">AI image generation is rapidly becoming a standard capability across platforms. The competitive differentiation is shifting from raw quality to integration, speed, and style control. For product teams, the key question is whether to build on top of APIs or adopt integrated solutions that reduce workflow friction.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#A08070;margin:0;">人工智能图像生成正在迅速成为跨平台的标准功能。竞争差异化正在从原始质量转向集成、速度和风格控制。对于产品团队来说，关键问题是是基于 API 进行构建，还是采用减少工作流程摩擦的集成解决方案。</p>
+        </div>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #D8C4BC;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#A08070;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice / 社区声音
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#A08070;margin:0 0 8px 0;font-style:italic;">"OpenAI’s gpt-image-1.5 and Google’s NB2 have been pretty much neck and neck on my comparison site which focuses heavily on prompt adherence, with both hovering around a 70% success rate on the prompts for generative and editing capabilities. With the caveat being that Gemini has always had the edge in terms of visual fidelity. That being said, gpt-..."</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#A08070;opacity:0.8;margin:0;">"在我的比较网站上，OpenAI 的 gpt-image-1.5 和 Google 的 NB2 几乎不相上下，该网站主要关注提示遵守情况，两者在提示生成和编辑功能方面的成功率都徘徊在 70% 左右。需要注意的是，双子座在视觉保真度方面始终具有优势。话虽这么说，gpt-..."</p>
+        </div>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#A08070;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">openai.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>678 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>534 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by wahnfrieden</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://openai.com/index/introducing-chatgpt-images-2-0/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#A63D40;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #A63D40;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47852835" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#A08070;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D8C4BC;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" style="background:#F4F6F0;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(61,90,62,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">4</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#6B8A6B;letter-spacing:0.05em;">04</span>
+        <span style="width:40px;height:1px;background:#C0CDBA;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#6B8A6B;letter-spacing:0.18em;text-transform:uppercase;">
+            🔒 Security &amp; Privacy &nbsp;|&nbsp; 🔒 安全与隐私
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A2E1A;margin:0 0 12px 0;">
+            <a href="https://vidstudio.app/video-editor" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Show HN: VidStudio, a browser based video editor that doesn't upload your files</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#6B8A6B;margin:0;">
+            Show HN：VidStudio，一个基于浏览器的视频编辑器，不会上传您的文件
+        </h3>
+    </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,60px);margin-top:24px;" class="two-col-grid">
+                <div>
+                    
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D3D2D;margin:0 0 12px 0;">Hi HN, I built VidStudio, a privacy focused video editor that runs in the browser. I tried to keep it as frictionless as possible, so there are no accounts and no uploads. Everything is persisted on your machine. Some of the features: multi-track timeline, frame accurate seek, MP4 export, audio, video, image, and text tracks, and a WebGL backed canvas where available. It also works on mobile. Under the hood, WebCodecs handles frame decode for timeline playback and scrubbing, which is what makes seeking responsive since decode runs on the hardware decoder when the browser supports it. FFmpeg co</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#6B8A6B;margin:0;">你好，HN，我构建了 VidStudio，一个在浏览器中运行的专注于隐私的视频编辑器。我试图让它尽可能无摩擦，所以没有帐户，也没有上传。一切都保存在您的机器上。一些功能：多轨时间轴、帧精确搜索、MP4 导出、音频、视频、图像和文本轨道，以及支持 WebGL 的画布（如果可用）。它也适用于移动设备。在底层，WebCodecs 处理用于时间线播放和清理的帧解码，这使得搜索响应迅速，因为当浏览器支持解码时，解码在硬件解码器上运行。 FFmpeg公司</p>
+        </div>
+                    
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6B8A6B;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">vidstudio.app</span>
+        <span style="opacity:0.5;">·</span>
+        <span>264 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>86 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by kolx</span>
+    </div>
+                    
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://vidstudio.app/video-editor" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#3D5A3E;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #3D5A3E;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47847558" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#6B8A6B;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C0CDBA;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+                </div>
+                <div>
+                    
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #3D5A3E;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#3D5A3E;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D3D2D;font-style:italic;margin:0 0 12px 0;">Browser-based creative tools are closing the gap with desktop applications, driven by WebAssembly and GPU APIs. For teams producing content at scale, web-based tools offer collaboration advantages that native apps struggle to match. Evaluate whether the tradeoffs in raw performance are worth the gains in accessibility and workflow integration.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#6B8A6B;margin:0;">在 WebAssembly 和 GPU API 的推动下，基于浏览器的创意工具正在缩小与桌面应用程序的差距。对于大规模制作内容的团队来说，基于网络的工具提供了本机应用程序难以比拟的协作优势。评估原始性能的权衡是否值得在可访问性和工作流程集成方面获得收益。</p>
+        </div>
+    </div>
+                    
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #C0CDBA;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#6B8A6B;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice / 社区声音
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#6B8A6B;margin:0 0 8px 0;font-style:italic;">"Looks good. Good work on shipping! I love seeing video applications utilizing Web Assembly. However, it usually falls short in when it comes to longer video in the browser's sandboxed environment. How is the performance? Curious if you've tried using the FFmpeg libraries directly (libav), rather than compiling all of FFMpeg to WASM? I always end up..."</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#6B8A6B;opacity:0.8;margin:0;">"看起来不错。运输工作做得很好！我喜欢看到使用 Web Assembly 的视频应用程序。然而，当在浏览器的沙盒环境中播放较长的视频时，它通常会表现不佳。表现如何？好奇您是否尝试过直接使用 FFmpeg 库 (libav)，而不是将所有 FFMpeg 编译为 WASM？我总是最终..."</p>
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="story-5" style="background:#F8F4EC;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(122,92,61,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">5</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#9A8A70;letter-spacing:0.05em;">05</span>
+        <span style="width:40px;height:1px;background:#D0C4B0;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#9A8A70;letter-spacing:0.18em;text-transform:uppercase;">
+            🛠 Developer Tooling &nbsp;|&nbsp; 🛠 开发者工具
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#2A2015;margin:0 0 12px 0;">
+            <a href="https://github.com/itsmeadarsh2008/backlit-kbd" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Show HN: Backlit Keyboard API for Python</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#9A8A70;margin:0;">
+            显示 HN：Python 背光键盘 API
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3A3025;margin:0 0 12px 0;">It currently supports Linux as of now. You can use this package to tinker with many things. Let's say, if you want to make a custom notification system, like if your website is down, you can make a blink notification with it. MacOS support is underway. I haven't tested Windows yet, I don't use it anymore btw. In future, if this package reaches nice growth, I'll be happy to make a similar Rust crate for it.</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#9A8A70;margin:0;">目前它支持Linux。您可以使用这个包来修改很多东西。比方说，如果您想制作一个自定义通知系统，例如您的网站关闭了，您可以用它制作一个闪烁通知。 MacOS 支持正在进行中。我还没有测试过 Windows，顺便说一句，我不再使用它了。将来，如果这个包取得了良好的增长，我将很乐意为它制作一个类似的 Rust 箱子。</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #7A5C3D;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#7A5C3D;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3A3025;font-style:italic;margin:0 0 12px 0;">Developer-facing Python libraries and APIs that solve niche problems well tend to gain adoption faster than general-purpose alternatives. If this addresses a pain point in your workflow, the investment in learning a focused tool typically pays for itself within a few days of use.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#9A8A70;margin:0;">面向开发人员的 Python 库和 API 能够很好地解决利基问题，往往比通用替代品更快地获得采用。如果这解决了您工作流程中的痛点，那么学习专用工具的投资通常会在使用后几天内收回成本。</p>
+        </div>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #D0C4B0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#9A8A70;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice / 社区声音
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#9A8A70;margin:0 0 8px 0;font-style:italic;">"I will love to use it. Will all keyboards with linux compatibility work?"</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#9A8A70;opacity:0.8;margin:0;">"我会喜欢使用它。所有兼容 Linux 的键盘都可以使用吗？"</p>
+        </div>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#9A8A70;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">github.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>24 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>3 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by itsmeadarsh</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://github.com/itsmeadarsh2008/backlit-kbd" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A5C3D;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #7A5C3D;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47822301" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#9A8A70;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D0C4B0;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" style="background:#F0F2F5;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(58,74,92,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">6</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#7A8A9A;letter-spacing:0.05em;">06</span>
+        <span style="width:40px;height:1px;background:#BCC5CF;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#7A8A9A;letter-spacing:0.18em;text-transform:uppercase;">
+            📊 Industry Signal &nbsp;|&nbsp; 📊 行业信号
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A2A3A;margin:0 0 12px 0;">
+            <a href="https://lawsofsoftwareengineering.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Laws of Software Engineering</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#7A8A9A;margin:0;">
+            软件工程定律
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D3D4D;margin:0 0 12px 0;">Laws of Software Engineering Skip to main content A collection of principles and patterns that shape software systems, teams, and decisions.</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#7A8A9A;margin:0;">软件工程定律 跳到主要内容 塑造软件系统、团队和决策的原则和模式的集合。</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #3A4A5C;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#3A4A5C;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D3D4D;font-style:italic;margin:0 0 12px 0;">Timeless engineering principles endure precisely because they capture hard-won wisdom about complexity, communication, and trade-offs. Revisiting these fundamentals periodically helps recalibrate against the noise of trendy practices. The best engineers blend proven principles with contextual judgment.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#7A8A9A;margin:0;">永恒的工程原理之所以能够经久不衰，正是因为它们捕捉到了来之不易的关于复杂性、沟通和权衡的智慧。定期重新审视这些基本原理有助于重新调整流行做法的噪音。最好的工程师将经过验证的原则与情境判断相结合。</p>
+        </div>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #BCC5CF;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#7A8A9A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice / 社区声音
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#7A8A9A;margin:0 0 8px 0;font-style:italic;">"&gt; Premature optimization is the root of all evil. There are few principle of software engineering that I hate more than this one, though SOLID is close. It is important to understand that it is from a 1974 paper, computing was very different back then, and so was the idea of optimization. Back then, optimizing meant writing assembly code and counti..."</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#7A8A9A;opacity:0.8;margin:0;">"&gt; 过早的优化是万恶之源。尽管 SOLID 很接近，但我最讨厌的软件工程原理很少有。重要的是要明白，这是一篇 1974 年的论文，当时的计算方式非常不同，优化的想法也是如此。那时，优化意味着编写汇编代码并计数..."</p>
+        </div>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A8A9A;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">lawsofsoftwareengineering.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>914 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>450 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by milanm081</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://lawsofsoftwareengineering.com" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#3A4A5C;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #3A4A5C;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47847179" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A8A9A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #BCC5CF;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" style="background:#F7F3EB;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(139,58,58,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">7</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#9A8575;letter-spacing:0.05em;">07</span>
+        <span style="width:40px;height:1px;background:#D0C0A8;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#9A8575;letter-spacing:0.18em;text-transform:uppercase;">
+            🔒 Security &amp; Privacy &nbsp;|&nbsp; 🔒 安全与隐私
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A1A1A;margin:0 0 12px 0;">
+            <a href="https://www.trendmicro.com/en_us/research/26/d/vercel-breach-oauth-supply-chain.html" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">The Vercel breach: OAuth attack exposes risk in platform environment variables</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#9A8575;margin:0;">
+            Vercel 漏洞：OAuth 攻击暴露了平台环境变量的风险
+        </h3>
+    </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,60px);margin-top:24px;" class="two-col-grid">
+                <div>
+                    
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#333333;margin:0 0 12px 0;">The Vercel Breach: OAuth Supply Chain Attack Exposes the Hidden Risk in Platform Environment Variables | Trend Micro (US) The Vercel Breach: OAuth Supply Chain Attack Exposes the Hidden Risk in Platform Environment Variables An OAuth supply chain compromise at Vercel exposed how trusted third party apps and platform environment variables can bypass traditional defenses and amplify blast radius. This article examines the attack chain, underlying design tradeoffs, and what it reveals about modern PaaS and software supply chain risk. By: Peter Girnus Apr 20, 2026 Read time: ( words)</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#9A8575;margin:0;">Vercel漏洞：OAuth供应链攻击暴露平台环境变量隐藏风险 |趋势科技（美国）Vercel 漏洞：OAuth 供应链攻击暴露了平台环境变量中的隐藏风险 Vercel 的 OAuth 供应链妥协暴露了受信任的第三方应用程序和平台环境变量如何绕过传统防御并放大爆炸半径。本文研究了攻击链、底层设计权衡，以及它揭示的现代 PaaS 和软件供应链风险。作者：Peter Girnus 2026 年 4 月 20 日 阅读时间：（字数）</p>
+        </div>
+                    
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#9A8575;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">trendmicro.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>299 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>105 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by queenelvis</span>
+    </div>
+                    
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://www.trendmicro.com/en_us/research/26/d/vercel-breach-oauth-supply-chain.html" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#8B3A3A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #8B3A3A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47851634" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#9A8575;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D0C0A8;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+                </div>
+                <div>
+                    
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #8B3A3A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#8B3A3A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#333333;font-style:italic;margin:0 0 12px 0;">Authentication and authorization vulnerabilities remain one of the most exploited attack surfaces. Review your OAuth implementations, token scoping, and third-party integration permissions. A single misconfigured scope can cascade into a full platform compromise.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#9A8575;margin:0;">身份验证和授权漏洞仍然是最容易被利用的攻击面之一。检查您的 OAuth 实施、令牌范围和第三方集成权限。单个错误配置的范围可能会导致整个平台的妥协。</p>
+        </div>
+    </div>
+                    
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #D0C0A8;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#9A8575;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice / 社区声音
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#9A8575;margin:0 0 8px 0;font-style:italic;">"I still don't get how this exactly worked. Is the OAuth Token they talk about the one that you get when a user uses &quot;Sign in with Google&quot;? Aren't they then bound to the client id and client secret of that specific Google App the user signed in to? How were the attackers able to go from that to a control plane? Because even if the attacker knows the..."</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#9A8575;opacity:0.8;margin:0;">"我仍然不明白这究竟是如何运作的。他们所说的 OAuth 令牌是用户使用“使用 Google 登录”时获得的令牌吗？那么它们不是绑定到用户登录的特定 Google 应用程序的客户端 ID 和客户端密钥吗？攻击者如何能够从那里进入控制平面？因为即使攻击者知道..."</p>
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="story-8" style="background:#F3F0F8;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(90,74,122,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">8</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#8A7AA0;letter-spacing:0.05em;">08</span>
+        <span style="width:40px;height:1px;background:#C8BFD8;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#8A7AA0;letter-spacing:0.18em;text-transform:uppercase;">
+            🔭 Science &amp; Research &nbsp;|&nbsp; 🔭 科学与研究
+        </span>
+    </div>
+            
+        <div style="display:inline-flex;align-items:center;gap:6px;background:#5A4A7A;color:#F3F0F8;
+            padding:4px 14px;border-radius:2px;font-family:'Inter',sans-serif;font-size:0.7rem;
+            font-weight:700;letter-spacing:0.12em;margin-bottom:24px;">
+            ⚡ HIGHLY RELEVANT TO YOU / 高度相关
+        </div>
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#2A1A3A;margin:0 0 12px 0;">
+            <a href="https://twitter.com/spacex/status/2046713419978453374" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">SpaceX says it has agreement to acquire Cursor for $60B</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#8A7AA0;margin:0;">
+            SpaceX表示已同意以$60B收购Cursor
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3A2D4A;margin:0 0 12px 0;">https://www.reuters.com/technology/spacex-says-it-has-option... https://www.nytimes.com/2026/04/21/business/spacex-cursor-de... ( https://archive.ph/c2Tac ) https://www.bloomberg.com/news/articles/2026-04-21/spacex-sa...</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#8A7AA0;margin:0;">https://www.reuters.com/technology/spacex-says-it-has-option... https://www.nytimes.com/2026/04/21/business/spacex-cursor-de... ( https://archive.ph/c2Tac ) https://www.bloomberg.com/news/articles/2026-04-21/spacex-sa...</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #5A4A7A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#5A4A7A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3A2D4A;font-style:italic;margin:0 0 12px 0;">Corporate acquisitions reshape ecosystem dynamics overnight. When major players consolidate, evaluate continuity risks for tools you depend on — pricing changes, API deprecation, and cultural shifts often follow within 6-12 months. Have contingency plans for critical dependencies.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#8A7AA0;margin:0;">企业收购一夜之间重塑了生态系统动态。当主要参与者整合时，评估您所依赖的工具的连续性风险 - 价格变化、API 弃用和文化转变通常会在 6-12 个月内发生。针对关键依赖项制定应急计划。</p>
+        </div>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #C8BFD8;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#8A7AA0;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice / 社区声音
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#8A7AA0;margin:0 0 8px 0;font-style:italic;">"knee-jerk is that it's weird, but makes sense: * X will have a total of ~2GW of GPU sometime this year largely not doing much outside of 'grok is this true' * despite no longer being in vogue with consumer devs Cursor still has a lot of developer data that can assist in building a model * Cursor have decent enterprise relationships (while for xAI i..."</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#8A7AA0;opacity:0.8;margin:0;">"下意识地认为这很奇怪，但却是有道理的： * X 今年某个时候将拥有总共约 2GW 的 GPU，除了“这是真的”之外，基本上没有做太多事情 * 尽管不再受消费者开发者的欢迎 Cursor 仍然拥有大量可以帮助构建模型的开发者数据 * Cursor 拥有良好的企业关系（而对于 xAI 我..."</p>
+        </div>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#8A7AA0;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">twitter.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>479 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>581 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by dmarcos</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://twitter.com/spacex/status/2046713419978453374" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#5A4A7A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #5A4A7A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47855293" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#8A7AA0;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C8BFD8;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" style="background:#F0F5F4;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(42,90,90,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">9</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#6A9090;letter-spacing:0.05em;">09</span>
+        <span style="width:40px;height:1px;background:#B0C8C4;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#6A9090;letter-spacing:0.18em;text-transform:uppercase;">
+            🔬 AI/ML Landscape &nbsp;|&nbsp; 🔬 AI/ML 发展图景
+        </span>
+    </div>
+            
+        <div style="display:inline-flex;align-items:center;gap:6px;background:#2A5A5A;color:#F0F5F4;
+            padding:4px 14px;border-radius:2px;font-family:'Inter',sans-serif;font-size:0.7rem;
+            font-weight:700;letter-spacing:0.12em;margin-bottom:24px;">
+            ⚡ HIGHLY RELEVANT TO YOU / 高度相关
+        </div>
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A2E2E;margin:0 0 12px 0;">
+            <a href="https://bsky.app/profile/edzitron.com/post/3mjzxwfx3qs2a" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Claude Code to be removed from Anthropic's Pro plan?</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#6A9090;margin:0;">
+            Claude Code 将从 Anthropic 的 Pro 计划中删除？
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D3E3E;margin:0 0 12px 0;">https://x.com/TheAmolAvasare/status/2046725498592722972 https://xcancel.com/TheAmolAvasare/status/204672549859272297...</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#6A9090;margin:0;">https://x.com/TheAmolAvasare/status/2046725498592722972 https://xcancel.com/TheAmolAvasare/status/204672549859272297...</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #2A5A5A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#2A5A5A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D3E3E;font-style:italic;margin:0 0 12px 0;">Pricing and access changes signal how companies view their product-market fit. When tools move behind paywalls or change tiers, evaluate whether the value proposition still holds for your use case. This is also a good moment to audit alternatives and ensure you're not locked into a single vendor.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#6A9090;margin:0;">定价和准入的变化表明了公司如何看待其产品与市场的契合度。当工具转移到付费专区或改变层级时，评估价值主张是否仍然适合您的用例。这也是审核替代方案并确保您不会被单一供应商锁定的好时机。</p>
+        </div>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #B0C8C4;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#6A9090;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice / 社区声音
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#6A9090;margin:0 0 8px 0;font-style:italic;">"Apparently it's just an A/B test. Legit LMAO moment, speedrunning reputation destruction to your entire userbase just to test a question whose answer you can probably already guess. --- &gt; For clarity, we're running a small test on ~2% of new prosumer signups. Existing Pro and Max subscribers aren't affected. &gt; When we launched Max a year ago, it di..."</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#6A9090;opacity:0.8;margin:0;">"显然这只是一个 A/B 测试。合法的 LMAO 时刻，为了测试一个你可能已经猜到答案的问题而对你的整个用户群进行速通声誉破坏。 --- &gt; 为清楚起见，我们正在对约 2% 的新注册专业消费者进行小测试。现有的 Pro 和 Max 订阅者不受影响。 &gt; 当我们一年前推出 Max 时，它..."</p>
+        </div>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6A9090;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">bsky.app</span>
+        <span style="opacity:0.5;">·</span>
+        <span>475 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>464 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by JamesMcMinn</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://bsky.app/profile/edzitron.com/post/3mjzxwfx3qs2a" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#2A5A5A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #2A5A5A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47854477" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#6A9090;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #B0C8C4;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" style="background:#EDEBE5;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(42,42,42,0.06);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">10</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#7A7A70;letter-spacing:0.05em;">10</span>
+        <span style="width:40px;height:1px;background:#C0BDB5;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#7A7A70;letter-spacing:0.18em;text-transform:uppercase;">
+            🎨 Creative Tools &nbsp;|&nbsp; 🎨 创意工具
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A1A1A;margin:0 0 12px 0;">
+            <a href="https://github.com/ENTERPILOT/GOModel/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Show HN: GoModel – an open-source AI gateway in Go</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#7A7A70;margin:0;">
+            显示 HN：GoModel – Go 中的开源 AI 网关
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D2D2D;margin:0 0 12px 0;">Hi, I’m Jakub, a solo founder based in Warsaw. I’ve been building GoModel since December with a couple of contributors. It's an open-source AI gateway that sits between your app and model providers like OpenAI, Anthropic or others. I built it for my startup to solve a few problems: - track AI usage and cost per client or team - switch models without changing app code - debug request flows more easily - reduce AI spendings with exact and semantic caching How is it different? - ~17MB docker image - LiteLLM's image is more than 44x bigger (&quot;docker.litellm.ai/berriai/litellm:latest&quot; ~ 746 MB on am</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#7A7A70;margin:0;">大家好，我是 Jakub，一位居住在华沙的独立创始人。自 12 月以来，我一直在与一些贡献者一起构建 GoModel。它是一个开源 AI 网关，位于您的应用程序和 OpenAI、Anthropic 等模型提供商之间。我为我的初创公司构建它是为了解决一些问题： - 跟踪每个客户或团队的人工智能使用情况和成本 - 无需更改应用程序代码即可切换模型 - 更轻松地调试请求流 - 通过精确和语义缓存减少人工智能支出 它有何不同？ - ~17MB docker 镜像 - LiteLLM 的镜像大了 44 倍以上（“docker.litellm.ai/berriai/litellm:latest”~ 上午 746 MB</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #2A2A2A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#2A2A2A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D2D2D;font-style:italic;margin:0 0 12px 0;">The open-source ecosystem thrives on community trust and transparency. When evaluating OSS tools, look beyond stars and downloads — examine commit velocity, maintainer responsiveness, and license terms. A smaller but actively maintained project often outperforms popular but stagnating alternatives.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#7A7A70;margin:0;">开源生态系统的繁荣依赖于社区信任和透明度。在评估 OSS 工具时，不要只关注星级和下载量，还要检查提交速度、维护者响应能力和许可条款。较小但积极维护的项目通常优于流行但停滞不前的替代方案。</p>
+        </div>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #C0BDB5;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#7A7A70;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice / 社区声音
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#7A7A70;margin:0 0 8px 0;font-style:italic;">"Hey, this looks super nice. I do like the 'compact' feel of this. Reminds me of Traefik. It seems very promising indeed! One problem I have is that yes, LiteLLM key creation is easier than creating it directly at the providers and managing it there for team members and test environments, but if I had a way of generating keys via vault, it would be ..."</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#7A7A70;opacity:0.8;margin:0;">"嘿，这看起来超级好看。我确实喜欢这种“紧凑”的感觉。让我想起了特拉菲克。看来确实很有前途！我遇到的一个问题是，是的，LiteLLM 密钥创建比直接在提供商处创建并为团队成员和测试环境进行管理更容易，但如果我有一种通过保管库生成密钥的方法，那就......"</p>
+        </div>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A7A70;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">github.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>171 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>63 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by santiago-pl</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://github.com/ENTERPILOT/GOModel/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#2A2A2A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #2A2A2A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47849097" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A7A70;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C0BDB5;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · April 22, 2026</div>
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:0.65rem;color:#B0A090;margin-top:8px;letter-spacing:0.05em;">双语精排版 · 为技术人定制的每日视角</div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.flora.morning-edition</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/flora/Desktop/news magazines test/run_morning_edition.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/flora/Desktop/news magazines test</string>
+
+    <key>StartCalendarInterval</key>
+    <array>
+        <!-- Primary: 7:00 AM -->
+        <dict>
+            <key>Hour</key>
+            <integer>7</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <!-- Catch-up: 9:00 AM in case Mac was asleep at 7 -->
+        <dict>
+            <key>Hour</key>
+            <integer>9</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/flora/Library/Logs/morning-edition.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/flora/Library/Logs/morning-edition-error.log</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>HOME</key>
+        <string>/Users/flora</string>
+    </dict>
+</dict>
+</plist>
