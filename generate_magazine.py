@@ -766,13 +766,13 @@ def render_magazine(stories, date_str):
     </div>
     <script>
         // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => {{
             const btn = document.getElementById('download-btn');
             // If on the web, grab the last part of path, else fallback
             const filename = window.location.pathname.split('/').pop() || 'magazine.html';
             btn.href = window.location.href;
             btn.download = filename;
-        });
+        }});
     </script>
 
     <!-- MASTHEAD -->
