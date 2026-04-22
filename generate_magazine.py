@@ -728,7 +728,7 @@ def render_magazine(stories, date_str):
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">{html_escape(story["title"])}{flag_mark}</div>
                 <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">{html_escape(story.get("title_zh",""))}</div>
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">{story["score"]} pts</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 {story["score"]} 热度</span>
         </a>'''
 
     return f'''<!DOCTYPE html>
@@ -743,26 +743,39 @@ def render_magazine(stories, date_str):
     <style>
         *, *::before, *::after {{ margin:0; padding:0; box-sizing:border-box; }}
         html {{ scroll-snap-type: y mandatory; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }}
-        body {{ font-family: 'Inter', sans-serif; overflow-x: hidden; background: #FAF6F0; }}
+        body {{ font-family: 'Inter', sans-serif; overflow-x: hidden; background: #FAF6F0; word-break: break-word; overflow-wrap: break-word; }}
         section {{ scroll-snap-align: start; scroll-snap-stop: always; }}
+        a {{ overflow-wrap: anywhere; }}
         a:hover {{ opacity: 0.8; }}
         .masthead {{ scroll-snap-align: start; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 8vh 6vw; position: relative; }}
         .masthead::before {{ content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }}
         .toc {{ scroll-snap-align: start; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(60px,10vh,100px) clamp(32px,12vw,200px); }}
         .nav-dots {{ position: fixed; right: clamp(12px,2vw,24px); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 1000; }}
         .colophon {{ background: #EDEBE5; padding: 6vh 8vw; text-align: center; scroll-snap-align: end; }}
+        .action-bar {{ position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }}
+        .action-btn {{ background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }}
+        .action-btn.primary {{ background: #1A1A1A; color: #FAF6F0; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }}
+        .action-btn:hover {{ transform: translateY(-2px); }}
+        .action-btn.primary:hover {{ box-shadow: 0 6px 16px rgba(0,0,0,0.2); }}
         @media (max-width: 768px) {{
+            html {{ scroll-snap-type: none; }}
+            section, .toc, .masthead, .colophon {{ scroll-snap-align: none; min-height: auto; }}
             .nav-dots {{ display: none; }}
-            section, .toc {{ padding: 48px 24px !important; }}
+            section, .toc {{ padding: 60px 20px !important; }}
+            .masthead {{ padding: 12vh 20px !important; }}
             .two-col-grid {{ grid-template-columns: 1fr !important; gap: 32px !important; }}
+            .action-bar {{ top: auto; bottom: 24px; right: 50%; transform: translateX(50%); width: max-content; background: rgba(255,255,255,0.95); padding: 8px; border-radius: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); backdrop-filter: blur(16px); border: 1px solid rgba(0,0,0,0.08); }}
+            .action-btn {{ border: none; box-shadow: none; padding: 10px 20px; background: transparent; font-size: 0.8rem; }}
+            .action-btn.primary {{ background: #1A1A1A; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }}
         }}
     </style>
 </head>
 <body>
     <!-- FLOATING ACTION BAR -->
-    <div style="position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px;">
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" style="background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='translateY(0)';">🔗 Share</button>
-        <a href="#" id="download-btn" style="text-decoration: none; background: #1A1A1A; color: #FAF6F0; border: none; padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';">⬇️ Download</a>
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 目录</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
     </div>
     <script>
         // Set download link to the exact HTML file it's viewed from
@@ -792,7 +805,7 @@ def render_magazine(stories, date_str):
     </div>
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc">
+    <div class="toc" id="toc">
         <div style="max-width:700px;margin:0 auto;width:100%;">
             <div style="margin-bottom:40px;">
                 <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:#8C7A6B;">

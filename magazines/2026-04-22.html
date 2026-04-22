@@ -10,22 +10,51 @@
     <style>
         *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-snap-type: y mandatory; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Inter', sans-serif; overflow-x: hidden; background: #FAF6F0; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; background: #FAF6F0; word-break: break-word; overflow-wrap: break-word; }
         section { scroll-snap-align: start; scroll-snap-stop: always; }
+        a { overflow-wrap: anywhere; }
         a:hover { opacity: 0.8; }
         .masthead { scroll-snap-align: start; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 8vh 6vw; position: relative; }
         .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
         .toc { scroll-snap-align: start; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(60px,10vh,100px) clamp(32px,12vw,200px); }
         .nav-dots { position: fixed; right: clamp(12px,2vw,24px); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
         .colophon { background: #EDEBE5; padding: 6vh 8vw; text-align: center; scroll-snap-align: end; }
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .action-btn:hover { transform: translateY(-2px); }
+        .action-btn.primary:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
         @media (max-width: 768px) {
+            html { scroll-snap-type: none; }
+            section, .toc, .masthead, .colophon { scroll-snap-align: none; min-height: auto; }
             .nav-dots { display: none; }
-            section, .toc { padding: 48px 24px !important; }
+            section, .toc { padding: 60px 20px !important; }
+            .masthead { padding: 12vh 20px !important; }
             .two-col-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+            .action-bar { top: auto; bottom: 24px; right: 50%; transform: translateX(50%); width: max-content; background: rgba(255,255,255,0.95); padding: 8px; border-radius: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); backdrop-filter: blur(16px); border: 1px solid rgba(0,0,0,0.08); }
+            .action-btn { border: none; box-shadow: none; padding: 10px 20px; background: transparent; font-size: 0.8rem; }
+            .action-btn.primary { background: #1A1A1A; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
         }
     </style>
 </head>
 <body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 目录</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
     <!-- MASTHEAD -->
     <div class="masthead">
         <div style="margin-bottom:40px;">
@@ -43,7 +72,7 @@
     </div>
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc">
+    <div class="toc" id="toc">
         <div style="max-width:700px;margin:0 auto;width:100%;">
             <div style="margin-bottom:40px;">
                 <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:#8C7A6B;">
@@ -58,7 +87,7 @@
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Anthropic says OpenClaw-style Claude CLI usage is allowed again <span style="color:#C84B31;">⚡</span></div>
                 <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Anthropic 表示再次允许使用 OpenClaw 风格的 Claude CLI</div>
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">486 pts</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 489 热度</span>
         </a>
         <a href="#story-2" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">02</span>
@@ -66,7 +95,7 @@
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Framework Laptop 13 Pro</div>
                 <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">框架笔记本电脑 13 Pro</div>
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">1114 pts</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 1265 热度</span>
         </a>
         <a href="#story-3" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">03</span>
@@ -74,7 +103,7 @@
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">ChatGPT Images 2.0</div>
                 <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">ChatGPT 图像 2.0</div>
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">678 pts</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 818 热度</span>
         </a>
         <a href="#story-4" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">04</span>
@@ -82,23 +111,23 @@
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Show HN: VidStudio, a browser based video editor that doesn't upload your files</div>
                 <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Show HN：VidStudio，一个基于浏览器的视频编辑器，不会上传您的文件</div>
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">264 pts</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 277 热度</span>
         </a>
         <a href="#story-5" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">05</span>
             <div style="flex-grow:1;margin-right:20px;">
-                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Show HN: Backlit Keyboard API for Python</div>
-                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">显示 HN：Python 背光键盘 API</div>
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Laws of Software Engineering</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">软件工程定律</div>
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">24 pts</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 1012 热度</span>
         </a>
         <a href="#story-6" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">06</span>
             <div style="flex-grow:1;margin-right:20px;">
-                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Laws of Software Engineering</div>
-                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">软件工程定律</div>
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Show HN: Backlit Keyboard API for Python</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">显示 HN：Python 背光键盘 API</div>
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">914 pts</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 25 热度</span>
         </a>
         <a href="#story-7" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">07</span>
@@ -106,7 +135,7 @@
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">The Vercel breach: OAuth attack exposes risk in platform environment variables</div>
                 <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Vercel 漏洞：OAuth 攻击暴露了平台环境变量的风险</div>
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">299 pts</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 312 热度</span>
         </a>
         <a href="#story-8" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">08</span>
@@ -114,7 +143,7 @@
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">SpaceX says it has agreement to acquire Cursor for $60B <span style="color:#C84B31;">⚡</span></div>
                 <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">SpaceX表示已同意以$60B收购Cursor</div>
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">479 pts</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 590 热度</span>
         </a>
         <a href="#story-9" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">09</span>
@@ -122,15 +151,15 @@
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Claude Code to be removed from Anthropic's Pro plan? <span style="color:#C84B31;">⚡</span></div>
                 <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Claude Code 将从 Anthropic 的 Pro 计划中删除？</div>
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">475 pts</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 574 热度</span>
         </a>
         <a href="#story-10" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">10</span>
             <div style="flex-grow:1;margin-right:20px;">
-                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Show HN: GoModel – an open-source AI gateway in Go</div>
-                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">显示 HN：GoModel – Go 中的开源 AI 网关</div>
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Meta to start capturing employee mouse movements, keystrokes for AI training</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Meta 开始捕捉员工的鼠标动作、击键以进行人工智能培训</div>
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">171 pts</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 559 热度</span>
         </a></nav>
         </div>
     </div>
@@ -203,7 +232,7 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#8C7A6B;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">docs.openclaw.ai</span>
         <span style="opacity:0.5;">·</span>
-        <span>486 pts</span>
+        <span>489 pts</span>
         <span style="opacity:0.5;">·</span>
         <span>278 cmts</span>
         <span style="opacity:0.5;">·</span>
@@ -269,9 +298,9 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A8BA0;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">frame.work</span>
         <span style="opacity:0.5;">·</span>
-        <span>1114 pts</span>
+        <span>1265 pts</span>
         <span style="opacity:0.5;">·</span>
-        <span>573 cmts</span>
+        <span>635 cmts</span>
         <span style="opacity:0.5;">·</span>
         <span>by Trollmann</span>
     </div>
@@ -327,17 +356,17 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
             Community Voice / 社区声音
         </div>
         <div class="bilingual-block">
-            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#A08070;margin:0 0 8px 0;font-style:italic;">"OpenAI’s gpt-image-1.5 and Google’s NB2 have been pretty much neck and neck on my comparison site which focuses heavily on prompt adherence, with both hovering around a 70% success rate on the prompts for generative and editing capabilities. With the caveat being that Gemini has always had the edge in terms of visual fidelity. That being said, gpt-..."</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#A08070;opacity:0.8;margin:0;">"在我的比较网站上，OpenAI 的 gpt-image-1.5 和 Google 的 NB2 几乎不相上下，该网站主要关注提示遵守情况，两者在提示生成和编辑功能方面的成功率都徘徊在 70% 左右。需要注意的是，双子座在视觉保真度方面始终具有优势。话虽这么说，gpt-..."</p>
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#A08070;margin:0 0 8px 0;font-style:italic;">"So during my Nano Banana Pro experiments I wrote a very fun prompt that tests the ability for these image generation models to follow heuristics, but still requires domain knowledge and/or use of the search tool: Create a 8x8 contiguous grid of the Pokémon whose National Pokédex numbers correspond to the first 64 prime numbers. Include a black bord..."</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#A08070;opacity:0.8;margin:0;">"因此，在 Nano Banana Pro 实验中，我编写了一个非常有趣的提示，测试这些图像生成模型遵循启发式的能力，但仍然需要领域知识和/或使用搜索工具：创建一个 8x8 连续的 Pokémon 网格，其国家图鉴编号对应于前 64 个素数。加上黑边..."</p>
         </div>
     </div>
             
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#A08070;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">openai.com</span>
         <span style="opacity:0.5;">·</span>
-        <span>678 pts</span>
+        <span>818 pts</span>
         <span style="opacity:0.5;">·</span>
-        <span>534 cmts</span>
+        <span>633 cmts</span>
         <span style="opacity:0.5;">·</span>
         <span>by wahnfrieden</span>
     </div>
@@ -383,9 +412,9 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6B8A6B;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">vidstudio.app</span>
         <span style="opacity:0.5;">·</span>
-        <span>264 pts</span>
+        <span>277 pts</span>
         <span style="opacity:0.5;">·</span>
-        <span>86 cmts</span>
+        <span>87 cmts</span>
         <span style="opacity:0.5;">·</span>
         <span>by kolx</span>
     </div>
@@ -416,8 +445,8 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
             Community Voice / 社区声音
         </div>
         <div class="bilingual-block">
-            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#6B8A6B;margin:0 0 8px 0;font-style:italic;">"Looks good. Good work on shipping! I love seeing video applications utilizing Web Assembly. However, it usually falls short in when it comes to longer video in the browser's sandboxed environment. How is the performance? Curious if you've tried using the FFmpeg libraries directly (libav), rather than compiling all of FFMpeg to WASM? I always end up..."</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#6B8A6B;opacity:0.8;margin:0;">"看起来不错。运输工作做得很好！我喜欢看到使用 Web Assembly 的视频应用程序。然而，当在浏览器的沙盒环境中播放较长的视频时，它通常会表现不佳。表现如何？好奇您是否尝试过直接使用 FFmpeg 库 (libav)，而不是将所有 FFMpeg 编译为 WASM？我总是最终..."</p>
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#6B8A6B;margin:0 0 8px 0;font-style:italic;">"Let me just say the performance is absolutely incredible, and the persistence is so transparent. I actually was given access to an in-browser video editor that chokes pretty quickly so I'm impressed. The tracks didn't seem to work well for me. I'm on Firefox on Windows and couldn't drag and drop tracks to change the order, there doesn't seem to be ..."</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#6B8A6B;opacity:0.8;margin:0;">"我只能说，表演绝对令人难以置信，而且坚持是那么透明。事实上，我可以使用浏览器内的视频编辑器，但它很快就卡住了，所以我印象深刻。这些曲目似乎不适合我。我在 Windows 上使用 Firefox，无法拖放曲目来更改顺序，似乎没有......"</p>
         </div>
     </div>
                 </div>
@@ -432,22 +461,22 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
         <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#9A8A70;letter-spacing:0.05em;">05</span>
         <span style="width:40px;height:1px;background:#D0C4B0;"></span>
         <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#9A8A70;letter-spacing:0.18em;text-transform:uppercase;">
-            🛠 Developer Tooling &nbsp;|&nbsp; 🛠 开发者工具
+            📊 Industry Signal &nbsp;|&nbsp; 📊 行业信号
         </span>
     </div>
             
             <div style="margin:0 0 32px 0;max-width:760px;">
         <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#2A2015;margin:0 0 12px 0;">
-            <a href="https://github.com/itsmeadarsh2008/backlit-kbd" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Show HN: Backlit Keyboard API for Python</a>
+            <a href="https://lawsofsoftwareengineering.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Laws of Software Engineering</a>
         </h2>
         <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#9A8A70;margin:0;">
-            显示 HN：Python 背光键盘 API
+            软件工程定律
         </h3>
     </div>
             
         <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
-            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3A3025;margin:0 0 12px 0;">It currently supports Linux as of now. You can use this package to tinker with many things. Let's say, if you want to make a custom notification system, like if your website is down, you can make a blink notification with it. MacOS support is underway. I haven't tested Windows yet, I don't use it anymore btw. In future, if this package reaches nice growth, I'll be happy to make a similar Rust crate for it.</p>
-            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#9A8A70;margin:0;">目前它支持Linux。您可以使用这个包来修改很多东西。比方说，如果您想制作一个自定义通知系统，例如您的网站关闭了，您可以用它制作一个闪烁通知。 MacOS 支持正在进行中。我还没有测试过 Windows，顺便说一句，我不再使用它了。将来，如果这个包取得了良好的增长，我将很乐意为它制作一个类似的 Rust 箱子。</p>
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3A3025;margin:0 0 12px 0;">Laws of Software Engineering Skip to main content A collection of principles and patterns that shape software systems, teams, and decisions.</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#9A8A70;margin:0;">软件工程定律 跳到主要内容 塑造软件系统、团队和决策的原则和模式的集合。</p>
         </div>
             
     <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #7A5C3D;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
@@ -455,8 +484,8 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
             Actionable Insight / 洞察与行动
         </div>
         <div class="bilingual-block">
-            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3A3025;font-style:italic;margin:0 0 12px 0;">Developer-facing Python libraries and APIs that solve niche problems well tend to gain adoption faster than general-purpose alternatives. If this addresses a pain point in your workflow, the investment in learning a focused tool typically pays for itself within a few days of use.</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#9A8A70;margin:0;">面向开发人员的 Python 库和 API 能够很好地解决利基问题，往往比通用替代品更快地获得采用。如果这解决了您工作流程中的痛点，那么学习专用工具的投资通常会在使用后几天内收回成本。</p>
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3A3025;font-style:italic;margin:0 0 12px 0;">Timeless engineering principles endure precisely because they capture hard-won wisdom about complexity, communication, and trade-offs. Revisiting these fundamentals periodically helps recalibrate against the noise of trendy practices. The best engineers blend proven principles with contextual judgment.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#9A8A70;margin:0;">永恒的工程原理之所以能够经久不衰，正是因为它们捕捉到了来之不易的关于复杂性、沟通和权衡的智慧。定期重新审视这些基本原理有助于重新调整流行做法的噪音。最好的工程师将经过验证的原则与情境判断相结合。</p>
         </div>
     </div>
             
@@ -465,26 +494,26 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
             Community Voice / 社区声音
         </div>
         <div class="bilingual-block">
-            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#9A8A70;margin:0 0 8px 0;font-style:italic;">"I will love to use it. Will all keyboards with linux compatibility work?"</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#9A8A70;opacity:0.8;margin:0;">"我会喜欢使用它。所有兼容 Linux 的键盘都可以使用吗？"</p>
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#9A8A70;margin:0 0 8px 0;font-style:italic;">"&gt; Premature optimization is the root of all evil. There are few principle of software engineering that I hate more than this one, though SOLID is close. It is important to understand that it is from a 1974 paper, computing was very different back then, and so was the idea of optimization. Back then, optimizing meant writing assembly code and counti..."</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#9A8A70;opacity:0.8;margin:0;">"&gt; 过早的优化是万恶之源。尽管 SOLID 很接近，但我最讨厌的软件工程原理很少有。重要的是要明白，这是一篇 1974 年的论文，当时的计算方式非常不同，优化的想法也是如此。那时，优化意味着编写汇编代码并计数..."</p>
         </div>
     </div>
             
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#9A8A70;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">github.com</span>
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">lawsofsoftwareengineering.com</span>
         <span style="opacity:0.5;">·</span>
-        <span>24 pts</span>
+        <span>1012 pts</span>
         <span style="opacity:0.5;">·</span>
-        <span>3 cmts</span>
+        <span>469 cmts</span>
         <span style="opacity:0.5;">·</span>
-        <span>by itsmeadarsh</span>
+        <span>by milanm081</span>
     </div>
             
     <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
-        <a href="https://github.com/itsmeadarsh2008/backlit-kbd" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A5C3D;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #7A5C3D;padding-bottom:2px;transition:opacity 0.2s;">
+        <a href="https://lawsofsoftwareengineering.com" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A5C3D;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #7A5C3D;padding-bottom:2px;transition:opacity 0.2s;">
             Read Source / 阅读原稿 →
         </a>
-        <a href="https://news.ycombinator.com/item?id=47822301" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#9A8A70;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D0C4B0;padding-bottom:2px;transition:opacity 0.2s;">
+        <a href="https://news.ycombinator.com/item?id=47847179" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#9A8A70;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D0C4B0;padding-bottom:2px;transition:opacity 0.2s;">
             HN Discussion / 参与讨论 →
         </a>
     </div>
@@ -498,22 +527,22 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
         <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#7A8A9A;letter-spacing:0.05em;">06</span>
         <span style="width:40px;height:1px;background:#BCC5CF;"></span>
         <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#7A8A9A;letter-spacing:0.18em;text-transform:uppercase;">
-            📊 Industry Signal &nbsp;|&nbsp; 📊 行业信号
+            🛠 Developer Tooling &nbsp;|&nbsp; 🛠 开发者工具
         </span>
     </div>
             
             <div style="margin:0 0 32px 0;max-width:760px;">
         <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A2A3A;margin:0 0 12px 0;">
-            <a href="https://lawsofsoftwareengineering.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Laws of Software Engineering</a>
+            <a href="https://github.com/itsmeadarsh2008/backlit-kbd" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Show HN: Backlit Keyboard API for Python</a>
         </h2>
         <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#7A8A9A;margin:0;">
-            软件工程定律
+            显示 HN：Python 背光键盘 API
         </h3>
     </div>
             
         <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
-            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D3D4D;margin:0 0 12px 0;">Laws of Software Engineering Skip to main content A collection of principles and patterns that shape software systems, teams, and decisions.</p>
-            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#7A8A9A;margin:0;">软件工程定律 跳到主要内容 塑造软件系统、团队和决策的原则和模式的集合。</p>
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D3D4D;margin:0 0 12px 0;">It currently supports Linux as of now. You can use this package to tinker with many things. Let's say, if you want to make a custom notification system, like if your website is down, you can make a blink notification with it. MacOS support is underway. I haven't tested Windows yet, I don't use it anymore btw. In future, if this package reaches nice growth, I'll be happy to make a similar Rust crate for it.</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#7A8A9A;margin:0;">目前它支持Linux。您可以使用这个包来修改很多东西。比方说，如果您想制作一个自定义通知系统，例如您的网站关闭了，您可以用它制作一个闪烁通知。 MacOS 支持正在进行中。我还没有测试过 Windows，顺便说一句，我不再使用它了。将来，如果这个包取得了良好的增长，我将很乐意为它制作一个类似的 Rust 箱子。</p>
         </div>
             
     <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #3A4A5C;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
@@ -521,8 +550,8 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
             Actionable Insight / 洞察与行动
         </div>
         <div class="bilingual-block">
-            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D3D4D;font-style:italic;margin:0 0 12px 0;">Timeless engineering principles endure precisely because they capture hard-won wisdom about complexity, communication, and trade-offs. Revisiting these fundamentals periodically helps recalibrate against the noise of trendy practices. The best engineers blend proven principles with contextual judgment.</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#7A8A9A;margin:0;">永恒的工程原理之所以能够经久不衰，正是因为它们捕捉到了来之不易的关于复杂性、沟通和权衡的智慧。定期重新审视这些基本原理有助于重新调整流行做法的噪音。最好的工程师将经过验证的原则与情境判断相结合。</p>
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D3D4D;font-style:italic;margin:0 0 12px 0;">Developer-facing Python libraries and APIs that solve niche problems well tend to gain adoption faster than general-purpose alternatives. If this addresses a pain point in your workflow, the investment in learning a focused tool typically pays for itself within a few days of use.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#7A8A9A;margin:0;">面向开发人员的 Python 库和 API 能够很好地解决利基问题，往往比通用替代品更快地获得采用。如果这解决了您工作流程中的痛点，那么学习专用工具的投资通常会在使用后几天内收回成本。</p>
         </div>
     </div>
             
@@ -531,26 +560,26 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
             Community Voice / 社区声音
         </div>
         <div class="bilingual-block">
-            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#7A8A9A;margin:0 0 8px 0;font-style:italic;">"&gt; Premature optimization is the root of all evil. There are few principle of software engineering that I hate more than this one, though SOLID is close. It is important to understand that it is from a 1974 paper, computing was very different back then, and so was the idea of optimization. Back then, optimizing meant writing assembly code and counti..."</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#7A8A9A;opacity:0.8;margin:0;">"&gt; 过早的优化是万恶之源。尽管 SOLID 很接近，但我最讨厌的软件工程原理很少有。重要的是要明白，这是一篇 1974 年的论文，当时的计算方式非常不同，优化的想法也是如此。那时，优化意味着编写汇编代码并计数..."</p>
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#7A8A9A;margin:0 0 8px 0;font-style:italic;">"I will love to use it. Will all keyboards with linux compatibility work?"</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#7A8A9A;opacity:0.8;margin:0;">"我会喜欢使用它。所有兼容 Linux 的键盘都可以使用吗？"</p>
         </div>
     </div>
             
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A8A9A;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">lawsofsoftwareengineering.com</span>
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">github.com</span>
         <span style="opacity:0.5;">·</span>
-        <span>914 pts</span>
+        <span>25 pts</span>
         <span style="opacity:0.5;">·</span>
-        <span>450 cmts</span>
+        <span>5 cmts</span>
         <span style="opacity:0.5;">·</span>
-        <span>by milanm081</span>
+        <span>by itsmeadarsh</span>
     </div>
             
     <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
-        <a href="https://lawsofsoftwareengineering.com" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#3A4A5C;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #3A4A5C;padding-bottom:2px;transition:opacity 0.2s;">
+        <a href="https://github.com/itsmeadarsh2008/backlit-kbd" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#3A4A5C;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #3A4A5C;padding-bottom:2px;transition:opacity 0.2s;">
             Read Source / 阅读原稿 →
         </a>
-        <a href="https://news.ycombinator.com/item?id=47847179" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A8A9A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #BCC5CF;padding-bottom:2px;transition:opacity 0.2s;">
+        <a href="https://news.ycombinator.com/item?id=47822301" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A8A9A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #BCC5CF;padding-bottom:2px;transition:opacity 0.2s;">
             HN Discussion / 参与讨论 →
         </a>
     </div>
@@ -587,9 +616,9 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#9A8575;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">trendmicro.com</span>
         <span style="opacity:0.5;">·</span>
-        <span>299 pts</span>
+        <span>312 pts</span>
         <span style="opacity:0.5;">·</span>
-        <span>105 cmts</span>
+        <span>108 cmts</span>
         <span style="opacity:0.5;">·</span>
         <span>by queenelvis</span>
     </div>
@@ -682,9 +711,9 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#8A7AA0;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">twitter.com</span>
         <span style="opacity:0.5;">·</span>
-        <span>479 pts</span>
+        <span>590 pts</span>
         <span style="opacity:0.5;">·</span>
-        <span>581 cmts</span>
+        <span>721 cmts</span>
         <span style="opacity:0.5;">·</span>
         <span>by dmarcos</span>
     </div>
@@ -753,9 +782,9 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6A9090;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">bsky.app</span>
         <span style="opacity:0.5;">·</span>
-        <span>475 pts</span>
+        <span>574 pts</span>
         <span style="opacity:0.5;">·</span>
-        <span>464 cmts</span>
+        <span>528 cmts</span>
         <span style="opacity:0.5;">·</span>
         <span>by JamesMcMinn</span>
     </div>
@@ -784,16 +813,16 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
             
             <div style="margin:0 0 32px 0;max-width:760px;">
         <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A1A1A;margin:0 0 12px 0;">
-            <a href="https://github.com/ENTERPILOT/GOModel/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Show HN: GoModel – an open-source AI gateway in Go</a>
+            <a href="https://www.reuters.com/sustainability/boards-policy-regulation/meta-start-capturing-employee-mouse-movements-keystrokes-ai-training-data-2026-04-21/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Meta to start capturing employee mouse movements, keystrokes for AI training</a>
         </h2>
         <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#7A7A70;margin:0;">
-            显示 HN：GoModel – Go 中的开源 AI 网关
+            Meta 开始捕捉员工的鼠标动作、击键以进行人工智能培训
         </h3>
     </div>
             
         <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
-            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D2D2D;margin:0 0 12px 0;">Hi, I’m Jakub, a solo founder based in Warsaw. I’ve been building GoModel since December with a couple of contributors. It's an open-source AI gateway that sits between your app and model providers like OpenAI, Anthropic or others. I built it for my startup to solve a few problems: - track AI usage and cost per client or team - switch models without changing app code - debug request flows more easily - reduce AI spendings with exact and semantic caching How is it different? - ~17MB docker image - LiteLLM's image is more than 44x bigger (&quot;docker.litellm.ai/berriai/litellm:latest&quot; ~ 746 MB on am</p>
-            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#7A7A70;margin:0;">大家好，我是 Jakub，一位居住在华沙的独立创始人。自 12 月以来，我一直在与一些贡献者一起构建 GoModel。它是一个开源 AI 网关，位于您的应用程序和 OpenAI、Anthropic 等模型提供商之间。我为我的初创公司构建它是为了解决一些问题： - 跟踪每个客户或团队的人工智能使用情况和成本 - 无需更改应用程序代码即可切换模型 - 更轻松地调试请求流 - 通过精确和语义缓存减少人工智能支出 它有何不同？ - ~17MB docker 镜像 - LiteLLM 的镜像大了 44 倍以上（“docker.litellm.ai/berriai/litellm:latest”~ 上午 746 MB</p>
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D2D2D;margin:0 0 12px 0;">Alt link: https://tech.yahoo.com/ai/meta-ai/articles/exclusive-meta-st...</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#7A7A70;margin:0;">替代链接：https://tech.yahoo.com/ai/meta-ai/articles/exclusive-meta-st...</p>
         </div>
             
     <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #2A2A2A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
@@ -801,8 +830,8 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
             Actionable Insight / 洞察与行动
         </div>
         <div class="bilingual-block">
-            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D2D2D;font-style:italic;margin:0 0 12px 0;">The open-source ecosystem thrives on community trust and transparency. When evaluating OSS tools, look beyond stars and downloads — examine commit velocity, maintainer responsiveness, and license terms. A smaller but actively maintained project often outperforms popular but stagnating alternatives.</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#7A7A70;margin:0;">开源生态系统的繁荣依赖于社区信任和透明度。在评估 OSS 工具时，不要只关注星级和下载量，还要检查提交速度、维护者响应能力和许可条款。较小但积极维护的项目通常优于流行但停滞不前的替代方案。</p>
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D2D2D;font-style:italic;margin:0 0 12px 0;">This story resonated strongly with the technical community (559 points), suggesting it touches a widely-felt concern or marks a notable shift. High-engagement stories often precede broader industry changes — monitor downstream effects on tooling, policy, or market dynamics.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#7A7A70;margin:0;">这个故事引起了技术界的强烈共鸣（559 点），表明它触及了广泛关注的问题或标志着一个显着的转变。高参与度的故事通常先于更广泛的行业变化——监控下游对工具、政策或市场动态的影响。</p>
         </div>
     </div>
             
@@ -811,26 +840,26 @@ OpenClaw 将 Claude CLI 重用和 claude -p 的使用视为对此的认可
             Community Voice / 社区声音
         </div>
         <div class="bilingual-block">
-            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#7A7A70;margin:0 0 8px 0;font-style:italic;">"Hey, this looks super nice. I do like the 'compact' feel of this. Reminds me of Traefik. It seems very promising indeed! One problem I have is that yes, LiteLLM key creation is easier than creating it directly at the providers and managing it there for team members and test environments, but if I had a way of generating keys via vault, it would be ..."</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#7A7A70;opacity:0.8;margin:0;">"嘿，这看起来超级好看。我确实喜欢这种“紧凑”的感觉。让我想起了特拉菲克。看来确实很有前途！我遇到的一个问题是，是的，LiteLLM 密钥创建比直接在提供商处创建并为团队成员和测试环境进行管理更容易，但如果我有一种通过保管库生成密钥的方法，那就......"</p>
+            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#7A7A70;margin:0 0 8px 0;font-style:italic;">"I really don't understand how this is legal. I guess Facebook maybe doesn't actually have any compliance requirements in the USA, but time series screenshots of any SRE's screen are going to contain data that should not be stored by some data vacuum. I know Meta has a reputation for shitty data handling practices and US regulations are light compar..."</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#7A7A70;opacity:0.8;margin:0;">"我真的不明白这怎么合法。我想 Facebook 在美国可能实际上没有任何合规性要求，但任何 SRE 屏幕的时间序列屏幕截图都将包含不应由某些数据真空存储的数据。我知道 Meta 因糟糕的数据处理实践而闻名，而美国的法规相比起来很宽松......"</p>
         </div>
     </div>
             
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A7A70;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">github.com</span>
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">reuters.com</span>
         <span style="opacity:0.5;">·</span>
-        <span>171 pts</span>
+        <span>559 pts</span>
         <span style="opacity:0.5;">·</span>
-        <span>63 cmts</span>
+        <span>404 cmts</span>
         <span style="opacity:0.5;">·</span>
-        <span>by santiago-pl</span>
+        <span>by dlx</span>
     </div>
             
     <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
-        <a href="https://github.com/ENTERPILOT/GOModel/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#2A2A2A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #2A2A2A;padding-bottom:2px;transition:opacity 0.2s;">
+        <a href="https://www.reuters.com/sustainability/boards-policy-regulation/meta-start-capturing-employee-mouse-movements-keystrokes-ai-training-data-2026-04-21/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#2A2A2A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #2A2A2A;padding-bottom:2px;transition:opacity 0.2s;">
             Read Source / 阅读原稿 →
         </a>
-        <a href="https://news.ycombinator.com/item?id=47849097" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A7A70;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C0BDB5;padding-bottom:2px;transition:opacity 0.2s;">
+        <a href="https://news.ycombinator.com/item?id=47851948" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A7A70;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C0BDB5;padding-bottom:2px;transition:opacity 0.2s;">
             HN Discussion / 参与讨论 →
         </a>
     </div>
