@@ -1,0 +1,5 @@
+[build]
+  # 我们已经在本地提前生成好了所有需要的 HTML，不需要在这个容器里额外执行大中型服务器编译项目
+  command = "echo 'Static files only - no build required'"
+  # 告诉 Netlify 我们的主目录就是当前根目录（包含 index.html 和 magazines/ 文件夹）
+  publish = "."
