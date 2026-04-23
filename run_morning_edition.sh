@@ -33,7 +33,7 @@ if [ $EXIT_CODE -eq 0 ] && [ -f "$OUTPUT_DIR/$TODAY.html" ]; then
     
     # Auto-commit and push to Trigger Netlify Background Deployment
     echo "[$(date)] ☁️ Pushing to GitHub (for Netlify deployment)..." >> "$LOG_FILE"
-    git add magazines/ "$TODAY.html" index.html >> "$LOG_FILE" 2>> "$ERROR_LOG"
+    git add magazines/ index.html >> "$LOG_FILE" 2>> "$ERROR_LOG"
     git commit -m "📰 Publish Morning Edition $TODAY" >> "$LOG_FILE" 2>> "$ERROR_LOG"
     git push origin main >> "$LOG_FILE" 2>> "$ERROR_LOG"
 else
