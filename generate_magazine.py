@@ -13,6 +13,7 @@ import datetime
 import urllib.request
 import urllib.parse
 import urllib.error
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urlparse
 from html.parser import HTMLParser
@@ -29,26 +30,107 @@ def load_config():
         return json.load(f)
 
 # ---------------------------------------------------------------------------
-# BILINGUAL TRANSLATION API (Google Translate Free Endpoint)
+# BILINGUAL TRANSLATION & LLM API (Google Gemini 1.5 Flash)
 # ---------------------------------------------------------------------------
 
+def call_gemini_llm(prompt, system_instruction=None, max_retries=3):
+    """Call Google Gemini API natively using urllib with exponential backoff for Rate Limits."""
+    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
+    if not api_key:
+        print("    [WARNING] GEMINI_API_KEY not found in environment. Translation will fail or be empty.")
+        return ""
+    
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
+    payload = { "contents": [{"parts": [{"text": prompt}]}] }
+    
+    if system_instruction:
+        payload["systemInstruction"] = { "parts": [{"text": system_instruction}] }
+        
+    data = json.dumps(payload).encode('utf-8')
+    
+    for attempt in range(max_retries):
+        req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
+        try:
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                resp_data = json.loads(resp.read().decode('utf-8'))
+                try:
+                    text = resp_data["candidates"][0]["content"]["parts"][0]["text"]
+                    return text.strip()
+                except (KeyError, IndexError):
+                    return ""
+        except Exception as e:
+            is_rate_limit_or_server_error = isinstance(e, urllib.error.HTTPError) and e.code in [429, 404, 500, 502, 503, 504]
+            wait_time = (attempt + 1) * 5 if is_rate_limit_or_server_error else 3
+            
+            if attempt < max_retries - 1:
+                print(f"    [API ERROR] {e}. Retrying in {wait_time}s... (Attempt {attempt+1}/{max_retries})")
+                time.sleep(wait_time)
+            else:
+                print(f"    [API FATAL] Failed after {max_retries} attempts: {e}")
+                return ""
+            
+    return ""
+
 def translate_text(text, target_lang='zh-CN'):
-    """Translate text using the free Google Translate API without an API key."""
+    """Translate text using Gemini LLM into highly fluent tech journalism style."""
     if not text or not text.strip():
         return ""
     
-    url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=" + target_lang + "&dt=t&q=" + urllib.parse.quote(text)
+    sys_prompt = "You are an expert bilingual tech journalist for an elite newsletter. Translate the following text into highly fluent, readable, and authentic Chinese. Use natural, elegant language while keeping technical terms accurate. Do not add any preamble or markdown formatting, output strictly the translation."
+    res = call_gemini_llm(text, system_instruction=sys_prompt)
+    return res if res else text  # Fallback to English if translation fails
+
+def rewrite_title_llm(original_title, article_summary):
+    """Rewrite Hacker News title into an essence-focused engaging title."""
+    if not article_summary or len(article_summary) < 20:
+        return original_title
     
-    try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req, timeout=8) as resp:
-            data = json.loads(resp.read().decode('utf-8'))
-            # data[0] contains the translated segments
-            translated = ''.join([part[0] for part in data[0] if part[0]])
-            return translated
-    except Exception as e:
-        print(f"    Translation error for text portion: {e}")
-        return ""
+    sys_prompt = "You are a senior editor for a tech magazine. You are given a raw Hacker News title and a summary of the article. Rewrite the title into a SINGLE clear, punchy, and highly informative headline that instantly tells the reader the essence of the news. Output ONLY the English title, without quotes."
+    prompt = f"Original Title: {original_title}\n\nSummary: {article_summary}"
+    res = call_gemini_llm(prompt, system_instruction=sys_prompt)
+    # Remove quotes if LLM adds them
+    if res:
+        return res.strip('"').strip("'")
+    return original_title
+
+def generate_insight_llm(title, summary, score):
+    """Generate a category label and a unique, content-aware deep insight in both EN and ZH using one LLM call."""
+    if not summary or len(summary) < 20:
+        return ["💡 Worth Watching", "This story is trending among tech professionals today.", "今日在极客社区引发广泛讨论的技术热点。"]
+        
+    sys_prompt = "You are a senior bilingual tech editor. Based on the Hacker News title and summary, provide a category label (with an emoji) in English. Then, write a 2-3 sentence deep-dive analytical insight in ENGLISH. Finally, write the EXACT SAME insight translated into HIGHLY FLUENT CHINESE. You MUST format your response as three parts separated by the pipe character '|' like this: [Category Label] | [Your English Insight here] | [Your Chinese Insight here]. Do not use markdown, quotes, or literal placeholder words."
+    prompt = f"Title: {title}\nScore: {score}\nSummary: {summary}"
+    res = call_gemini_llm(prompt, system_instruction=sys_prompt)
+    if res:
+        # Check if the model stupidly returned the literal prompt text
+        if "Your English Insight here" in res or "English Insight" in res and len(res) < 150:
+            return ["💡 Worth Watching", "This story is trending among tech professionals today.", "此项技术动向可能会对相关领域的开发和商业化产生长远影响。"]
+            
+        parts = [p.strip() for p in res.split("|")]
+        if len(parts) >= 3:
+            return [parts[0], parts[1], parts[2]]
+        elif len(parts) == 2:
+            return [parts[0], parts[1], parts[1]] # Fallback if missing one language
+    return ["💡 Worth Watching", "This story is trending among tech professionals today.", "此项技术动向可能会对相关领域的开发和商业化产生长远影响。"]
+
+def analyze_community_llm(title, comments_text):
+    """Analyze source comments and output a synthesized community consensus insight in both EN and ZH."""
+    if not comments_text or len(comments_text) < 20:
+        return ["", ""]
+    sys_prompt = "You are a bilingual tech community analyst. Read the following Hacker News comments about the specific news title. Write a 2-3 sentence analysis of the community's consensus, debates, or unique perspectives in ENGLISH. Then, write the EXACT SAME analysis translated into HIGHLY FLUENT CHINESE. You MUST format your response as two parts separated by the pipe character '|' like this: [Your actual English analysis here] | [Your actual Chinese analysis here]. Do NOT quote a single comment and do not use literal placeholder words."
+    prompt = f"Title: {title}\nComments:\n{comments_text}"
+    res = call_gemini_llm(prompt, system_instruction=sys_prompt)
+    if res:
+        # Check if the model stupidly returned the literal prompt text
+        if "Your actual English analysis here" in res or "English Analysis" in res and len(res) < 100:
+            return ["", ""]
+            
+        parts = [p.strip() for p in res.split("|")]
+        if len(parts) >= 2:
+            return [parts[0], parts[1]]
+        elif len(parts) == 1:
+            return [parts[0], parts[0]]
+    return ["", ""]
 
 def translate_insight_category(category):
     """Pre-translated categories for consistency."""
@@ -482,31 +564,37 @@ def enrich_stories(curated):
         
         # Final fallback: construct a minimal but honest summary from title context
         if not summary_en:
-            summary_en = f"This story about \"{story['title']}\" from {story['domain']} generated significant discussion with {story['score']} points and {story.get('comments', 0)} comments on Hacker News. [Source content could not be fetched — visit the link below for full details.]"
+            summary_en = f"[Source content could not be fetched]"
             print(f"    ⚠ Could not fetch content for: {story['title'][:50]}")
 
-        # STEP 2: Fetch top community comments
-        top_comments = fetch_top_comments(story["id"], n=3)
+        # STEP 2: Fetch top community comments and analyze deeply
+        top_comments = fetch_top_comments(story["id"], n=8)
         community_en = ""
+        community_zh = ""
+        raw_comments_text = ""
         if top_comments:
-            # Pick the most substantive comment (not just longest)
-            scored_comments = []
-            for c in top_comments:
-                # Penalize comments that are just quoting the article
-                quote_ratio = c.count('>') / max(len(c.split()), 1)
-                substance = len(c) * (1 - min(quote_ratio, 0.5))
-                scored_comments.append((substance, c))
-            scored_comments.sort(key=lambda x: x[0], reverse=True)
-            best = scored_comments[0][1]
-            community_en = best[:350] + "..." if len(best) > 350 else best
+            raw_comments_text = "\n---\n".join([c[:300] for c in top_comments])
+            comm_parts = analyze_community_llm(story["title"], raw_comments_text)
+            community_en = comm_parts[0]
+            community_zh = comm_parts[1] if len(comm_parts) > 1 else comm_parts[0]
+            
+        # STEP 2.5: Validation - If summary missing, use LLM to guess from comments
+        if "[Source content could not be fetched]" in summary_en and raw_comments_text:
+            sys_p = f"Based on the following community comments about a Hacker News post titled '{story['title']}', write a 2-sentence summary of what the article must be about. Do not mention 'the comments say', just summarize the inferred topic."
+            guessed_summary = call_gemini_llm(raw_comments_text, system_instruction=sys_p)
+            if guessed_summary and len(guessed_summary) > 20:
+                summary_en = guessed_summary
 
-        # STEP 3: Generate category and insight (now content-aware)
-        insight_parts = generate_insight(story["title"], story["tags"], story["domain"], story["score"], summary_en)
+        # STEP 3: Generate category and insight (Bilingual)
+        insight_parts = generate_insight_llm(story["title"], summary_en, story["score"])
         cat_en = insight_parts[0] if insight_parts else ""
         insight_en = insight_parts[1] if len(insight_parts) > 1 else ""
+        insight_zh = insight_parts[2] if len(insight_parts) > 2 else insight_en
 
-        # STEP 4: Translate all text
-        story["title_zh"] = translate_text(story["title"])
+        # STEP 4: Rewrite title and Translate English text using LLM
+        story["title_en"] = rewrite_title_llm(story["title"], summary_en)
+        story["title_zh"] = translate_text(story["title_en"])
+        
         story["summary_en"] = summary_en
         story["summary_zh"] = translate_text(summary_en)
         
@@ -514,15 +602,20 @@ def enrich_stories(curated):
         story["insight_cat_zh"] = translate_insight_category(cat_en)
         
         story["insight_en"] = insight_en
-        story["insight_zh"] = translate_text(insight_en)
+        story["insight_zh"] = insight_zh
         
         story["community_en"] = community_en
-        story["community_zh"] = translate_text(community_en)
+        story["community_zh"] = community_zh
         
+        # Override original title for final HTML render
+        story["title"] = story["title_en"]
+        
+        # Pace API requests to respect Rate Limits
+        time.sleep(3)
         return story
 
-    # Sequential enrichment to avoid rate limits and ensure quality
-    with ThreadPoolExecutor(max_workers=3) as executor:
+    # Sequential enrichment to avoid rate limits and ensure quality (Single Worker)
+    with ThreadPoolExecutor(max_workers=1) as executor:
         futures = {executor.submit(enrich_one, s): i for i, s in enumerate(curated)}
         results = [None] * len(curated)
         for future in as_completed(futures):

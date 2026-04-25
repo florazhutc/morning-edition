@@ -19,6 +19,13 @@ fi
 
 echo "[$(date)] Starting Morning Edition generation for $TODAY..." >> "$LOG_FILE"
 
+# Load environment variables if .env exists
+if [ -f "$SCRIPT_DIR/.env" ]; then
+    set -a
+    source "$SCRIPT_DIR/.env"
+    set +a
+fi
+
 # Run the generator
 /usr/bin/python3 "$SCRIPT_DIR/generate_magazine.py" >> "$LOG_FILE" 2>> "$ERROR_LOG"
 EXIT_CODE=$?
