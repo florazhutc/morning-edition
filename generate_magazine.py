@@ -71,14 +71,11 @@ def call_gemini_llm(prompt, system_instruction=None, max_retries=3):
             
     return ""
 
-def translate_text(text, target_lang='zh-CN'):
-    """Translate text using Gemini LLM into highly fluent tech journalism style."""
+def translate_text(text, target_lang='en'):
+    """Translation disabled - English only version."""
     if not text or not text.strip():
         return ""
-    
-    sys_prompt = "You are an expert bilingual tech journalist for an elite newsletter. Translate the following text into highly fluent, readable, and authentic Chinese. Use natural, elegant language while keeping technical terms accurate. Do not add any preamble or markdown formatting, output strictly the translation."
-    res = call_gemini_llm(text, system_instruction=sys_prompt)
-    return res if res else text  # Fallback to English if translation fails
+    return text  # Return original English, skip translation
 
 def rewrite_title_llm(original_title, article_summary):
     """Rewrite Hacker News title into an essence-focused engaging title."""
@@ -94,42 +91,35 @@ def rewrite_title_llm(original_title, article_summary):
     return original_title
 
 def generate_insight_llm(title, summary, score):
-    """Generate a category label and a unique, content-aware deep insight in both EN and ZH using one LLM call."""
+    """Generate a category label and a unique, content-aware deep insight in English only."""
     if not summary or len(summary) < 20:
-        return ["💡 Worth Watching", "This story is trending among tech professionals today.", "今日在极客社区引发广泛讨论的技术热点。"]
-        
-    sys_prompt = "You are a senior bilingual tech editor. Based on the Hacker News title and summary, provide a category label (with an emoji) in English. Then, write a 2-3 sentence deep-dive analytical insight in ENGLISH. Finally, write the EXACT SAME insight translated into HIGHLY FLUENT CHINESE. You MUST format your response as three parts separated by the pipe character '|' like this: [Category Label] | [Your English Insight here] | [Your Chinese Insight here]. Do not use markdown, quotes, or literal placeholder words."
+        return ["💡 Worth Watching", "This story is trending among tech professionals today."]
+
+    sys_prompt = "You are a senior tech editor. Based on the Hacker News title and summary, provide a category label (with an emoji) in English. Then, write a 2-3 sentence deep-dive analytical insight in ENGLISH. Format: [Category Label] | [Your English Insight here]"
     prompt = f"Title: {title}\nScore: {score}\nSummary: {summary}"
     res = call_gemini_llm(prompt, system_instruction=sys_prompt)
     if res:
-        # Check if the model stupidly returned the literal prompt text
         if "Your English Insight here" in res or "English Insight" in res and len(res) < 150:
-            return ["💡 Worth Watching", "This story is trending among tech professionals today.", "此项技术动向可能会对相关领域的开发和商业化产生长远影响。"]
-            
-        parts = [p.strip() for p in res.split("|")]
-        if len(parts) >= 3:
-            return [parts[0], parts[1], parts[2]]
-        elif len(parts) == 2:
-            return [parts[0], parts[1], parts[1]] # Fallback if missing one language
-    return ["💡 Worth Watching", "This story is trending among tech professionals today.", "此项技术动向可能会对相关领域的开发和商业化产生长远影响。"]
+            return ["💡 Worth Watching", "This story is trending among tech professionals today."]
 
-def analyze_community_llm(title, comments_text):
-    """Analyze source comments and output a synthesized community consensus insight in both EN and ZH."""
-    if not comments_text or len(comments_text) < 20:
-        return ["", ""]
-    sys_prompt = "You are a bilingual tech community analyst. Read the following Hacker News comments about the specific news title. Write a 2-3 sentence analysis of the community's consensus, debates, or unique perspectives in ENGLISH. Then, write the EXACT SAME analysis translated into HIGHLY FLUENT CHINESE. You MUST format your response as two parts separated by the pipe character '|' like this: [Your actual English analysis here] | [Your actual Chinese analysis here]. Do NOT quote a single comment and do not use literal placeholder words."
-    prompt = f"Title: {title}\nComments:\n{comments_text}"
-    res = call_gemini_llm(prompt, system_instruction=sys_prompt)
-    if res:
-        # Check if the model stupidly returned the literal prompt text
-        if "Your actual English analysis here" in res or "English Analysis" in res and len(res) < 100:
-            return ["", ""]
-            
         parts = [p.strip() for p in res.split("|")]
         if len(parts) >= 2:
             return [parts[0], parts[1]]
         elif len(parts) == 1:
-            return [parts[0], parts[0]]
+            return [parts[0], "This story is trending among tech professionals today."]
+    return ["💡 Worth Watching", "This story is trending among tech professionals today."]
+
+def analyze_community_llm(title, comments_text):
+    """Analyze community comments - English only."""
+    if not comments_text or len(comments_text) < 20:
+        return ["", ""]
+    sys_prompt = "You are a tech community analyst. Read the following Hacker News comments. Write a 2-3 sentence analysis of the community's consensus in ENGLISH."
+    prompt = f"Title: {title}\nComments:\n{comments_text}"
+    res = call_gemini_llm(prompt, system_instruction=sys_prompt)
+    if res:
+        if "Your actual English analysis here" in res or "English Analysis" in res and len(res) < 100:
+            return ["", ""]
+        return [res.strip(), ""]
     return ["", ""]
 
 def translate_insight_category(category):
@@ -591,21 +581,21 @@ def enrich_stories(curated):
         insight_en = insight_parts[1] if len(insight_parts) > 1 else ""
         insight_zh = insight_parts[2] if len(insight_parts) > 2 else insight_en
 
-        # STEP 4: Rewrite title and Translate English text using LLM
+        # STEP 4: Rewrite title - English only
         story["title_en"] = rewrite_title_llm(story["title"], summary_en)
-        story["title_zh"] = translate_text(story["title_en"])
-        
+        story["title_zh"] = story["title_en"]  # Same as English
+
         story["summary_en"] = summary_en
-        story["summary_zh"] = translate_text(summary_en)
-        
+        story["summary_zh"] = summary_en  # Same as English
+
         story["insight_cat_en"] = cat_en
-        story["insight_cat_zh"] = translate_insight_category(cat_en)
-        
+        story["insight_cat_zh"] = cat_en  # Same as English
+
         story["insight_en"] = insight_en
-        story["insight_zh"] = insight_zh
-        
+        story["insight_zh"] = insight_en  # Same as English
+
         story["community_en"] = community_en
-        story["community_zh"] = community_zh
+        story["community_zh"] = community_en  # Same as English
         
         # Override original title for final HTML render
         story["title"] = story["title_en"]
@@ -665,10 +655,8 @@ def render_story_section(story, index, style):
     insight_zh = html_escape(story.get("insight_zh", ""))
     
     cat_en = html_escape(story.get("insight_cat_en", ""))
-    cat_zh = html_escape(story.get("insight_cat_zh", ""))
-    
+
     comm_en = html_escape(story.get("community_en", ""))
-    comm_zh = html_escape(story.get("community_zh", ""))
 
     # Flag
     flag_html = ""
@@ -677,7 +665,7 @@ def render_story_section(story, index, style):
         <div style="display:inline-flex;align-items:center;gap:6px;background:{s['label_bg']};color:{s['label_color']};
             padding:4px 14px;border-radius:2px;font-family:'Inter',sans-serif;font-size:0.7rem;
             font-weight:700;letter-spacing:0.12em;margin-bottom:24px;">
-            ⚡ HIGHLY RELEVANT TO YOU / 高度相关
+            ⚡ HIGHLY RELEVANT
         </div>'''
 
     # Category Line
@@ -686,55 +674,45 @@ def render_story_section(story, index, style):
         <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:{s['meta_color']};letter-spacing:0.05em;">{num:02d}</span>
         <span style="width:40px;height:1px;background:{s['rule_color']};"></span>
         <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:{s['meta_color']};letter-spacing:0.18em;text-transform:uppercase;">
-            {cat_en} &nbsp;|&nbsp; {cat_zh}
+            {cat_en}
         </span>
     </div>'''
 
-    # Bilingual Headline
+    # Headline
     headline = f'''<div style="margin:0 0 32px 0;max-width:760px;">
         <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:{s['heading_color']};margin:0 0 12px 0;">
             <a href="{story['url']}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">{title_en}</a>
         </h2>
-        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:{s['meta_color']};margin:0;">
-            {title_zh}
-        </h3>
     </div>'''
 
-    # Bilingual Summary Block
+    # Summary Block (English only)
     summary_html = ""
     if sum_en:
         summary_html = f'''
-        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
-            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:{s['text_color']};margin:0 0 12px 0;">{sum_en}</p>
-            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:{s['meta_color']};margin:0;">{sum_zh}</p>
+        <div style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:{s['text_color']};margin:0;">{sum_en}</p>
         </div>'''
 
-    # Bilingual Actionable Insight
+    # Actionable Insight (English only)
     insight_html = ""
     if insight_en:
         insight_html = f'''
     <div style="margin-top:32px;padding:24px 28px;border-left:3px solid {s['accent']};background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
         <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:{s['accent']};letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Actionable Insight / 洞察与行动
+            Actionable Insight
         </div>
-        <div class="bilingual-block">
-            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:{s['text_color']};font-style:italic;margin:0 0 12px 0;">{insight_en}</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:{s['meta_color']};margin:0;">{insight_zh}</p>
-        </div>
+        <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:{s['text_color']};font-style:italic;margin:0;">{insight_en}</p>
     </div>'''
 
-    # Bilingual Community Voice
+    # Community Voice (English only)
     community_html = ""
     if comm_en:
         community_html = f'''
     <div style="margin-top:28px;padding-left:24px;border-left:2px solid {s['rule_color']};">
         <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:{s['meta_color']};letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Community Voice / 社区声音
+            Community Voice
         </div>
-        <div class="bilingual-block">
-            <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:{s['meta_color']};margin:0 0 8px 0;font-style:italic;">"{comm_en}"</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:{s['meta_color']};opacity:0.8;margin:0;">"{comm_zh}"</p>
-        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:{s['meta_color']};margin:0;font-style:italic;">{comm_en}</p>
     </div>'''
 
     # Meta
@@ -753,10 +731,10 @@ def render_story_section(story, index, style):
     links_html = f'''
     <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
         <a href="{story['url']}" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:{s['accent']};text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid {s['accent']};padding-bottom:2px;transition:opacity 0.2s;">
-            Read Source / 阅读原稿 →
+            Read Source →
         </a>
         <a href="{story['hn_url']}" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:{s['meta_color']};text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid {s['rule_color']};padding-bottom:2px;transition:opacity 0.2s;">
-            HN Discussion / 参与讨论 →
+            HN Discussion →
         </a>
     </div>'''
 
@@ -818,10 +796,9 @@ def render_magazine(stories, date_str):
         <a href="#story-{i+1}" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">{i+1:02d}</span>
             <div style="flex-grow:1;margin-right:20px;">
-                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">{html_escape(story["title"])}{flag_mark}</div>
-                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">{html_escape(story.get("title_zh",""))}</div>
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;">{html_escape(story["title"])}{flag_mark}</div>
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 {story["score"]} 热度</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 {story["score"]} pts</span>
         </a>'''
 
     return f'''<!DOCTYPE html>
@@ -886,7 +863,7 @@ def render_magazine(stories, date_str):
         <div style="margin-bottom:40px;">
             <div style="width:60px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
             <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#8C7A6B;">
-                A Curated Daily Digest · 中英双语晨报
+                A Curated Daily Digest
             </span>
         </div>
         <h1 style="font-family:'Fraunces',serif;font-size:clamp(3.5rem,10vw,8rem);font-weight:900;color:#1A1A1A;line-height:0.95;letter-spacing:-0.03em;margin-bottom:16px;">
@@ -902,7 +879,7 @@ def render_magazine(stories, date_str):
         <div style="max-width:700px;margin:0 auto;width:100%;">
             <div style="margin-bottom:40px;">
                 <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:#8C7A6B;">
-                    In This Issue / 本期提要
+                    In This Issue
                 </span>
                 <div style="width:30px;height:2px;background:#C84B31;margin-top:12px;"></div>
             </div>
