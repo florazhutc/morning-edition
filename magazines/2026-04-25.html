@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — April 25, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;600;700&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; background: #FAF6F0; word-break: break-word; overflow-wrap: break-word; }
+        section { scroll-snap-align: start; scroll-snap-stop: always; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.8; }
+        .masthead { scroll-snap-align: start; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 8vh 6vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .toc { scroll-snap-align: start; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(60px,10vh,100px) clamp(32px,12vw,200px); }
+        .nav-dots { position: fixed; right: clamp(12px,2vw,24px); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+        .colophon { background: #EDEBE5; padding: 6vh 8vw; text-align: center; scroll-snap-align: end; }
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .action-btn:hover { transform: translateY(-2px); }
+        .action-btn.primary:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+        @media (max-width: 768px) {
+            html { scroll-snap-type: none; }
+            section, .toc, .masthead, .colophon { scroll-snap-align: none; min-height: auto; }
+            .nav-dots { display: none; }
+            section, .toc { padding: 60px 20px !important; }
+            .masthead { padding: 12vh 20px !important; }
+            .two-col-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+            .action-bar { top: auto; bottom: 24px; right: 50%; transform: translateX(50%); width: max-content; background: rgba(255,255,255,0.95); padding: 8px; border-radius: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); backdrop-filter: blur(16px); border: 1px solid rgba(0,0,0,0.08); }
+            .action-btn { border: none; box-shadow: none; padding: 10px 20px; background: transparent; font-size: 0.8rem; }
+            .action-btn.primary { background: #1A1A1A; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        }
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 目录</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div style="margin-bottom:40px;">
+            <div style="width:60px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#8C7A6B;">
+                A Curated Daily Digest · 中英双语晨报
+            </span>
+        </div>
+        <h1 style="font-family:'Fraunces',serif;font-size:clamp(3.5rem,10vw,8rem);font-weight:900;color:#1A1A1A;line-height:0.95;letter-spacing:-0.03em;margin-bottom:16px;">
+            Morning<br><em style="font-style:italic;font-weight:400;color:#C84B31;">Edition</em>
+        </h1>
+        <div style="width:40px;height:1px;background:#D4C5B5;margin:24px auto;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.8vw,1.3rem);color:#8C7A6B;font-weight:400;font-style:italic;">Saturday</div>
+        <div style="font-family:'Inter',sans-serif;font-size:clamp(0.8rem,1.2vw,0.95rem);color:#B0A090;font-weight:400;letter-spacing:0.1em;margin-top:6px;">April 25, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div style="max-width:700px;margin:0 auto;width:100%;">
+            <div style="margin-bottom:40px;">
+                <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:#8C7A6B;">
+                    In This Issue / 本期提要
+                </span>
+                <div style="width:30px;height:2px;background:#C84B31;margin-top:12px;"></div>
+            </div>
+            <nav>
+        <a href="#story-1" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">01</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Alberta startup sells no-tech tractors for half price</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Alberta startup sells no-tech tractors for half price</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 2271 热度</span>
+        </a>
+        <a href="#story-2" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">02</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">DeepSeek v4</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">DeepSeek v4</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 1887 热度</span>
+        </a>
+        <a href="#story-3" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">03</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">GPT-5.5</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">GPT-5.5</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 1542 热度</span>
+        </a>
+        <a href="#story-4" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">04</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">I cancelled Claude: Token issues, declining quality, and poor support <span style="color:#C84B31;">⚡</span></div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">I cancelled Claude: Token issues, declining quality, and poor support</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 868 热度</span>
+        </a>
+        <a href="#story-5" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">05</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Open source memory layer so any AI agent can do what Claude.ai and ChatGPT do <span style="color:#C84B31;">⚡</span></div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Open source memory layer so any AI agent can do what Claude.ai and ChatGPT do</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 24 热度</span>
+        </a>
+        <a href="#story-6" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">06</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">OpenAI releases GPT-5.5 and GPT-5.5 Pro in the API</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">OpenAI releases GPT-5.5 and GPT-5.5 Pro in the API</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 233 热度</span>
+        </a>
+        <a href="#story-7" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">07</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">How to be anti-social – a guide to incoherent and isolating social experiences</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">How to be anti-social – a guide to incoherent and isolating social experiences</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 343 热度</span>
+        </a>
+        <a href="#story-8" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">08</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Show HN: VT Code – Rust TUI coding agent with multi-provider support</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Show HN: VT Code – Rust TUI coding agent with multi-provider support</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 6 热度</span>
+        </a>
+        <a href="#story-9" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">09</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Show HN: Gova – The declarative GUI framework for Go</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Show HN: Gova – The declarative GUI framework for Go</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 119 热度</span>
+        </a>
+        <a href="#story-10" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">10</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Show HN: Browser Harness – Gives LLM freedom to complete any browser task</div>
+                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Show HN: Browser Harness – Gives LLM freedom to complete any browser task</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 97 热度</span>
+        </a></nav>
+        </div>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" style="background:#FAF6F0;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(200,75,49,0.06);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">1</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#8C7A6B;letter-spacing:0.05em;">01</span>
+        <span style="width:40px;height:1px;background:#D4C5B5;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#8C7A6B;letter-spacing:0.18em;text-transform:uppercase;">
+            💡 Worth Watching &nbsp;|&nbsp; 💡 值得关注
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A1A1A;margin:0 0 12px 0;">
+            <a href="https://wheelfront.com/this-alberta-startup-sells-no-tech-tractors-for-half-price/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Alberta startup sells no-tech tractors for half price</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#8C7A6B;margin:0;">
+            Alberta startup sells no-tech tractors for half price
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D2D2D;margin:0 0 12px 0;">This Alberta Startup Sells No-Tech Tractors for Half Price | Wheel Front This Alberta Startup Sells No-Tech Tractors for Half Price April 20, 2026                                                at 4:24pm ET Four hundred inquiries from American farmers poured in after a single interview. For a tractor built in Alberta with a remanufactured 1990s diesel engine and zero electronics.</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#8C7A6B;margin:0;">This Alberta Startup Sells No-Tech Tractors for Half Price | Wheel Front This Alberta Startup Sells No-Tech Tractors for Half Price April 20, 2026                                                at 4:24pm ET Four hundred inquiries from American farmers poured in after a single interview. For a tractor built in Alberta with a remanufactured 1990s diesel engine and zero electronics.</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #C84B31;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#C84B31;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D2D2D;font-style:italic;margin:0 0 12px 0;">This story is trending among tech professionals today.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#8C7A6B;margin:0;">此项技术动向可能会对相关领域的开发和商业化产生长远影响。</p>
+        </div>
+    </div>
+            
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#8C7A6B;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">wheelfront.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>2271 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>770 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by Kaibeezy</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://wheelfront.com/this-alberta-startup-sells-no-tech-tractors-for-half-price/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#C84B31;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #C84B31;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47865868" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#8C7A6B;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D4C5B5;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" style="background:#F5F1EA;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(27,42,74,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">2</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#7A8BA0;letter-spacing:0.05em;">02</span>
+        <span style="width:40px;height:1px;background:#C8BFB0;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#7A8BA0;letter-spacing:0.18em;text-transform:uppercase;">
+            💡 Worth Watching &nbsp;|&nbsp; 💡 值得关注
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1B2A4A;margin:0 0 12px 0;">
+            <a href="https://api-docs.deepseek.com/news/news260424" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">DeepSeek v4</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#7A8BA0;margin:0;">
+            DeepSeek v4
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3A3A3A;margin:0 0 12px 0;">DeepSeek V4 Preview Release | DeepSeek API Docs 🚀 DeepSeek-V4 Preview is officially live &amp; open-sourced! Welcome to the era of cost-effective 1M context length. 🔹 DeepSeek-V4-Pro: 1.6T total / 49B active params. Performance rivaling the world's top closed-source models.</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#7A8BA0;margin:0;">DeepSeek V4 Preview Release | DeepSeek API Docs 🚀 DeepSeek-V4 Preview is officially live &amp; open-sourced! Welcome to the era of cost-effective 1M context length. 🔹 DeepSeek-V4-Pro: 1.6T total / 49B active params. Performance rivaling the world's top closed-source models.</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #1B2A4A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#1B2A4A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3A3A3A;font-style:italic;margin:0 0 12px 0;">This story is trending among tech professionals today.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#7A8BA0;margin:0;">此项技术动向可能会对相关领域的开发和商业化产生长远影响。</p>
+        </div>
+    </div>
+            
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A8BA0;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">api-docs.deepseek.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>1887 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>1471 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by impact_sy</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://api-docs.deepseek.com/news/news260424" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#1B2A4A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #1B2A4A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47884971" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A8BA0;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C8BFB0;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" style="background:#FBF3F0;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(166,61,64,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">3</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#A08070;letter-spacing:0.05em;">03</span>
+        <span style="width:40px;height:1px;background:#D8C4BC;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#A08070;letter-spacing:0.18em;text-transform:uppercase;">
+            💡 Worth Watching &nbsp;|&nbsp; 💡 值得关注
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#2A1A16;margin:0 0 12px 0;">
+            <a href="https://openai.com/index/introducing-gpt-5-5/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">GPT-5.5</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#A08070;margin:0;">
+            GPT-5.5
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3D2D28;margin:0 0 12px 0;">Community discussion highlights: The more interesting part of the announcement than &quot;it's better at benchmarks&quot;: &gt; To better utilize GPUs, Codex analyzed weeks’ worth of production traffic patterns and wrote custom heuristic algorithms to optimally partition and balance work. The effort had an outsized impact, increasing token generation speeds by over 20%. The ability for agentic LLMs to improve computational efficiency/speed is a highly impactful domain I wish was more tested than with benchmarks. From my experience Opus is s</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#A08070;margin:0;">Community discussion highlights: The more interesting part of the announcement than &quot;it's better at benchmarks&quot;: &gt; To better utilize GPUs, Codex analyzed weeks’ worth of production traffic patterns and wrote custom heuristic algorithms to optimally partition and balance work. The effort had an outsized impact, increasing token generation speeds by over 20%. The ability for agentic LLMs to improve computational efficiency/speed is a highly impactful domain I wish was more tested than with benchmarks. From my experience Opus is s</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #A63D40;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#A63D40;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3D2D28;font-style:italic;margin:0 0 12px 0;">This story is trending among tech professionals today.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#A08070;margin:0;">此项技术动向可能会对相关领域的开发和商业化产生长远影响。</p>
+        </div>
+    </div>
+            
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#A08070;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">openai.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>1542 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>1028 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by rd</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://openai.com/index/introducing-gpt-5-5/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#A63D40;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #A63D40;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47879092" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#A08070;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D8C4BC;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" style="background:#F4F6F0;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(61,90,62,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">4</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#6B8A6B;letter-spacing:0.05em;">04</span>
+        <span style="width:40px;height:1px;background:#C0CDBA;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#6B8A6B;letter-spacing:0.18em;text-transform:uppercase;">
+            💡 Worth Watching &nbsp;|&nbsp; 💡 值得关注
+        </span>
+    </div>
+            
+        <div style="display:inline-flex;align-items:center;gap:6px;background:#3D5A3E;color:#F4F6F0;
+            padding:4px 14px;border-radius:2px;font-family:'Inter',sans-serif;font-size:0.7rem;
+            font-weight:700;letter-spacing:0.12em;margin-bottom:24px;">
+            ⚡ HIGHLY RELEVANT TO YOU / 高度相关
+        </div>
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A2E1A;margin:0 0 12px 0;">
+            <a href="https://nickyreinert.de/en/2026/2026-04-24-claude-critics/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">I cancelled Claude: Token issues, declining quality, and poor support</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#6B8A6B;margin:0;">
+            I cancelled Claude: Token issues, declining quality, and poor support
+        </h3>
+    </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,60px);margin-top:24px;" class="two-col-grid">
+                <div>
+                    
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D3D2D;margin:0 0 12px 0;">Why I Cancelled Claude: Token Issues, Declining Quality, and Poor Support - Nicky Reinert Why I Cancelled Claude: Token Issues, Declining Quality, and Poor Support As this post is gaining more attention than expected on HN, I want to make some things clear - although I thought they are obvious. It sounds like a rant about Claude’s quality in general - if you don’t read to the end. But my concerns are more focused on the support performance and token issues - fully aware of the challenges a company this size faces and assuming the people at Anthropic are working hard to make things better.</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#6B8A6B;margin:0;">Why I Cancelled Claude: Token Issues, Declining Quality, and Poor Support - Nicky Reinert Why I Cancelled Claude: Token Issues, Declining Quality, and Poor Support As this post is gaining more attention than expected on HN, I want to make some things clear - although I thought they are obvious. It sounds like a rant about Claude’s quality in general - if you don’t read to the end. But my concerns are more focused on the support performance and token issues - fully aware of the challenges a company this size faces and assuming the people at Anthropic are working hard to make things better.</p>
+        </div>
+                    
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6B8A6B;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">nickyreinert.de</span>
+        <span style="opacity:0.5;">·</span>
+        <span>868 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>506 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by y42</span>
+    </div>
+                    
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://nickyreinert.de/en/2026/2026-04-24-claude-critics/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#3D5A3E;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #3D5A3E;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47892019" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#6B8A6B;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C0CDBA;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+                </div>
+                <div>
+                    
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #3D5A3E;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#3D5A3E;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D3D2D;font-style:italic;margin:0 0 12px 0;">This story is trending among tech professionals today.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#6B8A6B;margin:0;">此项技术动向可能会对相关领域的开发和商业化产生长远影响。</p>
+        </div>
+    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="story-5" style="background:#F8F4EC;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(122,92,61,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">5</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#9A8A70;letter-spacing:0.05em;">05</span>
+        <span style="width:40px;height:1px;background:#D0C4B0;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#9A8A70;letter-spacing:0.18em;text-transform:uppercase;">
+            💡 Worth Watching &nbsp;|&nbsp; 💡 值得关注
+        </span>
+    </div>
+            
+        <div style="display:inline-flex;align-items:center;gap:6px;background:#7A5C3D;color:#F8F4EC;
+            padding:4px 14px;border-radius:2px;font-family:'Inter',sans-serif;font-size:0.7rem;
+            font-weight:700;letter-spacing:0.12em;margin-bottom:24px;">
+            ⚡ HIGHLY RELEVANT TO YOU / 高度相关
+        </div>
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#2A2015;margin:0 0 12px 0;">
+            <a href="https://alash3al.github.io/stash?_v01" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Open source memory layer so any AI agent can do what Claude.ai and ChatGPT do</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#9A8A70;margin:0;">
+            Open source memory layer so any AI agent can do what Claude.ai and ChatGPT do
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3A3025;margin:0 0 12px 0;">Open Source · MCP Native · PostgreSQL + pgvector Stash makes your AI remember you. No more explaining yourself from scratch. Hey, I'm building a SaaS for restaurants. We talked about this last week...</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#9A8A70;margin:0;">Open Source · MCP Native · PostgreSQL + pgvector Stash makes your AI remember you. No more explaining yourself from scratch. Hey, I'm building a SaaS for restaurants. We talked about this last week...</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #7A5C3D;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#7A5C3D;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3A3025;font-style:italic;margin:0 0 12px 0;">This story is trending among tech professionals today.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#9A8A70;margin:0;">此项技术动向可能会对相关领域的开发和商业化产生长远影响。</p>
+        </div>
+    </div>
+            
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#9A8A70;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">alash3al.github.io</span>
+        <span style="opacity:0.5;">·</span>
+        <span>24 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>6 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by alash3al</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://alash3al.github.io/stash?_v01" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A5C3D;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #7A5C3D;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47897790" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#9A8A70;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D0C4B0;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" style="background:#F0F2F5;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(58,74,92,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">6</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#7A8A9A;letter-spacing:0.05em;">06</span>
+        <span style="width:40px;height:1px;background:#BCC5CF;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#7A8A9A;letter-spacing:0.18em;text-transform:uppercase;">
+            💡 Worth Watching &nbsp;|&nbsp; 💡 值得关注
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A2A3A;margin:0 0 12px 0;">
+            <a href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">OpenAI releases GPT-5.5 and GPT-5.5 Pro in the API</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#7A8A9A;margin:0;">
+            OpenAI releases GPT-5.5 and GPT-5.5 Pro in the API
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D3D4D;margin:0 0 12px 0;">Using skills to accelerate OSS maintenance Building frontend UIs with Codex and Figma How Perplexity Brought Voice Search to Millions Using the Realtime API Designing delightful frontends with GPT-5.4 From prompts to products: One year of Responses</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#7A8A9A;margin:0;">Using skills to accelerate OSS maintenance Building frontend UIs with Codex and Figma How Perplexity Brought Voice Search to Millions Using the Realtime API Designing delightful frontends with GPT-5.4 From prompts to products: One year of Responses</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #3A4A5C;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#3A4A5C;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D3D4D;font-style:italic;margin:0 0 12px 0;">This story is trending among tech professionals today.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#7A8A9A;margin:0;">此项技术动向可能会对相关领域的开发和商业化产生长远影响。</p>
+        </div>
+    </div>
+            
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A8A9A;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">developers.openai.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>233 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>127 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by arabicalories</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#3A4A5C;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #3A4A5C;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47894000" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A8A9A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #BCC5CF;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" style="background:#F7F3EB;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(139,58,58,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">7</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#9A8575;letter-spacing:0.05em;">07</span>
+        <span style="width:40px;height:1px;background:#D0C0A8;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#9A8575;letter-spacing:0.18em;text-transform:uppercase;">
+            💡 Worth Watching &nbsp;|&nbsp; 💡 值得关注
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A1A1A;margin:0 0 12px 0;">
+            <a href="https://nate.leaflet.pub/3mk4xkaxobc2p" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">How to be anti-social – a guide to incoherent and isolating social experiences</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#9A8575;margin:0;">
+            How to be anti-social – a guide to incoherent and isolating social experiences
+        </h3>
+    </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,60px);margin-top:24px;" class="two-col-grid">
+                <div>
+                    
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#333333;margin:0 0 12px 0;">a guide to incoherent and isolating social experiences if someone is confusing or upsetting you, assume they have no sane reason for doing or saying what they are doing or saying when ambiguous, assume intent is malicious, ignorant, or amoral. interpret others' actions in the context of your fears do not challenge or acknowledge the existence or influence of your assumptions, wholly trust your intuition and feelings</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#9A8575;margin:0;">a guide to incoherent and isolating social experiences if someone is confusing or upsetting you, assume they have no sane reason for doing or saying what they are doing or saying when ambiguous, assume intent is malicious, ignorant, or amoral. interpret others' actions in the context of your fears do not challenge or acknowledge the existence or influence of your assumptions, wholly trust your intuition and feelings</p>
+        </div>
+                    
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#9A8575;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">nate.leaflet.pub</span>
+        <span style="opacity:0.5;">·</span>
+        <span>343 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>314 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by calcifer</span>
+    </div>
+                    
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://nate.leaflet.pub/3mk4xkaxobc2p" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#8B3A3A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #8B3A3A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47888372" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#9A8575;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D0C0A8;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+                </div>
+                <div>
+                    
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #8B3A3A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#8B3A3A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#333333;font-style:italic;margin:0 0 12px 0;">This story is trending among tech professionals today.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#9A8575;margin:0;">此项技术动向可能会对相关领域的开发和商业化产生长远影响。</p>
+        </div>
+    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="story-8" style="background:#F3F0F8;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(90,74,122,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">8</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#8A7AA0;letter-spacing:0.05em;">08</span>
+        <span style="width:40px;height:1px;background:#C8BFD8;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#8A7AA0;letter-spacing:0.18em;text-transform:uppercase;">
+            💡 Worth Watching &nbsp;|&nbsp; 💡 值得关注
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#2A1A3A;margin:0 0 12px 0;">
+            <a href="https://github.com/vinhnx/VTCode" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Show HN: VT Code – Rust TUI coding agent with multi-provider support</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#8A7AA0;margin:0;">
+            Show HN: VT Code – Rust TUI coding agent with multi-provider support
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3A2D4A;margin:0 0 12px 0;">Hi HN, I built VT Code, a semantic coding agent. Supports all SOTA and open sources model. Anthropic, OpenAI, Gemini, Codex. Agent Skills, Model Context Protocol and Agent Client Protocol (ACP) ready. All open source models are support. Local inference via LM Studio and Ollama (experiment). Semantic context understanding is supported by ast-grep for structured code search and ripgrep for powered grep. I built VT Code in Rust on Ratatui. Architecture and agent loop documented in the README and DeepWiki. Repo: https://github.com/vinhnx/VTCode DeepWiki: https://deepwiki.com/vinhnx/VTCode Happy to</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#8A7AA0;margin:0;">Hi HN, I built VT Code, a semantic coding agent. Supports all SOTA and open sources model. Anthropic, OpenAI, Gemini, Codex. Agent Skills, Model Context Protocol and Agent Client Protocol (ACP) ready. All open source models are support. Local inference via LM Studio and Ollama (experiment). Semantic context understanding is supported by ast-grep for structured code search and ripgrep for powered grep. I built VT Code in Rust on Ratatui. Architecture and agent loop documented in the README and DeepWiki. Repo: https://github.com/vinhnx/VTCode DeepWiki: https://deepwiki.com/vinhnx/VTCode Happy to</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #5A4A7A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#5A4A7A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3A2D4A;font-style:italic;margin:0 0 12px 0;">This story is trending among tech professionals today.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#8A7AA0;margin:0;">此项技术动向可能会对相关领域的开发和商业化产生长远影响。</p>
+        </div>
+    </div>
+            
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#8A7AA0;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">github.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>6 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>2 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by vinhnx</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://github.com/vinhnx/VTCode" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#5A4A7A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #5A4A7A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47898308" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#8A7AA0;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C8BFD8;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" style="background:#F0F5F4;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(42,90,90,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">9</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#6A9090;letter-spacing:0.05em;">09</span>
+        <span style="width:40px;height:1px;background:#B0C8C4;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#6A9090;letter-spacing:0.18em;text-transform:uppercase;">
+            💡 Worth Watching &nbsp;|&nbsp; 💡 值得关注
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A2E2E;margin:0 0 12px 0;">
+            <a href="https://github.com/NV404/gova" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Show HN: Gova – The declarative GUI framework for Go</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#6A9090;margin:0;">
+            Show HN: Gova – The declarative GUI framework for Go
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D3E3E;margin:0 0 12px 0;">GitHub - NV404/gova: declarative GUI framework for Go · GitHub</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#6A9090;margin:0;">GitHub - NV404/gova: declarative GUI framework for Go · GitHub</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #2A5A5A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#2A5A5A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D3E3E;font-style:italic;margin:0 0 12px 0;">This story is trending among tech professionals today.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#6A9090;margin:0;">此项技术动向可能会对相关领域的开发和商业化产生长远影响。</p>
+        </div>
+    </div>
+            
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6A9090;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">github.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>119 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>26 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by aliezsid</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://github.com/NV404/gova" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#2A5A5A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #2A5A5A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47886272" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#6A9090;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #B0C8C4;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" style="background:#EDEBE5;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(42,42,42,0.06);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">10</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#7A7A70;letter-spacing:0.05em;">10</span>
+        <span style="width:40px;height:1px;background:#C0BDB5;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#7A7A70;letter-spacing:0.18em;text-transform:uppercase;">
+            💡 Worth Watching &nbsp;|&nbsp; 💡 值得关注
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A1A1A;margin:0 0 12px 0;">
+            <a href="https://github.com/browser-use/browser-harness" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Show HN: Browser Harness – Gives LLM freedom to complete any browser task</a>
+        </h2>
+        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#7A7A70;margin:0;">
+            Show HN: Browser Harness – Gives LLM freedom to complete any browser task
+        </h3>
+    </div>
+            
+        <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D2D2D;margin:0 0 12px 0;">Hey HN, We got tired of browser frameworks restricting the LLM, so we removed the framework and gave the LLM maximum freedom to do whatever it's trained on. We gave the harness the ability to self correct and add new tools if the LLM wants (is pre-trained on) that. Our Browser Use library is tens of thousands of lines of deterministic heuristics wrapping Chrome (CDP websocket). Element extractors, click helpers, target managemenet (SUPER painful), watchdogs (crash handling, file downloads, alerts), cross origin iframes (if you want to click on an element you have to switch the target first, ve</p>
+            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#7A7A70;margin:0;">Hey HN, We got tired of browser frameworks restricting the LLM, so we removed the framework and gave the LLM maximum freedom to do whatever it's trained on. We gave the harness the ability to self correct and add new tools if the LLM wants (is pre-trained on) that. Our Browser Use library is tens of thousands of lines of deterministic heuristics wrapping Chrome (CDP websocket). Element extractors, click helpers, target managemenet (SUPER painful), watchdogs (crash handling, file downloads, alerts), cross origin iframes (if you want to click on an element you have to switch the target first, ve</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #2A2A2A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#2A2A2A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight / 洞察与行动
+        </div>
+        <div class="bilingual-block">
+            <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D2D2D;font-style:italic;margin:0 0 12px 0;">This story is trending among tech professionals today.</p>
+            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#7A7A70;margin:0;">此项技术动向可能会对相关领域的开发和商业化产生长远影响。</p>
+        </div>
+    </div>
+            
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A7A70;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">github.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>97 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>51 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by gregpr07</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://github.com/browser-use/browser-harness" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#2A2A2A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #2A2A2A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source / 阅读原稿 →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47890841" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A7A70;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C0BDB5;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion / 参与讨论 →
+        </a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · April 25, 2026</div>
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:0.65rem;color:#B0A090;margin-top:8px;letter-spacing:0.05em;">双语精排版 · 为技术人定制的每日视角</div>
+    </footer>
+</body>
+</html>
