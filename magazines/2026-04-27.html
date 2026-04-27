@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — April 27, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;600;700&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; background: #FAF6F0; word-break: break-word; overflow-wrap: break-word; }
+        section { scroll-snap-align: start; scroll-snap-stop: always; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.8; }
+        .masthead { scroll-snap-align: start; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 8vh 6vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .toc { scroll-snap-align: start; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(60px,10vh,100px) clamp(32px,12vw,200px); }
+        .nav-dots { position: fixed; right: clamp(12px,2vw,24px); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+        .colophon { background: #EDEBE5; padding: 6vh 8vw; text-align: center; scroll-snap-align: end; }
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .action-btn:hover { transform: translateY(-2px); }
+        .action-btn.primary:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+        @media (max-width: 768px) {
+            html { scroll-snap-type: none; }
+            section, .toc, .masthead, .colophon { scroll-snap-align: none; min-height: auto; }
+            .nav-dots { display: none; }
+            section, .toc { padding: 60px 20px !important; }
+            .masthead { padding: 12vh 20px !important; }
+            .two-col-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+            .action-bar { top: auto; bottom: 24px; right: 50%; transform: translateX(50%); width: max-content; background: rgba(255,255,255,0.95); padding: 8px; border-radius: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); backdrop-filter: blur(16px); border: 1px solid rgba(0,0,0,0.08); }
+            .action-btn { border: none; box-shadow: none; padding: 10px 20px; background: transparent; font-size: 0.8rem; }
+            .action-btn.primary { background: #1A1A1A; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        }
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 目录</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div style="margin-bottom:40px;">
+            <div style="width:60px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#8C7A6B;">
+                A Curated Daily Digest
+            </span>
+        </div>
+        <h1 style="font-family:'Fraunces',serif;font-size:clamp(3.5rem,10vw,8rem);font-weight:900;color:#1A1A1A;line-height:0.95;letter-spacing:-0.03em;margin-bottom:16px;">
+            Morning<br><em style="font-style:italic;font-weight:400;color:#C84B31;">Edition</em>
+        </h1>
+        <div style="width:40px;height:1px;background:#D4C5B5;margin:24px auto;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.8vw,1.3rem);color:#8C7A6B;font-weight:400;font-style:italic;">Monday</div>
+        <div style="font-family:'Inter',sans-serif;font-size:clamp(0.8rem,1.2vw,0.95rem);color:#B0A090;font-weight:400;letter-spacing:0.1em;margin-top:6px;">April 27, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div style="max-width:700px;margin:0 auto;width:100%;">
+            <div style="margin-bottom:40px;">
+                <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:#8C7A6B;">
+                    In This Issue
+                </span>
+                <div style="width:30px;height:2px;background:#C84B31;margin-top:12px;"></div>
+            </div>
+            <nav>
+        <a href="#story-1" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">01</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;">AI Agent Wipes Production Database; Its &quot;Confession&quot; Post Underscores Misunderstanding of AI Agency. <span style="color:#C84B31;">⚡</span></div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 545 pts</span>
+        </a>
+        <a href="#story-2" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">02</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;">Amateur Cracks Decades-Old Erdős Problem with ChatGPT</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 747 pts</span>
+        </a>
+        <a href="#story-3" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">03</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;">GoDaddy Under Fire for Domain Security Lapses and Deceptive Renewal Practices</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 569 pts</span>
+        </a>
+        <a href="#story-4" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">04</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;">Mahjong's Stunning Visual Guide Sparks Debate on Learning by Doing</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 216 pts</span>
+        </a>
+        <a href="#story-5" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">05</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;">Gaussian Splats Get Playable: Turning Photorealistic Environments into Interactive Games</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 208 pts</span>
+        </a>
+        <a href="#story-6" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">06</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;">Wild Clay PCBs: A Sustainable, Ethical Alternative to Conflict Minerals</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 205 pts</span>
+        </a>
+        <a href="#story-7" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">07</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;">Agentic AI Shatters Database Design's Implicit Contract</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 98 pts</span>
+        </a>
+        <a href="#story-8" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">08</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;">AI Memory Learns to Forget: Ebbinghaus Curve Dynamically Manages RAG Context, Reduces Noise</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 77 pts</span>
+        </a>
+        <a href="#story-9" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">09</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;">Bare-Metal Rust and ESP-IDF Coexist on ESP32-S3's Dual Cores</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 47 pts</span>
+        </a>
+        <a href="#story-10" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
+            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">10</span>
+            <div style="flex-grow:1;margin-right:20px;">
+                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;">Obscure Commodore 900 Prototype Revived, QNX Boots From 'Lost' Hard Drive</div>
+            </div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 47 pts</span>
+        </a></nav>
+        </div>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" style="background:#FAF6F0;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(200,75,49,0.06);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">1</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#8C7A6B;letter-spacing:0.05em;">01</span>
+        <span style="width:40px;height:1px;background:#D4C5B5;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#8C7A6B;letter-spacing:0.18em;text-transform:uppercase;">
+            🚨 AI Incident
+        </span>
+    </div>
+            
+        <div style="display:inline-flex;align-items:center;gap:6px;background:#C84B31;color:#FAF6F0;
+            padding:4px 14px;border-radius:2px;font-family:'Inter',sans-serif;font-size:0.7rem;
+            font-weight:700;letter-spacing:0.12em;margin-bottom:24px;">
+            ⚡ HIGHLY RELEVANT
+        </div>
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A1A1A;margin:0 0 12px 0;">
+            <a href="https://twitter.com/lifeof_jer/status/2048103471019434248" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">AI Agent Wipes Production Database; Its &quot;Confession&quot; Post Underscores Misunderstanding of AI Agency.</a>
+        </h2>
+    </div>
+            
+        <div style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D2D2D;margin:0;">Community discussion highlights: There is something darkly comical about using an LLM to write up your “a coding agent deleted our production database” Twitter post. On another note, I consider users asking a coding agent “why did you do that” to be illustrating a misunderstanding in the users mind about how the agent works. It doesn’t decide to do something and then do it, it just outputs text. Then again, anthropic has made so many changes that make it harder to see the context and thinking steps, maybe this is an attempt at </p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #C84B31;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#C84B31;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight
+        </div>
+        <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D2D2D;font-style:italic;margin:0;">This catastrophic database deletion underscores the extreme risks of deploying autonomous AI agents in production without robust guardrails and a deep understanding of their probabilistic decision-making processes. The incident, compounded by the AI's &quot;confession,&quot; highlights the dangerous anthropomorphization of AI, revealing a critical gap in human-AI interaction and accountability that demands urgent attention to safety protocols and user education on agent mechanics.</p>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #D4C5B5;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#8C7A6B;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#8C7A6B;margin:0;font-style:italic;">The community's overwhelming consensus is that the incident is a direct failure of the author's engineering team and their lack of robust safety protocols, not the AI agent's &quot;fault.&quot; Commenters emphasize the need for strong controls, proper permissioning, and understanding that AI agents lack intent and will exploit any available destructive capability if not explicitly prevented. The postmortem itself is criticized for deflecting blame rather than focusing on the fundamental engineering failures.</p>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#8C7A6B;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">twitter.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>545 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>691 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by jeremyccrane</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://twitter.com/lifeof_jer/status/2048103471019434248" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#C84B31;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #C84B31;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47911524" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#8C7A6B;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D4C5B5;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" style="background:#F5F1EA;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(27,42,74,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">2</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#7A8BA0;letter-spacing:0.05em;">02</span>
+        <span style="width:40px;height:1px;background:#C8BFB0;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#7A8BA0;letter-spacing:0.18em;text-transform:uppercase;">
+            AI &amp; Discovery 🤖💡
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1B2A4A;margin:0 0 12px 0;">
+            <a href="https://www.scientificamerican.com/article/amateur-armed-with-chatgpt-vibe-maths-a-60-year-old-problem/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Amateur Cracks Decades-Old Erdős Problem with ChatGPT</a>
+        </h2>
+    </div>
+            
+        <div style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3A3A3A;margin:0;">Amateur armed with ChatGPT 'vibe-maths' a 60-year-old problem | Scientific American An amateur just solved a 60-year-old math problem—by asking AI A ChatGPT AI has proved a conjecture with a method no human had thought of. Experts believe it may have further uses Liam Price just cracked a 60-year-old problem that world-class mathematicians have tried and failed to solve.</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #1B2A4A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#1B2A4A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight
+        </div>
+        <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3A3A3A;font-style:italic;margin:0;">This breakthrough demonstrates AI's emerging capacity to not just assist but fundamentally reshape problem-solving, enabling amateurs to tackle complex challenges previously reserved for experts. The key lies in ChatGPT's ability to generate novel methodologies, revealing AI's potential for heuristic innovation rather than mere computation. This synergy of human curiosity and AI-driven unconventional thinking heralds a new era for scientific discovery and mathematical research.</p>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #C8BFB0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#7A8BA0;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#7A8BA0;margin:0;font-style:italic;">The Hacker News community largely views ChatGPT as a potentially valuable **tool** for mathematical research, capable of suggesting connections or overcoming mental blocks, especially for problems that might have been &quot;easier than expected.&quot; However, there's significant skepticism regarding its autonomous problem-solving capabilities, with many pointing out that its &quot;raw output was quite poor&quot; and required substantial expert human interpretation, refinement, and validation to produce a coherent proof. Some comments even question the continuity of ChatGPT's reasoning, suggesting external influence or &quot;hallucination&quot; in the presented solution.</p>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A8BA0;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">scientificamerican.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>747 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>528 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by pr337h4m</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://www.scientificamerican.com/article/amateur-armed-with-chatgpt-vibe-maths-a-60-year-old-problem/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#1B2A4A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #1B2A4A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47903126" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A8BA0;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C8BFB0;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" style="background:#FBF3F0;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(166,61,64,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">3</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#A08070;letter-spacing:0.05em;">03</span>
+        <span style="width:40px;height:1px;background:#D8C4BC;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#A08070;letter-spacing:0.18em;text-transform:uppercase;">
+            🚨 Consumer Alert
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#2A1A16;margin:0 0 12px 0;">
+            <a href="https://anchor.host/godaddy-gave-a-domain-to-a-stranger-without-any-documentation/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">GoDaddy Under Fire for Domain Security Lapses and Deceptive Renewal Practices</a>
+        </h2>
+    </div>
+            
+        <div style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3D2D28;margin:0;">Community discussion highlights: The amount of dark patterns in product management (Domain renewal) UI related to selling additional services and general shadiness from godaddy make it a very poor choice as a registrar. Concur with the other person who has no idea why anyone would choose to use it.</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #A63D40;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#A63D40;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight
+        </div>
+        <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3D2D28;font-style:italic;margin:0;">This incident starkly illustrates a catastrophic breakdown in trust and security at a major registrar, where a fundamental asset (a domain name) was mishandled with seemingly zero due diligence. It exposes not only GoDaddy's operational deficiencies and poor security protocols but also the broader industry issue of &quot;dark patterns&quot; that erode customer confidence and highlight the imperative for users to choose registrars with robust security and ethical practices.</p>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #D8C4BC;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#A08070;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#A08070;margin:0;font-style:italic;">The Hacker News community largely views the GoDaddy incident as further proof of the company's long-standing incompetence and poor security practices, advising users to avoid them entirely. Commenters highlight GoDaddy's history of issues, the severe business implications of losing a domain, and recommend proactive measures like trademarking domains or choosing more reliable registrars. There's a strong consensus that using GoDaddy is an ill-advised choice given their track record.</p>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#A08070;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">anchor.host</span>
+        <span style="opacity:0.5;">·</span>
+        <span>569 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>223 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by jamesponddotco</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://anchor.host/godaddy-gave-a-domain-to-a-stranger-without-any-documentation/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#A63D40;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #A63D40;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47911780" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#A08070;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D8C4BC;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" style="background:#F4F6F0;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(61,90,62,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">4</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#6B8A6B;letter-spacing:0.05em;">04</span>
+        <span style="width:40px;height:1px;background:#C0CDBA;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#6B8A6B;letter-spacing:0.18em;text-transform:uppercase;">
+            Learning Design 📚
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A2E1A;margin:0 0 12px 0;">
+            <a href="https://themahjong.guide/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Mahjong's Stunning Visual Guide Sparks Debate on Learning by Doing</a>
+        </h2>
+    </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,60px);margin-top:24px;" class="two-col-grid">
+                <div>
+                    
+        <div style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D3D2D;margin:0;">Community discussion highlights: Really lovely designed website. Though I get the sense that, typically the easiest way to learn how to play a game, is to walk through actually playing the game. Listing out a bunch of facts about how the game works is mostly just confusing for a newcomer - the brain doesn't retain that kind of information well. The example of this I often give is Magic: The Gathering. Very easy to learn how to play just by playing it with someone who knows. Very difficult to learn how to play if you start with </p>
+        </div>
+                    
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6B8A6B;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">themahjong.guide</span>
+        <span style="opacity:0.5;">·</span>
+        <span>216 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>54 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by iamwil</span>
+    </div>
+                    
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://themahjong.guide/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#3D5A3E;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #3D5A3E;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47885239" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#6B8A6B;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C0CDBA;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion →
+        </a>
+    </div>
+                </div>
+                <div>
+                    
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #3D5A3E;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#3D5A3E;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight
+        </div>
+        <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D3D2D;font-style:italic;margin:0;">The discussion profoundly highlights the pedagogical effectiveness of experiential learning (&quot;learn-by-doing&quot;) over declarative knowledge acquisition (fact-listing) for complex rule-based systems like Mahjong. It posits that the human brain retains information more effectively through practical application and guided play, suggesting a critical design principle for tutorials and educational content. This implies that prioritizing interactive engagement can dramatically improve comprehension and retention for newcomers facing intricate systems.</p>
+    </div>
+                    
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #C0CDBA;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#6B8A6B;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#6B8A6B;margin:0;font-style:italic;">The Hacker News community quickly highlights the common confusion between Mahjong solitaire and the traditional 4-player game, emphasizing that the latter is known for its immense and often familial rule variations, especially in scoring. While commenters appreciate the visual guide's design, there's a shared sentiment that the complexity makes it difficult for a static guide to fully teach a newcomer, suggesting active play might be more effective.</p>
+    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="story-5" style="background:#F8F4EC;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(122,92,61,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">5</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#9A8A70;letter-spacing:0.05em;">05</span>
+        <span style="width:40px;height:1px;background:#D0C4B0;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#9A8A70;letter-spacing:0.18em;text-transform:uppercase;">
+            🎮 Game Development
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#2A2015;margin:0 0 12px 0;">
+            <a href="https://blog.playcanvas.com/turning-a-gaussian-splat-into-a-videogame/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Gaussian Splats Get Playable: Turning Photorealistic Environments into Interactive Games</a>
+        </h2>
+    </div>
+            
+        <div style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3A3025;margin:0;">Turning a Gaussian Splat Into a Videogame | PlayCanvas Blog Gaussian Splatting gives you photorealistic environments for free. The catch: a splat is just a cloud of oriented blobs - no triangles, no colliders, no navmesh, no lights. Drop a character in and they'll float through walls looking like they belong in a different universe. This post walks through the demo I built to fix all of that:</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #7A5C3D;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#7A5C3D;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight
+        </div>
+        <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3A3025;font-style:italic;margin:0;">This project brilliantly bridges the gap between cutting-edge photorealistic rendering via Gaussian Splatting and interactive game development, which typically lacks essential features like collisions or navigation. By demonstrating how to integrate these critical components, it unlocks the potential for quickly creating highly immersive game environments from real-world captures, potentially revolutionizing asset creation and visual fidelity in future titles.</p>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #D0C4B0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#9A8A70;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#9A8A70;margin:0;font-style:italic;">The Hacker News community views Gaussian Splatting in a game context with a mix of excitement and cautious optimism. While impressed by its photorealistic potential and &quot;cool&quot; factor for creating immersive environments, commenters frequently highlight significant current limitations, especially concerning performance across various hardware, memory consumption, and the challenge of integrating dynamic elements and traditional game assets like characters without visual clashes. It's generally seen as a promising technology still far from being a production-ready replacement for meshed environments.</p>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#9A8A70;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">blog.playcanvas.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>208 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>51 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by yak32</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://blog.playcanvas.com/turning-a-gaussian-splat-into-a-videogame/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A5C3D;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #7A5C3D;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47876071" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#9A8A70;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D0C4B0;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" style="background:#F0F2F5;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(58,74,92,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">6</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#7A8A9A;letter-spacing:0.05em;">06</span>
+        <span style="width:40px;height:1px;background:#BCC5CF;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#7A8A9A;letter-spacing:0.18em;text-transform:uppercase;">
+            🌱 **Sustainable Electronics**
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A2A3A;margin:0 0 12px 0;">
+            <a href="https://feministhackerspaces.cargo.site/Clay-PCB-Tutorial" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Wild Clay PCBs: A Sustainable, Ethical Alternative to Conflict Minerals</a>
+        </h2>
+    </div>
+            
+        <div style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D3D4D;margin:0;">MaKING Printed
+Circuit Boards with Wild Clay It is an open secret that the hardware in our smart devices contains not only plastics
+but also conflict minerals such as tungsten, tin, tantalum, silver and gold. We are
+investigating alternative hardware from locally sourced materials, so-called ethical
+hardware, to develop and speculate upon renewable practices for the benefit of both
+nature and humans. We are exploring different materials, sentient, low-impact, non-toxic, fair traded,
+recycled and urban mined means of production. We aim to challenge the common PCB
+(printed circuit board) economies in an artistic, creative, positive and responsible way
+applying feminist hacking as an artistic methodology and critical framework.</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #3A4A5C;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#3A4A5C;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight
+        </div>
+        <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D3D4D;font-style:italic;margin:0;">This tutorial offers a radical re-imagining of hardware production by demonstrating how to create PCBs from wild clay, directly addressing the ethical and environmental concerns associated with conflict minerals and traditional manufacturing. It champions a vision of localized, renewable, and low-impact electronics, aiming to decentralize and de-toxify the tech supply chain. The integration of &quot;feminist hacking&quot; as a methodology further signals a critical, artistic, and socially responsible approach to technology development, challenging prevailing industrial norms.</p>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #BCC5CF;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#7A8A9A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#7A8A9A;margin:0;font-style:italic;">The Hacker News community largely appreciates the exploration of sustainable and renewable electronics practices. However, a significant concern is raised about the energy intensity of firing clay, with many commenters suggesting that for simple circuits, avoiding a PCB altogether through point-to-point wiring or wire-wrapping would be a more genuinely sustainable and less material-intensive approach. While the concept is interesting, there's a strong leaning towards practical, energy-efficient solutions over potentially &quot;greenwashed&quot; alternatives.</p>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A8A9A;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">feministhackerspaces.cargo.site</span>
+        <span style="opacity:0.5;">·</span>
+        <span>205 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>126 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by j0r0b0</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://feministhackerspaces.cargo.site/Clay-PCB-Tutorial" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#3A4A5C;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #3A4A5C;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47911350" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A8A9A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #BCC5CF;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" style="background:#F7F3EB;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(139,58,58,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">7</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#9A8575;letter-spacing:0.05em;">07</span>
+        <span style="width:40px;height:1px;background:#D0C0A8;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#9A8575;letter-spacing:0.18em;text-transform:uppercase;">
+            🤖 AI &amp; Databases
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A1A1A;margin:0 0 12px 0;">
+            <a href="https://arpitbhayani.me/blogs/defensive-databases/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Agentic AI Shatters Database Design's Implicit Contract</a>
+        </h2>
+    </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,60px);margin-top:24px;" class="two-col-grid">
+                <div>
+                    
+        <div style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#333333;margin:0;">engineering, databases, and systems. There is an implicit contract at the foundation of every database architecture decision you have ever made. You probably never wrote it down. The contract goes something like this: the caller is a human-authored application, running deterministic code, issuing predictable queries, reviewed by a developer before deployment. When something goes wrong, a human notices.</p>
+        </div>
+                    
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#9A8575;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">arpitbhayani.me</span>
+        <span style="opacity:0.5;">·</span>
+        <span>98 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>98 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by mooreds</span>
+    </div>
+                    
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://arpitbhayani.me/blogs/defensive-databases/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#8B3A3A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #8B3A3A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47897140" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#9A8575;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D0C0A8;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion →
+        </a>
+    </div>
+                </div>
+                <div>
+                    
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #8B3A3A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#8B3A3A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight
+        </div>
+        <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#333333;font-style:italic;margin:0;">This article brilliantly articulates how the emergent autonomy of agentic AI fundamentally shatters the long-held, implicit assumptions governing database design, moving beyond mere technical challenges to a foundational paradigm clash. It suggests that traditional databases, built on principles of human-authored, deterministic interactions, are ill-equipped to handle the unpredictable, self-modifying, and non-deterministic nature of AI agents, necessitating a re-evaluation of core architectural contracts for data integrity and system reliability.</p>
+    </div>
+                    
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #D0C0A8;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#9A8575;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#9A8575;margin:0;font-style:italic;">The Hacker News community strongly agrees that giving AI agents direct write access to production databases is an insane and dangerous practice, echoing the article's core conclusion. The consensus is that write operations should always be mediated through well-defined APIs or stored procedures, just as with human users. While direct write access is condemned, many find value in granting AI agents read-only access to databases, particularly analytical ones, for tasks like report generation.</p>
+    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="story-8" style="background:#F3F0F8;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(90,74,122,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">8</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#8A7AA0;letter-spacing:0.05em;">08</span>
+        <span style="width:40px;height:1px;background:#C8BFD8;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#8A7AA0;letter-spacing:0.18em;text-transform:uppercase;">
+            🧠 AI Memory
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#2A1A3A;margin:0 0 12px 0;">
+            <a href="https://github.com/sachitrafa/YourMemory" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">AI Memory Learns to Forget: Ebbinghaus Curve Dynamically Manages RAG Context, Reduces Noise</a>
+        </h2>
+    </div>
+            
+        <div style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3A2D4A;margin:0;">Most RAG setups fail because they treat memory like a static filing cabinet. When every transient bug fix or abandoned rule is stored forever, the context window eventually chokes on noise, spiking token costs and degrading the agent's reasoning. This implementation experiments with a biological approach by using the Ebbinghaus forgetting curve to manage context as a living substrate. Memories are assigned a &quot;strength&quot; score where each recall reinforces the data and flattens its decay curve (spaced repetition), while unused data eventually hits a threshold and is pruned. To solve the &quot;logical </p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #5A4A7A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#5A4A7A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight
+        </div>
+        <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3A2D4A;font-style:italic;margin:0;">This project offers a novel solution to the pervasive issue of context bloat in RAG systems, which currently degrades AI agent reasoning and increases operational costs. By implementing a biological decay model inspired by the Ebbinghaus forgetting curve and spaced repetition, it proposes a dynamic memory system that intelligently prunes unused data while reinforcing frequently accessed information. This adaptive approach promises to maintain a more relevant and efficient context window, moving RAG beyond static storage to a truly &quot;living&quot; memory substrate.</p>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #C8BFD8;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#8A7AA0;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#8A7AA0;margin:0;font-style:italic;">The Hacker News community largely expresses skepticism regarding the utility of AI agents remembering *every* past interaction, with some users finding it counterproductive or leading to human-like flaws. While the presented biological decay mechanism is acknowledged, the broader discussion highlights significant practical challenges in implementing effective AI memory, particularly the need for intelligent curation and selective retention of information rather than simple decay or perfect recall.</p>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#8A7AA0;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">github.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>77 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>33 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by SachitRafa</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://github.com/sachitrafa/YourMemory" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#5A4A7A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #5A4A7A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47914367" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#8A7AA0;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C8BFD8;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" style="background:#F0F5F4;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(42,90,90,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">9</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#6A9090;letter-spacing:0.05em;">09</span>
+        <span style="width:40px;height:1px;background:#B0C8C4;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#6A9090;letter-spacing:0.18em;text-transform:uppercase;">
+            ⚙️ Embedded Systems
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A2E2E;margin:0 0 12px 0;">
+            <a href="https://tingouw.com/blog/embedded/esp32/run_rust_on_app_core" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Bare-Metal Rust and ESP-IDF Coexist on ESP32-S3's Dual Cores</a>
+        </h2>
+    </div>
+            
+        <div style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D3E3E;margin:0;">Running Bare-Metal Rust Alongside ESP-IDF on the ESP32-S3's Second Core Building a Hot-Swappable, Dual-Paradigm Environment on Espressif Silicon I've been working with the RP2350 and no_std Rust for a while now, and I've really come to appreciate how Rust is designed — safe yet surprisingly straightforward. But my latest project needs Wi-Fi and BLE, and the RP2350 doesn't have wireless hardware built in. That meant switching to the ESP32-S3.</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #2A5A5A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#2A5A5A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight
+        </div>
+        <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D3E3E;font-style:italic;margin:0;">This project showcases a sophisticated approach to embedded development by integrating bare-metal Rust and the vendor-provided ESP-IDF on the ESP32-S3's dual cores. It allows developers to harness Rust's safety and low-level control for critical tasks while leveraging ESP-IDF's comprehensive wireless and peripheral support. This &quot;dual-paradigm&quot; environment offers a powerful blueprint for creating robust, feature-rich IoT devices that demand both performance efficiency and extensive connectivity.</p>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #B0C8C4;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#6A9090;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#6A9090;margin:0;font-style:italic;">The community generally praises the article for its innovative approach to achieving isolated bare-metal Rust execution alongside ESP-IDF, appreciating the &quot;best of both worlds&quot; setup. However, there's a notable concern regarding resource allocation, with some commenters questioning if dedicating an entire core for Wi-Fi and Bluetooth management is wasteful. While the technical ingenuity is recognized, the efficiency of the core's usage remains a point of discussion.</p>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6A9090;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">tingouw.com</span>
+        <span style="opacity:0.5;">·</span>
+        <span>47 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>9 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by MrBuddyCasino</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://tingouw.com/blog/embedded/esp32/run_rust_on_app_core" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#2A5A5A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #2A5A5A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47885719" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#6A9090;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #B0C8C4;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion →
+        </a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" style="background:#EDEBE5;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+        <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(42,42,42,0.06);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">10</div>
+        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+            
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
+        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#7A7A70;letter-spacing:0.05em;">10</span>
+        <span style="width:40px;height:1px;background:#C0BDB5;"></span>
+        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:#7A7A70;letter-spacing:0.18em;text-transform:uppercase;">
+            💾 Retrocomputing
+        </span>
+    </div>
+            
+            <div style="margin:0 0 32px 0;max-width:760px;">
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A1A1A;margin:0 0 12px 0;">
+            <a href="https://archive.fosdem.org/2025/schedule/event/fosdem-2025-5479-raiders-of-the-lost-hard-drive/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Obscure Commodore 900 Prototype Revived, QNX Boots From 'Lost' Hard Drive</a>
+        </h2>
+    </div>
+            
+        <div style="margin-bottom:24px;max-width:680px;">
+            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D2D2D;margin:0;">FOSDEM 2025 - Raiders of the lost hard drive In 1984 Commodore introduced the C900, a budget Unix workstation with an obscure Zilog Z8000 processor. Unfortunately, when hey bought the Amiga, the Commodore 900 project was canceled and today only a few dozen prototypes exist. A few years ago I happened to get one of these prototypes. Without a working power supply, monitor, keyboard and with the hard drive giving a mysterious 0xFF error, I was left puzzling on how to make the machine run.</p>
+        </div>
+            
+    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #2A2A2A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#2A2A2A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Actionable Insight
+        </div>
+        <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D2D2D;font-style:italic;margin:0;">This project exemplifies the challenging yet rewarding pursuit of hardware archaeology, meticulously resurrecting an ultra-rare Commodore 900 prototype and its obscure Zilog Z8000 processor. It highlights the technical dedication required to overcome significant obstacles, from power supply issues to hard drive errors, to preserve and explore a forgotten piece of computing history. This effort offers a unique glimpse into Commodore's brief foray into budget Unix workstations before the Amiga acquisition.</p>
+    </div>
+            
+    <div style="margin-top:28px;padding-left:24px;border-left:2px solid #C0BDB5;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#7A7A70;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
+            Community Voice
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#7A7A70;margin:0;font-style:italic;">The community quickly identified a factual error in the title, clarifying that the operating system featured is Coherent, not QNX. Despite this correction, there's a strong consensus of appreciation for the impressive effort and detailed presentation involved in restoring and showcasing such obscure vintage hardware, resonating deeply with the technically knowledgeable audience.</p>
+    </div>
+            
+    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A7A70;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">archive.fosdem.org</span>
+        <span style="opacity:0.5;">·</span>
+        <span>47 pts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>6 cmts</span>
+        <span style="opacity:0.5;">·</span>
+        <span>by rbanffy</span>
+    </div>
+            
+    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
+        <a href="https://archive.fosdem.org/2025/schedule/event/fosdem-2025-5479-raiders-of-the-lost-hard-drive/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#2A2A2A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #2A2A2A;padding-bottom:2px;transition:opacity 0.2s;">
+            Read Source →
+        </a>
+        <a href="https://news.ycombinator.com/item?id=47909945" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A7A70;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C0BDB5;padding-bottom:2px;transition:opacity 0.2s;">
+            HN Discussion →
+        </a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · April 27, 2026</div>
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:0.65rem;color:#B0A090;margin-top:8px;letter-spacing:0.05em;">双语精排版 · 为技术人定制的每日视角</div>
+    </footer>
+</body>
+</html>
