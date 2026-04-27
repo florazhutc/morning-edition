@@ -622,16 +622,16 @@ def enrich_stories(curated):
 # ---------------------------------------------------------------------------
 
 PAGE_STYLES = [
-    { "bg": "#FAF6F0", "border_accent": "#C84B31", "heading_color": "#1A1A1A", "text_color": "#2D2D2D", "meta_color": "#8C7A6B", "accent": "#C84B31", "label_bg": "#C84B31", "label_color": "#FAF6F0", "rule_color": "#D4C5B5", "numeral_color": "rgba(200,75,49,0.06)", "layout": "hero" },
-    { "bg": "#F5F1EA", "border_accent": "#1B2A4A", "heading_color": "#1B2A4A", "text_color": "#3A3A3A", "meta_color": "#7A8BA0", "accent": "#1B2A4A", "label_bg": "#1B2A4A", "label_color": "#F5F1EA", "rule_color": "#C8BFB0", "numeral_color": "rgba(27,42,74,0.05)", "layout": "standard" },
-    { "bg": "#FBF3F0", "border_accent": "#A63D40", "heading_color": "#2A1A16", "text_color": "#3D2D28", "meta_color": "#A08070", "accent": "#A63D40", "label_bg": "#A63D40", "label_color": "#FBF3F0", "rule_color": "#D8C4BC", "numeral_color": "rgba(166,61,64,0.05)", "layout": "pull-quote" },
-    { "bg": "#F4F6F0", "border_accent": "#3D5A3E", "heading_color": "#1A2E1A", "text_color": "#2D3D2D", "meta_color": "#6B8A6B", "accent": "#3D5A3E", "label_bg": "#3D5A3E", "label_color": "#F4F6F0", "rule_color": "#C0CDBA", "numeral_color": "rgba(61,90,62,0.05)", "layout": "two-column" },
-    { "bg": "#F8F4EC", "border_accent": "#7A5C3D", "heading_color": "#2A2015", "text_color": "#3A3025", "meta_color": "#9A8A70", "accent": "#7A5C3D", "label_bg": "#7A5C3D", "label_color": "#F8F4EC", "rule_color": "#D0C4B0", "numeral_color": "rgba(122,92,61,0.05)", "layout": "drop-cap" },
-    { "bg": "#F0F2F5", "border_accent": "#3A4A5C", "heading_color": "#1A2A3A", "text_color": "#2D3D4D", "meta_color": "#7A8A9A", "accent": "#3A4A5C", "label_bg": "#3A4A5C", "label_color": "#F0F2F5", "rule_color": "#BCC5CF", "numeral_color": "rgba(58,74,92,0.05)", "layout": "stat-callout" },
-    { "bg": "#F7F3EB", "border_accent": "#8B3A3A", "heading_color": "#1A1A1A", "text_color": "#333333", "meta_color": "#9A8575", "accent": "#8B3A3A", "label_bg": "#8B3A3A", "label_color": "#F7F3EB", "rule_color": "#D0C0A8", "numeral_color": "rgba(139,58,58,0.05)", "layout": "aside-quote" },
-    { "bg": "#F3F0F8", "border_accent": "#5A4A7A", "heading_color": "#2A1A3A", "text_color": "#3A2D4A", "meta_color": "#8A7AA0", "accent": "#5A4A7A", "label_bg": "#5A4A7A", "label_color": "#F3F0F8", "rule_color": "#C8BFD8", "numeral_color": "rgba(90,74,122,0.05)", "layout": "standard" },
-    { "bg": "#F0F5F4", "border_accent": "#2A5A5A", "heading_color": "#1A2E2E", "text_color": "#2D3E3E", "meta_color": "#6A9090", "accent": "#2A5A5A", "label_bg": "#2A5A5A", "label_color": "#F0F5F4", "rule_color": "#B0C8C4", "numeral_color": "rgba(42,90,90,0.05)", "layout": "pull-quote" },
-    { "bg": "#EDEBE5", "border_accent": "#2A2A2A", "heading_color": "#1A1A1A", "text_color": "#2D2D2D", "meta_color": "#7A7A70", "accent": "#2A2A2A", "label_bg": "#C84B31", "label_color": "#EDEBE5", "rule_color": "#C0BDB5", "numeral_color": "rgba(42,42,42,0.06)", "layout": "closer" },
+    { "bg": "#FAF6F0", "accent": "#C84B31", "rule_color": "#D4C5B5", "numeral_color": "rgba(200,75,49,0.04)" },
+    { "bg": "#F5F1EA", "accent": "#1B2A4A", "rule_color": "#C8BFB0", "numeral_color": "rgba(27,42,74,0.04)" },
+    { "bg": "#FBF3F0", "accent": "#A63D40", "rule_color": "#D8C4BC", "numeral_color": "rgba(166,61,64,0.04)" },
+    { "bg": "#F4F6F0", "accent": "#3D5A3E", "rule_color": "#C0CDBA", "numeral_color": "rgba(61,90,62,0.04)" },
+    { "bg": "#F8F4EC", "accent": "#7A5C3D", "rule_color": "#D0C4B0", "numeral_color": "rgba(122,92,61,0.04)" },
+    { "bg": "#F0F2F5", "accent": "#3A4A5C", "rule_color": "#BCC5CF", "numeral_color": "rgba(58,74,92,0.04)" },
+    { "bg": "#F7F3EB", "accent": "#8B3A3A", "rule_color": "#D0C0A8", "numeral_color": "rgba(139,58,58,0.04)" },
+    { "bg": "#F3F0F8", "accent": "#5A4A7A", "rule_color": "#C8BFD8", "numeral_color": "rgba(90,74,122,0.04)" },
+    { "bg": "#F0F5F4", "accent": "#2A5A5A", "rule_color": "#B0C8C4", "numeral_color": "rgba(42,90,90,0.04)" },
+    { "bg": "#EDEBE5", "accent": "#C84B31", "rule_color": "#C0BDB5", "numeral_color": "rgba(200,75,49,0.04)" },
 ]
 
 def html_escape(text):
@@ -642,133 +642,73 @@ def html_escape(text):
 def render_story_section(story, index, style):
     num = index + 1
     s = style
-    layout = s["layout"]
-    
+
     # Text Setup
     title_en = html_escape(story["title"])
-    title_zh = html_escape(story.get("title_zh", ""))
-    
     sum_en = html_escape(story.get("summary_en", ""))
-    sum_zh = html_escape(story.get("summary_zh", ""))
-    
     insight_en = html_escape(story.get("insight_en", ""))
-    insight_zh = html_escape(story.get("insight_zh", ""))
-    
     cat_en = html_escape(story.get("insight_cat_en", ""))
-
     comm_en = html_escape(story.get("community_en", ""))
 
     # Flag
     flag_html = ""
     if story["flagged"]:
-        flag_html = f'''
-        <div style="display:inline-flex;align-items:center;gap:6px;background:{s['label_bg']};color:{s['label_color']};
-            padding:4px 14px;border-radius:2px;font-family:'Inter',sans-serif;font-size:0.7rem;
-            font-weight:700;letter-spacing:0.12em;margin-bottom:24px;">
-            ⚡ HIGHLY RELEVANT
-        </div>'''
+        flag_html = f'<div class="flag">⚡ Highly Relevant</div>'
 
     # Category Line
-    section_header = f'''
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
-        <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:{s['meta_color']};letter-spacing:0.05em;">{num:02d}</span>
-        <span style="width:40px;height:1px;background:{s['rule_color']};"></span>
-        <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;color:{s['meta_color']};letter-spacing:0.18em;text-transform:uppercase;">
-            {cat_en}
-        </span>
-    </div>'''
+    section_header = f'<div class="story-category">{cat_en}</div>'
 
     # Headline
-    headline = f'''<div style="margin:0 0 32px 0;max-width:760px;">
-        <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:{s['heading_color']};margin:0 0 12px 0;">
-            <a href="{story['url']}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">{title_en}</a>
-        </h2>
-    </div>'''
+    headline = f'<h2 class="story-title"><a href="{story["url"]}" target="_blank" rel="noopener">{title_en}</a></h2>'
 
-    # Summary Block (English only)
+    # Summary Block
     summary_html = ""
     if sum_en:
-        summary_html = f'''
-        <div style="margin-bottom:24px;max-width:680px;">
-            <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:{s['text_color']};margin:0;">{sum_en}</p>
-        </div>'''
+        summary_html = f'<p class="story-summary">{sum_en}</p>'
 
-    # Actionable Insight (English only)
+    # Insight
     insight_html = ""
     if insight_en:
         insight_html = f'''
-    <div style="margin-top:32px;padding:24px 28px;border-left:3px solid {s['accent']};background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
-        <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:{s['accent']};letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Actionable Insight
-        </div>
-        <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:{s['text_color']};font-style:italic;margin:0;">{insight_en}</p>
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">{insight_en}</p>
     </div>'''
 
-    # Community Voice (English only)
+    # Community Voice
     community_html = ""
     if comm_en:
         community_html = f'''
-    <div style="margin-top:28px;padding-left:24px;border-left:2px solid {s['rule_color']};">
-        <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:{s['meta_color']};letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Community Voice
-        </div>
-        <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:{s['meta_color']};margin:0;font-style:italic;">{comm_en}</p>
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">{comm_en}</p>
     </div>'''
 
     # Meta
     meta_line = f'''
-    <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:{s['meta_color']};letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-        <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">{html_escape(story["domain"])}</span>
-        <span style="opacity:0.5;">·</span>
+    <div class="story-meta">
+        <span>{html_escape(story["domain"])}</span>
+        <span>·</span>
         <span>{story["score"]} pts</span>
-        <span style="opacity:0.5;">·</span>
-        <span>{story["comments"]} cmts</span>
-        <span style="opacity:0.5;">·</span>
+        <span>·</span>
+        <span>{story["comments"]} comments</span>
+        <span>·</span>
         <span>by {html_escape(story["by"])}</span>
     </div>'''
 
     # Links
     links_html = f'''
-    <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
-        <a href="{story['url']}" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:{s['accent']};text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid {s['accent']};padding-bottom:2px;transition:opacity 0.2s;">
-            Read Source →
-        </a>
-        <a href="{story['hn_url']}" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:{s['meta_color']};text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid {s['rule_color']};padding-bottom:2px;transition:opacity 0.2s;">
-            HN Discussion →
-        </a>
+    <div class="story-links">
+        <a href="{story['url']}" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="{story['hn_url']}" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
     </div>'''
 
-    numeral = f'''<div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:{s['numeral_color']};line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">{num}</div>'''
-
-    # Simplified Layouts since bilingual text takes more height:
-    # Most will route through standard two-column concept or stacked.
-    
-    if layout == "two-column" or layout == "aside-quote":
-        return f'''
-    <section id="story-{num}" style="background:{s['bg']};min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
-        {numeral}
-        <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;">
-            {section_header}
-            {flag_html}
-            {headline}
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,60px);margin-top:24px;" class="two-col-grid">
-                <div>
-                    {summary_html}
-                    {meta_line}
-                    {links_html}
-                </div>
-                <div>
-                    {insight_html}
-                    {community_html}
-                </div>
-            </div>
-        </div>
-    </section>'''
+    numeral = f'<div class="story-num">{num}</div>'
 
     return f'''
-    <section id="story-{num}" style="background:{s['bg']};min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
+    <section id="story-{num}" class="story" style="background:{s['bg']};">
         {numeral}
-        <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
+        <div class="story-content">
             {section_header}
             {flag_html}
             {headline}
@@ -791,14 +731,12 @@ def render_magazine(stories, date_str):
 
     toc_items = ""
     for i, story in enumerate(stories):
-        flag_mark = ' <span style="color:#C84B31;">⚡</span>' if story["flagged"] else ""
+        flag_mark = ' ⚡' if story["flagged"] else ""
         toc_items += f'''
-        <a href="#story-{i+1}" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
-            <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">{i+1:02d}</span>
-            <div style="flex-grow:1;margin-right:20px;">
-                <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;">{html_escape(story["title"])}{flag_mark}</div>
-            </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 {story["score"]} pts</span>
+        <a href="#story-{i+1}" class="toc-item">
+            <span class="toc-num">{i+1:02d}</span>
+            <span class="toc-title">{html_escape(story["title"])}{flag_mark}</span>
+            <span class="toc-score">{story["score"]} pts</span>
         </a>'''
 
     return f'''<!DOCTYPE html>
@@ -809,35 +747,69 @@ def render_magazine(stories, date_str):
     <title>Morning Edition — {formatted_date}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;600;700&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after {{ margin:0; padding:0; box-sizing:border-box; }}
-        html {{ scroll-snap-type: y mandatory; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }}
-        body {{ font-family: 'Inter', sans-serif; overflow-x: hidden; background: #FAF6F0; word-break: break-word; overflow-wrap: break-word; }}
-        section {{ scroll-snap-align: start; scroll-snap-stop: always; }}
+        html {{ scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }}
+        body {{ font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }}
         a {{ overflow-wrap: anywhere; }}
-        a:hover {{ opacity: 0.8; }}
-        .masthead {{ scroll-snap-align: start; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 8vh 6vw; position: relative; }}
+        a:hover {{ opacity: 0.7; }}
+
+        /* Masthead */
+        .masthead {{ min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }}
         .masthead::before {{ content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }}
-        .toc {{ scroll-snap-align: start; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(60px,10vh,100px) clamp(32px,12vw,200px); }}
-        .nav-dots {{ position: fixed; right: clamp(12px,2vw,24px); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 1000; }}
-        .colophon {{ background: #EDEBE5; padding: 6vh 8vw; text-align: center; scroll-snap-align: end; }}
+        .masthead-label {{ font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }}
+        .masthead h1 {{ font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }}
+        .masthead h1 em {{ font-style: italic; color: #C84B31; }}
+        .masthead-date {{ font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }}
+        .masthead-year {{ font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }}
+
+        /* TOC */
+        .toc {{ padding: 120px 8vw; max-width: 720px; margin: 0 auto; }}
+        .toc-header {{ font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }}
+        .toc-header::after {{ content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }}
+        .toc-item {{ display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }}
+        .toc-item:hover {{ padding-left: 12px; opacity: 0.7; }}
+        .toc-num {{ font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }}
+        .toc-title {{ font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }}
+        .toc-score {{ font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }}
+
+        /* Story Section */
+        .story {{ min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }}
+        .story-content {{ max-width: 760px; width: 100%; }}
+        .story-category {{ font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }}
+        .story-category::after {{ content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }}
+        .story-title {{ font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }}
+        .story-title a {{ color: inherit; text-decoration: none; }}
+        .story-summary {{ font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }}
+        .story-insight {{ padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }}
+        .story-insight-label {{ font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }}
+        .story-insight-text {{ font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }}
+        .story-community {{ padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }}
+        .story-community-label {{ font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }}
+        .story-community-text {{ font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }}
+        .story-meta {{ font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }}
+        .story-meta span:first-child {{ font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }}
+        .story-links {{ display: flex; gap: 32px; }}
+        .story-link {{ font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }}
+        .story-num {{ position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }}
+        .flag {{ display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }}
+
+        /* Floating Action Bar */
         .action-bar {{ position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }}
         .action-btn {{ background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }}
-        .action-btn.primary {{ background: #1A1A1A; color: #FAF6F0; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }}
-        .action-btn:hover {{ transform: translateY(-2px); }}
-        .action-btn.primary:hover {{ box-shadow: 0 6px 16px rgba(0,0,0,0.2); }}
+        .action-btn.primary {{ background: #1A1A1A; color: #FAF6F0; border: none; }}
+        .action-btn:hover {{ opacity: 0.8; }}
+
         @media (max-width: 768px) {{
-            html {{ scroll-snap-type: none; }}
-            section, .toc, .masthead, .colophon {{ scroll-snap-align: none; min-height: auto; }}
-            .nav-dots {{ display: none; }}
-            section, .toc {{ padding: 60px 20px !important; }}
-            .masthead {{ padding: 12vh 20px !important; }}
-            .two-col-grid {{ grid-template-columns: 1fr !important; gap: 32px !important; }}
-            .action-bar {{ top: auto; bottom: 24px; right: 50%; transform: translateX(50%); width: max-content; background: rgba(255,255,255,0.95); padding: 8px; border-radius: 40px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); backdrop-filter: blur(16px); border: 1px solid rgba(0,0,0,0.08); }}
-            .action-btn {{ border: none; box-shadow: none; padding: 10px 20px; background: transparent; font-size: 0.8rem; }}
-            .action-btn.primary {{ background: #1A1A1A; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }}
+            .story {{ padding: 80px 24px; min-height: auto; }}
+            .story-num {{ display: none; }}
+            .toc {{ padding: 80px 24px; }}
+            .toc-item {{ gap: 16px; }}
+            .toc-title {{ font-size: 1.1rem; }}
+            .masthead {{ padding: 12vh 24px; }}
         }}
+    </style>
     </style>
 </head>
 <body>
@@ -860,31 +832,16 @@ def render_magazine(stories, date_str):
 
     <!-- MASTHEAD -->
     <div class="masthead">
-        <div style="margin-bottom:40px;">
-            <div style="width:60px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#8C7A6B;">
-                A Curated Daily Digest
-            </span>
-        </div>
-        <h1 style="font-family:'Fraunces',serif;font-size:clamp(3.5rem,10vw,8rem);font-weight:900;color:#1A1A1A;line-height:0.95;letter-spacing:-0.03em;margin-bottom:16px;">
-            Morning<br><em style="font-style:italic;font-weight:400;color:#C84B31;">Edition</em>
-        </h1>
-        <div style="width:40px;height:1px;background:#D4C5B5;margin:24px auto;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.8vw,1.3rem);color:#8C7A6B;font-weight:400;font-style:italic;">{day_name}</div>
-        <div style="font-family:'Inter',sans-serif;font-size:clamp(0.8rem,1.2vw,0.95rem);color:#B0A090;font-weight:400;letter-spacing:0.1em;margin-top:6px;">{formatted_date}</div>
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">{day_name}</div>
+        <div class="masthead-year">{formatted_date}</div>
     </div>
 
     <!-- TABLE OF CONTENTS -->
     <div class="toc" id="toc">
-        <div style="max-width:700px;margin:0 auto;width:100%;">
-            <div style="margin-bottom:40px;">
-                <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:#8C7A6B;">
-                    In This Issue
-                </span>
-                <div style="width:30px;height:2px;background:#C84B31;margin-top:12px;"></div>
-            </div>
-            <nav>{toc_items}</nav>
-        </div>
+        <div class="toc-header">In This Issue</div>
+        <nav>{toc_items}</nav>
     </div>
 
     <!-- STORIES -->
