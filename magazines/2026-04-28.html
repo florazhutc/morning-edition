@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — April 28, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 目录</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Tuesday</div>
+        <div class="masthead-year">April 28, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Microsoft, OpenAI Terminate Exclusive Revenue-Sharing Agreement</span>
+            <span class="toc-score">852 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Friendster Acquired for $30k to Revive Classic 'Wall' Social Interactions</span>
+            <span class="toc-score">1081 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Vim-Powered Terminal Spreadsheet Handles CSV, TSV, and Formulas</span>
+            <span class="toc-score">92 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">China Orders Meta to Unwind $2 Billion Manus AI Deal</span>
+            <span class="toc-score">366 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Open-Source Agent Tops TerminalBench, Fairly Outperforming Google's Official and Proprietary Rivals</span>
+            <span class="toc-score">337 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">GitHub Copilot Switches to Usage-Based Billing ⚡</span>
+            <span class="toc-score">632 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Don't Make Users Wait: Gamify LLM Loading Screens</span>
+            <span class="toc-score">12 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Chrome's Prompt API: Build AI Experiences Directly in the Browser</span>
+            <span class="toc-score">261 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">4TB Voice Samples Stolen from 40,000 Mercor AI Contractors: How to Check for Weaponization</span>
+            <span class="toc-score">513 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Supreme Court Weighs Dismissal of Thousands of Roundup Cancer Lawsuits Against Bayer</span>
+            <span class="toc-score">140 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🤝 Strategic Partnership</div>
+            
+            <h2 class="story-title"><a href="https://www.bloomberg.com/news/articles/2026-04-27/microsoft-to-stop-sharing-revenue-with-main-ai-partner-openai" target="_blank" rel="noopener">Microsoft, OpenAI Terminate Exclusive Revenue-Sharing Agreement</a></h2>
+            <p class="story-summary">Gift Article: https://www.bloomberg.com/news/articles/2026-04-27/microsoft... https://openai.com/index/next-phase-of-microsoft-partnership... https://x.com/ajassy/status/2048806022253609115</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The termination of Microsoft and OpenAI's exclusive and revenue-sharing deal marks a pivotal shift, potentially granting OpenAI greater independence to pursue broader partnerships and diversify its revenue streams. For Microsoft, while losing exclusivity, this recalibration might allow for more flexible commercialization models and broader AI adoption via Azure, suggesting a maturing alliance where initial restrictive terms are shed for future strategic flexibility. This move will likely intensify competition in the AI ecosystem as OpenAI becomes more accessible to other major players.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely perceives this deal as a strategic win for OpenAI, granting them crucial flexibility to utilize other cloud providers and hardware, potentially benefiting Google's TPUs. Conversely, many view it as a significant setback for Microsoft, indicating a weakened negotiating position and a willingness to concede exclusivity to protect its initial investment in an increasingly competitive AI market.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>bloomberg.com</span>
+        <span>·</span>
+        <span>852 pts</span>
+        <span>·</span>
+        <span>730 comments</span>
+        <span>·</span>
+        <span>by helsinkiandrew</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.bloomberg.com/news/articles/2026-04-27/microsoft-to-stop-sharing-revenue-with-main-ai-partner-openai" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47921248" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🌐 Social Media Revival</div>
+            
+            <h2 class="story-title"><a href="https://ca98am79.medium.com/i-bought-friendster-for-30k-heres-what-i-m-doing-with-it-d5e8ddb3991d" target="_blank" rel="noopener">Friendster Acquired for $30k to Revive Classic 'Wall' Social Interactions</a></h2>
+            <p class="story-summary">Community discussion highlights: The only thing I liked when I did use Facebook was the &quot;wall&quot;. To be able to post on a friend's wall semi- publically where their friends can see it. Most other Facebook clones have had the idea of tagging, but it wasn't the same. (E.g. Google+)</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The acquisition of Friendster signals a nascent trend of re-evaluating legacy web properties, driven by nostalgia and a desire for alternative social experiences. This venture likely aims to reimagine what made early social networks compelling, focusing on authentic, semi-public interactions like the original &quot;wall&quot; that fostered unique community dynamics. It underscores a potential market for simpler, more intimate online spaces, contrasting sharply with today's hyper-algorithm-driven platforms.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses a mixed reaction to the project's core features, with some users praising the &quot;phone proximity&quot; and &quot;fading connections&quot; as unique and wholesome, while others criticize them as impractical gimmicks that will limit adoption. There's a strong consensus advocating for a web-based (PWA) implementation over a native app to improve accessibility, coupled with advice to focus heavily on effortless onboarding to attract users.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>ca98am79.medium.com</span>
+        <span>·</span>
+        <span>1081 pts</span>
+        <span>·</span>
+        <span>593 comments</span>
+        <span>·</span>
+        <span>by ca98am79</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://ca98am79.medium.com/i-bought-friendster-for-30k-heres-what-i-m-doing-with-it-d5e8ddb3991d" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47914165" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Vim Tool 🤓</div>
+            
+            <h2 class="story-title"><a href="https://github.com/garritfra/cell" target="_blank" rel="noopener">Vim-Powered Terminal Spreadsheet Handles CSV, TSV, and Formulas</a></h2>
+            <p class="story-summary">While speccing out this spreadsheet tool, I realized that I never had to think about the keybindings. It all just came naturally from Vim. Normal/insert/visual modes, hjkl navigation, dd/yy/p, :w, :q. The usual muscle memory works. It supports CSV/TSV import and export, and a native .cell format that preserves formulas. The formula engine handles SUM, AVERAGE, COUNT, MIN, MAX, and IF with range references. The codebase is a Cargo workspace: a pure cell-sheet-core library (no TUI dependency) and a cell-sheet-tui crate on top of ratatui. Early days, but it's usable. To try it out: cargo install </p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project cleverly targets a niche but highly productive user base: Vim enthusiasts who operate primarily within the terminal. By porting familiar Vim keybindings directly to a spreadsheet, it eliminates the cognitive overhead of learning new shortcuts, significantly enhancing workflow efficiency for data manipulation and quick analysis without leaving the command line environment. Its modular Rust codebase further suggests robustness and potential for extended functionality, making it a promising tool for terminal-native data management.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community is highly enthusiastic about a terminal-based spreadsheet editor with Vim keybindings, recognizing it as a &quot;badly needed&quot; tool and praising its Rust implementation and architectural choices. While celebrating its core concept, users are keenly requesting crucial features for wider adoption, including support for `xlsx` and OpenDocument formats, more advanced and stable algorithms, robust scripting capabilities (especially programmatic cell access and range passing), and sophisticated spreadsheet functionalities like recalculation and undo/redo. There's a strong desire for it to evolve beyond existing tools like `xan` and `sc-im`.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>92 pts</span>
+        <span>·</span>
+        <span>45 comments</span>
+        <span>·</span>
+        <span>by garritfra</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/garritfra/cell" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47920289" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🚫 Regulatory Action</div>
+            
+            <h2 class="story-title"><a href="https://www.cnbc.com/2026/04/27/meta-manus-china-blocks-acquisition-ai-startup.html" target="_blank" rel="noopener">China Orders Meta to Unwind $2 Billion Manus AI Deal</a></h2>
+            <p class="story-summary">China blocks Meta's $2 billion takeover of AI startup Manus China's state planner asked Manus and Meta to withdraw the acquisition transaction, following the tech giant announcing a $2 billion takeover plan in December. The deal has garnered scrutiny from both China and Washington, with Beijing launching a probe into the transaction in January. In March, Meta told CNBC that the acquisition &quot;complied fully with applicable law.&quot; China's state planner on Monday called for Meta to unwind its $2 billion acquisition of Manus, a Singaporean artificial intelligence startup with Chinese roots.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This regulatory block by China on Meta's acquisition of a Singaporean AI startup with Chinese roots underscores the intensifying geopolitical scrutiny on cross-border tech M&amp;A, particularly in sensitive sectors like artificial intelligence. It signals China's assertive stance on controlling tech assets and data, even extraterritorially, and highlights the complex challenges companies face navigating a fragmented global regulatory landscape where national security and economic control often trump market dynamics.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely questions the legal basis and practical enforceability of China's attempt to annul Meta's acquisition of Manus, especially since Manus is a Singapore-based company and the deal is reportedly completed. Many perceive this action as a strong signaling move by Beijing to assert control over PRC-originated technology and capital outflows, rather than a practically reversible transaction, with some speculating about either export or capital controls as underlying motivations.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>cnbc.com</span>
+        <span>·</span>
+        <span>366 pts</span>
+        <span>·</span>
+        <span>264 comments</span>
+        <span>·</span>
+        <span>by yakkomajuri</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.cnbc.com/2026/04/27/meta-manus-china-blocks-acquisition-ai-startup.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47920315" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">📈 AI Performance</div>
+            
+            <h2 class="story-title"><a href="https://github.com/dirac-run/dirac" target="_blank" rel="noopener">Open-Source Agent Tops TerminalBench, Fairly Outperforming Google's Official and Proprietary Rivals</a></h2>
+            <p class="story-summary">Scored 65.2% vs google's official 47.8%, and the existing top closed source model Junie CLI's 64.3%. Since there are a lot of reports of deliberate cheating on TerminalBench 2.0 lately ( https://debugml.github.io/cheating-agents/ ), I would like to also clarify a few things 1. Absolutely no {agents/skills}.md files were inserted at any point. No cheating mechanisms whatsoever 2. The cli agent was run in leaderboard compliant way (no modification of resources or timeouts) 3. The full terminal bench run was done using the fully open source version of the agent, no difference between what is on g</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This Show HN demonstrates a notable triumph for open-source AI, with an OSS agent outperforming both Google's official model and a leading closed-source competitor on the TerminalBench 2.0. The author's explicit and detailed rebuttal of common cheating methods adds crucial credibility to the agent's impressive score, addressing a growing concern within the AI benchmarking community. This achievement highlights the accelerating capabilities of open-source solutions and the critical importance of transparent, verifiable performance metrics in AI development.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community's overwhelming consensus is that the &quot;harness&quot;—the surrounding engineering, prompting, and context management—is paramount to AI agent performance, often more impactful than the underlying model itself. While impressed by the significant performance jump attributed to the harness, some users are curious about its technical specifics and suggest broader benchmarking across different models to confirm generalizability.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>337 pts</span>
+        <span>·</span>
+        <span>125 comments</span>
+        <span>·</span>
+        <span>by GodelNumbering</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/dirac-run/dirac" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47920787" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">AI Tools Pricing 💰</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/" target="_blank" rel="noopener">GitHub Copilot Switches to Usage-Based Billing</a></h2>
+            <p class="story-summary">GitHub Copilot is moving to usage-based billing - The GitHub Blog</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This shift from flat-rate to usage-based billing for GitHub Copilot signals a strategic move to better monetize the value derived from AI assistance, particularly among enterprise users. While it could introduce cost unpredictability for heavy users, it aligns Copilot's pricing with broader cloud and AI service models, reflecting the evolving economics of generative AI.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views GitHub Copilot's shift to usage-based billing as a significant price increase, effectively ending the previous era of heavily subsidized AI inference. Many express frustration over the perceived devaluation of their existing plans and the dramatic increase in effective cost (up to 50x for heavy users), leading them to consider switching to alternative providers or re-evaluating Copilot's cost-effectiveness compared to human developers. The &quot;unchanged plan prices&quot; are widely seen as disingenuous given the new credit multipliers.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.blog</span>
+        <span>·</span>
+        <span>632 pts</span>
+        <span>·</span>
+        <span>464 comments</span>
+        <span>·</span>
+        <span>by frizlab</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47923357" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🎮 User Experience</div>
+            
+            <h2 class="story-title"><a href="https://github.com/ftaip/waiting-game" target="_blank" rel="noopener">Don't Make Users Wait: Gamify LLM Loading Screens</a></h2>
+            <p class="story-summary">Give your user a game while they wait for the LLM to return a result.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This initiative cleverly tackles the inherent latency of LLMs by shifting focus from passive waiting to active engagement. By offering a game, it transforms a potentially frustrating user experience into an entertaining interlude, significantly enhancing perceived performance and user satisfaction in AI-powered applications. This highlights a pragmatic, user-centric approach to managing the technical limitations of current generative AI systems.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views the &quot;waiting for LLMs suck&quot; concept positively, appreciating it as a clever solution to improve user experience during AI processing delays. Commenters express enthusiasm, drawing parallels to successful past innovations like Namco's loading screen minigames. While one comment humorously notes the &quot;dopamine-hit chasing&quot; trend, the overall sentiment is that it's an &quot;awesome&quot; and innovative approach.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>12 pts</span>
+        <span>·</span>
+        <span>12 comments</span>
+        <span>·</span>
+        <span>by dalemhurley</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/ftaip/waiting-game" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47929961" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Development</div>
+            
+            <h2 class="story-title"><a href="https://developer.chrome.com/docs/ai/prompt-api" target="_blank" rel="noopener">Chrome's Prompt API: Build AI Experiences Directly in the Browser</a></h2>
+            <p class="story-summary">The Prompt API  |  AI on Chrome  |  Chrome for Developers Skip to main content</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This announcement signals a significant move by Google to embed AI capabilities directly into the Chrome browser for developers. By offering a &quot;Prompt API,&quot; Chrome is likely standardizing the integration of AI models, making it easier for web applications to build AI-powered features without complex backend setups. This could democratize access to AI functionalities within web development, paving the way for more innovative and pervasive on-device AI experiences.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community sees &quot;The Prompt API&quot; as an interesting, albeit early, step towards integrating AI capabilities directly into browsers, praising its potential for local, private, and free inference for various low-end tasks. While many acknowledge its utility for new application ideas and future OS/browser integration, significant concerns exist regarding its adherence to web standards, potential for misuse by rogue scripts to offload computation, and the current performance of its underlying models.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>developer.chrome.com</span>
+        <span>·</span>
+        <span>261 pts</span>
+        <span>·</span>
+        <span>135 comments</span>
+        <span>·</span>
+        <span>by gslin</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://developer.chrome.com/docs/ai/prompt-api" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47917026" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🚨 Data Breach &amp; Privacy</div>
+            
+            <h2 class="story-title"><a href="https://app.oravys.com/blog/mercor-breach-2026" target="_blank" rel="noopener">4TB Voice Samples Stolen from 40,000 Mercor AI Contractors: How to Check for Weaponization</a></h2>
+            <p class="story-summary">4TB of voice samples stolen from 40,000 AI contractors -- how to verify if yours is being weaponized | ORAVYS Voice Truth Test Free Voice Authenticity Pro Pro HR Intelligence Mood Scanner Deepfake Detection YouTube Analysis New Voice Vitals Voice Sciences Voice Match Main Website HR Enterprise Anti-Deepfake B2B Research API B2B Financial Prosody B2B Why ORAVYS? 4TB of voice samples were just stolen from 40,000 AI contractors. Here is how to verify if yours is being weaponized.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This substantial breach of 4TB of voice samples from 40,000 AI contractors exposes a critical security flaw in the AI development supply chain, where sensitive biometric data is collected and stored. The theft of these unique voiceprints poses severe, irreversible privacy risks, as they can be weaponized for sophisticated deepfake attacks and impersonation, necessitating urgent re-evaluation of data security, consent, and retention practices within the industry.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses strong concern over the severity of the Mercor breach, particularly the combination of voice samples and ID scans creating &quot;deepfake-ready kits&quot; capable of sophisticated identity theft and financial fraud. There's a clear consensus that Mercor was negligent in securing this highly sensitive data, with calls for greater corporate accountability and a broader push for &quot;Datensparsamkeit&quot; (data frugality) and public education on the &quot;forever password&quot; nature of biometrics.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>app.oravys.com</span>
+        <span>·</span>
+        <span>513 pts</span>
+        <span>·</span>
+        <span>183 comments</span>
+        <span>·</span>
+        <span>by Oravys</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://app.oravys.com/blog/mercor-breach-2026" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47919630" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">⚖️ Legal &amp; Corporate</div>
+            
+            <h2 class="story-title"><a href="https://www.nytimes.com/2026/04/26/climate/supreme-court-bayer-monsanto-roundup-glyphosate.html" target="_blank" rel="noopener">Supreme Court Weighs Dismissal of Thousands of Roundup Cancer Lawsuits Against Bayer</a></h2>
+            <p class="story-summary">Supreme Court to Hear Arguments in Landmark Roundup Weedkiller Case - The New York Times You have a preview view of this article while we are checking your access. When we have confirmed access, the full article content will load. The Supreme Court is set to hear arguments on Monday in a case that could lead to the dismissal of tens of thousands of lawsuits against Bayer, the pharmaceutical and biotech giant, that claim the weedkiller Roundup caused non-Hodgkin lymphoma. Developed by Monsanto in the 1970s, Roundup is one of the best-selling weedkillers in the world, but it has been dogged by controversy over its effects on human health.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This Supreme Court hearing is a pivotal moment for Bayer, potentially absolving the company from billions in liability and setting a significant precedent for product liability law involving long-used chemicals. It highlights the complex interplay between corporate responsibility, public health concerns, and the scientific debate surrounding the long-term safety of ubiquitous agricultural products like Roundup.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely expresses skepticism about the scientific evidence linking glyphosate to cancer, often characterizing it as one of the safer herbicides available compared to alternatives. Many commenters suggest that public opinion or the complexities of federal vs. state law are driving the case more than robust scientific data. There's also concern about what might replace glyphosate, with some users worrying new formulations could be less effective or even more harmful.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>nytimes.com</span>
+        <span>·</span>
+        <span>140 pts</span>
+        <span>·</span>
+        <span>184 comments</span>
+        <span>·</span>
+        <span>by mikhael</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.nytimes.com/2026/04/26/climate/supreme-court-bayer-monsanto-roundup-glyphosate.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47923121" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · April 28, 2026</div>
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:0.65rem;color:#B0A090;margin-top:8px;letter-spacing:0.05em;">双语精排版 · 为技术人定制的每日视角</div>
+    </footer>
+</body>
+</html>
