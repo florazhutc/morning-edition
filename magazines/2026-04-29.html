@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — April 29, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 目录</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Wednesday</div>
+        <div class="masthead-year">April 29, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Mitchell Hashimoto, Ghostty's Creator, Ends 18-Year GitHub Run</span>
+            <span class="toc-score">2334 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Claude.ai Recovers After Hour-Long Outage and API Errors ⚡</span>
+            <span class="toc-score">282 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Google Mandates Developer Registration for All Android Apps by 2026, Blocking Unregistered Software Worldwide</span>
+            <span class="toc-score">1268 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Localsend: The Open-Source, Cross-Platform AirDrop Alternative</span>
+            <span class="toc-score">801 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">38 Critical Vulnerabilities Discovered in OpenEMR Healthcare Software Used by 100,000 Medical Providers</span>
+            <span class="toc-score">169 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Lumara Streams Live NASA Sun &amp; Moon Imagery, Space Weather &amp; ISS Feeds</span>
+            <span class="toc-score">176 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Claude AI Integrates With Major Creative Software Via New Connectors ⚡</span>
+            <span class="toc-score">112 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Karpathy's AI Loop Automates CPU Architecture Design</span>
+            <span class="toc-score">101 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Poolside Launches Laguna M.1 and Its First Open-Weight AI Model, XS.2</span>
+            <span class="toc-score">92 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">New App Brings Playable DOOM Directly to ChatGPT and Claude ⚡</span>
+            <span class="toc-score">82 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">Platform Shift 🚀</div>
+            
+            <h2 class="story-title"><a href="https://mitchellh.com/writing/ghostty-leaving-github" target="_blank" rel="noopener">Mitchell Hashimoto, Ghostty's Creator, Ends 18-Year GitHub Run</a></h2>
+            <p class="story-summary">Ghostty Is Leaving GitHub – Mitchell Hashimoto Writing this makes me irrationally sad, but Ghostty will be leaving GitHub 1 . Since then, I've opened GitHub every single day. Every day, multiple times per
+day, for over 18 years. A handful of exceptions in there
+(I'd love to see the data), but I can't imagine more than a week per year.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This high-profile departure of Mitchell Hashimoto, a foundational open-source developer, from GitHub after nearly two decades of continuous use, is significant. It prompts reflection on evolving project needs and potential shifts in developer sentiment regarding platform capabilities and ownership. Such moves could spark broader discussions about platform reliance and the viability of alternative decentralized or self-hosted collaborative solutions in the open-source ecosystem.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely sympathizes with the author's emotional departure, widely agreeing that GitHub has declined significantly since its acquisition by Microsoft. Many users share the sentiment that GitHub has lost its way, prioritizing commercial interests like Copilot over core services, leading to a less enjoyable and productive experience. Consequently, there's a strong undercurrent of discussion around exploring and recommending alternative, often self-hosted or decentralized, Git platforms.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>mitchellh.com</span>
+        <span>·</span>
+        <span>2334 pts</span>
+        <span>·</span>
+        <span>695 comments</span>
+        <span>·</span>
+        <span>by WadeGrimridge</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://mitchellh.com/writing/ghostty-leaving-github" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47939579" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🚨 Outage Alert</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://status.claude.com/incidents/9l93x2ht4s5w" target="_blank" rel="noopener">Claude.ai Recovers After Hour-Long Outage and API Errors</a></h2>
+            <p class="story-summary">Claude Status - Claude.ai unavailable and elevated errors on the API Claude.ai unavailable and elevated errors on the API We are seeing success rates across all services return to normal, and are monitoring closely to prevent any further issues. Impact occurred from 17:34–18:52 UTC. We are continuing to work to resolve the issues preventing users from accessing Claude.ai, and causing elevated authentication errors for requests to the API and Claude Code.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This incident highlights the growing critical dependency on foundational AI services like Claude, where even temporary unavailability can disrupt numerous downstream applications and user workflows. It underscores the inherent complexities and fragility of maintaining high availability for large-scale AI infrastructure, posing significant operational challenges for providers.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses significant frustration with Claude.ai, primarily due to frequent outages and a noticeable degradation in the model's performance, which now struggles with basic tasks. Users, including high-spending enterprise clients, feel the high cost is no longer justified by the unreliable service and &quot;horrendous&quot; support, leading many to question its utility and consider multi-model alternatives.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>status.claude.com</span>
+        <span>·</span>
+        <span>282 pts</span>
+        <span>·</span>
+        <span>243 comments</span>
+        <span>·</span>
+        <span>by shorsher</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://status.claude.com/incidents/9l93x2ht4s5w" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47938097" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Digital Rights</div>
+            
+            <h2 class="story-title"><a href="https://keepandroidopen.org/en/" target="_blank" rel="noopener">Google Mandates Developer Registration for All Android Apps by 2026, Blocking Unregistered Software Worldwide</a></h2>
+            <p class="story-summary">Starting September 2026, a silent update, nonconsensually pushed by Google, will block every Android app whose developer hasn't registered with Google, signed their contract, paid up, and handed over government ID. Every app and every device, worldwide, with no opt-out. Post on X Post on Mastodon Post on Bluesky LinkedIn Facebook In August 2025, Google announced a new requirement: starting September 2026, every Android app developer must register centrally with Google before their software can be installed on any device. Not just Play Store apps: all apps.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This Google mandate fundamentally alters the open nature of the Android ecosystem, transforming it into a more controlled environment where Google dictates app distribution beyond the Play Store. It raises profound concerns about user freedom to sideload applications, developer independence, and the potential for increased censorship or anti-competitive practices globally.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely expresses strong dismay and a sense of lost user control, viewing smartphones as increasingly becoming &quot;cloud terminals&quot; rather than truly owned devices. Many are critical of Android's perceived shift away from its original promise of openness, pushing users towards walled gardens similar to iOS. There's a clear desire for open alternatives and calls for developers to resist policies that further restrict user freedom and device ownership.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>keepandroidopen.org</span>
+        <span>·</span>
+        <span>1268 pts</span>
+        <span>·</span>
+        <span>581 comments</span>
+        <span>·</span>
+        <span>by doener</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://keepandroidopen.org/en/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47935853" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">File Transfer ↔️</div>
+            
+            <h2 class="story-title"><a href="https://github.com/localsend/localsend" target="_blank" rel="noopener">Localsend: The Open-Source, Cross-Platform AirDrop Alternative</a></h2>
+            <p class="story-summary">GitHub - localsend/localsend: An open-source cross-platform alternative to AirDrop · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Localsend directly tackles a long-standing user frustration: seamless local file transfer across diverse operating systems, a capability often monopolized by Apple's AirDrop within its ecosystem. By offering an open-source, cross-platform alternative, it caters to a broad audience seeking greater flexibility, privacy, and independence from proprietary solutions for quick, secure device-to-device sharing.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely praises LocalSend as a simple, effective, and reliable cross-platform file transfer solution, often highlighting its superior dependability compared to AirDrop's often-flaky performance. However, a key point of discussion and critique is its reliance on devices being on the same local network, which distinguishes it from AirDrop's ad-hoc networking capabilities and drives interest in true alternatives that can function across various network conditions, including WAN.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>801 pts</span>
+        <span>·</span>
+        <span>244 comments</span>
+        <span>·</span>
+        <span>by bilsbie</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/localsend/localsend" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47933208" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Healthcare Tech Security 🏥</div>
+            
+            <h2 class="story-title"><a href="https://aisle.com/blog/aisle-discovers-38-critical-security-vulnerabilities-in-healthcare-software-used-by-100000-providers" target="_blank" rel="noopener">38 Critical Vulnerabilities Discovered in OpenEMR Healthcare Software Used by 100,000 Medical Providers</a></h2>
+            <p class="story-summary">AISLE Discovers 38 CVEs in Healthcare Software Used by 100,000 Medical Providers | AISLE AISLE Discovers 38 CVEs in Healthcare Software Used by 100,000 Medical Providers Healthcare is digitizing faster than it is being secured. AI-assisted diagnostics, telemedicine, and automated billing are expanding access to care at unprecedented speed, but the security practices protecting these systems have not kept up. At the same time, attackers are increasingly using AI to find vulnerabilities faster than ever.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This discovery starkly illustrates the critical security debt accumulating as the healthcare sector rapidly digitizes, with the pace of innovation far outstripping security implementation. The exploitation of 38 CVEs in software used by 100,000 medical providers exposes a systemic vulnerability that puts sensitive patient data and care continuity at immense risk, further compounded by attackers leveraging AI to accelerate vulnerability discovery.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that OpenEMR has a long-standing reputation for significant security vulnerabilities, with many of the discovered CVEs being common, &quot;low-hanging fruit&quot; issues like SQL injection and XSS. There's a strong consensus that such widespread security flaws are typical across *most* software, both open and closed source. While some express concern about adversaries using automation to find zero-days, the prevailing view is that tools like AI and SAST can positively help discover these common bugs earlier, thereby improving the overall security baseline.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>aisle.com</span>
+        <span>·</span>
+        <span>169 pts</span>
+        <span>·</span>
+        <span>110 comments</span>
+        <span>·</span>
+        <span>by mmsc</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://aisle.com/blog/aisle-discovers-38-critical-security-vulnerabilities-in-healthcare-software-used-by-100000-providers" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47936347" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🔭 Space &amp; Astronomy</div>
+            
+            <h2 class="story-title"><a href="https://www.lumara-space.app/" target="_blank" rel="noopener">Lumara Streams Live NASA Sun &amp; Moon Imagery, Space Weather &amp; ISS Feeds</a></h2>
+            <p class="story-summary">Lumara — Live Sun &amp; Moon Dashboard | NASA Solar Imagery, Moon Phases &amp; Space Weather Rolling 24hr — NASA SDO/AIA 171Å Quiet Corona International Space Station — NASA HD Camera Learn More ▾ Data from NASA SDO · SOHO · DONKI Privacy A dynamic sphere of plasma photographed by NASA's SDO every 12 seconds in 12 wavelengths — from the 5,000 K surface to 10 MK flare plasma.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This &quot;Show HN&quot; offers a compelling real-time visualization of the Sun and Moon, leveraging high-quality NASA data from various instruments. It effectively transforms complex astronomical observations and space weather data into an accessible and engaging dashboard, fostering public curiosity about our celestial neighbors and solar activity.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community's consensus is overwhelmingly positive, praising the dashboard's beautiful UI, clean imagery, and overall engaging concept. Key suggestions for improvement include optimizing large video asset delivery, enhancing navigation, and adding more explanatory context for the scientific data presented.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>lumara-space.app</span>
+        <span>·</span>
+        <span>176 pts</span>
+        <span>·</span>
+        <span>60 comments</span>
+        <span>·</span>
+        <span>by beeswaxpat</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.lumara-space.app/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47934261" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🎨 AI in Creativity</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://www.anthropic.com/news/claude-for-creative-work" target="_blank" rel="noopener">Claude AI Integrates With Major Creative Software Via New Connectors</a></h2>
+            <p class="story-summary">Creative professionals look to technology to expand what's possible in their work. Claude can't replace taste or imagination, but it can open up new ways of working—faster and more ambitious ideation, a more expansive skill set, and the ability for creatives to take on larger-scale projects. AI can also help shoulder the parts of the creative process that eat up time by handling repetitive tasks and eliminating manual toil. Key to both these goals is integrating Claude into the tools the creative industry already knows and trusts. Today, with a coalition of partners including Blender, Autodesk, Adobe, Ableton, and Splice, we’re releasing a set of connectors—tools that let Claude work alongside the software creative professionals rely on, so creatives can extend their reach.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This initiative highlights a practical approach to AI integration in creative fields, positioning Claude as an augmentation tool rather than a replacement for human imagination and taste. By seamlessly embedding AI into established industry software, it aims to free creatives from repetitive tasks, fostering faster ideation and enabling them to pursue more ambitious, larger-scale projects.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely views Claude as a promising *tool* for creative work, particularly for automating tasks and accelerating iteration through integration with existing software APIs and scripting SDKs. While many are actively experimenting and finding it useful for enhancing workflows, there's also skepticism regarding its capacity to generate truly original art and practical concerns about its current technical limitations and business models.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>anthropic.com</span>
+        <span>·</span>
+        <span>112 pts</span>
+        <span>·</span>
+        <span>83 comments</span>
+        <span>·</span>
+        <span>by elsewhen</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.anthropic.com/news/claude-for-creative-work" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47942386" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">⚙️ Automated Hardware Design</div>
+            
+            <h2 class="story-title"><a href="https://github.com/FeSens/auto-arch-tournament/blob/main/docs/auto-arch-tournament-blog-post.md" target="_blank" rel="noopener">Karpathy's AI Loop Automates CPU Architecture Design</a></h2>
+            <p class="story-summary">auto-arch-tournament/docs/auto-arch-tournament-blog-post.md at main · FeSens/auto-arch-tournament · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project applies Andrej Karpathy's &quot;Software 2.0&quot; loop to automate the design and optimization of CPU architectures. By directing AI to iteratively improve CPU designs, it tackles the immense complexity of modern hardware development, aiming for novel and more efficient general-purpose processors. This approach could significantly accelerate hardware innovation by bringing algorithmic self-improvement to the foundational layers of computing.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community finds the &quot;Karpathy's Loop&quot; concept, utilizing LLM-driven perturbations and a verifier for system optimization, to be highly interesting and promising, with many users sharing similar positive experiences, especially in code improvement. There's a strong consensus that the &quot;verifier&quot; component is absolutely critical for the loop's success and represents a significant challenge and opportunity for innovation. Overall, the approach is seen as having broad applicability beyond CPU architecture, heralding a powerful new paradigm.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>101 pts</span>
+        <span>·</span>
+        <span>23 comments</span>
+        <span>·</span>
+        <span>by fesens</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/FeSens/auto-arch-tournament/blob/main/docs/auto-arch-tournament-blog-post.md" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47937380" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI/ML Models</div>
+            
+            <h2 class="story-title"><a href="https://poolside.ai/blog/laguna-a-deeper-dive" target="_blank" rel="noopener">Poolside Launches Laguna M.1 and Its First Open-Weight AI Model, XS.2</a></h2>
+            <p class="story-summary">Laguna XS.2 and M.1: A Deeper Dive — Poolside We’ve released the first two models in the Laguna family, Laguna M.1 and Laguna XS.2, alongside the runtime we use to train and operate agents, available through two product experiences in preview. We’ve released the first two models in the Laguna family, Laguna M.1 and Laguna XS.2, alongside the runtime we use to train and operate agents, available through two product experiences in preview. Laguna M.1 came first, finishing pre-training at the end of last year; it's the foundation for everything else we're building across the family. Laguna XS.2 is a much smaller model, but remarkably capable for its size, and it's our first open-weight release.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This release introduces a new family of AI models, Laguna M.1 and XS.2, alongside an integrated runtime for training and operating agents. The strategic inclusion of both a foundational model (M.1) and a smaller, open-weight model (XS.2) indicates a dual approach to cater to diverse developer needs and foster community adoption. This comprehensive offering aims to streamline the development and practical deployment of AI agents.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views the Laguna XS.2 and M.1 models as underperforming, with several comments noting that the significantly smaller Qwen 3.6 often outperforms even their larger M.1 model in benchmarks. While users question the strategic value of Poolside training their own models given these results, there is appreciation for the company's inclusion of a well-integrated &quot;agent harness&quot; alongside the model weights.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>poolside.ai</span>
+        <span>·</span>
+        <span>92 pts</span>
+        <span>·</span>
+        <span>46 comments</span>
+        <span>·</span>
+        <span>by tosh</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://poolside.ai/blog/laguna-a-deeper-dive" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47936511" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI Experimentation 🤖</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://chrisnager.com/blog/doom-runs-in-chatgpt-and-claude/" target="_blank" rel="noopener">New App Brings Playable DOOM Directly to ChatGPT and Claude</a></h2>
+            <p class="story-summary">DOOM runs in ChatGPT and Claude / Blog / Chris Nager I made a playable DOOM MCP app that can launch inline inside compatible AI clients like ChatGPT and Claude, and falls back to a browser URL everywhere else. MCP apps are &quot;interactive UI applications that render inside MCP hosts like Claude Desktop.&quot; one MCP tool to create a DOOM session inline one MCP tool to return a plain launch URL</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project brilliantly showcases the burgeoning interactive capabilities of large language models, transforming them from mere conversational agents into potential host environments for complex UI applications. The ability to embed a playable game like DOOM directly within ChatGPT or Claude hints at a future where AI interfaces become portals for rich, integrated software experiences, blurring the lines between traditional apps and AI interactions.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally finds the &quot;Doom in ChatGPT&quot; experiment cool and an interesting demonstration of tool calling's potential. There's a strong consensus that MCP and similar &quot;in-chat app&quot; capabilities are powerful and under-explored for creating interactive experiences beyond simple integrations. While clarifying that Doom runs *in* ChatGPT via HTML rendering rather than *on* the AI itself, users are keen to discuss implementation details like CSP and the various interfaces where such apps could work.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>chrisnager.com</span>
+        <span>·</span>
+        <span>82 pts</span>
+        <span>·</span>
+        <span>31 comments</span>
+        <span>·</span>
+        <span>by chrisnager</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://chrisnager.com/blog/doom-runs-in-chatgpt-and-claude/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47939079" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · April 29, 2026</div>
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:0.65rem;color:#B0A090;margin-top:8px;letter-spacing:0.05em;">双语精排版 · 为技术人定制的每日视角</div>
+    </footer>
+</body>
+</html>
