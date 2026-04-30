@@ -815,7 +815,7 @@ def render_magazine(stories, date_str):
 <body>
     <!-- FLOATING ACTION BAR -->
     <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 目录</a>
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
         <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
         <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
     </div>
@@ -852,7 +852,6 @@ def render_magazine(stories, date_str):
         <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
         <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
         <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · {formatted_date}</div>
-        <div style="font-family:'Noto Sans SC',sans-serif;font-size:0.65rem;color:#B0A090;margin-top:8px;letter-spacing:0.05em;">双语精排版 · 为技术人定制的每日视角</div>
     </footer>
 </body>
 </html>'''
