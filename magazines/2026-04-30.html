@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — April 30, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 目录</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Thursday</div>
+        <div class="masthead-year">April 30, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Mitchell Hashimoto Moves Ghostty Off GitHub, Ending 18 Years of Daily Use</span>
+            <span class="toc-score">3381 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Zed 1.0: The Native Editor Built to Surpass Electron's Performance Ceiling</span>
+            <span class="toc-score">1680 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Unexpected: &quot;HERMES.md&quot; in Git Commits Triggers Extra Billing, Not Plan Quota ⚡</span>
+            <span class="toc-score">1059 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Anthropic's Claude AI Platform Restored After Outage ⚡</span>
+            <span class="toc-score">110 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Critical 'Copy Fail' Flaw Grants Local Root on Nearly All Linux Distributions</span>
+            <span class="toc-score">766 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">New Benchmark Verifies LLM Structured Output Content, Not Just Format</span>
+            <span class="toc-score">50 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Rust's Safety Features Miss 44 CVEs in Core Utilities</span>
+            <span class="toc-score">636 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Qumulator: 1000-Qubit Quantum Circuit Simulator Needs No GPU</span>
+            <span class="toc-score">7 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Online Age Verification: A Non-Negotiable Imperative</span>
+            <span class="toc-score">854 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Digital Government Unveils Open-Source Code Platform</span>
+            <span class="toc-score">533 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">Platform Shift 🔄</div>
+            
+            <h2 class="story-title"><a href="https://mitchellh.com/writing/ghostty-leaving-github" target="_blank" rel="noopener">Mitchell Hashimoto Moves Ghostty Off GitHub, Ending 18 Years of Daily Use</a></h2>
+            <p class="story-summary">Ghostty Is Leaving GitHub – Mitchell Hashimoto Writing this makes me irrationally sad, but Ghostty will be leaving GitHub 1 . Since then, I've opened GitHub every single day. Every day, multiple times per
+day, for over 18 years. A handful of exceptions in there
+(I'd love to see the data), but I can't imagine more than a week per year.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Mitchell Hashimoto's departure from GitHub with his project Ghostty, after 18 years of daily use, signifies a growing sentiment among influential open-source developers questioning centralized platform dependency. This high-profile move could catalyze broader discussions within the developer community about platform control, the evolution of open-source hosting, and the search for alternatives that better align with project values and long-term sustainability. It highlights the delicate balance between convenience and the desire for more autonomous, community-driven development environments.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely empathizes with the author's emotional departure, widely agreeing that GitHub has declined since its acquisition by Microsoft. Many commenters attribute this decline to a shift in focus away from core developer tools and towards corporate interests like Copilot, making the platform a less enjoyable and productive environment. The consensus is that GitHub no longer serves its users as it once did, but instead prioritizes corporate agendas.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>mitchellh.com</span>
+        <span>·</span>
+        <span>3381 pts</span>
+        <span>·</span>
+        <span>1009 comments</span>
+        <span>·</span>
+        <span>by WadeGrimridge</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://mitchellh.com/writing/ghostty-leaving-github" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47939579" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">💻 Developer Tools</div>
+            
+            <h2 class="story-title"><a href="https://zed.dev/blog/zed-1-0" target="_blank" rel="noopener">Zed 1.0: The Native Editor Built to Surpass Electron's Performance Ceiling</a></h2>
+            <p class="story-summary">To create a fundamentally better editor, we had to invent a new approach to building desktop software. Our previous editor, Atom , was built as a fork of Chromium, spawning the Electron framework in the process. Electron eventually became the foundation of VS Code (which today seems to be forked into a new AI code editor every other week). Web technology offered an easy path to shipping flexible software, but it also imposed a ceiling. No matter how hard we worked, we couldn't make Atom better than the platform it was built on.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Zed 1.0 critiques the prevalent Electron-based editor model, specifically its performance ceiling, despite its rapid development benefits. By promising a &quot;fundamentally better approach to building desktop software,&quot; Zed positions itself as a challenger seeking to deliver superior native performance and a more integrated user experience, potentially influencing the next wave of developer tools. This move highlights an industry desire to push beyond the compromises of web technologies for demanding applications.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely praises Zed 1.0 for its speed, innovative technology, and integrated features, with many finding it a &quot;sticky&quot; and compelling daily driver. However, significant concerns were raised regarding its slow TypeScript LSP performance, compatibility issues with legacy project codebases, and certain UI/UX choices like the search tab behavior. Additionally, a specific clause in the license agreement about customer data use has caused apprehension for some potential users.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>zed.dev</span>
+        <span>·</span>
+        <span>1680 pts</span>
+        <span>·</span>
+        <span>541 comments</span>
+        <span>·</span>
+        <span>by salkahfi</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://zed.dev/blog/zed-1-0" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47949027" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Billing Error 💸</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://github.com/anthropics/claude-code/issues/53262" target="_blank" rel="noopener">Unexpected: &quot;HERMES.md&quot; in Git Commits Triggers Extra Billing, Not Plan Quota</a></h2>
+            <p class="story-summary">HERMES.md in git commit messages causes requests to route to extra usage billing instead of plan quota · Issue #53262 · anthropics/claude-code · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This peculiar billing bug reveals a significant architectural flaw where internal system logic, possibly related to a specific project identifier like `HERMES.md`, isn't properly isolated from production billing mechanisms. The ability for a string in a seemingly innocuous location like a git commit message to bypass plan quotas and trigger extra usage billing points to a dangerous lack of validation and separation in how user actions or metadata are interpreted by core financial systems. It underscores the potential for developers to accidentally incur substantial, unforeseen costs due to deeply obscure system interactions.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community initially reacted with strong disbelief and criticism towards Anthropic's stated policy of not issuing refunds for technical billing errors, deeming it &quot;unacceptable&quot; and &quot;crazy.&quot; However, an Anthropic team member quickly intervened, confirming that all affected users would receive full refunds and additional credits for the specific &quot;HERMES.md&quot; bug. Despite this prompt resolution, underlying concerns about Anthropic's overall customer service, product consistency, and tendency to reverse initial hard-line positions remain among some users.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>1059 pts</span>
+        <span>·</span>
+        <span>452 comments</span>
+        <span>·</span>
+        <span>by homebrewer</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/anthropics/claude-code/issues/53262" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47952722" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🚨 Service Outage</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://status.claude.com/incidents/2gf1jpyty350" target="_blank" rel="noopener">Anthropic's Claude AI Platform Restored After Outage</a></h2>
+            <p class="story-summary">Claude Status - claude.ai and API unavailable A fix has been implemented and we are monitoring the results. We are currently investigating this issue. This incident affected: claude.ai, Claude Console (platform.claude.com), Claude API (api.anthropic.com), Claude Code, Claude Cowork, and Claude for Government. ← Current Status Powered by Atlassian Statuspage</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This incident highlights the critical operational vulnerabilities even for leading AI platforms like Claude, whose widespread services across various applications, including government, underscore the profound impact of even temporary outages. The swift communication and resolution, albeit after a period of unavailability, demonstrate the imperative for robust incident management and transparent status updates in maintaining user trust in mission-critical AI infrastructure.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant dissatisfaction with Claude's recent performance, reliability, and cost-effectiveness. Users report frequent outages, degraded performance, and rising prices, which has led many to actively diversify their AI toolchains or switch to alternatives like OpenAI's models for critical tasks. The overall sentiment suggests a loss of trust in Claude as a primary, reliable AI solution.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>status.claude.com</span>
+        <span>·</span>
+        <span>110 pts</span>
+        <span>·</span>
+        <span>103 comments</span>
+        <span>·</span>
+        <span>by rob</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://status.claude.com/incidents/2gf1jpyty350" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47956895" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🚨 Vulnerability Alert</div>
+            
+            <h2 class="story-title"><a href="https://copy.fail/" target="_blank" rel="noopener">Critical 'Copy Fail' Flaw Grants Local Root on Nearly All Linux Distributions</a></h2>
+            <p class="story-summary">Same script, four distributions, four root shells — in one take. The same exploit binary works unmodified on every Linux distribution. poc(exp) | sha256: a567d09b15f6e4440e70c9f2aa8edec8ed59f53301952df05c719aa3911687f9 | first revealed by this tweet ↗ If your kernel was built between 2017 and the patch — which covers essentially every mainstream Linux distribution — you're in scope. Copy Fail requires only an unprivileged local user account — no network access, no kernel debugging features, no pre-installed primitives.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This &quot;Copy Fail&quot; exploit represents a critical local privilege escalation vulnerability, granting root access on virtually all mainstream Linux distributions with kernels built between 2017 and the patch. Its ability to function with an unmodified binary from an unprivileged local user underscores a significant, long-standing security lapse within a fundamental kernel component, demanding immediate patching to prevent widespread system compromise.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant frustration over the AF_ALG kernel feature, viewing it as a problematic attack surface that should not exist. There's a strong consensus that vendors are underestimating the severity of related vulnerabilities and deferring fixes, leading users to independently seek complex mitigation strategies. Many are actively trying to determine their exposure and implement workarounds due to the module's built-in nature and unclear patch information.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>copy.fail</span>
+        <span>·</span>
+        <span>766 pts</span>
+        <span>·</span>
+        <span>305 comments</span>
+        <span>·</span>
+        <span>by unsnap_biceps</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://copy.fail/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47952181" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🧪 LLM Evaluation</div>
+            
+            <h2 class="story-title"><a href="https://interfaze.ai/blog/introducing-structured-output-benchmark" target="_blank" rel="noopener">New Benchmark Verifies LLM Structured Output Content, Not Just Format</a></h2>
+            <p class="story-summary">When building workflows that rely on LLMs, we commonly use structured output for programmatic use cases like converting an invoice into rows or meeting transcripts into tickets or even complex PDFs into database entries. The model may return the schema you want, but with hallucinated values like `invoice_date` being off by 2 months or the transcript array ordered wrongly. The JSON is valid, but the values are not. Structured output today is a big part of using LLMs, especially when building deterministic workflows. Current structured output benchmarks (e.g., JSONSchemaBench) only validate the </p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This benchmark targets a crucial gap in current LLM evaluation: assessing the accuracy of values within structured outputs, not just their syntactic validity. Overlooking this distinction allows for &quot;hallucinated values&quot; within otherwise valid structures, undermining the reliability of LLM-powered deterministic workflows. This initiative is vital for advancing trustworthy AI applications that require precise, actionable data extraction beyond mere schema adherence.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely expresses skepticism regarding the benchmark's comprehensiveness and fundamental value. Many comments criticize the selective omission of several key frontier LLMs, suggesting the &quot;Top 5 at a glance&quot; is incomplete and lacks important comparisons. Additionally, some users question the core premise of using LLMs for deterministic outputs, arguing that these models are inherently unsuitable for tasks requiring strict determinism.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>interfaze.ai</span>
+        <span>·</span>
+        <span>50 pts</span>
+        <span>·</span>
+        <span>21 comments</span>
+        <span>·</span>
+        <span>by khurdula</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://interfaze.ai/blog/introducing-structured-output-benchmark" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47950283" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🛡️ Software Security</div>
+            
+            <h2 class="story-title"><a href="https://corrode.dev/blog/bugs-rust-wont-catch/" target="_blank" rel="noopener">Rust's Safety Features Miss 44 CVEs in Core Utilities</a></h2>
+            <p class="story-summary">Bugs Rust Won't Catch | corrode Rust Consulting In April 2026, Canonical disclosed 44 CVEs in uutils, the Rust reimplementation of GNU coreutils that ships by default since 25.10. Most of them came out of an external audit commissioned ahead of the 26.04 LTS. I read through the list and thought there’s a lot to learn from it. What’s notable is that all of these bugs landed in a production Rust codebase, written by people who knew what they were doing, and none of them were caught by the borrow checker, clippy lints , or cargo audit .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This revelation of 44 CVEs in a production Rust codebase, uncaught by its celebrated safety features, highlights that even advanced type systems and static analysis have blind spots. These bugs often stem from logical flaws, incorrect specifications, or design errors that reside at a higher abstraction level than what the borrow checker or lints can enforce. Consequently, thorough external audits, rigorous testing, and robust secure development practices remain indispensable, irrespective of the programming language.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community consensus is that the reported bugs are not a failing of Rust itself, but highlight developers' lack of deep understanding of intricate Unix system APIs, their pitfalls (like TOCTOU race conditions), and the hidden historical lessons embedded in long-standing projects like Coreutils. There's also significant criticism directed at the project's amateur execution and the decision-making process at Ubuntu for incorporating it into a production environment.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>corrode.dev</span>
+        <span>·</span>
+        <span>636 pts</span>
+        <span>·</span>
+        <span>345 comments</span>
+        <span>·</span>
+        <span>by lwhsiao</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://corrode.dev/blog/bugs-rust-wont-catch/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47943499" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">⚛️ Quantum Computing</div>
+            
+            <h2 class="story-title"><a href="https://github.com/qumulator/qumulator-sdk" target="_blank" rel="noopener">Qumulator: 1000-Qubit Quantum Circuit Simulator Needs No GPU</a></h2>
+            <p class="story-summary">GitHub - qumulator/qumulator-sdk: Python client SDK for the Qumulator quantum computing API · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project unveils a quantum circuit simulator capable of handling an impressive 1000 qubits *without* relying on a GPU, a notable technical achievement. This CPU-centric approach could significantly lower the barrier to entry for quantum development, democratizing access to larger-scale quantum circuit experimentation on standard hardware and potentially accelerating research in the field.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community is intrigued by the claim of simulating 1000 qubits without a GPU, but immediately seeks clarification on the underlying technology. There's a consensus that this capability likely applies to specific types of quantum circuits rather than general-purpose ones, prompting questions about its exact limitations and how it compares to other existing simulators.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>7 pts</span>
+        <span>·</span>
+        <span>3 comments</span>
+        <span>·</span>
+        <span>by nnoorbakhsh</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/qumulator/qumulator-sdk" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47923272" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🏛️ Internet Policy</div>
+            
+            <h2 class="story-title"><a href="https://x.com/GlennMeder/status/2049088498163216560" target="_blank" rel="noopener">Online Age Verification: A Non-Negotiable Imperative</a></h2>
+            <p class="story-summary">https://xcancel.com/GlennMeder/status/2049088498163216560</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This title frames online age verification as a non-negotiable frontier, highlighting the intense debate surrounding its implementation across various platforms. It underscores the difficult balance between safeguarding minors online and preserving user privacy, internet freedom, and the practical challenges of universal, effective enforcement. The &quot;hill to die on&quot; implies a fundamental clash of values and a critical juncture that will define future digital policy and potentially reshape the architecture of the internet.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely opposes mandatory online age verification, viewing it as a significant threat to privacy, anonymity, and parental autonomy. While acknowledging the need for age gating, commenters advocate for privacy-preserving solutions like server-side content headers or anonymous credential systems, warning that current approaches will lead to widespread ID fraud and government overreach. Many express resignation to such legislation in some regions, with users resorting to VPNs rather than fighting politically.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>x.com</span>
+        <span>·</span>
+        <span>854 pts</span>
+        <span>·</span>
+        <span>566 comments</span>
+        <span>·</span>
+        <span>by Cider9986</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://x.com/GlennMeder/status/2049088498163216560" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47950091" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🏛️ Government Tech</div>
+            
+            <h2 class="story-title"><a href="https://www.nldigitalgovernment.nl/news/soft-launch-for-government-open-source-code-platform/" target="_blank" rel="noopener">Digital Government Unveils Open-Source Code Platform</a></h2>
+            <p class="story-summary">Soft launch of open-source code platform for government - Digital Government</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This soft launch signifies a key step towards greater transparency and collaborative development in the public sector. An open-source platform for government code can foster accountability, mitigate vendor lock-in, and accelerate digital transformation by enabling inter-agency cooperation and public contributions, ultimately modernizing how public services are built and maintained.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely welcomes the Dutch government's new open-source platform, viewing it as a positive and long-overdue step towards transparency and self-reliance in government technology. While generally supportive, commenters also noted some initial quirks, such as UI accessibility issues and the use of pre-release software versions.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>nldigitalgovernment.nl</span>
+        <span>·</span>
+        <span>533 pts</span>
+        <span>·</span>
+        <span>121 comments</span>
+        <span>·</span>
+        <span>by e12e</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.nldigitalgovernment.nl/news/soft-launch-for-government-open-source-code-platform/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=47945918" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · April 30, 2026</div>
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:0.65rem;color:#B0A090;margin-top:8px;letter-spacing:0.05em;">双语精排版 · 为技术人定制的每日视角</div>
+    </footer>
+</body>
+</html>
