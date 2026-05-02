@@ -14,6 +14,10 @@ import urllib.request
 import urllib.parse
 import urllib.error
 import time
+import smtplib
+import ssl
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urlparse
 from html.parser import HTMLParser
@@ -28,6 +32,46 @@ CONFIG_PATH = os.path.join(SCRIPT_DIR, "config.json")
 def load_config():
     with open(CONFIG_PATH, "r") as f:
         return json.load(f)
+
+def send_email(config, html_content, subject):
+    """Send email with magazine HTML content."""
+    email_config = config.get("email", {})
+    if not email_config.get("enabled", False):
+        print("   📧 Email disabled, skipping.")
+        return False
+
+    smtp_server = email_config.get("smtp_server", "smtp.gmail.com")
+    smtp_port = email_config.get("smtp_port", 587)
+    smtp_user = email_config.get("smtp_user", "")
+    smtp_password = os.environ.get(email_config.get("smtp_password_env", ""))
+    recipients = email_config.get("to", "").split(",")
+
+    if not smtp_user or not smtp_password:
+        print("   ⚠️  SMTP credentials not configured.")
+        return False
+
+    try:
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = subject
+        msg["From"] = smtp_user
+        msg["To"] = ", ".join(recipients)
+
+        text_part = MIMEText("Open the HTML version in your email client to read the magazine.", "plain")
+        html_part = MIMEText(html_content, "html", "utf-8")
+        msg.attach(text_part)
+        msg.attach(html_part)
+
+        ctx = ssl.create_default_context()
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
+            server.starttls(context=ctx)
+            server.login(smtp_user, smtp_password)
+            server.send_message(msg)
+
+        print(f"   ✅ Email sent to {recipients}")
+        return True
+    except Exception as e:
+        print(f"   ⚠️  Email failed: {e}")
+        return False
 
 # ---------------------------------------------------------------------------
 # BILINGUAL TRANSLATION & LLM API (Google Gemini 1.5 Flash)
@@ -890,7 +934,12 @@ def main():
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"   ✅ Saved to {output_path}")
-    print(f"\n{'=' * 60}\n  ✅ Done! Restart the file to view.\n{'=' * 60}")
+
+    # Send email if enabled
+    subject = f"Morning Edition - {datetime.datetime.now().strftime('%B %d, %Y')}"
+    send_email(config, html, subject)
+
+    print(f"\n{'=' * 60}\n  ✅ Done!\n{'=' * 60}")
 
 if __name__ == "__main__":
     main()

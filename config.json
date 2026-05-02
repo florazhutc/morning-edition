@@ -28,11 +28,11 @@
     "branch": "gh-pages"
   },
   "email": {
-    "enabled": false,
-    "to": "flora.zhu78@gmail.com",
-    "smtp_server": "smtp.gmail.com",
+    "enabled": true,
+    "to": "1527264811@qq.com",
+    "smtp_server": "smtp.qq.com",
     "smtp_port": 587,
-    "smtp_user": "",
+    "smtp_user": "1527264811@qq.com",
     "smtp_password_env": "MORNING_EDITION_EMAIL_PASSWORD"
   }
 }
