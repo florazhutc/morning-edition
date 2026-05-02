@@ -50,6 +50,16 @@ def send_email(config, html_content, subject):
         print("   ⚠️  SMTP credentials not configured.")
         return False
 
+    # Add magazine link at top of email
+    magazine_link = "https://morning-edition.netlify.app"
+    header_html = f'''
+    <div style="background:#FAF6F0;padding:24px;text-align:center;border-radius:8px;margin-bottom:24px;">
+        <h3 style="font-family:Inter,sans-serif;color:#1A1A1A;margin:0 0 12px;">☕ Morning Edition</h3>
+        <a href="{magazine_link}" style="background:#C84B31;color:#fff;padding:12px 24px;text-decoration:none;border-radius:6px;font-family:Inter,sans-serif;font-weight:600;">View Online →</a>
+    </div>
+    '''
+    html_content = html_content.replace('<div class="masthead">', f'<div class="masthead">{header_html}<div class="masthead">', 1)
+
     try:
         msg = MIMEMultipart("alternative")
         msg["Subject"] = subject
