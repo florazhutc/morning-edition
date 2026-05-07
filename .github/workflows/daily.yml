@@ -2,15 +2,12 @@ name: Daily Magazine
 
 on:
   schedule:
-    # UTC 5am = 北京时间 13:00
     - cron: '0 5 * * *'
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
 
@@ -19,19 +16,48 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install deps
         run: pip install requests beautifulsoup4 lxml
 
-      - name: Generate magazine
+      - name: Generate
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           MORNING_EDITION_EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         run: python3 generate_magazine.py
 
-      - name: Commit & Push
+      - name: Update index
+        run: |
+          python3 << 'EOF'
+import os, re, datetime
+from pathlib import Path
+
+magazines = sorted(Path("magazines").glob("*.html"), reverse=True)
+latest = magazines[0].name.replace("magazines/", "") if magazines else None
+if not latest: exit(0)
+
+date_str = latest.replace(".html", "")
+display = datetime.datetime.strptime(date_str, "%Y-%m-%d").strftime("%B %d, %Y")
+
+with open("index.html") as f:
+    content = f.read()
+
+if latest not in content:
+    new_link = f'''
+        <a href="magazines/{latest}" class="issue-card">
+            <div class="issue-date">{display}</div>
+            <div class="issue-title">Morning Edition - {date_str}</div>
+            <div class="issue-arrow">→</div>
+        </a>'''
+    content = re.sub(r'<div class="archive-grid">', '<div class="archive-grid">\n' + new_link, content)
+
+with open("index.html", "w") as f:
+    f.write(content)
+EOF
+
+      - name: Commit
         run: |
           git config --local user.email "bot@github.com"
           git config --local user.name "Morning Edition Bot"
-          git add magazines/ index.html
-          git commit -m "📰 Auto-publish $(date +%Y-%m-%d)" || exit 0
+          git add -A
+          git commit -m "📰 Auto-publish $(date +%Y-%m-%d)" || true
           git push
