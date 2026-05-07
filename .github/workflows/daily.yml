@@ -19,38 +19,16 @@ jobs:
       - name: Install deps
         run: pip install requests beautifulsoup4 lxml
 
-      - name: Generate
+      - name: Generate magazine
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           MORNING_EDITION_EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         run: python3 generate_magazine.py
 
-      - name: Update index
+      - name: Commit and push
         run: |
-          LATEST=$(ls -t magazines/*.html | head -1)
-          FILENAME=$(basename "$LATEST")
-          DATE_STR=${FILENAME%.html}
-          python3 -c "
-import re
-from pathlib import Path
-magazines = sorted(Path('magazines').glob('*.html'), reverse=True)
-latest = magazines[0].name
-if latest:
-    date_str = latest.replace('.html','')
-    with open('index.html') as f:
-        c = f.read()
-    if latest not in c:
-        link = f'''<a href=\"magazines/{latest}\" class=\"issue-card\">
-            <div class=\"issue-date\">{date_str}</div>
-            <div class=\"issue-title\">Morning Edition - {date_str}</div>
-            <div class=\"issue-arrow\">→</div>
-        </a>'''
-        c = c.replace('<div class=\"archive-grid\">', '<div class=\"archive-grid\">\n' + link)
-        with open('index.html', 'w') as f:
-            f.write(c)
-"
           git config --local user.email "bot@github.com"
           git config --local user.name "Morning Edition Bot"
-          git add -A
+          git add magazines/ index.html
           git commit -m "📰 Auto-publish $(date +%Y-%m-%d)" || true
           git push || true
