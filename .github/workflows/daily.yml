@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
 
@@ -23,7 +25,7 @@ jobs:
       - name: Generate magazine
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          MORNING_EDITION_EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         run: python3 generate_magazine.py
 
       - name: Commit & Push
