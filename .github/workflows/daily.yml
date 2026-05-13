@@ -27,6 +27,9 @@ jobs:
           MORNING_EDITION_EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         run: python3 generate_magazine.py
 
+      - name: Update index.html
+        run: python3 update_index.py
+
       - name: Commit and push
         run: |
           git config --local user.email "bot@github.com"
