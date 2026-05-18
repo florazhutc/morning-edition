@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — May 18, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Monday</div>
+        <div class="masthead-year">May 18, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Mozilla Urges UK Regulators to Protect VPNs as Essential Privacy &amp; Security Tools</span>
+            <span class="toc-score">709 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Demoscene Wonder: Just 16 Bytes of x86 Assembly Draws Sierpinski Fractals and Their Soundtrack</span>
+            <span class="toc-score">100 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Why I'm Ditching 8 Years of Tailwind for Semantic HTML and Structured Vanilla CSS</span>
+            <span class="toc-score">669 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Retro SGI: Your 2003 Guide to Buying Used Silicon Graphics Hardware</span>
+            <span class="toc-score">21 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Apple Silicon's Hidden Costs Make Local AI Pricier Than OpenRouter</span>
+            <span class="toc-score">312 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">AI Won't Speed Up Your Processes: A Reality Check</span>
+            <span class="toc-score">560 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Zerostack: Pure Rust Powers Unix-Inspired Coding Agent</span>
+            <span class="toc-score">547 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Mercurial's 20-Year Run: Defying Obsolescence in Version Control</span>
+            <span class="toc-score">186 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Two EA-18 Fighter Jets Collide at Mountain Home Airshow; All Four Pilots Eject Safely</span>
+            <span class="toc-score">180 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Apple's AI Stance: Technology Integration, Not a Standalone Product</span>
+            <span class="toc-score">395 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">⚖️ Digital Rights &amp; Policy</div>
+            
+            <h2 class="story-title"><a href="https://blog.mozilla.org/netpolicy/2026/05/15/mozilla-to-uk-regulators-vpns-are-essential-privacy-and-security-tools-and-should-not-be-undermined/" target="_blank" rel="noopener">Mozilla Urges UK Regulators to Protect VPNs as Essential Privacy &amp; Security Tools</a></h2>
+            <p class="story-summary">Mozilla to UK regulators: VPNs are essential privacy and security tools and should not be undermined  - Open Policy &amp; Advocacy</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Mozilla's strong advocacy to UK regulators underscores the critical importance of VPNs as foundational tools for user privacy and security, urging against any policy that might weaken their efficacy. This intervention highlights the ongoing tension between government desires for oversight and the imperative to protect individual digital autonomy and encrypted communications from potential surveillance or regulatory erosion.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely supports Mozilla's position, viewing VPNs as crucial tools for privacy and security. There's strong concern and skepticism about the UK government's potential move to age-gate or restrict VPN access, with many seeing it as overreach that threatens fundamental rights. While some acknowledge Mozilla's commercial interest in VPNs, their statement is broadly welcomed as a defense against what is perceived as misguided government intervention.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>blog.mozilla.org</span>
+        <span>·</span>
+        <span>709 pts</span>
+        <span>·</span>
+        <span>300 comments</span>
+        <span>·</span>
+        <span>by WithinReason</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://blog.mozilla.org/netpolicy/2026/05/15/mozilla-to-uk-regulators-vpns-are-essential-privacy-and-security-tools-and-should-not-be-undermined/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48166459" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">💾 Demoscene Engineering</div>
+            
+            <h2 class="story-title"><a href="https://hellmood.111mb.de//wake_up_16b_writeup.html" target="_blank" rel="noopener">Demoscene Wonder: Just 16 Bytes of x86 Assembly Draws Sierpinski Fractals and Their Soundtrack</a></h2>
+            <p class="story-summary">Released at the Outline Demoparty in May 2026, Ommen, NL An exploration of algorithmic density in 16 bytes of x86 assembly. In the demoscene, exploring what can be achieved within extreme constraints is a rewarding technical challenge. The following 16 bytes of x86 real-mode DOS assembly code represent a careful exercise in algorithmic density. When executed, it utilizes the computer's video memory as a calculation space to draw an infinite Sierpinski fractal, while simultaneously interpreting that geometry as audio data. int 10h          ; 2 bytes
+mov bh, 0xb8     ; 2 bytes
+mov ds, bx       ; 2 bytes
+L:
+lodsb            ; 1 byte
+sub si, byte 57  ; 3 bytes
+xor [si], al     ; 2 bytes
+out 61h, al      ; 2 bytes
+jmp short L      ; 2 bytes</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This write-up describes an incredible demoscene achievement: a 16-byte x86 real-mode DOS program that simultaneously renders an infinite Sierpinski fractal from video memory and interprets its geometry as audio. It's a masterclass in &quot;algorithmic density,&quot; showcasing how extreme constraints foster ingenious solutions by transforming system resources, like video memory, into multifunctional calculation and output spaces. This work not only pushes the boundaries of low-level optimization but also redefines the perceived limits of computational artistry.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is overwhelmingly impressed and surprised by the technical ingenuity of the 16-byte x86 demo. Many commenters expressed astonishment at the coherent, &quot;almost decent track&quot; quality of the sound generated from such a small snippet of code, deeming it &quot;magic.&quot; The discussion also highlighted the demo within the context of sizecoding and the author's previous work.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>hellmood.111mb.de</span>
+        <span>·</span>
+        <span>100 pts</span>
+        <span>·</span>
+        <span>15 comments</span>
+        <span>·</span>
+        <span>by HellMood</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://hellmood.111mb.de//wake_up_16b_writeup.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48173962" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🎨 CSS &amp; Design</div>
+            
+            <h2 class="story-title"><a href="https://jvns.ca/blog/2026/05/15/moving-away-from-tailwind--and-learning-to-structure-my-css-/" target="_blank" rel="noopener">Why I'm Ditching 8 Years of Tailwind for Semantic HTML and Structured Vanilla CSS</a></h2>
+            <p class="story-summary">Moving away from Tailwind, and learning to structure my CSS 8 years ago, I wrote excitedly about discovering Tailwind . At that time I really had no idea how to structure my CSS code and given the
+choice between a pile of complete chaos and Tailwind, I was really happy to choose
+Tailwind. It helped me make a lot of tiny sites! I spent the last week or so migrating a couple of sites away from Tailwind and
+towards more semantic HTML + vanilla CSS, and it was SO fun and SO interesting,
+so here are some things I learned!</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This article highlights a common evolution in a developer's journey, starting with frameworks like Tailwind for rapid development in the absence of structured CSS knowledge, then migrating back to vanilla CSS and semantic HTML for deeper control and maintainability. It underscores the cyclical nature of learning in web development, where foundational understanding often follows initial reliance on abstractions. This shift reflects a growing emphasis on core web principles for long-term project health.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community shows a mixed, but notably critical, perspective on Tailwind CSS. Many commenters argue it inverts proper CSS structure, potentially hinders deeper CSS understanding, and leads to readability issues, advocating for semantic CSS or CSS Modules instead. However, proponents defend Tailwind for its convenience, colocation of styles with components, and production optimization, sometimes suggesting hybrid approaches.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>jvns.ca</span>
+        <span>·</span>
+        <span>669 pts</span>
+        <span>·</span>
+        <span>375 comments</span>
+        <span>·</span>
+        <span>by mpweiher</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://jvns.ca/blog/2026/05/15/moving-away-from-tailwind--and-learning-to-structure-my-css-/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48158400" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">💾 Retro Computing</div>
+            
+            <h2 class="story-title"><a href="https://hardware.majix.org/computers/sgi/buyers-guide.shtml" target="_blank" rel="noopener">Retro SGI: Your 2003 Guide to Buying Used Silicon Graphics Hardware</a></h2>
+            <p class="story-summary">home | hardware | software | reviews | downloads | links This 
+                guide tries to help you when you want to buy an used SGI. First 
+                it will try to help you deciding which system fits best 
+                to your needs and then it will point out important items you should 
+                care about when buying a machine. Okay this answer is rather short, but I really don't know other 
+                alternatives (except you simply know people who want to get rid 
+                off used systems) to get an inexpensive used SGI. You may also google a bit, maybe there 
+                is a reseller somewhere in your country.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This 2003 guide offers a fascinating snapshot of the niche market for acquiring used SGI workstations, a brand synonymous with cutting-edge graphics and scientific computing of a bygone era. It highlights the unique challenges and considerations for enthusiasts trying to access specialized, high-performance hardware after its prime, reflecting a pre-widespread online marketplace landscape. The document serves as a valuable historical artifact, preserving the practical knowledge needed to engage with these once-industry-leading, yet aging, machines.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community shares a strong sense of nostalgia for SGI machines, recalling their historical dominance in professional graphics and visual effects, and personal dreams of owning them. While these systems evoke fond memories and represent a significant era in computing, commenters acknowledge that they are now largely overpriced collector's items with little practical utility in the modern day.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>hardware.majix.org</span>
+        <span>·</span>
+        <span>21 pts</span>
+        <span>·</span>
+        <span>9 comments</span>
+        <span>·</span>
+        <span>by uticus</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://hardware.majix.org/computers/sgi/buyers-guide.shtml" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48148766" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">💰 AI Cost Analysis</div>
+            
+            <h2 class="story-title"><a href="https://www.williamangel.net/blog/2026/05/17/offline-llm-energy-use.html" target="_blank" rel="noopener">Apple Silicon's Hidden Costs Make Local AI Pricier Than OpenRouter</a></h2>
+            <p class="story-summary">Offline Agentic Coding part 3: Apple Silicon costs more than OpenRouter. Apple silicon costs more than OpenRouter. At ~50-100 watts under load, and ~$0.20 per kWh, my M5 MacbookPro will cost a few cents per hour. Accelerated depreciation (if any) from shortening the lifespan of the device will be more expensive than the electricity. At a few tens of tokens per second this works out to ammortized costs of ~$1.50 per million tokens.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This article presents a counter-intuitive analysis, arguing that the total cost of running AI models locally on Apple Silicon, especially when factoring in accelerated depreciation, can surpass the expense of using cloud APIs like OpenRouter. This challenges the common assumption that local inference is always cheaper, underscoring the necessity of a comprehensive cost assessment beyond mere electricity consumption for AI deployment strategies. It suggests that the perceived savings of local hardware might be offset by its wear and tear, potentially making cloud solutions more economically viable for many intensive AI tasks.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely dismisses the original post's analysis as flawed, citing issues like unfairly attributing the entire laptop cost to token generation, inflated electricity estimates, and the critical omission of &quot;free&quot; input tokens for local inference. While some concede that hosted solutions *might* appear cheaper purely for output tokens, the community emphasizes the overlooked value of local inference's privacy, censorship-free nature, and the laptop's multi-purpose utility.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>williamangel.net</span>
+        <span>·</span>
+        <span>312 pts</span>
+        <span>·</span>
+        <span>266 comments</span>
+        <span>·</span>
+        <span>by datadrivenangel</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.williamangel.net/blog/2026/05/17/offline-llm-energy-use.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48168198" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Critique</div>
+            
+            <h2 class="story-title"><a href="https://frederickvanbrabant.com/blog/2026-05-15-i-dont-think-ai-will-make-your-processes-go-faster/" target="_blank" rel="noopener">AI Won't Speed Up Your Processes: A Reality Check</a></h2>
+            <p class="story-summary">I don't think AI will make your processes go faster</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post directly challenges the widespread assumption that AI inherently accelerates business processes, a common selling point in the tech industry. It likely delves into the practical complexities and potential pitfalls of AI integration, suggesting that issues like data quality, model validation, and necessary human oversight can introduce new bottlenecks, thus negating or even reversing expected speed gains. The author appears to advocate for a more nuanced evaluation of AI's true value, beyond simple efficiency metrics.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees that the primary bottleneck in software development, and potentially other processes, isn't the &quot;doing&quot; (like coding) but the initial, crucial phase of defining clear requirements and understanding the problem. While some commenters note AI can accelerate specific tasks like ideation or documentation, the consensus is that simply generating output faster with AI doesn't address the fundamental challenge of knowing *what* to build or *how* to define success, which remains the slowest part.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>frederickvanbrabant.com</span>
+        <span>·</span>
+        <span>560 pts</span>
+        <span>·</span>
+        <span>386 comments</span>
+        <span>·</span>
+        <span>by TheEdonian</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://frederickvanbrabant.com/blog/2026-05-15-i-dont-think-ai-will-make-your-processes-go-faster/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48168221" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Developer Tools 🛠️</div>
+            
+            <h2 class="story-title"><a href="https://crates.io/crates/zerostack/1.0.0" target="_blank" rel="noopener">Zerostack: Pure Rust Powers Unix-Inspired Coding Agent</a></h2>
+            <p class="story-summary">Community discussion highlights: Funny this comes out today. I was just about to start to write one in rust. It's amazing having opencode slowly leak memory and end up becoming 6gbs on a large project and then get slower and slower. Will check this out! Seems cool!</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project directly tackles a critical pain point in modern AI-powered developer tooling: the significant memory leaks and performance degradation observed in existing &quot;coding agents.&quot; Zerostack's &quot;Unix-inspired&quot; design and &quot;pure Rust&quot; implementation signal a strategic pivot towards building more resource-efficient, reliable alternatives that leverage AI without sacrificing system stability or speed. This reflects a growing demand for practical, stable solutions in the AI tooling landscape, addressing long-term operational sustainability beyond initial functionality.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally views Zerostack positively, particularly praising its low memory footprint and use of Rust, which offers a refreshing alternative to existing LLM coding agents often criticized for excessive RAM consumption and performance degradation. There's a strong DIY spirit among users, many of whom are building their own agents in Rust, underscoring a shared need for efficient, controllable tools and human oversight in LLM execution.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>crates.io</span>
+        <span>·</span>
+        <span>547 pts</span>
+        <span>·</span>
+        <span>300 comments</span>
+        <span>·</span>
+        <span>by gidellav</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://crates.io/crates/zerostack/1.0.0" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48164287" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">[Software Longevity] ⏳</div>
+            
+            <h2 class="story-title"><a href="https://fosdem.org/2026/schedule/event/AGWUVH-mercurial-aint-you-dead-yet/" target="_blank" rel="noopener">Mercurial's 20-Year Run: Defying Obsolescence in Version Control</a></h2>
+            <p class="story-summary">FOSDEM 2026 - Mercurial, 20 years and counting: how are we still alive and kicking?</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This presentation likely explores the strategic decisions, community dedication, and unique technical attributes that have enabled Mercurial to thrive for two decades, even amidst Git's widespread adoption. It offers valuable insights into sustaining an open-source project and maintaining relevance by catering to specific user needs in a highly competitive software ecosystem.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely expresses a nostalgic fondness for Mercurial, often preferring its simplicity, clarity, and perceived safety over Git's complexity. However, there's a strong consensus that Git &quot;won the war&quot; due to network effects, platform support (like Bitbucket dropping it), and widespread adoption, which ultimately led to Mercurial's decline and makes its continued existence seem surprising to many. Some even suggest newer tools like Jujutsu are further accelerating its inevitable demise.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>fosdem.org</span>
+        <span>·</span>
+        <span>186 pts</span>
+        <span>·</span>
+        <span>189 comments</span>
+        <span>·</span>
+        <span>by ibobev</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://fosdem.org/2026/schedule/event/AGWUVH-mercurial-aint-you-dead-yet/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48147351" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🚨 Aviation Incident</div>
+            
+            <h2 class="story-title"><a href="https://idahonews.com/news/local/two-f-18-fighter-jets-have-crashed-during-an-airshow-at-mountain-home-air-force-base" target="_blank" rel="noopener">Two EA-18 Fighter Jets Collide at Mountain Home Airshow; All Four Pilots Eject Safely</a></h2>
+            <p class="story-summary">Two F-18 fighter jets have crashed during an airshow at Mountain Home Air Force Base Two EA-18 fighter jets collide at Mountain Home airshow, pilots ejected safely Video/photos captured by Shane Odgen shows two EA-18 fighter jets colliding in mid air near Mountain Home Air Force Base during the Fighter Skies Airshow. All four airmen are reportedly safe after parachutes successfully deployed following the crash. All four crew members ejected safely after two Navy jets collided and crashed on Sunday during an air show at the Mountain Home Air Force Base, officials said.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This incident, while resulting in the loss of two advanced military aircraft, remarkably underscores the success of modern ejection systems and rigorous pilot training, ensuring all four airmen ejected safely. It highlights the inherent risks of precision aerial demonstrations, demanding continuous review of safety protocols and operational procedures for such high-stakes events to prevent future occurrences.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely expresses strong disapproval over the use of highly specialized and expensive EA-18 Growler jets for airshow aerobatics. Commenters widely view this as a poor allocation of taxpayer money, suggesting that less costly and more appropriate alternatives like regular F-18s or the Blue Angels should be utilized for such displays.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>idahonews.com</span>
+        <span>·</span>
+        <span>180 pts</span>
+        <span>·</span>
+        <span>161 comments</span>
+        <span>·</span>
+        <span>by ChrisArchitect</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://idahonews.com/news/local/two-f-18-fighter-jets-have-crashed-during-an-airshow-at-mountain-home-air-force-base" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48173468" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">💡 AI Strategy</div>
+            
+            <h2 class="story-title"><a href="https://daringfireball.net/2026/05/ai_is_technology_not_a_product" target="_blank" rel="noopener">Apple's AI Stance: Technology Integration, Not a Standalone Product</a></h2>
+            <p class="story-summary">Daring Fireball: AI Is Technology, Not a Product Manage GRC Faster with Drata’s Agentic Trust Management Platform Steven Levy, writing for Wired last month after Apple’s CEO transition was announced, under the provocative headline “ Apple’s Next CEO Needs to Launch a Killer AI Product ” ( News+ link to get around Wired’s miserly paywall): Much more recently, I quizzed Ternus and global marketing
+head Greg Joswiak about Apple’s future, specifically its plans to
+get ahead of the AI transformation. Ternus acknowledged that AI is
+“an immense kind of inflection point,” but couched it as one of
+many leaps that Apple has navigated.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece argues for a foundational shift in how AI is perceived and deployed, emphasizing its role as an enabling technology rather than a standalone product. This perspective suggests companies should focus on integrating AI to enhance existing offerings rather than launching discrete &quot;AI products,&quot; a strategic nuance that Apple appears to be embracing by framing AI within its broader history of technological evolution. This challenges the current market trend and advocates for a more mature, embedded approach to AI adoption.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees with the premise that AI is an underlying technology or feature, not a standalone product. Commenters emphasize that AI should be integrated to enhance existing user experiences—like making Siri more functional—a strategy they align with Apple's historical focus on working backward from the customer experience, similar to how Dropbox started as a feature. Google is often cited as a company already successfully implementing AI in this manner to improve its offerings.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>daringfireball.net</span>
+        <span>·</span>
+        <span>395 pts</span>
+        <span>·</span>
+        <span>174 comments</span>
+        <span>·</span>
+        <span>by ch_sm</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://daringfireball.net/2026/05/ai_is_technology_not_a_product" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48168626" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 18, 2026</div>
+    </footer>
+</body>
+</html>
