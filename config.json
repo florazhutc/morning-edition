@@ -30,6 +30,7 @@
   "email": {
     "enabled": true,
     "to": "1527264811@qq.com",
+    "site_url": "https://morning-edition.vercel.app",
     "smtp_server": "smtp.qq.com",
     "smtp_port": 587,
     "smtp_user": "1527264811@qq.com",

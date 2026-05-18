@@ -1,0 +1,8 @@
+.github
+.gitignore
+__pycache__
+*.py
+*.sh
+*.plist
+config.json
+netlify.toml

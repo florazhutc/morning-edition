@@ -28,15 +28,21 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           MORNING_EDITION_EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          MORNING_EDITION_SITE_URL: https://morning-edition.vercel.app
+          MORNING_EDITION_REQUIRE_EMAIL: "true"
         run: python3 generate_magazine.py
 
-      - name: Update index.html
-        run: python3 update_index.py
+      - name: Update archive index
+        run: python3 update_archive.py
 
       - name: Commit and push
         run: |
           git config --local user.email "bot@github.com"
           git config --local user.name "Morning Edition Bot"
           git add -A
-          git commit -m "📰 Auto-publish $(date +%Y-%m-%d)" || true
-          git push || true
+          if git diff --cached --quiet; then
+            echo "No changes to publish."
+          else
+            git commit -m "📰 Auto-publish $(date +%Y-%m-%d)"
+            git push
+          fi
