@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — May 19, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Tuesday</div>
+        <div class="masthead-year">May 19, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Files.md: Open-Source Obsidian Alternative for Plain Markdown Notes</span>
+            <span class="toc-score">629 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Smaller, Specialized AI Models Poised to Outperform Large LLMs for Coding Agents</span>
+            <span class="toc-score">216 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Pope Leo XIV's Debut Encyclical 'Magnifica Humanitas' Out May 25</span>
+            <span class="toc-score">211 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Stopping AI Bot Spam on GitHub Repos with Git's --author Flag</span>
+            <span class="toc-score">465 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Anthropic Acquires Stainless to Boost AI Agent Action Through Enhanced API Tools</span>
+            <span class="toc-score">439 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Unix Historian and Open Source Pioneer Peter Salus Dies</span>
+            <span class="toc-score">122 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Peter Neumann, Founder of RISKS Digest and Multics Pioneer, Dies</span>
+            <span class="toc-score">73 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Humanity's 240-Light-Year Radio Bubble: Every Broadcast Is Now a Cosmic Introduction</span>
+            <span class="toc-score">69 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">LLM's Six-Month Surge: A PyCon US 2026 Five-Minute Overview</span>
+            <span class="toc-score">362 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Bitwarden Faces Backlash Over Buried Premium Price Increase</span>
+            <span class="toc-score">630 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">✍️ Productivity Tool</div>
+            
+            <h2 class="story-title"><a href="https://github.com/zakirullin/files.md" target="_blank" rel="noopener">Files.md: Open-Source Obsidian Alternative for Plain Markdown Notes</a></h2>
+            <p class="story-summary">GitHub - zakirullin/files.md: 🌱 Your life in plain .md files · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Files.md directly addresses a significant user demand for open-source alternatives in the personal knowledge management (PKM) space, providing a plain Markdown-based option that prioritizes data ownership and portability. This project is well-positioned to attract users wary of proprietary ecosystems like Obsidian, offering a community-driven path for robust note-linking and organization.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community strongly expresses a desire for open-source note-taking solutions, with many users highlighting their preference for plain text files and full ownership over both their data and the tools used to manage it. While appreciative of new open-source alternatives, there's a clear underlying sentiment that Obsidian, despite its popularity, falls short by not being open-source, prompting many to seek or build fully open alternatives like Joplin or custom setups.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>629 pts</span>
+        <span>·</span>
+        <span>305 comments</span>
+        <span>·</span>
+        <span>by zakirullin</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/zakirullin/files.md" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48179677" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Strategy</div>
+            
+            <h2 class="story-title"><a href="https://static1.squarespace.com/static/50363cf324ac8e905e7df861/t/6a0af5d0484fbf5fe9a7743e/1779103184855/2026-Spring-AI.pdf" target="_blank" rel="noopener">Smaller, Specialized AI Models Poised to Outperform Large LLMs for Coding Agents</a></h2>
+            <p class="story-summary">Community discussion highlights: If coding is such a big part of LLM agents' usage at the moment, I do not understand how far the best models will continue to shine and take the largest chunk of revenue. I am far away from tech hubs but I think better harness will utilize smaller models for more constrained, efficient and reliable coding agents. In a way this is like distilling (but it is not) but you can make better harness (tackle more edge cases, better tool/function definitions, sandbox handling, bash management, DB managem</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This discussion zeroes in on a critical strategic question for the AI industry: will the market continue to favor monolithic, large language models, or will specialized, smaller models optimized for tasks like coding agents prove more efficient and cost-effective? It suggests a potential shift towards a more diversified AI ecosystem where practical deployment considerations, such as reliability and resource management, could challenge the dominance of the largest models.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views AI as a fundamental, potentially world-changing platform shift comparable to the internet or mobile revolutions. While acknowledging its significant impact, there's considerable discussion and uncertainty regarding the practicalities, such as scaling, real-world usefulness, the efficiency of mega-models, and whether it will follow patterns seen in past tech cycles.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>static1.squarespace.com</span>
+        <span>·</span>
+        <span>216 pts</span>
+        <span>·</span>
+        <span>115 comments</span>
+        <span>·</span>
+        <span>by topherjaynes</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://static1.squarespace.com/static/50363cf324ac8e905e7df861/t/6a0af5d0484fbf5fe9a7743e/1779103184855/2026-Spring-AI.pdf" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48179021" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">⛪️ Religion &amp; Society</div>
+            
+            <h2 class="story-title"><a href="https://www.vaticannews.va/en/pope/news/2026-05/pope-leo-xiv-first-encyclical-magnifica-humanitas.html" target="_blank" rel="noopener">Pope Leo XIV's Debut Encyclical 'Magnifica Humanitas' Out May 25</a></h2>
+            <p class="story-summary">Pope Leo XIV’s first encyclical Magnifica humanitas to be published May 25 - Vatican News</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The release of a new Pope's first encyclical is a seminal event for the Catholic Church, often signaling the theological and social priorities of his papacy. Titled &quot;Magnifica humanitas,&quot; this document will likely offer the Church's perspective on contemporary issues surrounding human dignity and societal well-being, potentially influencing global discourse for its 1.3 billion adherents and beyond.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community, notably including many non-religious members, expresses significant interest and cautious optimism regarding the Pope's encyclical, seeing it as potentially timely and relevant for addressing contemporary global fragmentation and the ethical implications of AI. There's a strong curiosity about how the Pope's human-centered view will engage with the rhetoric of AI developers like Anthropic, with many hoping it can offer meaningful guidance similar to historically impactful papal documents.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>vaticannews.va</span>
+        <span>·</span>
+        <span>211 pts</span>
+        <span>·</span>
+        <span>118 comments</span>
+        <span>·</span>
+        <span>by cucho</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.vaticannews.va/en/pope/news/2026-05/pope-leo-xiv-first-encyclical-magnifica-humanitas.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48187201" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🛡️🤖 AI &amp; Platform Integrity</div>
+            
+            <h2 class="story-title"><a href="https://archestra.ai/blog/only-responsible-ai" target="_blank" rel="noopener">Stopping AI Bot Spam on GitHub Repos with Git's --author Flag</a></h2>
+            <p class="story-summary">Let's talk about AI slop | Blog | Archestra When a few months ago GitHub shared statistics about celebrating an enormous contribution of AI in their product metrics , completely missing the point of degraded contribution quality, we already felt that things were going south. The first worrying moment was the issue we posted with a $900 bounty . We were hoping to motivate someone to contribute and bring shiny new &quot;MCP Apps&quot; support to our platform. We quickly got the attention of legitimate contributors proposing plans, asking questions, submitting attempts — but soon...</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post starkly highlights the growing challenge of maintaining quality and integrity on collaborative developer platforms amidst the surge of &quot;AI slop.&quot; It underscores a critical gap in platform metrics that often celebrate quantitative contributions without assessing their qualitative impact. The technical workaround using `git --author` demonstrates a grassroots effort to combat AI spam, emphasizing the urgent need for platforms to evolve their moderation strategies to preserve genuine human collaboration.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees that AI bot spam, particularly in GitHub pull requests, is a significant and frustrating problem that GitHub needs to address with more robust platform-level measures. While the `--author` flag is seen as a practical workaround, concerns were raised regarding its security implications and the potential for wasting compute resources on spam submissions. Many believe GitHub should implement better filtering or reputation systems, rather than relying on individual repositories to manage the issue.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>archestra.ai</span>
+        <span>·</span>
+        <span>465 pts</span>
+        <span>·</span>
+        <span>222 comments</span>
+        <span>·</span>
+        <span>by ildari</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://archestra.ai/blog/only-responsible-ai" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48181125" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🔌 AI Infrastructure</div>
+            
+            <h2 class="story-title"><a href="https://www.anthropic.com/news/anthropic-acquires-stainless" target="_blank" rel="noopener">Anthropic Acquires Stainless to Boost AI Agent Action Through Enhanced API Tools</a></h2>
+            <p class="story-summary">The frontier of AI is shifting from models that answer to agents that act—and agents are only as capable as the systems they can reach. Today, Anthropic is acquiring Stainless, a leader in SDKs and MCP server tooling, to extend that reach even further. Founded in 2022, Stainless has powered the generation of every official Anthropic SDK since the earliest days of our API. Hundreds of companies rely on Stainless to generate SDKs, CLIs, and MCP servers—the libraries, command-line tools, and connectors that let developers and agents use an API. Stainless turns an API spec into SDKs across TypeScript, Python, Go, Java, Kotlin, and more.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This acquisition by Anthropic underscores a crucial strategic shift in the AI frontier: moving beyond foundational models to focus on empowering AI agents with practical *action* capabilities. By integrating Stainless's SDK and server tooling, Anthropic aims to vastly extend how its agents can connect with and manipulate external systems, thus enhancing their real-world utility and accelerating the deployment of truly interactive AI applications.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely views Anthropic's acquisition of Stainless as an &quot;acquihire,&quot; primarily focused on securing top engineering talent rather than integrating or continuing Stainless's API generation product. This decision has caused significant disappointment and frustration among Stainless's existing users, who are left with an abrupt shutdown of services and a lack of clarity regarding their future options.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>anthropic.com</span>
+        <span>·</span>
+        <span>439 pts</span>
+        <span>·</span>
+        <span>296 comments</span>
+        <span>·</span>
+        <span>by tomeraberbach</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.anthropic.com/news/anthropic-acquires-stainless" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48182281" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Obituary</div>
+            
+            <h2 class="story-title"><a href="https://www.tuhs.org/pipermail/tuhs/2026-May/033750.html" target="_blank" rel="noopener">Unix Historian and Open Source Pioneer Peter Salus Dies</a></h2>
+            <p class="story-summary">Dan Cross via TUHS tuhs at tuhs.org Tue May 19 10:20:01 AEST 2026 Previous message (by thread): [TUHS] Fwd: [multicians] Peter Neumann has died Next message (by thread): [TUHS] RIP Peter Salus Messages sorted by: [ date ] [ thread ] [ subject ] [ author ] I just found out that Peter Salus passed away on May 15.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">🕊️ The announcement of Peter Salus's passing signifies the loss of a foundational figure in the history of Unix, open source, and the internet. His extensive work as an author and historian helped document and shape the early development of computing, making his contributions invaluable to the technical community. His legacy will continue to influence generations of computer scientists and engineers.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community deeply respects Peter Salus, remembering him as a pivotal figure who significantly contributed to documenting and making comprehensible the history of Unix, particularly through his book &quot;A Quarter Century of Unix.&quot; Commenters also acknowledge his broader impact, including his editorship of programming language handbooks and his early leadership at the USENIX Association, highlighting a legacy of invaluable historical and educational contributions to the computing world.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>tuhs.org</span>
+        <span>·</span>
+        <span>122 pts</span>
+        <span>·</span>
+        <span>10 comments</span>
+        <span>·</span>
+        <span>by speckx</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.tuhs.org/pipermail/tuhs/2026-May/033750.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48188665" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🕯️ **Obituary**</div>
+            
+            <h2 class="story-title"><a href="https://www.tuhs.org/pipermail/tuhs/2026-May/033748.html" target="_blank" rel="noopener">Peter Neumann, Founder of RISKS Digest and Multics Pioneer, Dies</a></h2>
+            <p class="story-summary">[TUHS] Fwd: [multicians] Peter Neumann has died [TUHS] Fwd: [multicians] Peter Neumann has died Dan Cross via TUHS tuhs at tuhs.org Mon May 18 03:58:33 AEST 2026 Previous message (by thread): [TUHS] time on bsd 2.11 on a pdp11 Next message (by thread): [TUHS] RIP Peter Salus</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This announcement marks the passing of Peter G. Neumann, a profoundly influential figure in computer science, celebrated for his pioneering work in operating systems like Multics and especially in computer security. His enduring legacy includes moderating the RISKS Digest, a crucial forum that shaped discourse on digital vulnerabilities and risks for decades. His death represents a significant loss to the historical computing community and the field of cybersecurity.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community quickly identified that the news of Peter Neumann's passing is not current, as he died in 2012. Users pointed to previous discussions and obituaries from that year, indicating this post is a repost or a renewed recognition of his legacy, rather than breaking news.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>tuhs.org</span>
+        <span>·</span>
+        <span>73 pts</span>
+        <span>·</span>
+        <span>3 comments</span>
+        <span>·</span>
+        <span>by pabs3</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.tuhs.org/pipermail/tuhs/2026-May/033748.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48188787" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Interstellar Echo 📡</div>
+            
+            <h2 class="story-title"><a href="https://www.thescientificdrop.com/2026/05/earths-radio-bubble-every-signal-weve.html" target="_blank" rel="noopener">Humanity's 240-Light-Year Radio Bubble: Every Broadcast Is Now a Cosmic Introduction</a></h2>
+            <p class="story-summary">Earth's Radio Bubble: Every Signal We've Ever  Sent Into Space Right now, a sphere of electromagnetic radiation 
+is expanding outward from Earth at the speed of 
+light. It has been growing since the first powerful 
+radio transmissions of the early 1900s. Today that 
+bubble is roughly 240 light-years across and it contains every piece of music, every TV 
+broadcast, every radar ping, and every deliberate 
+message we have ever sent into the cosmos. To any 
+civilisation with a sufficiently sensitive receiver 
+sitting within that bubble, we have already 
+announced ourselves.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This expanding radio bubble serves as humanity's unwitting cosmic announcement, demonstrating how our technological development has passively broadcast our existence into the galaxy for over a century. It provocatively flips the script on active SETI, suggesting any sufficiently advanced civilization within 240 light-years could already be aware of our presence based on the aggregate, albeit diluted, electromagnetic legacy we've left behind.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that while Earth has been sending radio signals into space for decades, the actual detectability of these signals by extraterrestrial civilizations is extremely low beyond a relatively short distance, often citing how quickly signal strength diminishes. Many commenters reference Carl Sagan's *Contact* as a popular cultural depiction of this very concept. There's also some interest in what other, potentially stronger, signals (like atmospheric oxygen or powerful accidental broadcasts) might be more detectable.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>thescientificdrop.com</span>
+        <span>·</span>
+        <span>69 pts</span>
+        <span>·</span>
+        <span>35 comments</span>
+        <span>·</span>
+        <span>by jonbaer</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.thescientificdrop.com/2026/05/earths-radio-bubble-every-signal-weve.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48176873" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Update</div>
+            
+            <h2 class="story-title"><a href="https://simonwillison.net/2026/May/19/5-minute-llms/" target="_blank" rel="noopener">LLM's Six-Month Surge: A PyCon US 2026 Five-Minute Overview</a></h2>
+            <p class="story-summary">The last six months in LLMs in five minutes The last six months in LLMs in five minutes I put together these annotated slides from my five minute lightning talk at PyCon US 2026, using the latest iteration of my annotated presentation tool . I presented this lightning talk at PyCon US 2026, attempting to summarize the last six months of developments in LLMs in five minutes. Six months is a pretty convenient time period to cover, because it captures what I’ve been calling the November 2025 inflection point .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece offers a highly distilled, expert-curated overview of the most significant advancements in Large Language Models over the last six months, pinpointing a crucial &quot;November 2025 inflection point.&quot; Such a concise retrospective is invaluable for busy professionals to quickly grasp the rapid evolution and critical shifts defining the current LLM landscape.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses nuanced skepticism regarding the &quot;inflection point&quot; in LLM development, particularly for coding agents; many developers feel these tools, while better at specific tasks like tool calls or codebase queries, still struggle with complex or &quot;vibe coding&quot; projects. However, users are genuinely impressed by the models' advanced capabilities in generating creative and often bizarre images and videos from simple text prompts. This suggests a perceived disconnect between the hype around coding proficiency and the actual, practical utility observed by programmers.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>simonwillison.net</span>
+        <span>·</span>
+        <span>362 pts</span>
+        <span>·</span>
+        <span>231 comments</span>
+        <span>·</span>
+        <span>by yakkomajuri</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://simonwillison.net/2026/May/19/5-minute-llms/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48188183" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🧐 Business Strategy Critique</div>
+            
+            <h2 class="story-title"><a href="https://blog.ppb1701.com/the-quiet-renovation-at-bitwarden" target="_blank" rel="noopener">Bitwarden Faces Backlash Over Buried Premium Price Increase</a></h2>
+            <p class="story-summary">The Quiet Renovation at Bitwarden - ByteHaven - Where I ramble about bytes Back in March, I wrote about Bitwarden doubling their Premium price — and specifically how they did it. Buried in a feature announcement. Priced in fake monthly increments for a product that has never once offered monthly billing. Communicated to existing customers fifteen days before their renewal, not before.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Bitwarden's &quot;quiet renovation&quot; exemplifies how opaque pricing adjustments and poor customer communication can erode trust, even for well-regarded privacy-focused services. Such tactics, burying significant changes in minor announcements and using confusing pricing models, risk alienating loyal users and damaging long-term brand integrity for short-term revenue gains. It underscores the critical need for transparency and clear communication in product management, especially when impacting existing customers.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely expresses strong dissatisfaction and distrust towards Bitwarden, citing concerns about its &quot;enshittified&quot; user experience, perceived shift towards monetization, and declining technical quality with issues like memory leaks. Many users are migrating or recommend self-hosted alternatives like Vaultwarden and open-source solutions like KeePassXC, driven by a desire for greater control, transparency, and reliability after past negative experiences with commercial password managers.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>blog.ppb1701.com</span>
+        <span>·</span>
+        <span>630 pts</span>
+        <span>·</span>
+        <span>284 comments</span>
+        <span>·</span>
+        <span>by DaSHacka</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://blog.ppb1701.com/the-quiet-renovation-at-bitwarden" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48163389" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 19, 2026</div>
+    </footer>
+</body>
+</html>
