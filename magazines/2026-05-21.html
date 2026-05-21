@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — May 21, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Thursday</div>
+        <div class="masthead-year">May 21, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">OpenAI AI Disproves Decades-Old Discrete Geometry Conjecture</span>
+            <span class="toc-score">1102 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">GitHub Breach: Malicious VSCode Extension Compromises 3,800 Repos</span>
+            <span class="toc-score">797 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">AI Powers 100K-Line Rust Multi-Paxos Engine to 300K Ops/Sec in Weeks ⚡</span>
+            <span class="toc-score">148 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Gemini 3.5: Google DeepMind's New Frontier in Agentic AI</span>
+            <span class="toc-score">939 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Google Cloud Erroneously Suspends Railway Account, Triggering Platform-Wide Outage</span>
+            <span class="toc-score">432 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Meta Censors Human Rights Content in Saudi Arabia, UAE</span>
+            <span class="toc-score">1016 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Firefox SpiderMonkey Retires asm.js Optimizations</span>
+            <span class="toc-score">371 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">US Businesses Want Qwen3.7-Max's Advanced Agent AI, But Non-US Domicile Blocks Production Use</span>
+            <span class="toc-score">662 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Virtual Museum Curates and Emulates Vast OS History, Ready-to-Run with Snapshots</span>
+            <span class="toc-score">935 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Developer Open-Sources Reverse-Engineered Kit for Custom macOS Video Wallpapers in Settings</span>
+            <span class="toc-score">255 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🧠 AI &amp; Discovery</div>
+            
+            <h2 class="story-title"><a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/" target="_blank" rel="noopener">OpenAI AI Disproves Decades-Old Discrete Geometry Conjecture</a></h2>
+            <p class="story-summary">https://x.com/wtgowers/status/2057175727271800912 , https://xcancel.com/wtgowers/status/2057175727271800912</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This news signifies a major milestone, demonstrating AI's capacity for fundamental scientific discovery beyond mere assistance. An OpenAI model disproving a central mathematical conjecture suggests AI is evolving from a computational aid to an active participant in generating novel insights and proofs, potentially accelerating advancements in complex theoretical fields.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community generally acknowledges the impressiveness of OpenAI's model disproving a mathematical conjecture, viewing it as an exciting and significant technical achievement. However, a strong undercurrent of skepticism and caution exists, with many questioning the extent of the AI's true originality, autonomy, and the human guidance involved in the discovery process. While some see this as a precursor to even higher-level AI mathematical breakthroughs, others emphasize the need for transparency regarding the model's training and methodology before declaring it truly &quot;intelligent.&quot;</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>openai.com</span>
+        <span>·</span>
+        <span>1102 pts</span>
+        <span>·</span>
+        <span>793 comments</span>
+        <span>·</span>
+        <span>by tedsanders</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48212493" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Cybersecurity</div>
+            
+            <h2 class="story-title"><a href="https://www.bleepingcomputer.com/news/security/github-confirms-breach-of-3-800-repos-via-malicious-vscode-extension/" target="_blank" rel="noopener">GitHub Breach: Malicious VSCode Extension Compromises 3,800 Repos</a></h2>
+            <p class="story-summary">GitHub confirms breach of 3,800 repos via malicious VSCode extension</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This incident underscores the growing sophistication of supply chain attacks targeting developer environments, where widely adopted tools like VSCode extensions become potent vectors for compromise. It highlights a critical need for enhanced security vetting of third-party plugins and robust permission models within IDEs to mitigate risks that extend beyond direct platform vulnerabilities to the very tools developers rely on daily.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views this breach as an unsurprising consequence of VSCode's long-criticized and &quot;terrifying&quot; lack of security for extensions. Users express deep concern over the absence of sandboxing and explicit permission systems, identifying extensions as an &quot;obvious attack vector.&quot; There's a strong consensus that Microsoft must prioritize and implement significant security improvements to the platform.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>bleepingcomputer.com</span>
+        <span>·</span>
+        <span>797 pts</span>
+        <span>·</span>
+        <span>320 comments</span>
+        <span>·</span>
+        <span>by Timofeibu</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.bleepingcomputer.com/news/security/github-confirms-breach-of-3-800-repos-via-malicious-vscode-extension/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48207660" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI-Assisted Systems Development</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://zfhuang99.github.io/rust/claude%20code/codex/contracts/spec-driven%20development/2025/12/01/rust-with-ai.html" target="_blank" rel="noopener">AI Powers 100K-Line Rust Multi-Paxos Engine to 300K Ops/Sec in Weeks</a></h2>
+            <p class="story-summary">Learnings from 100K Lines of Rust with AI | Cheng Huang’s corner In the past few months, I’ve been stress-testing how far AI coding agents can take us when building real, production-grade distributed systems. The result: a Rust-based multi-Paxos consensus engine that not only implements all the features of Azure’s Replicated State Library (RSL) [ 1 ] — which underpins most major Azure services — but also modernizes it for today’s hardware. The entire project took me ~3 months, with 100K lines of Rust code written in ~4 weeks and performance optimization from 23K operations/sec to 300K ops/sec achieved in ~3 weeks. Besides unprecedented productivity, I discovered several techniques that were instrumental.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post demonstrates an extraordinary leap in developer productivity, showcasing AI coding agents' capability to rapidly generate 100K lines of production-grade Rust code for a complex distributed consensus engine. The successful re-implementation and modernization of a core Azure component in a fraction of the traditional timeline suggests a paradigm shift in how critical infrastructure can be built and optimized.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant skepticism regarding the sheer volume of &quot;100K lines of Rust with AI,&quot; largely viewing AI-generated lines of code as an unimpressive metric. While some acknowledge AI's potential for spec critique, many report difficulties, especially with Rust's lifetime errors, emphasizing that extensive testing and proven real-world utility are the true indicators of success.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>zfhuang99.github.io</span>
+        <span>·</span>
+        <span>148 pts</span>
+        <span>·</span>
+        <span>155 comments</span>
+        <span>·</span>
+        <span>by pramodbiligiri</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://zfhuang99.github.io/rust/claude%20code/codex/contracts/spec-driven%20development/2025/12/01/rust-with-ai.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48205415" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI/ML Release</div>
+            
+            <h2 class="story-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" target="_blank" rel="noopener">Gemini 3.5: Google DeepMind's New Frontier in Agentic AI</a></h2>
+            <p class="story-summary">Gemini 3.5: frontier intelligence with action Gemini 3.5: frontier intelligence with action Gemini 3.5 is built to help you execute complex, agentic workflows. CTO, Google DeepMind and Chief AI Architect, Google Chief Scientist, Google DeepMind and Google Research</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Gemini 3.5 Flash signals Google's intensified focus on developing AI models capable of proactive execution of complex, multi-step tasks rather than just understanding. The emphasis on &quot;action&quot; and &quot;agentic workflows&quot; suggests a strategic push towards AI that can autonomously plan and operate, potentially revolutionizing how users interact with and delegate intricate operations to AI systems. This release, backed by high-level figures from DeepMind and Google Research, underscores Google's commitment to advancing the practical application of frontier AI.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses significant disappointment with Gemini 3.5 Flash, primarily due to its perceived poor value. Users highlight a substantial price increase compared to previous versions, alongside benchmarks showing &quot;mediocre&quot; performance, slower speeds, and persistent issues like hallucinations, making it appear worse than older Google models and competitors.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>blog.google</span>
+        <span>·</span>
+        <span>939 pts</span>
+        <span>·</span>
+        <span>643 comments</span>
+        <span>·</span>
+        <span>by spectraldrift</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48196570" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">☁️ Cloud Incident</div>
+            
+            <h2 class="story-title"><a href="https://blog.railway.com/p/incident-report-may-19-2026-gcp-account-outage" target="_blank" rel="noopener">Google Cloud Erroneously Suspends Railway Account, Triggering Platform-Wide Outage</a></h2>
+            <p class="story-summary">Incident Report: May 19, 2026- GCP Account Suspension This report reflects what we know at time of publication and may be updated pending Google Cloud's internal review. Railway experienced a platform-wide service disruption due to Google Cloud incorrectly placing our account in a suspended status. This resulted in a temporary loss of service for all GCP hosted infrastructure. This infrastructure supports our dashboard, API, and pieces of our network infrastructure.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This incident report starkly highlights the critical operational risks and vendor lock-in challenges inherent in relying heavily on a single hyperscale cloud provider, even for fundamental services like account status. An &quot;incorrect&quot; suspension by GCP underscores that even major platforms can introduce significant points of failure, necessitating robust multi-cloud strategies and stringent SLAs to ensure service resilience and business continuity.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely condemns Google Cloud's seemingly arbitrary and automated account suspension practices, highlighting a pattern of unexplained service disruptions that significantly impact customers. While Railway is seen as having a &quot;bad month&quot; due to these external incidents, many commenters express broader concerns about the reliability of various platform providers (GCP, Railway, Vercel, Supabase) and the risks associated with vendor lock-in. This incident serves as a stark warning about the potential fragility of relying on automated systems for critical infrastructure decisions.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>blog.railway.com</span>
+        <span>·</span>
+        <span>432 pts</span>
+        <span>·</span>
+        <span>244 comments</span>
+        <span>·</span>
+        <span>by 0xedb</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://blog.railway.com/p/incident-report-may-19-2026-gcp-account-outage" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48204770" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Censorship 🤐</div>
+            
+            <h2 class="story-title"><a href="https://www.alqst.org/ar/posts/1190" target="_blank" rel="noopener">Meta Censors Human Rights Content in Saudi Arabia, UAE</a></h2>
+            <p class="story-summary">Meta blocks human rights accounts from reaching audiences in Saudi Arabia and the UAE</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Meta's decision to block human rights accounts in Saudi Arabia and the UAE underscores the complex ethical tightrope global platforms walk between upholding universal free speech principles and complying with local governmental demands. This action effectively stifles critical discourse and limits information access for audiences in these regions, raising significant questions about Meta's commitment to human rights advocacy versus market access and political compliance.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely condemns Meta's decision to block human rights accounts, viewing it as a clear example of the company prioritizing market access and &quot;short-term growth at all costs&quot; over principles and free speech. There's a strong consensus that Meta, like other social media giants, operates on a &quot;privatized profits, socialized harm&quot; model, leading to negative societal outcomes. While one comment posits that Meta might be compelled to follow local laws, the overwhelming sentiment expresses deep disapproval and even animosity towards the company's actions.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>alqst.org</span>
+        <span>·</span>
+        <span>1016 pts</span>
+        <span>·</span>
+        <span>428 comments</span>
+        <span>·</span>
+        <span>by giuliomagnifico</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.alqst.org/ar/posts/1190" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48206768" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🌐 Web Platform Evolution</div>
+            
+            <h2 class="story-title"><a href="https://spidermonkey.dev/blog/2026/05/20/saying-goodbye-to-asmjs.html" target="_blank" rel="noopener">Firefox SpiderMonkey Retires asm.js Optimizations</a></h2>
+            <p class="story-summary">Saying goodbye to asm.js | SpiderMonkey JavaScript/WebAssembly Engine Axe-time, sword-time, shields are sundered, Wind-time, wolf-time, ere the world falls. As of Firefox 148 , SpiderMonkey’s asm.js optimizations are disabled by default, and we plan to remove the code entirely in a future release. If you maintain a site that uses asm.js, nothing will break. asm.js is just a subset of plain JavaScript, so the code keeps running through our regular JIT just like any other script.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This announcement signifies the official end of an era for `asm.js`, a pivotal technology that paved the way for high-performance code on the web before the advent of WebAssembly. Its deprecation underscores the successful maturation and widespread adoption of WebAssembly as the new standard for near-native performance, demonstrating the web platform's continuous evolution towards more efficient and powerful execution environments. The fact that existing `asm.js` code will continue to run without breakage highlights the web's commitment to backward compatibility, even as its underlying technologies advance significantly.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely views the &quot;goodbye&quot; to asm.js as a natural and accepted progression, recognizing its foundational role as a critical precursor that proved high-performance applications were viable in the browser before WebAssembly (WASM) matured. While there's a touch of nostalgia for its historical impact, users are largely reassured that existing asm.js code will continue to function as plain JavaScript, preventing immediate breakage.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>spidermonkey.dev</span>
+        <span>·</span>
+        <span>371 pts</span>
+        <span>·</span>
+        <span>144 comments</span>
+        <span>·</span>
+        <span>by eqrion</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://spidermonkey.dev/blog/2026/05/20/saying-goodbye-to-asmjs.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48206340" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">AI Geopolitics 🌎</div>
+            
+            <h2 class="story-title"><a href="https://qwen.ai/blog?id=qwen3.7" target="_blank" rel="noopener">US Businesses Want Qwen3.7-Max's Advanced Agent AI, But Non-US Domicile Blocks Production Use</a></h2>
+            <p class="story-summary">Community discussion highlights: As they start to release more proprietary models, I so wish that they partnered with one of the major US hyperscalers to allow using these models through something US-domiciled. Totally understand why it may not be reasonable or in their best interest (and that the US is _absolutely_ not doing the same reflexively). But it would be lovely to be able to try these out on production workloads in earnest.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The discussion around Qwen3.7-Max highlights the growing geopolitical friction impacting enterprise AI adoption, where powerful non-US proprietary models face significant barriers to production use in Western markets. Concerns over data sovereignty and trust create a demand for US-domiciled partnerships, reflecting a broader balkanization of high-stakes AI infrastructure and a critical impediment to universal enterprise access to cutting-edge capabilities.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally acknowledges Qwen3.7-Max's impressive performance, particularly its low hallucination rate, and sees it as a strong free alternative to established models. However, there's notable skepticism regarding the benchmarks, which are criticized for not including the very latest competitor versions, and a strong desire for more open-weight releases and reliable, accessible hosting options, especially from US-based providers.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>qwen.ai</span>
+        <span>·</span>
+        <span>662 pts</span>
+        <span>·</span>
+        <span>260 comments</span>
+        <span>·</span>
+        <span>by kevinsimper</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://qwen.ai/blog?id=qwen3.7" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48205626" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">💾 Retro Computing</div>
+            
+            <h2 class="story-title"><a href="https://virtualosmuseum.org/" target="_blank" rel="noopener">Virtual Museum Curates and Emulates Vast OS History, Ready-to-Run with Snapshots</a></h2>
+            <p class="story-summary">This is a virtual museum of operating systems (and standalone applications)
+running under emulation, implemented as a Linux VM for QEMU, VirtualBox, or UTM. A custom emulator-independent launcher is provided, and all OSes and emulators
+are pre-installed and pre-configured. The launcher includes a snapshot feature to quickly revert broken installations back to a working state. Hypervisor installers and shortcuts to run the VM on Windows, macOS, and Linux are also included. Want to see the earliest resident monitors?</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project is an outstanding contribution to digital preservation and accessible education, transforming complex emulation into an effortless journey through computing history. By pre-configuring a vast array of operating systems within a unified, emulator-independent launcher, it dramatically lowers the barrier for anyone to interact with the evolution of software. The innovative snapshot feature further enhances its utility, ensuring robust exploration without the fear of irreversible damage to historical installations.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is largely impressed by the virtual museum's impressive curation and the creator's effort, expressing significant nostalgia and appreciation. Users enthusiastically suggest a wide array of additional, often niche or retro, operating systems they would love to see included in the collection. There's also detailed technical feedback regarding specific versions and the viability of emulating certain systems.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>virtualosmuseum.org</span>
+        <span>·</span>
+        <span>935 pts</span>
+        <span>·</span>
+        <span>214 comments</span>
+        <span>·</span>
+        <span>by andreww591</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://virtualosmuseum.org/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48195009" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">Reverse Engineering 🔬</div>
+            
+            <h2 class="story-title"><a href="https://github.com/kageroumado/phosphene" target="_blank" rel="noopener">Developer Open-Sources Reverse-Engineered Kit for Custom macOS Video Wallpapers in Settings</a></h2>
+            <p class="story-summary">Ever since Apple introduced their video wallpapers I wanted to be able to put custom videos there. I decided to reverse engineer and see what I can do. I built Phosphene to sell it, but the existing competitors were polished enough that the time it would have taken to catch up wasn't going to pay off. So I'm open-sourcing it. WallpaperExtensionKit.framework is what powers macOS wallpapers. It controls what’s shows in the Settings app. It took a lot of trial and error to replicate the behavior, but the result is that your custom wallpapers appear alongside everything else. I wanted to have an “</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project exemplifies how user demand for customization drives deep technical exploration, with the author successfully reverse engineering Apple's internal `WallpaperExtensionKit.framework` to integrate custom video wallpapers natively. The pivot from a commercial endeavor to open-sourcing, due to market competition, highlights a pragmatic approach to project sustainability and community contribution. It showcases a significant technical feat in understanding and extending macOS system functionalities that are otherwise locked down.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely praises the project for successfully reverse engineering Apple's private video wallpaper framework. Users express significant excitement and gratitude for the ability to finally use custom video wallpapers on their macOS desktop and lock screens, a feature many desired or were surprised wasn't natively supported. The technical achievement is clearly valued for solving a real, albeit latent, user need.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>255 pts</span>
+        <span>·</span>
+        <span>47 comments</span>
+        <span>·</span>
+        <span>by kageroumado</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/kageroumado/phosphene" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48215979" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 21, 2026</div>
+    </footer>
+</body>
+</html>
