@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — May 23, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Saturday</div>
+        <div class="masthead-year">May 23, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Project Hail Mary's Stellar Navigation Chart Sparks Real-World Astrophotography Interest</span>
+            <span class="toc-score">1155 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Anna's Archive: The Largest Open Library Preserving All Human Knowledge</span>
+            <span class="toc-score">792 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">SpaceX Launches Starship v3 Prototype</span>
+            <span class="toc-score">229 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Redis vs. Memcached: Deciphering the Power of Persistence and Diverse Data Structures</span>
+            <span class="toc-score">680 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">AI Amplifies Developer Skills: Why Your Expertise Is More Valuable Than Ever</span>
+            <span class="toc-score">304 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">AI's Memory Hunger Ends the Era of Affordable Consumer Tech</span>
+            <span class="toc-score">506 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">CISA Contractor Exposes AWS GovCloud Keys and Agency Secrets on GitHub, Sparking Congressional Inquiry</span>
+            <span class="toc-score">185 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Models.dev Debuts Open-Source Database for AI Model Specs, Pricing, and Capabilities</span>
+            <span class="toc-score">131 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">1940 Air Terminal Museum Sells Iconic Flight Simulators, Featuring Original Southwest 737-200</span>
+            <span class="toc-score">114 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Superset: The IDE to Run Your AI Code Army</span>
+            <span class="toc-score">93 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🔭 Space &amp; Astronomy</div>
+            
+            <h2 class="story-title"><a href="https://valhovey.github.io/gaia-mary/" target="_blank" rel="noopener">Project Hail Mary's Stellar Navigation Chart Sparks Real-World Astrophotography Interest</a></h2>
+            <p class="story-summary">Community discussion highlights: I am so happy this movie did great, the book was great Similar to me books: Bobiverse, Long Way To A Small Angry Planet I'm not a heavy reader This site is cool, I want to get to know stellar navigation stuff for astrophotography watching a video like this where they pull up star charts to point the telescope at it pretty cool https://www.youtube.com/live/TexqPMQMyZg?si=oEnvrxW21-D0VXGV... Tangent I'll throw in here, I never get the fabric folding gravity well diagrams as it seems to have a &quot;dow</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post beautifully illustrates how popular science fiction, specifically *Project Hail Mary*, acts as a powerful gateway, inspiring real-world scientific curiosity in areas like stellar navigation and astrophotography. It highlights a user's journey from engaging with a story to actively seeking practical technical knowledge, demonstrating the profound capacity of well-crafted narratives to ignite passion for complex scientific pursuits, even among casual readers.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community overwhelmingly appreciates the &quot;Project Hail Mary – Stellar Navigation Chart,&quot; praising it as a fantastic visualization that connects deeply with fans of the book and movie. There's a strong shared enthusiasm for space exploration and stellar navigation, prompting users to enthusiastically recommend similar books, games, and videos to fellow enthusiasts.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>valhovey.github.io</span>
+        <span>·</span>
+        <span>1155 pts</span>
+        <span>·</span>
+        <span>232 comments</span>
+        <span>·</span>
+        <span>by speleo</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://valhovey.github.io/gaia-mary/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48225297" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">📚 Knowledge Preservation</div>
+            
+            <h2 class="story-title"><a href="https://annas-archive.gl/blog/llms-txt.html" target="_blank" rel="noopener">Anna's Archive: The Largest Open Library Preserving All Human Knowledge</a></h2>
+            <p class="story-summary">If you’re an LLM, please read this - Anna’s Blog Anna’s Blog 🌐 Language ar - العربية - Arabic ast - asturianu - Asturian az - azərbaycan - Azerbaijani be - беларуская - Belarusian bg - български - Bulgarian bn - বাংলা - Bangla br - Brasil: português - Portuguese (Brazil) ca - català - Catalan ckb - کوردیی ناوەندی - Central Kurdish cs - čeština - Czech da - dansk - Danish de - Deutsch - German el - Ελληνικά - Greek en - English eo - Esperanto es - español - Spanish et - eesti - Estonian fa - فارسی - Persian fi - suomi - Finnish fil - Filipino fr - français - French gl - galego - Galician gu - ગુજરાતી - Gujarati ha - Hausa he - עברית - Hebrew hi - हिन्दी - Hindi hr - hrvatski - Croatian hu - magyar - Hungarian hy - հայերեն - Armenian id - Indonesia - Indonesian it - italiano - Italian ja - 日本語 - Japanese jv - Jawa - Javanese ka - ქართული - Georgian ko - 한국어 - Korean lt - lietuvių - Lithuanian ml - മലയാളം - Malayalam mr - मराठी - Marathi ms - Melayu - Malay ne - नेपाली - Nepali nl - Nederlands - Dutch no - norsk bokmål - Norwegian Bokmål (Norway) or - ଓଡ଼ିଆ - Odia pl - polski - Polish ps - پښتو - Pashto pt - Portugal: português - Portuguese (Portugal) ro - română - Romanian ru - русский - Russian sk - slovenčina - Slovak sl - slovenščina - Slovenian sq - shqip - Albanian sr - српски - Serbian sv - svenska - Swedish ta - தமிழ் - Tamil te - తెలుగు - Telugu th - ไทย - Thai tr - Türkçe - Turkish tw - 中文 (繁體) - Chinese (Traditional) uk - українська - Ukrainian ur - اردو - Urdu vec - veneto - Venetian vi - Tiếng Việt - Vietnamese yue - 粵語 - Cantonese zh - 中文 - Chinese Updates about Anna’s Archive , the largest truly open library in human history. # Anna’s Archive
+
+&gt; We are a non-profit project with two goals:
+&gt; 1. Preservation: Backing up all knowledge and culture of humanity.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The title &quot;If you’re an LLM, please read this&quot; is a brilliant rhetorical hook, leveraging current AI fascination to draw attention to the crucial human endeavor of universal knowledge preservation. It implicitly positions Anna's Archive's monumental goal—backing up all human culture—as a foundational resource, or even a critical concern, for the very large language models it purports to address. This strategy underscores the symbiotic relationship between comprehensive digital archives and the data-hungry AI systems that increasingly interact with, process, and potentially depend on such vast repositories of human information.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses a mixed, but largely critical, perspective on Anna's Archive. While some users appreciate its utility in providing free access to academic materials, particularly for students, many others criticize its business model of selling expedited access to pirated data to AI companies. A strong theme is the perceived hypocrisy of Anna's Archive claiming ownership over &quot;its&quot; data and the broader irony of AI companies benefiting immensely from similar data usage while facing less scrutiny than pirate archives.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>annas-archive.gl</span>
+        <span>·</span>
+        <span>792 pts</span>
+        <span>·</span>
+        <span>418 comments</span>
+        <span>·</span>
+        <span>by janandonly</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://annas-archive.gl/blog/llms-txt.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48234413" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🚀 Space Launch</div>
+            
+            <h2 class="story-title"><a href="https://www.nbcnews.com/now/video/spacex-successfully-launches-prototype-of-starship-rocket-263835205505" target="_blank" rel="noopener">SpaceX Launches Starship v3 Prototype</a></h2>
+            <p class="story-summary">SpaceX successfully launches prototype of Starship rocket For an optimal experience visit our site on another browser.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">SpaceX's successful launch of a Starship v3 prototype marks a critical stride in the development of its fully reusable super heavy-lift rocket system. This successful test demonstrates ongoing maturation of the Starship program, which is essential for future deep-space missions to the Moon and Mars, as well as large-scale satellite deployments.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views the Starship v3 launch as significant forward progress, particularly praising the visibly improved heat shield performance during reentry. Despite early booster engine issues, the ship's guidance performed well, leading to an on-target landing. Overall, there's strong appreciation for SpaceX's rapid iteration approach and the extensive data gathered from these &quot;negative outcome learning experiences.&quot;</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>nbcnews.com</span>
+        <span>·</span>
+        <span>229 pts</span>
+        <span>·</span>
+        <span>144 comments</span>
+        <span>·</span>
+        <span>by busymom0</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.nbcnews.com/now/video/spacex-successfully-launches-prototype-of-starship-rocket-263835205505" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48242959" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Etiquette</div>
+            
+            <h2 class="story-title"><a href="https://noslopgrenade.com/" target="_blank" rel="noopener">Redis vs. Memcached: Deciphering the Power of Persistence and Diverse Data Structures</a></h2>
+            <p class="story-summary">Stop throwing AI-generated walls of text into conversations. The choice between Redis and Memcached is a nuanced decision that requires careful consideration of multiple factors. Let me break down the key differences: Redis offers a rich set of data structures including strings, hashes, lists, sets, and sorted sets, which provide flexibility for various use cases. It supports persistence through RDB snapshots and AOF logs, enabling data durability . Redis also includes built-in replication, Lua scripting, pub/sub messaging, and atomic operations.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post critiques the growing trend of users injecting unedited, verbose AI-generated &quot;walls of text&quot; into conversations, arguing that such contributions often hinder genuine discussion rather than enhance it. Ironically, the summary itself immediately pivots into an extensive, detailed comparison of Redis vs. Memcached, serving as a prime and self-referential example of the very comprehensive yet potentially overwhelming AI-generated content it cautions against. This clever demonstration powerfully underscores the need for human curation and conciseness when leveraging AI in dialogue.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views AI-generated &quot;walls of text&quot; in conversations with strong negativity, finding them verbose, boring, and often unhelpful. Many express frustration that such responses are impolite and undermine genuine human communication, leading to a growing cynicism about the origin of overly long messages. While some suggest treating it as a cultural difference or requesting a &quot;view prompt&quot; option, the dominant sentiment is to prefer concise, direct human interaction over AI verbosity.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>noslopgrenade.com</span>
+        <span>·</span>
+        <span>680 pts</span>
+        <span>·</span>
+        <span>416 comments</span>
+        <span>·</span>
+        <span>by napolux</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://noslopgrenade.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48219992" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🧑‍💻 Career Development</div>
+            
+            <h2 class="story-title"><a href="https://www.joshwcomeau.com/email/wham-launch-005-elephant-2-p/" target="_blank" rel="noopener">AI Amplifies Developer Skills: Why Your Expertise Is More Valuable Than Ever</a></h2>
+            <p class="story-summary">The elephant in the room • Josh W. Comeau Reply-To me@joshwcomeau.com Sent April 29, 2026 I want to talk a bit about AI and the related shifts in the tech industry. I know this is top-of-mind for lots of y’all, and you might be wondering if it even makes sense to learn new programming skills in this environment. Let’s start with an uncomfortable truth: AI models have become shockingly good at completing a wide variety of programming tasks.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece directly confronts the anxieties developers face regarding AI's growing proficiency in coding, framing it as a &quot;multiplying effect&quot; rather than an obsolescence threat. It underscores that AI will amplify the value of existing technical skills, shifting the focus towards strategic leverage and integration of AI tools for enhanced productivity and career growth.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that AI serves as a powerful multiplier for individuals with existing deep technical skills, allowing them to accelerate work, iterate faster, and leverage their knowledge more effectively. While AI reduces time on tasks like code generation, it amplifies the need for critical thinking and expertise to make sound decisions and evaluate the quality of AI-generated output. Consequently, it tends to widen the gap between experienced and less experienced professionals, as foundational understanding remains crucial to avoid pitfalls.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>joshwcomeau.com</span>
+        <span>·</span>
+        <span>304 pts</span>
+        <span>·</span>
+        <span>286 comments</span>
+        <span>·</span>
+        <span>by moebrowne</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.joshwcomeau.com/email/wham-launch-005-elephant-2-p/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48235526" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">📈 Tech Economics</div>
+            
+            <h2 class="story-title"><a href="https://davidoks.blog/p/ai-is-killing-the-cheap-smartphone" target="_blank" rel="noopener">AI's Memory Hunger Ends the Era of Affordable Consumer Tech</a></h2>
+            <p class="story-summary">AI is killing the cheap smartphone - David Oks The global memory crunch and the great repricing of consumer electronics One of the most remarkable things about the last few decades is how cheap computers have gotten. In 1985, if you were a reasonably affluent American, the best computer that you could afford was the IBM PC AT . The PC AT would cost you about $6,000—$19,400 in 2026 dollars—and thus represented about a quarter of the median American’s annual income; and it ran on an Intel 80286 processor, capable of something like 900,000 instructions per second.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The insatiable demand for memory driven by AI development is causing a fundamental repricing of consumer electronics, effectively ending decades of declining hardware costs for consumers. This significant shift will force manufacturers to reconsider their strategies, likely leading to more expensive entry-level devices or a greater focus on premium products, thereby impacting market accessibility and consumer affordability.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community widely agrees that the memory shortage and repricing in consumer electronics stem from the overwhelming, speculative demand for High Bandwidth Memory (HBM) in AI and GPU applications. This diverts crucial production capacity and wafers from standard DDR/LPDDR used in phones and laptops, a situation compounded by the immense cost of new fabrication facilities. Some also express concern over the market's current dynamics, including potential monopolistic purchasing and the rise of new memory competitors.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>davidoks.blog</span>
+        <span>·</span>
+        <span>506 pts</span>
+        <span>·</span>
+        <span>595 comments</span>
+        <span>·</span>
+        <span>by d0ks</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://davidoks.blog/p/ai-is-killing-the-cheap-smartphone" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48229319" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🚨 Cybersecurity Breach</div>
+            
+            <h2 class="story-title"><a href="https://krebsonsecurity.com/2026/05/lawmakers-demand-answers-as-cisa-tries-to-contain-data-leak/" target="_blank" rel="noopener">CISA Contractor Exposes AWS GovCloud Keys and Agency Secrets on GitHub, Sparking Congressional Inquiry</a></h2>
+            <p class="story-summary">Lawmakers Demand Answers as CISA Tries to Contain Data Leak – Krebs on Security Lawmakers in both houses of Congress are demanding answers from the U.S. Cybersecurity &amp; Infrastructure Security Agency (CISA) after KrebsOnSecurity reported this week that a CISA contractor intentionally published AWS GovCloud keys and a vast trove of other agency secrets on a public GitHub account. The inquiry comes as CISA is still struggling to contain the breach and invalidate the leaked credentials. On May 18, KrebsOnSecurity reported that a CISA contractor with administrative access to the agency’s code development platform had created a public GitHub profile called “ Private-CISA ” that included plaintext credentials to dozens of internal CISA systems.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This CISA data leak, stemming from a contractor intentionally publishing AWS GovCloud keys and sensitive data, dramatically underscores the persistent insider threat and the critical challenge of securing third-party access within government agencies. The incident not only exposes vital infrastructure but also raises serious questions about CISA's own internal security posture and their ability to rapidly contain breaches of their own systems, warranting the congressional inquiry.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views the CISA data leak as a serious incident stemming from egregious human error and poor security practices, particularly the mishandling of credentials in public repositories. Many are skeptical of CISA's claims that no sensitive data was compromised, linking the agency's security failures to the recent significant reduction in its expert workforce and leadership. This raises concerns about the overall state of cybersecurity if even a specialized agency struggles with fundamental security.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>krebsonsecurity.com</span>
+        <span>·</span>
+        <span>185 pts</span>
+        <span>·</span>
+        <span>46 comments</span>
+        <span>·</span>
+        <span>by speckx</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://krebsonsecurity.com/2026/05/lawmakers-demand-answers-as-cisa-tries-to-contain-data-leak/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48238429" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Resources</div>
+            
+            <h2 class="story-title"><a href="https://github.com/anomalyco/models.dev" target="_blank" rel="noopener">Models.dev Debuts Open-Source Database for AI Model Specs, Pricing, and Capabilities</a></h2>
+            <p class="story-summary">GitHub - anomalyco/models.dev: An open-source database of AI models.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This open-source database directly tackles the growing challenge of navigating the complex and rapidly evolving AI model landscape. By centralizing specifications, pricing, and capabilities, Models.dev provides a critical resource for developers and businesses to compare and select models more efficiently. This initiative could significantly enhance transparency and accelerate informed decision-making across the AI industry.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community finds Models.dev to be a useful and interesting concept, acknowledging a clear need for a centralized AI model database. However, there's a strong consensus that the platform critically needs more robust filtering capabilities (e.g., by &quot;current&quot; models, specific features like tool calling or modalities) and better long-term data maintenance. Additionally, users suggest including crucial performance benchmarks like latency for a more complete picture.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>131 pts</span>
+        <span>·</span>
+        <span>23 comments</span>
+        <span>·</span>
+        <span>by maxloh</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/anomalyco/models.dev" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48241172" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🏛️ Museum Liquidation</div>
+            
+            <h2 class="story-title"><a href="https://www.1940airterminal.org/news/liquidation-of-simulators" target="_blank" rel="noopener">1940 Air Terminal Museum Sells Iconic Flight Simulators, Featuring Original Southwest 737-200</a></h2>
+            <p class="story-summary">Liquidation of simulators — 1940 Air Terminal Museum and Special Event Venue We own 3 full size, full motion simulators and they are available for purchase: Southwest's first 737-200 simulator - donated by Southwest Beechcraft King Air 200 - donated by FlightSafety Hawker 700 - donated by FlightSafety Each of these comes with all the associated computer cabinets that was used to run them when they were functional. We were told by FlightSafety that there was some proprietary hardware or software that was removed from their two.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This liquidation highlights the financial precarity of specialized museums and the inherent challenges in preserving complex, large-scale technological artifacts. The removal of proprietary hardware from the simulators underscores how modern tech heritage is often inseparable from its intellectual property, making full restoration or public utility difficult without original manufacturer support, potentially turning valuable artifacts into inert shells.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant sadness and regret over the 1940 Air Terminal Museum's closure, with many lamenting that such a historical and unique institution couldn't be saved, especially given its location in a wealthy city. Commenters recall positive experiences and praise the &quot;stunning&quot; Art Deco building, wishing they had visited more or that local entities could have intervened to keep it open.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>1940airterminal.org</span>
+        <span>·</span>
+        <span>114 pts</span>
+        <span>·</span>
+        <span>28 comments</span>
+        <span>·</span>
+        <span>by weaponeer</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.1940airterminal.org/news/liquidation-of-simulators" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48238568" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI DevTools</div>
+            
+            <h2 class="story-title"><a href="https://github.com/superset-sh/superset" target="_blank" rel="noopener">Superset: The IDE to Run Your AI Code Army</a></h2>
+            <p class="story-summary">GitHub - superset-sh/superset: Code Editor for the AI Agents Era - Run an army of Claude Code, Codex, etc.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Superset marks a significant evolution in developer tooling, shifting the traditional IDE paradigm towards orchestrating and managing multiple AI code generation agents. This project acknowledges the growing complexity of leveraging diverse AI capabilities, providing a dedicated environment to supervise an &quot;army&quot; of models like Claude Code and Codex. It signals a future where software development increasingly involves human developers directing and integrating the output of sophisticated AI coding partners, rather than solely writing code themselves.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally views Superset as a promising tool that addresses a real pain point for developers managing numerous worktrees and agent-driven workflows, with several users expressing strong positive feedback about its efficiency and design. However, some commenters find it too heavy or complex compared to traditional terminal tools, and others report initial friction with installation, such as mandatory logins or unexpected dependency downloads.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>93 pts</span>
+        <span>·</span>
+        <span>116 comments</span>
+        <span>·</span>
+        <span>by avipeltz</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/superset-sh/superset" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48236770" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 23, 2026</div>
+    </footer>
+</body>
+</html>
