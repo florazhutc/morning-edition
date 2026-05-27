@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — May 27, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Wednesday</div>
+        <div class="masthead-year">May 27, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Pope Leo XIV Unveils 'Magnifica Humanitas' Encyclical on Humanity's Future</span>
+            <span class="toc-score">1597 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">AI Delivers Better Code, Requires More Time</span>
+            <span class="toc-score">1173 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Spain Blocks Prediction Markets Polymarket, Kalshi for Unlicensed Gambling Operations</span>
+            <span class="toc-score">903 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Posthorn: Self-Hosted Email Gateway Bypasses VPS Blocks, Simplifying Transactional Mail</span>
+            <span class="toc-score">20 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Wikipedia Accused of US Foreign Policy Bias Under CEO With Beltway Background</span>
+            <span class="toc-score">484 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Demystifying Opaque Types: A Pythonic Way to Manage Complex Library State</span>
+            <span class="toc-score">121 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Rust Developer Rediscovering Ruby's Appeal for LLM and AI Agent Projects</span>
+            <span class="toc-score">113 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Dropbox Founder Drew Houston Steps Down After 19 Years, Becomes Executive Chairman; Product Chief Ashraf Alkarmi Named Co-CEO</span>
+            <span class="toc-score">343 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Cate v1.0: Infinite Canvas Workspace Unifies Developer Tools</span>
+            <span class="toc-score">34 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Claude Code: Build Your AI Daily Driver with .md and Skills ⚡</span>
+            <span class="toc-score">30 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">Religion &amp; Ethics 🕊️</div>
+            
+            <h2 class="story-title"><a href="https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html" target="_blank" rel="noopener">Pope Leo XIV Unveils 'Magnifica Humanitas' Encyclical on Humanity's Future</a></h2>
+            <p class="story-summary">Encyclical Letter of His Holiness Leo XIV Magnifica Humanitas (15 May 2026)</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post presents a fascinating speculative scenario: a future Papal encyclical from Leo XIV in 2026, titled &quot;Magnifica Humanitas.&quot; Its presence on Hacker News suggests a community engaging with the intersection of faith, ethics, and the human condition in an increasingly technological world. Such a document would likely address profound challenges to human dignity and flourishing, prompting discussions on topics ranging from AI and biotech to societal values and our collective future.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees that Pope Francis's &quot;Magnifica Humanitas&quot; offers a surprisingly insightful and relevant take on technology, particularly its non-neutrality and the ethical responsibility of its creators. Commenters, including atheists, appreciate the Vatican's nuanced perspective on how technology concentrates power and necessitates a deep consideration of societal good, rather than just technological advancement. This document is seen as a significant historical intersection of religion and technology, prompting essential discussions on the impact of what is built.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>vatican.va</span>
+        <span>·</span>
+        <span>1597 pts</span>
+        <span>·</span>
+        <span>929 comments</span>
+        <span>·</span>
+        <span>by theletterf</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48265206" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI in Software Development</div>
+            
+            <h2 class="story-title"><a href="https://nolanlawson.com/2026/05/25/using-ai-to-write-better-code-more-slowly/" target="_blank" rel="noopener">AI Delivers Better Code, Requires More Time</a></h2>
+            <p class="story-summary">Using AI to write better code more slowly | Read the Tea Leaves Read the Tea Leaves Software and other dark arts, by Nolan Lawson Using AI to write better code more slowly Posted May 25, 2026 by Nolan Lawson in software engineering . A lot of people seem convinced that the point of AI coding is to write low-quality code as fast as possible.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece counters the popular belief that AI's primary role in coding is to accelerate the production of low-quality code, instead proposing a scenario where AI contributes to *better* code, even if it means a slower development process. This perspective prompts a critical re-evaluation of developer productivity metrics, suggesting that the true value of AI might lie in elevating code quality and maintainability rather than just pure speed.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that using AI for writing or reviewing code often makes the process *slower* due to the extensive iteration and back-and-forth required to refine the output. Despite this time investment, developers find value in AI for tasks like exploring architectural alternatives, designing complex features, and identifying issues, especially when human expertise is skillfully combined with AI's capabilities. While some acknowledge the initial low quality of AI-generated code, they see its utility in guiding the thought process or serving as a diligent code reviewer.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>nolanlawson.com</span>
+        <span>·</span>
+        <span>1173 pts</span>
+        <span>·</span>
+        <span>433 comments</span>
+        <span>·</span>
+        <span>by signa11</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://nolanlawson.com/2026/05/25/using-ai-to-write-better-code-more-slowly/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48272984" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Regulation ⚖️</div>
+            
+            <h2 class="story-title"><a href="https://www.reuters.com/business/spain-blocks-prediction-markets-polymarket-kalshi-over-lack-gambling-licences-2026-05-26/" target="_blank" rel="noopener">Spain Blocks Prediction Markets Polymarket, Kalshi for Unlicensed Gambling Operations</a></h2>
+            <p class="story-summary">Community discussion highlights: These - especially Polymarket - should be illegal globally, as they incentivize people with power to manipulate the real world in horribly destructive ways to win a bet. I would not be surprised if people are murdered at some point to reap the payout of some related bet.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Spain's blocking of Polymarket and Kalshi highlights a profound regulatory and ethical dilemma for prediction markets, where their financial innovation clashes with significant societal risks. The core concern extends far beyond simple gambling licenses, pointing to the potential for these platforms to incentivize powerful individuals to manipulate real-world events for profit. This action underscores the growing global need for comprehensive frameworks that address the inherent dangers of real-world incentivization, rather than just market operation.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community overwhelmingly supports Spain's decision to block prediction markets like Polymarket and Kalshi. Commenters largely view these platforms as a dangerous form of gambling that incentivize real-world manipulation and offer zero positive societal utility, expressing strong agreement with the ban and hoping other countries follow suit.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>reuters.com</span>
+        <span>·</span>
+        <span>903 pts</span>
+        <span>·</span>
+        <span>418 comments</span>
+        <span>·</span>
+        <span>by thm</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.reuters.com/business/spain-blocks-prediction-markets-polymarket-kalshi-over-lack-gambling-licences-2026-05-26/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48279316" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🏠 Self-Hosting Tools</div>
+            
+            <h2 class="story-title"><a href="https://github.com/craigmccaskill/posthorn" target="_blank" rel="noopener">Posthorn: Self-Hosted Email Gateway Bypasses VPS Blocks, Simplifying Transactional Mail</a></h2>
+            <p class="story-summary">Introducing Posthorn, a self hosted email gateway. One docker container (or Go binary) between every self hosted app on your VPS and your transactional email provider. Set up Posthorn once, point your apps to it, done. I was trying to deploy Ghost on a DigitalOcean droplet and found that DO and many different VPS services have started to block the default SMTP ports to try to combat the various types of abuse they get. To actually configure my app, I had to hack together a Postfix relay. In another project, I had a static site which had a contact form, but my free Formspree account was occasio</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This tool directly addresses a prevalent pain point for self-hosters and developers deploying applications on VPS platforms: the increasing challenge of sending transactional emails due to ISP SMTP port blocks. By providing a lightweight, self-hosted email gateway, Posthorn elegantly abstracts the complexity of a full mail server, simplifying outbound email delivery through existing transactional providers. It offers a single, streamlined point of control for multiple self-hosted applications, significantly reducing setup overhead and enhancing reliability for critical email notifications.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses a strong interest in simpler self-hosted email solutions for programmatic sending, acknowledging a desire to avoid full mail server complexity. However, the overwhelming consensus highlights the profound difficulty of email infrastructure, with a significant concern about IP/domain blacklisting and general deliverability issues acting as a major deterrent for adoption.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>20 pts</span>
+        <span>·</span>
+        <span>12 comments</span>
+        <span>·</span>
+        <span>by craigmccaskill</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/craigmccaskill/posthorn" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48289624" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">📰 Information Control &amp; Geopolitics</div>
+            
+            <h2 class="story-title"><a href="https://medium.com/@jakeorlowitz/wikipedia-is-doing-the-capitalist-thing-56a393232943" target="_blank" rel="noopener">Wikipedia Accused of US Foreign Policy Bias Under CEO With Beltway Background</a></h2>
+            <p class="story-summary">Community discussion highlights: My suspicion here is that there are deeper issues for which union-busting is a symptom and not the main issue. There's a battle to control what information gets recorded and distributed, an effort to silence anything that contradicts US foreign policy, basically. Wikimedia Foundation CEO Bernadette Meehan has very much a Beltway insider, working for the the US foreign service, the Obama administration (NSC), the Obama foundation and the Biden administration (Ambassador to Chile). Personally, I d</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The discussion reveals a critical struggle within Wikipedia, shifting focus from &quot;anti-labor&quot; tactics to a broader battle for control over information narratives, particularly those concerning US foreign policy. The CEO's extensive background in US foreign service and political administration raises significant concerns about potential state influence and bias impacting the platform's neutrality. This highlights the inherent vulnerability of major information sources to political agendas, potentially eroding their perceived impartiality and public trust.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees that the Wikimedia Foundation (WMF) is adopting &quot;anti-labor&quot; practices, evidenced by the firing of a key developer and the ongoing strike by volunteer editors facing a lack of technical support. While there's some debate regarding the WMF's substantial financial reserves—whether they are &quot;rich&quot; or merely prudent—the overwhelming sentiment is that the Foundation is increasingly acting like a traditional corporation rather than a community-centric non-profit.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>medium.com</span>
+        <span>·</span>
+        <span>484 pts</span>
+        <span>·</span>
+        <span>292 comments</span>
+        <span>·</span>
+        <span>by cdrnsf</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://medium.com/@jakeorlowitz/wikipedia-is-doing-the-capitalist-thing-56a393232943" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48285592" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🐍 Python Programming</div>
+            
+            <h2 class="story-title"><a href="https://blog.glyph.im/2026/05/opaque-types-in-python.html" target="_blank" rel="noopener">Demystifying Opaque Types: A Pythonic Way to Manage Complex Library State</a></h2>
+            <p class="story-summary">Deciphering Glyph ::
+        Opaque Types in Python A proposed technique for exposing an opaque data structure with
+idiomatic modern Python. Let’s say you’re writing a Python library. In this library, you have some collection of state that represents “options” or
+“configuration” for a bunch of operations. Such a set of options is a bundle
+of potentially ever-increasing complexity.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This article proposes a technique for implementing opaque types in Python, specifically addressing how library authors can effectively encapsulate complex configuration or state. By exposing data structures opaquely, the goal is to provide a more stable and user-friendly public API while managing internal complexity, aligning with modern Pythonic design principles.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views the concept of &quot;opaque types&quot; as unidiomatic in Python, clashing with its &quot;consenting adults&quot; philosophy and dynamic nature where underscores are merely hints. Commenters emphasize that attempts to enforce strong opacity often lead to practical issues in readability, inheritance, and testing, suggesting alternatives like explicit API modules or simple enums for boundary definition instead.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>blog.glyph.im</span>
+        <span>·</span>
+        <span>121 pts</span>
+        <span>·</span>
+        <span>56 comments</span>
+        <span>·</span>
+        <span>by lumpa</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://blog.glyph.im/2026/05/opaque-types-in-python.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48247416" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🔄 Language Shift</div>
+            
+            <h2 class="story-title"><a href="https://xlii.space/eng/from-rust-to-ruby/" target="_blank" rel="noopener">Rust Developer Rediscovering Ruby's Appeal for LLM and AI Agent Projects</a></h2>
+            <p class="story-summary">I have my own project, written in Rust. Not a big one, mind you, maybe approx. Rust is verbose so it’s not really that impressive. I’ve put it aside for some time and was toying with local inference, LLMs, writing agents and my attention was brought to Ruby. So I had to take a look around to remind myself what Ruby and Ruby on Rails are doing nowadays.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post chronicles a developer's pragmatic re-evaluation of programming languages, moving from Rust's performance to Ruby's agility, specifically in the context of emerging LLM and AI agent development. It underscores a growing trend where developer velocity and ecosystem support for rapid prototyping, even with &quot;legacy&quot; languages, can take precedence over raw execution speed when tackling new, API-driven paradigms.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely expresses skepticism and disinterest in the article, primarily due to the author's reliance on an LLM for the core code conversion, which many feel invalidates the personal learning journey. There's also an underlying debate about the practical suitability of Rust versus Ruby for building SaaS applications, with several comments suggesting Rust might be an over-engineered choice for such projects and praising Ruby on Rails for developer happiness and productivity.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>xlii.space</span>
+        <span>·</span>
+        <span>113 pts</span>
+        <span>·</span>
+        <span>86 comments</span>
+        <span>·</span>
+        <span>by xlii</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://xlii.space/eng/from-rust-to-ruby/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48286561" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">👔 Leadership Transition</div>
+            
+            <h2 class="story-title"><a href="https://www.cnbc.com/2026/05/26/dropbox-ceo-drew-houston-ashraf-alkarmi.html" target="_blank" rel="noopener">Dropbox Founder Drew Houston Steps Down After 19 Years, Becomes Executive Chairman; Product Chief Ashraf Alkarmi Named Co-CEO</a></h2>
+            <p class="story-summary">Dropbox CEO Drew Houston to step down after 19 years at cloud pioneer Dropbox CEO Drew Houston, who founded the cloud storage company when he was 24, plans to step down and assume the role of executive chairman. Ashraf Alkarmi is being promoted from product chief to co-CEO, serving for a time alongside Houston before eventually taking the job on his own. &quot;There's never a perfect time,&quot; Houston said in an interview, regarding his decision to exit as CEO. Dropbox Co-CEOs Ashraf Alkarmi and Drew Houston.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This marks a significant leadership transition for Dropbox, with founder Drew Houston stepping down after 19 years to assume the Executive Chairman role, a common move for long-tenured founders at mature tech companies. The promotion of product chief Ashraf Alkarmi to co-CEO, initially alongside Houston, indicates a deliberate succession plan aimed at ensuring continuity and potentially a renewed focus on product innovation for Dropbox's next phase.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely praises Drew Houston as a visionary CEO who built a valuable service with an excellent engineering culture. However, there's a strong consensus that Dropbox has stagnated, failing to introduce significant new features for over a decade and experiencing limited growth due to market saturation and platform-integrated solutions. While respecting Houston's legacy, some users express skepticism about the company's future direction, especially its new focus on AI.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>cnbc.com</span>
+        <span>·</span>
+        <span>343 pts</span>
+        <span>·</span>
+        <span>367 comments</span>
+        <span>·</span>
+        <span>by aghuang</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.cnbc.com/2026/05/26/dropbox-ceo-drew-houston-ashraf-alkarmi.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48279453" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">⚙️ Developer Tools</div>
+            
+            <h2 class="story-title"><a href="https://github.com/0-AI-UG/cate" target="_blank" rel="noopener">Cate v1.0: Infinite Canvas Workspace Unifies Developer Tools</a></h2>
+            <p class="story-summary">Community discussion highlights: Been sharing progress on Cate here for a while. v1 is finally in a pretty solid state now: https://github.com/0-AI-UG/cate , https://cate.cero-ai.com Cate is an open source desktop workspace built around an infinite canvas. Instead of constantly switching between terminals, editors, browser previews, docs, and AI tools, you arrange everything spatially in one place. Big improvements since the earlier posts: docking, tabs, and splits detachable native OS windows git worktree support unified Cmd+K</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Cate v1.0 introduces a compelling spatial computing paradigm for developers, aiming to mitigate context-switching by integrating various tools—from terminals to AI assistants—onto an infinite canvas. This approach offers a novel way to visualize and interact with the entire development workflow, potentially fostering a more fluid and less fragmented experience. Its open-source nature and advanced features like `git worktree` support suggest a strong push to redefine the modern developer workspace, provided users adapt to its unique organizational model.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses significant confusion regarding Cate's core purpose, largely perceiving it as a window manager without a clear value proposition compared to existing native solutions. Users also voice concerns about the potential for cognitive overload and disorganization on an infinite canvas, coupled with a preference for more performant, native implementations over Electron. While some appreciate the exploration in this space, the project's identity and practical utility remain unclear to many.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>34 pts</span>
+        <span>·</span>
+        <span>18 comments</span>
+        <span>·</span>
+        <span>by BlueBerry2001</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/0-AI-UG/cate" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48265470" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI Development ⚙️</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://arps18.github.io/posts/claude-code-mastery/" target="_blank" rel="noopener">Claude Code: Build Your AI Daily Driver with .md and Skills</a></h2>
+            <p class="story-summary">Beyond the Prompt: Claude Code | Arpan Patel The .claude Directory, Properly Understood 3.1 The Real CLAUDE.md From the Claude Code Team 3.2 Popular CLAUDE.md Files Worth Studying 5.2 Writing a Real Skill: Go API Conventions</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post outlines a significant shift from simple AI prompting to a more structured, engineering-driven approach for integrating large language models like Claude into daily development workflows. By exploring concepts like `CLAUDE.md` files, custom skills, and subagents, it demonstrates how developers can transform AI from a basic assistant into a programmable, extensible 'daily driver.' This methodology empowers users to build sophisticated, context-aware AI tools that automate complex coding tasks and enforce project-specific conventions.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community's initial reaction to using Claude as a daily driver for coding indicates a strong appreciation for its productivity benefits, with one user noting it saves significant developer hours by finding bugs. Simultaneously, there is a clear interest in understanding the financial commitment required, as a prominent question revolves around the cost of daily driving Claude in this manner.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>arps18.github.io</span>
+        <span>·</span>
+        <span>30 pts</span>
+        <span>·</span>
+        <span>5 comments</span>
+        <span>·</span>
+        <span>by arps18</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://arps18.github.io/posts/claude-code-mastery/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48289950" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 27, 2026</div>
+    </footer>
+</body>
+</html>
