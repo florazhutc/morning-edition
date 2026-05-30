@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — May 30, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Saturday</div>
+        <div class="masthead-year">May 30, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Claude Opus 4.8 Boosts Performance, Adds AI Effort Control ⚡</span>
+            <span class="toc-score">1733 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Don't Lose $200k: MyBrickLog Offers Free Tracker for Your LEGO Collection</span>
+            <span class="toc-score">1304 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Secluso: Open-Source, End-to-End Encrypted Home Security Cameras Now Install on Raspberry Pi in 5 Minutes</span>
+            <span class="toc-score">53 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">AI's 'Dead Economy': Humans Become Spectators in a Bot-Run Market</span>
+            <span class="toc-score">932 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">VT Code: A Secure, LLM-Native Open-Source AI Coding Agent for Your Terminal</span>
+            <span class="toc-score">10 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Warning: Utiq Is Your European ISP's New Ad Tracker – Here's How To Opt Out</span>
+            <span class="toc-score">4 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Software Co-design Unlocks 3,000 Tokens/s Real-time LLM Inference on Standard GPUs</span>
+            <span class="toc-score">204 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">SQLite Is All You Need for Durable Workflows, Eliminating Orchestration</span>
+            <span class="toc-score">494 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">AI's Open Source Impact Drives Chad Whitacre to Retire Offline</span>
+            <span class="toc-score">787 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Tiny-vLLM: Your C++/CUDA Blueprint for High-Performance LLM Inference Engines</span>
+            <span class="toc-score">135 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Update</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://www.anthropic.com/news/claude-opus-4-8" target="_blank" rel="noopener">Claude Opus 4.8 Boosts Performance, Adds AI Effort Control</a></h2>
+            <p class="story-summary">We’re upgrading Claude Opus to a new version: Claude Opus 4.8. It builds on Opus 4.7 with improvements across benchmarks, and is a more effective collaborator. It’s available today for the same price. Opus 4.8 launches alongside several new features. Users on claude.ai now have control over the amount of effort Claude puts into a task.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This upgrade to Claude Opus 4.8 signifies Anthropic's commitment to iterative performance improvements while introducing critical user agency through &quot;effort control,&quot; enhancing collaboration. Launching at the same price point, it underscores the intense competitive pressure in the LLM market to deliver continuous value and advanced features without increased cost, driving rapid innovation cycles.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally perceives Claude Opus 4.8 as a modest but tangible improvement over its predecessor, with particular praise for its strong performance in coding benchmarks, especially when utilizing new features like &quot;ultracode mode.&quot; However, there's also a clear sentiment of frustration regarding the increasing complexity of model settings and the difficulty in consistently benchmarking new releases, with some comparisons still favoring competitors like GPT 5.5 in terms of token efficiency.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>anthropic.com</span>
+        <span>·</span>
+        <span>1733 pts</span>
+        <span>·</span>
+        <span>1348 comments</span>
+        <span>·</span>
+        <span>by craigmart</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.anthropic.com/news/claude-opus-4-8" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48311647" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">Personal Asset Loss 💸</div>
+            
+            <h2 class="story-title"><a href="https://mybricklog.com/blog/bricks-minifigs-corporate-stole-old-mans-200000-lego-collection" target="_blank" rel="noopener">Don't Lose $200k: MyBrickLog Offers Free Tracker for Your LEGO Collection</a></h2>
+            <p class="story-summary">MyBrickLog – Free LEGO® Collection Tracker &amp; Price Guide</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This Hacker News post masterfully uses a devastating personal anecdote—the alleged theft of a $200k Lego collection—to underscore the critical importance of asset tracking for valuable niche hobbies. The dramatic title serves as a potent case study, making a compelling argument for the necessity of tools like MyBrickLog for collectors to meticulously document and protect their investments against loss or dispute.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is largely confused and skeptical about the full narrative, finding it illogical for a company of Bricks and Minifigs' reported size to risk significant PR damage for a $200k collection. Many commenters question the motivations, the financial figures involved, and the lack of clear, compelling evidence from both the original blog post and the company's counterclaims. There's a strong sentiment that either critical details are missing, or the company made an incredibly poor business decision.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>mybricklog.com</span>
+        <span>·</span>
+        <span>1304 pts</span>
+        <span>·</span>
+        <span>587 comments</span>
+        <span>·</span>
+        <span>by philips</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://mybricklog.com/blog/bricks-minifigs-corporate-stole-old-mans-200000-lego-collection" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48314136" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Privacy Tech</div>
+            
+            <h2 class="story-title"><a href="https://github.com/secluso/core" target="_blank" rel="noopener">Secluso: Open-Source, End-to-End Encrypted Home Security Cameras Now Install on Raspberry Pi in 5 Minutes</a></h2>
+            <p class="story-summary">Hey everyone, I previously introduced an open source private home security camera in 2024, which uses OpenMLS for end-to-end encryption: https://news.ycombinator.com/item?id=42284412 . It was called Privastead then and it's now renamed to Secluso. John Kaczman found my project from here and has been working on it with me over the last year and half. We've made a lot of improvements to the software, which we would like to share with you: - You can now set this up on your Raspberry Pi in less than 5 minutes with no technical expertise using our easy-to-use GUI deploy tool. We've put together a c</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project effectively democratizes high-end home security by combining accessible Raspberry Pi hardware with strong, open-source end-to-end encryption. Its simplified deployment tool directly tackles the complexity barrier, enabling privacy-conscious users to build and control their surveillance systems without relying on proprietary, cloud-dependent alternatives. This approach fosters greater user trust and data sovereignty in a market often criticized for its privacy shortcomings.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally commends the project's open-source and end-to-end encryption approach for home security. However, there's a strong desire for more clarity on the system's architecture, especially regarding its reliance on Raspberry Pis, cloud components, and how video storage is managed. Many users also expressed interest in fully local, internet-independent solutions and explored possibilities for more cost-effective hardware like ESP32.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>53 pts</span>
+        <span>·</span>
+        <span>12 comments</span>
+        <span>·</span>
+        <span>by arrdalan</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/secluso/core" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48330192" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">📉 Economic Theory</div>
+            
+            <h2 class="story-title"><a href="https://www.owenmcgrann.com/p/the-dead-economy-theory" target="_blank" rel="noopener">AI's 'Dead Economy': Humans Become Spectators in a Bot-Run Market</a></h2>
+            <p class="story-summary">The Dead Economy Theory - by Owen McGrann - The Palimpsest We can laugh at them but we have to take this seriously You’re probably familiar with the dead internet theory: most of what you encounter online is now generated by bots, for bots, with humans reduced to a shrinking audience for machine-generated noise. Last year, over half of new content on the internet was AI-generated. The humans are still there, scrolling, but the thing they’re scrolling through has become a performance staged by machines for an audience that hasn’t yet realized the show isn’t for them.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This theory speculatively extends the &quot;dead internet&quot; concept, suggesting that economic activity could increasingly become a self-sustaining system primarily generated by and for machines, with human involvement diminishing to a mere audience. It's a critical thought experiment questioning the fundamental purpose and beneficiaries of a hyper-automated economy, where human value and agency might become peripheral.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees that the &quot;dead economy theory&quot; article effectively highlights critical, often-ignored systemic consequences of AI, particularly concerning widespread job displacement and its profound impact on economic structures. There's a strong consensus that current discussions often overlook the fundamental economic restructuring and societal challenges that will arise when AI significantly reduces the need for human labor. Many express apprehension about the lack of structural solutions and the unprecedented nature of a future with low employment but potentially abundant goods.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>owenmcgrann.com</span>
+        <span>·</span>
+        <span>932 pts</span>
+        <span>·</span>
+        <span>1090 comments</span>
+        <span>·</span>
+        <span>by WillDaSilva</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.owenmcgrann.com/p/the-dead-economy-theory" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48324712" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Coding Agent</div>
+            
+            <h2 class="story-title"><a href="https://github.com/vinhnx/VTCode" target="_blank" rel="noopener">VT Code: A Secure, LLM-Native Open-Source AI Coding Agent for Your Terminal</a></h2>
+            <p class="story-summary">GitHub - vinhnx/VTCode: VT Code is an open-source coding agent with LLM-native code understanding and robust shell safety. Supports multiple LLM providers with automatic failover and efficient context management.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">VT Code presents an open-source, Rust-powered AI coding agent that brings LLM-native understanding directly to the terminal, aiming to boost developer productivity. Its focus on robust shell safety and efficient context management directly addresses critical concerns for AI tools interacting with sensitive development environments. By supporting multiple LLM providers with automatic failover, the project emphasizes reliability and a future-proof architecture in the rapidly evolving LLM landscape.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community's consensus is not yet formed, as the sole comment reflects an initial query rather than broad agreement or disagreement. The immediate interest lies in understanding the technical terminology, specifically what &quot;LLM-native code understanding&quot; entails in the context of VT Code. This indicates a desire for more technical clarity from the project's creator.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>10 pts</span>
+        <span>·</span>
+        <span>4 comments</span>
+        <span>·</span>
+        <span>by vinhnx</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/vinhnx/VTCode" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48332098" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Privacy &amp; Security</div>
+            
+            <h2 class="story-title"><a href="https://korben.info/utiq-identifiant-publicitaire-telcos.html" target="_blank" rel="noopener">Warning: Utiq Is Your European ISP's New Ad Tracker – Here's How To Opt Out</a></h2>
+            <p class="story-summary">Utiq - Le pistage pub de votre opérateur et comment l'éviter - Korben Aller au contenu principal</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This article sheds light on the concerning rise of ISP-level ad tracking, exemplified by Utiq in Europe, which poses a significant threat to user privacy by intercepting data at a fundamental network layer. Unlike traditional web tracking, this approach is more difficult for users to evade, underscoring a continuous arms race between advanced tracking technologies and individual digital rights. The focus on avoidance provides critical guidance for users navigating an increasingly surveilled online landscape.</p>
+    </div>
+            
+            
+    <div class="story-meta">
+        <span>korben.info</span>
+        <span>·</span>
+        <span>4 pts</span>
+        <span>·</span>
+        <span>0 comments</span>
+        <span>·</span>
+        <span>by LelouBil</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://korben.info/utiq-identifiant-publicitaire-telcos.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48332047" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🚀 LLM Performance</div>
+            
+            <h2 class="story-title"><a href="https://blog.kog.ai/real-time-llm-inference-on-standard-gpus-3-000-tokens-s-per-request/" target="_blank" rel="noopener">Software Co-design Unlocks 3,000 Tokens/s Real-time LLM Inference on Standard GPUs</a></h2>
+            <p class="story-summary">Real-time LLM Inference on Standard Datacenter GPUs (3,000 tokens/s per request) TL;DR: we show that AI inference on GPUs can be super-fast, reaching the speed regime of dedicated inference hardware cards when optimizing the whole software stack with architecture/engine/kernel co-design. Test the speed in our live coding playground: playground.kog.ai . This post explains why optimizing for single-request LLM decoding speed is important for AI agents; why it's primarily a memory-bandwidth maximization problem, not a FLOPS one; why standard datacenter GPU hardware has a much higher decoding-speed ceiling than current inference stacks expose due to software bottlenecks ; and how that ceiling can be reached (even on large MoE models) by co-designing the model architecture, runtime, and low-level GPU code as a single latency-optimized pipeline. Our public tech preview is about proving that extremely fast single-request decoding is possible on the standard datacenter GPUs enterprises already own — including AI labs and sovereign-AI buyers.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This breakthrough demonstrates that standard datacenter GPUs can achieve real-time LLM inference at speeds comparable to dedicated hardware, reaching 3,000 tokens/s per request. This performance uplift stems from addressing software bottlenecks and optimizing the entire stack for memory-bandwidth, not FLOPS, through a holistic co-design approach. Such efficiency transforms the economics of deploying high-performance AI agents, making advanced LLM capabilities more accessible and cost-effective on existing infrastructure.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community is largely impressed and excited by the reported real-time LLM inference speeds and the underlying engineering, with many finding the demo promising for future low-latency applications. However, a significant recurring concern is whether these impressive rates, achieved with a relatively small 2B model, would genuinely scale or be applicable to much larger, &quot;frontier&quot; LLMs without substantial performance degradation. Despite this skepticism regarding scalability, the focus on optimizing memory bandwidth for single-request (BS=1) workflows is seen as a valuable step forward.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>blog.kog.ai</span>
+        <span>·</span>
+        <span>204 pts</span>
+        <span>·</span>
+        <span>91 comments</span>
+        <span>·</span>
+        <span>by NicoConstant</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://blog.kog.ai/real-time-llm-inference-on-standard-gpus-3-000-tokens-s-per-request/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48321076" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">💾 Database Engineering</div>
+            
+            <h2 class="story-title"><a href="https://obeli.sk/blog/sqlite-is-all-you-need-for-durable-workflows/" target="_blank" rel="noopener">SQLite Is All You Need for Durable Workflows, Eliminating Orchestration</a></h2>
+            <p class="story-summary">SQLite is All You Need for Durable Workflows
+- Blog SQLite is All You Need for Durable Workflows DBOS recently argued that Postgres
+is all you need for durable execution : if you already trust your database, you do not need a
+separate orchestration tier. I agree with the direction, and I think the idea can be pushed further. For a large class of durable systems, SQLite is all you need.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This article champions SQLite as a surprisingly robust, single-tier solution for durable workflows, extending the &quot;database is all you need&quot; philosophy by negating the need for separate, complex orchestration tiers. It highlights how leveraging SQLite's inherent ACID properties and reliability can lead to significant architectural simplification, reducing infrastructure complexity and operational overhead for many durable systems. This approach underscores a growing trend towards minimalist, database-centric designs for resilient application logic.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely supports the idea that SQLite can be highly effective for durable workflows, even in production, often exceeding traditional expectations. Many users report successful implementations, citing its simplicity, performance for single-node applications, and the ability to scale to significant user bases by adapting access patterns or building custom solutions for perceived limitations like concurrency. While traditional concerns about multi-process environments are still raised, the prevailing sentiment highlights SQLite's unexpected robustness and utility for these use cases.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>obeli.sk</span>
+        <span>·</span>
+        <span>494 pts</span>
+        <span>·</span>
+        <span>247 comments</span>
+        <span>·</span>
+        <span>by tomasol</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://obeli.sk/blog/sqlite-is-all-you-need-for-durable-workflows/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48326802" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Life Transition 🏕️</div>
+            
+            <h2 class="story-title"><a href="https://openpath.quest/2026/i-am-retiring-from-tech-to-live-offline/" target="_blank" rel="noopener">AI's Open Source Impact Drives Chad Whitacre to Retire Offline</a></h2>
+            <p class="story-summary">I Am Retiring from Tech to Live Offline ❧ Open Path by Chad Whitacre By Chad Whitacre ❧ Published on May 28, 2026 tl;dr AI took the last of the wind out of my Open Source sails.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post chronicles a significant personal pivot from the tech world to an offline existence, explicitly citing AI's detrimental effect on open source as the final catalyst. This decision reflects a burgeoning disillusionment among experienced professionals with the industry's direction, suggesting that AI's disruptive force isn't just reshaping job roles, but also prompting a deeper reevaluation of one's engagement with the digital realm itself.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely resonates with the original poster's sentiment of burnout and disillusionment with the tech industry's internal politics, constant demands, and loss of passion for coding. However, many express skepticism about the sincerity of publicly declaring one is &quot;going offline,&quot; viewing the announcement itself as performative and contradictory. Despite this cynicism regarding the declaration, there's also an acknowledgement and respect for the original poster's past significant contributions to open source.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>openpath.quest</span>
+        <span>·</span>
+        <span>787 pts</span>
+        <span>·</span>
+        <span>535 comments</span>
+        <span>·</span>
+        <span>by PinkG</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://openpath.quest/2026/i-am-retiring-from-tech-to-live-offline/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48323683" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI/ML Infrastructure ⚙️</div>
+            
+            <h2 class="story-title"><a href="https://github.com/jmaczan/tiny-vllm" target="_blank" rel="noopener">Tiny-vLLM: Your C++/CUDA Blueprint for High-Performance LLM Inference Engines</a></h2>
+            <p class="story-summary">GitHub - jmaczan/tiny-vllm: Build your own high performance LLM inference engine in C++ and CUDA - a smaller version of vLLM · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Tiny-vLLM provides a focused C++ and CUDA re-implementation of the vLLM inference engine, directly tackling the performance-critical challenge of deploying large language models. Its &quot;smaller&quot; scope makes it an invaluable educational resource for deeply understanding LLM inference internals, while simultaneously offering a lightweight foundation for highly optimized, bare-metal deployments where customizability and minimal overhead are paramount. This project enables developers to build and customize high-performance serving infrastructure with greater transparency and control.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community overwhelmingly praises Tiny-vLLM's &quot;lesson-style&quot; README, finding its pedagogical approach exceptionally clear and helpful for building a mental model of LLM inference, even for those new to CUDA. This makes the project highly approachable and a valuable educational resource, with many highlighting the superior documentation compared to similar projects like `llama.cpp`. While one comment raises a minor technical concern about CUDA error checking, the dominant sentiment is strong appreciation for the project's educational value and the author's clarity.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>135 pts</span>
+        <span>·</span>
+        <span>10 comments</span>
+        <span>·</span>
+        <span>by yu3zhou4</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/jmaczan/tiny-vllm" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48328184" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 30, 2026</div>
+    </footer>
+</body>
+</html>
