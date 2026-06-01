@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 01, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Monday</div>
+        <div class="masthead-year">June 01, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Software's True Moat: Deep Domain Expertise, Not Just Code</span>
+            <span class="toc-score">835 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Odysseus: Deploy Your Own AI Workspace</span>
+            <span class="toc-score">175 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Breathe CLI: Zero-Dependency macOS Terminal Tool for Paced Breathing and Heart Health</span>
+            <span class="toc-score">122 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Bonsai Image 4B Delivers Compact 1-Bit AI Image Generation to Laptops and Phones</span>
+            <span class="toc-score">393 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Large Language Models Remain Baffled by Video Games</span>
+            <span class="toc-score">14 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Meta Rolls Out Paid Subscriptions for Instagram, Facebook, WhatsApp, Teasing AI Integration</span>
+            <span class="toc-score">227 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Streambed Streams Postgres to Iceberg on S3, Query with Standard Postgres Tools</span>
+            <span class="toc-score">103 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Cloudflare Turnstile Now Requires Fingerprintable WebGL, Blocking Users and Raising Privacy Concerns</span>
+            <span class="toc-score">678 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Four-Letter Word&quot; Bluetooth Name Forces United 767 Back to Newark</span>
+            <span class="toc-score">361 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Access London's Free Sky-High Views: Essential Booking Tips for Sky Garden &amp; Horizon 22</span>
+            <span class="toc-score">307 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">💻 Software Engineering</div>
+            
+            <h2 class="story-title"><a href="https://www.brethorsting.com/blog/2026/05/domain-expertise-has-always-been-the-real-moat/" target="_blank" rel="noopener">Software's True Moat: Deep Domain Expertise, Not Just Code</a></h2>
+            <p class="story-summary">Domain Expertise Has Always Been the Real Moat | Aaron Brethorst Domain Expertise Has Always Been the Real Moat The hard part of writing software has never been the writing. It was building a working model of the domain in your head first. Before you could ship a payroll system you had to understand garnishments and pre-tax deductions and what happens when someone’s pay period straddles a rate change.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This article challenges the common perception that coding is the primary hurdle in software development, asserting that deep domain expertise is the actual &quot;moat.&quot; It highlights that successful software hinges on a comprehensive understanding of complex business logic and user needs, rather than just technical implementation, thereby elevating the value of non-coding skills for developers.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely affirms that domain expertise remains a significant moat, especially in the era of AI. While AI can assist with generating solutions or verifying outputs, commentators emphasize that it struggles with defining the core problem, understanding nuanced user needs, and providing the initial &quot;how&quot; rather than just the &quot;what.&quot; The consensus highlights that individuals who combine deep domain knowledge with technical skills are uniquely valuable, as they possess the ability to guide AI effectively and bridge the gap between abstract problems and practical solutions.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>brethorsting.com</span>
+        <span>·</span>
+        <span>835 pts</span>
+        <span>·</span>
+        <span>529 comments</span>
+        <span>·</span>
+        <span>by aaronbrethorst</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.brethorsting.com/blog/2026/05/domain-expertise-has-always-been-the-real-moat/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48340411" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Infrastructure</div>
+            
+            <h2 class="story-title"><a href="https://github.com/pewdiepie-archdaemon/odysseus" target="_blank" rel="noopener">Odysseus: Deploy Your Own AI Workspace</a></h2>
+            <p class="story-summary">GitHub - pewdiepie-archdaemon/odysseus: Self-hosted AI workspace.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Odysseus addresses the critical need for greater privacy and control in AI development by offering a self-hosted workspace, empowering users to keep their data and models on-premises. This project taps into the growing demand for local AI solutions, mitigating vendor lock-in and providing a secure environment for sensitive applications often unsuited for public cloud AI services.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community shows a mixed reaction, expressing both curiosity – especially given its association with a well-known personality – and significant skepticism regarding its originality and practical usability. Many commenters perceive it as a UI wrapper over existing open-source tools rather than a groundbreaking solution, questioning its daily utility and seeking more polished alternatives. Concerns also surface about potential prompt injection vulnerabilities and the project's chosen namesake.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>175 pts</span>
+        <span>·</span>
+        <span>84 comments</span>
+        <span>·</span>
+        <span>by Dzheky</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/pewdiepie-archdaemon/odysseus" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48346693" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Wellness Tech 🧘</div>
+            
+            <h2 class="story-title"><a href="https://github.com/marekkowalczyk/breathe-cli" target="_blank" rel="noopener">Breathe CLI: Zero-Dependency macOS Terminal Tool for Paced Breathing and Heart Health</a></h2>
+            <p class="story-summary">I built a terminal app that paces slow breathing at 6 breaths per minute for vagal tone training. It's a single Python file, stdlib only, no dependencies — just run breathe and follow the bar. I'm a cardiology patient (HFrEF). Slow breathing at resonance frequency is one of the few non-pharmacological interventions shown to improve cardiac vagal tone and baroreflex sensitivity (Bernardi et al., Circulation 2002; Lancet 1998). I wanted a frictionless daily habit tool — no app store, no account, no subscription, just open terminal and go. Design constraints, all grounded in the clinical literatu</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This CLI tool cleverly merges personal health needs with minimalist software design, offering a &quot;frictionless&quot; daily breathing exercise. Rooted in the creator's cardiology experience and backed by clinical literature, it exemplifies how simple, dependency-free utilities can deliver tangible, evidence-based health benefits without the typical app overhead. It's a powerful reminder that effective self-care tools don't always need complex interfaces.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community shows strong appreciation for Breathe CLI, highlighting the significant practical utility of a simple, terminal-based tool for paced breathing exercises. Users find it effective for managing stress, anxiety, various health conditions (like IBS and SVT), and addiction cravings, praising its low-friction approach and &quot;ritualistic&quot; simplicity compared to more complex wellness apps. There's also some technical recognition for its pure Python implementation and potential for broader OS support.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>122 pts</span>
+        <span>·</span>
+        <span>38 comments</span>
+        <span>·</span>
+        <span>by marekkowalczyk</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/marekkowalczyk/breathe-cli" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48340315" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">📱 On-Device AI</div>
+            
+            <h2 class="story-title"><a href="https://prismml.com/news/bonsai-image-4b" target="_blank" rel="noopener">Bonsai Image 4B Delivers Compact 1-Bit AI Image Generation to Laptops and Phones</a></h2>
+            <p class="story-summary">PrismML — Introducing 1-bit and Ternary Bonsai Image 4B: Image Generation for Local Devices Introducing 1-bit and Ternary Bonsai Image 4B: Image Generation for Local Devices Images generated from Ternary Bonsai Image 4B Today we’re releasing Bonsai Image 4B , a family of compact image-generation models designed to run high-quality diffusion inference on local hardware: from laptops to phones. 1-bit Bonsai Image 4B uses binary {−1, +1} transformer weights with an FP16 group-wise scaling factor, giving 1.125 effective bits per weight.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This release marks a significant step towards democratizing generative AI, enabling high-quality image diffusion on resource-constrained local devices like laptops and phones. By utilizing radical quantization with 1-bit and ternary weights, it dramatically reduces computational and memory footprints, bypassing the need for extensive cloud infrastructure. This innovation not only expands access to powerful AI tools but also showcases the growing potential of efficient, on-device machine learning.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community shows mixed reception, largely scrutinizing the project's core claims and practical utility. While there's an underlying desire for local, subscription-free AI that runs on consumer hardware, many commenters dispute the model being the &quot;first&quot; of its class on iPhone and question if it truly solves the primary bottleneck for local image generation, which they perceive as generation *time* rather than memory or storage.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>prismml.com</span>
+        <span>·</span>
+        <span>393 pts</span>
+        <span>·</span>
+        <span>154 comments</span>
+        <span>·</span>
+        <span>by modinfo</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://prismml.com/news/bonsai-image-4b" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48346257" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🎮 AI &amp; Gaming</div>
+            
+            <h2 class="story-title"><a href="https://spectrum.ieee.org/ai-video-games-llms-togelius" target="_blank" rel="noopener">Large Language Models Remain Baffled by Video Games</a></h2>
+            <p class="story-summary">Why Video Games Still Baffle AI Models - IEEE Spectrum IEEE.org IEEE Xplore Digital Library IEEE Standards More Sites Why Are Large Language Models So Terrible at Video Games? Aerospace AI Biomedical Climate Tech Computing Consumer Electronics Energy History of Technology Robotics Semiconductors Telecommunications Transportation Aerospace AI Biomedical Climate Tech Computing Consumer Electronics Energy History of Technology Robotics Semiconductors Telecommunications Transportation</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece likely delves into the fundamental disconnect between the strengths of large language models—primarily text generation and understanding—and the multifaceted demands of video games, which require real-time perception, spatial reasoning, long-term planning, and understanding dynamic environments. It underscores that current LLM architectures, designed for linguistic tasks, inherently struggle with the embodied, sequential, and often non-linguistic decision-making processes crucial for game mastery, pointing to a frontier where multimodal or hybrid AI approaches may be necessary.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees that Large Language Models struggle with video games because their core competency is language, not real-time visual processing, motor control, or spatial reasoning required for most games. Many commenters emphasize that other AI approaches, particularly reinforcement learning, were already highly effective at game-playing before LLMs became prominent, suggesting LLMs are simply the wrong tool for this specific task. While LLMs might assist with high-level strategy if given a full game manual, they are not designed for direct gameplay execution.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>spectrum.ieee.org</span>
+        <span>·</span>
+        <span>14 pts</span>
+        <span>·</span>
+        <span>14 comments</span>
+        <span>·</span>
+        <span>by sxx0</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://spectrum.ieee.org/ai-video-games-llms-togelius" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48354405" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">📈 Business Strategy</div>
+            
+            <h2 class="story-title"><a href="https://techcrunch.com/2026/05/27/meta-officially-launches-instagram-facebook-and-whatsapp-subscriptions-with-more-to-come-including-ai-plans/" target="_blank" rel="noopener">Meta Rolls Out Paid Subscriptions for Instagram, Facebook, WhatsApp, Teasing AI Integration</a></h2>
+            <p class="story-summary">Meta launches Instagram, Facebook, and WhatsApp subscriptions, with more to come, including AI plans | TechCrunch The first StrictlyVC of 2026 hits SF on April 30. Get Disrupt Early Bird savings of up to $410 by May 29, 11:59 p.m. Image Credits: NurPhoto / Jakub Porzycki (opens in a new window) / Getty Images Meta launches Instagram, Facebook, and WhatsApp subscriptions, with more to come, including AI plans</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Meta's move to introduce subscriptions across its flagship platforms marks a significant strategic pivot, diversifying revenue beyond its volatile advertising business and likely aiming to offset the impact of privacy changes. This shift signals a proactive effort to stabilize income streams and fund future growth areas like AI, even as it tests user willingness to pay for previously free services. It underscores a broader industry trend where tech giants seek direct user monetization to complement or replace traditional ad-based models.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">While a segment of the community acknowledges the potential benefits of a paid model for &quot;free&quot; services (e.g., less data exploitation), the predominant sentiment is skepticism regarding Meta's offering. Users largely doubt the value proposition, fearing price increases and insufficient feature improvements (like full ad/influencer removal or API access), and many suspect it's primarily a tactic to navigate EU regulations. Despite this, some admit the difficulty of abandoning Meta products due to their entrenched network effects.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>techcrunch.com</span>
+        <span>·</span>
+        <span>227 pts</span>
+        <span>·</span>
+        <span>362 comments</span>
+        <span>·</span>
+        <span>by tambourine_man</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://techcrunch.com/2026/05/27/meta-officially-launches-instagram-facebook-and-whatsapp-subscriptions-with-more-to-come-including-ai-plans/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48347354" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">📊 Data Engineering</div>
+            
+            <h2 class="story-title"><a href="https://github.com/viggy28/streambed" target="_blank" rel="noopener">Streambed Streams Postgres to Iceberg on S3, Query with Standard Postgres Tools</a></h2>
+            <p class="story-summary">GitHub - viggy28/streambed: Stream Postgres to Apache Iceberg on S3 via logical replication, queryable over the Postgres wire protocol.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Streambed offers a powerful, real-time data pipeline from Postgres to an Apache Iceberg data lake on S3 using logical replication, addressing the critical need for fresh operational data in analytical environments. The crucial innovation lies in its support for the Postgres wire protocol, which enables existing tools and applications to query the data lake with familiar SQL, significantly lowering the barrier to adoption for real-time analytics. This capability accelerates data-driven decision-making and the development of immediate data products by providing instant access to operational data.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community generally sees Streambed as an interesting and potentially valuable solution to the common problem of running analytical queries on operational Postgres. While appreciating its approach of streaming data to Iceberg on S3 to separate compute and storage, commenters also sought clarification on performance metrics and the realistic need for data transformation. The discussion indicates a strong familiarity within the community with similar tools and challenges in the data warehousing space.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>103 pts</span>
+        <span>·</span>
+        <span>29 comments</span>
+        <span>·</span>
+        <span>by vira28</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/viggy28/streambed" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48348429" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Privacy &amp; Accessibility</div>
+            
+            <h2 class="story-title"><a href="https://hacktivis.me/articles/cloudflare-turnstile-webgl-fingerprinting" target="_blank" rel="noopener">Cloudflare Turnstile Now Requires Fingerprintable WebGL, Blocking Users and Raising Privacy Concerns</a></h2>
+            <p class="story-summary">Cloudflare Turnstile requiring fingerprintable WebGL - lanodan's cyber-home Cloudflare Turnstile requiring fingerprintable WebGL published on 2026-05-30T23:31:51Z, last updated on 2026-05-30T23:31:52Z Since about a week, Cloudflare Turnstile (their &quot;Verify you're human&quot;
+	device verification) has been looping indefinitely in my webkit-gtk based browser . Preventing access to quite few websites ( previously , but it even went worse lately).</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Cloudflare's Turnstile, designed to enhance web security by verifying human users, is ironically creating a significant privacy concern by requiring fingerprintable WebGL. This not only introduces a new vector for device identification but also poses accessibility challenges for users on less common browsers, potentially contributing to browser monoculture. It highlights the escalating tension between robust bot detection mechanisms and the fundamental right to user privacy and open web access.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses strong disappointment and concern, viewing Cloudflare Turnstile's requirement for WebGL fingerprinting as a betrayal of its privacy-respecting claims. Many believe this move undermines online anonymity, pushes users towards dominant browsers like Chrome, and contributes to a broader &quot;war against bots&quot; that creates walled gardens rather than a free internet.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>hacktivis.me</span>
+        <span>·</span>
+        <span>678 pts</span>
+        <span>·</span>
+        <span>373 comments</span>
+        <span>·</span>
+        <span>by HypnoticOcelot</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://hacktivis.me/articles/cloudflare-turnstile-webgl-fingerprinting" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48345840" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🚨 Security Alert</div>
+            
+            <h2 class="story-title"><a href="https://simpleflying.com/united-airlines-767-returns-newark-bluetooth-name-alert/" target="_blank" rel="noopener">Four-Letter Word&quot; Bluetooth Name Forces United 767 Back to Newark</a></h2>
+            <p class="story-summary">&quot;Four-Letter Word&quot;: United Airlines 767 Returns To Newark After Bluetooth Name Sparks Alert</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This incident dramatically illustrates the heightened state of aviation security, where even a seemingly innocuous digital identifier like a Bluetooth name can trigger significant operational disruptions and costly diversions. It underscores the challenges of differentiating between prank-related digital &quot;threats&quot; and genuine security risks within the sensitive confines of an aircraft. The event raises questions about the protocols for quickly assessing and verifying such alerts, highlighting the need for systems that can better discern intent without immediately impacting flight operations.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees that United Airlines' decision to return the plane was an extreme overreaction, driven more by fear of liability than an actual security threat. Commenters view the incident as &quot;hilariously stupid&quot; and &quot;security theater,&quot; questioning the logic of turning the plane around for a Bluetooth device, especially when the instructions to passengers seemed nonsensical if a real bomb were present. Many believe the &quot;bomb&quot; name was likely a coincidental default device name or a youthful prank, not a credible threat.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>simpleflying.com</span>
+        <span>·</span>
+        <span>361 pts</span>
+        <span>·</span>
+        <span>702 comments</span>
+        <span>·</span>
+        <span>by Eridanus2</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://simpleflying.com/united-airlines-767-returns-newark-bluetooth-name-alert/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48345248" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🏙️ Urban Access</div>
+            
+            <h2 class="story-title"><a href="https://diamondgeezer.blogspot.com/2026/05/londons-free-roof-terraces.html" target="_blank" rel="noopener">Access London's Free Sky-High Views: Essential Booking Tips for Sky Garden &amp; Horizon 22</a></h2>
+            <p class="story-summary">A few years ago some City speculators spotted they were more likely to get planning permission if their new skyscraper included a free public roof terrace . Free access to elevated views is always a winner in my book. This was all on-the-hoof so I didn't go up the big three because they expect you to book in advance. Sky Garden at The Fenchurch Building, aka The Walkie-Talkie Opened January 2015, 35th-37th floors, blogged here You have to book at least three weeks ahead, but yesterday 'Closed For Private Event'. Horizon 22 at 22 Bishopsgate Opened September 2022, 57th-58th floor, blogged here Tickets released on Mondays, they go fast but ridiculously early slots are often available.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The trend of London skyscrapers integrating free public roof terraces, often as a condition for planning permission, highlights a fascinating intersection of urban planning and public good. While these spaces democratize access to panoramic city views, the necessity of advance booking underscores the ongoing challenge of providing genuinely &quot;free&quot; and easily accessible public amenities within high-demand private developments. This model represents a clever compromise, balancing developer interests with enhanced urban livability.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses widespread frustration that &quot;free public roof terraces&quot; are often developer concessions for planning permission but are then made inaccessible or unwelcoming through restrictive rules, such as booking, ID requirements, and photography bans. This practice is seen as a broader issue of privatizing public spaces, mirroring similar concerns in other cities like Cambridge and San Francisco. While some truly open spaces exist, the general consensus is that these terraces often fail to deliver on their promise of genuine public access.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>diamondgeezer.blogspot.com</span>
+        <span>·</span>
+        <span>307 pts</span>
+        <span>·</span>
+        <span>142 comments</span>
+        <span>·</span>
+        <span>by zeristor</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://diamondgeezer.blogspot.com/2026/05/londons-free-roof-terraces.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48343714" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 01, 2026</div>
+    </footer>
+</body>
+</html>
