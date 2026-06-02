@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 02, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Tuesday</div>
+        <div class="masthead-year">June 02, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Instagram's 'Goofiest Exploit' Is Just Location Spoofing and Support Abuse</span>
+            <span class="toc-score">1773 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Stanford CS336 Publishes AI Agent Guidelines for Course Assignments ⚡</span>
+            <span class="toc-score">412 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Malicious npm Packages Infiltrate Red Hat Cloud Services</span>
+            <span class="toc-score">749 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">IPO Rush: Can the Market Digest Anthropic, SpaceX, and OpenAI Before a Downturn?</span>
+            <span class="toc-score">345 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">The Pirate Bay Defies Shutdown, Thrives 20 Years Post-Raid</span>
+            <span class="toc-score">573 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">GitHub's Perpetual Outages: A &quot;Crime Against Software</span>
+            <span class="toc-score">218 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Anthropic, Creator of Claude AI, Confidentially Files for IPO</span>
+            <span class="toc-score">489 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Alphabet Plans $80B Equity Raise for AI Infrastructure Expansion</span>
+            <span class="toc-score">184 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">10-Year-Old Xeon: Still All You Need</span>
+            <span class="toc-score">693 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Creator Crafts First Comprehensive Handmade Map of Hawaii's 1,500-Mile Archipelago</span>
+            <span class="toc-score">64 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🔐 Cybersecurity Exploit</div>
+            
+            <h2 class="story-title"><a href="https://www.0xsid.com/blog/meta-account-takeover-fiasco" target="_blank" rel="noopener">Instagram's 'Goofiest Exploit' Is Just Location Spoofing and Support Abuse</a></h2>
+            <p class="story-summary">The Newest Instagram &quot;Exploit&quot; is the Goofiest I've Seen | Sid's Blog Yesterday, a slew of Instagram accounts, including some high profile ones like the Obama White House account, seemingly got hacked. I’ve spent almost a decade and a half identifying vulnerabilities and exploits at unicorn scale, but this is hands down the most unserious, &quot;almost too stupid to be true&quot; of them all. Step 01: Faking the Location &amp; Initiating Support All the attacker needs to kick this off is your account username. Then, they hop on a VPN or proxy close to your city so Instagram's security algorithms don't suspect a thing.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This &quot;goofy&quot; Instagram exploit, leveraging basic social engineering and location spoofing with just a username, exposes a critical weakness in the platform's user support and verification mechanisms rather than complex technical code. The vulnerability's effectiveness, even against high-profile accounts, underscores how seemingly &quot;stupid&quot; exploits can have widespread impact when basic human and procedural defenses are overlooked.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant concern and disbelief regarding an alleged Instagram exploit where an AI chatbot can reportedly facilitate password resets or disable 2FA through basic requests. Many commenters view this as a continuation of long-standing security weaknesses in human support and account recovery processes, exacerbated by granting sensitive tooling to low-level AI agents. There's a prevailing sentiment of incredulity that such a seemingly &quot;dumb&quot; exploit could be effective.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>0xsid.com</span>
+        <span>·</span>
+        <span>1773 pts</span>
+        <span>·</span>
+        <span>406 comments</span>
+        <span>·</span>
+        <span>by ssiddharth</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.0xsid.com/blog/meta-account-takeover-fiasco" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48359102" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🎓 AI Education</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://github.com/stanford-cs336/assignment1-basics/blob/main/CLAUDE.md" target="_blank" rel="noopener">Stanford CS336 Publishes AI Agent Guidelines for Course Assignments</a></h2>
+            <p class="story-summary">assignment1-basics/CLAUDE.md at main · stanford-cs336/assignment1-basics · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post highlights how leading universities like Stanford are rapidly integrating practical guidelines for specific AI agents, such as Claude, directly into their advanced computer science curricula. It signals a shift towards hands-on engagement with powerful LLMs in academic assignments, necessitating clear policies on their responsible and ethical use in student work.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees that formal AI agent guidelines, like Stanford's AGENTS.md, are a sensible and necessary step, acknowledging that students will inevitably use AI. While some critique the specific implementation's verbosity or efficacy as a standalone document, there's a strong consensus that guiding students on healthy AI use as a learning tool is a good practice, potentially becoming a new standard in university courses.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>412 pts</span>
+        <span>·</span>
+        <span>132 comments</span>
+        <span>·</span>
+        <span>by prakashqwerty</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/stanford-cs336/assignment1-basics/blob/main/CLAUDE.md" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48359232" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🚨 Security Alert</div>
+            
+            <h2 class="story-title"><a href="https://github.com/RedHatInsights/javascript-clients/issues/492" target="_blank" rel="noopener">Malicious npm Packages Infiltrate Red Hat Cloud Services</a></h2>
+            <p class="story-summary">[SECURITY]: Malicious npm releases detected across `@redhat-cloud-services/` scope · Issue #492 · RedHatInsights/javascript-clients · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This incident highlights a severe supply chain attack where malicious npm packages successfully infiltrated Red Hat's official `@redhat-cloud-services/` scope, indicating a potential compromise of internal development systems or credentials. It underscores that even major enterprises are vulnerable to sophisticated attacks targeting their build processes and published code. This necessitates continuous vigilance, robust internal security controls, and advanced dependency scanning to mitigate risks in the software supply chain.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community acknowledges that supply chain attacks, particularly within the npm ecosystem, are a recurring and serious problem. There's a strong consensus that implementing dependency cooldowns (typically 1-3 days) and running package installations in sandboxed or unprivileged environments are highly effective and practical mitigation strategies. While some note existing solutions in tools like pnpm or yarn, the overall sentiment emphasizes the need for proactive security measures to prevent future compromises.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>749 pts</span>
+        <span>·</span>
+        <span>428 comments</span>
+        <span>·</span>
+        <span>by kurmiashish</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/RedHatInsights/javascript-clients/issues/492" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48356625" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">💰 Tech Finance</div>
+            
+            <h2 class="story-title"><a href="https://www.economist.com/finance-and-economics/2026/06/01/can-the-stockmarket-swallow-anthropic-spacex-and-openai" target="_blank" rel="noopener">IPO Rush: Can the Market Digest Anthropic, SpaceX, and OpenAI Before a Downturn?</a></h2>
+            <p class="story-summary">Community discussion highlights: So they're not just racing to gain dominance in AI, they're also racing to IPO before the music stops? IPOing and getting a bunch of cash, even if your stock subsequently suffers in the crash, is a lot better than being unable to get that capital infusion before the house of cards collapses.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This discussion highlights a critical strategic imperative for highly valued tech giants: a race to IPO and secure public capital before a potential market downturn. The consensus suggests that gaining capital now, even if stock values suffer post-IPO, is a more robust strategy than risking the inability to raise funds should the current &quot;house of cards&quot; market collapse.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely believes the stock market *can* technically absorb massive IPOs from companies like Anthropic, SpaceX, and OpenAI, citing the sheer scale of available capital and existing market volume. However, there is significant skepticism regarding the *health* and *sustainability* of current valuations, which many attribute to an excess of money in the system, a &quot;race to IPO before the music stops,&quot; or even rule changes influencing passive investments. This suggests a consensus that while the market has the capacity, the underlying drivers of these high valuations are viewed with caution and some cynicism.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>economist.com</span>
+        <span>·</span>
+        <span>345 pts</span>
+        <span>·</span>
+        <span>599 comments</span>
+        <span>·</span>
+        <span>by 1vuio0pswjnm7</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.economist.com/finance-and-economics/2026/06/01/can-the-stockmarket-swallow-anthropic-spacex-and-openai" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48364055" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🏴‍☠️ Digital Rights &amp; Internet Culture</div>
+            
+            <h2 class="story-title"><a href="https://torrentfreak.com/the-pirate-bay-remains-resilient-20-years-after-the-raid/" target="_blank" rel="noopener">The Pirate Bay Defies Shutdown, Thrives 20 Years Post-Raid</a></h2>
+            <p class="story-summary">The Pirate Bay Remains Resilient, 20 Years After The Raid * TorrentFreak</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The remarkable 20-year resilience of The Pirate Bay highlights the enduring challenge copyright enforcement faces against decentralized peer-to-peer networks. Its continued operation underscores both the persistent demand for unrestricted content access and the inherent difficulty in permanently shutting down foundational internet technologies, evolving into a continuous game of digital whack-a-mole.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely views the continued resilience of platforms like The Pirate Bay as a direct consequence of the often-inferior quality and restrictive nature of legal streaming services. Many users express ethical justifications for piracy, citing corporate hypocrisy and historical industry overreach, while highlighting that modern torrenting has evolved to offer better experiences and higher quality content than typically found on TPB itself.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>torrentfreak.com</span>
+        <span>·</span>
+        <span>573 pts</span>
+        <span>·</span>
+        <span>264 comments</span>
+        <span>·</span>
+        <span>by speckx</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://torrentfreak.com/the-pirate-bay-remains-resilient-20-years-after-the-raid/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48357154" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🚨 Tech Critique</div>
+            
+            <h2 class="story-title"><a href="https://eblog.fly.dev/githubbad.html" target="_blank" rel="noopener">GitHub's Perpetual Outages: A &quot;Crime Against Software</a></h2>
+            <p class="story-summary">A software article by Efron Licht May 2026 If a house was on fire there could be but two parties. One in favor of putting out the fire. Another in favor of the house burning. As I begin this article, Github is down, again.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The article presents a sharp critique of GitHub, framing its recurring outages as a systemic &quot;crime against software&quot; rather than mere technical hiccups, using a dramatic &quot;burning house&quot; analogy to highlight the urgency. This suggests a deep dive into the industry's over-reliance on a single, critical platform and the severe implications of its operational fragility for global software development.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that GitHub is experiencing significant issues, leading many long-time users to feel disillusioned with the platform. There's a strong sentiment towards exploring and adopting alternatives, with GitLab (both hosted and self-hosted) and Codeberg frequently mentioned as viable options for those looking to move away from GitHub's perceived problems and decline in quality.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>eblog.fly.dev</span>
+        <span>·</span>
+        <span>218 pts</span>
+        <span>·</span>
+        <span>104 comments</span>
+        <span>·</span>
+        <span>by pplanu</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://eblog.fly.dev/githubbad.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48361064" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">📈 Tech Finance</div>
+            
+            <h2 class="story-title"><a href="https://www.anthropic.com/news/confidential-draft-s1-sec" target="_blank" rel="noopener">Anthropic, Creator of Claude AI, Confidentially Files for IPO</a></h2>
+            <p class="story-summary">Anthropic confidentially submits draft S-1 to the SEC Today, Anthropic, PBC confidentially submitted a draft registration statement on Form S-1 to the U.S. Securities and Exchange Commission for a proposed initial public offering of our common stock. This gives us the option to go public after the SEC completes its review. The proposed initial public offering will depend on market conditions and other factors.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Anthropic's confidential S-1 filing signals a significant step towards a potential IPO, highlighting the increasing maturity and investor demand for major players in the AI foundational model space. This move could set a benchmark for future public offerings by other prominent AI startups, indicating a strategic shift to access public capital for aggressive growth and provide liquidity for early investors. It underscores confidence in Anthropic's long-term business model amidst intense competition.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely expresses caution and skepticism regarding Anthropic's S-1 filing, particularly concerning the timing of AI IPOs. Many commenters are worried about retail investors and 401k holders gaining exposure to potentially inflated valuations, suggesting limited upside and significant risk for a sector perceived as rushing to go public before a market correction. There's also some cynicism about how massive valuations might impact company ethos and market dynamics.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>anthropic.com</span>
+        <span>·</span>
+        <span>489 pts</span>
+        <span>·</span>
+        <span>397 comments</span>
+        <span>·</span>
+        <span>by surprisetalk</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.anthropic.com/news/confidential-draft-s1-sec" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48358646" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">💰 Finance</div>
+            
+            <h2 class="story-title"><a href="https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Proposed-80-Billion-Equity-Capital-Raise-to-Expand-AI-Infrastructure-and-Compute-2026-b0myAMewCa/default.aspx" target="_blank" rel="noopener">Alphabet Plans $80B Equity Raise for AI Infrastructure Expansion</a></h2>
+            <p class="story-summary">Alphabet Investor Relations - Alphabet Announces Proposed $80 Billion Equity Capital Raise to Expand AI Infrastructure and Compute</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This massive $80 billion equity raise by Alphabet underscores the escalating capital expenditure required to compete in the AI infrastructure race, signaling that even cash-rich tech giants are tapping external markets to fund ambitious compute and development initiatives. It highlights the strategic imperative for leading players to secure substantial funding to maintain a competitive edge, potentially intensifying the arms race and setting a new bar for AI investment across the industry.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses surprise and some skepticism that Alphabet, historically perceived as having unlimited funds, needs to raise $80B. While acknowledging the immense capital requirements for AI infrastructure expansion, users also voice broader concerns about the scale of &quot;wild spending&quot; by big tech in the AI race, with some anticipating a &quot;horrible financial reckoning.&quot; This uneasy sentiment is underscored by the negative market reaction to the news.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>abc.xyz</span>
+        <span>·</span>
+        <span>184 pts</span>
+        <span>·</span>
+        <span>158 comments</span>
+        <span>·</span>
+        <span>by gregschlom</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Proposed-80-Billion-Equity-Capital-Raise-to-Expand-AI-Infrastructure-and-Compute-2026-b0myAMewCa/default.aspx" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48362515" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">💻 Hardware Frugality</div>
+            
+            <h2 class="story-title"><a href="https://point.free/blog/gemma-4-on-a-2016-xeon/" target="_blank" rel="noopener">10-Year-Old Xeon: Still All You Need</a></h2>
+            <p class="story-summary">A 10 year old Xeon is all you need - point.free</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post likely champions the idea that older, enterprise-grade hardware, like a 10-year-old Xeon, offers sufficient performance for most modern computing needs, challenging the pervasive upgrade culture. It highlights the diminishing returns of incremental CPU improvements for general use, advocating for cost-effectiveness and sustainability over continuous hardware acquisition.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely celebrates the technical feat of running modern AI models on older, local hardware like a 10-year-old Xeon, viewing it as a significant and desirable trend that could disrupt the current AI landscape. While impressed by the capability, many acknowledge the practical limitations, specifically that the performance often remains too slow for truly interactive use, and the energy inefficiency of old servers can make it financially or environmentally impractical for continuous operation.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>point.free</span>
+        <span>·</span>
+        <span>693 pts</span>
+        <span>·</span>
+        <span>274 comments</span>
+        <span>·</span>
+        <span>by cafkafk</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://point.free/blog/gemma-4-on-a-2016-xeon/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48353348" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🎨 Art &amp; Design</div>
+            
+            <h2 class="story-title"><a href="https://www.notesfromtheroad.com/roam/hawaiian-islands-map.html" target="_blank" rel="noopener">Creator Crafts First Comprehensive Handmade Map of Hawaii's 1,500-Mile Archipelago</a></h2>
+            <p class="story-summary">Two maps of Hawaiʻi: the full 1,500-mile archipelago and the eight main Hawaiian Islands. I created this map of the entire Hawaiian Islands archipelago using Adobe Fresco and physical watercolor and Copic pens. This island chain stretches all the way from Hawaiʻi Island to Kure Atoll and includes not just the main islands, but the tiny atolls, shoals, rocks, and remote fragments scattered across the Northwestern Hawaiian Islands. Maps that depict all the minor Hawaiian Islands simply do not exist online, and I wanted to create a map that changed that. Still, that land geography is so tiny compared to the main islands that my depiction of them is actually the depths around them.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project stands out by filling a significant void in cartography, offering a uniquely comprehensive map of the entire Hawaiian archipelago, including rarely depicted minor islands and remote atolls. The creator skillfully blends digital tools with traditional art mediums to produce a detailed and visually engaging representation that addresses a long-standing data gap.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community's primary focus revolves around the authenticity of the &quot;handmade&quot; and &quot;hand-painted&quot; claims, with several users questioning the extent of digital manipulation versus physical craftsmanship. While there is some appreciation for the map's detail in highlighting less-visible islands, the discussion leans heavily towards clarifying the actual production process, a point the creator acknowledged by confirming the maps are mixed-media.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>notesfromtheroad.com</span>
+        <span>·</span>
+        <span>64 pts</span>
+        <span>·</span>
+        <span>20 comments</span>
+        <span>·</span>
+        <span>by bovermyer</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.notesfromtheroad.com/roam/hawaiian-islands-map.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48335704" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 02, 2026</div>
+    </footer>
+</body>
+</html>
