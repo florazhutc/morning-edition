@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 06, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Saturday</div>
+        <div class="masthead-year">June 06, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">South Korea Mandates AI Censorship Scans for All Online Forum Images</span>
+            <span class="toc-score">242 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Lowfat Slashes LLM Token Use by 91.8% with Pluggable CLI Filtering</span>
+            <span class="toc-score">126 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Microsoft Open Sources pg_durable: In-Database Durable Execution for PostgreSQL</span>
+            <span class="toc-score">383 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">S&amp;P 500 Rejects SpaceX, Blocks Other Private Tech Giants From Fast-Track Index Entry</span>
+            <span class="toc-score">267 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Alibaba's Open Code Review CLI: Hybrid AI Engine Delivers Battle-Tested Precision for Bug Detection</span>
+            <span class="toc-score">263 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Ladybird Ends Public Pull Requests, Restricting Code Changes to Maintainers</span>
+            <span class="toc-score">833 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Ditch the Mouse: Keyboard-Only OS Control for macOS, Linux, and Windows</span>
+            <span class="toc-score">521 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Modern Lens Repair: Salvaging Circuitry for Sigma's Aluminum Optics</span>
+            <span class="toc-score">147 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">GOV.UK Drops Stripe for Dutch Payment Giant Adyen</span>
+            <span class="toc-score">420 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Claude's Impact on rsync Bugs Under Rigorous Statistical Scrutiny ⚡</span>
+            <span class="toc-score">390 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🚨 Digital Censorship</div>
+            
+            <h2 class="story-title"><a href="https://discuss.privacyguides.net/t/south-korean-online-communities-will-need-to-scan-every-images-with-ai-censorship-tools/38341" target="_blank" rel="noopener">South Korea Mandates AI Censorship Scans for All Online Forum Images</a></h2>
+            <p class="story-summary">South Korean Online Communities Will Need to Scan Every Images with AI Censorship Tools - News - Privacy Guides Community</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This policy signifies a dramatic escalation in state-mandated digital surveillance, requiring AI to scrutinize all images on South Korean forums. While potentially targeting illegal content, it poses significant threats to user privacy and freedom of expression, establishing a concerning precedent for pervasive, automated censorship.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views South Korea's new AI censorship requirement as a deeply flawed and problematic policy. While some acknowledge the serious underlying issue of deepfake abuse, commenters express significant concerns about its technical feasibility, the government's incompetence in implementation, and the severe implications for internet freedom. Many worry this signals a troubling erosion of online liberties, drawing comparisons to more authoritarian states and questioning its impact on South Korean tech exports.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>discuss.privacyguides.net</span>
+        <span>·</span>
+        <span>242 pts</span>
+        <span>·</span>
+        <span>143 comments</span>
+        <span>·</span>
+        <span>by Cider9986</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://discuss.privacyguides.net/t/south-korean-online-communities-will-need-to-scan-every-images-with-ai-censorship-tools/38341" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48406198" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🛠️ Developer Tool</div>
+            
+            <h2 class="story-title"><a href="https://github.com/zdk/lowfat" target="_blank" rel="noopener">Lowfat Slashes LLM Token Use by 91.8% with Pluggable CLI Filtering</a></h2>
+            <p class="story-summary">Hi HN, not sure if anyone would be interested, but just wanted to share that I've been maintaining my small tool called 'lowfat' that helps me filters some of my verbose CLI output. It's a single binary, works as an agent hook or a shell wrapper. It has a plugin system to customize filters per command. The idea is pretty simple: agents don't need the full kubectl get -o yaml or any 10k-line dump to make decisions. So that lowfat sits in between, strips the noise, and passes through what matters. Here's my real report after 2 months of personal use: lowfat history --all lowfat plugin candidates</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project offers a highly practical solution to a common bottleneck in LLM applications: managing token limits and associated costs when processing verbose technical output. By intelligently filtering CLI data, it significantly enhances the efficiency and cost-effectiveness of integrating LLMs into developer workflows and agentic systems, showcasing a smart approach to optimizing AI interactions. This highlights the growing need for specialized tooling to bridge the gap between raw system output and LLM-ready inputs.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community recognizes the value of tools like Lowfat for managing LLM context and token usage, addressing a significant pain point. However, there's notable skepticism regarding the practical effectiveness of such filters, with major concerns about inadvertently stripping crucial information and potentially confusing the LLM more. Users also requested clearer documentation with practical examples and expressed skepticism about the bold &quot;91.8% token saving&quot; claim without further contextualization.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>126 pts</span>
+        <span>·</span>
+        <span>62 comments</span>
+        <span>·</span>
+        <span>by zdkaster</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/zdk/lowfat" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48409955" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Database Tools 🐘</div>
+            
+            <h2 class="story-title"><a href="https://github.com/microsoft/pg_durable" target="_blank" rel="noopener">Microsoft Open Sources pg_durable: In-Database Durable Execution for PostgreSQL</a></h2>
+            <p class="story-summary">GitHub - microsoft/pg_durable: PostgreSQL in-database durable execution · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This release underscores Microsoft's deepening commitment to PostgreSQL and the open-source ecosystem, particularly for cloud-native applications. By offering in-database durable execution, pg_durable simplifies the development of resilient, fault-tolerant workflows and long-running processes, ensuring state persistence and recovery directly within the database schema. It effectively pushes reliability concerns closer to the data layer, potentially reducing application-level complexity for critical business operations.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses significant skepticism regarding `pg_durable`, primarily questioning the architectural decision to place durable execution logic within the database. Concerns center on the challenges of unit testing, versioning, observability, and scaling business logic stored in Postgres, with many commenters preferring external, code-based solutions like dedicated message queues or DAG schedulers. While appreciating the open-source contribution, the general consensus leans towards favoring application-layer control for such complex workflows.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>383 pts</span>
+        <span>·</span>
+        <span>88 comments</span>
+        <span>·</span>
+        <span>by coffeemug</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/microsoft/pg_durable" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48414367" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">📈 Finance &amp; Markets</div>
+            
+            <h2 class="story-title"><a href="https://arstechnica.com/tech-policy/2026/06/sp-500-blocks-fast-spacex-entry-wont-waive-rule-for-unprofitable-ai-firms/" target="_blank" rel="noopener">S&amp;P 500 Rejects SpaceX, Blocks Other Private Tech Giants From Fast-Track Index Entry</a></h2>
+            <p class="story-summary">S&amp;P 500 rejects SpaceX, also blocking entry for OpenAI and Anthropic - Ars Technica Size Small Standard Large Width * Standard Wide Links Standard Orange SpaceX has requested unusually swift entry into several leading stock market indexes as a condition of its historic stock market debut. But the S&amp;P 500 stock market index representing many of the largest profitable US companies has surprised market analysts by refusing to bend the rules for Elon Musk’s space and AI company. The June 4 decision by S&amp;P Dow Jones Indices —the company that creates and manages stock market indexes such as the S&amp;P 500—means that SpaceX will not gain accelerated access to potentially billions more dollars through passive investment funds that automatically purchase shares of S&amp;P 500 companies.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The S&amp;P 500's refusal to fast-track SpaceX's entry, a decision impacting other private tech giants like OpenAI and Anthropic, signals a strong adherence to its established inclusion criteria over market hype. This move reinforces the index's role as a gatekeeper, demonstrating that even high-profile, high-valuation companies must meet traditional public market thresholds before accessing vast passive investment capital.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees with the S&amp;P 500's decision to reject SpaceX, OpenAI, and Anthropic. Many comments express relief and respect for the S&amp;P's commitment to its established rules, emphasizing the importance of maintaining index integrity and avoiding exceptions for powerful companies to protect passive investors.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>arstechnica.com</span>
+        <span>·</span>
+        <span>267 pts</span>
+        <span>·</span>
+        <span>70 comments</span>
+        <span>·</span>
+        <span>by maltalex</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://arstechnica.com/tech-policy/2026/06/sp-500-blocks-fast-spacex-entry-wont-waive-rule-for-unprofitable-ai-firms/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48421442" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI DevTools</div>
+            
+            <h2 class="story-title"><a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">Alibaba's Open Code Review CLI: Hybrid AI Engine Delivers Battle-Tested Precision for Bug Detection</a></h2>
+            <p class="story-summary">GitHub - alibaba/open-code-review: Battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in fine-tuned ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI &amp; Anthropic compatible.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This tool represents a significant step in mature AI application for software development, leveraging a hybrid architecture to deliver battle-tested, line-level code review at Alibaba's scale. The combination of deterministic pipelines and LLM agents promises both precision and contextual understanding, addressing critical issues like NPEs and security vulnerabilities. This approach could substantially elevate code quality and accelerate developer workflows by providing reliable, automated feedback.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community shows cautious interest in Open Code Review, appreciating the potential for AI to automate and alleviate code review bottlenecks in their workflows. However, initial feedback highlights significant performance concerns, specifically low precision leading to many false positives, which could hinder its practical adoption. Users also raise questions about its differentiation from existing AI tools and note usability hurdles like Chinese-only rule files and a potentially confusing acronym.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>263 pts</span>
+        <span>·</span>
+        <span>67 comments</span>
+        <span>·</span>
+        <span>by geoffbp</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48406358" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">⚙️ Project Governance</div>
+            
+            <h2 class="story-title"><a href="https://ladybird.org/posts/changing-how-we-develop-ladybird/" target="_blank" rel="noopener">Ladybird Ends Public Pull Requests, Restricting Code Changes to Maintainers</a></h2>
+            <p class="story-summary">Changing How We Develop Ladybird - Ladybird Today we’re changing how code enters the Ladybird project. We will no longer accept public pull requests. From now on, code changes to the Ladybird codebase will only be introduced by project maintainers. Ladybird is moving into a new phase.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This announcement signals a significant shift in Ladybird's development governance, moving from a publicly open contribution model to a more centralized, maintainer-driven approach. This change likely aims to exert tighter control over the codebase, streamline development, and accelerate progress towards specific project goals. While potentially improving code quality and architectural consistency, it could also impact the project's broader community engagement by limiting direct external contributions.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely understands and empathizes with Ladybird's decision, viewing it as a pragmatic response to the overwhelming influx of low-quality, AI-generated code that erodes trust and increases maintainer burden. While acknowledging the challenges AI poses to open-source project management, many express deep concern and disappointment over the erosion of traditional open-source values, such as the ability to find and mentor new maintainers, seeing this as a significant shift in the collaborative development landscape.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>ladybird.org</span>
+        <span>·</span>
+        <span>833 pts</span>
+        <span>·</span>
+        <span>527 comments</span>
+        <span>·</span>
+        <span>by EdwinHoksberg</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://ladybird.org/posts/changing-how-we-develop-ladybird/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48409191" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">⌨️ Productivity Tools</div>
+            
+            <h2 class="story-title"><a href="https://mouseless.click" target="_blank" rel="noopener">Ditch the Mouse: Keyboard-Only OS Control for macOS, Linux, and Windows</a></h2>
+            <p class="story-summary">Community discussion highlights: Opensource alternatives: - https://github.com/moverest/wl-kbptr - https://github.com/petoncle/mousemaster - https://github.com/y3owk1n/neru - https://github.com/mjrusso/scoot - https://github.com/jbensmann/mouseless - https://github.com/rvaiya/warpd (not really maintained anymore)</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post highlights a significant community demand for advanced keyboard-driven system control, catering to users who prioritize efficiency and a mouse-free workflow across macOS, Linux, and Windows. The extensive list of open-source alternatives further underscores an active, collaborative effort to address this niche, revealing a fragmented yet innovative landscape for productivity tools. Such solutions offer substantial workflow enhancements for power users and those with accessibility needs, indicating a growing shift towards more keyboard-centric computing.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses strong interest in keyboard-driven control for various OSes, appreciating the concept of tools like Mouseless while acknowledging that current UI design often necessitates such workarounds. Commenters are familiar with a wide range of existing alternatives (e.g., ShortCat, Vimium, Keynav) and frequently highlight macOS as particularly challenging for comprehensive mouseless navigation due to its interface. There's a general sentiment that OS interfaces *should* be designed with keyboard-only users more in mind.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>mouseless.click</span>
+        <span>·</span>
+        <span>521 pts</span>
+        <span>·</span>
+        <span>212 comments</span>
+        <span>·</span>
+        <span>by riddley</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://mouseless.click" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48383667" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🔧 Repair Tech</div>
+            
+            <h2 class="story-title"><a href="https://salvagedcircuitry.com/sigma-45mm.html" target="_blank" rel="noopener">Modern Lens Repair: Salvaging Circuitry for Sigma's Aluminum Optics</a></h2>
+            <p class="story-summary">Sigma 45mm f/2.8 Lens Repair &amp; Analysis | Salvaged Circuitry I have a camera gear collection problem and as part of my personal 12 step plan, I restrict myself from purchasing functioning lenses. This sounds illogical, and it frankly is, but it's very hard for me to resist heavily discounted lenses. To keep my hat, I tend to only bid on lenses that are less than 1/4 of the going used sale prices and have little to no mechanical damage. In this case I've been eyeing the recently produced sigma I-series lenses that feature mostly aluminum construction.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This deep dive into modern camera lens repair showcases the significant technical skill required to revive complex optical-electronic devices, often involving intricate circuit salvage and mechanical understanding. It highlights a unique form of hobbyist sustainability, where discounted, non-functioning gear becomes a challenging project rather than landfill, driven by both passion and an appreciation for craftsmanship in an era of disposable electronics.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely commends the detailed teardown, underscoring the high complexity of modern camera lens repair, which now involves intricate electronics and software integration (e.g., USB-C for firmware updates). Commenters shared practical repair tips and discussed the potential for automation, such as robots, to address the high labor costs associated with these specialized repairs.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>salvagedcircuitry.com</span>
+        <span>·</span>
+        <span>147 pts</span>
+        <span>·</span>
+        <span>48 comments</span>
+        <span>·</span>
+        <span>by transistor-man</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://salvagedcircuitry.com/sigma-45mm.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48420148" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🏛️ Public Sector Tech</div>
+            
+            <h2 class="story-title"><a href="https://www.theregister.com/public-sector/2026/06/04/govuk-goes-dutch-on-payments-as-it-dumps-stripe/5250763" target="_blank" rel="noopener">GOV.UK Drops Stripe for Dutch Payment Giant Adyen</a></h2>
+            <p class="story-summary">GOV.UK goes Dutch on payments as it dumps Stripe Jump to main content</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This shift by GOV.UK from Stripe to Adyen underscores the fierce competition within the enterprise payment processing market, particularly for high-volume government contracts. It suggests a strategic decision likely driven by factors such as cost optimization, specific integration requirements, or a desire for diversification, marking a significant win for Adyen in a critical public infrastructure domain.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely expressed concern about the strategic implications of a government relying on foreign companies for fundamental payment infrastructure, with many wishing for more domestically-based or EU-centric options, particularly given Stripe's origins and Adyen's Dutch roots. There was also discussion comparing Stripe's perceived marketing prowess to Adyen's, and curiosity about the actual cost-saving or expanded payment option benefits of the switch.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>theregister.com</span>
+        <span>·</span>
+        <span>420 pts</span>
+        <span>·</span>
+        <span>146 comments</span>
+        <span>·</span>
+        <span>by toomuchtodo</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.theregister.com/public-sector/2026/06/04/govuk-goes-dutch-on-payments-as-it-dumps-stripe/5250763" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48415217" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Software Quality 🐛</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://alexispurslane.github.io/rsync-analysis/" target="_blank" rel="noopener">Claude's Impact on rsync Bugs Under Rigorous Statistical Scrutiny</a></h2>
+            <p class="story-summary">0 · Disclaimer: How AI Assistance Was Used In order to avoid accuastions of this &quot;just being Claude defending Claude,&quot; &quot;AI slop,&quot; &quot;probably all
+            hallucinations,&quot; etc., I've decided it's probably worth explaining a few key points about how this report
+            was
+            created: All metrics, methodology, and data sources were exclusively chosen by me, in consultation with my wife,
+                who has a Master's Degree in Statistics from Penn State University. The methodology is directly based on my wife's input: she was the one that pointed out that trying to
+                just compare bugs per ten lines of code before and after would likely be too effected by noise because
+                of the low number of post-Claude samples, and that, for similar reasons, trying to build some kind of
+                linear regression model to ascertain the relative effects of different variables would probably also not
+                work. She specifically told me that looking at where the post-Claude releases fall into the historical
+                distribution, and how likely from the historical distribution we would be to get releases as &quot;bad&quot; or
+                worse than the post-Claude releases, was probably the best that could be done.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post offers a commendable, methodologically transparent inquiry into AI's potential impact on software quality, specifically whether Claude increased bugs in `rsync`. By explicitly outlining the statistical rigor and historical distribution analysis, the author aims to counter &quot;AI slop&quot; accusations and provide a credible assessment. This approach highlights the critical need for scientific evaluation to understand the true, measurable effects of AI integration in real-world software development.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely rejects the rsync author's statistical defense against claims that Claude-assisted code introduced more bugs, finding the analysis flawed and raising further questions about transparency. While a definitive consensus on the *direct cause* of increased bugs isn't reached, there's strong skepticism about the reliability of AI-generated code and a practical concern among users who are actively avoiding newer, potentially buggier, rsync versions.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>alexispurslane.github.io</span>
+        <span>·</span>
+        <span>390 pts</span>
+        <span>·</span>
+        <span>397 comments</span>
+        <span>·</span>
+        <span>by logicprog</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://alexispurslane.github.io/rsync-analysis/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48411635" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 06, 2026</div>
+    </footer>
+</body>
+</html>
