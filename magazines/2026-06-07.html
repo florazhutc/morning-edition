@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 07, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Sunday</div>
+        <div class="masthead-year">June 07, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">South Korea Mandates AI Image Censorship for Online Forums</span>
+            <span class="toc-score">267 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Demystifying LLMs: A Non-Technical Guide to Transformer Architecture</span>
+            <span class="toc-score">877 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Meta Confirms 20,000+ Instagram Accounts Hacked Via AI Chatbot Abuse</span>
+            <span class="toc-score">565 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Google to Pay SpaceX $920 Million Monthly for xAI Data Center Compute</span>
+            <span class="toc-score">234 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Poincaré Disk Hyperbolic Geometry Transforms Infinite Canvas Note-Taking</span>
+            <span class="toc-score">160 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Fourier-Style Codes Power LLMs' Numberless Math</span>
+            <span class="toc-score">15 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">GenAI's &quot;Oh Shit&quot; Moment: From Parlor Trick to Undeniable Power</span>
+            <span class="toc-score">605 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">GOV.UK Replaces Stripe with Dutch Payment Provider Adyen</span>
+            <span class="toc-score">565 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Random UUIDs as Primary Keys: A Performance Killer for SQLite</span>
+            <span class="toc-score">163 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Jane Street Designer's Workflow: Claude AI Overtakes Figma ⚡</span>
+            <span class="toc-score">114 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🚨 Censorship &amp; AI</div>
+            
+            <h2 class="story-title"><a href="https://discuss.privacyguides.net/t/south-korean-online-communities-will-need-to-scan-every-images-with-ai-censorship-tools/38341" target="_blank" rel="noopener">South Korea Mandates AI Image Censorship for Online Forums</a></h2>
+            <p class="story-summary">South Korean Online Communities Will Need to Scan Every Images with AI Censorship Tools - News - Privacy Guides Community</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">South Korea's mandate for AI-driven image scanning on online forums marks a significant expansion of state surveillance, eroding user privacy under the guise of content moderation. This policy sets a concerning precedent for algorithmic censorship, potentially stifling free expression and creating a chilling effect across digital communities.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views South Korea's AI censorship mandate as a poorly conceived and hastily implemented measure, highlighting significant concerns about government incompetence, technical impracticality, and potential for corruption. While some acknowledge the underlying problem of deepfakes and image abuse, many commenters express worry about declining internet freedom and consider it indicative of South Korea's broader outdated technological policies.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>discuss.privacyguides.net</span>
+        <span>·</span>
+        <span>267 pts</span>
+        <span>·</span>
+        <span>148 comments</span>
+        <span>·</span>
+        <span>by Cider9986</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://discuss.privacyguides.net/t/south-korean-online-communities-will-need-to-scan-every-images-with-ai-censorship-tools/38341" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48406198" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Explanation</div>
+            
+            <h2 class="story-title"><a href="https://www.0xkato.xyz/how-llms-actually-work/" target="_blank" rel="noopener">Demystifying LLMs: A Non-Technical Guide to Transformer Architecture</a></h2>
+            <p class="story-summary">Machine Learning Transformers LLM Neural Networks AI This post is a walkthrough of how LLMs work. Modern LLMs are mostly built by stacking transformer blocks over and over, so understanding the transformer machinery gets you most of the way there. I’ll cover the core mechanisms inside modern transformer-based LLMs, without all that sticky math stuff. Don’t get me wrong, you should learn the math, but this can serve as an introduction.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post democratizes understanding of modern LLMs by focusing on the underlying transformer architecture through an accessible, math-free walkthrough. By demystifying the core mechanisms, it lowers the barrier to entry for a broader audience, fostering intuition before deeper technical dives. This approach is vital for accelerating AI literacy and empowering more individuals to grasp and engage with these rapidly evolving technologies.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community, while demonstrating a strong desire for accurate and comprehensive explanations of LLMs, largely found this particular article to be lacking. Commenters frequently criticized its readability, structure, and technical accuracy, with some directly refuting points or suggesting alternative resources. This indicates a preference for clear, precise, and well-organized deep dives that correctly address technical nuances beyond common oversimplifications.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>0xkato.xyz</span>
+        <span>·</span>
+        <span>877 pts</span>
+        <span>·</span>
+        <span>242 comments</span>
+        <span>·</span>
+        <span>by 0xkato</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.0xkato.xyz/how-llms-actually-work/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48389360" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🚨 AI Security Breach</div>
+            
+            <h2 class="story-title"><a href="https://this.weekinsecurity.com/meta-confirms-thousands-of-instagram-accounts-were-hacked-by-abusing-its-ai-chatbot/" target="_blank" rel="noopener">Meta Confirms 20,000+ Instagram Accounts Hacked Via AI Chatbot Abuse</a></h2>
+            <p class="story-summary">Meta confirms thousands of Instagram accounts were hacked by abusing its AI chatbot Meta is notifying thousands of people whose Instagram accounts were hijacked during the months-long abuse of the company's AI chatbot, which hackers repeatedly tricked into taking control of a person's account. In a new data breach notification letter , seen by this week in security , Meta has revealed for the first time how many people had their accounts hijacked as part of the long-running hacking campaign, which was discovered earlier this week and first reported by 404 Media ($) and TechCrunch ($) . The number of affected accounts gives some clarity as to how widespread this hacking campaign was, and for how long it operated. According to the data breach notice filed with Maine's attorney general's office late on Friday, Meta notified at least 20,225 people that their accounts had been compromised, including 30 people in Maine.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This incident reveals a critical and emerging security threat where AI chatbots, intended to assist, can be exploited as novel attack vectors to compromise user accounts. It underscores the urgent need for developers to implement robust security measures and adversarial testing for AI systems, particularly when they interact with sensitive user data or authentication processes. The scale of this breach serves as a stark warning about the potential for widespread impact if &quot;secure AI by design&quot; principles are not rigorously applied.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses strong frustration and disbelief over Meta's security failures, highlighting the company's incompetence in allowing a basic bug in their password reset system to compromise thousands of accounts. This incident reinforces existing criticism of Meta's over-reliance on flawed AI and automated systems for critical functions like account recovery and customer support, leading many to hope for the platform's decline.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>this.weekinsecurity.com</span>
+        <span>·</span>
+        <span>565 pts</span>
+        <span>·</span>
+        <span>204 comments</span>
+        <span>·</span>
+        <span>by speckx</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://this.weekinsecurity.com/meta-confirms-thousands-of-instagram-accounts-were-hacked-by-abusing-its-ai-chatbot/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48427643" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Business Deal 🤝</div>
+            
+            <h2 class="story-title"><a href="https://www.cnbc.com/2026/06/05/google-to-pay-spacex-920-million-a-month-for-xai-compute-capacity.html" target="_blank" rel="noopener">Google to Pay SpaceX $920 Million Monthly for xAI Data Center Compute</a></h2>
+            <p class="story-summary">Google to pay SpaceX $920 million a month for xAI compute capacity Ahead of a planned IPO, SpaceX has inked a deal to rent compute capacity to Google at $920 million per month for 32 months. SpaceX announced a similar arrangement with Anthropic in May. Google parent Alphabet has made a windfall from backing SpaceX, which was worth $12 billion at the time of its 2015 investment, and is looking to go public at a valuation of over $1.75 trillion. (L-R) Google CEO Sundar Pichai speaks with Tesla and SpaceX CEO Elon Musk as they arrive for the inauguration ceremony before Donald Trump is sworn in as the 47th US President in the US Capitol Rotunda in Washington, DC, on January 20, 2025.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This colossal deal highlights the unprecedented demand for AI compute capacity, pushing even tech giants like Google to secure infrastructure from unexpected providers like SpaceX. For SpaceX, it signifies a massive revenue stream diversification ahead of its IPO, transforming its identity beyond space into a critical enabler of AI innovation. This also underscores the strategic intertwining of Elon Musk's ventures, with xAI's infrastructure potentially generating substantial profits for SpaceX.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views this deal with skepticism and confusion, perceiving it as a complex piece of financial engineering likely intended to inflate SpaceX's valuation and revenue. Many commenters question Google's commitment to carbon-free data centers, given the xAI facility's reported reliance on methane gas turbines, and find the circular nature of the potential transactions puzzling.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>cnbc.com</span>
+        <span>·</span>
+        <span>234 pts</span>
+        <span>·</span>
+        <span>810 comments</span>
+        <span>·</span>
+        <span>by toephu2</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.cnbc.com/2026/06/05/google-to-pay-spacex-920-million-a-month-for-xai-compute-capacity.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48417490" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🧠 Spatial Computing</div>
+            
+            <h2 class="story-title"><a href="https://uonr.github.io/poincake/" target="_blank" rel="noopener">Poincaré Disk Hyperbolic Geometry Transforms Infinite Canvas Note-Taking</a></h2>
+            <p class="story-summary">Hi! This is an infinite canvas note-taking tool where notes are laid out in a non-Euclidean, hyperbolic geometric space. As you drag and navigate through the view, you’ll experience a unique fluid distortion that naturally leverages your brain's spatial memory. I’ve been obsessed with the concept of space in HCI for years. Many modern UI patterns are essentially workarounds for the lack of screen real estate. While researching zoom-based UIs a while back, I stumbled upon old HCI papers that used the Poincaré disk model of the hyperbolic plane to organize data. It elegantly projects an infinite</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project innovatively rethinks the infinite canvas by applying non-Euclidean Poincaré disk geometry to note-taking, creating a unique fluid distortion experience. It fundamentally challenges traditional flat UI paradigms, aiming to leverage the brain's spatial memory for more intuitive information organization and navigation beyond conventional screen real estate limitations.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is overwhelmingly positive, finding the infinite canvas notes in the Poincaré disk &quot;insanely cool&quot; and &quot;very interesting.&quot; Users appreciate its intuitive navigation and potential for storing vast amounts of information in a way that maps well to knowledge structures. There's also significant interest in its educational value regarding hyperbolic geometry and potential applications with LLMs.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>uonr.github.io</span>
+        <span>·</span>
+        <span>160 pts</span>
+        <span>·</span>
+        <span>27 comments</span>
+        <span>·</span>
+        <span>by uonr</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://uonr.github.io/poincake/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48372138" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI &amp; Cognition</div>
+            
+            <h2 class="story-title"><a href="https://alvaro-videla.com/llm-arithmetic-internals/article_interactive/article.html" target="_blank" rel="noopener">Fourier-Style Codes Power LLMs' Numberless Math</a></h2>
+            <p class="story-summary">The spiral is a simplified picture of a Fourier-style number code: one part of the vector tracks phase around a circle, while another tracks coarse position. If you learned arithmetic the ordinary human way, you probably learned it with a body. Later, perhaps, you used an abacus, graph paper, or a calculator. A language model has none of that. Tokens enter, activations flow, logits come out.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The piece explores how LLMs perform arithmetic not through symbolic manipulation or numerical concepts akin to humans, but via emergent, distributed representations like Fourier-style vector encodings within their activation spaces. This unique approach suggests that mathematical understanding in AI arises from pattern recognition over abstract token embeddings rather than explicit symbolic processing, challenging anthropocentric views of computation.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community consensus highlights a strong curiosity about the *internal mechanisms* through which LLMs perform arithmetic using only matrices. There's a clear undercurrent of questioning the efficiency and necessity of this intrinsic calculation, with commenters often suggesting that integrating external mathematical tools would be a more practical and reliable approach for such operations.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>alvaro-videla.com</span>
+        <span>·</span>
+        <span>15 pts</span>
+        <span>·</span>
+        <span>5 comments</span>
+        <span>·</span>
+        <span>by old_sound</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://alvaro-videla.com/llm-arithmetic-internals/article_interactive/article.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48410427" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">AI Impact 🤯</div>
+            
+            <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=48406174" target="_blank" rel="noopener">GenAI's &quot;Oh Shit&quot; Moment: From Parlor Trick to Undeniable Power</a></h2>
+            <p class="story-summary">Most of us were amused when DALL-E and its peers went mainstream, and we were quick to point out the obvious flaws. Then ChatGPT hit the scene and again, many of us dismissed it as a parlor trick that would never amount to much. Using LLMs for coding initially was a only small step up from basic code completion, and a welcome farewell to Stack Overflow. I am curious: what was the specific moment that you went from those quaint, dismissive observations to a slightly panicked, &quot;Uh Oh&quot; realization of what these models can do?</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This Hacker News discussion captures the pivotal shift in perception experienced by many tech professionals, moving from initial amusement or dismissal of generative AI to a profound &quot;uh oh&quot; realization. This moment signifies a critical psychological tipping point where the technology's capabilities transcend perceived limitations, exposing its immense disruptive potential. It reflects the growing awareness that GenAI is far more than a parlor trick, evoking both awe and apprehension about its future impact.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community's &quot;oh shit&quot; moments with GenAI largely stem from its ability to solve incredibly complex, niche, and often interdisciplinary technical problems that are typically outside a user's direct expertise. Users are consistently astonished by its capacity to reverse-engineer hardware, write custom drivers or firmware, diagnose obscure technical faults, and even automate sophisticated research tasks, effectively bridging significant knowledge and skill gaps.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>news.ycombinator.com</span>
+        <span>·</span>
+        <span>605 pts</span>
+        <span>·</span>
+        <span>1008 comments</span>
+        <span>·</span>
+        <span>by andrehacker</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://news.ycombinator.com/item?id=48406174" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48406174" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">💸 FinTech &amp; Public Sector</div>
+            
+            <h2 class="story-title"><a href="https://www.theregister.com/public-sector/2026/06/04/govuk-goes-dutch-on-payments-as-it-dumps-stripe/5250763" target="_blank" rel="noopener">GOV.UK Replaces Stripe with Dutch Payment Provider Adyen</a></h2>
+            <p class="story-summary">GOV.UK goes Dutch on payments as it dumps Stripe Jump to main content</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This strategic switch by GOV.UK from Stripe to Adyen highlights the intense competition and constant vendor evaluation within the payment processing market for critical public sector infrastructure. It suggests GOV.UK sought more favorable terms, specialized features, or improved service delivery from Adyen, underscoring the dynamic nature of enterprise tech partnerships. This decision serves as a significant win for Adyen and a reminder that even established providers like Stripe must continuously prove their value against agile competitors.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community broadly agrees that critical government payment infrastructure should ideally be handled by domestically-based or at least regionally (EU) owned providers, questioning the reliance on foreign companies for such fundamental services. There's also a sentiment that Stripe, despite its marketing prowess, is often perceived as overhyped for its actual scale or necessity.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>theregister.com</span>
+        <span>·</span>
+        <span>565 pts</span>
+        <span>·</span>
+        <span>218 comments</span>
+        <span>·</span>
+        <span>by toomuchtodo</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.theregister.com/public-sector/2026/06/04/govuk-goes-dutch-on-payments-as-it-dumps-stripe/5250763" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48415217" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">⚙️ Database Performance</div>
+            
+            <h2 class="story-title"><a href="https://andersmurphy.com/2026/06/05/the-perils-of-uuid-primary-keys-in-sqlite.html" target="_blank" rel="noopener">Random UUIDs as Primary Keys: A Performance Killer for SQLite</a></h2>
+            <p class="story-summary">The perils of UUID primary keys in SQLite The perils of UUID primary keys in SQLite It's common to use random UUIDs as a primary key in databases. One of the known downsides of random UUIDs is that their unordered nature (UUID4) can cause a lot of extra paging for the clustered index because you are inserting rows randomly into the Btree and having to re-balance it. This post tries to help us develop a more visceral understanding of the performance cost of all that extra paging.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This analysis highlights a critical database performance pitfall: using unordered UUID primary keys (like UUID4) in SQLite. Such keys force constant B-tree rebalancing and excessive disk paging due to disrupted data locality, leading to significant I/O overhead and degraded cache performance. This underscores the importance of thoughtful primary key selection for optimal database efficiency, especially in B-tree-centric architectures.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely advises against using random UUIDs (like v4) as primary keys in SQLite due to performance concerns, with many preferring sequential integers or bigints, often alongside a separate UUID for public identification. While UUIDv7 is seen as a significant improvement over v4 for its ordering benefits, there's a strong sentiment that UUIDs are generally overused as primary keys, especially when SQLite's internal rowids or simple integers suffice for internal database operations.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>andersmurphy.com</span>
+        <span>·</span>
+        <span>163 pts</span>
+        <span>·</span>
+        <span>95 comments</span>
+        <span>·</span>
+        <span>by emschwartz</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://andersmurphy.com/2026/06/05/the-perils-of-uuid-primary-keys-in-sqlite.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48419571" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🎨 AI in Design</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://blog.janestreet.com/i-design-with-claude-code-more-than-figma-now-index/" target="_blank" rel="noopener">Jane Street Designer's Workflow: Claude AI Overtakes Figma</a></h2>
+            <p class="story-summary">Jane Street Blog - I design with Claude more than Figma now</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This title underscores a significant paradigm shift in creative workflows, where AI models like Claude are moving beyond mere assistive roles to become primary environments for design ideation and execution. It suggests AI is increasingly capable of handling complex conceptualization and iterative tasks, challenging the traditional dominance of specialized tools like Figma. This development invites designers to re-evaluate their tool stack and integrate AI more deeply into their creative process.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community broadly sees AI tools like Claude as highly effective for rapid prototyping and generating initial UI concepts, allowing for quick iteration and a smoother transition from design to code. However, a common sentiment is that the AI-generated designs often lack originality, adhering to contemporary web tropes rather than exploring unconventional creativity. This shift also presents challenges, with some frontend engineers reporting a loss of clear design specifications and an increased cognitive burden in interpreting AI-generated code.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>blog.janestreet.com</span>
+        <span>·</span>
+        <span>114 pts</span>
+        <span>·</span>
+        <span>80 comments</span>
+        <span>·</span>
+        <span>by MrBuddyCasino</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://blog.janestreet.com/i-design-with-claude-code-more-than-figma-now-index/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48431981" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 07, 2026</div>
+    </footer>
+</body>
+</html>
