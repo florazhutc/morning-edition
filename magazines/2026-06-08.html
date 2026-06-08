@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 08, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Monday</div>
+        <div class="masthead-year">June 08, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">LLMs Undermine My Software Engineering Career, Says Veteran Developer</span>
+            <span class="toc-score">966 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Lathe: Master New Tech With LLM-Generated, Type-Along Coding Tutorials</span>
+            <span class="toc-score">313 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">The 'Uh Oh' Moment: When GenAI's Real Power Hit Home</span>
+            <span class="toc-score">697 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Licklider's 1960 Blueprint for Man-Computer Symbiosis: How Computers Would Augment Human Thought and Decision-Making</span>
+            <span class="toc-score">35 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">AI Redefines Design Workflow: Claude Surpasses Figma ⚡</span>
+            <span class="toc-score">286 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Python Perceptron: Build the Tiny Brain That Powers Modern AI</span>
+            <span class="toc-score">194 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Anthropic Urged to Ship Official Claude Desktop App for Linux ⚡</span>
+            <span class="toc-score">494 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Symbolica 2.0 Supercharges Python &amp; Rust with Programmable Symbolic Math</span>
+            <span class="toc-score">156 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">From Prison to Code: How I Rebuilt My Life After Addiction and a Felony</span>
+            <span class="toc-score">630 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Trusted Computing's 2003 Foundation: The Essential FAQ on TCPA, Palladium, and NGCSB</span>
+            <span class="toc-score">12 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🤖 Career &amp; AI Impact</div>
+            
+            <h2 class="story-title"><a href="https://human-in-the-loop.bearblog.dev/llms-are-eroding-my-software-engineering-career-and-i-dont-know-what-to-do/" target="_blank" rel="noopener">LLMs Undermine My Software Engineering Career, Says Veteran Developer</a></h2>
+            <p class="story-summary">LLMs are eroding my software engineering career and I don't know what to do | the human in the loop LLMs are eroding my software engineering career and I don't know what to do I'm a software engineer, completing 10 years of professional experience this year. I started my career as a web frontend engineer (it was easier for me to debug frontend code back then, so I chose that path), but shortly transitioned to (web) backend and never looked back. Through a series of coincidences, once I stepped into backend development, I ended up working in software development roles in the domains of finance, bookkeeping and payment processing, where I had great autonomy and a close and candid relationship with Product Managers and stakeholders.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post articulates a growing apprehension among seasoned software engineers that AI, particularly LLMs, threatens to diminish the value of their accumulated experience and expertise. It underscores the urgent need for professionals to adapt by focusing on higher-order skills like complex problem-solving, architectural design, and strategic oversight, rather than routine coding, to remain indispensable. This shift will define the &quot;human-in-the-loop&quot; paradigm where human judgment guides and validates AI, rather than being replaced by it.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community generally agrees that while LLMs are powerful and rapidly improving, they are unlikely to fully replace software engineers due to their limitations in complex, domain-specific, and architectural tasks. Instead, the consensus emphasizes adaptation, advising engineers to embrace LLMs as tools and focus on developing uniquely human skills like critical thinking, intuition, and deep domain knowledge. Many believe LLMs will act as a &quot;great filter,&quot; elevating the importance of these higher-level human capabilities.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>human-in-the-loop.bearblog.dev</span>
+        <span>·</span>
+        <span>966 pts</span>
+        <span>·</span>
+        <span>932 comments</span>
+        <span>·</span>
+        <span>by poisonfountain</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://human-in-the-loop.bearblog.dev/llms-are-eroding-my-software-engineering-career-and-i-dont-know-what-to-do/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48434312" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🎓 AI for Learning</div>
+            
+            <h2 class="story-title"><a href="https://github.com/devenjarvis/lathe" target="_blank" rel="noopener">Lathe: Master New Tech With LLM-Generated, Type-Along Coding Tutorials</a></h2>
+            <p class="story-summary">Hey HN! Lathe is an experiment in using LLMs to teach me something new, instead of doing the work for me. It generates a hands-on, source-backed tutorial for any technical topic you want to learn. Then you work through it yourself by reading and typing the code by hand ( gasp ) in a local UI built for exactly that. It's a Go CLI plus LLM agent skills (Claude Code / Cursor / Codex). You prompt something like &quot;/lathe build a 3D slicer in Erlang&quot;, run `lathe serve` to spin up a local webapp, and read it in your browser. Every tutorial comes with the things that have made self-learning a pleasant </p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Lathe ingeniously redefines LLM utility, shifting from automating tasks to actively facilitating deep, hands-on learning for technical domains. By generating interactive, source-backed tutorials that users work through manually, it directly addresses concerns about LLMs fostering dependency, promoting genuine skill acquisition and understanding. This model could democratize access to personalized, practical education, enabling more effective mastery of complex subjects by leveraging AI as a structured teaching aide rather than a solution provider.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community strongly agrees that Large Language Models (LLMs) are exceptionally valuable for deep learning and understanding new domains, rather than merely generating superficial answers. Commenters enthusiastically support using LLMs as personalized tutors, Socratic quizzing tools, and generators of tailored educational examples to enhance knowledge retention and build expertise.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>313 pts</span>
+        <span>·</span>
+        <span>55 comments</span>
+        <span>·</span>
+        <span>by devenjarvis</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/devenjarvis/lathe" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48433756" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Epiphany</div>
+            
+            <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=48406174" target="_blank" rel="noopener">The 'Uh Oh' Moment: When GenAI's Real Power Hit Home</a></h2>
+            <p class="story-summary">Most of us were amused when DALL-E and its peers went mainstream, and we were quick to point out the obvious flaws. Then ChatGPT hit the scene and again, many of us dismissed it as a parlor trick that would never amount to much. Using LLMs for coding initially was a only small step up from basic code completion, and a welcome farewell to Stack Overflow. I am curious: what was the specific moment that you went from those quaint, dismissive observations to a slightly panicked, &quot;Uh Oh&quot; realization of what these models can do?</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This &quot;Ask HN&quot; thread perfectly encapsulates the rapid and often surprising maturation of GenAI, moving from perceived parlor tricks to indispensable tools capable of profound impact. It reflects a critical turning point where many in the tech community shifted from skepticism to a deep, sometimes unsettling, appreciation of these models' capabilities, highlighting a collective re-evaluation of AI's trajectory and societal implications.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community's &quot;oh shit&quot; moments with GenAI primarily stem from its unexpected ability to tackle highly complex, specialized, or otherwise frustrating technical and logistical problems. These range from decompiling firmware and diagnosing appliance failures to fixing obscure software issues and accelerating advanced R&amp;D. The experiences highlight GenAI's practical utility in automating tasks that traditionally demand significant expertise or effort, often delivering solutions that are &quot;out of one's wheelhouse.&quot;</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>news.ycombinator.com</span>
+        <span>·</span>
+        <span>697 pts</span>
+        <span>·</span>
+        <span>1080 comments</span>
+        <span>·</span>
+        <span>by andrehacker</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://news.ycombinator.com/item?id=48406174" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48406174" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Human-Computer Interaction 🤝</div>
+            
+            <h2 class="story-title"><a href="https://groups.csail.mit.edu/medg/people/psz/Licklider.html" target="_blank" rel="noopener">Licklider's 1960 Blueprint for Man-Computer Symbiosis: How Computers Would Augment Human Thought and Decision-Making</a></h2>
+            <p class="story-summary">Man-Computer Symbiosis Man-Computer Symbiosis Licklider IRE Transactions on Human Factors in Electronics, volume HFE-1, pages 4-11, March 1960 Man-computer symbiosis is an expected development in cooperative interaction between men and electronic computers. It will involve very close coupling between the human and the electronic members of the partnership. The main aims are 1) to let computers facilitate formulative thinking as they now facilitate the solution of formulated problems, and 2) to enable men and computers to cooperate in making decisions and controlling complex situations without inflexible dependence on predetermined programs.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This seminal 1960 paper by J. C. R. Licklider envisioned a revolutionary &quot;man-computer symbiosis,&quot; far beyond simple calculation, where machines would actively aid in &quot;formulative thinking&quot; and complex decision-making. His prescient concept of very close coupling profoundly shaped the trajectory of Human-Computer Interaction. It advocated for computers as collaborative partners rather than mere tools or autonomous agents, a vision that continues to drive modern AI and interface design.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community acknowledges Licklider's remarkable foresight, noting the paper's prophetic vision regarding machines potentially surpassing human capabilities. There's also a clear appreciation for the historical context and foundational work, with members highly recommending resources that delve deeper into the origins of computing and connection.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>groups.csail.mit.edu</span>
+        <span>·</span>
+        <span>35 pts</span>
+        <span>·</span>
+        <span>3 comments</span>
+        <span>·</span>
+        <span>by rballpug</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://groups.csail.mit.edu/medg/people/psz/Licklider.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48405890" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI in Design</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://blog.janestreet.com/i-design-with-claude-code-more-than-figma-now-index/" target="_blank" rel="noopener">AI Redefines Design Workflow: Claude Surpasses Figma</a></h2>
+            <p class="story-summary">Jane Street Blog - I design with Claude more than Figma now</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post signifies a growing trend where AI models are transitioning from assistive tools to primary drivers in the creative workflow, potentially eclipsing traditional software like Figma for certain design stages. It underscores a paradigm shift where prompt engineering and AI collaboration become crucial design skills, prompting a reevaluation of what constitutes a designer's core toolkit and future design education. This move suggests AI's increasing capability to generate and iterate visual concepts rapidly.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally acknowledges AI tools like Claude provide free, rapid iteration for &quot;good enough&quot; web designs, potentially aiding designers in learning to code. However, there's a significant concern that designing with AI stifles unconventional creativity, leads to generic outputs, and traps designers in an iterative mindset. Furthermore, the reliance on AI-generated prototypes over written specifications is creating new friction and cognitive burden for engineers during the handoff process.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>blog.janestreet.com</span>
+        <span>·</span>
+        <span>286 pts</span>
+        <span>·</span>
+        <span>250 comments</span>
+        <span>·</span>
+        <span>by MrBuddyCasino</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://blog.janestreet.com/i-design-with-claude-code-more-than-figma-now-index/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48431981" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">AI Fundamentals 🧠</div>
+            
+            <h2 class="story-title"><a href="https://ranpara.net/posts/perceptron-explained-from-scratch/" target="_blank" rel="noopener">Python Perceptron: Build the Tiny Brain That Powers Modern AI</a></h2>
+            <p class="story-summary">The Smallest Brain You Can Build | Devarsh Ranpara A perceptron is the smallest brain you can build. One yes-or-no answer comes out. It sounds too simple to matter. But this tiny idea is the seed of every neural network running today.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post effectively demystifies complex neural networks by tracing their lineage back to the humble perceptron, the &quot;smallest brain.&quot; It highlights how such a seemingly simple &quot;yes-or-no&quot; computational unit forms the fundamental building block for all advanced AI systems, underscoring the profound importance of foundational algorithms in computer science.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community generally appreciates the &quot;Smallest Brain&quot; perceptron demo for its clarity and minimalistic approach, with users sharing similar projects and positive feedback. While acknowledging the demo's utility as an introduction, commenters also provide valuable historical context on perceptrons and suggest more comprehensive resources for a deeper understanding of machine learning fundamentals.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>ranpara.net</span>
+        <span>·</span>
+        <span>194 pts</span>
+        <span>·</span>
+        <span>28 comments</span>
+        <span>·</span>
+        <span>by DevarshRanpara</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://ranpara.net/posts/perceptron-explained-from-scratch/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48440064" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🐧 Linux Software</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://github.com/anthropics/claude-code/issues/65697" target="_blank" rel="noopener">Anthropic Urged to Ship Official Claude Desktop App for Linux</a></h2>
+            <p class="story-summary">[FEATURE] Official Claude Desktop build for Linux (Ubuntu LTS / Debian) · Issue #65697 · anthropics/claude-code · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This highly-voted request for an official Claude desktop application on Linux underscores a significant demand from developers and power users for integrated AI tools within their native operating environments. A dedicated client offers superior performance, deeper system integration, and a more seamless workflow than web-based access or electron wrappers. Shipping such a build would be a strategic move for Anthropic to solidify Claude's presence and utility within the crucial Linux developer community.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community shows mixed opinions on the need for an official Claude Desktop app for Linux. While some users advocate for it and point out that other Electron apps succeed on Linux despite fragmentation, a significant portion of commenters questions its necessity. Many prefer or find the existing command-line interface sufficient, with some even expressing a preference for a cleaner, more trustworthy CLI experience over a desktop client for their workflows.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>494 pts</span>
+        <span>·</span>
+        <span>281 comments</span>
+        <span>·</span>
+        <span>by predkambrij</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/anthropics/claude-code/issues/65697" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48434436" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🧮 Computer Algebra</div>
+            
+            <h2 class="story-title"><a href="https://symbolica.io/posts/symbolica_2_0_release/" target="_blank" rel="noopener">Symbolica 2.0 Supercharges Python &amp; Rust with Programmable Symbolic Math</a></h2>
+            <p class="story-summary">Symbolica 2.0: programmable symbols – Symbolica | Modern Computer Algebra Symbolica is a high-performance symbolic computation framework for Python and Rust. You can use it to manipulate symbolic expressions and turn them into fast numerical kernels for computing Jacobians, numerical optimization, integration, and much more. Today marks the 2.0 release of Symbolica, with many exciting new features and improvements. The theme of this release is programmable symbols: more of Symbolica’s behavior can now be customized by the user.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Symbolica 2.0 significantly advances symbolic computation for Python and Rust, emphasizing user customizability through its &quot;programmable symbols&quot; theme. This release refines its core capability of translating symbolic expressions into high-performance numerical kernels, critical for accelerating advanced mathematical and scientific tasks like optimization, integration, and Jacobian computation. It empowers developers with greater control and efficiency in bridging abstract mathematics with practical, performant applications.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community acknowledges Symbolica's technical improvements and potential as a symbolic math library, with existing users praising its usability. However, there is an overwhelming consensus that its restrictive commercial license, particularly the core-based usage limitations, is a significant miscalculation and a major barrier that will severely hinder its adoption and prevent it from reaching broader appeal. Many users are actively looking for or developing open-source alternatives as a result.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>symbolica.io</span>
+        <span>·</span>
+        <span>156 pts</span>
+        <span>·</span>
+        <span>22 comments</span>
+        <span>·</span>
+        <span>by mmastrac</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://symbolica.io/posts/symbolica_2_0_release/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48415457" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🌱 Personal Journey</div>
+            
+            <h2 class="story-title"><a href="https://gavinray97.github.io/blog/building-from-zero-after-addiction-prison-felony" target="_blank" rel="noopener">From Prison to Code: How I Rebuilt My Life After Addiction and a Felony</a></h2>
+            <p class="story-summary">Building from Zero After Addiction, Prison, and a Felony Building from Zero After Addiction, Prison, and a Felony I spent ages 14–16 in a maximum-security juvenile prison, became a felon at 19, lost almost everything to addiction, and later rebuilt my life through software, open source, and a few people who took a chance on me. I've wanted to write this for a while, but kept finding reasons not to. It felt too personal, too risky, and too easy to misread.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This poignant narrative underscores the immense power of human resilience and the critical role of second chances in rebuilding a life shattered by addiction and incarceration. It powerfully demonstrates how accessible fields like software development and open source, coupled with vital human support, can provide a transformative path for individuals overcoming significant societal and personal setbacks.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is overwhelmingly positive and supportive, expressing deep admiration for the author's resilience and success in rebuilding their life. Many commenters are inspired by the story, sharing their own &quot;unorthodox&quot; paths or offering well wishes and encouragement. There's a strong sense of empathy and appreciation for the clarity and determination shown in overcoming such significant challenges.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>gavinray97.github.io</span>
+        <span>·</span>
+        <span>630 pts</span>
+        <span>·</span>
+        <span>275 comments</span>
+        <span>·</span>
+        <span>by gavinray</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://gavinray97.github.io/blog/building-from-zero-after-addiction-prison-felony" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48437406" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">💾 Tech History</div>
+            
+            <h2 class="story-title"><a href="https://www.cl.cam.ac.uk/archive/rja14/tcpa-faq-1.0.html" target="_blank" rel="noopener">Trusted Computing's 2003 Foundation: The Essential FAQ on TCPA, Palladium, and NGCSB</a></h2>
+            <p class="story-summary">Trusted Computing  FAQ TCPA / Palladium / NGCSB / TCG Trusted Computing Frequently Asked Questions - TCPA / Palladium / NGSCB / Longhorn / TCG Translations into German , Spanish , Italian , Dutch , Chinese , Norwegian , Swedish , Finnish , Hungarian , Greek , Hebrew and French . This
+document is released under the GNU Free Documentation 
+License .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This 2003 FAQ provides a crucial historical lens into the contentious early discussions surrounding Trusted Computing initiatives such as Palladium and NGCSB. It underscores the deep-seated concerns among tech communities regarding vendor control, user autonomy, and the potential for these technologies to enforce DRM rather than purely enhance security. The persistence of these debates, albeit in new forms, highlights the enduring tension between platform integrity and individual digital freedoms.</p>
+    </div>
+            
+            
+    <div class="story-meta">
+        <span>cl.cam.ac.uk</span>
+        <span>·</span>
+        <span>12 pts</span>
+        <span>·</span>
+        <span>0 comments</span>
+        <span>·</span>
+        <span>by userbinator</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.cl.cam.ac.uk/archive/rja14/tcpa-faq-1.0.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48431889" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 08, 2026</div>
+    </footer>
+</body>
+</html>
