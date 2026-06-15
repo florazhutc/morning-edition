@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 15, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Monday</div>
+        <div class="masthead-year">June 15, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">US Census Bureau Bans 'Noise Infusion,' Ending Crucial Privacy Safeguard for Official Statistics</span>
+            <span class="toc-score">883 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Swift Package Connects Anthropic's Claude to Apple Foundation Models for Server-Side AI ⚡</span>
+            <span class="toc-score">188 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">M1 Max and Local ML Index 669GB of GoPro Video to Streamline Editing</span>
+            <span class="toc-score">376 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Paul Graham, Y Combinator Co-founder, Details How People Become Billionaires</span>
+            <span class="toc-score">649 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Anubis Uses Proof-of-Work to Stop AI Scraping and Prevent Website Downtime</span>
+            <span class="toc-score">296 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Kage Creates JavaScript-Free Offline Website Binaries</span>
+            <span class="toc-score">578 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Firewood Splitting Simulator Delivers Fun Workout, Prompts Curiosity on Game Mechanics</span>
+            <span class="toc-score">842 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Every Frame Perfect: Why Developers Argue for Less UI Motion and Instant Snaps</span>
+            <span class="toc-score">840 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">AI Adoption Isn't Universal: Many Still Limit or Avoid Its Use</span>
+            <span class="toc-score">468 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Amid AI Restrictions, GLM-5.2 Fully Opens for Universal Access</span>
+            <span class="toc-score">749 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">Data Policy &amp; Privacy 🏛️</div>
+            
+            <h2 class="story-title"><a href="https://desfontain.es/blog/banning-noise.html" target="_blank" rel="noopener">US Census Bureau Bans 'Noise Infusion,' Ending Crucial Privacy Safeguard for Official Statistics</a></h2>
+            <p class="story-summary">Banning noise will be a disaster for statistical data products - Ted is writing things Last week , the United States Department of Commerce issued an order declaring that &quot;noise infusion&quot; will be banned from all statistical products
+published by the Census Bureau and the Bureau of Economic Analysis. What does it mean, and why should you care? Statistical products are a bunch of numbers published from a secret dataset. Often, that dataset contains confidential information, and it is important that
+the numbers don't reveal that information.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The Census Bureau's ban on &quot;noise infusion&quot; marks a significant shift in its strategy for balancing data utility and privacy in public statistical products. While potentially aiming for higher data accuracy by removing this obfuscation, the strong condemnation suggests this decision might severely compromise vital privacy protections for individuals whose confidential information is aggregated. This highlights the inherent tension in providing comprehensive public data without exposing sensitive personal details.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is largely divided on the ban, reflecting the inherent tension between data utility and individual privacy. While some commentators express concern about potential data misuse, the erosion of public trust, and the risks of individual data reconstruction (suggesting the ban might be beneficial for privacy), others lament the decision, arguing that intentionally degrading data quality will hamper effective public policy and weaken a vital statistical resource. This discussion highlights the ongoing struggle to balance comprehensive data collection with robust privacy protections.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>desfontain.es</span>
+        <span>·</span>
+        <span>883 pts</span>
+        <span>·</span>
+        <span>580 comments</span>
+        <span>·</span>
+        <span>by nl</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://desfontain.es/blog/banning-noise.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48517377" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🍎 AI Development</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://platform.claude.com/docs/en/cli-sdks-libraries/libraries/apple-foundation-models" target="_blank" rel="noopener">Swift Package Connects Anthropic's Claude to Apple Foundation Models for Server-Side AI</a></h2>
+            <p class="story-summary">Apple Foundation Models - Claude API Docs Claude for Foundation Models is a Swift package that makes Claude available as a server-side language model in Apple's Foundation Models framework. The package conforms Claude to the framework's LanguageModel protocol, so you drive it with the same LanguageModelSession API you use for Apple's on-device model: respond(to:) , streaming, guided generation, and tool calling all work the same way. Requests go directly from your app to the Claude API; Apple is not in the request path and does not see prompts or responses. Usage is billed to your Anthropic account at standard API pricing .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This announcement signifies a strategic move by Apple to open its Foundation Models framework, enabling seamless integration of powerful third-party LLMs like Claude via a unified Swift API. By offering a consistent developer experience for both on-device and server-side models, Apple is pragmatic in addressing the diverse needs of AI application development, facilitating advanced capabilities while upholding its privacy stance by not intercepting requests. This approach significantly broadens the utility of Apple's platform for sophisticated AI functionalities, positioning it as a facilitator rather than a sole provider.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely perceives Apple Foundation Models as a strategic move to provide an abstraction layer for developers to integrate various LLMs, thereby maintaining control over the UX and preparing for future on-device Apple models. While recognizing its potential to commoditize LLMs and enhance Apple's hardware appeal, commenters express practical concerns regarding the efficiency of local model storage and the less-than-ideal user experience of requiring personal API keys.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>platform.claude.com</span>
+        <span>·</span>
+        <span>188 pts</span>
+        <span>·</span>
+        <span>71 comments</span>
+        <span>·</span>
+        <span>by MehrdadKhnzd</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://platform.claude.com/docs/en/cli-sdks-libraries/libraries/apple-foundation-models" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48536776" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🎥 Personal Tech / ML</div>
+            
+            <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=48528029" target="_blank" rel="noopener">M1 Max and Local ML Index 669GB of GoPro Video to Streamline Editing</a></h2>
+            <p class="story-summary">TLDR: I had 2,207 GoPro videos, and I need to rewatch them to find interesting moments from my cycling journey. I built a project to index them locally on my M1 Max using open-source ML models, search for those moments, and send the best clips straight to my DaVinci Resolve timeline. I indexed 628 videos (668.68 GB, 15h 13m 18s of footage duration), more details in the metrics table in the last section of this article. Full article: https://iliashaddad.com/blog/i-indexed-669-gb-of-my-gopro-videos-using-my-m1-max-computer</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project brilliantly illustrates the growing power and accessibility of local AI, demonstrating how individuals can leverage sophisticated open-source ML models on consumer-grade hardware like the M1 Max to solve complex personal data management challenges. It circumvents the need for costly cloud services while offering a privacy-first approach to processing large media libraries. This showcases a practical shift towards on-device intelligence for highly personalized tasks.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community shows strong interest and a clear consensus that using local ML models for personal video indexing is a valuable and achievable endeavor. Many commenters are actively engaged in similar projects or express plans to, highlighting the appeal of local, private AI solutions for managing large personal media libraries. There's significant shared enthusiasm and technical curiosity about the models and methods employed.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>news.ycombinator.com</span>
+        <span>·</span>
+        <span>376 pts</span>
+        <span>·</span>
+        <span>95 comments</span>
+        <span>·</span>
+        <span>by iliashad</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://news.ycombinator.com/item?id=48528029" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48528029" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">💰 Entrepreneurship &amp; Finance</div>
+            
+            <h2 class="story-title"><a href="https://paulgraham.com/earn.html" target="_blank" rel="noopener">Paul Graham, Y Combinator Co-founder, Details How People Become Billionaires</a></h2>
+            <p class="story-summary">June 2026 (This is based on a talk I gave at the Oxford Union.) Since this is apparently the future prime ministers' club, I'm going
+to tell you about something it would be good if more politicians
+understood: I'm going to tell you how people become billionaires. I hope this will be useful to you even if you don't plan to go into
+politics. Those of you who don't become prime minister can become
+billionaires instead. The reason I know about this topic is that 21 years ago Jessica and
+I started something called Y Combinator. If you haven't heard of Y
+Combinator, it's a cross between an investment firm and a school
+for startup founders.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This article offers a rare, insider's look into how billionaires are made, directly from the founder of Y Combinator, drawing on over two decades of experience in nurturing highly successful startups. By presenting this wisdom to future political leaders at the Oxford Union, it aims to provide a systemic understanding of wealth generation, suggesting insights valuable for both economic policy and personal entrepreneurial endeavors. The piece likely unpacks the scalable strategies and market dynamics that enable exponential financial growth.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely expresses skepticism and criticism towards the simplistic notion of &quot;earning a billion dollars.&quot; Many commenters suggest that such immense wealth often stems from disproportionate founder/investor compensation, leveraging VC funding to stifle competition, or an &quot;extraction&quot; model rather than pure merit. There's a strong consensus that the process is frequently unfair to employees and can be viewed as &quot;swindling&quot; rather than truly &quot;earning.&quot;</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>paulgraham.com</span>
+        <span>·</span>
+        <span>649 pts</span>
+        <span>·</span>
+        <span>1669 comments</span>
+        <span>·</span>
+        <span>by kingstoned</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://paulgraham.com/earn.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48526360" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🛡️ Web Security</div>
+            
+            <h2 class="story-title"><a href="https://lore.kernel.org/lkml/CAHk-=wi4BF4bMhZNZ1tqs+FFV4OuZRe3ZqdWB+LxRLmRweUzQw@mail.gmail.com/T/#u" target="_blank" rel="noopener">Anubis Uses Proof-of-Work to Stop AI Scraping and Prevent Website Downtime</a></h2>
+            <p class="story-summary">You are seeing this because the administrator of this website has set up Anubis to protect the server against the scourge of AI companies aggressively scraping websites. This can and does cause downtime for the websites, which makes their resources inaccessible for everyone. Anubis uses a Proof-of-Work scheme in the vein of Hashcash, a proposed proof-of-work scheme for reducing email spam. The idea is that at individual scales the additional load is ignorable, but at mass scraper levels it adds up and makes scraping much more expensive. Ultimately, this is a placeholder solution so that more time can be spent on fingerprinting and identifying headless browsers (EG: via how they do font rendering) so that the challenge proof of work page doesn't need to be presented to users that are much more likely to be legitimate.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This initiative, Anubis, marks a significant escalation in the ongoing arms race between websites protecting their content and AI models aggressively scraping data. By implementing a Hashcash-style Proof-of-Work, Anubis introduces a new friction point, effectively weaponizing client-side computational cost against mass scrapers. This temporary solution highlights the urgent need for more sophisticated, user-transparent anti-scraping techniques that can differentiate between legitimate users and headless browsers.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses a mixed sentiment, showing mild anticipation for specific improvements like WiFi fixes and a new NTFS driver. However, many users perceive Linux 7.1 as a largely routine update, questioning its overall significance beyond typical version number progression, despite notable code removals driven by AI-assisted bug reporting.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>lore.kernel.org</span>
+        <span>·</span>
+        <span>296 pts</span>
+        <span>·</span>
+        <span>113 comments</span>
+        <span>·</span>
+        <span>by berlianta</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://lore.kernel.org/lkml/CAHk-=wi4BF4bMhZNZ1tqs+FFV4OuZRe3ZqdWB+LxRLmRweUzQw@mail.gmail.com/T/#u" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48528729" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">💾 Web Archiving Tool</div>
+            
+            <h2 class="story-title"><a href="https://github.com/tamnd/kage" target="_blank" rel="noopener">Kage Creates JavaScript-Free Offline Website Binaries</a></h2>
+            <p class="story-summary">GitHub - tamnd/kage: Shadow any website for offline viewing, with the JavaScript stripped out · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Kage offers a portable solution for archiving web content into a single binary, addressing the need for offline access and content preservation. By explicitly stripping out JavaScript, it prioritizes the static textual and visual integrity of a webpage, making it ideal for documentation, articles, or research where interactivity is not crucial. This design ensures long-term accessibility of information, resilient against link rot or internet connectivity issues, albeit at the cost of dynamic features.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News users generally find the concept of archiving websites for offline viewing useful, particularly for documentation like company wikis. However, a significant point of discussion and minor criticism revolves around the tool's requirement for a separate serving process, with many desiring direct browser opening of the archived content. The community also readily compares Kage to existing, more mature solutions like SingleFile and httrack, implying a need for Kage to differentiate or match their robust features.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>578 pts</span>
+        <span>·</span>
+        <span>114 comments</span>
+        <span>·</span>
+        <span>by tamnd</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/tamnd/kage" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48529990" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🎮 **Gaming &amp; Simulation**</div>
+            
+            <h2 class="story-title"><a href="https://screen.toys/firewood/" target="_blank" rel="noopener">Firewood Splitting Simulator Delivers Fun Workout, Prompts Curiosity on Game Mechanics</a></h2>
+            <p class="story-summary">Community discussion highlights: That was a fun work out. I was wondering what happened when you &quot;filled&quot; the circle of firewood.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This simulator for a mundane real-world task highlights the enduring appeal of simple, satisfying, and even meditative digital experiences. Its high engagement score and community discussion about gameplay mechanics underscore a user desire for low-stakes virtual escapism that offers a sense of accomplishment or relaxation. This phenomenon reflects a broader trend of gamifying ordinary activities to provide unique forms of entertainment or digital mindfulness.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community quickly noted that the &quot;Firewood Splitting Simulator&quot; lacks realism and accurate physics compared to actual wood splitting. However, there's a strong counter-sentiment acknowledging that it's likely a &quot;screen toy&quot; or &quot;Goat Simulator&quot;-style game intended for mindless fun, not a serious simulation. This discussion ultimately led many to appreciate the game for sparking engaging conversations about the meditative and physical joys of real-world firewood splitting.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>screen.toys</span>
+        <span>·</span>
+        <span>842 pts</span>
+        <span>·</span>
+        <span>247 comments</span>
+        <span>·</span>
+        <span>by memalign</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://screen.toys/firewood/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48471638" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🎨 UI/UX Design</div>
+            
+            <h2 class="story-title"><a href="https://tonsky.me/blog/every-frame-perfect/" target="_blank" rel="noopener">Every Frame Perfect: Why Developers Argue for Less UI Motion and Instant Snaps</a></h2>
+            <p class="story-summary">Community discussion highlights: I'm sure a UI that had none of these imperfect frames would feel better, but now I really want someone to edit each of these clips to show what it would actually look like. At the same time, why does everything need motion? My understanding is that motion should be used if an action subtly changes the UI in a region that's different from where the action was triggered (e.g. toasts) I think many of these transitions are unnecessary and would feel just as good if they snapped immediately with inst</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This discussion critically examines the pervasive use of UI motion and animation, challenging the assumption that visual perfection in every frame inherently translates to a superior user experience. It highlights a fundamental tension between aesthetic fluidity and functional clarity, arguing that many transitions are superfluous and can detract from user perception rather than enhancing it. The conversation advocates for a more deliberate, purpose-driven approach to animation, where motion is employed only when it serves a clear communicative or navigational function.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely **disagrees with the article's core premise** that animations should strive for &quot;every frame perfect,&quot; often citing that human visual perception and techniques like smear frames prioritize the feeling of motion over individual frame fidelity. A common critique is the **article's lack of positive examples or actionable solutions**, which leaves many feeling the argument is weakly presented or incomplete. There's also a strong sentiment that **UI latency and responsiveness are more crucial than animation perfection**, with some arguing animations can actively hinder user experience.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>tonsky.me</span>
+        <span>·</span>
+        <span>840 pts</span>
+        <span>·</span>
+        <span>275 comments</span>
+        <span>·</span>
+        <span>by ravenical</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://tonsky.me/blog/every-frame-perfect/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48516251" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Adoption</div>
+            
+            <h2 class="story-title"><a href="https://gabrielweinberg.com/p/people-are-consuming-ai-like-they" target="_blank" rel="noopener">AI Adoption Isn't Universal: Many Still Limit or Avoid Its Use</a></h2>
+            <p class="story-summary">No, everyone is not using AI for everything. No, everyone is not using AI for everything. People are consuming AI like they eat meat: some are embracing it, some are limiting their use of it, and some are avoiding it altogether. Audio playback is not supported on your browser. Last year around this time The New York Times Magazine ran an A.I.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece astutely counters the pervasive hype of universal AI adoption, highlighting a more nuanced reality where user engagement varies significantly. Like dietary choices, individual and organizational approaches to AI range from enthusiastic embrace to cautious limitation or outright avoidance. This diversity underscores the need for more tailored market strategies and a critical look at the long-term societal integration, rather than assuming a monolithic, all-encompassing future for AI.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely pushes back against the notion that &quot;everyone is using AI for everything,&quot; expressing significant skepticism about its universal application. Many commenters highlight instances where AI is poorly implemented, leading to worse outcomes than traditional systems, and question what &quot;using AI&quot; even means in practice. While acknowledging specific beneficial uses (e.g., coding assistance), there's a strong consensus that AI is often adopted due to hype or convenience rather than genuine improvement, with concerns about its impact on quality and critical thinking.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>gabrielweinberg.com</span>
+        <span>·</span>
+        <span>468 pts</span>
+        <span>·</span>
+        <span>504 comments</span>
+        <span>·</span>
+        <span>by yegg</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://gabrielweinberg.com/p/people-are-consuming-ai-like-they" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48527700" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🔓 Open Source AI</div>
+            
+            <h2 class="story-title"><a href="https://twitter.com/jietang/status/2065784751345287314" target="_blank" rel="noopener">Amid AI Restrictions, GLM-5.2 Fully Opens for Universal Access</a></h2>
+            <p class="story-summary">jietang on X: &quot;GLM-5.2 is Fully Open, Frontier Intelligence Belongs to Everyone
+
+Today, the sudden restriction of certain frontier models is deeply regrettable. At a time when access to frontier models is abruptly cut off for non-technical reasons, we are even more convinced of one thing:&quot; / X GLM-5.2 is Fully Open, Frontier Intelligence Belongs to Everyone
+
+Today, the sudden restriction of certain frontier models is deeply regrettable. At a time when access to frontier models is abruptly cut off for non-technical reasons, we are even more convinced of one thing: science should be global. The path to AGI (Artificial General Intelligence) must never be enclosed by high walls.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The release of GLM 5.2 as &quot;fully open&quot; serves as a direct and pointed counter-narrative to recent restrictions on frontier AI models, emphasizing that &quot;frontier intelligence belongs to everyone.&quot; This move underscores a growing ideological rift within the AI community, asserting that the pursuit of AGI must remain unconstrained by proprietary walls and non-technical access barriers for global scientific advancement.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views the GLM 5.2 release as a significant and timely contribution, especially amidst recent concerns over access to frontier models. Commenters widely appreciate Chinese AI labs for their commitment to open-source models, seeing it as a crucial alternative to what they perceive as increasing restrictions and censorship from Western providers. The release's timing is also noted as a strategic response to recent events, positioning open models as a more reliable future.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>twitter.com</span>
+        <span>·</span>
+        <span>749 pts</span>
+        <span>·</span>
+        <span>476 comments</span>
+        <span>·</span>
+        <span>by aloknnikhil</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://twitter.com/jietang/status/2065784751345287314" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48518684" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 15, 2026</div>
+    </footer>
+</body>
+</html>
