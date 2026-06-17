@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 17, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Wednesday</div>
+        <div class="masthead-year">June 17, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Local LLMs for Daily Coding: The Viable Alternative to GPT/Claude? ⚡</span>
+            <span class="toc-score">1259 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">TinyWind Offers Free Pixel Pirate Sailing with Real Wind Physics, Seeking Browser Playtest Feedback</span>
+            <span class="toc-score">996 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Backdoor Malware Found Embedded in Malicious LinkedIn Job Offers</span>
+            <span class="toc-score">1561 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Iroh 1.0: The Key to Persistent, Secure Device Addressing Beyond IP Limitations</span>
+            <span class="toc-score">1363 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Modern Macs Make Local AI Models Surprisingly Capable</span>
+            <span class="toc-score">1329 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">SpaceX Finalizes $60 Billion Cursor Acquisition, SEC Filings Confirm ⚡</span>
+            <span class="toc-score">1026 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">John Carmack Hails Fabrice Bellard as Superior Programmer, The Unsung Architect of Internet Streaming</span>
+            <span class="toc-score">889 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Feds Alarmed by 'Fable 5' AI's Response to Simple 'Fix This Code' Prompt, Not Jailbreak</span>
+            <span class="toc-score">572 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Apple's New Alias Domain Makes Hide My Email Easier to Ban</span>
+            <span class="toc-score">486 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Apple's Vehicle Motion Cues Cure Car Sickness, Enabling Comfortable In-Car Reading and Writing.</span>
+            <span class="toc-score">764 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">💻 AI &amp; Local Development</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=48542100" target="_blank" rel="noopener">Local LLMs for Daily Coding: The Viable Alternative to GPT/Claude?</a></h2>
+            <p class="story-summary">Has anyone here fully swapped Claude/GPT for a local model as their main coding tool, not just for side experiments? If so, please share your setup and performance (e.g tok/s)</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This 'Ask HN' thread highlights a significant shift among developers exploring the operational viability of local AI models for core daily coding tasks, moving beyond mere experimentation. It underscores a growing demand for data privacy, cost control, and highly customizable AI assistants that cloud-based LLMs often don't fully address. The community's focus on practical setups and performance metrics like tokens/second signals the increasing maturity and potential of local LLM solutions as alternatives to commercial cloud offerings.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community shows a clear trend of users successfully replacing cloud LLMs with local models for daily coding, primarily driven by data privacy and cost savings. This transition often involves powerful local hardware (high RAM or dedicated GPUs) running larger parameter models like Qwen 3.6 (35B) or Gemma, which are deemed &quot;good enough&quot; for most tasks, though acknowledged to be slightly less capable than the very latest cloud offerings.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>news.ycombinator.com</span>
+        <span>·</span>
+        <span>1259 pts</span>
+        <span>·</span>
+        <span>536 comments</span>
+        <span>·</span>
+        <span>by cloudking</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://news.ycombinator.com/item?id=48542100" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48542100" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🎮 Gaming</div>
+            
+            <h2 class="story-title"><a href="https://tinywind.io" target="_blank" rel="noopener">TinyWind Offers Free Pixel Pirate Sailing with Real Wind Physics, Seeking Browser Playtest Feedback</a></h2>
+            <p class="story-summary">Community discussion highlights: The 2 game modes are free to play in browser. Come join our 245 active captains, I’d love any and all playtest feedback at this stage!</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">TinyWind strategically blends low-barrier entry (browser, F2P) with a compelling niche mechanic (&quot;real wind physics&quot;), demonstrating strong initial engagement through impressive metrics like total kilometers sailed. The developer's proactive call for playtest feedback signals a smart, community-driven development approach, vital for refining the game and fostering a loyal player base within the indie gaming scene.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses strong initial enthusiasm for TinyWind, praising its fun gameplay and overall execution. However, there's significant feedback challenging the &quot;real wind physics&quot; claim, with many desiring deeper, more realistic sailing mechanics like tacking, dead angles, and rudder physics. UI clarity, especially concerning wind direction indicators, is also a common suggestion for improvement.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>tinywind.io</span>
+        <span>·</span>
+        <span>996 pts</span>
+        <span>·</span>
+        <span>189 comments</span>
+        <span>·</span>
+        <span>by tinywind</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://tinywind.io" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48543475" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Cybersecurity</div>
+            
+            <h2 class="story-title"><a href="https://roman.pt/posts/linkedin-backdoor/" target="_blank" rel="noopener">Backdoor Malware Found Embedded in Malicious LinkedIn Job Offers</a></h2>
+            <p class="story-summary">      ÿÔ{}sÛ6¶÷ÿû)NÕyg*R8­,±¾ &lt; ï¶½Ö{wg:ÌqDÂ %«»ûÝï ([NÜ¤³;wÚqLÀyÁï¼$Lé·-AíUÌÓOBQÌ]ieëU§K/&gt;¡±ë±Çÿ Ý/þñÏþüËÉÛÎÕ'ÿU¾ÉGëG³Mø==Î+ò²¡ÇcZö³0ìÊþõø|páyÈ7ÒÞ}¹½ÄêlèD?þyúËX.|^ZBOiÄ~ &lt; ¶÷Ñb$Ðãw¸%;úbôZ&gt;u³Ñè\æè¶º\|4ËÜÙr1ª½oÝl2Ùl6yeL¥ÈcÕ Æl^fúBÅèSó©cÞ¢%í0r©Yÿ%­¥9ÆÇÿz|²ZÍX²cÆ£¨¯ÑxÀÓxôíå÷Ù_¾~ý¿¿z=z &lt; $ÎòeÖ_t~}Þ1ýÚÉõâïÙ__f_¦E/ 4ÚöÑÅ7¹^QñX^c,HßI}MâBÃYY­ÈB?5\4¨¯;eÖóI©jlh!(r'ÞÓz	+¼&amp;°TÚNz²c@(í¶õ,µf¨ XjgÝPÙUZÜ*j)éÈ'ça%å£»&quot;'²B]uXíe~D:ëÜ£!»kIÖX¿çu#¯Ö²¤, &lt; ¥^¢Ê\OzÒSÓZÓ.x¥¡°ïRäþSJÛ3^wK%]MbÏÂéôô,eO_N§³ðÿ§áçÑ¾7B®äûÍß+¾2lÄÙÙÙa²îçÎ-Ã2oý¤5Î»
+:ë7bâZ®Î[]ÝYò¶LÜíWýÊÎJ¿íò0²~»jÖY5z®å¤§7Á·,ìè¼`t£÷AÜÁ2Ôþ­°;àB¶ª¤ßtî¸ÜÛv8­¥¢»CÓ£òpa{îÐö&amp;ðÆË]y'ï®Õ$køòXÏ` ïÐ»ü£ßHïÉÎJ´»v]Ó Ý¾Qh+ziõÇëÁ²ÿïÿUþN%ÚÒjñ¨×ÅÊhïR2­t!(ûbTÛÅkÛJûé×µ²½N%µp~«ÈÕDØ0n &lt; ÏLdÞ6®´D:2tgoJç&amp;ÚØüò?vÝ¥KÆ- Î®ú¥Ðù¤äÚæüD·ÍdEèk²,v!ï_åäñÅ&gt;-:²æúU&quot;~0áÝrrA©Gí¡-ëüÊýù42ÍEV?6½ðÿ^º¯©¡UeÄ=Ý{(=\ñ=åÝOb°4b[Ì\C©Ð¹Å-¥&amp;mlX~\YÎ¹ksEÂYù0dUûÅbÊ7°MMçkéäR*é·³hÕÅ|óÉ=ã,Ùá\£G[Ìñ(æ²©(84;{vsö,¿j+@u4%`1¹.æõDs,eã÷Qêu+]&amp;Ð^g¥QÆ6ã-T!`wò|&amp;X?|h1oÿß)9å5¼ÞúÚh´&amp;Åñ)/;©ÔÜæÏ5¤É¥)~
+¿1µ|&gt;i¹ÆøWgJjTÌ;^¯û½#s%}Ý-ÃöË^	ý,¾ß®¹.Æ²äpqmBÚ	¦hVßn{.ã÷g!-ýnØ(úøµ¡ï*d0ßÄý5(7³Å®ø=3Xùß}IÇo4®{Ù*`êÀæWnÎùG&amp;¤ÙãÌÍùUç¼\m³'Ì\%eKò&quot;}JV:ãÂÍJÒ¾·)Éõ.ÍM¢ÙØìiÏÉý0îMõ@Å+ÓÐQåNZÓv
+íñi¯ãÇûfr
+vtÞK¥ |&gt;&gt;¦ó÷ÌäOG· ©¥ÞeÉ±÷þ$jjøeènèVõ..K®SÞÁ	¹¼RGv¤îè·`øsO¥¾ýÝõìS¹.æ®E½{±- &lt; OøUñ§áKÎÿÕiàr ¸£©ï\ýCû5Ñcß·¨½f£bn.ã|4sò7Ê7åh8À2éßãRU8»mI±¸äÏÿ½ú*}d¤`çc_Ó.Û/.kÚÉrj×fIy+«¬+^HýóñI-µfC&quot;´~ËJKï wßdG¥ÑâèñÓCòµtY:«Ô:ó&amp;C½5ËZ:(QCüÂ_Þâ½V²ê,r·×PoêîÍÙêL &lt; {&gt;Sñô)&gt;çº*å Qâ×Î5×`ºÀ j-èIÀ\56FtHç:Ê?±aJHzÚâÂb?;ÐÆC§KÓ4&amp;âÃ]3ÏA«Ìk5Ðts+®HèhËÎ3ùß¯HyÞÆ «EéXP¡mxÃ-°3pJÉÚò*â=[Jtã-Bµ&quot;ïyÕÎ³FÙ(£ÅRü(¨%-HÅµ®åÚ¸¶fÜÂÿ¼þ	WäÓ\tóR6%é¾&amp;Kq£Z#5kñv¦ÓÊ\Ðºx-ÙxiÒ³`PdF«-kÆ°¾ðÌEyÆIor@Ù9½¬jÅµB1o-Ç¥Ônv[NeM§E³WSþï ?lhyÍà}QpÎbú¾©-ÑÕ1ùáW~L±çnJ?­,²ÜãÊR;^I-ÆÊýiÒ?L³OZ6÷èzÚâ&quot;á÷+6Qw=úÂF­2¶®s­,¥é\7mËTqd:Ô·.\`ÛN &lt; 2VÐM~åSzõ)G·úY¾ì!,@Ék¶î	KÏîãÀh &lt; ´È'z-lÐ1ÞÎÓB:§Ï§ ¤&amp;Bºªvæú&gt;c7Ãv±ð×¿é £]æÊb°þO ñÊ`ÈµýÛA8üN_LO§ç!õØ¢|öb:-J£Oxd¯îMivvV,úG¾?¾â´øäã§ÏÎ»¿¥	ãÛÈ;û Â4Èxø0&gt;7&gt;Gì½±ÊÊl2ù FZôõò0½âÃðÿ¼xñaÒ-ÿ|pºYZ(²ÄÖÐÚ?D?ÊTfÈÊùÇeMÃC³@jo?Ýõ¨nI°xñâÀõõ4§8VTÃr±(iØ}ÈBöEÎ»qO}ÞvÚíCqd9Ét¤1#ÛÖt,k©)R~pö(eRgL? ' wdûrÀálÛI])Fêxª¢àN¸ëlðð,øö¨!«%î:s·(õOO¡!ÿZÅ°uì~w*=¢É¨Épù]Ycò;«µ}dfµ0ätÊx=lPúâò¶!Éèt&gt;Á·¢/HïH­ÒQ¹42¨XúµNåA£ï&quot;÷¦e¬ÓcFÇCR6Ä¢Åò+Ê¯Ñ=GiÉ½c½¯~f¿[\Æä²Øu{lôÒIhÌtZË#&amp;iØ¶3N%vóÝË Í!(Ál%%ÄU{ùÈËÝÒ·ì?ß!p ãã@è9J8BH $ÖXÚÑnÄÙ­êAÒåºm®Òõgí2Óm+ÜÇJ®(+·¥¢^óGÅ5HçM&gt;+®ÈmÓWH;­8hÝW9í±íYîÀ¶ûü^Uh*BCÂ»d+Lå_¬jm§ïå~Wr®Ô¸&amp;Päo;]v3ÁÛ¢Ks¸A_Ö$`S£¿å}ôÄèÒûÐuq«TÞ^ìÊPæð²¯ÑÇmæE)vÒ²^»#´éªh-YË4,,Ü=Ú;3vÒ»^ÈÀÊØÐ:_KØmGÇ®±øÞ\ÅsM¦ö&amp;\¬öç)»E,V4+¤F»Ý·]ZkØòÄ¬3lhé¤§þÜ:õ3°,Ã]Tø(£+¨%GÜm}ãE@-1»®ÉKs}_&gt;Õu_}G6m¼iºõðkGá`lÀAm6PÓnQËeY¥W:z*!:ìæÆX.CShrxµ±ä¸%¤æÐè^îe¸{7à2Â9/f£c§Iú¨®Â(mR`@¨2_KÊ+
+@âu¬OÉ{ÏqËüÎ´¡4Ú[¹ì¼±Ye±­÷~=0á WMè»ôiÄ`Lä÷éç;p²`ÏÆÏ^Li;vh`I`éIM#6µQ=Ø{Ô$Æ&gt;$£ij}k3½éèmæÝ	Æ{6gÔÜõÙíÀØ&quot;ãÉ&quot;ÑzW¦³tØRÙµÑ a@v-(·FUvÊwìËó ì°¨¬5G	Fªô9ü­&amp;mCÄ¤¦Z°,$?»OªÞ×ZsEeðÜÉCÇÄwÏ&gt;¤c|µßYÍ
+Ò¡ïtÓå8¢$Ó!bMÖ1JBÛ±þ+k°	Áq &lt; ð	·¿îºm²ÄgÆgöý$ûò»÷¾,µ!9|þs[£÷ùõé³mwÍ|Ô Å(h¢êÚpúÞïÎàRë ­¶À~/Øý®b£²sa{÷ás@îÝ ¯cñ~KÖì:ÑælôKè9¤4Ø.SjÐþë1°nì28¹4ÄQÓy©Øq:åKËUVpôpk½Ç°ýlMvj%­óÝýH1TA;g/9R¶QnÇ=àÐIµùÅÛÞÓ3õëPßøÐmîª:Ìä«»ÔÝ¾sp.Lâû'ö7ÀÈ}+6+cûp5êm%ISòpugûº©-^²Ù³ÛÃk
+½ï©rÂÈôiè´%/²ïa§¦k4\Þ¹ ²ÖÁßÆØóNB7[.b7swÀÃV,,9]:pÊ´íTI­Éêqcö­ÞÂ=cì«G7ëö_M{³Ë7´¸e½Þì´Î+´;X£ÝIÞg¬©¿®MösëTÓcåÞz¬Î&amp;ý.ýMÊÛÇmGOL97ÏBôÀk÷]Hç­mv
+­ÍÒr¼ÂìÉû@§ÓÓçoêîÍçÓÏÏ¨|AOÏNÏ4]ÝC(­Îøf\7xÅûN³'§µ7çKcÙÌ¢=NÿßcðìtÈÙóbÞö'éÞ]¯(Ø&amp;6ñvXÀæ0y½{è«ÎZ
+Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´2Æ^G^$	CxçmÓ5±þÆ¢¥VaI'?åÄpð§3ÿ  ÿÿ óóP3  </p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This title points to a sophisticated social engineering attack where a malicious payload, disguised within a seemingly legitimate LinkedIn job offer, aims to install a backdoor. It highlights how attackers leverage trusted professional platforms and the desire for career advancement to compromise targets, demonstrating a blend of human and technical exploitation for persistent access. This incident underscores the critical need for extreme caution with unsolicited professional offers, even from seemingly legitimate sources.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that the &quot;backdoor&quot; described is a prevalent and increasingly sophisticated scam, cleverly disguised as a typical interview task to trick job-seeking developers into unknowingly running malicious code. There's widespread frustration over the lack of effective reporting mechanisms and institutional defense from platforms like GitHub and LinkedIn against these organized cybercrimes, which exploit the vulnerabilities and pressures faced by candidates.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>roman.pt</span>
+        <span>·</span>
+        <span>1561 pts</span>
+        <span>·</span>
+        <span>297 comments</span>
+        <span>·</span>
+        <span>by lwhsiao</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://roman.pt/posts/linkedin-backdoor/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48546294" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🌐 Networking Protocol</div>
+            
+            <h2 class="story-title"><a href="https://www.iroh.computer/blog/v1" target="_blank" rel="noopener">Iroh 1.0: The Key to Persistent, Secure Device Addressing Beyond IP Limitations</a></h2>
+            <p class="story-summary">It's a simple idea really, and it's the right abstraction for the future of the internet. IP addresses can break, without warning, and it's outside of your device's control. Keys, however, are created &amp; controlled by you. They stay the same as your device moves, and are yours to throw away, or not. IP addresses can be private and inaccessible behind firewalls, but with iroh your device can be securely addressable no matter where it is.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Iroh 1.0 introduces a fundamental paradigm shift by replacing unreliable, location-dependent IP addresses with user-controlled cryptographic keys for device identity and addressing. This approach aims to enhance network resilience, privacy, and accessibility, ensuring devices remain securely addressable irrespective of their physical location or network changes. It represents a significant step towards a more robust, decentralized, and user-centric internet architecture by empowering individuals with greater control over their online presence.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community shows a mixed reception for Iroh 1.0. While current and past users offer strong praise for its pragmatic approach, ease of use, and responsive developer support, many newcomers express confusion regarding its core purpose and differentiation from existing network protocols or services like Tailscale. There's a clear desire for more fundamental explanations of the problem it solves, how its &quot;dial keys&quot; work, and clarification on its business model given the mention of &quot;pricing.&quot;</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>iroh.computer</span>
+        <span>·</span>
+        <span>1363 pts</span>
+        <span>·</span>
+        <span>435 comments</span>
+        <span>·</span>
+        <span>by chadfowler</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.iroh.computer/blog/v1" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48542480" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🤖 Local AI Performance</div>
+            
+            <h2 class="story-title"><a href="https://vickiboykis.com/2026/06/15/running-local-models-is-good-now/" target="_blank" rel="noopener">Modern Macs Make Local AI Models Surprisingly Capable</a></h2>
+            <p class="story-summary">Running local models is good now | ✰Vicki Boykis✰ I’ve been working with local models since they came out, and finally, they’re surprisingly good now. I have a 2022 M2 Mac with 64 GB RAM and 1TB storage and I’ve used Qwen 3 MOE , as well as a number of other Qwen variants like Qwen 2.5 Coder across a lot of different system setups like</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This article marks a significant turning point for on-device AI, indicating that local large language models are now genuinely performant enough for practical, day-to-day use on capable consumer hardware. It signals a growing trend towards decentralized AI, offering users increased privacy, reduced latency, and potentially lower costs by minimizing reliance on cloud-based solutions for many AI workloads.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses a nuanced view, acknowledging significant progress in local models but generally disagreeing that they are universally &quot;good now.&quot; Many users still face hardware limitations, and while local models offer viability for specific tasks (often with trade-offs between speed and accuracy), they are widely seen as not yet ready to fully replace state-of-the-art cloud models for critical or complex workflows due to perceived quality and reliability gaps. However, their improvement is viewed as a positive development that will put pricing pressure on cloud LLM providers.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>vickiboykis.com</span>
+        <span>·</span>
+        <span>1329 pts</span>
+        <span>·</span>
+        <span>508 comments</span>
+        <span>·</span>
+        <span>by jfb</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://vickiboykis.com/2026/06/15/running-local-models-is-good-now/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48555993" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🤥 Misinformation</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://www.reuters.com/legal/transactional/spacex-buy-anysphere-60-billion-2026-06-16/" target="_blank" rel="noopener">SpaceX Finalizes $60 Billion Cursor Acquisition, SEC Filings Confirm</a></h2>
+            <p class="story-summary">Community discussion highlights: These are the SEC filings that confirms the merger: Announcement of Cursor acquisition to SpaceX https://www.sec.gov/Archives/edgar/data/1181412/000162828026... Details of Acquisition https://www.sec.gov/Archives/edgar/data/1181412/000162828026...</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This Hacker News post, despite presenting itself as a major acquisition confirmed by SEC filings, is a textbook example of misinformation. The critical giveaway is the year '2026' embedded in the supposed SEC URL, immediately signaling that the &quot;filings&quot; are fabricated and the entire story is a hoax. It serves as a stark reminder of the importance of critical source verification and information literacy when encountering sensational news online.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses widespread disbelief regarding SpaceX's reported $60 billion acquisition of Cursor. Commenters overwhelmingly question Cursor's true utility and valuation, perceiving it as an inferior and overpriced product compared to other AI coding assistants. Many find the acquisition price exorbitant and the strategic rationale for a space company entering the AI IDE market baffling, with some raising concerns about data privacy.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>reuters.com</span>
+        <span>·</span>
+        <span>1026 pts</span>
+        <span>·</span>
+        <span>1524 comments</span>
+        <span>·</span>
+        <span>by itsmarcelg</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.reuters.com/legal/transactional/spacex-buy-anysphere-60-billion-2026-06-16/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48553224" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Programming Legend ✨</div>
+            
+            <h2 class="story-title"><a href="https://twitter.com/ID_AA_Carmack/status/2064095424420487226" target="_blank" rel="noopener">John Carmack Hails Fabrice Bellard as Superior Programmer, The Unsung Architect of Internet Streaming</a></h2>
+            <p class="story-summary">John Carmack on X: &quot;I admire Fabrice Bellard. He is almost certainly a better overall programmer than I am.&quot; / X He is almost certainly a better overall programmer than I am. A French engineer who lives quietly in Paris has spent 30 years writing software that the entire internet now runs on without knowing his name. He wrote the code that streams every YouTube video, every Netflix show, every TikTok clip.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece brilliantly illuminates the often-unseen titans of software engineering, like Fabrice Bellard, whose foundational contributions silently power vast swathes of the internet's critical infrastructure. John Carmack's humble recognition starkly contrasts Bellard's pervasive technical impact with his relative anonymity, celebrating the quiet brilliance that truly underpins our modern digital world. It's a potent reminder that profound influence often resides with those focused on deep technical problems rather than public acclaim.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community overwhelmingly regards Fabrice Bellard as an exceptionally brilliant and impactful programmer, often placed among the greatest for his unique ability to translate complex specifications into highly functional C code. While acknowledging his foundational contributions to projects like FFmpeg, commenters highlight his knack for choosing incredibly useful work and maintaining a prolific output across diverse, often experimental projects. His reputation for technical genius combined with a low public profile further contributes to his revered status.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>twitter.com</span>
+        <span>·</span>
+        <span>889 pts</span>
+        <span>·</span>
+        <span>435 comments</span>
+        <span>·</span>
+        <span>by apitman</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://twitter.com/ID_AA_Carmack/status/2064095424420487226" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48550779" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">AI Perception &amp; Policy 🤖</div>
+            
+            <h2 class="story-title"><a href="https://www.theregister.com/security/2026/06/15/feds-freaked-over-fable-5-after-simple-fix-this-code-prompt-not-jailbreak-says-researcher/5255827" target="_blank" rel="noopener">Feds Alarmed by 'Fable 5' AI's Response to Simple 'Fix This Code' Prompt, Not Jailbreak</a></h2>
+            <p class="story-summary">Feds freaked over Fable 5 after simple 'fix this code' prompt, not jailbreak, says researcher Jump to main content</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This research strikingly illustrates a significant misunderstanding of AI's core functionalities among government bodies, where a benign prompt like 'fix this code' triggered an alarmist reaction, mistaking utility for a 'jailbreak.' This incident underscores the critical necessity for enhanced AI literacy within regulatory and security institutions to foster informed policy-making rather than decisions driven by panic or misinterpretation of technology.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely questions the &quot;jailbreak&quot; narrative, suggesting the &quot;fix this code&quot; process described was more akin to vulnerability identification and remediation rather than a malicious exploit. There's widespread skepticism regarding the Feds' reaction, with many believing it's a politically motivated &quot;shakedown&quot; or retaliation against Anthropic, possibly linked to alleged administration ties with companies like Amazon. Commenters also highlight the inherent cognitive dissonance in LLM &quot;safety&quot; claims, particularly concerning their ability to identify code vulnerabilities for both beneficial and malicious purposes.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>theregister.com</span>
+        <span>·</span>
+        <span>572 pts</span>
+        <span>·</span>
+        <span>341 comments</span>
+        <span>·</span>
+        <span>by _tk_</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.theregister.com/security/2026/06/15/feds-freaked-over-fable-5-after-simple-fix-this-code-prompt-not-jailbreak-says-researcher/5255827" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48552687" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Privacy Erosion</div>
+            
+            <h2 class="story-title"><a href="https://arseniyshestakov.com/2026/06/16/apple-is-about-to-make-hide-my-email-useless/" target="_blank" rel="noopener">Apple's New Alias Domain Makes Hide My Email Easier to Ban</a></h2>
+            <p class="story-summary">Apple is about to make Hide My Email useless · Arseniy Shestakov Yesterday, June 15, 2026, a small and unimportant announcement appeared in Apple developer news: New domain for Sign in with Apple and iCloud+ Hide My Email . Long story short: now both Sign in with Apple and Hide My Email aliases are going to be issued on the @private.icloud.com subdomain. This makes it much easier to ban all aliases without affecting non-relay mailboxes on iCloud mail. This is certainly a big hit for iCloud privacy, since some plausible deniability together with Apple’s backing made banning iCloud aliases costly.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Apple's consolidation of &quot;Hide My Email&quot; and &quot;Sign in with Apple&quot; aliases under a single `@private.icloud.com` domain fundamentally undermines their privacy utility. By enabling blanket bans of all such aliases, this change strips away the plausible deniability and cost-of-ban barrier that previously protected users, essentially making a key privacy feature vulnerable to widespread circumvention by services. This move significantly diminishes the value proposition of iCloud privacy for users seeking to avoid tracking or maintain anonymity.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that Apple's change to issue Hide My Email aliases on a shared subdomain will make them easier for websites to block, thereby reducing their effectiveness for privacy. While some debate if it makes the feature entirely &quot;useless,&quot; many users are exploring or recommending alternative, more robust privacy-focused email services or self-hosted domain solutions to maintain control and avoid ecosystem lock-in. There's also a sentiment that websites blocking such aliases are not worth engaging with.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>arseniyshestakov.com</span>
+        <span>·</span>
+        <span>486 pts</span>
+        <span>·</span>
+        <span>297 comments</span>
+        <span>·</span>
+        <span>by SXX</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://arseniyshestakov.com/2026/06/16/apple-is-about-to-make-hide-my-email-useless/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48559935" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">😌 Wellness Tech</div>
+            
+            <h2 class="story-title"><a href="https://www.theverge.com/tech/942854/apple-vehicle-motion-cues-review-really-work" target="_blank" rel="noopener">Apple's Vehicle Motion Cues Cure Car Sickness, Enabling Comfortable In-Car Reading and Writing.</a></h2>
+            <p class="story-summary">Apple’s weird anti-nausea dots cured my car sickness | The Verge Apple’s weird anti-nausea dots cured my car sickness ﻿Vehicle Motion Cues let me read and write in the passenger seat without wanting to die. ﻿Vehicle Motion Cues let me read and write in the passenger seat without wanting to die. Thomas Ricker is a deputy editor and Verge co-founder with a passion for human-centric cities, e-bikes, and life as a digital nomad.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Apple's &quot;Vehicle Motion Cues&quot; represent an innovative, software-driven solution to motion sickness, using subtle visual stimuli to alleviate discomfort. This unexpected application of technology significantly enhances passenger comfort and productivity, turning previously debilitating travel time into an opportunity for reading or work. It highlights how creative UX design can address pervasive physiological challenges, extending the utility and user well-being within a tech ecosystem.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community shows significant interest and hope for Apple's anti-nausea dots, driven by the widespread issue of motion sickness and the desire for effective solutions. However, opinions on its efficacy are divided, with some users reporting surprisingly positive results while others found it completely ineffective. This mixed feedback highlights that while promising for some, it's not a universal cure, prompting discussions of alternative methods and Android equivalents.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>theverge.com</span>
+        <span>·</span>
+        <span>764 pts</span>
+        <span>·</span>
+        <span>235 comments</span>
+        <span>·</span>
+        <span>by neilfrndes</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.theverge.com/tech/942854/apple-vehicle-motion-cues-review-really-work" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48557530" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 17, 2026</div>
+    </footer>
+</body>
+</html>
