@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 19, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Friday</div>
+        <div class="masthead-year">June 19, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Midjourney Applies AI Artistry to Medical Visualization</span>
+            <span class="toc-score">1307 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Epic Games Unveils Lore: Open-Source VCS for Massively Scalable Binary Projects</span>
+            <span class="toc-score">1235 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Switzerland Greenlights New Nuclear Power Plants</span>
+            <span class="toc-score">755 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Cornell's Advanced Compilers (CS 6120): A PhD-Level Self-Guided Online Course</span>
+            <span class="toc-score">372 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Craigslist Founder Gives Away $500M, Fears Generosity Is Trolled</span>
+            <span class="toc-score">364 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">NS Unveils €49 Introductory Unlimited Off-Peak Nationwide Pass; Price Jumps to €128 Monthly After Intro</span>
+            <span class="toc-score">227 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Massive Trojan Malware Campaign Exposed Across 10,000 GitHub Repositories</span>
+            <span class="toc-score">793 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Gerrymandle: Daily Puzzle Game Challenges You to Redraw Voting Districts</span>
+            <span class="toc-score">174 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Emacs 31: Daily Driving the Upcoming Features</span>
+            <span class="toc-score">441 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Elkjop Fined €1.8M for Unlawful Forced Consent</span>
+            <span class="toc-score">388 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🧠 AI in Healthcare</div>
+            
+            <h2 class="story-title"><a href="https://www.midjourney.com/medical/blogpost" target="_blank" rel="noopener">Midjourney Applies AI Artistry to Medical Visualization</a></h2>
+            <p class="story-summary">https://www.midjourney.com/medical Video: https://x.com/midjourney/status/2067422898407837797</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Midjourney Medical highlights the burgeoning trend of specialized generative AI applications moving beyond general-purpose use cases into critical vertical markets like healthcare. This development promises transformative potential for medical education, patient communication, and research visualization through advanced image generation, yet it simultaneously introduces urgent demands for rigorous validation, ethical guidelines, and robust mechanisms to prevent the spread of AI-generated misinformation in a highly sensitive domain.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community shows a mixed but largely skeptical reaction to Midjourney Medical. While some find the underlying non-ionizing imaging technology intriguing and see potential benefits in reduced radiation and earlier detection, there is widespread skepticism regarding its proposed application (casual full-body scans in spas), the novelty and efficacy claims compared to existing methods, and its perceived naive understanding of medical regulation. Many also question the Midjourney brand's foray into this serious medical field and its &quot;data-first&quot; approach to health.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>midjourney.com</span>
+        <span>·</span>
+        <span>1307 pts</span>
+        <span>·</span>
+        <span>848 comments</span>
+        <span>·</span>
+        <span>by ricochet11</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.midjourney.com/medical/blogpost" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48579650" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🗄️ Version Control</div>
+            
+            <h2 class="story-title"><a href="https://lore.org/" target="_blank" rel="noopener">Epic Games Unveils Lore: Open-Source VCS for Massively Scalable Binary Projects</a></h2>
+            <p class="story-summary">Lore | Next-Generation Open Source Version Control - Lore Lore: next-generation open source version control Maintained by Epic Games, Lore is designed for unprecedented scalability of both data and teams. It’s optimized for projects—including games and entertainment—that combine code with large binary assets, and caters for the needs of developers and artists alike. Access and contribute to Lore on the Epic Games GitHub.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Epic Games' decision to open-source Lore, a next-generation version control system, highlights the critical limitations of existing solutions like Git for managing massive binary assets and large teams prevalent in industries like gaming. Designed for &quot;unprecedented scalability,&quot; Lore aims to directly address the unique challenges faced by developers and artists combining code with vast multimedia, potentially establishing a new benchmark for asset-heavy development workflows.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views Lore as a promising, specialized solution for game development, specifically addressing the shortcomings of Git for large binary assets and positioning itself as a challenger to Perforce. While recognizing Perforce's industry dominance in games, commenters agree it has usability issues and is ripe for competition. Minor concerns were raised regarding the &quot;open source&quot; status of the desktop client and its novelty given other existing data versioning systems.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>lore.org</span>
+        <span>·</span>
+        <span>1235 pts</span>
+        <span>·</span>
+        <span>669 comments</span>
+        <span>·</span>
+        <span>by regnerba</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://lore.org/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48571081" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Energy Policy ⚛️</div>
+            
+            <h2 class="story-title"><a href="https://www.bluewin.ch/en/news/switzerland/parliament-lifts-ban-on-new-nuclear-power-plants-3257535.html" target="_blank" rel="noopener">Switzerland Greenlights New Nuclear Power Plants</a></h2>
+            <p class="story-summary">2026 Summer Session: Parliament Lifts Ban on New Nuclear Power Plants | blue News 2026 Summer Session Parliament Lifts Ban on New Nuclear Power Plants Until June 19, the Federal Palace in Bern will once again be bustling with activity. Numerous important issues will be on the agenda during the summer session of the National Council and Council of States. From June 1 to 19, 2026, the Federal Parliament’s summer session will take place at the Federal Palace.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Switzerland's decision to lift its ban on new nuclear power plants marks a significant pivot, likely driven by heightened energy security concerns and the urgent need for decarbonization. This move reflects a broader global re-evaluation of nuclear energy's role as a stable, low-carbon baseload power source, complementing renewables in the transition away from fossil fuels. While offering a path to energy independence, potential new projects will still face formidable challenges regarding financing, public acceptance, and lengthy construction timelines.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is sharply divided on Switzerland's decision to lift the ban on new nuclear power plants. While many advocate for nuclear as a safe, essential source for energy security and future innovation (like SMRs), a significant opposing view argues it's an economically non-viable, overly expensive, and time-consuming endeavor that will be superseded by renewables. The comments highlight both the perceived benefits and the substantial economic and political challenges of nuclear energy.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>bluewin.ch</span>
+        <span>·</span>
+        <span>755 pts</span>
+        <span>·</span>
+        <span>714 comments</span>
+        <span>·</span>
+        <span>by leonidasrup</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.bluewin.ch/en/news/switzerland/parliament-lifts-ban-on-new-nuclear-power-plants-3257535.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48585746" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🎓 Education</div>
+            
+            <h2 class="story-title"><a href="https://www.cs.cornell.edu/courses/cs6120/2025fa/self-guided/" target="_blank" rel="noopener">Cornell's Advanced Compilers (CS 6120): A PhD-Level Self-Guided Online Course</a></h2>
+            <p class="story-summary">CS 6120: Advanced Compilers: The Self-Guided Online Course CS 6120 is a PhD-level Cornell CS course by Adrian Sampson on programming language implementation. It covers universal compilers topics like intermediate representations, data flow, and “classic” optimizations as well as more research-flavored topics such as parallelization, just-in-time compilation, and garbage collection. The work consists of reading papers and open-source hacking tasks, which use LLVM and an educational IR invented just for this class . This page lists the curriculum for following this course at the university of your imagination, for four imagination credits (ungraded).</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This online, self-guided Cornell course democratizes access to advanced compiler design, blending foundational theory with cutting-edge research topics like JIT compilation and parallelization. Its strong pedagogical approach, combining academic papers with practical LLVM-based &quot;hacking&quot; tasks, offers an invaluable resource for both aspiring academics and industry professionals looking to deepen their understanding of programming language implementation.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely questions whether the &quot;Advanced Compilers&quot; course truly lives up to its title, with many topics appearing more foundational than advanced. There's also specific technical criticism regarding the dynamic compilers section, suggesting it overemphasizes &quot;trace compilation,&quot; which is considered a dead end, instead of more relevant modern concepts. This suggests a desire for a course that delves deeper into contemporary and cutting-edge compiler design.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>cs.cornell.edu</span>
+        <span>·</span>
+        <span>372 pts</span>
+        <span>·</span>
+        <span>51 comments</span>
+        <span>·</span>
+        <span>by ibobev</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.cs.cornell.edu/courses/cs6120/2025fa/self-guided/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48583606" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Philanthropy</div>
+            
+            <h2 class="story-title"><a href="https://www.independent.co.uk/us/money/craigslist-multimillionaire-craig-newmark-b2980681.html" target="_blank" rel="noopener">Craigslist Founder Gives Away $500M, Fears Generosity Is Trolled</a></h2>
+            <p class="story-summary">The founder of Craigslist has given away half a billion dollars. He fears for an America where generosity is trolled | The Independent Stay up to date with notifications from The Independent Notifications can be managed in browser preferences. C raig Newmark, multimillionaire founder of Craigslist , has long had trouble keeping his mouth shut – leading to some “influential mistakes”, he readily admits.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This story transcends a simple report of immense philanthropy, as Craig Newmark's $500 million in donations are framed by his alarm over generosity being trolled. This fear highlights a critical societal challenge where acts of goodwill are increasingly met with cynicism, potentially discouraging further civic engagement and revealing deeper issues within modern public discourse.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community acknowledges the Craigslist founder's impressive philanthropy and aligns it with the platform's famously minimalist ethos. However, a strong consensus emerges criticizing Craigslist's current state, with many expressing disappointment over its pervasive issues with scams, spam, and a perceived lack of moderation. Commenters suggest that improvements to the site's functionality could have been an equally significant societal contribution.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>independent.co.uk</span>
+        <span>·</span>
+        <span>364 pts</span>
+        <span>·</span>
+        <span>277 comments</span>
+        <span>·</span>
+        <span>by Tomte</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.independent.co.uk/us/money/craigslist-multimillionaire-craig-newmark-b2980681.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48588216" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🚂 Public Transport</div>
+            
+            <h2 class="story-title"><a href="https://www.ns.nl/en/season-tickets/dal-vrij" target="_blank" rel="noopener">NS Unveils €49 Introductory Unlimited Off-Peak Nationwide Pass; Price Jumps to €128 Monthly After Intro</a></h2>
+            <p class="story-summary">Community discussion highlights: That’s the introductory price. It’ll be €127,95 after that period is over. Kids travel for free, though, so that’s pretty nice. In hindsight, I think I underestimated the value of my OV card while I was a student: travel whenever, using all types of public transport, for free.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This Dutch Railways initiative employs an aggressive introductory price for unlimited off-peak travel, likely aimed at boosting ridership and shifting demand away from peak hours. While the substantial price hike after the introductory period and the &quot;kids travel free&quot; perk are notable, the community discussion underscores a broader public appreciation for comprehensive, highly subsidized public transport schemes like student passes, highlighting the challenge of pricing widespread mobility fairly and sustainably.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally perceives the €49 Dutch Railways offer as an attractive, but temporary, introductory price. Many commenters express skepticism about its long-term affordability, anticipating significant price hikes after the promotional period and highlighting its various limitations, such as being valid only for off-peak NS train travel and for a limited duration. While some find it appealing for specific, non-commuting use cases, others criticize its restricted scope compared to more comprehensive European transport passes like Germany's Deutschlandticket.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>ns.nl</span>
+        <span>·</span>
+        <span>227 pts</span>
+        <span>·</span>
+        <span>115 comments</span>
+        <span>·</span>
+        <span>by felipevb</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.ns.nl/en/season-tickets/dal-vrij" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48543872" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🚨 Cybersecurity Alert</div>
+            
+            <h2 class="story-title"><a href="https://orchidfiles.com/github-repositories-distributing-malware/" target="_blank" rel="noopener">Massive Trojan Malware Campaign Exposed Across 10,000 GitHub Repositories</a></h2>
+            <p class="story-summary">I discovered a large-scale malware distribution on GitHub I discovered a large-scale malware distribution campaign on GitHub This is the story of how I found 10,000 repositories on GitHub that distribute Trojan malware. They are all from different contributors, have different names, and are not forks of other repositories. But they share a common pattern, which is what allowed me to write a script to find such repositories.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This discovery of 10,000 unique GitHub repositories distributing Trojan malware highlights a massive and sophisticated supply-chain attack vector. It underscores the growing challenge for platforms like GitHub in proactively detecting widespread, polymorphic malicious content that leverages legitimate hosting for broad distribution. The unique accounts and repository structures suggest an automated, well-resourced operation targeting developers and users who download code, posing a significant threat to software integrity.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community widely agrees that GitHub is experiencing a pervasive and sophisticated problem with malware distribution, characterized by malicious actors cloning new or popular projects and employing tactics like frequent updates to game search rankings. Many users have personally encountered such incidents, often involving derivatives of their own projects. There is a strong consensus that GitHub is failing to adequately address this widespread issue, showing a lack of effective moderation or concern despite clear reports of malicious activity.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>orchidfiles.com</span>
+        <span>·</span>
+        <span>793 pts</span>
+        <span>·</span>
+        <span>207 comments</span>
+        <span>·</span>
+        <span>by theorchid</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://orchidfiles.com/github-repositories-distributing-malware/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48583928" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Puzzle Game 🧩</div>
+            
+            <h2 class="story-title"><a href="https://gerrymandle.cc/" target="_blank" rel="noopener">Gerrymandle: Daily Puzzle Game Challenges You to Redraw Voting Districts</a></h2>
+            <p class="story-summary">You are in charge of drawing the district lines for the elections. Click adjacent tiles on the map to group them into a district. Each district must be one connected shape, no islands allowed. Coloured houses show where voters live. Not every tile on the board has one, some are just empty land.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This 'Show HN' brilliantly transforms the complex and often controversial political practice of gerrymandering into an accessible and engaging daily puzzle game. By having players redraw electoral districts, it offers an intuitive, hands-on understanding of how district lines can manipulate election outcomes. This innovative approach could serve as a unique educational tool, subtly raising awareness about the impact of electoral design.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community shows a strong positive consensus for &quot;Gerrymandle,&quot; praising its creativity and clear, engaging presentation as a puzzle game. Many commenters highlight its significant educational value, seeing it as an excellent tool for civics classes to make the complex and often frustrating issue of gerrymandering accessible and fun to learn about. While some minor suggestions for introductory levels or tweaks to game rules were noted, these did not detract from the overwhelmingly positive reception.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>gerrymandle.cc</span>
+        <span>·</span>
+        <span>174 pts</span>
+        <span>·</span>
+        <span>70 comments</span>
+        <span>·</span>
+        <span>by realmofthemad</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://gerrymandle.cc/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48585739" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🛠️ Software Update</div>
+            
+            <h2 class="story-title"><a href="https://www.rahuljuliato.com/posts/emacs-31-around-the-corner" target="_blank" rel="noopener">Emacs 31: Daily Driving the Upcoming Features</a></h2>
+            <p class="story-summary">Emacs 31 Is Around the Corner: The Changes I'm Already Daily Driving | Rahul's Blog Emacs 31 Is Around the Corner: The Changes I'm Already Daily Driving Karthik Chikmagalur recently published another of his excellent &quot;Even More Batteries Included with Emacs&quot; posts, digging into lesser-known features that already ship with Emacs
+today. I wanted to write its mirror image. His post covers the
+batteries already in the box.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post focuses on the practical, &quot;daily driving&quot; changes coming in Emacs 31, offering a user's perspective on upcoming features rather than just technical specifications. It highlights the continuous evolution of long-standing developer tools and how new versions consistently aim to enhance user productivity and workflow efficiency.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community demonstrates strong consensus that Emacs remains a highly valued and actively used editor, with many expressing decades-long loyalty and no intention to switch. Users are excited for improvements in Emacs 31, particularly native Tree-sitter integration, and highlight Emacs' deep configurability, control, and recent compatibility with AI/LLM integrations as key benefits. Despite a recognition of its initial learning curve, the overall sentiment is that Emacs is a robust and future-proof tool for serious development.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>rahuljuliato.com</span>
+        <span>·</span>
+        <span>441 pts</span>
+        <span>·</span>
+        <span>254 comments</span>
+        <span>·</span>
+        <span>by frou_dh</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.rahuljuliato.com/posts/emacs-31-around-the-corner" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48584135" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Data Privacy</div>
+            
+            <h2 class="story-title"><a href="https://www.thatprivacyguy.com/blog/elkjop-forced-consent-fine/" target="_blank" rel="noopener">Elkjop Fined €1.8M for Unlawful Forced Consent</a></h2>
+            <p class="story-summary">Five years later it cost Elkjop €1.8 million — That Privacy Guy! Architecture Flux DiT (Diffusion Transformer) + T5-XXL + CLIP-L text encoders · 12B (DiT) + 4.7B (T5-XXL) + 0.4B (CLIP-L) Text encoders T5-XXL + OpenAI CLIP ViT-L/14 Generator DrawThings (Flux.1 Dev q8p) via TPG Blog Pipeline Hardware Apple M1 Ultra · 20 cores (16 performance + 4 efficiency) · 48 cores GPU · 128 GB unified</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This incident underscores the critical financial and reputational risks companies face when failing to comply with data privacy regulations, especially concerning valid user consent. The €1.8 million fine imposed on Elkjop, five years after initial warnings, highlights the persistent enforcement efforts of regulators and the long-term ramifications of neglecting foundational privacy principles.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community overwhelmingly applauds the individual's successful challenge against forced consent, viewing it as a significant victory for user rights in an increasingly &quot;dystopian&quot; data landscape. Commenters widely share frustration with pervasive &quot;anti-privacy&quot; policies and lack of true opt-out options across various industries, expressing a strong desire for more robust regulations and enforcement similar to GDPR to protect personal data globally.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>thatprivacyguy.com</span>
+        <span>·</span>
+        <span>388 pts</span>
+        <span>·</span>
+        <span>226 comments</span>
+        <span>·</span>
+        <span>by speckx</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.thatprivacyguy.com/blog/elkjop-forced-consent-fine/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48589501" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 19, 2026</div>
+    </footer>
+</body>
+</html>
