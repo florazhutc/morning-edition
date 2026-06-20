@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 20, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Saturday</div>
+        <div class="masthead-year">June 20, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Midjourney Unveils Specialized AI for Medical Images</span>
+            <span class="toc-score">1343 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Hyundai Takes Full Control of Boston Dynamics as SoftBank Exits for $325M</span>
+            <span class="toc-score">800 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Google Workspace Threatens Firefox Access</span>
+            <span class="toc-score">478 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Security Expert Exposes 10,000 GitHub Repositories in Large-Scale Trojan Malware Campaign</span>
+            <span class="toc-score">949 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Norway Effectively Bans AI from Elementary Education</span>
+            <span class="toc-score">631 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">ClickHouse Turns 10: A Decade of Open Source and Analytical Database Leadership</span>
+            <span class="toc-score">300 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Project Valhalla's Value Classes Confirmed for JDK 28 After a Decade</span>
+            <span class="toc-score">588 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Gerrymandle Turns Electoral Redistricting Into a Daily Puzzle Game</span>
+            <span class="toc-score">212 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Deconstructing DuckDB's Speed: How It Became a Ubiquitous Analytics Powerhouse</span>
+            <span class="toc-score">452 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Datasette `datasette-apps` Plugin Brings Custom HTML Apps In-House</span>
+            <span class="toc-score">144 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🩺 AI Art &amp; Healthcare</div>
+            
+            <h2 class="story-title"><a href="https://www.midjourney.com/medical/blogpost" target="_blank" rel="noopener">Midjourney Unveils Specialized AI for Medical Images</a></h2>
+            <p class="story-summary">https://www.midjourney.com/medical Video: https://x.com/midjourney/status/2067422898407837797</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Midjourney Medical signifies a significant expansion of generative AI's capabilities beyond traditional artistic or commercial applications into the highly specialized and sensitive domain of healthcare. This initiative showcases the potential for AI image generation to revolutionize medical visualization, education, and patient communication through realistic anatomical or procedural imagery. However, it also ignites crucial discussions surrounding data accuracy, ethical implications, and the regulatory frameworks required for responsibly deploying AI-generated content in medical contexts.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses interest in the underlying medical imaging technology, acknowledging its potential for innovation in diagnostics and reducing radiation exposure. However, there is significant skepticism regarding Midjourney's proposed casual &quot;spa&quot; application, a perceived misunderstanding of medical regulations (FDA), and an overly optimistic view of the technology's novelty and limitations compared to existing solutions. Many believe the approach is impractical and overlooks crucial challenges in healthcare integration.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>midjourney.com</span>
+        <span>·</span>
+        <span>1343 pts</span>
+        <span>·</span>
+        <span>869 comments</span>
+        <span>·</span>
+        <span>by ricochet11</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.midjourney.com/medical/blogpost" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48579650" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🤖 M&amp;A &amp; Robotics</div>
+            
+            <h2 class="story-title"><a href="https://startupfortune.com/hyundai-takes-full-control-of-boston-dynamics-as-softbank-exits-for-325-million/" target="_blank" rel="noopener">Hyundai Takes Full Control of Boston Dynamics as SoftBank Exits for $325M</a></h2>
+            <p class="story-summary">Hyundai takes full control of Boston Dynamics as SoftBank exits for $325 million - Startup Fortune Your subscription could not be saved.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This acquisition underscores Hyundai's strategic pivot into advanced robotics, diversifying its portfolio beyond automotive manufacturing into future mobility and industrial automation. For Boston Dynamics, it marks a crucial transition from venture-backed R&amp;D to potentially leveraging a global industrial giant's resources for widespread commercialization and application scaling.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community notes that Hyundai has finalized its full acquisition of Boston Dynamics, though there was initial confusion about the news given their existing stake. A clear consensus emerged questioning the immediate practicality of humanoid robots like Atlas for advanced manufacturing, with many believing they are not yet optimal or useful for factory tasks compared to purpose-built machines. This leads to speculation that Hyundai's long-term investment is aimed at broader general-purpose robotics commercialization rather than direct application in their current car manufacturing processes.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>startupfortune.com</span>
+        <span>·</span>
+        <span>800 pts</span>
+        <span>·</span>
+        <span>349 comments</span>
+        <span>·</span>
+        <span>by ck2</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://startupfortune.com/hyundai-takes-full-control-of-boston-dynamics-as-softbank-exits-for-325-million/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48600312" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🥊 Browser Wars</div>
+            
+            <h2 class="story-title"><a href="https://tales.fromprod.com/2026/169/google-workspace-threatening-to-block-firefox.html" target="_blank" rel="noopener">Google Workspace Threatens Firefox Access</a></h2>
+            <p class="story-summary">Google workspace threatening to block firefox access | Tales from Prod Skip to main content</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This reported threat by Google Workspace to block Firefox access signifies a concerning escalation in browser competition, potentially leveraging a dominant platform to disadvantage a rival. Such a move, if true, raises serious anti-competitive concerns, as it could coercively push users towards Google's own Chrome browser, thereby undermining user choice and open web principles.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely attributes the issue to an organization's security configuration within Google Workspace's &quot;Context-Aware Access&quot; feature, often set to restrict access to devices using only Chrome with specific security requirements. However, the original poster, who is the administrator, countered that their Workspace Business Plus plan does not include this enterprise feature and they have not configured such restrictions, leading to an unresolved explanation for their specific case among the comments.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>tales.fromprod.com</span>
+        <span>·</span>
+        <span>478 pts</span>
+        <span>·</span>
+        <span>150 comments</span>
+        <span>·</span>
+        <span>by birdculture</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://tales.fromprod.com/2026/169/google-workspace-threatening-to-block-firefox.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48600345" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Cybersecurity</div>
+            
+            <h2 class="story-title"><a href="https://orchidfiles.com/github-repositories-distributing-malware/" target="_blank" rel="noopener">Security Expert Exposes 10,000 GitHub Repositories in Large-Scale Trojan Malware Campaign</a></h2>
+            <p class="story-summary">I discovered a large-scale malware distribution on GitHub I discovered a large-scale malware distribution campaign on GitHub This is the story of how I found 10,000 repositories on GitHub that distribute Trojan malware. They are all from different contributors, have different names, and are not forks of other repositories. But they share a common pattern, which is what allowed me to write a script to find such repositories.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This massive discovery of 10,000 distinct yet pattern-sharing malware repositories on GitHub reveals a highly organized and distributed supply chain attack. It profoundly challenges GitHub's platform security, demonstrating how sophisticated campaigns can evade traditional detection by appearing disparate, and underscores the critical need for advanced behavioral analytics to protect the developer ecosystem.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely confirms the widespread nature of malicious repositories on GitHub, with many commenters having experienced similar incidents or observed sophisticated attacker tactics. There's a consensus that these attacks often target automated dependency agents and exploit search algorithms by frequently updating cloned projects, while significant frustration is expressed regarding GitHub's perceived inaction in promptly removing reported malicious content.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>orchidfiles.com</span>
+        <span>·</span>
+        <span>949 pts</span>
+        <span>·</span>
+        <span>243 comments</span>
+        <span>·</span>
+        <span>by theorchid</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://orchidfiles.com/github-repositories-distributing-malware/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48583928" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🏫 AI &amp; Education Policy</div>
+            
+            <h2 class="story-title"><a href="https://www.reuters.com/technology/norway-imposes-near-ban-ai-elementary-school-2026-06-19/" target="_blank" rel="noopener">Norway Effectively Bans AI from Elementary Education</a></h2>
+            <p class="story-summary">Community discussion highlights: Wouldn't it matter a lot how AI is being used? I would assume if children are allowed to use AI without rails as a shortcut it will undermine their learning, and it's used for feedback and as a patient tutor it would accelerate their learning? It seems like the problem is that they don't have the science and tooling to use it constructively at scale, so the desperate solution is to ban it outright until a scalable constructive approach is understood? The article doesn't explain any of this direc</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This decision by Norway highlights a critical, yet unresolved, pedagogical challenge: how to harness AI's potential as a learning accelerator without it undermining foundational skills through shortcuts. The ban suggests a precautionary approach, reflecting a broader institutional struggle to develop effective frameworks and tooling for constructively integrating AI at scale within sensitive primary education settings.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees with Norway's near-ban on AI for elementary school students (ages 6-13), viewing it as crucial for developing foundational skills like reading, writing, and arithmetic before relying on automated tools. Many commenters liken it to not using calculators before understanding basic math, expressing concern that AI allows students to skip the learning process and produce &quot;finished&quot; work without genuine effort or comprehension. While some acknowledge potential future benefits of AI in education, the consensus is that a ban for younger ages is a sensible preventative measure.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>reuters.com</span>
+        <span>·</span>
+        <span>631 pts</span>
+        <span>·</span>
+        <span>434 comments</span>
+        <span>·</span>
+        <span>by ilreb</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.reuters.com/technology/norway-imposes-near-ban-ai-elementary-school-2026-06-19/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48600093" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🌐 Open Source Milestones</div>
+            
+            <h2 class="story-title"><a href="https://clickhouse.com/blog/open-source-10" target="_blank" rel="noopener">ClickHouse Turns 10: A Decade of Open Source and Analytical Database Leadership</a></h2>
+            <p class="story-summary">ClickHouse was released in open source on Jun 15 2016 , ten years ago. Since then, it became the most popular open source analytical database with more than 2000 contributors. There are different levels of open-source . Level 0 : The minimum level is making the code open to the public for reading, but nothing more. This is the case of archival and museum releases, such as Doom or MS-DOS .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">ClickHouse's ten-year journey exemplifies the profound impact of truly collaborative open-source development, distinguishing itself as the most popular analytical database with over 2000 contributors. This success underscores that genuine community engagement and active contribution, rather than merely &quot;Level 0&quot; code visibility, are pivotal for an open-source project's long-term growth and market dominance.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community overwhelmingly praises ClickHouse for its exceptional performance and efficiency in analytical workloads, often citing its ability to significantly outperform and replace other popular solutions like Elasticsearch, TimescaleDB, and Loki. Users highlight its speed, robust built-in data connectors, and high level of scrutiny in development as key factors contributing to its success and reliability. While one comment noted historical skepticism due to its origins, the overall consensus is one of strong endorsement for its technical capabilities.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>clickhouse.com</span>
+        <span>·</span>
+        <span>300 pts</span>
+        <span>·</span>
+        <span>81 comments</span>
+        <span>·</span>
+        <span>by saisrirampur</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://clickhouse.com/blog/open-source-10" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48546890" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">☕ Java Feature</div>
+            
+            <h2 class="story-title"><a href="https://www.jvm-weekly.com/p/project-valhalla-explained-how-a" target="_blank" rel="noopener">Project Valhalla's Value Classes Confirmed for JDK 28 After a Decade</a></h2>
+            <p class="story-summary">Project Valhalla, Explained: How a Decade of Work Arrives in JDK 28 - JVM Weekly vol. Project Valhalla, Explained: How a Decade of Work Arrives in JDK 28 - JVM Weekly vol. and Ragnarok seems to come, as we finally have Valhalla in the JDK. On June 15, Oracle engineer Lois Foltan confirmed what a good chunk of the industry had stopped believing: JEP 401: Value Classes and Objects will be integrated into the main OpenJDK repository and is targeting JDK 28. The change is so large that the remaining committers were asked to hold off on bigger commits during the integration.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Project Valhalla's integration into JDK 28, after a decade of development, marks a monumental evolution for the Java ecosystem. The introduction of value classes and objects (JEP 401) promises significant performance gains by enabling more efficient memory layouts and reducing object overhead, fundamentally reshaping how Java handles data. This achievement highlights the immense engineering complexity in modernizing a mature language while preserving its core strengths.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely commends the &quot;great work&quot; and &quot;inspiring&quot; decade-long engineering effort behind Project Valhalla, recognizing it as a crucial step to modernize Java and enhance performance by introducing value types. While appreciative of the achievement, commenters also engage critically with the technical details and the explanatory article's framing, often noting that many discussions reflect outdated understandings of Java's current capabilities.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>jvm-weekly.com</span>
+        <span>·</span>
+        <span>588 pts</span>
+        <span>·</span>
+        <span>361 comments</span>
+        <span>·</span>
+        <span>by philonoist</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.jvm-weekly.com/p/project-valhalla-explained-how-a" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48595511" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🧩 Puzzle Game</div>
+            
+            <h2 class="story-title"><a href="https://gerrymandle.cc/" target="_blank" rel="noopener">Gerrymandle Turns Electoral Redistricting Into a Daily Puzzle Game</a></h2>
+            <p class="story-summary">You are in charge of drawing the district lines for the elections. Click adjacent tiles on the map to group them into a district. Each district must be one connected shape, no islands allowed. Coloured houses show where voters live. Not every tile on the board has one, some are just empty land.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This daily puzzle game ingeniously gamifies the controversial and complex real-world issue of gerrymandering, making an abstract political process tangible and interactive. By challenging players to strategically redraw electoral districts, it offers a hands-on demonstration of how district boundaries can impact election outcomes, fostering a deeper understanding of civic mechanics through engaging gameplay.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely praises &quot;Gerrymandle&quot; as a creative and engaging puzzle game, highlighting its educational potential for raising awareness about a complex political issue. While some minor suggestions were offered regarding gameplay clarity or realism, the comments quickly expanded into broader discussions about real-world solutions to gerrymandering, such as proportional representation, and the inherent limitations of current electoral systems.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>gerrymandle.cc</span>
+        <span>·</span>
+        <span>212 pts</span>
+        <span>·</span>
+        <span>78 comments</span>
+        <span>·</span>
+        <span>by realmofthemad</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://gerrymandle.cc/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48585739" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Databases 🗄️</div>
+            
+            <h2 class="story-title"><a href="https://www.greybeam.ai/blog/duckdb-internals-part-1" target="_blank" rel="noopener">Deconstructing DuckDB's Speed: How It Became a Ubiquitous Analytics Powerhouse</a></h2>
+            <p class="story-summary">DuckDB Internals: Why is DuckDB Fast? Kyle Cheung / May 4, 2026 / 18 min read / DuckDB DuckDB Internals: Why is DuckDB Fast? DuckDB has gone from a research project at CWI Amsterdam in 2019 to one of the most widely adopted databases of the past decade. The list of places it shows up is long: notebooks, ETL pipelines, dashboards, CI test runners, embedded analytics inside SaaS products, even an iPhone running TPC-H at scale factor 100 .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This deep-dive into DuckDB's internals promises to unpack the architectural decisions that have fueled its remarkable speed and rapid adoption. Its ability to serve diverse analytical workloads, from interactive notebooks to embedded systems, highlights a successful strategy of optimizing for specific use cases while maintaining high performance.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community overwhelmingly praises DuckDB, consistently highlighting its &quot;game-changing&quot; capabilities for data analysis and manipulation. Users frequently commend its ease of use, versatility, and impressive speed across various scales, from handling local datasets with hundreds of millions of records to sifting through terabytes of data, even noting its utility for data migration. While the positive sentiment is strong, one commenter observes that the frequent emphasis on its speed is for specific workloads, suggesting it's not a universal performance leader for all scenarios.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>greybeam.ai</span>
+        <span>·</span>
+        <span>452 pts</span>
+        <span>·</span>
+        <span>136 comments</span>
+        <span>·</span>
+        <span>by marklit</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.greybeam.ai/blog/duckdb-internals-part-1" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48553388" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🛠️ Developer Tools</div>
+            
+            <h2 class="story-title"><a href="https://simonwillison.net/2026/Jun/18/datasette-apps/" target="_blank" rel="noopener">Datasette `datasette-apps` Plugin Brings Custom HTML Apps In-House</a></h2>
+            <p class="story-summary">Datasette Apps: Host custom HTML applications inside Datasette Microsoft's MVP checklist closes that gap. Datasette Apps: Host custom HTML applications inside Datasette Today we launched a new plugin for Datasette, datasette-apps , with this launch announcement post on the Datasette project blog. That post has the what , but I’m going to expand on that a little bit here to provide the why .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This plugin fundamentally shifts Datasette from a pure data exploration and publishing tool to a lightweight platform for hosting interactive, data-driven web applications. By enabling custom HTML apps directly within Datasette, it significantly lowers the barrier to creating and deploying small, focused interfaces on top of datasets. This innovation broadens Datasette's utility, empowering users to build and share functional tools alongside their data without needing a separate backend stack.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely welcomes Datasette Apps as a valuable addition, appreciating its approach to hosting custom applications directly alongside data, which many see as solving a common problem. Several commenters note that similar solutions and projects are converging on this pattern, indicating a widespread need for easy data-driven application development. While the reception is positive, some minor technical questions were raised regarding the implementation of Content Security Policy and `srcdoc` for security.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>simonwillison.net</span>
+        <span>·</span>
+        <span>144 pts</span>
+        <span>·</span>
+        <span>61 comments</span>
+        <span>·</span>
+        <span>by lumpa</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://simonwillison.net/2026/Jun/18/datasette-apps/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48593731" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 20, 2026</div>
+    </footer>
+</body>
+</html>
