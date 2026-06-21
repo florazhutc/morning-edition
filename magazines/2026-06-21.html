@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 21, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Sunday</div>
+        <div class="masthead-year">June 21, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Generate Realistic, Private Scanned PDFs via CLI or Browser</span>
+            <span class="toc-score">118 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Bayer AG's PRINCE: Engineering Reliable Agentic AI for Drug Development</span>
+            <span class="toc-score">92 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">New AI Pen Testing Model Sidesteps Guardrails for Uncensored Vulnerability Discovery</span>
+            <span class="toc-score">79 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Large AI Models Under Fire: GPT-5.5 Hallucinates More as Claude Fable 5 Faces Ban</span>
+            <span class="toc-score">525 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">TownSquare: A Tiny Layer Bringing Real-Time Social Presence to Websites</span>
+            <span class="toc-score">165 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">PostgresBench: Reproducible Benchmarks for Reliable Postgres Performance</span>
+            <span class="toc-score">101 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">AWS Engineer Focuses on Agentic AI Safety and Policy</span>
+            <span class="toc-score">91 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">TD4 4-Bit DIY CPU Kit: Your Hands-On Introduction to Computer Architecture</span>
+            <span class="toc-score">31 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Windows 11's New Media Player Bloats RAM by 3.5x, Charges for Basic Codecs</span>
+            <span class="toc-score">283 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Loupe iOS App Exposes Native App Data Access</span>
+            <span class="toc-score">267 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">📄 PDF Utility</div>
+            
+            <h2 class="story-title"><a href="https://github.com/overflowy/make-look-scanned" target="_blank" rel="noopener">Generate Realistic, Private Scanned PDFs via CLI or Browser</a></h2>
+            <p class="story-summary">I made this because the online &quot;make my PDF look scanned&quot; tools want you to upload your file to their servers, which feels sketchy at best. Also, I wasn't happy with the output they produce, I wanted something that looks realistic.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project effectively addresses a common privacy concern with online document manipulation tools by offering a local CLI or client-side WASM solution. It highlights a growing user demand for privacy-preserving utilities and showcases WebAssembly's power for performing sensitive document operations directly within the browser, avoiding server uploads.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community's consensus is mixed: while many users question the practical utility of making PDFs look scanned, often preferring tools that *clean* scanned documents, there's also an acknowledgement of niche use cases, such as mimicking handwritten signatures or adding a more &quot;human&quot; touch to digital documents. Several comments highlight existing DIY methods or competing products, suggesting that while the *need* is debated, the functionality itself isn't entirely new.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>118 pts</span>
+        <span>·</span>
+        <span>53 comments</span>
+        <span>·</span>
+        <span>by overflowy</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/overflowy/make-look-scanned" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48611513" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">⚙️ AI Engineering</div>
+            
+            <h2 class="story-title"><a href="https://martinfowler.com/articles/reliable-llm-bayer.html" target="_blank" rel="noopener">Bayer AG's PRINCE: Engineering Reliable Agentic AI for Drug Development</a></h2>
+            <p class="story-summary">A Case Study in building production-ready agentic AI systems This paper presents the Preclinical Information Center (PRINCE), a cloud-hosted platform
+    developed by Bayer AG with Thoughtworks to address pharmaceutical industry challenges in drug
+    development. PRINCE leverages Agentic Retrieval-Augmented Generation
+    and Text-to-SQL to integrate decades of safety study reports. We describe PRINCE's evolution
+    from keyword-based search to an intelligent research assistant capable of answering complex
+    questions and drafting regulatory documents. We reflect on key engineering decisions through
+    the lens of context engineering—how information was shaped and routed between specialized
+    agents—and harness engineering—how orchestration, recovery, and observability were built
+    around the models to maintain control and reliability.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This case study offers a robust demonstration of applying agentic AI systems in a critical enterprise environment, evolving from basic search to an intelligent assistant capable of drafting regulatory documents in pharmaceutical development. The paper's emphasis on &quot;context engineering&quot; and &quot;harness engineering&quot; provides crucial insights into building production-ready, reliable AI by detailing strategies for orchestration, recovery, and observability. This highlights the practical engineering considerations essential for deploying advanced AI solutions to tackle complex, data-intensive challenges in highly regulated industries.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely emphasizes that **data quality and meticulous context management are paramount** for building reliable agentic AI systems, often finding them more impactful than complex agent architectures. There's significant skepticism regarding the **lack of robust evaluation and transparency for multi-agent decomposition and dynamic workflows**, with many questioning their actual merit and effectiveness over simpler, task-specific approaches like search and retrieval.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>martinfowler.com</span>
+        <span>·</span>
+        <span>92 pts</span>
+        <span>·</span>
+        <span>19 comments</span>
+        <span>·</span>
+        <span>by sarangk90</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://martinfowler.com/articles/reliable-llm-bayer.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48615680" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🔐 AI Security</div>
+            
+            <h2 class="story-title"><a href="https://www.argusred.com/cli" target="_blank" rel="noopener">New AI Pen Testing Model Sidesteps Guardrails for Uncensored Vulnerability Discovery</a></h2>
+            <p class="story-summary">Anthropic and OpenAI's publicly available models are explicitly guard-railed so that they refuse offensive tasks. And their cyber-focussed models are gated for enterprises. This leaves SMEs and mid market open to major vulnerabilities. AI can be used as both an adversarial and defensive tool in the world of cyber. A worst case outcome is if only the adversaries have access. Meanwhile, most existing AI cyber tools are just wrappers. The problem is that they still have all the guardrails on from the foundation model where they will inherit its refusals. For this project we've post-trained a spec</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project directly addresses the critical tension between AI safety guardrails and practical cybersecurity needs, particularly for SMEs, by developing a specialized model for offensive security tasks like pen-testing. By enabling defensive use of AI without inherited refusals, it aims to democratize advanced security tools and counter a potential asymmetry where only adversaries leverage unconstrained AI capabilities. This initiative underscores the complex ethical considerations surrounding AI deployment in security and the need for context-aware model development.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely acknowledges that AI models can be relatively easily post-trained for offensive security, suggesting that AI-based hacking will become widely accessible despite current safety measures. However, there's significant skepticism regarding the unique value proposition of this specific tool compared to existing methods for leveraging AI in security, alongside concerns about the responsible release and safety implications of offensive tools.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>argusred.com</span>
+        <span>·</span>
+        <span>79 pts</span>
+        <span>·</span>
+        <span>37 comments</span>
+        <span>·</span>
+        <span>by dk189</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.argusred.com/cli" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48609231" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🤥 AI Hallucination &amp; Reliability</div>
+            
+            <h2 class="story-title"><a href="https://arrowtsx.dev/bigger-models/" target="_blank" rel="noopener">Large AI Models Under Fire: GPT-5.5 Hallucinates More as Claude Fable 5 Faces Ban</a></h2>
+            <p class="story-summary">A shift is happening among major AI labs, who are becoming increasingly skeptical of endless parameter count and training data scaling. The limits of this paradigm were put on the world’s stage when Claude Fable 5 was restricted by the US government just three days after its release, marking the first US AI ban stemming from national security. One of the biggest
+models in the world was banned because a single jailbreak was too much of a risk. The above is true in almost all cases. The biggest models in the world clearly score the highest on the Artificial Analysis Intelligence
+Index.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The summary ironically exemplifies the very hallucination it discusses, fabricating details like &quot;Claude Fable 5&quot; and its US government ban. This deepens the title's concern about model reliability, underscoring the critical need for rigorous factual verification, not just *of* AI models, but *in the discourse surrounding* AI capabilities and limitations.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely questions the straightforward interpretation of &quot;hallucination rate,&quot; suggesting it's a tricky metric that doesn't fully capture real-world accuracy or performance. A key consensus is that models, especially large ones, are often trained in a way that prevents them from admitting &quot;I don't know,&quot; incentivizing them to always provide an answer, even if incorrect. This inability to abstain from answering is seen as a primary driver of high hallucination rates, regardless of whether it's an inherent issue with scale or a consequence of current training paradigms.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>arrowtsx.dev</span>
+        <span>·</span>
+        <span>525 pts</span>
+        <span>·</span>
+        <span>252 comments</span>
+        <span>·</span>
+        <span>by oshrimpton</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://arrowtsx.dev/bigger-models/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48600167" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Web Community 👋</div>
+            
+            <h2 class="story-title"><a href="https://townsquare.cauenapier.com/" target="_blank" rel="noopener">TownSquare: A Tiny Layer Bringing Real-Time Social Presence to Websites</a></h2>
+            <p class="story-summary">TownSquare, a tiny presence layer for websites The web is full of content but empty of people. TownSquare brings a little presence
+          back. Visitors can see each other, say a few words, and share the same space. Click, tap, or use ← → to move · Press T or tap your name to say something · Press J to jump and H to high-five with someone</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">TownSquare addresses the prevalent issue of lonely websites by introducing a lightweight, real-time social layer, allowing visitors to see and minimally interact with each other directly on any page. This low-friction approach, with simple avatar movements and chat, aims to transform passive content consumption into a more engaging, communal experience. It effectively brings a &quot;third place&quot; dimension to static web content, fostering a subtle sense of shared presence and community.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community's immediate consensus highlights the significant moderation challenges faced by TownSquare, with multiple comments noting its live demo quickly devolved into offensive and abusive content. While some users recognized its potential for simple chat or multiplayer matching, the overwhelming sentiment points to the inherent difficulties and resource strain of implementing an unmoderated, anonymous public layer on websites.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>townsquare.cauenapier.com</span>
+        <span>·</span>
+        <span>165 pts</span>
+        <span>·</span>
+        <span>84 comments</span>
+        <span>·</span>
+        <span>by cauenapier</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://townsquare.cauenapier.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48608570" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Database Benchmarking 📈</div>
+            
+            <h2 class="story-title"><a href="https://clickhouse.com/blog/postgresbench" target="_blank" rel="noopener">PostgresBench: Reproducible Benchmarks for Reliable Postgres Performance</a></h2>
+            <p class="story-summary">PostgresBench: A Reproducible Benchmark for Postgres Services PostgresBench: A Reproducible Benchmark for Postgres Services For years, we have focused on building fast systems. ClickHouse is an example of that focus. Performance is not a feature we add later.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">PostgresBench tackles the persistent challenge of accurately measuring and comparing database performance by prioritizing reproducibility, a crucial factor often overlooked in ad-hoc testing. This initiative underscores a fundamental shift where performance is an architectural principle, not a bolt-on feature, allowing engineers to integrate robust performance validation throughout the development lifecycle rather than scrambling to optimize late in the game.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally acknowledges the value and need for a reproducible Postgres benchmark, especially for comparing cloud instances across different providers. However, there are significant concerns about the benchmark's current scope and realism, with many suggesting longer run times to capture effects like checkpoints and advocating for broader coverage to include vanilla Postgres, more cloud services, and even client-side performance. Despite its potential, some users also note a lack of current open-source community adoption.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>clickhouse.com</span>
+        <span>·</span>
+        <span>101 pts</span>
+        <span>·</span>
+        <span>22 comments</span>
+        <span>·</span>
+        <span>by saisrirampur</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://clickhouse.com/blog/postgresbench" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48611942" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Ethics &amp; Development</div>
+            
+            <h2 class="story-title"><a href="https://brooker.co.za/blog/2026/06/19/waiting.html" target="_blank" rel="noopener">AWS Engineer Focuses on Agentic AI Safety and Policy</a></h2>
+            <p class="story-summary">I like to build things that work, and do cool stuff. I also dabble in machining, welding, cooking, and skiing. I am an engineer at Amazon Web Services (AWS) in Seattle, where I work on agentic AI, especially safety and policy for agentic AI. Before that, I worked on EC2, EBS, databases, serverless, and serverless databases. My Publications and Videos @marcbrooker on Mastodon @MarcJBrooker on Twitter Is this blog written by AI?</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post introduces an AWS engineer deeply involved in the critical and burgeoning field of agentic AI safety and policy, showcasing a blend of advanced cloud infrastructure expertise with ethical AI considerations. The summary effectively positions the author as a key player at the intersection of cutting-edge AI development and responsible deployment. The concluding, meta-question &quot;Is this blog written by AI?&quot; cleverly underscores the very themes of agency and AI discernment that the author works on.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely critiques the article for its lack of mathematical substance, poor explanation, and failure to clearly convey its central point. While there's a consensus that user experience is heavily influenced by &quot;worst-case&quot; scenarios, some commenters advocate for moving beyond simple p99 metrics towards more sophisticated, user-centric measures or a deeper understanding of concepts like the inspection paradox to truly capture the impact of latency.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>brooker.co.za</span>
+        <span>·</span>
+        <span>91 pts</span>
+        <span>·</span>
+        <span>26 comments</span>
+        <span>·</span>
+        <span>by birdculture</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://brooker.co.za/blog/2026/06/19/waiting.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48612740" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🛠️ DIY Computing</div>
+            
+            <h2 class="story-title"><a href="https://www.philipzucker.com/td4-4bit-cpu/" target="_blank" rel="noopener">TD4 4-Bit DIY CPU Kit: Your Hands-On Introduction to Computer Architecture</a></h2>
+            <p class="story-summary">Guide to the TD4 4-bit DIY CPU | Hey There Buddo! I bought a cute little 4 bit cpu kit from Aliexpress called the TD4. It has 2 registers, some LEDs, and 16 bytes of program ROM. Quite limited but still very cool and teaches a lot of principles of computer architecture. The documentation, schematics, and pictures for this cpu are here https://github.com/wuxx/TD4-4BIT-CPU .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This guide underscores the profound educational value of engaging with minimalist hardware, demonstrating how a simple 4-bit CPU kit can demystify complex computer architecture principles. Despite its extreme limitations, it offers an accessible, hands-on approach to understanding fundamental CPU operation, bridging the gap between abstract theory and tangible hardware. Such projects are invaluable for beginners looking to grasp the foundational workings of computing from the ground up.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses strong admiration for the TD4 DIY CPU, particularly appreciating its fundamental, &quot;old school&quot; programming method. There's also significant curiosity regarding its functionality and potential for expansion, with users already envisioning future applications like running 4-bit games.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>philipzucker.com</span>
+        <span>·</span>
+        <span>31 pts</span>
+        <span>·</span>
+        <span>3 comments</span>
+        <span>·</span>
+        <span>by andrewstuart</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.philipzucker.com/td4-4bit-cpu/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48591276" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">💻 Software Criticism</div>
+            
+            <h2 class="story-title"><a href="https://www.extremetech.com/computing/windows-11s-new-media-player-uses-35x-more-ram-charges-for-popular-video" target="_blank" rel="noopener">Windows 11's New Media Player Bloats RAM by 3.5x, Charges for Basic Codecs</a></h2>
+            <p class="story-summary">Windows 11's New Media Player Uses 3.5x More RAM, Charges for Popular Video Codecs | Extremetech Microsoft's new Media Player for Windows 11 is drawing criticism now that tests have found it to use far more memory than the classic Windows Media Player. Moreover, the new player hides some popular codecs behind paywalls. The modern Media Player is said to use around 377MB of RAM when idle, compared to roughly 103MB for the old player—about 3.5x as much memory while doing absolutely nothing. The program takes longer to open local video files, with startup time increasing roughly 50% from about two seconds on the legacy player to three seconds on the new one, per Windows Latest's tests .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This release highlights a concerning trend of &quot;modern&quot; software becoming significantly more resource-intensive without clear user benefits, exemplified by the new Media Player's 3.5x RAM increase and slower performance. The decision to paywall popular video codecs further alienates users, reflecting a user-unfriendly monetization strategy that risks driving users towards established, free third-party alternatives and undermining adoption of Microsoft's own offering.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely dismisses the &quot;new&quot; Windows Media Player, criticizing its significantly increased RAM usage, which they attribute to its web-based tech stack rather than a native implementation. Commenters also express frustration over Microsoft charging for common video codecs like HEVC—an issue some note isn't new—further solidifying their preference for robust third-party alternatives like VLC. Overall, there's a strong consensus that the default player is rarely used and is a poorly executed application.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>extremetech.com</span>
+        <span>·</span>
+        <span>283 pts</span>
+        <span>·</span>
+        <span>160 comments</span>
+        <span>·</span>
+        <span>by tcp_handshaker</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.extremetech.com/computing/windows-11s-new-media-player-uses-35x-more-ram-charges-for-popular-video" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48609343" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Privacy Tech</div>
+            
+            <h2 class="story-title"><a href="https://github.com/mysk-research/loupe" target="_blank" rel="noopener">Loupe iOS App Exposes Native App Data Access</a></h2>
+            <p class="story-summary">GitHub - mysk-research/loupe: A privacy-focused iOS app that raises awareness about what native apps can see · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Loupe offers users a crucial tool to demystify app permissions on iOS, providing real-time visibility into the data access capabilities of native applications. This initiative empowers users to concretely understand their digital footprint, fostering greater transparency and challenging the abstract nature of app privacy controls. It highlights the ongoing need for user-centric tools that bridge the gap between declared permissions and actual data consumption by apps.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is largely surprised and concerned by the extensive amount of seemingly private user and device data (like setup dates, pasteboard activity, and app probing capabilities) that iOS apps can access without explicit user permission. There is a strong consensus that Apple should offer greater transparency and more granular privacy controls—such as per-category permissions or opt-in internet access—to better protect user privacy from these &quot;egregious&quot; data leaks.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>267 pts</span>
+        <span>·</span>
+        <span>93 comments</span>
+        <span>·</span>
+        <span>by Cider9986</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/mysk-research/loupe" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48608645" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 21, 2026</div>
+    </footer>
+</body>
+</html>
