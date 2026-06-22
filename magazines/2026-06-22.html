@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 22, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Monday</div>
+        <div class="masthead-year">June 22, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Anthropic Adds ID Verification to Claude for Abuse Prevention and Compliance ⚡</span>
+            <span class="toc-score">766 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Danish Police Cut Power During Raid on Privacy Activist Lars Andersen to Avoid Filming</span>
+            <span class="toc-score">273 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Open Models: The Era of Low Professional Risk Has Arrived ⚡</span>
+            <span class="toc-score">235 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Recall Equips Claude Code with Offline Project Memory, Ending Token Waste ⚡</span>
+            <span class="toc-score">115 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Build a Lisp Interpreter in Python</span>
+            <span class="toc-score">185 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Geometric Algebra Isn't a Fix-All: Focus on Simpler Multivectors Instead</span>
+            <span class="toc-score">126 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Our Brains Weren't Evolved for the Modern News Flood: Manage Your Intake</span>
+            <span class="toc-score">421 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Switzerland Launches Apertus: A Fully Open Foundation Model for Sovereign AI</span>
+            <span class="toc-score">395 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Munich 1991: The Forgotten Foundations of Our Trillion-Dollar AI Boom</span>
+            <span class="toc-score">75 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Demystifying GPU Occupancy: A First-Principles Guide for AMD MI355X Performance</span>
+            <span class="toc-score">48 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🛡️ AI Policy &amp; Governance</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://support.claude.com/en/articles/14328960-identity-verification-on-claude" target="_blank" rel="noopener">Anthropic Adds ID Verification to Claude for Abuse Prevention and Compliance</a></h2>
+            <p class="story-summary">Identity verification on Claude | Claude Help Center Being responsible with powerful technology starts with knowing who is using it. Identity verification helps us prevent abuse, enforce our usage policies, and comply with legal obligations. We are rolling out identity verification for a few use cases, and you might see a verification prompt when accessing certain capabilities, as part of our routine platform integrity checks, or other safety and compliance measures. We only use your verification data to confirm who you are and not for any other purposes.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This initiative by Anthropic for Claude signals a significant step towards greater accountability and governance within the powerful AI landscape. It underscores the industry's evolving commitment to preventing abuse and ensuring legal compliance, balancing user accessibility with the critical need for responsible AI deployment and mitigating societal risks.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses significant concern and frustration over Claude's identity verification requirements, particularly regarding its impact on non-US citizens and potential for permanent account lockouts. Users are worried about privacy given the involvement of third-party verification services like Persona, and many see this as a restrictive trend that could hinder access to advanced AI models and even lead to black markets for tokens. While some note these checks aren't entirely new, the current discussion highlights renewed anxieties about AI neutrality and accessibility.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>support.claude.com</span>
+        <span>·</span>
+        <span>766 pts</span>
+        <span>·</span>
+        <span>643 comments</span>
+        <span>·</span>
+        <span>by bathory</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://support.claude.com/en/articles/14328960-identity-verification-on-claude" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48618455" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">⚖️ Civil Liberties</div>
+            
+            <h2 class="story-title"><a href="https://twitter.com/LarsAnders1620/status/2068208864747540516#m" target="_blank" rel="noopener">Danish Police Cut Power During Raid on Privacy Activist Lars Andersen to Avoid Filming</a></h2>
+            <p class="story-summary">Lars Andersen on X: &quot;Police go directly for the circuit breaker panel to avoid being filmed
+
+This post will be in English, because there apparently is a lot of interest in what happened to me yesterday. I'm a libertarian danish privacy activist and former police officer and I have been doing https://t.co/jvs0BJJeBu&quot; / X Police go directly for the circuit breaker panel to avoid being filmed
+
+This post will be in English, because there apparently is a lot of interest in what happened to me yesterday. I'm a libertarian danish privacy activist and former police officer and I have been doing activism for about 15 years. I have had a bit of time to think about my arrest and the actions of the masked police that broke down my door - with no prior warning.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The raid on a prominent privacy activist, coupled with the police's deliberate tactic to cut power to prevent filming, raises significant alarms about the erosion of transparency and accountability in state operations. This incident underscores a concerning trend where authorities appear to actively circumvent public oversight, directly challenging the fundamental right to document police actions and the broader principles of civil liberties in a democratic society. It highlights the growing tension between state power and individual rights, particularly for those championing privacy and digital freedoms.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses a mixed and nuanced view of Lars Andersen, acknowledging his controversial tactics like doxing and attempting to track ministers, while some also commend him for exposing government hypocrisy. However, there's a strong consensus of concern and criticism regarding the police's actions during the raid, particularly the cutting of power and seizure of cameras, which many interpret as an attempt to prevent documentation and suppress transparency. Furthermore, several commenters point out the irony of a &quot;privacy activist&quot; using Google Nest cameras.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>twitter.com</span>
+        <span>·</span>
+        <span>273 pts</span>
+        <span>·</span>
+        <span>217 comments</span>
+        <span>·</span>
+        <span>by I_am_tiberius</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://twitter.com/LarsAnders1620/status/2068208864747540516#m" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48625823" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🤖 Open Source AI</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://www.marble.onl/posts/cancel_claude.html" target="_blank" rel="noopener">Open Models: The Era of Low Professional Risk Has Arrived</a></h2>
+            <p class="story-summary">There is
+minimal downside to switching to open models Andrew Marble marble.onl andrew@willows.ai June 21, 2026 There was a time not too long ago when using Linux entailed some
+professional risk 1 . First there was compatibility: you
+may not have been able to render a Word document or PowerPoint
+correctly, and you might have had to trust Open Office’s export
+capability to render docs the way you wanted. There might have been
+specialty file formats you couldn’t easily view and so couldn’t
+collaborate.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece makes a compelling case for adopting open models by drawing a historical parallel to Linux adoption, suggesting that the perceived professional risks are now minimal. It highlights a maturing open-source AI ecosystem where compatibility and functionality are no longer major barriers, enabling wider enterprise and professional integration. This shift indicates a growing confidence in community-driven AI development, positioning open models as a viable and increasingly attractive alternative to proprietary solutions.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely disputes the claim of &quot;minimal downside&quot; to switching to open models, identifying several significant hurdles. Commenters frequently cite a persistent capability gap compared to top proprietary models, operational complexities in implementing and integrating them into existing &quot;harnesses,&quot; and potential privacy concerns when relying on third-party hosting services. While acknowledging future potential and the impressive nature of local models, the overall sentiment suggests open models are &quot;not there yet&quot; for many critical applications.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>marble.onl</span>
+        <span>·</span>
+        <span>235 pts</span>
+        <span>·</span>
+        <span>199 comments</span>
+        <span>·</span>
+        <span>by amarble</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.marble.onl/posts/cancel_claude.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48622518" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Tools</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://github.com/raiyanyahya/recall" target="_blank" rel="noopener">Recall Equips Claude Code with Offline Project Memory, Ending Token Waste</a></h2>
+            <p class="story-summary">GitHub - raiyanyahya/recall: Stop wasting tokens and re-explaining your project every session. Recall gives Claude Code durable memory — entirely offline.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project tackles a major pain point for developers using LLMs like Claude Code: the repetitive need to re-explain project context, which wastes tokens and time. By offering local, durable, and entirely offline memory, Recall provides a practical solution that enhances developer efficiency, reduces API costs, and addresses privacy concerns inherent with cloud-based AI interactions.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely expresses skepticism regarding the necessity and efficacy of a dedicated &quot;local project memory&quot; tool. Many users prefer starting fresh with LLMs for new tasks or employ simple, often manual, methods like dated project diaries to provide context. A significant concern raised is that unfiltered or stale project memory could actually hinder LLM performance rather than help it.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>115 pts</span>
+        <span>·</span>
+        <span>72 comments</span>
+        <span>·</span>
+        <span>by mateenah</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/raiyanyahya/recall" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48622590" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">⚙️ Interpreter Design</div>
+            
+            <h2 class="story-title"><a href="https://norvig.com/lispy.html" target="_blank" rel="noopener">Build a Lisp Interpreter in Python</a></h2>
+            <p class="story-summary">(How to Write a (Lisp) Interpreter (in Python)) (How to Write a (Lisp) Interpreter (in Python)) This page has two purposes: to describe how to implement computer
+language interpreters in general, and in particular to build an interpreter
+for most of the Scheme dialect of Lisp using Python 3 as the implementation language. I call my language and interpreter Lispy ( lis.py ). Years ago, I showed how to write a semi-practical Scheme interpreter Java and in in Common
+Lisp ).</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece offers a foundational tutorial on implementing a language interpreter, using the classic Lisp/Scheme as the target and Python as the implementation language. Despite its age, it serves as an excellent pedagogical resource for understanding the core mechanics of parsing, evaluation, and execution, making complex compiler/interpreter design principles accessible to a broad audience. Its focus on a practical, working example helps demystify a crucial aspect of computer science.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community consistently recognizes Peter Norvig's &quot;Lispy&quot; as a classic and foundational resource for learning how to write programming language interpreters. Its frequent reappearance on the platform highlights its enduring educational value, prompting discussions about similar projects and the intrinsic joy many developers find in implementing a Lisp. The comments reflect a consensus that building a Lisp interpreter is an excellent learning exercise, often revisited by developers.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>norvig.com</span>
+        <span>·</span>
+        <span>185 pts</span>
+        <span>·</span>
+        <span>61 comments</span>
+        <span>·</span>
+        <span>by tosh</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://norvig.com/lispy.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48619831" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🧮 Mathematics Critique</div>
+            
+            <h2 class="story-title"><a href="https://alexkritchevsky.com/2024/02/28/geometric-algebra.html" target="_blank" rel="noopener">Geometric Algebra Isn't a Fix-All: Focus on Simpler Multivectors Instead</a></h2>
+            <p class="story-summary">Every once in a while the internet gets talking about Geometric Algebra (henceforth GA) and how it’s a new theory of math that fixes everything that’s wrong with linear algebra and multivariable calculus. When I come across this stance I am compelled to respond with something like: “wait wait, it’s not true! GA is clearly onto something but there’s also a lot wrong with it. What you probably want is just the concepts of multivectors and the wedge product!” Which is not very effective, because it takes a long time to convince anyone why, and it’s also not very productive, because this just keeps happening over and over without anything changing. Many people agree with me on this, but they deal with it by mostly ignoring GA instead of complaining about it.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece highlights the recurring, often overstated internet enthusiasm for Geometric Algebra (GA) as a panacea for perceived issues in linear algebra and multivariable calculus. The author argues that while GA contains valuable concepts, its broader claims are frequently exaggerated and difficult to effectively rebut, leading to a cyclical pattern of misunderstanding and debate. This frustration underscores the challenge of critically evaluating novel mathematical frameworks against popular, revolutionary narratives within a public discourse.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely aligns with the article's critique against Geometric Algebra, viewing it as often failing to offer significant advantages over established mathematical formalisms like differential forms or Lie algebras in theoretical applications. While many commenters concur with the assessment of GA's limitations or &quot;weird ideology,&quot; some also criticize the article's dismissive tone and perceived ad hominem attacks against proponents of GA.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>alexkritchevsky.com</span>
+        <span>·</span>
+        <span>126 pts</span>
+        <span>·</span>
+        <span>123 comments</span>
+        <span>·</span>
+        <span>by Hbruz0</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://alexkritchevsky.com/2024/02/28/geometric-algebra.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48617782" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🧠 Neuroscience/Well-being</div>
+            
+            <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/06/260614012006.htm" target="_blank" rel="noopener">Our Brains Weren't Evolved for the Modern News Flood: Manage Your Intake</a></h2>
+            <p class="story-summary">Your brain was never designed for this much bad news | ScienceDaily Your brain was never designed for this much bad news Date: June 16, 2026 Source: The Conversation Summary: Humans evolved to pay close attention to danger, but today that instinct is being overwhelmed by an endless supply of bad news from around the world. Researchers say the answer isn’t to stop following current events—it’s to build healthier habits around how, when, and where we get our news. Facebook Twitter Pinterest LinkedIN Email</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This article highlights a critical mismatch between our evolutionarily wired threat-detection system and the overwhelming deluge of negative news in the modern digital age. It suggests that our brains are ill-equipped to process such a constant stream of global dangers, leading to potential mental health impacts. The proposed solution emphasizes building healthier news consumption habits, advocating for mindful engagement over complete avoidance as a strategy for psychological resilience.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that the human brain's evolutionary wiring to detect danger and negativity is being overstimulated and exploited by the modern internet and news media. This inherent &quot;negativity bias&quot; leads to information overload, &quot;doomscrolling,&quot; and an amplified sense of distress, making it challenging to filter noise from reality. While some find awareness of global issues grounding, the dominant sentiment is that this constant barrage of bad news is detrimental, akin to an unhealthy diet for the mind.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>sciencedaily.com</span>
+        <span>·</span>
+        <span>421 pts</span>
+        <span>·</span>
+        <span>317 comments</span>
+        <span>·</span>
+        <span>by colinprince</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.sciencedaily.com/releases/2026/06/260614012006.htm" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48615569" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🔓 Open AI Governance</div>
+            
+            <h2 class="story-title"><a href="https://apertvs.ai/" target="_blank" rel="noopener">Switzerland Launches Apertus: A Fully Open Foundation Model for Sovereign AI</a></h2>
+            <p class="story-summary">Fully Open Foundation Model for Sovereign AI Developed by the Swiss AI Initiative as a collaborative effort between EPFL, ETH Zurich, and CSCS. Open weights, open data, open science. Training data, code, weights, methods, and alignment principles — all documented and reproducible. Apertus is to AI as Open is to Source.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Apertus delivers a fully open and reproducible foundation model for &quot;Sovereign AI,&quot; a crucial step towards ensuring national or organizational control and alignment of advanced AI systems. By open-sourcing everything from weights to alignment principles, this Swiss initiative sets a new standard for transparency and collaboration, directly countering the prevailing trend of closed-source proprietary models. This could democratize AI development, enhance trust, and enable broader scrutiny essential for ethical and safe AI progress.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community generally supports the concept of sovereign and open AI but expresses significant skepticism regarding Apertus's current execution and competitiveness. Commenters note its slow progress, reliance on outdated models, poor multilingual performance, and perceived committee-like pace. While some hope it represents a broader trend of open models challenging commercial AI, the prevailing sentiment is one of caution and doubt about its ability to deliver a competitive product soon.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>apertvs.ai</span>
+        <span>·</span>
+        <span>395 pts</span>
+        <span>·</span>
+        <span>132 comments</span>
+        <span>·</span>
+        <span>by T-A</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://apertvs.ai/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48622778" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">AI History 📜</div>
+            
+            <h2 class="story-title"><a href="https://people.idsia.ch/~juergen/ai-boom-roots-munich-1991.html" target="_blank" rel="noopener">Munich 1991: The Forgotten Foundations of Our Trillion-Dollar AI Boom</a></h2>
+            <p class="story-summary">Munich 1991: the Roots of the Current AI Boom David Ha , Sakana AI Jürgen Schmidhuber , KAUST &amp; IDSIA 18 June 2026 Munich 1991: the Roots of the Current AI Boom Preface by David Ha When we look at the massive scale of today’s Artificial Intelligence boom, it is easy to forget that the foundations of this trillion-dollar industry were laid down over 30 years ago in Munich. Today, the world's top tech companies are investing hundreds of billions into scaling up Large Language Models (LLMs) such as ChatGPT.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This insight underscores that the current AI boom, particularly in Large Language Models, isn't a sudden phenomenon but the culmination of decades of foundational research. By pinpointing origins in 1991 Munich, it challenges the perception of overnight success, emphasizing the long-term, incremental nature of technological progress and implicitly crediting early pioneers whose work laid critical groundwork for modern generative AI.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely questions the article's premise that &quot;Munich 1991&quot; represents *the* definitive root of the current AI boom. Many commenters emphasize earlier foundational work by Hinton and others in the 1980s, particularly on backpropagation, as more direct influences. There's also a significant discussion about the complex attribution of credit in AI research, often referencing Jürgen Schmidhuber's claims versus the broader historical context of theoretical and applied developments.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>people.idsia.ch</span>
+        <span>·</span>
+        <span>75 pts</span>
+        <span>·</span>
+        <span>24 comments</span>
+        <span>·</span>
+        <span>by tosh</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://people.idsia.ch/~juergen/ai-boom-roots-munich-1991.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48599998" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">HPC Engineering 🚀</div>
+            
+            <h2 class="story-title"><a href="https://indianspeedster.github.io/blog/occupancy-math-mi355x/" target="_blank" rel="noopener">Demystifying GPU Occupancy: A First-Principles Guide for AMD MI355X Performance</a></h2>
+            <p class="story-summary">Occupancy Math on the AMD MI355X (CDNA4): A From-First-Principles Guide · Shekhar Pandey Occupancy Math on the AMD MI355X (CDNA4): A From-First-Principles Guide May 31, 2026  · GPU, AMD, CDNA4, kernels, occupancy Ask a GPU kernel engineer how their kernel is doing and occupancy comes up within a sentence or two. It’s the number everyone quotes and the dial everyone reaches for — and, in my experience, the metric people understand least.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This guide tackles a critical, yet frequently misunderstood, metric in GPU kernel engineering: occupancy. By providing a &quot;from-first-principles&quot; explanation for AMD's advanced CDNA4 architecture, it empowers developers to deeply understand and effectively optimize the utilization of high-performance computing resources. Mastering occupancy is crucial for maximizing throughput and efficiency in demanding parallel workloads, which is essential for AI, machine learning, and scientific applications leveraging these powerful accelerators.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses a mixed but generally critical consensus regarding the post's presentation. While some appreciated the valuable technical insights, particularly the analysis of FP4 PFLOP values on the AMD MI355X, there's widespread frustration with its readability. Users cited issues such as &quot;LLMglish&quot; writing style, a fragmented structure requiring constant cross-referencing, and significant accessibility problems due to low-contrast fonts that made the text illegible without workarounds.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>indianspeedster.github.io</span>
+        <span>·</span>
+        <span>48 pts</span>
+        <span>·</span>
+        <span>5 comments</span>
+        <span>·</span>
+        <span>by skidrow</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://indianspeedster.github.io/blog/occupancy-math-mi355x/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48571136" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 22, 2026</div>
+    </footer>
+</body>
+</html>
