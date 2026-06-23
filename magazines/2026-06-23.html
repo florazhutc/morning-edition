@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 23, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Tuesday</div>
+        <div class="masthead-year">June 23, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Valve Launches Steam Machines Today: PC Gaming for the Living Room</span>
+            <span class="toc-score">1532 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Deno Launches Desktop Application Support</span>
+            <span class="toc-score">1064 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Polymarket Pays Creators to Flood Social Media with Deceptive Videos</span>
+            <span class="toc-score">259 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Photographer Uncovers Accidental Wigglegrams Born From Indecisive Habits</span>
+            <span class="toc-score">527 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Munich 1991: The Origin Story of Today's Trillion-Dollar AI and LLM Industry</span>
+            <span class="toc-score">221 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Sick of Ads? Puzzle Lair is Your New Ad-Free Home for Daily Logic Puzzles</span>
+            <span class="toc-score">188 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">OpenAI Codex Bug: 640TB/Year Log Writes Rapidly Drain SSD Endurance</span>
+            <span class="toc-score">484 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Oak: Version Control Reimagined for AI Agents</span>
+            <span class="toc-score">183 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Mitchell Hashimoto Boosts Zig Software Foundation Support by $400K, Reaching $700K Total</span>
+            <span class="toc-score">772 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">OpenAI Launches GPT-5.5-Cyber for Cybersecurity, Ditching AI Hype</span>
+            <span class="toc-score">80 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">Gaming Hardware 🎮</div>
+            
+            <h2 class="story-title"><a href="https://store.steampowered.com/news/group/45479024/view/685257114654870245" target="_blank" rel="noopener">Valve Launches Steam Machines Today: PC Gaming for the Living Room</a></h2>
+            <p class="story-summary">Steam Hardware - Steam Machine launches today! Home Discovery Queue Wishlist Points Shop News Charts Home Discussions Workshop Market Broadcasts All trademarks are property of their respective owners in the US and other countries. Home Discovery Queue Wishlist Points Shop News Charts</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The launch of the Steam Machine marked Valve's ambitious, albeit ultimately unsuccessful, attempt to bring PC gaming into the living room with a console-like experience. While innovative for its Linux-based SteamOS and open hardware platform, it struggled to gain traction due to market fragmentation, a lack of compelling exclusive titles, and fierce competition from established consoles and powerful gaming PCs. Its commercial failure, however, provided valuable lessons that likely contributed to the later, more successful development of the Steam Deck.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community appreciates Valve's commitment to user freedom and open hardware, particularly the ability to install other OSes and its potential to boost Linux gaming. However, there is significant concern regarding the Steam Machine's pricing, with many commenters finding its specifications (16GB RAM, 512GB storage) to be vastly overpriced for a desktop PC at $1,000+, potentially hindering its success.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>store.steampowered.com</span>
+        <span>·</span>
+        <span>1532 pts</span>
+        <span>·</span>
+        <span>1334 comments</span>
+        <span>·</span>
+        <span>by theschwa</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://store.steampowered.com/news/group/45479024/view/685257114654870245" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48632884" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🖥️ App Development</div>
+            
+            <h2 class="story-title"><a href="https://docs.deno.com/runtime/desktop/" target="_blank" rel="noopener">Deno Launches Desktop Application Support</a></h2>
+            <p class="story-summary">Desktop apps | Deno Docs Skip to main content</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Deno Desktop signifies a strategic expansion of the Deno runtime beyond web servers and CLI tools into the competitive landscape of native desktop application development. This move positions Deno as a direct competitor to frameworks like Electron and Tauri, offering a secure, web-standard-focused alternative for building cross-platform apps with JavaScript and TypeScript. It could attract web developers looking to leverage their existing skills for performant desktop applications, potentially broadening Deno's ecosystem and adoption.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses strong enthusiasm for Deno Desktop, praising Deno's overall maturity and direct TypeScript support as a significant advantage over Node.js and a compelling competitor to frameworks like Tauri. Primary concerns revolve around optimizing binary size, especially regarding bundled runtimes, and ensuring seamless integration with Deno's powerful permission system.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>docs.deno.com</span>
+        <span>·</span>
+        <span>1064 pts</span>
+        <span>·</span>
+        <span>386 comments</span>
+        <span>·</span>
+        <span>by GeneralMaximus</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://docs.deno.com/runtime/desktop/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48626137" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">⚖️ Platform Ethics &amp; Regulation</div>
+            
+            <h2 class="story-title"><a href="https://www.wsj.com/business/media/polymarket-social-media-bets-prediction-market-441cdeb5?st=HhTZY2" target="_blank" rel="noopener">Polymarket Pays Creators to Flood Social Media with Deceptive Videos</a></h2>
+            <p class="story-summary">Community discussion highlights: I finally gave in to my curiosity and downloaded Kalshi last week to place a few bets on the World Cup. I was blown away how easy it was. I placed a bet with real money within 5 minutes of downloading the app. They allow instant deposits with credit card, and ID verification was real time. I can’t imagine that the extreme accessibility and the typical dark patterns deployed by every popular app won’t eventually end badly. (I was also shocked that when looking at my credit card bill online, next </p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This insight underscores the critical ethical challenges posed by prediction markets, which combine aggressive, potentially deceptive marketing with dangerously accessible real-money betting. The use of &quot;deceptive videos,&quot; instant deposits, and &quot;dark patterns&quot; creates a high-risk environment, blurring the line between investment and gambling. This scenario demands immediate regulatory attention to safeguard consumers from potential financial harm and addiction.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views Polymarket's marketing tactics as deceptive and harmful, particularly concerning the promotion of gambling to young audiences. There is a strong consensus that online gambling platforms require significant regulation, with commenters questioning their legality and suggesting stricter controls like bet limits to mitigate societal harm.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>wsj.com</span>
+        <span>·</span>
+        <span>259 pts</span>
+        <span>·</span>
+        <span>191 comments</span>
+        <span>·</span>
+        <span>by Vaslo</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.wsj.com/business/media/polymarket-social-media-bets-prediction-market-441cdeb5?st=HhTZY2" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48614715" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">📸 Photography</div>
+            
+            <h2 class="story-title"><a href="https://lmao.center/blog/wiggle-accidents/" target="_blank" rel="noopener">Photographer Uncovers Accidental Wigglegrams Born From Indecisive Habits</a></h2>
+            <p class="story-summary">It is a kind of stereo image you make by looping frames together, like as a GIF. I am something of an indecisive photographer and when I like an angle I will take a lot of frames, from slightly different angles etc., looking for &quot;the shot&quot;. And since I am also a bit of a hoarder I never clear out my camera roll. &quot;Same shot from different angles&quot;? You know what that sounds a bit familiar.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post cleverly highlights how a common, almost &quot;inefficient&quot; photography habit – taking multiple, slightly varied shots – can serendipitously provide the perfect raw material for creating a dynamic wigglegram. It demonstrates an accidental synergy between a personal workflow quirk and a creative digital imaging technique, transforming what might be considered digital clutter into a unique visual art form. This insight emphasizes how novel applications can arise from observing and repurposing existing data patterns.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community generally recognizes wigglegrams as an interesting technique for pseudo-3D visualization, with discussions ranging from historical camera setups to modern DIY solutions and data visualization applications. However, there's a strong consensus that the quality varies wildly; while well-executed wigglegrams are appreciated, &quot;accidental&quot; or poorly aligned ones often lead to motion sickness and can detract from, rather than enhance, the illusion of depth. Crucial post-processing steps like image alignment are emphasized as vital for creating a pleasant and effective viewing experience.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>lmao.center</span>
+        <span>·</span>
+        <span>527 pts</span>
+        <span>·</span>
+        <span>122 comments</span>
+        <span>·</span>
+        <span>by gregsadetsky</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://lmao.center/blog/wiggle-accidents/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48605561" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">**AI History** 🕰️</div>
+            
+            <h2 class="story-title"><a href="https://people.idsia.ch/~juergen/ai-boom-roots-munich-1991.html" target="_blank" rel="noopener">Munich 1991: The Origin Story of Today's Trillion-Dollar AI and LLM Industry</a></h2>
+            <p class="story-summary">Munich 1991: the Roots of the Current AI Boom David Ha , Sakana AI Jürgen Schmidhuber , KAUST &amp; IDSIA 18 June 2026 Munich 1991: the Roots of the Current AI Boom Preface by David Ha When we look at the massive scale of today’s Artificial Intelligence boom, it is easy to forget that the foundations of this trillion-dollar industry were laid down over 30 years ago in Munich. Today, the world's top tech companies are investing hundreds of billions into scaling up Large Language Models (LLMs) such as ChatGPT.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece provides essential historical context for the current AI boom, revealing how foundational research from over three decades ago, notably in Munich in 1991, laid the groundwork for today's multi-billion dollar industry. It challenges the notion of AI's sudden emergence by tracing its roots, emphasizing that current advancements like LLMs are built upon a long and often unsung legacy of pioneering work.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community generally acknowledges the intellectual foundations laid in the early 1990s, particularly regarding Jürgen Schmidhuber's contributions like LSTMs. However, there's a strong consensus that the *current AI boom* is more directly rooted in the availability of powerful GPU compute (epitomized by NVIDIA and AlexNet in 2012) than just earlier theoretical work. While Schmidhuber's significant work is recognized, many commenters also express skepticism or criticism regarding his frequent and often aggressive claims of priority for various AI concepts, noting that he sometimes undermines his own credibility by conflating solid contributions with shakier ones.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>people.idsia.ch</span>
+        <span>·</span>
+        <span>221 pts</span>
+        <span>·</span>
+        <span>96 comments</span>
+        <span>·</span>
+        <span>by tosh</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://people.idsia.ch/~juergen/ai-boom-roots-munich-1991.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48599998" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🎮 Puzzles &amp; Indie Dev</div>
+            
+            <h2 class="story-title"><a href="https://puzzlelair.com/" target="_blank" rel="noopener">Sick of Ads? Puzzle Lair is Your New Ad-Free Home for Daily Logic Puzzles</a></h2>
+            <p class="story-summary">Free Online Logic Puzzles, Sudoku, Nonograms, Kakuro &amp; More | Puzzle Lair A daily workout for the part of you that loves a hard problem. When a puzzle type wins you over, a one-time
+      unlock opens its full catalog forever. Fill runs to match clue sums, no repeats. Draw a closed loop to match number edges.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This &quot;Show HN&quot; perfectly exemplifies user-driven development, born from a personal frustration with ad-heavy online puzzle sites. Its innovative &quot;one-time unlock&quot; payment model offers a compelling alternative to intrusive advertising or recurring subscriptions, directly addressing a common user pain point. This strategy aims to cultivate a community of puzzle enthusiasts willing to pay a premium for an uninterrupted, clean mental workout.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely appreciates the core idea of an ad-free puzzle site, with many commenters sharing similar frustrations about dark patterns and even building their own alternatives. However, there's significant skepticism regarding the project's true intent, with some users immediately questioning the collection of emails and the originality or quality of the puzzles, fearing new &quot;dark patterns&quot; might be introduced.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>puzzlelair.com</span>
+        <span>·</span>
+        <span>188 pts</span>
+        <span>·</span>
+        <span>112 comments</span>
+        <span>·</span>
+        <span>by HaxleRose</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://puzzlelair.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48629213" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🐛 Software Bug</div>
+            
+            <h2 class="story-title"><a href="https://github.com/openai/codex/issues/28224" target="_blank" rel="noopener">OpenAI Codex Bug: 640TB/Year Log Writes Rapidly Drain SSD Endurance</a></h2>
+            <p class="story-summary">Codex SQLite feedback logs can write ~640 TB/year and rapidly consume SSD endurance · Issue #28224 · openai/codex · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This severe logging bug in Codex goes beyond mere disk space consumption, posing a critical threat to hardware reliability by rapidly degrading SSD endurance and leading to premature failure. It starkly illustrates how seemingly innocuous background processes, if unchecked, can incur significant operational costs and unforeseen hardware impacts, particularly within data-intensive AI applications. This incident underscores the necessity of meticulous resource management and stringent logging policies to prevent such costly and disruptive system failures.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses strong frustration and calls Codex &quot;slopware&quot; due to critical bugs like the excessive logging that can write terabytes to SSDs, compounded by other performance issues like high GPU usage. There's significant disappointment with OpenAI's perceived slow response and initial silence on such a severe issue, leading users to share workarounds while acknowledging a fix has now been committed on GitHub.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>484 pts</span>
+        <span>·</span>
+        <span>264 comments</span>
+        <span>·</span>
+        <span>by vantareed</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/openai/codex/issues/28224" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48626930" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">AI Development 🤖</div>
+            
+            <h2 class="story-title"><a href="https://oak.space/oak/oak" target="_blank" rel="noopener">Oak: Version Control Reimagined for AI Agents</a></h2>
+            <p class="story-summary">Oak is a version control system I've been working on designed for agents ( https://oak.space ). It improves the speed and context your agents need when working on serious projects. With virtual mounts, agents locally and in the cloud no longer need a full copy of a repo to get working. You can work on many tasks in parallel without needing to download everything or fight worktrees. Version control shouldn't waste you or your agents time. It should be fast, creative and fun to make things with agents. Oak is still early in development. There's no Windows build and missing plenty of features (no</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Oak represents a forward-thinking evolution in version control, adapting its core tenets like parallel task management and partial context access specifically for AI agents rather than human developers. Its innovative use of virtual mounts directly tackles the efficiency challenges agents face with large repositories and distributed workflows, potentially streamlining autonomous software development significantly. This specialization underscores a nascent but critical trend: the need for developer tools purpose-built for AI agents to achieve optimal performance and collaboration.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely expresses skepticism about Oak's necessity as a Git alternative for agents. Commenters question the project's core value proposition, arguing that Git's performance is not the bottleneck in agent workflows and that human oversight remains the primary constraint. While a &quot;lazy mount&quot; feature is noted as interesting, it's generally not seen as a compelling enough reason to switch from Git.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>oak.space</span>
+        <span>·</span>
+        <span>183 pts</span>
+        <span>·</span>
+        <span>162 comments</span>
+        <span>·</span>
+        <span>by zdgeier</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://oak.space/oak/oak" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48631726" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">💰 Open Source Funding</div>
+            
+            <h2 class="story-title"><a href="https://mitchellh.com/writing/zig-donation-2026" target="_blank" rel="noopener">Mitchell Hashimoto Boosts Zig Software Foundation Support by $400K, Reaching $700K Total</a></h2>
+            <p class="story-summary">Pledging Another $400,000 to the Zig Software Foundation – Mitchell Hashimoto Pledging Another $400,000 to the Zig Software Foundation My family is pledging another $400,000 1 to the Zig Software Foundation (ZSF). This brings
+our total pledged support for ZSF to $700,000, after our initial donation in 2024 . Zig continues to earn my respect as a technical project and as a community.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Mitchell Hashimoto's continued substantial personal investment is a powerful validation for the Zig programming language, signaling strong confidence in its technical merit and community from a highly respected industry figure. This significant financial boost provides critical stability and resources, enabling foundational open-source development and potentially catalyzing further adoption and support for Zig. It highlights the growing importance of individual philanthropy in sustaining vital open-source infrastructure.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses strong approval and appreciation for the additional funding pledged to the Zig software foundation, viewing it as a positive step for the language. There's significant respect and admiration for Mitchell Hashimoto, the funder, both for his financial commitment and for his related projects like Ghostty, which is seen as a well-regarded codebase written in Zig. Overall, the sentiment is highly supportive of Zig's development and the individuals contributing to its ecosystem.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>mitchellh.com</span>
+        <span>·</span>
+        <span>772 pts</span>
+        <span>·</span>
+        <span>260 comments</span>
+        <span>·</span>
+        <span>by tosh</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://mitchellh.com/writing/zig-donation-2026" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48630020" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🔐 Cybersecurity AI</div>
+            
+            <h2 class="story-title"><a href="https://openai.com/index/daybreak-securing-the-world/" target="_blank" rel="noopener">OpenAI Launches GPT-5.5-Cyber for Cybersecurity, Ditching AI Hype</a></h2>
+            <p class="story-summary">Community discussion highlights: This is how you do it when you're not AS childish. You go &quot;here's a model for cybersecurity&quot; and put a price on it. I know they're releasing it to some vendors first, etc. but the lack of a clown spectacle is nice. The whole &quot;it's too dangerous to release!&quot; is complete hogwash. A person can take a hammer, walk out in the street, and we can count how many people he can kill with the hammer before he is stopped. My local hardware store still sells hammers, and I haven't seen the CEO of it claim th</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">OpenAI's direct release of GPT-5.5-Cyber for cybersecurity signals a significant maturation in AI product strategy, moving past earlier &quot;too dangerous to release&quot; narratives towards pragmatic, domain-specific applications. This approach prioritizes immediate utility and commercialization in critical fields, suggesting a more grounded perspective on AI risks akin to assessing everyday tools rather than indulging in speculative ethical debates. The community discussion highlights a preference for transparent deployment and real-world problem-solving over abstract alarmism.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses significant frustration regarding the inconsistent access and perceived double standards in the release of advanced AI models for cybersecurity. Many are critical of OpenAI seemingly releasing a &quot;Mythos-class&quot; model without restrictions, while Anthropic's comparable model was reportedly pulled for security concerns, deeming &quot;too dangerous to release&quot; claims as &quot;hogwash.&quot; There's a strong desire for practical, deployable cybersecurity AI tools with transparent benchmarks, rather than limited-access or &quot;PR stunt&quot; releases.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>openai.com</span>
+        <span>·</span>
+        <span>80 pts</span>
+        <span>·</span>
+        <span>38 comments</span>
+        <span>·</span>
+        <span>by AaronO</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://openai.com/index/daybreak-securing-the-world/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48639063" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 23, 2026</div>
+    </footer>
+</body>
+</html>
