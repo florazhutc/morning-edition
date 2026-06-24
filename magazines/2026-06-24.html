@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 24, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Wednesday</div>
+        <div class="masthead-year">June 24, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Valve's Steam Machines Launch, Bringing PC Gaming to the Living Room</span>
+            <span class="toc-score">1886 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Google Fires Engineer Behind Viral Workspace CLI Tool</span>
+            <span class="toc-score">495 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">WYSIWYG TikZ Editor Streamlines Visual Design of LaTeX Figures</span>
+            <span class="toc-score">383 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">DiffusionBench: New Holistic Benchmark for Generative Diffusion Transformers</span>
+            <span class="toc-score">33 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">AI's Costly Bait-and-Switch: Free Access Now Means Expensive Addiction Later</span>
+            <span class="toc-score">283 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Unlimited OCR: Baidu's One-Shot AI Unleashes Unbounded Document Parsing</span>
+            <span class="toc-score">468 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Mistral OCR 4 Sets New SOTA for Document Intelligence, Outperforming Rivals Across 170 Languages</span>
+            <span class="toc-score">465 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Elden Ring's Low-Tech AI Explains Its Infamously Obtuse NPC Quests</span>
+            <span class="toc-score">145 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Giant Trucks and SUVs: America's Deadly Shift to Bigger Vehicles</span>
+            <span class="toc-score">421 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">MonoLisa v3 Launches Proportional Text Font, Breaking Monospace-Only Mold</span>
+            <span class="toc-score">63 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🎮 Gaming Hardware</div>
+            
+            <h2 class="story-title"><a href="https://store.steampowered.com/news/group/45479024/view/685257114654870245" target="_blank" rel="noopener">Valve's Steam Machines Launch, Bringing PC Gaming to the Living Room</a></h2>
+            <p class="story-summary">Steam Hardware - Steam Machine launches today! Home Discovery Queue Wishlist Points Shop News Charts Home Discussions Workshop Market Broadcasts All trademarks are property of their respective owners in the US and other countries. Home Discovery Queue Wishlist Points Shop News Charts</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The launch of the Steam Machine represented a highly anticipated, yet ultimately unsuccessful, attempt by Valve to bring PC gaming to the living room console market. This high score reflects the significant industry excitement and speculation surrounding Valve's ambitious hardware play at the time. Despite its initial fanfare, the initiative struggled with market fragmentation and user adoption, paving the way for lessons learned in Valve's subsequent, more successful hardware endeavors like the Steam Deck.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely praises Valve for its commitment to user freedom, allowing alternative operating systems and applications on the Steam Machine, and for implementing a fair, randomized reservation system for its launch. However, there is significant concern and criticism regarding the device's high price point relative to its specifications, with many finding the $1000+ cost for 16GB RAM and 512GB storage to be poor value. While some express enthusiasm for supporting Linux gaming, the consensus suggests the product's pricing may be its biggest hurdle.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>store.steampowered.com</span>
+        <span>·</span>
+        <span>1886 pts</span>
+        <span>·</span>
+        <span>1658 comments</span>
+        <span>·</span>
+        <span>by theschwa</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://store.steampowered.com/news/group/45479024/view/685257114654870245" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48632884" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🚫 Workplace &amp; Ethics</div>
+            
+            <h2 class="story-title"><a href="https://twitter.com/JPoehnelt/status/2069482265953087602" target="_blank" rel="noopener">Google Fires Engineer Behind Viral Workspace CLI Tool</a></h2>
+            <p class="story-summary">Justin Poehnelt on X: &quot;Two months ago I was fired by Google for creating the Google Workspace CLI. It went viral, hit #1 on Hacker News, gained thousands of GitHub stars and many thousands of actual users in just a couple days. It was an incredible, confusing journey, from directors and leaders asking https://t.co/VprDW9DO9y&quot; / X Two months ago I was fired by Google for creating the Google Workspace CLI. It went viral, hit #1 on Hacker News, gained thousands of GitHub stars and many thousands of actual users in just a couple days.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This incident sharply illustrates the tension between employee innovation, even when beneficial and widely adopted, and stringent corporate intellectual property policies. Google's decision to terminate the developer for creating a wildly popular and useful CLI raises critical questions about how large tech companies manage internal talent, external contributions, and the fine line between personal projects and company assets. It highlights a potential disconnect where a tool that clearly serves the Google Workspace ecosystem can lead to dismissal, potentially chilling future unsanctioned developer initiatives.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is largely divided on Google's decision to fire an employee for creating a Workspace CLI. While many commenters believe the employee showed poor judgment by releasing a project that could be confused with an official Google product, justifying disciplinary action due to brand risk, a significant portion criticizes Google's heavy-handed response as bureaucratic overreach that stifles innovation and contradicts its historical encouragement of 20% projects. This tension highlights a perceived negative shift in big tech's approach to employee-led initiatives.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>twitter.com</span>
+        <span>·</span>
+        <span>495 pts</span>
+        <span>·</span>
+        <span>295 comments</span>
+        <span>·</span>
+        <span>by justinwp</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://twitter.com/JPoehnelt/status/2069482265953087602" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48649011" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🛠️ Developer Tool</div>
+            
+            <h2 class="story-title"><a href="https://tikz.dev/editor/" target="_blank" rel="noopener">WYSIWYG TikZ Editor Streamlines Visual Design of LaTeX Figures</a></h2>
+            <p class="story-summary">Hi all! TikZ is a widely-used LaTeX package for drawing figures in papers. It uses commands like \draw[-&gt;] (0,0) -- (1,2); to draw lines, shapes, text, etc. Academics usually code up their figures by hand, so there is lots of twiddling around with the coordinates and recompiling until things look nice. I guess it’s a bit like SVG, but it’s more code than markup, for example it has loops with \foreach. I built an open-source WYSIWYG TikZ editor (available for web and desktop) that allows you to edit your TikZ source code visually by dragging and resizing elements. It simultaneously shows the so</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This WYSIWYG editor directly addresses a significant pain point for LaTeX users by transforming the tedious, code-heavy process of creating TikZ figures into an intuitive visual experience. By abstracting the need for constant coordinate twiddling and recompiling, it dramatically boosts productivity and accessibility for academics and technical writers. This project exemplifies the trend of bringing user-friendly visual interfaces to traditionally programmatic domains, making complex tools more approachable and efficient.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely expresses enthusiasm for the TikZ Editor, praising it as a &quot;cool&quot; and &quot;awesome&quot; solution that directly addresses the common challenge of manual TikZ creation, which many find difficult or tedious. While highly praised for its concept and UI, a key point of critique is the generated TikZ code's reliance on absolute coordinates, which some users view as suboptimal for TikZ best practices.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>tikz.dev</span>
+        <span>·</span>
+        <span>383 pts</span>
+        <span>·</span>
+        <span>71 comments</span>
+        <span>·</span>
+        <span>by DominikPeters</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://tikz.dev/editor/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48645437" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI/ML Research</div>
+            
+            <h2 class="story-title"><a href="https://github.com/End2End-Diffusion/diffusion-bench" target="_blank" rel="noopener">DiffusionBench: New Holistic Benchmark for Generative Diffusion Transformers</a></h2>
+            <p class="story-summary">GitHub - End2End-Diffusion/diffusion-bench: Towards Holistic evaluation of Generative Diffusion Transformers!</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project introduces a critical benchmark, DiffusionBench, for the rapidly evolving field of generative diffusion transformers, highlighting a pressing need for more rigorous and comprehensive evaluation. Such a 'holistic evaluation' is crucial for moving beyond subjective assessments, providing standardized metrics that will enable clearer comparisons of model performance, deeper understanding of their limitations, and ultimately accelerate advancements in generative AI.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community, represented by a single comment, suggests that NanoGen is a more informative and practical framework than the one presented in the main post. It highlights NanoGen's utility as a unified platform for training and evaluating diffusion transformers with minimal configuration adjustments across various tasks.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>33 pts</span>
+        <span>·</span>
+        <span>1 comments</span>
+        <span>·</span>
+        <span>by ilreb</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/End2End-Diffusion/diffusion-bench" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48654274" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">💰 AI Business</div>
+            
+            <h2 class="story-title"><a href="https://blog.dshr.org/2026/06/ais-affordability-crisis.html" target="_blank" rel="noopener">AI's Costly Bait-and-Switch: Free Access Now Means Expensive Addiction Later</a></h2>
+            <p class="story-summary">A year ago in The Back Of The AI Envelope I pointed out that the AI platforms were running the drug-dealer's algorithm, &quot;the first one's free&quot;. By massively subsidizing the use of their products, they were generating overwhelming demand for them. They used this demand to justify massive investments, in the hope that, by the time they had to show a return on these invetment, the users would be so addicted that they would pay the vastly higher prices needed to generate a return. I have to confess that I was late to the party. The earliest skepticism I've been able to find was from Sequoia Capital's David Cahn in September 2023, entitled AI’s $200B Question .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece critically examines the potentially unsustainable &quot;drug-dealer's algorithm&quot; employed by AI platforms, where initial subsidization creates artificial demand to justify massive investments. It raises crucial questions about the long-term financial viability of current AI investment trends, suggesting an impending reckoning where users must pay significantly higher prices or the market could face a significant correction.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely believes that while AI services are currently expensive, their costs are expected to decrease over time as the technology matures and competition, especially from open-source models, intensifies. However, a more significant concern is the struggle companies face in achieving a clear return on investment (ROI) from AI implementations, leading to strategic re-evaluations. Many anticipate that upcoming IPOs will provide much-needed transparency into the true unit economics.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>blog.dshr.org</span>
+        <span>·</span>
+        <span>283 pts</span>
+        <span>·</span>
+        <span>372 comments</span>
+        <span>·</span>
+        <span>by ilreb</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://blog.dshr.org/2026/06/ais-affordability-crisis.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48646276" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI/ML</div>
+            
+            <h2 class="story-title"><a href="https://github.com/baidu/Unlimited-OCR" target="_blank" rel="noopener">Unlimited OCR: Baidu's One-Shot AI Unleashes Unbounded Document Parsing</a></h2>
+            <p class="story-summary">GitHub - baidu/Unlimited-OCR: Unlimited OCR Works: Welcome the Era of One-shot Long-horizon Parsing.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This Baidu project heralds a significant advancement in Optical Character Recognition (OCR) with its &quot;one-shot long-horizon parsing&quot; capabilities, suggesting a major leap in handling complex, diverse documents with minimal training. This technology could overcome traditional OCR's limitations in context understanding and adaptability, paving the way for more robust and versatile automated data extraction from unstructured text. Such innovation promises to unlock new efficiencies in document processing, accessibility, and AI applications across various industries.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community sees &quot;Unlimited OCR&quot; as a promising technical advancement, particularly appreciating its innovative approach to memory management for processing long documents in a single pass. Commenters are enthusiastic about its practical applications and potential superiority over other recent OCR solutions. There's also a clear interest in understanding its performance compared to established benchmarks and leading tools in the field.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>468 pts</span>
+        <span>·</span>
+        <span>107 comments</span>
+        <span>·</span>
+        <span>by ingve</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/baidu/Unlimited-OCR" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48643426" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">📄 OCR Technology</div>
+            
+            <h2 class="story-title"><a href="https://mistral.ai/news/ocr-4/" target="_blank" rel="noopener">Mistral OCR 4 Sets New SOTA for Document Intelligence, Outperforming Rivals Across 170 Languages</a></h2>
+            <p class="story-summary">Mistral OCR 4 : SOTA OCR for Document Intelligence Today, we're releasing Mistral OCR 4, featuring bounding boxes, block classification, and inline confidence scores alongside extracted text. The model supports 170 languages across 10 language groups, runs in a single container for fully self-hosted deployments, and serves as an ingestion component for enterprise search, RAG, and domain-specific retrieval pipelines . OCR 4 is a small, focused model, and this post covers what's new, how it performs on public and internal benchmarks, the known limitations of those benchmarks, and guidance on when to use the model API versus Document AI. Independent annotators prefer OCR 4 over every leading OCR and document-AI system tested, with win rates averaging 72%, alongside the top overall score on OlmOCRBench (85.20).</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Mistral OCR 4's launch marks a substantial advancement in specialized document intelligence, providing a state-of-the-art solution with critical features like block classification and inline confidence scores that are essential for complex enterprise workflows. Its focus on self-hosted deployment and seamless integration into RAG and enterprise search pipelines positions it as a highly performant and secure alternative for organizations demanding precise, domain-specific data extraction across diverse languages.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant skepticism regarding Mistral OCR 4's reported accuracy and benchmarks, citing a history of previous versions falling short of expectations despite internal claims. There's clear criticism of the presentation of benchmark data, such as truncated y-axes, and a desire for more robust, real-world comparisons against competitors rather than internal metrics. This is exemplified by users reporting specific accuracy issues in diverse languages.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>mistral.ai</span>
+        <span>·</span>
+        <span>465 pts</span>
+        <span>·</span>
+        <span>120 comments</span>
+        <span>·</span>
+        <span>by meetpateltech</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://mistral.ai/news/ocr-4/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48645152" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🎮 Gaming AI</div>
+            
+            <h2 class="story-title"><a href="https://nega.tv/posts/low-tech-ai-of-elden-ring.html" target="_blank" rel="noopener">Elden Ring's Low-Tech AI Explains Its Infamously Obtuse NPC Quests</a></h2>
+            <p class="story-summary">Community discussion highlights: Perhaps this explains why Fromsoft npc quests are easily the most inscrutable in all of gaming. Like, okay Hyetta, have another “grape”, aka eyeball, oh now you’ve moved to the bridge in Liurnia, cool. I’ve exhausted your dialogue but you’re stuck. Oh I have to reload the area and exhaust it again to advance your quest. Okay, cool. Now you’re in a random church and you want a “fingerprint grape”. What? It’s all part of the Fromsoft experience but man, who writes these things?</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece highlights how Fromsoft's &quot;low-tech&quot; AI design, focusing on simpler state machines rather than complex intelligence, ironically crafts Elden Ring's notoriously cryptic and memorable NPC questlines. This approach prioritizes player discovery and community interaction, making ambiguous progression a deliberate feature that defines the unique &quot;Fromsoft experience.&quot;</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely views the &quot;low-tech AI&quot; discussed in the article as standard game AI, commonly implemented using behavior trees, rather than a particularly novel approach. Many commenters question the article's definition of &quot;low-tech&quot; and its claims about performance benefits without more detailed technical explanations. There's a general sentiment that the term &quot;AI&quot; in game development often refers to sophisticated scripting and state management rather than advanced artificial intelligence.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>nega.tv</span>
+        <span>·</span>
+        <span>145 pts</span>
+        <span>·</span>
+        <span>77 comments</span>
+        <span>·</span>
+        <span>by g0xA52A2A</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://nega.tv/posts/low-tech-ai-of-elden-ring.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48643489" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">⚠️ Automotive Safety</div>
+            
+            <h2 class="story-title"><a href="https://www.nytimes.com/interactive/2026/06/21/us/trucks-suv-pedestrian-crashes.html" target="_blank" rel="noopener">Giant Trucks and SUVs: America's Deadly Shift to Bigger Vehicles</a></h2>
+            <p class="story-summary">The Deadly Rise of Giant Trucks and S.U.V.s - The New York Times In the early 2000s, more than half of the passenger vehicles on American roads were traditional cars like sedans. Their hoods were low to the ground. In the early 2000s, more than half of the passenger vehicles on American roads were traditional cars like sedans. Their hoods were low to the ground.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece underscores a concerning trend in automotive design and consumer choice, highlighting the societal shift from traditional sedans to larger, potentially more dangerous trucks and SUVs. The &quot;deadly rise&quot; explicitly points to increased public safety risks, particularly for vulnerable road users, and suggests a need for re-evaluation of vehicle design regulations and urban infrastructure.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community generally agrees that the increased size of trucks and SUVs is a contributing factor to pedestrian fatalities, but many commenters qualify its impact as relatively minor, often citing that it accounts for a modest percentage of overall pedestrian deaths. There's a stronger consensus that other factors, particularly distracted driving and walking (e.g., smartphone use), are more significant drivers behind the rise in pedestrian fatalities. Some also suggest policy changes like higher licensing requirements for larger vehicles, highlighting a broader perspective on the issue.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>nytimes.com</span>
+        <span>·</span>
+        <span>421 pts</span>
+        <span>·</span>
+        <span>689 comments</span>
+        <span>·</span>
+        <span>by xnx</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.nytimes.com/interactive/2026/06/21/us/trucks-suv-pedestrian-crashes.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48623347" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">Typography</div>
+            
+            <h2 class="story-title"><a href="https://www.monolisa.dev/" target="_blank" rel="noopener">MonoLisa v3 Launches Proportional Text Font, Breaking Monospace-Only Mold</a></h2>
+            <p class="story-summary">Originally we (Andrey, Marcus, Juho) built MonoLisa in 2020 as we realised there's room for a better monospaced typeface for developers. The key insight was to make the glyphs slightly wider to make more room for design to make letters like m feel less cramped. Since then we've released a variable v2 (2022) and now we're happy to expand the typeface with a new family called MonoLisa Text. The reasoning was to cover *other* use cases beyond coding with this proportional font. We hope you give Monolisa a go as there's a free trial to try. We also welcome feedback!</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">🔡 Monolisa's evolution from a specialized monospaced font for developers to a comprehensive proportional text family highlights a strategic expansion beyond a niche. This trajectory underscores a belief that thoughtful typographic design, initially focused on code readability, offers value across diverse digital contexts, aiming for a consistent aesthetic experience for creative and technical users alike.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses overwhelming positive sentiment for Monolisa, with many users declaring it their go-to coding font and the only one they've ever purchased or stuck with long-term. Reviewers consistently praise its balance, ease on the eyes, and suitability across various development environments, often highlighting strong loyalty since its initial release.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>monolisa.dev</span>
+        <span>·</span>
+        <span>63 pts</span>
+        <span>·</span>
+        <span>11 comments</span>
+        <span>·</span>
+        <span>by bebraw</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.monolisa.dev/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48630318" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 24, 2026</div>
+    </footer>
+</body>
+</html>
