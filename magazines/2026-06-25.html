@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 25, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Thursday</div>
+        <div class="masthead-year">June 25, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">RubyLLM: One Ruby Framework for All Major AI Providers, From Chat to Embeddings</span>
+            <span class="toc-score">382 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">SSH Port Forwarding Demystified: The Visual Guide</span>
+            <span class="toc-score">324 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">OpenAI Unveils First Custom AI Chip, Built by Broadcom</span>
+            <span class="toc-score">687 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Anthropic Accuses Alibaba of Illicit Claude AI Distillation, Challenging Common Fine-Tuning Practices ⚡</span>
+            <span class="toc-score">375 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Bunny.net Makes Its DNS Service Free to Accelerate the Internet</span>
+            <span class="toc-score">879 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">MonoLisa v3 Expands Developer Typeface with New Proportional Fonts for Creatives</span>
+            <span class="toc-score">174 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Krea 2 Unveils SOTA 12B Open-Weight Image Model for Creative Control and Diverse Aesthetics</span>
+            <span class="toc-score">375 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Brain Frog: Can You Outsmart an 11-Line JavaScript AI That Learns Your Patterns?</span>
+            <span class="toc-score">33 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Wordit: Build Word Chains by Changing One Letter</span>
+            <span class="toc-score">21 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">AI Data Centers Go Near-Zero Water with NVIDIA's 45°C Liquid Cooling</span>
+            <span class="toc-score">317 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Development</div>
+            
+            <h2 class="story-title"><a href="https://rubyllm.com/" target="_blank" rel="noopener">RubyLLM: One Ruby Framework for All Major AI Providers, From Chat to Embeddings</a></h2>
+            <p class="story-summary">RubyLLM | One beautiful Ruby framework for all major AI providers. Chat, images, embeddings, tools.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This new framework significantly elevates Ruby's standing in the AI development landscape, traditionally dominated by Python, by providing a single, elegant interface to all major AI providers. It promises to simplify complex integrations across various AI modalities like chat, image generation, and embeddings, fostering a more accessible and streamlined developer experience for Ruby engineers building AI-powered applications.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally praises RubyLLM for its ease of use, excellent API design, and good developer experience, making it a popular choice for Ruby AI projects. However, common frustrations include challenges with maintainer engagement, issues with caching and observability, and a perceived lack of native support for certain features like the responses API. Users seem to appreciate its framework-like approach but wish for more robust maintenance and feature completeness in specific areas.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>rubyllm.com</span>
+        <span>·</span>
+        <span>382 pts</span>
+        <span>·</span>
+        <span>65 comments</span>
+        <span>·</span>
+        <span>by doener</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://rubyllm.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48660711" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🌐 Networking Tutorial</div>
+            
+            <h2 class="story-title"><a href="https://labs.iximiuz.com/tutorials/ssh-tunnels" target="_blank" rel="noopener">SSH Port Forwarding Demystified: The Visual Guide</a></h2>
+            <p class="story-summary">A Practical Guide to SSH Tunnels: Local and Remote Port Forwarding This tutorial was prepared for you by the iximiuz Labs team. Tutorial on Networking , Linux Last updated: Jun 24, 2026 A Practical Guide to SSH Tunnels: Local and Remote Port Forwarding SSH port forwarding explained in a clean and visual way.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This tutorial offers a highly practical and visually-driven approach to mastering SSH tunnels and port forwarding, a fundamental skill for secure networking. Its emphasis on clarity makes complex concepts like local and remote forwarding accessible, proving invaluable for developers and sysadmins looking to secure remote access or navigate network restrictions efficiently.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees that SSH tunnels are an incredibly versatile and powerful tool, capable of solving a multitude of practical, often advanced, networking challenges from creating pseudo-VPNs to bypassing firewalls and enabling unique peer-to-peer transfers. Commenters actively contributed advanced tips like `~C` and `ssh -J` (jumphosting), alongside recommending complementary tools like `sshuttle` and additional educational resources for deeper understanding.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>labs.iximiuz.com</span>
+        <span>·</span>
+        <span>324 pts</span>
+        <span>·</span>
+        <span>60 comments</span>
+        <span>·</span>
+        <span>by signa11</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://labs.iximiuz.com/tutorials/ssh-tunnels" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48606222" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">AI Hardware ⚡️</div>
+            
+            <h2 class="story-title"><a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank" rel="noopener">OpenAI Unveils First Custom AI Chip, Built by Broadcom</a></h2>
+            <p class="story-summary">OpenAI unveils its first custom chip, built by Broadcom | TechCrunch The first StrictlyVC of 2026 hits SF on April 30. Founder Summit ticket savings of up to $190 end June 26. Join 1,000+ founders and VCs for all-day bootcamp. OpenAI unveils its first custom chip, built by Broadcom</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">OpenAI's development of a custom chip, built by Broadcom, signals a significant strategic pivot towards vertical integration within the AI stack. This move aims to reduce reliance on external GPU providers like NVIDIA, optimize performance for its specific AI workloads, and mitigate the spiraling costs associated with advanced AI training and inference. It underscores a growing industry trend where leading AI companies seek greater control over their foundational infrastructure to secure a competitive edge.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community views OpenAI's custom chip announcement as a potentially significant strategic move for efficiency, drawing parallels to efforts like Google's TPUs. However, there is significant skepticism regarding the lack of transparency, the claim of AI-accelerated design (seen by some as marketing hype), and the timing of the announcement, which many perceive as primarily pre-IPO promotional material. Users also raise concerns about the long-term ROI given the rapid pace of AI hardware innovation.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>techcrunch.com</span>
+        <span>·</span>
+        <span>687 pts</span>
+        <span>·</span>
+        <span>383 comments</span>
+        <span>·</span>
+        <span>by jamdesk</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48663324" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Ethics &amp; IP</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/" target="_blank" rel="noopener">Anthropic Accuses Alibaba of Illicit Claude AI Distillation, Challenging Common Fine-Tuning Practices</a></h2>
+            <p class="story-summary">Community discussion highlights: There's two basic kinds of distillation: 1) the massive [and dumb] method where you ask a question and use the answer as reinforcement (Black Box), and 2) more targeted distillation where you use one model to directly inform/train/guide another model (RLAIF). The latter is basically fine-tuning the model with direction from another model. Thousands of businesses do this every day to fine-tune. This is almost certainly what the Chinese labs are doing, since it has a much better effect on the end </p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This case illuminates the complex legal and ethical challenges emerging in AI development, specifically regarding what constitutes &quot;illicit extraction&quot; versus legitimate model distillation or fine-tuning. The distinction between black-box learning from outputs and direct guidance of one model by another (like RLAIF) is crucial, as this could set a precedent for intellectual property rights and competitive practices in the rapidly evolving AI landscape.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely perceives Anthropic's complaint against Alibaba as deeply hypocritical. Commenters repeatedly point out Anthropic's own alleged use of pirated content for training their models, creating a strong &quot;what goes around comes around&quot; sentiment. Many question the legitimacy of complaining about &quot;distillation&quot; when the larger model itself was potentially trained on &quot;illicitly extracted&quot; data, highlighting a perceived double standard in AI intellectual property debates.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>reuters.com</span>
+        <span>·</span>
+        <span>375 pts</span>
+        <span>·</span>
+        <span>634 comments</span>
+        <span>·</span>
+        <span>by htrp</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48664814" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🚀 Product Announcement</div>
+            
+            <h2 class="story-title"><a href="https://bunny.net/blog/were-making-bunny-dns-free/" target="_blank" rel="noopener">Bunny.net Makes Its DNS Service Free to Accelerate the Internet</a></h2>
+            <p class="story-summary">Easily create SQLite-compatible databases See how bunny.net helped other companies reach the next level. Learn more about our goals, values and mission We’re making Bunny DNS free: because a faster internet won’t build itself At bunny.net, our mission has always been ambitious but focused: help make the internet hop faster.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Bunny.net's move to offer its DNS service for free is a strategic play to accelerate user acquisition and reinforce its mission of building a faster internet. By removing the cost barrier for a critical infrastructure component, they likely aim to embed themselves deeper into more web properties, potentially converting users to their premium CDN or other services down the line. This also positions them as a more competitive force against existing DNS providers.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally welcomes Bunny.net's decision to offer free DNS hosting and query fees, viewing it as a valuable EU-based alternative to Cloudflare. However, there's a clear desire for more clarity regarding the exact scope of the &quot;free&quot; offering and significant concern about potential unpredictable costs from other Bunny products. Users also hope Bunny.net will continue to streamline its services, such as static site hosting, to better compete with established players' ease of use.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>bunny.net</span>
+        <span>·</span>
+        <span>879 pts</span>
+        <span>·</span>
+        <span>260 comments</span>
+        <span>·</span>
+        <span>by dabinat</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://bunny.net/blog/were-making-bunny-dns-free/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48657030" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🎨 Design &amp; Typography</div>
+            
+            <h2 class="story-title"><a href="https://www.monolisa.dev/" target="_blank" rel="noopener">MonoLisa v3 Expands Developer Typeface with New Proportional Fonts for Creatives</a></h2>
+            <p class="story-summary">Originally we (Andrey, Marcus, Juho) built MonoLisa in 2020 as we realised there's room for a better monospaced typeface for developers. The key insight was to make the glyphs slightly wider to make more room for design to make letters like m feel less cramped. Since then we've released a variable v2 (2022) and now we're happy to expand the typeface with a new family called MonoLisa Text. The reasoning was to cover *other* use cases beyond coding with this proportional font. We hope you give Monolisa a go as there's a free trial to try. We also welcome feedback!</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">MonoLisa v3 demonstrates a strategic evolution from a developer-focused monospace font to a versatile typeface family, incorporating proportional text to broaden its appeal beyond coding. This expansion leverages the initial success and design principles to capture a wider audience, including creatives and general text users, thereby extending its utility and market reach. It highlights a mature product development approach that adapts a core design philosophy to diverse use cases, bridging technical and creative applications.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">While the community generally finds Monolisa v3 aesthetically pleasing and acknowledges its interesting features like variable font axes, the overwhelming consensus is that its price point ($149-$250) is excessively high. Many commenters express that the cost is a &quot;showstopper&quot; and not justified, especially given the abundance of quality free fonts available for developers.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>monolisa.dev</span>
+        <span>·</span>
+        <span>174 pts</span>
+        <span>·</span>
+        <span>74 comments</span>
+        <span>·</span>
+        <span>by bebraw</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.monolisa.dev/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48630318" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI/Machine Learning</div>
+            
+            <h2 class="story-title"><a href="https://www.krea.ai/blog/krea-2-technical-report" target="_blank" rel="noopener">Krea 2 Unveils SOTA 12B Open-Weight Image Model for Creative Control and Diverse Aesthetics</a></h2>
+            <p class="story-summary">In this technical report we introduce Krea 2: a series of foundation models designed for both wide aesthetic diversity and user creative control. We present: (1) our principles for data curation; (2) the model architectures; (3) our multi-stage training pipeline; (4) our distributed infrastructure; and (5) future work. Sangwu Lee, Erwann Millon, Le Zhuo, Matthew Newton, Andrei Filatov, Naga Sai Abhinay Devarinti, Dazhi Zhong, Avram Djordjevic, Gabriel Menezes, Will Beddow, Titus Ebbecke, Mihai Petrescu, Owen Fahey, Gian Saß, Felix Gil, Victor Perez · June 23, 2026 · 58 min read The model weights and inference are released under a permissive license . Over the past few years, image generation has seen remarkable progress.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Krea 2 emerges as a significant open-source contribution to generative AI, delivering a state-of-the-art 12B image model under a permissive license. Its dual focus on aesthetic diversity and user creative control aims to broaden the practical applicability of AI-driven image generation. This release, complete with a detailed technical report, fosters transparency and empowers wider adoption and innovation within the AI community.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally praises Krea's release for its in-depth technical report and the impressive performance, especially the speed, of the Turbo model. While appreciative of the open weights, there's a notable critique regarding the restrictive license terms that prevent it from being considered truly open source due to commercial use thresholds. Users are keen on local deployment, with a GGUF version already emerging.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>krea.ai</span>
+        <span>·</span>
+        <span>375 pts</span>
+        <span>·</span>
+        <span>41 comments</span>
+        <span>·</span>
+        <span>by mattnewton</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.krea.ai/blog/krea-2-technical-report" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48646659" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🎮 Game</div>
+            
+            <h2 class="story-title"><a href="https://brainfrog.lol" target="_blank" rel="noopener">Brain Frog: Can You Outsmart an 11-Line JavaScript AI That Learns Your Patterns?</a></h2>
+            <p class="story-summary">Punch left or right — tap or use the ←  → keys. The frog learns your pattern and blocks where it thinks you'll hit, so stay unpredictable. Land 50 hits before your punches run out. Sign in (top-right) to play Ranked and earn coins. The frog is not reacting to your punch — it commits to a side a split-second before you swing.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This &quot;Show HN&quot; presents an engaging minimalist game that elegantly pits human unpredictability against a basic AI pattern recognition system. The impressive &quot;11 lines of JavaScript&quot; constraint highlights a clever and efficient algorithm, demonstrating how compact code can create surprisingly deep interactive challenges focused on core psychological and computational principles.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally found &quot;Brain Frog&quot; to be a fun and engaging concept, sparking insightful discussions about the nature of human versus true randomness. While many offered suggestions for game improvements or extensions, a notable point of contention was the unnecessary requirement for an email login to play such a simple online game.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>brainfrog.lol</span>
+        <span>·</span>
+        <span>33 pts</span>
+        <span>·</span>
+        <span>28 comments</span>
+        <span>·</span>
+        <span>by AlexanderZ</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://brainfrog.lol" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48598051" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🔡 Word Game</div>
+            
+            <h2 class="story-title"><a href="https://victorribeiro.com/wordit/" target="_blank" rel="noopener">Wordit: Build Word Chains by Changing One Letter</a></h2>
+            <p class="story-summary">Hi everyone, I got this idea for a game where, starting from a four letter word you need to go as deep as you can in your vocabulary, changing only one letter per word. bear -&gt; beer -&gt; peer... Each correct word gives you 1 point Each incorrect word takes one life away from you, you start with 3</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This &quot;Show HN&quot; presents a straightforward yet highly engaging word game that challenges players to build lexical chains by altering just one letter at a time. Its simplicity makes it immediately accessible, while the core mechanic provides a compelling mental workout, potentially appealing to a broad audience looking for a quick and satisfying vocabulary puzzle.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely enjoys &quot;Wordit&quot; as a fun and engaging concept reminiscent of classic word puzzles. However, there's a strong consensus for improvements, specifically a smoother mobile keyboard experience and more challenging gameplay that avoids repetitive easy answers or unfair starting words, while also refining the game's word validation.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>victorribeiro.com</span>
+        <span>·</span>
+        <span>21 pts</span>
+        <span>·</span>
+        <span>14 comments</span>
+        <span>·</span>
+        <span>by atum47</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://victorribeiro.com/wordit/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48649697" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">Sustainable Tech 🌱</div>
+            
+            <h2 class="story-title"><a href="https://blogs.nvidia.com/blog/liquid-cooling-ai-factories/" target="_blank" rel="noopener">AI Data Centers Go Near-Zero Water with NVIDIA's 45°C Liquid Cooling</a></h2>
+            <p class="story-summary">Hotter Than a Hot Tub: The 45°C Breakthrough to Cool AI’s Biggest Machines | NVIDIA Blog Hot tubs sit at about 38 to 40 degrees Celsius, warm enough that most people can only soak for about 15 minutes. NVIDIA’s newest AI servers can run their cooling liquid even hotter — up to 45 degrees Celsius, or 113 degrees Fahrenheit. That higher temperature limit is precisely what makes them more energy efficient. The Rubin generation of NVIDIA AI infrastructure is the world’s first to achieve 100% liquid cooling — every chip, every networking component, cooled entirely by liquid in a closed loop with no fans anywhere in the system.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This innovation from NVIDIA represents a crucial leap in sustainable AI infrastructure, addressing the immense energy and water consumption challenges of modern data centers. By enabling 100% liquid cooling at a higher operational temperature (45°C), it dramatically reduces water use and enhances overall energy efficiency, paving the way for more environmentally responsible scaling of AI compute.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses skepticism regarding the &quot;innovation&quot; of 45°C liquid cooling, noting similar high-temperature liquid cooling systems already exist and questioning the claim of &quot;near-zero&quot; water consumption. However, there's a strong consensus on the significant potential for synergy with district heating systems, leveraging the 45°C waste heat, though practical challenges in co-locating data centers and heating grids are highlighted.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>blogs.nvidia.com</span>
+        <span>·</span>
+        <span>317 pts</span>
+        <span>·</span>
+        <span>211 comments</span>
+        <span>·</span>
+        <span>by nitin_flanker</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://blogs.nvidia.com/blog/liquid-cooling-ai-factories/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48660178" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 25, 2026</div>
+    </footer>
+</body>
+</html>
