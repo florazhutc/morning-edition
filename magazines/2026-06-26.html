@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 26, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Friday</div>
+        <div class="masthead-year">June 26, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Anthropic Accuses Alibaba of Illicitly Distilling Claude AI Capabilities ⚡</span>
+            <span class="toc-score">761 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">First Complete Herculaneum Scroll Deciphered Through Virtual Unwrapping</span>
+            <span class="toc-score">1267 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">OpenKnowledge Unveils Free, Open-Source AI-First WYSIWYG Markdown Editor to Rival Obsidian and Notion</span>
+            <span class="toc-score">266 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">OpenAI Debuts Broadcom-Built Custom AI Chip</span>
+            <span class="toc-score">809 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Hacker Trends: Google Trends for 18 Years of Hacker News Comments</span>
+            <span class="toc-score">710 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Apple Hikes MacBook and iPad Prices</span>
+            <span class="toc-score">709 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Online Age Verification Is Identity Verification, Decimating Your Privacy</span>
+            <span class="toc-score">669 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Oxide Computer's 3D Rack Tour Unveils Highly Anticipated Cloud-Alternative Hardware</span>
+            <span class="toc-score">359 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Om Malik, Gigaom Founder and Veteran Tech Journalist, Dies</span>
+            <span class="toc-score">843 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Apple Skips M6 Chips, Accelerates AI Focus with M7 Line for High-End Macs</span>
+            <span class="toc-score">242 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">AI Ethics &amp; IP ⚖️</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/" target="_blank" rel="noopener">Anthropic Accuses Alibaba of Illicitly Distilling Claude AI Capabilities</a></h2>
+            <p class="story-summary">Community discussion highlights: There's two basic kinds of distillation: 1) the massive [and dumb] method where you ask a question and use the answer as reinforcement (Black Box), and 2) more targeted distillation where you use one model to directly inform/train/guide another model (RLAIF). The latter is basically fine-tuning the model with direction from another model. Thousands of businesses do this every day to fine-tune. This is almost certainly what the Chinese labs are doing, since it has a much better effect on the end </p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Anthropic's accusation against Alibaba highlights a critical and complex challenge for AI IP protection: distinguishing between legitimate model fine-tuning and illicit capability distillation. This incident underscores the technical difficulty of safeguarding proprietary AI models, especially when advanced techniques like RLAIF allow one model to directly inform another. The resolution of such disputes will significantly shape future legal and ethical standards for AI development and competitive practices worldwide.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is largely skeptical of Anthropic's claim of &quot;illicitly extracted&quot; capabilities, with many commenters arguing that using model output for distillation isn't inherently illegal and challenging Anthropic's perceived hypocrisy given its own model training practices on vast public datasets. The general sentiment is that this situation—involving fraudulent accounts and capacity reselling for model output—constitutes a terms-of-service violation and a business issue rather than a criminal or deeply unethical act deserving of such strong condemnation.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>reuters.com</span>
+        <span>·</span>
+        <span>761 pts</span>
+        <span>·</span>
+        <span>1234 comments</span>
+        <span>·</span>
+        <span>by htrp</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48664814" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">📜 Ancient Tech Breakthrough</div>
+            
+            <h2 class="story-title"><a href="https://scrollprize.org/firstscroll" target="_blank" rel="noopener">First Complete Herculaneum Scroll Deciphered Through Virtual Unwrapping</a></h2>
+            <p class="story-summary">An entire Herculaneum scroll has been read for the first time | Vesuvius Challenge We read an entire scroll — without ever opening it 1667, sealed since the eruption of Vesuvius in 79 AD, has been virtually unwrapped and read from beginning to end. Read the preprint: Complete virtual unwrapping and reading of a rolled Herculaneum papyrus (PDF) . The data is openly available at scrollprize.org/data , and the code on GitHub .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This landmark achievement transcends a mere historical discovery, representing a profound validation of advanced imaging and AI for preserving and deciphering previously inaccessible ancient texts. By virtually unwrapping and reading a complete Herculaneum scroll, this breakthrough opens an unprecedented window into lost knowledge from 79 AD. It sets a powerful precedent for unlocking the secrets of thousands more fragile artifacts without physical intervention, highlighting the transformative potential of interdisciplinary collaboration.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is overwhelmingly enthusiastic and celebratory about the successful reading of the Herculaneum scroll, recognizing it as a monumental achievement that bridges millennia. Commenters express awe at the historical connection, celebrate the technological ingenuity involved, and view the project as a powerful counter-narrative to common tech pessimism, optimistically hoping for more such discoveries.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>scrollprize.org</span>
+        <span>·</span>
+        <span>1267 pts</span>
+        <span>·</span>
+        <span>263 comments</span>
+        <span>·</span>
+        <span>by verditelabs</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://scrollprize.org/firstscroll" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48675179" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🧠 AI Knowledge Management</div>
+            
+            <h2 class="story-title"><a href="https://github.com/inkeep/open-knowledge" target="_blank" rel="noopener">OpenKnowledge Unveils Free, Open-Source AI-First WYSIWYG Markdown Editor to Rival Obsidian and Notion</a></h2>
+            <p class="story-summary">Hi HN, Nick here. We’re launching OpenKnowledge ( https://openknowledge.ai/ ), a “what you see is what you get” markdown editor that has direct integrations with Claude, Codex, and other agents. Available as MacOS app or Web UI+CLI. Fully free/local and OSS. We built this because we wanted a Notion-like experience for writing and sharing markdown files across our team. Obsidian is the best alternative we tried, but found it doesn’t have a true WYSWIG UI and it didn’t integrate well with Claude/Codex outside of community plugins. So we built OpenKnowledge. It takes shape as: 1. A MacOS app with</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">OpenKnowledge enters the crowded knowledge management arena as an open-source, AI-first alternative to Obsidian and Notion, distinguished by its native integration of agents like Claude and Codex. It targets users seeking a WYSIWYG markdown editor that enhances productivity through AI, while its free, local, and OSS model appeals to those prioritizing data privacy and community over proprietary tools.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses a mixed sentiment, largely indicating that OpenKnowledge, despite a good initial launch, struggles to present a compelling advantage over established tools like Obsidian or Notion. Users found its &quot;AI-first&quot; integration clunky or incomplete, specifically noting a lack of local LLM support, and were disappointed by its barebones feature set and macOS-only platform support. While some are looking for better team sharing solutions, it's not clear OpenKnowledge fulfills this need effectively in its current state.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>266 pts</span>
+        <span>·</span>
+        <span>132 comments</span>
+        <span>·</span>
+        <span>by engomez</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/inkeep/open-knowledge" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48675435" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🖥️ Hardware &amp; AI</div>
+            
+            <h2 class="story-title"><a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank" rel="noopener">OpenAI Debuts Broadcom-Built Custom AI Chip</a></h2>
+            <p class="story-summary">OpenAI unveils its first custom chip, built by Broadcom | TechCrunch The first StrictlyVC of 2026 hits SF on April 30. Founder Summit ticket savings of up to $190 end June 26. Join 1,000+ founders and VCs for all-day bootcamp. OpenAI unveils its first custom chip, built by Broadcom</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This move signifies OpenAI's strategic vertical integration into hardware, aiming to optimize performance and efficiency for its AI models while potentially reducing reliance on costly off-the-shelf GPUs. By co-developing custom silicon with Broadcom, OpenAI is not only pushing the boundaries of AI infrastructure but also signaling a broader industry trend of major tech players seeking greater control over their computational resources to gain a competitive edge.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally sees OpenAI's custom chip as a significant strategic move towards greater efficiency and cost savings in AI. While acknowledging the potential for hardware optimization, there's also skepticism regarding the chip's long-term ROI given the rapid pace of AI advancements and software optimizations, alongside a desire for more concrete details on its development and actual performance benefits.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>techcrunch.com</span>
+        <span>·</span>
+        <span>809 pts</span>
+        <span>·</span>
+        <span>461 comments</span>
+        <span>·</span>
+        <span>by jamdesk</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48663324" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Data Analysis 📊</div>
+            
+            <h2 class="story-title"><a href="https://hackernewstrends.com" target="_blank" rel="noopener">Hacker Trends: Google Trends for 18 Years of Hacker News Comments</a></h2>
+            <p class="story-summary">Hacker News Trends - Search &amp; Chart Any Topic Over Time Hacker Trends - see how any topic, tool, or person trended across 18 years of Hacker News T Hacker Trends | see how any topic, tool, or person trended across 18 years of Hacker News Charts how often any topic, tool, or person has come up on Hacker News. Overlay a few terms to watch their traction rise and fall.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This &quot;Google Trends for Hacker News&quot; project provides a unique quantitative window into the evolving tech discourse of the past 18 years. By indexing and charting comment frequency, it offers invaluable insights into the rise and fall of technologies, companies, and ideas within the influential HN community. Such a tool is highly significant for understanding historical tech trends, community sentiment, and the long-term relevance of various topics discussed on the platform.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community shows strong interest in the concept of trending topics from its extensive comment archive, but the immediate consensus points to significant technical issues, with multiple users reporting &quot;hug of death&quot; errors and rate-limiting. Despite these initial hurdles, users are engaged and suggesting valuable feature enhancements, such as data normalization and sentiment analysis, to unlock deeper insights.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>hackernewstrends.com</span>
+        <span>·</span>
+        <span>710 pts</span>
+        <span>·</span>
+        <span>147 comments</span>
+        <span>·</span>
+        <span>by ytkimirti</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://hackernewstrends.com" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48673671" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Tech Business 📈</div>
+            
+            <h2 class="story-title"><a href="https://www.reuters.com/world/asia-pacific/apple-raises-prices-macbooks-ipads-memory-costs-skyrocket-2026-06-25/" target="_blank" rel="noopener">Apple Hikes MacBook and iPad Prices</a></h2>
+            <p class="story-summary">https://9to5mac.com/2026/06/25/apple-price-increases-mac-ipa...</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Apple's decision to raise prices on its popular MacBooks and iPads likely reflects broader inflationary pressures and component cost increases, rather than solely a strategic move to boost margins. This adjustment, while potentially affecting consumer purchasing decisions, underscores Apple's robust market position and brand loyalty, allowing it to pass on increased costs without significant market share erosion.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses surprise and concern over Apple's significant price increases, noting them as both painful and potentially indicative of broader industry trends. A strong consensus attributes these hikes primarily to intense competition for high-end component capacity, driven by the demands of AI development from companies like OpenAI. Some commentators also suggest Apple's strategic decisions regarding component sourcing are partly to blame for its current predicament.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>reuters.com</span>
+        <span>·</span>
+        <span>709 pts</span>
+        <span>·</span>
+        <span>1018 comments</span>
+        <span>·</span>
+        <span>by virgildotcodes</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.reuters.com/world/asia-pacific/apple-raises-prices-macbooks-ipads-memory-costs-skyrocket-2026-06-25/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48672732" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Privacy &amp; Digital Rights 🔒</div>
+            
+            <h2 class="story-title"><a href="https://expression.fire.org/p/the-papers-please-era-of-the-internet" target="_blank" rel="noopener">Online Age Verification Is Identity Verification, Decimating Your Privacy</a></h2>
+            <p class="story-summary">The ‘papers, please’ era of the internet will decimate your privacy The ‘papers, please’ era of the internet will decimate your privacy Americans, be warned: Age verification is identity verification. Imagine your favorite team just scored an incredible, last-second goal at the World Cup. So you log online to celebrate with other fans.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece warns that the increasing push for online age verification is a Trojan horse for pervasive identity verification, effectively ushering in a &quot;papers, please&quot; internet. Such a regime would dismantle online anonymity, forcing users to link all digital activities to their real-world identities, thereby creating comprehensive, surveillable profiles. This fundamental shift poses a significant threat to individual privacy, free expression, and the very architecture of an open internet.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely shares a strong consensus of concern and resistance regarding the &quot;papers, please&quot; era of the internet, fearing a significant decimation of privacy. Commenters anticipate a slippery slope towards increased government control and surveillance, with many expressing a resolute refusal to comply, even if it means opting out of the digital world. While some discuss technical solutions like anonymous credentials, the prevailing sentiment is one of dread and a call for this issue to become a major public &quot;fight.&quot;</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>expression.fire.org</span>
+        <span>·</span>
+        <span>669 pts</span>
+        <span>·</span>
+        <span>312 comments</span>
+        <span>·</span>
+        <span>by bilsbie</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://expression.fire.org/p/the-papers-please-era-of-the-internet" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48679608" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🖥️ Systems Engineering</div>
+            
+            <h2 class="story-title"><a href="https://explorer.oxide.computer/" target="_blank" rel="noopener">Oxide Computer's 3D Rack Tour Unveils Highly Anticipated Cloud-Alternative Hardware</a></h2>
+            <p class="story-summary">Community discussion highlights: I want Oxide to do so well. The product is a breath of fresh air in the era of cloud providers. As an engineer, I'd kill to get to work with their hardware. Not to mention that working at Oxide sounds like a modern Sun Microsystems with the ideology that team has. Highly recommend their podcast &quot;Oxide and Friends&quot;, and their original &quot;On The Metal&quot; show. I've attempted to apply to their company multiple times over the years, only to be stun locked by the application process. Not because it's a b</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The discussion around Oxide Computer's 3D rack tour showcases deep community admiration for their hardware-centric approach, positioning them as a compelling alternative to hyperscale cloud providers. Their strong engineering culture and integrated systems design evoke comparisons to modern Sun Microsystems, attracting engineers despite a challenging application process. This indicates a significant appetite within the tech community for meticulously engineered, full-stack infrastructure solutions that challenge conventional cloud paradigms.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community overwhelmingly expresses strong admiration and support for Oxide Computer, praising their innovative hardware design as a refreshing alternative to traditional cloud providers and legacy server vendors. Many users see Oxide as embodying the spirit of past tech giants like Sun Microsystems, driven by strong leadership and a unique company culture, and are actively rooting for their success.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>explorer.oxide.computer</span>
+        <span>·</span>
+        <span>359 pts</span>
+        <span>·</span>
+        <span>146 comments</span>
+        <span>·</span>
+        <span>by darthcloud</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://explorer.oxide.computer/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48631450" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">In Memoriam 🕊️</div>
+            
+            <h2 class="story-title"><a href="https://om.co/2026/06/24/1966-2026/" target="_blank" rel="noopener">Om Malik, Gigaom Founder and Veteran Tech Journalist, Dies</a></h2>
+            <p class="story-summary">Om Malik passed away on June 24, 2026, at Stanford Hospital after a long health journey with his heart. He was surrounded by family and friends. We invite you to share your remembrances of Om in the comments below or by posting and tagging his accounts on X/Twitter , Instagram , Threads , or LinkedIn . Om Malik is a San Francisco based writer, photographer and investor. This site uses Akismet to reduce spam.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The passing of Om Malik signifies a profound loss for the technology and media communities, marking the end of an era for a pioneering voice. As a revered writer, investor, and founder of Gigaom, he critically shaped tech discourse and identified emerging trends, leaving an indelible mark on how we understand and engage with innovation. His legacy underscores the vital role of independent journalism and thoughtful investment in fostering a robust and critically aware tech ecosystem.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is in collective mourning, universally praising Om Malik as a profoundly kind, compassionate, and honest pioneer in tech journalism. Commenters repeatedly highlight his selfless mentorship, willingness to uplift others, and human-centered approach to writing and life, noting his significant personal impact on many careers and the industry itself.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>om.co</span>
+        <span>·</span>
+        <span>843 pts</span>
+        <span>·</span>
+        <span>96 comments</span>
+        <span>·</span>
+        <span>by minimaxir</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://om.co/2026/06/24/1966-2026/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48678852" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Hardware Strategy</div>
+            
+            <h2 class="story-title"><a href="https://www.bloomberg.com/news/articles/2026-06-25/apple-to-skip-high-end-m6-mac-chips-to-launch-m7-pro-m7-max-m7-ultra-instead?embedded-checkout=true" target="_blank" rel="noopener">Apple Skips M6 Chips, Accelerates AI Focus with M7 Line for High-End Macs</a></h2>
+            <p class="story-summary">Giftlink: https://www.bloomberg.com/news/articles/2026-06-25/apple-to-... also https://www.msn.com/en-ca/lifestyle/shopping/apple-to-skip-h...</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This strategic decision by Apple to bypass a high-end M6 generation for an &quot;AI-focused M7 line&quot; underscores the company's aggressive pivot towards on-device AI. It signals a critical hardware investment to support forthcoming generative AI capabilities, aiming to maintain a competitive edge and optimize for future AI workloads. This move highlights the industry-wide shift where integrated AI performance is becoming a primary differentiator for high-end computing platforms.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely views Apple's pivot to AI-focused M7 chips as a strategic move, leveraging their unique market position to drive local LLM capabilities, with some excitement about the projected memory bandwidth for future variants. However, there's skepticism about the &quot;M6 skip&quot; being a marketing tactic to boost interest and prices, coupled with disappointment over the delayed timeline for anticipated MacBook Pro refreshes given the M7's late 2027/2028 release schedule.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>bloomberg.com</span>
+        <span>·</span>
+        <span>242 pts</span>
+        <span>·</span>
+        <span>221 comments</span>
+        <span>·</span>
+        <span>by scrlk</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.bloomberg.com/news/articles/2026-06-25/apple-to-skip-high-end-m6-mac-chips-to-launch-m7-pro-m7-max-m7-ultra-instead?embedded-checkout=true" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48676795" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 26, 2026</div>
+    </footer>
+</body>
+</html>
