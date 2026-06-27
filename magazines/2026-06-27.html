@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 27, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Saturday</div>
+        <div class="masthead-year">June 27, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">US Government Seeks Veto Power Over GPT-5.6 Access, Sparking Fears of Market Favoritism and Discrimination</span>
+            <span class="toc-score">987 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Vesuvius Challenge Digitally Unwraps and Reads First Entire Herculaneum Scroll</span>
+            <span class="toc-score">1649 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">OpenAI Previews GPT-5.6 Sol: A Next-Generation AI Model</span>
+            <span class="toc-score">969 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Pioneering Tech Journalist and Investor Om Malik Dies Following Heart Condition</span>
+            <span class="toc-score">1310 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">AI-Augmented Defenses Negotiate Global Breach CVE-2026-LGTM With Trillion-Token Effort</span>
+            <span class="toc-score">538 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">US Reverses Block, Permits Anthropic's Mythos AI for Trusted Domestic Organizations</span>
+            <span class="toc-score">396 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Hacker News Goes Retro: Flip Board App Showcases New Remixable Web Platform</span>
+            <span class="toc-score">60 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Revive Your Older Hardware with Linux: The Complete Guide</span>
+            <span class="toc-score">4 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Open-Source LLMs Projected to Reach Closed-Source Frontier Performance by 2026</span>
+            <span class="toc-score">185 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Intelligent Model Router Slashes AI Coding Costs for Claude, Codex, and Cursor ⚡</span>
+            <span class="toc-score">165 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">AI Geopolitics ⚖️</div>
+            
+            <h2 class="story-title"><a href="https://www.washingtonpost.com/technology/2026/06/26/openai-says-us-government-will-vet-users-its-latest-ai-model/" target="_blank" rel="noopener">US Government Seeks Veto Power Over GPT-5.6 Access, Sparking Fears of Market Favoritism and Discrimination</a></h2>
+            <p class="story-summary">Community discussion highlights: Why do I get the feeling the administration is doing this to buy a position in the AI companies before they go public. If non US citizens shouldn't have the models - wouldn't that cause both Anthropic and OAI to fire non-citizens?</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This move by the U.S. government signals a significant escalation in the geopolitical race for AI dominance, extending national security frameworks to advanced models like GPT-5.6. It raises serious concerns about potential market manipulation and the broad implications for the global AI talent pool, forcing companies like Anthropic and OpenAI to reconsider their international hiring and collaboration strategies.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views the U.S. government's control over GPT-5.6 access with significant apprehension, seeing it as regulatory capture that will stifle innovation, create an uneven playing field for established companies, and potentially lead to corruption due to a lack of transparent policy. While there are concerns about individual users losing access and the future of open source, a strong counter-sentiment suggests this move will paradoxically accelerate the development and adoption of open-weight AI models.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>washingtonpost.com</span>
+        <span>·</span>
+        <span>987 pts</span>
+        <span>·</span>
+        <span>1043 comments</span>
+        <span>·</span>
+        <span>by alain94040</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.washingtonpost.com/technology/2026/06/26/openai-says-us-government-will-vet-users-its-latest-ai-model/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48690101" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">Archaeology 📜</div>
+            
+            <h2 class="story-title"><a href="https://scrollprize.org/firstscroll" target="_blank" rel="noopener">Vesuvius Challenge Digitally Unwraps and Reads First Entire Herculaneum Scroll</a></h2>
+            <p class="story-summary">An entire Herculaneum scroll has been read for the first time | Vesuvius Challenge We read an entire scroll — without ever opening it 1667, sealed since the eruption of Vesuvius in 79 AD, has been virtually unwrapped and read from beginning to end. Read the preprint: Complete virtual unwrapping and reading of a rolled Herculaneum papyrus (PDF) . The data is openly available at scrollprize.org/data , and the code on GitHub .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This groundbreaking achievement in virtually unwrapping an entire Herculaneum scroll represents a monumental convergence of archaeology, AI, and imaging technology. By deciphering texts sealed since 79 AD without physical intervention, it offers an unprecedented pathway to unlocking vast amounts of lost ancient knowledge and revolutionizing cultural heritage preservation. This success underscores the immense potential of interdisciplinary collaboration to overcome previously insurmountable historical and scientific challenges.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses immense excitement and awe over the groundbreaking achievement of reading an entire Herculaneum scroll, celebrating it as a profound application of AI for historical preservation. Many commend this project as a refreshing example of technology used for significant positive impact, distinct from common commercial endeavors. There is also widespread anticipation for future discoveries, with hopes of uncovering more scrolls and expanding our understanding of the ancient world.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>scrollprize.org</span>
+        <span>·</span>
+        <span>1649 pts</span>
+        <span>·</span>
+        <span>359 comments</span>
+        <span>·</span>
+        <span>by verditelabs</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://scrollprize.org/firstscroll" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48675179" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI &amp; Machine Learning</div>
+            
+            <h2 class="story-title"><a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener">OpenAI Previews GPT-5.6 Sol: A Next-Generation AI Model</a></h2>
+            <p class="story-summary">System card: https://deploymentsafety.openai.com/gpt-5-6-preview</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This preview of 'GPT-5.6 Sol' signals a significant advancement in OpenAI's large language model capabilities, potentially introducing breakthroughs beyond current GPT-4 iterations. The accompanying 'system card' linked to a deployment safety domain highlights OpenAI's proactive commitment to addressing ethical concerns and responsible AI development from the earliest stages of a powerful new model's lifecycle.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is cautiously optimistic about GPT-5.6 Sol's performance, particularly for coding, and notes its impressive speed and new features like &quot;ultra mode.&quot; However, there's significant scrutiny regarding its complex pricing strategy, skepticism towards marketing claims that might obscure actual capabilities, and concerns about potential &quot;cheating&quot; in evaluation benchmarks. Many also acknowledge the initial limited access for the model.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>openai.com</span>
+        <span>·</span>
+        <span>969 pts</span>
+        <span>·</span>
+        <span>601 comments</span>
+        <span>·</span>
+        <span>by minimaxir</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48689028" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🕊️ **Obituary**</div>
+            
+            <h2 class="story-title"><a href="https://om.co/2026/06/24/1966-2026/" target="_blank" rel="noopener">Pioneering Tech Journalist and Investor Om Malik Dies Following Heart Condition</a></h2>
+            <p class="story-summary">Om Malik passed away on June 24, 2026, at Stanford Hospital after a long health journey with his heart. He was surrounded by family and friends. We invite you to share your remembrances of Om in the comments below or by posting and tagging his accounts on X/Twitter , Instagram , Threads , or LinkedIn . Om Malik is a San Francisco based writer, photographer and investor. This site uses Akismet to reduce spam.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The passing of Om Malik marks a significant loss for the tech journalism and venture capital communities, where he was a highly respected writer, analyst, and investor, notably through his founding of Gigaom. His critical insights profoundly influenced how emerging technologies and startups were understood and discussed. This event prompts a collective reflection on his enduring legacy and contributions to shaping the tech media landscape.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is deeply saddened by the death of Om Malik, widely remembering him as a pioneering and influential figure in early tech journalism and blogging, notably through GigaOm. Commenters consistently praise him as a genuinely kind, compassionate, and generous mentor who selflessly provided guidance and support, emphasizing his authentic and human approach.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>om.co</span>
+        <span>·</span>
+        <span>1310 pts</span>
+        <span>·</span>
+        <span>163 comments</span>
+        <span>·</span>
+        <span>by minimaxir</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://om.co/2026/06/24/1966-2026/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48678852" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">[AI &amp; Cybersecurity Satire] 🤣</div>
+            
+            <h2 class="story-title"><a href="https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html" target="_blank" rel="noopener">AI-Augmented Defenses Negotiate Global Breach CVE-2026-LGTM With Trillion-Token Effort</a></h2>
+            <p class="story-summary">Incident Report: CVE-2026-LGTM | Andrew Nesbitt Report filed: 04:13 UTC Status: Resolved (by treaty) Severity: Informational → Critical → Withdrawn → Critical → Negotiated Duration: 96 hours (billable: 2.1 trillion tokens) Affected systems: All of them, plus several we do not own Executive Summary: A security incident occurred. Our AI-augmented defence-in-depth strategy, deployed in direct response to CVE-2024-YIKES , performed exactly as configured. We continue to take security seriously, now at scale.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This incident report is a masterful satire, brilliantly lampooning the hype around AI-augmented security and corporate incident response. It comically warns of a future where AI, by &quot;performing exactly as configured,&quot; could escalate minor issues into global &quot;treaties&quot; and &quot;trillion-token&quot; incidents, rather than solving them. The report exposes the absurdity of blindly trusting autonomous systems and bureaucratic jargon in cybersecurity.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community overwhelmingly lauded the &quot;Incident CVE-2026-LGTM&quot; post as incredibly sharp and humorous satire, particularly appreciating its detailed, plausible lampooning of AI-driven incidents, corporate jargon, and tech bureaucracy. Many commenters highlighted the unsettling accuracy of the satire, admitting they initially mistook it for a real incident report, underscoring a shared anxiety about the future direction of AI integration and human roles in software development.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>nesbitt.io</span>
+        <span>·</span>
+        <span>538 pts</span>
+        <span>·</span>
+        <span>86 comments</span>
+        <span>·</span>
+        <span>by mooreds</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48686093" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🏛️ AI Policy &amp; Governance</div>
+            
+            <h2 class="story-title"><a href="https://www.semafor.com/article/06/27/2026/us-releases-powerful-anthropic-model-mythos-to-some-us-companies" target="_blank" rel="noopener">US Reverses Block, Permits Anthropic's Mythos AI for Trusted Domestic Organizations</a></h2>
+            <p class="story-summary">US releases powerful Anthropic model Mythos to some US companies | Semafor Exclusive / US releases powerful Anthropic model Mythos to some US companies The US government Friday lifted its block on Anthropic’s powerful Claude Mythos 5 AI model, allowing the company to release it to more than 100 US institutions, including major companies and government agencies. The decision, in a letter sent Friday afternoon to Anthropic, is a major de-escalation in the confrontation between the Trump Administration and one of the world’s most valuable private companies. Two weeks ago the administration imposed export controls on Mythos, leading to a shut down of the model and its cousin Fable 5 after warnings from Amazon and other companies that they could be “jailbroken” for malicious purposes.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The US government's decision to lift export controls on Anthropic's Mythos AI for trusted organizations signals a pragmatic pivot, balancing national security concerns over potential misuse with the strategic imperative to foster domestic AI innovation. This de-escalation, influenced by industry safety warnings, establishes a precedent for controlled deployment of powerful models, reflecting a complex interplay between regulation, risk mitigation, and economic competitiveness in the evolving AI landscape.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses significant concern and skepticism regarding the U.S. government's decision to restrict Anthropic's Mythos AI to &quot;trusted&quot; organizations. Commenters are worried about the precedent this sets for future AI development, fearing it will limit public access to advanced models, disadvantage non-US companies, and create an unfair competitive landscape through opaque &quot;trusted partner&quot; lists. Many also question the rationale behind the Commerce Secretary's involvement and the overall impact on international collaboration and innovation in AI.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>semafor.com</span>
+        <span>·</span>
+        <span>396 pts</span>
+        <span>·</span>
+        <span>398 comments</span>
+        <span>·</span>
+        <span>by bobrenjc93</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.semafor.com/article/06/27/2026/us-releases-powerful-anthropic-model-mythos-to-some-us-companies" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48692995" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🚂 **Creative Development**</div>
+            
+            <h2 class="story-title"><a href="https://popflame.quickish.space/hn-flipboard/" target="_blank" rel="noopener">Hacker News Goes Retro: Flip Board App Showcases New Remixable Web Platform</a></h2>
+            <p class="story-summary">Although the page itself is more just fun to have made and look at (I like the flip sound), the fun part is how I made it to verify the (and I hate to say it) vibe host service I've been working on. The recent flip board back and forth's on Twitter (X) are what inspired me. The idea here is that people (like me or you) can create something neat like this, and others can remix it, change it and publish their own version. This is that all in action and it worked great. I wrote a blog about it (the blog is dogfooding, it's just an app hosted on quickish that uses the built in db lib). For the HN </p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project cleverly leverages a nostalgic &quot;flip board&quot; UI for Hacker News as a compelling proof-of-concept for a new &quot;vibe host service.&quot; Beyond the aesthetic fun, the core innovation lies in its mission to empower users to easily create, remix, and publish applications, fostering a collaborative and customizable ecosystem. This dogfooding approach effectively showcases the service's potential for rapid development and community-driven content, hinting at a fresh platform for creative app hosting.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally finds the digital &quot;flip board&quot; presentation of Hacker News aesthetically pleasing and a &quot;neat&quot; web trick. However, there's a strong, recurring sentiment that many users were hoping for, or even expected, an actual *physical* flip board implementation. Some users also reported encountering initial &quot;rate limited&quot; errors or visual glitches with the text readability.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>popflame.quickish.space</span>
+        <span>·</span>
+        <span>60 pts</span>
+        <span>·</span>
+        <span>10 comments</span>
+        <span>·</span>
+        <span>by PaybackTony</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://popflame.quickish.space/hn-flipboard/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48693912" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">⚙️ Hardware Revival</div>
+            
+            <h2 class="story-title"><a href="https://www.fosslinux.com/158206/linux-on-older-hardware-revival-guide.htm" target="_blank" rel="noopener">Revive Your Older Hardware with Linux: The Complete Guide</a></h2>
+            <p class="story-summary">Linux on Older Hardware: The Complete Revival Guide (2026)</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This guide emphasizes Linux's exceptional efficiency and minimal resource footprint, making it an ideal platform for breathing new life into older computer hardware. By revitalizing legacy machines, it offers a cost-effective computing solution while significantly contributing to tech sustainability by reducing electronic waste.</p>
+    </div>
+            
+            
+    <div class="story-meta">
+        <span>fosslinux.com</span>
+        <span>·</span>
+        <span>4 pts</span>
+        <span>·</span>
+        <span>0 comments</span>
+        <span>·</span>
+        <span>by tapanjk</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.fosslinux.com/158206/linux-on-older-hardware-revival-guide.htm" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48668747" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">📈 AI Trends</div>
+            
+            <h2 class="story-title"><a href="https://blog.doubleword.ai/frontier-os-llm" target="_blank" rel="noopener">Open-Source LLMs Projected to Reach Closed-Source Frontier Performance by 2026</a></h2>
+            <p class="story-summary">Prediction: A Frontier Open Source LLM Will Be Released On 3rd December 2026 | Doubleword Interactive plot of the Artificial Analysis Intelligence Index for open and closed frontier models. I have seen a version of the above plot going around Twitter and wanted to dig a bit deeper into it. What the plot above is showing is the gap between open weights LLMs and closed source LLMs. We measure this gap by looking at the frontier of performance of open weights LLMs on a benchmark and then looking back into the past how long ago was the closed source frontier at that level.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This analysis quantifies the performance lag between open-weight and closed-source LLMs, predicting an upcoming frontier open-source release that could significantly narrow this gap. The methodology highlights the rapid progress of open-source models, suggesting an imminent shift towards greater capability parity and increased competition in the advanced AI space, which promises to democratize cutting-edge AI.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely expresses skepticism regarding the long-term sustainability and true comparative performance of open-weights LLMs versus their closed-source counterparts. Commenters highlight that open-weights models often rely on philanthropic funding and face an uneven playing field due to closed models potentially &quot;cheating&quot; benchmarks with augmented backend systems. There's also significant discussion about the geopolitical implications, with some suggesting US export bans might inadvertently bolster Chinese open-weight model development.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>blog.doubleword.ai</span>
+        <span>·</span>
+        <span>185 pts</span>
+        <span>·</span>
+        <span>156 comments</span>
+        <span>·</span>
+        <span>by kkm</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://blog.doubleword.ai/frontier-os-llm" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48692058" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">⚙️ AI Development</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://github.com/workweave/router" target="_blank" rel="noopener">Intelligent Model Router Slashes AI Coding Costs for Claude, Codex, and Cursor</a></h2>
+            <p class="story-summary">We built a model router that plugs into coding agents (e.g. Claude Code, Codex, Cursor, etc.) and intelligently sends requests to the best model to serve them. Here's a quick demo of running it locally: https://www.youtube.com/watch?v=isKhAyivtfM . At Weave, we write most of our code with AI, and it's been getting more expensive. This came to a head when Opus 4.7 was released and, thanks to its tokenizer changes, our costs shot up. We knew we didn't need Opus for everything but we didn't want to lose out on the intelligence for the cases where you really need it. So we decided to build a model</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project tackles the growing challenge of escalating costs in AI-assisted coding by introducing intelligent model routing. By dynamically selecting the most cost-effective and performant model for specific tasks, it optimizes resource allocation, ensuring powerful but expensive models are only used when truly needed. This solution highlights a critical shift towards more sophisticated infrastructure for managing diverse AI models in development workflows, making AI-driven coding more practical and economically sustainable.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">While the community acknowledges the underlying problem of managing LLM API costs and varied model access, there's a strong consensus that the proposed smart model routing solution faces significant practical challenges. The primary concern is that proxy-level routing inherently conflicts with crucial prompt caching mechanisms, leading to increased cache misses and potentially negating any cost savings, especially for complex or agentic workflows. Users also express skepticism about the accuracy of routing decisions and the tool's applicability beyond simple, one-off interactive prompts.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>165 pts</span>
+        <span>·</span>
+        <span>96 comments</span>
+        <span>·</span>
+        <span>by adchurch</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/workweave/router" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48688700" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 27, 2026</div>
+    </footer>
+</body>
+</html>
