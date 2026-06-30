@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 30, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Tuesday</div>
+        <div class="masthead-year">June 30, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">HackerRank's Open-Source ATS Delivers Wildly Inconsistent Resume Scores</span>
+            <span class="toc-score">974 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Semgrep's GLM 5.2 Tops Claude in AI Code Security Benchmarks ⚡</span>
+            <span class="toc-score">1078 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Micro-Agent's Collaborative Control Plane Outperforms Frontier AI Models</span>
+            <span class="toc-score">69 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">SQLite Corruption: A Hands-On Guide to Testing Database Integrity</span>
+            <span class="toc-score">70 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Mullvad VPN CEO Revealed as Main Financier of Swedish Örebro Party</span>
+            <span class="toc-score">597 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Qwen 3.6 27B Hits the Sweet Spot for Local Development</span>
+            <span class="toc-score">892 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Pollen Attempts to Censor Article on Post-Funding Layoffs; Google Aids Removal Efforts</span>
+            <span class="toc-score">884 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">30-Year Zine Transport Sentence Ignites Free Speech Crisis</span>
+            <span class="toc-score">545 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Halvar Flake Shares Entrepreneurship Lessons From Two Exits to Google and Elastic</span>
+            <span class="toc-score">214 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Human-Centered Computing Foundation Campaigns for '.self' TLD to Support Ethical Self-Hosting</span>
+            <span class="toc-score">494 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">📄 Recruitment Tech</div>
+            
+            <h2 class="story-title"><a href="https://danunparsed.com/p/hackerrank-open-source-ats" target="_blank" rel="noopener">HackerRank's Open-Source ATS Delivers Wildly Inconsistent Resume Scores</a></h2>
+            <p class="story-summary">HackerRank's Open-Source ATS Gave My Resume a Different Score Every Time. HackerRank open sourced its ATS. This open-source ATS by HackerRank has been blowing up recently: https://github.com/interviewstreet/hiring-agent It’s popped up on LinkedIn and Reddit with hundreds, sometimes thousands, of likes. 1 A coworker mentioned it to me in passing a few days ago.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The erratic scoring from HackerRank's open-source ATS critically undermines the reliability and fairness of automated resume screening. Such inconsistency highlights the inherent challenges of entrusting complex, subjective tasks to software, potentially leading to arbitrary candidate rejections or unwarranted advancements. This case serves as a crucial reminder for recruiters and candidates alike to approach algorithmic hiring tools with skepticism and demand greater transparency and robustness, even from open-source solutions.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant skepticism and concern regarding the use of LLM-based ATS, primarily due to their non-deterministic nature causing inconsistent resume scoring and the arbitrary rejection of qualified candidates. Commenters worry these systems act as &quot;black holes,&quot; potentially violate anti-discrimination laws, and highlight a fundamental disconnect between companies valuing engineers and their flawed hiring tools.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>danunparsed.com</span>
+        <span>·</span>
+        <span>974 pts</span>
+        <span>·</span>
+        <span>414 comments</span>
+        <span>·</span>
+        <span>by sambellll</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://danunparsed.com/p/hackerrank-open-source-ats" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48713832" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🔒 AI &amp; Cybersecurity</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://semgrep.dev/blog/2026/we-have-mythos-at-home-glm-52-beats-claude-in-our-cyber-benchmarks/" target="_blank" rel="noopener">Semgrep's GLM 5.2 Tops Claude in AI Code Security Benchmarks</a></h2>
+            <p class="story-summary">We have Mythos at Home: GLM 5.2 beats Claude in our Cyber Benchmarks | Semgrep At RSA, we launched Semgrep Multimodal to combine AI reasoning with rule-based detection Learn More → Find and fix the issues that matter in your code (SAST) Fix vulnerabilities in open source  dependencies and block malware Find and fix hardcoded secrets with semantic analysis</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Semgrep's announcement highlights a critical shift towards integrating advanced AI models like GLM 5.2 directly into specialized cybersecurity tools, claiming superior performance over generalist LLMs like Claude in &quot;Cyber Benchmarks.&quot; This signifies a new frontier where AI reasoning is explicitly tailored to enhance static analysis, vulnerability detection, and secret identification. Such developments promise more robust and intelligent security solutions, potentially setting new industry standards for code and application security.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community acknowledges GLM 5.2 as a strong performer, particularly for coding and cyber-related tasks, though some benchmarks suggest other open models might surpass it in specific areas. While its capabilities are noted, there's significant discussion about its massive parameter count impacting local usability, and questions regarding its cost-effectiveness via API compared to commercial alternatives. Furthermore, its Chinese origin sparks considerable speculation about potential government backing and future export control implications.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>semgrep.dev</span>
+        <span>·</span>
+        <span>1078 pts</span>
+        <span>·</span>
+        <span>499 comments</span>
+        <span>·</span>
+        <span>by jms703</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://semgrep.dev/blog/2026/we-have-mythos-at-home-glm-52-beats-claude-in-our-cyber-benchmarks/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48709670" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">AI Orchestration ⚙️</div>
+            
+            <h2 class="story-title"><a href="https://vllm.ai/blog/2026-06-29-micro-agent-frontier-models" target="_blank" rel="noopener">Micro-Agent's Collaborative Control Plane Outperforms Frontier AI Models</a></h2>
+            <p class="story-summary">Micro-Agent: Beat Frontier Models with Collaboration inside Model API | vLLM Blog Everyone is watching for the next frontier model. The more interesting layer may be the one in front of it. Routers are becoming the control plane for AI inference. Their first role was
+practical: route the right request to the right model.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece signals a crucial shift in AI development focus from solely pursuing larger &quot;frontier models&quot; to optimizing their deployment and interaction. By leveraging &quot;Micro-Agents&quot; and intelligent routing within an inference control plane, the aim is to achieve superior performance and efficiency through collaborative model utilization, rather than relying on a single monolithic model.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views the &quot;Micro-Agent&quot; concept as a natural evolution, emphasizing that system-level optimization and &quot;the harness&quot; are becoming paramount over brute-force scaling of foundational models. This approach reinforces the idea that LLMs themselves are increasingly commoditized, with the true innovation shifting to intelligent orchestration and collaboration. While some acknowledge similar efforts already exist (e.g., OpenRouter), a concern is raised about adding complexity that future single frontier models might eventually integrate.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>vllm.ai</span>
+        <span>·</span>
+        <span>69 pts</span>
+        <span>·</span>
+        <span>20 comments</span>
+        <span>·</span>
+        <span>by matt_d</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://vllm.ai/blog/2026-06-29-micro-agent-frontier-models" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48722802" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Database Internals ⚙️</div>
+            
+            <h2 class="story-title"><a href="https://www.sqlite.org/howtocorrupt.html" target="_blank" rel="noopener">SQLite Corruption: A Hands-On Guide to Testing Database Integrity</a></h2>
+            <p class="story-summary">Community discussion highlights: Related. Others? How to Corrupt an SQLite Database File - https://news.ycombinator.com/item?id=41846796 - Oct 2024 (1 comment) How to Corrupt an SQLite Database File - https://news.ycombinator.com/item?id=33503555 - Nov 2022 (1 comment) How to Corrupt an SQLite Database File - https://news.ycombinator.com/item?id=31214131 - April 2022 (139 comments) How to Corrupt an SQLite Database File - https://news.ycombinator.com/item?id=16579986 - March 2018 (10 comments) How to Corrupt an SQLite Database </p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The repeated appearance of &quot;How to Corrupt an SQLite Database File&quot; on Hacker News over several years signals a persistent engineering interest in database resilience and failure analysis. This recurring discussion highlights a critical need within the tech community to understand the robustness, internal mechanisms, and potential vulnerabilities of ubiquitous systems like SQLite, which is vital for building resilient applications and ensuring data integrity in production environments. It reflects a proactive approach to exploring system limits rather than purely malicious intent.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely confirms that SQLite database corruption is a persistent and real-world problem, often attributed to factors like conflicting library versions within an application or external processes like anti-virus scans. While users find it an &quot;interesting&quot; and useful topic for official documentation, there's a strong consensus that robust backup strategies remain the most crucial defense against data loss, especially as new contexts like WASM introduce evolving considerations.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>sqlite.org</span>
+        <span>·</span>
+        <span>70 pts</span>
+        <span>·</span>
+        <span>15 comments</span>
+        <span>·</span>
+        <span>by tosh</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.sqlite.org/howtocorrupt.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48689885" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Politics &amp; Ethics 🏛️</div>
+            
+            <h2 class="story-title"><a href="https://det.social/@lostgen/116820546568940358" target="_blank" rel="noopener">Mullvad VPN CEO Revealed as Main Financier of Swedish Örebro Party</a></h2>
+            <p class="story-summary">Jörg Seidel: &quot;That's absolutely sad to read. The CEO of @mullva…&quot; - det.social</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The revelation that Mullvad's CEO is a significant political financer creates a substantial ethical dilemma for a company built on privacy and neutrality. This direct political involvement risks eroding user trust, as it can be perceived as compromising the impartial, privacy-first stance users expect from their VPN provider. It underscores the tension between a tech leader's personal political actions and the integrity of their company's public-facing values.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is largely divided on the revelation that one of Mullvad's co-founders made a private donation to the nationalist Örebro Party. While some users express intent to boycott over the perceived political alignment, a strong counter-narrative questions the party's actual extremism, highlights the donation's private nature from one of two owners, and argues against the impracticality of boycotting companies based on owners' personal political affiliations.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>det.social</span>
+        <span>·</span>
+        <span>597 pts</span>
+        <span>·</span>
+        <span>1334 comments</span>
+        <span>·</span>
+        <span>by Risse</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://det.social/@lostgen/116820546568940358" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48717469" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI/ML Development</div>
+            
+            <h2 class="story-title"><a href="https://quesma.com/blog/qwen-36-is-awesome/" target="_blank" rel="noopener">Qwen 3.6 27B Hits the Sweet Spot for Local Development</a></h2>
+            <p class="story-summary">Qwen 3.6 27B is the sweet spot for local development - Quesma Blog</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The identification of Qwen 3.6 27B as a &quot;sweet spot&quot; for local development underscores a critical trend towards optimizing powerful AI models for accessible, on-premise use. This balance of performance and resource efficiency empowers developers to iterate quickly and maintain data privacy without heavy reliance on costly cloud infrastructure, significantly lowering the barrier to entry for advanced LLM experimentation.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses a strong sentiment that while running models like Qwen 3.6 locally on high-end MacBooks can be &quot;fun,&quot; it is generally not economically sensible or practical for &quot;real work.&quot; Many commenters highlight the prohibitive cost of 128GB MacBooks compared to their performance, thermal issues, and the superior cost-effectiveness and access to more powerful models offered by cloud services like OpenRouter. There's also a preference for dedicated GPUs over unified memory architectures for better dense model performance.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>quesma.com</span>
+        <span>·</span>
+        <span>892 pts</span>
+        <span>·</span>
+        <span>602 comments</span>
+        <span>·</span>
+        <span>by stared</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://quesma.com/blog/qwen-36-is-awesome/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48721903" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Censorship 🚫</div>
+            
+            <h2 class="story-title"><a href="https://blog.pragmaticengineer.com/pollen-tried-to-remove-my-article-about-callum-negus-fancey-and-google-is-assisting-to-it/" target="_blank" rel="noopener">Pollen Attempts to Censor Article on Post-Funding Layoffs; Google Aids Removal Efforts</a></h2>
+            <p class="story-summary">Pollen tried to remove my article about CEO Callum Negus-Fancey and CTO Bradley Wright, and Google is assisting with it - The Pragmatic Engineer In 2022, I wrote about the damning fall of events tech company Pollen. Pollen seemed to have pulled off the improbable feat of building a business in the notoriously low margin industry of events, surviving Covid-19, and building a solid software engineering organization. In April this year, the company announced it had raised another $150M in fresh funding. But just three weeks later, Pollen laid off about 200 people, a third of staff.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This incident starkly illustrates the battle between corporate reputation management and journalistic integrity, highlighting how powerful entities like Pollen may attempt to suppress critical reporting. Google's alleged 'assistance,' whether intentional or algorithmic, raises serious concerns about the gatekeeper role of search engines and their potential to inadvertently or directly facilitate censorship, thereby impacting information access and public discourse.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees that this is a classic &quot;reputation management&quot; tactic involving a bogus DMCA claim, highlighting its common use against investigative reporting. There's significant concern that Google is implicitly assisting in these takedowns. Ironically, the community notes the &quot;Streisand Effect&quot; in full force, where the attempt to remove the article has only drawn more attention to it.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>blog.pragmaticengineer.com</span>
+        <span>·</span>
+        <span>884 pts</span>
+        <span>·</span>
+        <span>126 comments</span>
+        <span>·</span>
+        <span>by taubek</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://blog.pragmaticengineer.com/pollen-tried-to-remove-my-article-about-callum-negus-fancey-and-google-is-assisting-to-it/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48716902" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">⚖️ Civil Liberties</div>
+            
+            <h2 class="story-title"><a href="https://theintercept.com/2026/06/26/daniel-sanchez-estrada-zines-prairieland-free-speech/" target="_blank" rel="noopener">30-Year Zine Transport Sentence Ignites Free Speech Crisis</a></h2>
+            <p class="story-summary">30-Year Prison Sentence In Prairieland Zine Case Is a Free Speech Crisis</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This shocking 30-year sentence for transporting zines represents a profound escalation in legal challenges to free expression and independent media. It highlights a critical intersection where disproportionate punishment threatens to chill free speech, potentially setting a dangerous precedent for how content distribution is regulated and dissent is suppressed.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees that the 30-year sentence is disproportionately harsh and a serious concern for free speech, even if the individual technically hid evidence. Many commenters express skepticism about the justice system's fairness, pointing to perceived political weaponization, judicial bias, and the potential for the ruling to be overturned. There's a strong consensus that the severity of the sentence far outweighs the alleged crime.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>theintercept.com</span>
+        <span>·</span>
+        <span>545 pts</span>
+        <span>·</span>
+        <span>333 comments</span>
+        <span>·</span>
+        <span>by xrd</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://theintercept.com/2026/06/26/daniel-sanchez-estrada-zines-prairieland-free-speech/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48711981" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🚀 Entrepreneurship Guide</div>
+            
+            <h2 class="story-title"><a href="https://thomasdullien.github.io/guides/entrepreneurship/" target="_blank" rel="noopener">Halvar Flake Shares Entrepreneurship Lessons From Two Exits to Google and Elastic</a></h2>
+            <p class="story-summary">Halvar’s Guide to Entrepreneurship – Thomas Dullien / Halvar Flake I founded two companies — zynamics, which I ran from 2004 to March 2011 and which I sold to Google (GOOG), and optimyze, which I ran from 2019 to November 2021 and sold to Elastic (ESTC). The first company was bootstrapped, initially with no cofounder (an early employee received a big equity stake later), the second company had a cofounder and was venture-backed. Neither of these exits were “successes” by Silicon Valley standards, but they were definitely impactful and possibly life-changing for founders and most employees. I learnt a few things, and after talking to founders or would-be founders, I decided to share my lessons more broadly.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This guide offers a refreshingly grounded perspective on entrepreneurship, openly discussing two exits that, while impactful and life-changing for the teams, didn't meet typical &quot;Silicon Valley success&quot; metrics. It provides invaluable, non-ideological insights into navigating both bootstrapped and venture-backed paths. This candid approach makes it highly relevant for founders seeking practical lessons beyond the unicorn mythos.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely commends Halvar's guide for its practical, real-world advice, emphasizing the importance of clear investor agreements like YC's Handshake Protocol and the need to focus on actual people rather than abstract personas. Commenters also raise crucial entrepreneurial challenges, from avoiding the &quot;consulting trap&quot; for bootstrapped companies to the critical financial consideration of founder salaries, while acknowledging the potential disruptive impact of AI on traditional product development.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>thomasdullien.github.io</span>
+        <span>·</span>
+        <span>214 pts</span>
+        <span>·</span>
+        <span>50 comments</span>
+        <span>·</span>
+        <span>by nekitamo</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://thomasdullien.github.io/guides/entrepreneurship/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48674875" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🌐 Internet Governance &amp; Decentralization</div>
+            
+            <h2 class="story-title"><a href="https://hccf.onmy.cloud/2026/06/21/reclaiming-our-digital-selves-hccfs-vision-for-a-human-centered-top-level-domain/" target="_blank" rel="noopener">Human-Centered Computing Foundation Campaigns for '.self' TLD to Support Ethical Self-Hosting</a></h2>
+            <p class="story-summary">Reclaiming Our Digital Selves: HCCF’s Vision for a Human-Centered Top-Level Domain – Human-Centered Computing Foundation Skip to content The Internet is the most powerful communication tool ever created, yet the infrastructure underpinning it has been leveraged by the tech industry to extract our data and exploit our attention. The Human-Centered Computing Foundation seeks to change this dynamic by creating an alternative architecture for the web. As an approved participant in ICANN’s Applicant Support Program (ASP), we are officially launching our campaign to secure a new Top-Level Domain (TLD) dedicated entirely to ethical, human-centered technology. To explore our vision for how a human-centered TLD would function, read, download, and share our full initiative overview below:</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The proposed .self TLD represents a direct infrastructural challenge to the centralized, data-extractive model of the current internet, aiming to empower individuals through self-hosting. By providing a dedicated, ethically-governed domain space, it seeks to foster a decentralized web where user autonomy and privacy are prioritized over corporate exploitation. This initiative underscores a growing movement to reclaim digital sovereignty, leveraging a fundamental internet mechanism (TLDs) for systemic change.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is largely skeptical of the &quot;.self&quot; TLD proposal, raising significant concerns about its financial viability, scalability, and potential for abuse, drawing parallels to past issues with free TLDs like .tk. Commenters question how the project will fund operations without registration fees, prevent squatting, and ensure security given that advertising self-hosting might attract malicious actors. There's also uncertainty about its official status and the practical implementation of its &quot;one domain per person&quot; model.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>hccf.onmy.cloud</span>
+        <span>·</span>
+        <span>494 pts</span>
+        <span>·</span>
+        <span>277 comments</span>
+        <span>·</span>
+        <span>by HumanCCF</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://hccf.onmy.cloud/2026/06/21/reclaiming-our-digital-selves-hccfs-vision-for-a-human-centered-top-level-domain/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48724230" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 30, 2026</div>
+    </footer>
+</body>
+</html>
