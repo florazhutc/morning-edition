@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — July 04, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Saturday</div>
+        <div class="masthead-year">July 04, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Google's &quot;Android Developer Verifier&quot; Secretly Installs Root-Level Trojan on Billions of Android Devices</span>
+            <span class="toc-score">1686 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Founder Eyes Billion-Dollar Fortune Capturing 10% of Spain's Professional Oven Market with New Tech</span>
+            <span class="toc-score">1251 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Run SOTA LLMs Locally: The Definitive Guide</span>
+            <span class="toc-score">329 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Trans-America Trail: Conquer America's Public-Road Cross-Country Adventure</span>
+            <span class="toc-score">11 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Critics Warn AI Giants May Lobby to Ban Open-Source and Local AI</span>
+            <span class="toc-score">513 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Serious Vulnerabilities Spike 3.5x Following Claude Mythos Preview Release ⚡</span>
+            <span class="toc-score">91 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Threat Models Explained: A Practical, No-Nonsense Guide for Real-World Digital Risks</span>
+            <span class="toc-score">72 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Commodore 64 BASIC: Now a PostgreSQL Language</span>
+            <span class="toc-score">68 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">European Parliament Spyware Investigator Hacked by Pegasus</span>
+            <span class="toc-score">345 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">New CLAP AI System Diagnoses Car Faults from Engine Sounds</span>
+            <span class="toc-score">11 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🦠 Cybersecurity Alert</div>
+            
+            <h2 class="story-title"><a href="https://f-droid.org/2026/07/01/adv-malware.html" target="_blank" rel="noopener">Google's &quot;Android Developer Verifier&quot; Secretly Installs Root-Level Trojan on Billions of Android Devices</a></h2>
+            <p class="story-summary">What We Talk About When We Talk About Malware | F-Droid - Free and Open Source Android App Repository Google is changing the way you install apps on your device. If you are running Android 8 or higher, a virus has been installed on your device and is silently awaiting remote activation. Over the past few months, devices around the world have been infected with this novel strain, with as many as 4 billion Android handsets and tablets estimated to have already been contaminated, meaning that around half of all humanity may be at risk from this threat. Disguising itself as the innocuously-titled “Android Developer Verifier” (ADV) process, this trojan horse runs surreptitiously in the background as a system service with full root privileges, quietly awaiting an activation signal.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This report unveils a pervasive and alarming Android malware, masquerading as a legitimate &quot;Android Developer Verifier&quot; process, that has silently infected billions of devices with root privileges. The unprecedented scale of this dormant trojan horse—potentially compromising half of all humanity—highlights a critical systemic vulnerability in the mobile ecosystem and the sophisticated tactics used by threat actors to embed high-privilege threats for future activation.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely views Android's &quot;Developer Verification&quot; as a harmful move that erodes user freedom and device ownership. Many commenters express strong opposition to Google's increased control, perceiving it as a step towards limiting the installation of custom or alternative software and suspecting Google's true intent is data harvesting rather than protection. This sentiment leads to calls for prioritizing user autonomy and even exploring alternative mobile operating systems.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>f-droid.org</span>
+        <span>·</span>
+        <span>1686 pts</span>
+        <span>·</span>
+        <span>723 comments</span>
+        <span>·</span>
+        <span>by drewfax</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://f-droid.org/2026/07/01/adv-malware.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48755965" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">⚠️ Startup Pitfalls</div>
+            
+            <h2 class="story-title"><a href="https://weli.dev/blog/half-baked-product/" target="_blank" rel="noopener">Founder Eyes Billion-Dollar Fortune Capturing 10% of Spain's Professional Oven Market with New Tech</a></h2>
+            <p class="story-summary">A freshly minted founder decides to get into the oven business. He can’t bake a cake or knead bread, but he knows the kitchen appliance market inside and out. He’s analyzed every business in Spain and reached a conclusion: if he sells a new oven to the country’s pizza makers, pastry chefs, and bakers, he only needs to capture 10% of the market to become a billionaire. 10% always looks small when you type it into an Excel spreadsheet. He builds a plan that, on paper, is flawless and airtight: manufacture a more efficient oven using new technology.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This narrative critiques the common entrepreneurial trap of over-relying on theoretical market analysis and spreadsheet projections, which often drastically understate real-world execution challenges. It highlights the perilous disconnect between a &quot;flawless&quot; business plan on paper and the practical complexities of developing a truly viable product and capturing significant market share, especially when core domain expertise is absent.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community overwhelmingly agrees that the &quot;Half-Baked Product&quot; scenario is a pervasive and timeless issue in the startup world, driven by founders prioritizing wealth over domain expertise and a fundamental disconnect between stakeholders and customer needs. The article resonated strongly as an uncomfortably accurate, yet humorous, reflection of common startup pitfalls and systemic failures.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>weli.dev</span>
+        <span>·</span>
+        <span>1251 pts</span>
+        <span>·</span>
+        <span>375 comments</span>
+        <span>·</span>
+        <span>by weli</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://weli.dev/blog/half-baked-product/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48772388" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">⚙️ Local AI Development</div>
+            
+            <h2 class="story-title"><a href="https://github.com/jamesob/local-llm" target="_blank" rel="noopener">Run SOTA LLMs Locally: The Definitive Guide</a></h2>
+            <p class="story-summary">GitHub - jamesob/local-llm: Everything I know about running LLMs locally · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The focus on running State-of-the-Art (SOTA) LLMs locally highlights a significant trend towards democratizing advanced AI, reducing reliance on cloud infrastructure. This empowers individuals and small teams with greater privacy, lower operational costs, and the flexibility to experiment and innovate with powerful models directly on their own hardware, signaling a crucial shift in AI accessibility and control.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely expresses skepticism regarding the guide's claims about running truly SOTA LLMs locally, particularly challenging its cost estimates and the asserted quality parity with top cloud models like Claude Opus. Many commenters suggest that achieving &quot;near-Opus&quot; performance locally is significantly more expensive than stated and often yields inferior results compared to cloud APIs. While local LLMs are popular, the consensus leans towards focusing on more cost-effective setups for &quot;good enough&quot; models, rather than attempting to replicate commercial SOTA performance locally.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>329 pts</span>
+        <span>·</span>
+        <span>149 comments</span>
+        <span>·</span>
+        <span>by livestyle</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/jamesob/local-llm" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48775921" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🏍️ Adventure Travel</div>
+            
+            <h2 class="story-title"><a href="https://transamtrail.com/plan/" target="_blank" rel="noopener">Trans-America Trail: Conquer America's Public-Road Cross-Country Adventure</a></h2>
+            <p class="story-summary">The TAT is NOT a single track ride with tight sections. It uses public roads and back country roads, both non-pavement and pavement. It does NOT cross any private land or locked gates. If you are using the official and original navigation, you will not have any trouble, unless something drastic has happened overnight and I do not know about it. The TAT is a physical adventure, as riding all day for several days or weeks can become physical.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This summary provides crucial clarification for prospective adventurers, demystifying the Trans-America Trail by emphasizing its public road accessibility and dependable official navigation. It strategically balances this approachability with a clear warning about the significant physical demands, positioning the TAT as a well-supported yet challenging multi-day journey for a broader audience.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community consensus, based on this comment, is overwhelmingly positive about the Trans-America Trail experience, highlighting it as an awesome and highly recommended adventure. Riders frequently encounter friendly strangers eager to chat about their journeys, underscoring the social and engaging nature of the trip.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>transamtrail.com</span>
+        <span>·</span>
+        <span>11 pts</span>
+        <span>·</span>
+        <span>1 comments</span>
+        <span>·</span>
+        <span>by e-dant</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://transamtrail.com/plan/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48781199" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">⚖️ AI Policy &amp; Ethics</div>
+            
+            <h2 class="story-title"><a href="https://righttointelligence.org/" target="_blank" rel="noopener">Critics Warn AI Giants May Lobby to Ban Open-Source and Local AI</a></h2>
+            <p class="story-summary">Community discussion highlights: Given the state of corruption in politics, I think Anthropic and OpenAI will likely bribe … oh wait I mean “lobby” … for bans on open source. Otherwise their imaginary trillion dollar valuations make no sense.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This discussion uncovers a significant fear: that proprietary AI giants will leverage political influence to lobby for regulations hindering or banning open-source AI, driven by their substantial valuations. Such efforts, potentially framed as safety or ethical measures, could effectively amount to regulatory capture designed to cement market dominance for well-funded incumbents. This dynamic poses a direct threat to open innovation, user freedom, and the ability of individuals to run AI locally, challenging the democratic principles of technology access.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community generally expresses a strong desire for the ability to run local AI, citing concerns about privacy, control, and the fragility of cloud-hosted solutions. However, many commenters are skeptical about the likelihood of direct laws being passed to restrict local AI, particularly given OEM support for the technology. Instead, concerns gravitate towards more indirect threats, such as stringent enforcement of existing laws to control misuse, potential hardware access limitations, or economic/political incentives preventing powerful models from being freely available locally.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>righttointelligence.org</span>
+        <span>·</span>
+        <span>513 pts</span>
+        <span>·</span>
+        <span>180 comments</span>
+        <span>·</span>
+        <span>by thoughtpeddler</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://righttointelligence.org/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48768951" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🚨 AI Security Alert</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://epoch.ai/data-insights/cve-severity-spike" target="_blank" rel="noopener">Serious Vulnerabilities Spike 3.5x Following Claude Mythos Preview Release</a></h2>
+            <p class="story-summary">Disclosed CVEs: 3.5× Spike After Claude Mythos | Epoch AI</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The reported surge in CVE disclosures coinciding with the Claude Mythos Preview highlights a critical intersection of AI innovation and cybersecurity challenges. This correlation suggests that as high-profile AI models gain attention, they either expose novel attack surfaces within the broader AI ecosystem or stimulate intensified security scrutiny that uncovers existing weaknesses. It underscores the urgent need for a more proactive and integrated approach to security auditing and vulnerability management in the rapidly evolving AI development landscape.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely acknowledges that a surge in AI-assisted vulnerability findings was expected, with some viewing it as a beneficial development for exposing and fixing poor quality software. However, there is skepticism regarding the direct causal link to &quot;Claude Mythos Preview&quot; specifically, as commenters question the timing of the data and the verification process for these AI-generated vulnerability reports.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>epoch.ai</span>
+        <span>·</span>
+        <span>91 pts</span>
+        <span>·</span>
+        <span>31 comments</span>
+        <span>·</span>
+        <span>by cubefox</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://epoch.ai/data-insights/cve-severity-spike" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48780056" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Security Fundamentals</div>
+            
+            <h2 class="story-title"><a href="https://soatok.blog/2026/06/30/soatoks-informal-guide-to-threat-models/" target="_blank" rel="noopener">Threat Models Explained: A Practical, No-Nonsense Guide for Real-World Digital Risks</a></h2>
+            <p class="story-summary">Soatok’s Informal Guide to Threat Models - Dhole Moments Skip to the content After a long day of exhausting conversations about Hybrid Post-Quantum Cryptography , random jackasses trying to play gotcha with endpoint attacks against end-to-end encrypted messaging apps, and message board discussions in the wake of dumb politicians pushing more “age verification” bullshit on us all, it’s become abundantly clear to me that the phrase “threat model” is a foreign concept to most people. For context, this was commissioned during the era of anti-vaccine losers claiming to “do their own research” briefly co-opting the word “threat model” as a buzz word. I just still find it kind of funny even without this context. To be up front: If you’re here looking for an academic resource with over 100 citations on how to write a formal threat model document for your new startup which involves multiple blockchains, this probably isn’t the gay furry blog for you.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This informal guide addresses a critical gap in public understanding of &quot;threat models,&quot; a foundational concept often misused or misunderstood in cybersecurity and privacy discussions. It aims to demystify how individuals can realistically assess digital risks in everyday contexts, moving beyond highly technical or corporate jargon. Such accessible education is vital as complex online threats and political mandates increasingly demand a basic grasp of security principles.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely found Soatok's guide to threat modeling to be engaging and well-received, with positive comments highlighting its unique style and value. While some discussions delved into specific technical nuances like post-quantum cryptography, the overall sentiment indicates appreciation for the content and its presentation.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>soatok.blog</span>
+        <span>·</span>
+        <span>72 pts</span>
+        <span>·</span>
+        <span>9 comments</span>
+        <span>·</span>
+        <span>by zdw</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://soatok.blog/2026/06/30/soatoks-informal-guide-to-threat-models/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48781597" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">💾 Retro Computing</div>
+            
+            <h2 class="story-title"><a href="https://thombrown.blogspot.com/2026/07/load-plcbmbasic81-commodore-64-basic.html" target="_blank" rel="noopener">Commodore 64 BASIC: Now a PostgreSQL Language</a></h2>
+            <p class="story-summary">LOAD &quot;PL/CBMBASIC&quot;,8,1: Commodore 64 BASIC for PostgreSQL Skip to main content LOAD &quot;PL/CBMBASIC&quot;,8,1: Commodore 64 BASIC for PostgreSQL If you are of a certain age, the words 38911 BASIC BYTES FREE will bring memories flooding back. You remember the blue screen that you had spent hours staring at, and all those games in magazines that you could type in line by line, and not really understanding most of what you're even typing. You remember that the disk drive was device 8, and that you had time to go make a cup of tea before it would finish loading.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project cleverly demonstrates PostgreSQL's remarkable extensibility by integrating a highly nostalgic, yet technically primitive, programming language like Commodore 64 BASIC as a procedural language. While undoubtedly a novelty, it highlights the potential for imaginative, even whimsical, cross-generational tech mashups that blend computing history with modern database capabilities.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community generally views &quot;Commodore 64 Basic for PostgreSQL&quot; with a mix of awe, nostalgia, and appreciation for its impressive technical creativity. Many commenters expressed delight at the project as an example of developers building fascinating, often impractical, software. While a few noted concerns about the article's writing style, the overall sentiment is overwhelmingly positive towards the project itself.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>thombrown.blogspot.com</span>
+        <span>·</span>
+        <span>68 pts</span>
+        <span>·</span>
+        <span>9 comments</span>
+        <span>·</span>
+        <span>by hans_castorp</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://thombrown.blogspot.com/2026/07/load-plcbmbasic81-commodore-64-basic.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48772717" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🕵️ Espionage</div>
+            
+            <h2 class="story-title"><a href="https://citizenlab.ca/research/member-of-committee-investigating-spyware-hacked-with-pegasus/" target="_blank" rel="noopener">European Parliament Spyware Investigator Hacked by Pegasus</a></h2>
+            <p class="story-summary">Espionage Against the European Parliament: Member of Committee Investigating Spyware Hacked with Pegasus - The Citizen Lab Skip to content Opens in a new window Opens an external site Opens an external site in a new window</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This incident reveals a brazen attack on democratic oversight, where a member investigating spyware is ironically targeted with Pegasus, exposing a severe vulnerability within the European Parliament. This direct assault not only undermines efforts to regulate surveillance but also highlights the escalating geopolitical stakes in state-sponsored cyber espionage and its potential to cripple institutional integrity, demanding urgent action for robust digital security and international accountability.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees that the European Parliament is highly vulnerable to espionage, attributed to both inadequate internal security policies and a lack of robust EU-level counterintelligence. There's a strong consensus that the Pegasus spyware attacks are likely orchestrated by *other European governments* or their intelligence agencies, rather than external adversaries, pointing to an ongoing, unresolved scandal of spyware misuse within member states. This situation highlights a perceived failure in protecting sensitive information and officials within the EU's own sphere.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>citizenlab.ca</span>
+        <span>·</span>
+        <span>345 pts</span>
+        <span>·</span>
+        <span>83 comments</span>
+        <span>·</span>
+        <span>by ledoge</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://citizenlab.ca/research/member-of-committee-investigating-spyware-hacked-with-pegasus/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48779683" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🚗 Automotive AI</div>
+            
+            <h2 class="story-title"><a href="https://github.com/adam-s/car-diagnosis" target="_blank" rel="noopener">New CLAP AI System Diagnoses Car Faults from Engine Sounds</a></h2>
+            <p class="story-summary">GitHub - adam-s/car-diagnosis: Diagnose a car fault from its sound — an honest, end-to-end audio-ML pipeline (scrape → clean → CLAP → calibrated triage).</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project innovatively applies Contrastive Language-Audio Pretraining (CLAP) to the practical challenge of diagnosing car mechanical faults purely from sound. By developing an &quot;end-to-end&quot; audio-ML pipeline, it demonstrates a robust approach to leveraging advanced AI models for real-world diagnostic applications. This could significantly enhance car maintenance, potentially offering early detection and reducing the need for specialized equipment, making diagnostics more accessible.</p>
+    </div>
+            
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>11 pts</span>
+        <span>·</span>
+        <span>0 comments</span>
+        <span>·</span>
+        <span>by dataviz1000</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/adam-s/car-diagnosis" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48749868" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · July 04, 2026</div>
+    </footer>
+</body>
+</html>
