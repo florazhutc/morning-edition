@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — July 05, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Sunday</div>
+        <div class="masthead-year">July 05, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">YouTube Studio AI Leaks Private Creator Videos via Malicious Comments</span>
+            <span class="toc-score">591 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Anthropic Claude Bug: Sessions and Cache Could Leak Between User Accounts ⚡</span>
+            <span class="toc-score">291 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Reasoning Token Clustering Degrades GPT-5.5 Codex Performance on Complex Tasks</span>
+            <span class="toc-score">251 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Classic C&amp;C Generals: Zero Hour Natively Runs on Mac, iPhone, iPad with Touch Controls</span>
+            <span class="toc-score">539 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">High-Speed AFM Videos Capture Dynamic Nanoscale Processes in Etching and Live Bacteria</span>
+            <span class="toc-score">60 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Claude Fable AI Mostly Wrote sqlite-utils 4.0rc2 for Just $149.25 ⚡</span>
+            <span class="toc-score">19 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Toxic Rocket Fuel-Laden 'Space Balls' Wash Ashore in Queensland</span>
+            <span class="toc-score">6 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">After Extensive ORM Use, Dev Declares: ORMs Are a Detriment; Just Learn SQL</span>
+            <span class="toc-score">176 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Mastering htop/top: A Complete Guide to Linux System Monitoring</span>
+            <span class="toc-score">465 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Anna's Archive Offers $200,000 Bounty to Unlock All Google Books Scans</span>
+            <span class="toc-score">447 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">AI Security 🔒</div>
+            
+            <h2 class="story-title"><a href="https://javoriuski.com/post/youtube" target="_blank" rel="noopener">YouTube Studio AI Leaks Private Creator Videos via Malicious Comments</a></h2>
+            <p class="story-summary">Leaking YouTube Creators Private Videos | Javox YouTube Studio has an AI assistant called Ask Studio. You open it, ask something like &quot;what are my viewers saying?&quot;
+and it goes off, reads your comments, and comes back with a summary. What's not normal is what happens when one of those comments contains instructions instead of feedback. My initial theory was simple: if the AI reads comments and generates a response based on them,
+what happens if a comment tells it what to do instead of saying something genuine?</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This report highlights a critical prompt injection vulnerability within YouTube Studio's AI assistant, where malicious instructions disguised as user comments could compel the AI to leak private creator data. It underscores the emerging security challenges for AI systems that process user-generated content, demonstrating how easily such tools can be manipulated to bypass intended privacy controls. The incident serves as a stark reminder that integrating AI with public input streams creates a new attack surface, demanding robust sanitization and validation beyond traditional web security measures.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that the described prompt injection exploit is a legitimate and concerning bug, despite YouTube's apparent reluctance to classify it as such. There's a shared frustration that tech companies, including Google, often dismiss prompt injection vulnerabilities—especially those requiring user interaction—making it difficult for researchers to get them formally acknowledged or bountied, even when they silently patch the issues.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>javoriuski.com</span>
+        <span>·</span>
+        <span>591 pts</span>
+        <span>·</span>
+        <span>327 comments</span>
+        <span>·</span>
+        <span>by javxfps</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://javoriuski.com/post/youtube" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48786781" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Security</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://github.com/anthropics/claude-code/issues/74066" target="_blank" rel="noopener">Anthropic Claude Bug: Sessions and Cache Could Leak Between User Accounts</a></h2>
+            <p class="story-summary">[Bug] Potential session/cache leakage between workspace instances or consumer accounts · Issue #74066 · anthropics/claude-code · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This report details a critical security flaw involving potential session or cache leakage across isolated user workspaces or individual consumer accounts, likely within a multi-tenant system. Such a vulnerability could lead to unauthorized access to sensitive data, cross-account contamination, or privilege escalation, fundamentally compromising user privacy and the system's integrity. Prompt and thorough investigation is paramount to mitigate the risk of severe data breaches and maintain user trust.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely leans towards skepticism regarding the reported session/cache leakage, with many users and even a Claude team representative suggesting the &quot;swapped&quot; responses are more likely complex LLM hallucinations. While some users report experiencing similar phenomena with other models, the prevailing sentiment is that the observed output anomalies point to AI output quirks rather than a significant security vulnerability. Despite this, the reports are being taken seriously and are under investigation.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>291 pts</span>
+        <span>·</span>
+        <span>130 comments</span>
+        <span>·</span>
+        <span>by chatmasta</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/anthropics/claude-code/issues/74066" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48785485" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🐛 AI/ML Debugging</div>
+            
+            <h2 class="story-title"><a href="https://github.com/openai/codex/issues/30364" target="_blank" rel="noopener">Reasoning Token Clustering Degrades GPT-5.5 Codex Performance on Complex Tasks</a></h2>
+            <p class="story-summary">GPT-5.5 Codex reasoning-token clustering at 516/1034/1552 may be leading to degraded performance on complex tasks · Issue #30364 · openai/codex · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This issue points to a subtle yet significant performance degradation observed in GPT-5.5 Codex, potentially caused by &quot;reasoning-token clustering&quot; at specific token count intervals. Such observations underscore the complex and often opaque nature of LLM internals, where specific token processing patterns can subtly degrade performance on complex reasoning tasks. It highlights the continuous challenge of understanding and optimizing the intricate architectural behaviors within even advanced AI systems like Codex.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees that GPT-5.5 Codex performance has degraded, frequently exhibiting &quot;short-circuiting&quot; behavior around 516 reasoning tokens that leads to incorrect outputs and &quot;stupid implementations.&quot; Many users report a noticeable decline in quality and efficiency compared to earlier versions, prompting frustration and a search for alternative models. This perceived regression has led to skepticism about recent optimization claims and a strong consensus that the model has indeed become &quot;dumber&quot; in practice.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>251 pts</span>
+        <span>·</span>
+        <span>90 comments</span>
+        <span>·</span>
+        <span>by maille</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/openai/codex/issues/30364" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48789428" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🎮 Game Porting</div>
+            
+            <h2 class="story-title"><a href="https://github.com/ammaarreshi/Generals-Mac-iOS-iPad/tree/main" target="_blank" rel="noopener">Classic C&amp;C Generals: Zero Hour Natively Runs on Mac, iPhone, iPad with Touch Controls</a></h2>
+            <p class="story-summary">GitHub - ammaarreshi/Generals-Mac-iOS-iPad: Command &amp; Conquer Generals: Zero Hour running natively on macOS, iPhone &amp; iPad — real engine (EA GPL v3 source, via GeneralsX), DXVK/MoltenVK renderer, RTS touch controls.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project represents a remarkable technical feat in game preservation and cross-platform development, natively porting the classic RTS Command &amp; Conquer Generals to macOS, iPhone, and iPad. By leveraging the original engine's GPL v3 source alongside modern rendering layers like DXVK/MoltenVK and a custom porting framework, it demonstrates the growing viability of bringing complex PC titles to diverse ecosystems, complete with adapted touch controls for mobile play.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that the title is misleading, as the core macOS porting work was already done by a previous project, not by Fable. While users appreciate the efforts to bring the game to iOS/iPadOS, they clarify that this fork primarily added mobile support and engine fixes rather than performing a full native port from scratch. Some also note the &quot;AI-generated&quot; writing style in accompanying text, discussing the broader potential of LLMs for game reversal.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>539 pts</span>
+        <span>·</span>
+        <span>222 comments</span>
+        <span>·</span>
+        <span>by asronline</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/ammaarreshi/Generals-Mac-iOS-iPad/tree/main" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48788283" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🔬 Microscopy &amp; Nanoscience</div>
+            
+            <h2 class="story-title"><a href="https://www.youtube.com/watch?v=DyIQkqBXhS0" target="_blank" rel="noopener">High-Speed AFM Videos Capture Dynamic Nanoscale Processes in Etching and Live Bacteria</a></h2>
+            <p class="story-summary">[Source content could not be fetched]</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The title highlights the impressive capabilities of Atomic Force Microscopes (AFM) in real-time, high-speed video imaging at the nanoscale. Showcasing applications from stainless steel etching to observing bacteria, it underscores AFM's crucial role in advancing both materials science and microbiology by enabling dynamic observation of processes previously unseen.</p>
+    </div>
+            
+            
+    <div class="story-meta">
+        <span>youtube.com</span>
+        <span>·</span>
+        <span>60 pts</span>
+        <span>·</span>
+        <span>4 comments</span>
+        <span>·</span>
+        <span>by mhb</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.youtube.com/watch?v=DyIQkqBXhS0" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48765920" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Development 🤖</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://simonwillison.net/2026/Jul/5/sqlite-utils-fable/" target="_blank" rel="noopener">Claude Fable AI Mostly Wrote sqlite-utils 4.0rc2 for Just $149.25</a></h2>
+            <p class="story-summary">sqlite-utils 4.0rc2, mostly written by Claude Fable (for about $149.25) Read the report and learn how to measure and remediate technical debt across your codebase. sqlite-utils 4.0rc2, mostly written by Claude Fable (for about $149.25) I wrote about the sqlite-utils 4.0rc1 release a couple of weeks ago. Since we only have Claude Fable on our Max subscriptions for a few more days, I decided to see if it could help me get to a 4.0 stable release that I felt truly comfortable about, since I try to keep to SemVer and like my incompatible major versions to be as rare as possible.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post offers a tangible case study of AI, specifically Claude Fable, substantially contributing to a software project's major release (sqlite-utils 4.0rc2) for a quantified cost. It highlights AI's potential to accelerate development cycles and achieve ambitious release goals, while raising pertinent questions about its impact on developer productivity and the evolving landscape of human-AI collaboration in software engineering.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses concerns about the practical limitations of AI models in code generation and review, specifically their tendency to find &quot;issues&quot; even when unwarranted, potentially leading to unproductive outputs. A significant point of discussion also revolves around the legal implications of AI-written code, particularly regarding copyright ownership and software licensing. While the financial cost of using AI tools is clarified to be lower than initially implied due to subscription models, the focus remains on the operational and legal challenges of integrating AI into development workflows.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>simonwillison.net</span>
+        <span>·</span>
+        <span>19 pts</span>
+        <span>·</span>
+        <span>12 comments</span>
+        <span>·</span>
+        <span>by ognyankulev</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://simonwillison.net/2026/Jul/5/sqlite-utils-fable/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48791708" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🛰️ Space Debris &amp; Hazard</div>
+            
+            <h2 class="story-title"><a href="https://www.theguardian.com/australia-news/2026/jul/05/mysterious-debris-found-on-queensland-beaches-could-be-space-balls-and-may-contain-toxic-rocket-fuel" target="_blank" rel="noopener">Toxic Rocket Fuel-Laden 'Space Balls' Wash Ashore in Queensland</a></h2>
+            <p class="story-summary">Mysterious debris found on Queensland beaches could be ‘space balls’ – and may contain toxic rocket fuel | Queensland | The Guardian Skip to main content Skip to navigation Queensland fire department says a total of six objects have been found washed up on beaches. Photograph: Forrest Beach Takeaway Queensland fire department says a total of six objects have been found washed up on beaches. Photograph: Forrest Beach Takeaway</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The discovery of potentially toxic &quot;space balls&quot; on public beaches highlights the escalating environmental and public safety risks associated with uncontrolled re-entry of space debris. This incident underscores the urgent need for international cooperation on tracking, responsible de-orbiting practices, and established protocols for managing hazardous materials that survive atmospheric re-entry, particularly as orbital activity intensifies.</p>
+    </div>
+            
+            
+    <div class="story-meta">
+        <span>theguardian.com</span>
+        <span>·</span>
+        <span>6 pts</span>
+        <span>·</span>
+        <span>0 comments</span>
+        <span>·</span>
+        <span>by defrost</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.theguardian.com/australia-news/2026/jul/05/mysterious-debris-found-on-queensland-beaches-could-be-space-balls-and-may-contain-toxic-rocket-fuel" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48791907" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🗄️ Database Practices</div>
+            
+            <h2 class="story-title"><a href="https://wozniak.ca/blog/2014/08/03/1/index.html" target="_blank" rel="noopener">After Extensive ORM Use, Dev Declares: ORMs Are a Detriment; Just Learn SQL</a></h2>
+            <p class="story-summary">I’ve come to the conclusion that, for me, ORMs are more detriment than
+benefit. In short, they can be used to nicely augment working with SQL
+in a program, but they should not replace it. Some background: For the past 30 months I’ve been working with code
+that has to interface with Postgres and to some extent, SQLite. Most
+of that has been with SQLAlchemy (which I quite like) and Hibernate (which I don’t). I’ve worked with existing code and data models, as
+well as designing my own.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This 2014 reflection underscores the enduring debate on ORMs, concluding that while they can augment SQL, they are detrimental as a replacement for fundamental SQL knowledge. The author's experience, spanning different ORMs, highlights that abstracting database interactions too much can obscure performance issues and the database's true capabilities. It serves as a timeless reminder that understanding the underlying technology is crucial, even when using convenience layers, for robust and efficient data management.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses a nuanced view on ORMs, acknowledging their convenience for simple CRUD operations and their role in enforcing domain models. However, there's a strong consensus that ORMs often obscure underlying SQL, leading to performance issues and a need for developers to still understand raw SQL for complex queries. Many advocate for a pragmatic hybrid approach, using ORMs for basic tasks while resorting to direct SQL or query builders for more intricate or performance-critical operations.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>wozniak.ca</span>
+        <span>·</span>
+        <span>176 pts</span>
+        <span>·</span>
+        <span>205 comments</span>
+        <span>·</span>
+        <span>by ciconia</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://wozniak.ca/blog/2014/08/03/1/index.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48742175" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">💻 Linux System Monitoring</div>
+            
+            <h2 class="story-title"><a href="https://peteris.rocks/blog/htop/" target="_blank" rel="noopener">Mastering htop/top: A Complete Guide to Linux System Monitoring</a></h2>
+            <p class="story-summary">Explanation of everything you can see in htop/top on Linux For the longest time I did not know what everything meant in htop. I thought that load average 1.0 on my two core machine means that the CPU usage is at 50%. And also, why does it say 1.0 ? I decided to look everything up and document it here.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post addresses a fundamental need for demystifying core Linux system diagnostics, tackling common misconceptions about tools like `htop` and `top` and metrics such as &quot;load average.&quot; Its high engagement underscores a continuous demand within the tech community for clear, foundational explanations of essential system utilities. The timeless relevance of this 2019 article also highlights the enduring importance of deep understanding over rote usage in system administration.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community acknowledges `htop` and `top` as foundational tools but shows a strong preference for modern alternatives like `btop` due to their enhanced features, broader data display (GPU, network, power), and improved interface. Users also emphasize the importance of understanding nuanced metrics, like resident memory, and customizing their monitoring tools for clearer, more relevant insights.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>peteris.rocks</span>
+        <span>·</span>
+        <span>465 pts</span>
+        <span>·</span>
+        <span>57 comments</span>
+        <span>·</span>
+        <span>by theanonymousone</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://peteris.rocks/blog/htop/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48784777" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">📚 Digital Archiving</div>
+            
+            <h2 class="story-title"><a href="https://software.annas-archive.gl/AnnaArchivist/annas-archive/-/work_items/234" target="_blank" rel="noopener">Anna's Archive Offers $200,000 Bounty to Unlock All Google Books Scans</a></h2>
+            <p class="story-summary">Google Books (or similar) all book scans — $200,000 bounty (#234) · Issues · AnnaArchivist / annas-archive · GitLab Google Books (or similar) all book scans — $200,000 bounty Please read https://annas-archive.li/volunteering#bounties carefully before working on a bounty. Google Books has lots of scanned books, but which are only exposed through search, where it shows up as tiny snippets around the search results. If you've found a method that you believe will scale up, then please contact us early on with your prototype, and we might be able to help you scale it up.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This significant bounty from Anna's Archive underscores the ongoing challenge of liberating vast digital cultural heritage trapped behind proprietary interfaces, like Google Books. It highlights the critical need for open access to digitized knowledge for research, preservation, and public good, even as it navigates complex legal and ethical waters concerning data ownership and copyright. This initiative represents a direct, incentivized effort to decentralize access to information that is currently centralized and largely inaccessible in its raw, full-scan form.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely expresses strong support for and reliance on platforms like Anna's Archive and Z-Library, citing their critical role in overcoming geographical limitations and access hurdles for books. Many comments highlight the inadequacy of official distribution channels and the difficulty in accessing older or specific content, underscoring the perceived necessity of these digital archives. There's also some discussion about potential compensation models for authors, but the overwhelming sentiment favors wide digital access.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>software.annas-archive.gl</span>
+        <span>·</span>
+        <span>447 pts</span>
+        <span>·</span>
+        <span>235 comments</span>
+        <span>·</span>
+        <span>by Cider9986</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://software.annas-archive.gl/AnnaArchivist/annas-archive/-/work_items/234" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48786838" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · July 05, 2026</div>
+    </footer>
+</body>
+</html>
