@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — July 06, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Monday</div>
+        <div class="masthead-year">July 06, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Organic Maps: Maps.Me Founders Launch Fully Offline, Privacy-Focused GPS App</span>
+            <span class="toc-score">967 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">OpenPrinter: Repairable, Refillable Printer Cuts Costs and Waste</span>
+            <span class="toc-score">830 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Toddler Drawing App 'Mr. Baby Paint' Leads to Accidental Discovery of Novel Cellular Automata</span>
+            <span class="toc-score">175 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">EU Council Fast-Tracks Reinstatement of Chat Control, Forcing Mandatory Messenger Scans</span>
+            <span class="toc-score">434 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">The Anatomy of NES Composite Video Wobble</span>
+            <span class="toc-score">93 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">OpenWiki CLI Automates Agent Documentation for Codebases</span>
+            <span class="toc-score">88 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Free OSINT Tool Finds Exposed .env, .git, and Config Files on New Domains</span>
+            <span class="toc-score">39 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Midjourney's AI Scanner: An Inside Look</span>
+            <span class="toc-score">14 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Free Online Textbook: Introduction to Compilers and Language Design</span>
+            <span class="toc-score">302 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Tibo Confirms GPT-5.6 Sol Ultra for Codex</span>
+            <span class="toc-score">274 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🗺️ Navigation &amp; Privacy</div>
+            
+            <h2 class="story-title"><a href="https://organicmaps.app/" target="_blank" rel="noopener">Organic Maps: Maps.Me Founders Launch Fully Offline, Privacy-Focused GPS App</a></h2>
+            <p class="story-summary">Organic Maps: Offline Hike, Bike, Trails and Navigation Organic Maps: Offline Hike, Bike, Trails and Navigation Organic Maps is a privacy-focused offline maps &amp; GPS app for hiking, cycling, biking, and driving. Developed with love by the open-source community and the same people, who created MapsWithMe / Maps.Me app. Organic Maps is one of the few applications nowadays that supports 100% of features without an active Internet connection.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Organic Maps presents a compelling alternative to mainstream mapping solutions by leveraging its offline-first capability and strong privacy focus, directly addressing user concerns over data collection and connectivity dependence. Its open-source development, backed by the legacy of MapsWithMe/Maps.Me, further builds trust and fosters a community-driven ecosystem around essential, reliable navigation, particularly for outdoor activities.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">While &quot;Organic Maps&quot; is initially praised for its detailed maps and user-fixable errors, the community largely expresses strong concerns about its governance, &quot;malicious behavior&quot; (like quietly adding ads and proprietary code), and perceived decline. The overwhelming consensus is to recommend &quot;CoMaps,&quot; a fork born from these issues, as a more active, reliable, and genuinely FOSS alternative.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>organicmaps.app</span>
+        <span>·</span>
+        <span>967 pts</span>
+        <span>·</span>
+        <span>292 comments</span>
+        <span>·</span>
+        <span>by tosh</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://organicmaps.app/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48794446" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">♻️ Sustainable Hardware</div>
+            
+            <h2 class="story-title"><a href="https://www.opentools.studio/" target="_blank" rel="noopener">OpenPrinter: Repairable, Refillable Printer Cuts Costs and Waste</a></h2>
+            <p class="story-summary">is a repairable, compact , and robust printer designed to last . Fully repairable and equipped with a refillable ink system , it adapts to your needs while reducing your printing costs . Easy to maintain , it offers a sustainable, economical, and eco-friendly alternative to traditional printers. With Openprinter, easily refill your cartridges . Reduce your costs and limit the waste of consumables .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This initiative directly challenges the planned obsolescence and high consumable costs prevalent in the printer market by prioritizing repairability and a refillable ink system. It taps into a growing consumer demand for sustainable electronics, offering a long-term, economical, and eco-friendly alternative to disposable hardware. Its success will likely depend on balancing these values with competitive print quality and widespread availability of parts and support.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant skepticism regarding &quot;OpenPrinter,&quot; primarily due to its use of a Creative Commons BY-NC-SA license, which many argue makes it &quot;not open&quot; by common definitions. Additionally, many commenters question the practicality and economics of an open inkjet printer, frequently advocating for laser printers as a more reliable and cost-effective solution for most users. There's also some concern about the project being a crowdfunding campaign and the inherent complexity of printer technology.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>opentools.studio</span>
+        <span>·</span>
+        <span>830 pts</span>
+        <span>·</span>
+        <span>204 comments</span>
+        <span>·</span>
+        <span>by bouh</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.opentools.studio/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48797916" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Algorithmic Discovery 💡</div>
+            
+            <h2 class="story-title"><a href="https://tekstien-marginaalien-keskus.aalto.fi/residenssi/heikki/blog/004-december-2/" target="_blank" rel="noopener">Toddler Drawing App 'Mr. Baby Paint' Leads to Accidental Discovery of Novel Cellular Automata</a></h2>
+            <p class="story-summary">Baby Paint &amp; accidentally discovering a new cellular automata &amp; pixel-fattening Baby Paint &amp; accidentally discovering a new cellular automata &amp; pixel-fattening I spent a better part of December on building Mr. Baby Paint, a radically simple co-op drawing app for toddlers &amp; accidentally discovering a flood-fill cellular automata, plus developing pixel-fattening algorithms for bitmap fonts. Designing software for toddlers: Mr.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post brilliantly illustrates how practical software development, even for a seemingly simple application like a toddler drawing app, can lead to profound algorithmic discoveries. The accidental invention of a new flood-fill cellular automata, alongside specialized pixel-fattening techniques, underscores the serendipitous opportunities for innovation inherent in creative coding.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is overwhelmingly impressed by &quot;Mr. Baby Paint,&quot; praising its creator's genius, originality, and the bespoke nature of the software. Many users express deep resonance with the project, appreciating its playful creativity and unique digital experiences, with a common sentiment that they wish there were more such handcrafted applications in the world.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>tekstien-marginaalien-keskus.aalto.fi</span>
+        <span>·</span>
+        <span>175 pts</span>
+        <span>·</span>
+        <span>38 comments</span>
+        <span>·</span>
+        <span>by jfil</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://tekstien-marginaalien-keskus.aalto.fi/residenssi/heikki/blog/004-december-2/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48770291" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Privacy &amp; Surveillance 🔒</div>
+            
+            <h2 class="story-title"><a href="https://www.heise.de/en/news/Chat-Control-1-0-EU-Council-forces-messenger-scans-via-fast-track-11353659.html" target="_blank" rel="noopener">EU Council Fast-Tracks Reinstatement of Chat Control, Forcing Mandatory Messenger Scans</a></h2>
+            <p class="story-summary">Chat Control 1.0: EU Council forces messenger scans via fast-track | heise online The dispute over digital letter secrecy in the EU is reaching a new level of escalation shortly before the summer break. After negotiations on Chat Control 2.0 – i.e., the mandatory, suspicionless scanning of encrypted communication – stalled due to persistent resistance in the EU Parliament , the Council of Ministers is now pushing forward with a legal maneuver. The member states want to reactivate the transitional regulation for voluntary monitoring of messages by technology groups, which expired on April 3, in an expedited procedure. The Council adopted a corresponding position for a “new” regulation on Thursday via written procedure to close a looming legal loophole and increase pressure on MEPs.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This fast-tracked EU Council maneuver to force 'Chat Control' highlights a critical tension between child protection and fundamental digital privacy, explicitly targeting encrypted communications. By circumventing parliamentary resistance and re-implementing a formerly voluntary, suspicionless scanning mechanism, the Council risks setting a dangerous precedent for government surveillance while potentially eroding democratic oversight and public trust in secure digital spaces.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely expresses strong disapproval and concern over the EU Council's fast-tracking of &quot;Chat Control,&quot; viewing it as a problematic measure that erodes privacy and user autonomy. Commenters widely criticize the politicians involved, labeling their decisions as questionable or corrupt, and fear the move represents a concerning step towards increased surveillance and forced conformity within digital services. While the stated aim of combating child sexual abuse material is noted, there's a prevailing skepticism about the true intentions and long-term implications for fundamental digital rights.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>heise.de</span>
+        <span>·</span>
+        <span>434 pts</span>
+        <span>·</span>
+        <span>222 comments</span>
+        <span>·</span>
+        <span>by stavros</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.heise.de/en/news/Chat-Control-1-0-EU-Council-forces-messenger-scans-via-fast-track-11353659.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48793393" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🎮 Retro Gaming Tech</div>
+            
+            <h2 class="story-title"><a href="https://nicole.express/2026/phase-altering-by-line.html" target="_blank" rel="noopener">The Anatomy of NES Composite Video Wobble</a></h2>
+            <p class="story-summary">Composite Video on the NES: Why's it so wobbly? The Nintendo Entertainment System. Is it the platonic ideal of an 8-bit video game system? Well, only because it’s so prominent and successful– it’s actually kind of an oddball in its expandability and design. But there’s something else about it.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece explores the specific technical underpinnings of the NES's characteristic &quot;wobbly&quot; composite video, a common artifact in retro systems. It delves into how the console's unique, albeit successful, design and the technological constraints of its era contributed to these video output peculiarities, offering a deeper understanding of vintage hardware engineering.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally agrees that the &quot;wobbly&quot; composite video output from the NES is a real and noticeable phenomenon. While some users definitely observed the visual twitching during their childhood, many simply grew accustomed to it, highlighting the value of this technical investigation into its subtle causes.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>nicole.express</span>
+        <span>·</span>
+        <span>93 pts</span>
+        <span>·</span>
+        <span>7 comments</span>
+        <span>·</span>
+        <span>by zdw</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://nicole.express/2026/phase-altering-by-line.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48798247" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI/DevTools</div>
+            
+            <h2 class="story-title"><a href="https://github.com/langchain-ai/openwiki" target="_blank" rel="noopener">OpenWiki CLI Automates Agent Documentation for Codebases</a></h2>
+            <p class="story-summary">GitHub - langchain-ai/openwiki: OpenWiki is a CLI that writes and maintains agent documentation for your codebase.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">OpenWiki offers a compelling solution to the perennial challenge of maintaining up-to-date documentation, specifically for the burgeoning field of AI agentic codebases. By automating the generation and maintenance of this specialized documentation via a CLI, it promises to significantly reduce developer overhead and improve the transparency and understanding of complex AI systems. This tool could become essential for teams building sophisticated AI applications, ensuring documentation evolves in tandem with the codebase.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely expresses skepticism regarding OpenWiki's unique value, frequently suggesting it is over-engineered for its purpose. Many commenters believe its core functionality, generating agent documentation, can be achieved just as effectively with well-crafted prompts or existing LLM agent skills. There's also a consensus that the name &quot;OpenWiki&quot; is misleading, as it doesn't clearly differentiate its purpose for AI agents from traditional human-collaborative wikis.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>88 pts</span>
+        <span>·</span>
+        <span>27 comments</span>
+        <span>·</span>
+        <span>by handfuloflight</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/langchain-ai/openwiki" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48752949" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🕵️‍♀️ Cybersecurity Tool</div>
+            
+            <h2 class="story-title"><a href="https://search.cerast-intelligence.com/" target="_blank" rel="noopener">Free OSINT Tool Finds Exposed .env, .git, and Config Files on New Domains</a></h2>
+            <p class="story-summary">hey guys, wanted to show one of my side projects i just made public. the idea is basically another osint tool for pentesters and bug bounty hunters. it watches certificate transparency logs and checks newly-seen domains for exposed stuff like .env files, open .git dirs, config files, db dumps and so on, and puts whatever it finds into a searchable db. you just search a domain (or part of one) and see what's exposed. it's read-only and free. one thing i've been thinking about adding is a way to register for certain keywords and get notified when something new shows up for that search. would lov</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This OSINT tool automates a critical initial reconnaissance step for security professionals by continuously scanning newly registered domains via certificate transparency logs for common misconfigurations and exposed sensitive files. By centralizing these findings into a searchable database, it offers bug bounty hunters and pentesters a powerful, free resource to quickly identify potential attack vectors and vulnerabilities, significantly streamlining their investigative process. The proposed keyword-based notification feature could further enhance its utility by providing proactive alerts for specific interests.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community acknowledges the significant prevalence of accidentally exposed files like `.DS_Store`, often linked to less secure personal projects or phishing operations. While the tool is seen by some as a useful demonstration of these widespread vulnerabilities, there's also clear frustration from users whose servers are constantly hammered by such OSINT crawlers, necessitating additional security measures like fail2ban.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>search.cerast-intelligence.com</span>
+        <span>·</span>
+        <span>39 pts</span>
+        <span>·</span>
+        <span>14 comments</span>
+        <span>·</span>
+        <span>by PatchRequest</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://search.cerast-intelligence.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48797656" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">⚙️ AI Systems</div>
+            
+            <h2 class="story-title"><a href="https://www.youtube.com/watch?v=4nzzpUKhj1M" target="_blank" rel="noopener">Midjourney's AI Scanner: An Inside Look</a></h2>
+            <p class="story-summary">[Source content could not be fetched]</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This piece offers a rare &quot;behind the scenes&quot; glimpse into a specific component of the Midjourney AI, cryptically referred to as its &quot;scanner.&quot; This likely entails an in-depth look at the technological mechanisms for data ingestion, prompt interpretation, or perhaps even an internal quality control and moderation system that processes vast visual information to train or refine Midjourney's outputs. Such insights are crucial for understanding the intricate engineering powering leading generative AI platforms.</p>
+    </div>
+            
+            
+    <div class="story-meta">
+        <span>youtube.com</span>
+        <span>·</span>
+        <span>14 pts</span>
+        <span>·</span>
+        <span>0 comments</span>
+        <span>·</span>
+        <span>by Semkas</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.youtube.com/watch?v=4nzzpUKhj1M" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48774720" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Programming Languages &amp; Compilers ⚙️</div>
+            
+            <h2 class="story-title"><a href="https://dthain.github.io/books/compiler/" target="_blank" rel="noopener">Free Online Textbook: Introduction to Compilers and Language Design</a></h2>
+            <p class="story-summary">Introduction to Compilers and Language Design | Prof. Introduction to Compilers and Language Design This is a free online textbook: you are welcome to access the chapter PDFs
+directly below. If you prefer to hold a real book, you can also purchase a hardcover or paperback below. The textbook and materials have been developed by Prof.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This resource provides a valuable, free online textbook on compilers and language design, a fundamental yet often challenging area of computer science. Offering accessible, high-quality material democratizes deep technical understanding, empowering engineers to grasp the core mechanics of software execution and language creation. Its availability promotes continuous learning and a deeper appreciation for the foundational theories underpinning modern computing.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community generally regards &quot;Introduction to Compilers and Language Design&quot; as a highly valuable and practical resource for learning compiler construction. Commenters praise its step-by-step project approach and the author's teaching ability, finding it particularly useful for developing DSLs and understanding core concepts like error handling. While broadly positive, some note its specific focus on C's idiosyncrasies, often discussing it alongside other popular resources like &quot;Crafting Interpreters.&quot;</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>dthain.github.io</span>
+        <span>·</span>
+        <span>302 pts</span>
+        <span>·</span>
+        <span>48 comments</span>
+        <span>·</span>
+        <span>by AlexeyBrin</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://dthain.github.io/books/compiler/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48793454" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Product News</div>
+            
+            <h2 class="story-title"><a href="https://twitter.com/thsottiaux/status/2073933490513752151" target="_blank" rel="noopener">Tibo Confirms GPT-5.6 Sol Ultra for Codex</a></h2>
+            <p class="story-summary">Tibo on X: &quot;@haider1 Ultra will be in codex.&quot; / X</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The integration of a new &quot;Ultra&quot; iteration of GPT into &quot;Codex&quot; signals a significant advancement in AI capabilities, likely targeting highly sophisticated code generation, reasoning, or broader development tasks. This move suggests the emergence of a next-generation AI assistant that could revolutionize software engineering workflows, offering unprecedented assistance in creating, understanding, and debugging complex codebases.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community shows significant confusion regarding the &quot;Ultra&quot; designation for GPT-5.6 Sol, with some suggesting it's an alias for existing settings rather than a distinct feature, while others seek clarification on its capabilities. Users are eager to try the new model for coding but express concerns about limited access and how its availability compares to competing models, alongside observations about shifting corporate policies on token usage reflecting potential cost implications. Overall, there's excitement mixed with a desire for clarity and broader access.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>twitter.com</span>
+        <span>·</span>
+        <span>274 pts</span>
+        <span>·</span>
+        <span>197 comments</span>
+        <span>·</span>
+        <span>by mfiguiere</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://twitter.com/thsottiaux/status/2073933490513752151" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48799614" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · July 06, 2026</div>
+    </footer>
+</body>
+</html>
