@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — July 08, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Wednesday</div>
+        <div class="masthead-year">July 08, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">OpenAI Confirms Thursday Public Launch for GPT-5.6 Sol, Terra, Luna</span>
+            <span class="toc-score">146 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Moxie Docs Offers Popular Free Online Mermaid Diagram Editor</span>
+            <span class="toc-score">31 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Halo: Open-Source Tool Creates Tamper-Proof Audit Logs for AI Agent Actions ⚡</span>
+            <span class="toc-score">31 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">EU Chat Control: Untangling the Revived 1.0 and Active 2.0 Proposals</span>
+            <span class="toc-score">591 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Davit Simplifies Apple Containers with New UI</span>
+            <span class="toc-score">281 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">EU Parliament Votes to Revive Controversial Chat Control Surveillance Plan</span>
+            <span class="toc-score">560 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Master the Drawstring Knot: Secure Hold, Effortless Release</span>
+            <span class="toc-score">498 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Ilya Sutskever's 30 Essential ML Papers, Simplified for Beginners</span>
+            <span class="toc-score">483 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Claude Fable 5: Access Extended for Paid Plans Through July 12 ⚡</span>
+            <span class="toc-score">167 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Rowboat: The Open-Source, Local-First AI Work App with Custom Work Surfaces, Challenging Claude Desktop ⚡</span>
+            <span class="toc-score">148 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Launch</div>
+            
+            <h2 class="story-title"><a href="https://twitter.com/OpenAI/status/2074704958419792299" target="_blank" rel="noopener">OpenAI Confirms Thursday Public Launch for GPT-5.6 Sol, Terra, Luna</a></h2>
+            <p class="story-summary">OpenAI on X: &quot;GPT-5.6 Sol, along with Terra and Luna, will launch publicly this Thursday. We’re expanding preview access globally now. GPT-5.6 Sol, along with Terra and Luna, will launch publicly this Thursday. We’re expanding preview access globally now.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The announcement of GPT-5.6 Sol alongside &quot;Terra and Luna&quot; suggests OpenAI is expanding its model offerings beyond singular generational updates, potentially introducing a suite of specialized or tiered AI systems. This multi-model launch, with global preview access, could cater to diverse application needs—from high-performance tasks to more focused or efficient uses—further solidifying OpenAI's market position and driving new innovation across the generative AI landscape.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is highly excited and optimistic about the imminent launch of GPT-5.6 Sol, Terra, and Luna. Early reports suggest significant improvements in capability, efficiency, and agentic behavior compared to previous GPT versions, with users noting its speed and determination. Many are eager to switch from competitors like Claude/Fable, hoping the new OpenAI models will offer better performance, fewer guardrails for specific tasks like data analysis, and be available on subscription tiers.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>twitter.com</span>
+        <span>·</span>
+        <span>146 pts</span>
+        <span>·</span>
+        <span>77 comments</span>
+        <span>·</span>
+        <span>by jfrbfbreudh</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://twitter.com/OpenAI/status/2074704958419792299" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48827402" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🛠️ Developer Tool</div>
+            
+            <h2 class="story-title"><a href="https://moxiedocs.com/mermaid-diagram-editor" target="_blank" rel="noopener">Moxie Docs Offers Popular Free Online Mermaid Diagram Editor</a></h2>
+            <p class="story-summary">I've been slowly adding some new free tools to Moxie Docs (partly for SEO, partly to illustrate some of our feature sets before any commitment) for some reason this mermaid editor one blew up on Google rankings so I figured I'd share in case people find it useful! We also have ADR, AGENTS.md, LLMs, and a few other free tools.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This free Mermaid diagram editor exemplifies an effective product-led growth strategy, leveraging a popular developer utility to drive significant organic traffic and brand awareness for Moxie Docs. Its unexpected SEO success highlights the strong market demand for accessible, text-based diagramming tools and the power of providing immediate value to attract a technical audience.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant frustration with the existing Mermaid ecosystem and its &quot;official&quot; editor, citing issues like paywalling and a generally poor user experience. There's a clear consensus that a free, clean, and functional Mermaid editor is highly appreciated, addressing a long-standing pain point for users who find current options lacking. Some users also question Mermaid's unique appeal compared to older tools like Graphviz.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>moxiedocs.com</span>
+        <span>·</span>
+        <span>31 pts</span>
+        <span>·</span>
+        <span>8 comments</span>
+        <span>·</span>
+        <span>by ghosts_</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://moxiedocs.com/mermaid-diagram-editor" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48825430" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🔒 AI Security &amp; Compliance</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://github.com/bkuan001/halo-record" target="_blank" rel="noopener">Halo: Open-Source Tool Creates Tamper-Proof Audit Logs for AI Agent Actions</a></h2>
+            <p class="story-summary">Hi HN, I'm Brian, I spent the last few years at Vanta (YC W18), helping startups and enterprises become compliant and I recently started exploring what that might look like in a post-agentic world. The problem Halo solves is: when a company buys an AI agent from a vendor and gives it access to their data, they have no way to check what the agent did with that data. Vendors may have built observability dashboards and audit logs, but those are editable and partisan. SOC 2 and ISO 27001 audit a company's controls, but controls are less predictive when the software is agentic. TLDR: give an agent </p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Halo directly confronts the inherent trust deficit in AI agents by introducing tamper-evident runtime evidence, a vital innovation beyond editable audit logs and traditional control frameworks. This initiative is crucial for establishing robust compliance and accountability in a &quot;post-agentic world,&quot; enabling organizations to verify agent actions with their data and build confidence in AI deployments. It essentially paves the way for a new standard in AI governance and risk management.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community strongly validates the need for tamper-evident auditability in AI agents, with several members indicating they are working on similar solutions. While appreciating the initiative, commenters also critically assess the project's scope, pointing out its current focus on integrity over completeness and suggesting alternative implementations like third-party co-signing or API proxies to enhance its capabilities. There's a clear interest in practical applications and framework compatibility.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>31 pts</span>
+        <span>·</span>
+        <span>19 comments</span>
+        <span>·</span>
+        <span>by brian_kuan</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/bkuan001/halo-record" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48818098" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">⚖️ EU Digital Policy</div>
+            
+            <h2 class="story-title"><a href="https://fightchatcontrol.eu/chat-control-overview" target="_blank" rel="noopener">EU Chat Control: Untangling the Revived 1.0 and Active 2.0 Proposals</a></h2>
+            <p class="story-summary">Chat Control 1.0 vs 2.0 - Fight Chat Control There is not one proposed “Chat Control” law — there
+                            are two , and they are moving
+                            through the EU institutions in parallel . This is why the news
+                            can seem contradictory: one Chat Control was
+                            &quot;stopped&quot; in March 2026, yet another is still being
+                            negotiated, and the first is now being revived. This
+                            page untangles the two. Regulation (EU) 2021/1232 — the
+                                &quot;temporary&quot; law</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The parallel progression and revival of &quot;Chat Control&quot; legislation in the EU underscore the complex and often confusing nature of digital policy-making, making it difficult for the public and advocates to track. This persistent legislative push, despite initial setbacks, signals a sustained effort to implement controversial surveillance measures that pose a significant threat to end-to-end encryption and digital privacy across Europe.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses overwhelming skepticism and strong concern regarding Chat Control, viewing it as a dangerous overreach that threatens fundamental privacy. There is widespread confusion and disbelief about how the proposed measures could technically function without compromising end-to-end encryption or requiring intrusive client-side scanning, which users equate to enabling a &quot;creepy surveillance state.&quot; Many question the true motives behind the legislation and doubt its claimed effectiveness in addressing its stated goals.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>fightchatcontrol.eu</span>
+        <span>·</span>
+        <span>591 pts</span>
+        <span>·</span>
+        <span>209 comments</span>
+        <span>·</span>
+        <span>by gasull</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://fightchatcontrol.eu/chat-control-overview" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48818311" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🛠️ Developer Tool</div>
+            
+            <h2 class="story-title"><a href="https://davit.app" target="_blank" rel="noopener">Davit Simplifies Apple Containers with New UI</a></h2>
+            <p class="story-summary">Mostly vibe-coded Apple Containers front-end that I'd like to use myself. But if others want to use it, here's the source code.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Davit fills a critical gap by providing a user-friendly interface for Apple's native containerization, a technology gaining significant traction among macOS developers. This &quot;vibe-coded&quot; project highlights the power of community-driven tools to create practical front-ends for complex backend frameworks, streamlining local development workflows on Apple Silicon devices.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is largely impressed with Davit, praising its native feel, small footprint, and efficient non-Electron implementation, with some users even seeing the AI's contribution as a signal of quality. There's significant interest in how it compares to existing solutions like OrbStack, and a general wish for Apple's native container technology to eventually gain Docker API compatibility.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>davit.app</span>
+        <span>·</span>
+        <span>281 pts</span>
+        <span>·</span>
+        <span>63 comments</span>
+        <span>·</span>
+        <span>by xinit</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://davit.app" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48821848" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Digital Rights &amp; Policy</div>
+            
+            <h2 class="story-title"><a href="https://www.heise.de/en/news/Showdown-in-Strasbourg-The-unexpected-return-of-Chat-Control-1-0-11356680.html" target="_blank" rel="noopener">EU Parliament Votes to Revive Controversial Chat Control Surveillance Plan</a></h2>
+            <p class="story-summary">Showdown in Strasbourg: The unexpected return of Chat Control 1.0 | heise online The European Parliament cleared the way for a renewed extension of the so-called “Chat Control” on Tuesday afternoon. With a narrow majority of 331 to 304 votes and eleven abstentions, the MEPs voted for an urgency motion that Parliament President Roberta Metsola had put on the agenda at short notice at the behest of the member states and the EPP group. This allows Parliament to vote again on the controversial plan on Thursday, its last session before the summer break. The aim of this maneuver: to reinstate the transitional regulation for Chat Control, which expired in April .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This narrow parliamentary vote signals a concerning push to revive the controversial &quot;Chat Control&quot; initiative in the EU, aiming to reinstate an expired regulation for mass surveillance of private communications. The urgent, short-notice nature of the vote highlights a determined effort to circumvent public and legislative scrutiny, raising alarm bells for digital privacy and fundamental rights across the bloc. Its potential passage could significantly impact the future of encrypted messaging and set a dangerous precedent for government oversight in the EU.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is overwhelmingly critical and frustrated with the passage of Chat Control, viewing it as an undemocratic manipulation of legislative procedures where unpopular laws are repeatedly advanced until they pass. There's significant concern about the far-reaching negative implications of this regulation, both within and outside the EU, alongside dismay at public apathy and a perceived lack of understanding regarding its severe consequences.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>heise.de</span>
+        <span>·</span>
+        <span>560 pts</span>
+        <span>·</span>
+        <span>244 comments</span>
+        <span>·</span>
+        <span>by miroljub</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.heise.de/en/news/Showdown-in-Strasbourg-The-unexpected-return-of-Chat-Control-1-0-11356680.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48819008" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">💡 Life Hack</div>
+            
+            <h2 class="story-title"><a href="https://www.youtube.com/watch?v=3R0Lp86GEBk" target="_blank" rel="noopener">Master the Drawstring Knot: Secure Hold, Effortless Release</a></h2>
+            <p class="story-summary">Community discussion highlights: I learned this knot from this video a while back -- I've used it ever since. It cinches the shorts tight, but is easy to release. It works especially well on strings that are slippery and don't hold a typical bow very well. One drawback is that the two ends often end up different lengths, but otherwise it's a great knot!</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This community-driven post underscores the significant value of practical, shared knowledge in optimizing even the most mundane daily tasks. By offering a specific knot solution for slippery drawstrings, it demonstrates how small, clever 'life hacks' can dramatically improve user experience and convenience, turning a common frustration into a minor efficiency gain.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community's consensus on the &quot;better way to tie gym shorts&quot; video is largely mixed, leaning towards skepticism. While a few users found the Lapp Knot effective for securing slippery drawstrings, many others deemed it overly complicated, encountered issues like difficult-to-untie knots, or found it unsuitable for practical concerns like keeping drawstrings connected during washing. Several commenters expressed a preference for simpler, already known knots or felt the proposed method complicated a basic task unnecessarily.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>youtube.com</span>
+        <span>·</span>
+        <span>498 pts</span>
+        <span>·</span>
+        <span>170 comments</span>
+        <span>·</span>
+        <span>by surprisetalk</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.youtube.com/watch?v=3R0Lp86GEBk" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48816956" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">📚 AI Education</div>
+            
+            <h2 class="story-title"><a href="https://30papers.com/" target="_blank" rel="noopener">Ilya Sutskever's 30 Essential ML Papers, Simplified for Beginners</a></h2>
+            <p class="story-summary">30 papers · The reading list Ilya Sutskever gave John Carmack</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This resource offers a highly credible and curated pathway into foundational machine learning, directly endorsed by AI luminary Ilya Sutskever and shared with tech legend John Carmack. Its focus on essential papers in a beginner-friendly format directly addresses a critical need, lowering the barrier to entry for complex ML research. By distilling key knowledge from an industry leader, it provides an invaluable guide for anyone looking to build a robust understanding of the field without being overwhelmed.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses a mixed sentiment, with initial skepticism regarding the list's true origin and rapid ascent to the front page. However, there's also appreciation for the author's initiative as a student's side project aimed at making essential ML papers accessible. Commenters offer constructive feedback for improvement, particularly suggesting better logical organization for beginners and less distracting website design elements.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>30papers.com</span>
+        <span>·</span>
+        <span>483 pts</span>
+        <span>·</span>
+        <span>72 comments</span>
+        <span>·</span>
+        <span>by notmcrowley</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://30papers.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48819608" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Product Update 🚀</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://twitter.com/claudeai/status/2074548242386178258" target="_blank" rel="noopener">Claude Fable 5: Access Extended for Paid Plans Through July 12</a></h2>
+            <p class="story-summary">Claude on X: &quot;We're extending access to Claude Fable 5 on all paid plans through July 12.&quot; / X We're extending access to Claude Fable 5 on all paid plans through July 12.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This announcement from Anthropic extends access to Claude Fable 5 for paid users, likely indicating a strategic move to gather more user feedback or capitalize on strong early adoption. This extension suggests Fable 5 may still be in a testing or refinement phase, allowing Anthropic more time to evaluate its long-term integration and monetization within their premium AI offerings before a permanent policy change.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community is largely skeptical of the Fable 5 access extension, viewing it more as a marketing ploy than a genuine benefit. Many users feel the extension is ineffective without a usage reset, given the model's high token consumption, and express frustration with Anthropic's perceived profit-driven decisions, lack of transparency, and reliability issues.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>twitter.com</span>
+        <span>·</span>
+        <span>167 pts</span>
+        <span>·</span>
+        <span>173 comments</span>
+        <span>·</span>
+        <span>by minimaxir</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://twitter.com/claudeai/status/2074548242386178258" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48821102" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🐙 Open Source AI Productivity</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://github.com/rowboatlabs/rowboat" target="_blank" rel="noopener">Rowboat: The Open-Source, Local-First AI Work App with Custom Work Surfaces, Challenging Claude Desktop</a></h2>
+            <p class="story-summary">Claude’s desktop app is brilliant, but for our own daily work we kept wanting it to be less like a chat app and more like a full-fledged work app. Rowboat is our attempt at that, including the ability to build your own work surfaces inside Rowboat (more below). Our repo is https://github.com/rowboatlabs/rowboat , and there’s a demo video here: https://www.youtube.com/watch?v=et5yQABJ3xI In a previous startup, we built a deep-learning product for enterprise support reps, including teams supporting P&amp;G brands. Models took live notes, suggested replies, and recommended actions while support reps </p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This &quot;Show HN&quot; addresses a burgeoning demand for AI applications that transcend simple chat interfaces to become deeply integrated, customizable work platforms. By offering an open-source, local-first alternative to commercial tools like Claude, Rowboat empowers users with greater control and extensibility. This trend signifies a market shift towards empowering users to tailor AI to their specific professional workflows rather than adapting to generic chat models.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally welcomes Rowboat as a promising open-source, local-first alternative to proprietary AI tools like Claude Desktop, appreciating its approach to local context and data ownership. While enthusiastic about its potential, users are keen for further development, with common requests for enhanced collaboration features, broader integrations (e.g., IMAP, existing Claude workflows), and more sophisticated memory management.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>148 pts</span>
+        <span>·</span>
+        <span>41 comments</span>
+        <span>·</span>
+        <span>by segmenta</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/rowboatlabs/rowboat" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48819808" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · July 08, 2026</div>
+    </footer>
+</body>
+</html>
