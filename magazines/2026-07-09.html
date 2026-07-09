@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — July 09, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Thursday</div>
+        <div class="masthead-year">July 09, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Decoding an Akamai Bash Script Easter Egg Hidden on a Uniqlo T-Shirt</span>
+            <span class="toc-score">1372 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Open-Source Full-Duplex AI: Community Demands Better Function Calling and Control</span>
+            <span class="toc-score">695 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Chatto Open Sources Its Enjoyable, Self-Hostable Team Chat App</span>
+            <span class="toc-score">947 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">GitHub's AI Agent Tricked Into Leaking Private Repositories via Prompt Injection ⚡</span>
+            <span class="toc-score">517 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">John Deere Owners Win Right to Repair Equipment in FTC Settlement</span>
+            <span class="toc-score">756 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Grok 4.5, GPT-5.5, Claude: The AI App-Building Showdown ⚡</span>
+            <span class="toc-score">149 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Track London Trains in Real-Time 3D: A Deck.gl and Cloudflare Workers Showcase</span>
+            <span class="toc-score">140 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Unlock PostgreSQL Speed: A Deep Dive into B-Tree Indexes</span>
+            <span class="toc-score">59 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Apache Shiro 3.0.0 Arrives with Long-Awaited Jakarta EE Compatibility</span>
+            <span class="toc-score">30 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">xAI Launches Grok 4.5: Its Smartest AI Model Yet for Coding, Engineering, and Agentic Work</span>
+            <span class="toc-score">613 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">Quirky Tech ✨</div>
+            
+            <h2 class="story-title"><a href="https://tris.sherliker.net/blog/obfuscated-self-evaluating-bash-script-by-cdn-akamai-being-supplied-to-consumers-via-retail-stores/" target="_blank" rel="noopener">Decoding an Akamai Bash Script Easter Egg Hidden on a Uniqlo T-Shirt</a></h2>
+            <p class="story-summary">Obfuscated, self-evaluating bash script by CDN Akamai being supplied to consumers via retail stores When my wife said to me “Let me show you a t-shirt I saw…”, I wasn’t sure what to expect, but it definitely wasn’t an obfuscated bash script printed on the back designed to print a happy Easter egg message. I’m not in the habit of clickbaity headlines I’ve no idea at all how many views this site gets, but I’m willing to bet it’s not even double-digit humans per month. but I can see why subeditors have such fun with them. The title above is, strictly speaking, entirely accurate, but probably not what you think.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This discovery vividly illustrates the pervasive and often quirky ways digital artifacts, even complex obfuscated code, can bleed into the physical world. It prompts fascinating questions about design metadata, supply chain integration, and how a developer's digital Easter egg from a CDN provider could end up on a mass-produced retail garment.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is largely impressed and amused by the Uniqlo t-shirt featuring an obfuscated, functional bash script, appreciating the technical &quot;easter egg.&quot; Many commenters enjoy the puzzle of decoding it and discuss the challenges of OCR, while also sharing similar projects and design details like font choices and kerning. Overall, there's a strong sense of shared humor and technical appreciation for the shirt's clever design.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>tris.sherliker.net</span>
+        <span>·</span>
+        <span>1372 pts</span>
+        <span>·</span>
+        <span>214 comments</span>
+        <span>·</span>
+        <span>by speerer</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://tris.sherliker.net/blog/obfuscated-self-evaluating-bash-script-by-cdn-akamai-being-supplied-to-consumers-via-retail-stores/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48829312" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">Conversational AI 🗣️</div>
+            
+            <h2 class="story-title"><a href="https://openai.com/index/introducing-gpt-live/" target="_blank" rel="noopener">Open-Source Full-Duplex AI: Community Demands Better Function Calling and Control</a></h2>
+            <p class="story-summary">Community discussion highlights: Are there any open source full duplex models that are out besides PersonaPlex? There was a chinese open one, maybe Fun Audio chat or something, that said it was going to release a full duplex version but I am not sure if it did. My dream would be open source full duplex with function calling or some kind of rudimentary text output. PersonaPlex is still interesting although it was looking like we would need to fine tune it to handle outgoing or avoid going off the rails easily.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This discussion reveals a significant unmet demand within the open-source community for robust, full-duplex conversational AI models, particularly those capable of reliable function calling or coherent text output. The challenges of fine-tuning existing models like PersonaPlex highlight the need for more stable and versatile open-source architectures that can handle real-time, multi-turn interactions without easily derailing.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community shows a mixed reaction to GPT-Live, with some users praising its potential for long-form brainstorming and its future revolutionary impact on accessibility for the visually impaired. However, many express significant concerns about its ethical implications, fearing it could replace valuable human relationships, and note practical drawbacks like the voice assistant annoyingly interrupting during conversation. Commenters also highlight current limitations, such as its weaker performance on complex questions compared to text chat and the absence of tool integration in voice mode.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>openai.com</span>
+        <span>·</span>
+        <span>695 pts</span>
+        <span>·</span>
+        <span>453 comments</span>
+        <span>·</span>
+        <span>by logickkk1</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://openai.com/index/introducing-gpt-live/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48834405" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🚀 Open Source Release</div>
+            
+            <h2 class="story-title"><a href="https://www.hmans.dev/blog/chatto-is-open-source" target="_blank" rel="noopener">Chatto Open Sources Its Enjoyable, Self-Hostable Team Chat App</a></h2>
+            <p class="story-summary">I’m happy to announce that Chatto, the group and team chat application that I’ve been working on for the past year or so, is now officially Open Source, and available for anyone to self-host. The fastest way to give it a try is through Homebrew: brew install chattocorp/tap/chatto chatto init chatto run See Chatto’s Getting Started Guide for details. Chatto aims to be the group chat application that you actually enjoy using.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This launch introduces another self-hostable, open-source team chat into a highly saturated market. Its viability hinges on delivering a truly superior user experience or unique features that justify adoption over established alternatives like Mattermost or Rocket.Chat, catering to users prioritizing control and a distinct chat experience.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses strong initial enthusiasm for Chatto's open-source release, praising its self-hosting capabilities, compact design, and the developer's talent. However, early users quickly identify significant hurdles with the getting started documentation and user onboarding process, while also requesting crucial features like mobile support and integrations with existing chat platforms.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>hmans.dev</span>
+        <span>·</span>
+        <span>947 pts</span>
+        <span>·</span>
+        <span>250 comments</span>
+        <span>·</span>
+        <span>by speckx</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.hmans.dev/blog/chatto-is-open-source" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48833116" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Security</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://noma.security/blog/gitlost-how-we-tricked-githubs-ai-agent-into-leaking-private-repos/" target="_blank" rel="noopener">GitHub's AI Agent Tricked Into Leaking Private Repositories via Prompt Injection</a></h2>
+            <p class="story-summary">GitLost: How We Tricked GitHub’s AI Agent into Leaking Private Repos - Noma Security GitLost: How We Tricked GitHub’s AI Agent into Leaking Private Repos TL;DR : Noma Labs discovered a critical prompt injection vulnerability within GitHub’s new Agentic Workflows, allowing an unauthenticated attacker to silently pull data from private repositories by posting a crafted GitHub Issue in a public repository belonging to the same organization as the private repositories. Noma Labs named the vulnerability GitLost. GitHub recently launched GitHub Agentic Workflows, pairing GitHub Actions (GitHub’s automation system for running tasks in response to repository events) with an AI agent backed by Claude or GitHub Copilot.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The &quot;GitLost&quot; vulnerability highlights a critical prompt injection flaw in GitHub's AI Agentic Workflows, demonstrating how malicious public input can trick AI agents into leaking private repository data. This incident underscores the significant security challenge of integrating Large Language Models into automated systems without robust isolation and privilege separation, revealing that AI agents can inadvertently bridge public and private contexts with devastating consequences.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views prompt injection as a fundamental and systemic vulnerability for AI agents, akin to SQL injection, exposing the inherent difficulty of securing LLMs. However, many commenters question the novelty and true scope of the described &quot;vulnerability,&quot; arguing it's an expected outcome of granting an agent access to private data and allowing public interaction. Some dismiss the research as an overhyped marketing stunt due to its obvious nature and the lack of clarity on GitHub's fix or acknowledgment.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>noma.security</span>
+        <span>·</span>
+        <span>517 pts</span>
+        <span>·</span>
+        <span>195 comments</span>
+        <span>·</span>
+        <span>by ColinEberhardt</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://noma.security/blog/gitlost-how-we-tricked-githubs-ai-agent-into-leaking-private-repos/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48827858" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🛠️ Right to Repair</div>
+            
+            <h2 class="story-title"><a href="https://apnews.com/article/john-deere-right-to-repair-agriculture-equipment-cb7514ffedb95c130a976af661f2bc02" target="_blank" rel="noopener">John Deere Owners Win Right to Repair Equipment in FTC Settlement</a></h2>
+            <p class="story-summary">FTC secures right to repair settlement with farming equipment giant John Deere | AP News Iran war Russia-Ukraine war Español China Asia Pacific Latin America Europe Africa Members of a sexual predator network on Telegram tried to hide their crimes with code words US launches new airstrikes on Iran and Tehran fires back at 3 Gulf Arab states Get caught up on what you may have missed throughout the day.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This landmark FTC settlement with John Deere marks a significant victory for the &quot;right to repair&quot; movement, directly addressing the critical issue of farmers' autonomy over their own equipment. It challenges manufacturers' long-standing practice of restricting access to diagnostic tools and parts, which previously created costly dependencies and limited equipment longevity. This precedent could catalyze similar changes across other industries, pushing for greater consumer control and fostering competition in repair and maintenance markets.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community overwhelmingly celebrates the John Deere settlement as a significant win for the broader &quot;Right to Repair&quot; movement, acknowledging key advocates and hoping this precedent extends to other industries like cars, laptops, and printers. However, there's widespread criticism that the $1 million fine imposed on John Deere is laughably small and insufficient to deter future anti-consumer practices.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>apnews.com</span>
+        <span>·</span>
+        <span>756 pts</span>
+        <span>·</span>
+        <span>142 comments</span>
+        <span>·</span>
+        <span>by djoldman</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://apnews.com/article/john-deere-right-to-repair-agriculture-equipment-cb7514ffedb95c130a976af661f2bc02" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48838876" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Model Comparison</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://www.tryai.dev/blog/grok-4.5-vs-gpt-5.5-vs-claude-build-off" target="_blank" rel="noopener">Grok 4.5, GPT-5.5, Claude: The AI App-Building Showdown</a></h2>
+            <p class="story-summary">We made Grok 4.5, GPT-5.5, and Claude build the same apps · TryAI Grok 4.5 landed this week with xAI calling it their smartest model yet, &quot;trained alongside Cursor&quot; for coding and agentic work. The internet's favorite way to vibe-check a new coding model is the build-off: hand it one prompt, see what app it spits out, post the clip. We gave Grok 4.5 , GPT-5.5 , Claude Opus 4.8 , and Claude Fable 5 the exact same three prompts: build a single self-contained HTML file (no libraries, no network calls) for an interactive app. One shot each, no hand-holding, no prompt-fiddling.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This article conducts a direct 'build-off' to critically evaluate the raw code generation capabilities of new, leading AI models like Grok 4.5, GPT-5.5, and Claude variants. By imposing strict, single-shot conditions to create self-contained HTML apps, the study provides a practical benchmark of their agentic reasoning and programming prowess. Such rigorous comparisons are essential for developers to understand the practical utility and specific strengths of evolving large language models in real-world software development scenarios.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely criticizes the presented comparison for its flawed methodology, citing subjective evaluations, oversimplified problems, and inconsistent testing (e.g., retries, varied scoring criteria). There's skepticism about Grok's performance relative to its peers and the study's conclusions, with many users sharing personal experiences that contradict the findings or suggesting more robust benchmarks.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>tryai.dev</span>
+        <span>·</span>
+        <span>149 pts</span>
+        <span>·</span>
+        <span>79 comments</span>
+        <span>·</span>
+        <span>by hershyb_</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.tryai.dev/blog/grok-4.5-vs-gpt-5.5-vs-claude-build-off" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48838772" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🚆 Transportation Tech</div>
+            
+            <h2 class="story-title"><a href="https://ride.nexttrain.london/" target="_blank" rel="noopener">Track London Trains in Real-Time 3D: A Deck.gl and Cloudflare Workers Showcase</a></h2>
+            <p class="story-summary">deck.gl based visualiser of the TFL Api + National Rails to be able to track (with minimal drift) a train along the way in London and to the nearest airports. If you pick one from any platform in https://nexttrain.london basically you can share your train journey along the rails. Build to test Cloudflare workers and their infra along with deck.gl performance that is incredible in my opinion.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project demonstrates a robust real-time geospatial visualization stack, leveraging `deck.gl` for high-performance 3D rendering and `Cloudflare Workers` for efficient data processing to track London trains with remarkable accuracy. It offers a novel and engaging way to visualize public transport, showcasing the potential for improved user experiences, operational insights, and broader applications in dynamic mapping and tracking.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is largely impressed with the &quot;Follow London Trains in 3D&quot; concept, praising it as a cool, interesting, and technically impressive achievement. While appreciating the effort, there's a strong consensus around key areas for improvement, particularly regarding the viewing experience. Users desire a broader, &quot;all trains&quot; view rather than being locked to a single train, along with refinements to the rendering and inclusion of more contextual information like a scale bar.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>ride.nexttrain.london</span>
+        <span>·</span>
+        <span>140 pts</span>
+        <span>·</span>
+        <span>56 comments</span>
+        <span>·</span>
+        <span>by mgranados</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://ride.nexttrain.london/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48786455" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">📊 Database Internals</div>
+            
+            <h2 class="story-title"><a href="https://medium.com/@devli0/b-tree-indexes-in-postgresql-part-1-theory-eb2668c52520" target="_blank" rel="noopener">Unlock PostgreSQL Speed: A Deep Dive into B-Tree Indexes</a></h2>
+            <p class="story-summary">Community discussion highlights: I was just wondering if there was a postgresql specific version of https://use-the-index-luke.com i could send a coworker who seems oblivious to the perf penalties of missing indicies. Certainly a good start!</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This guide tackles a foundational yet often misunderstood aspect of database performance: B-Tree indexes in PostgreSQL. The community discussion highlights a pervasive problem where developers, even experienced ones, may overlook the critical performance implications of properly indexing — or failing to index — their database tables. It underscores the demand for practical, system-specific resources that bridge the gap between theoretical knowledge and real-world database optimization.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally welcomes this guide as a valuable resource, particularly for educating developers on the performance implications of indexing. There's a clear sentiment that more PostgreSQL-specific content like this is needed to help address common knowledge gaps and improve performance awareness.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>medium.com</span>
+        <span>·</span>
+        <span>59 pts</span>
+        <span>·</span>
+        <span>2 comments</span>
+        <span>·</span>
+        <span>by corvus-cornix</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://medium.com/@devli0/b-tree-indexes-in-postgresql-part-1-theory-eb2668c52520" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48797443" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🚀 Software Release</div>
+            
+            <h2 class="story-title"><a href="https://shiro.apache.org/blog/2026/06/apache-shiro-300-released.html" target="_blank" rel="noopener">Apache Shiro 3.0.0 Arrives with Long-Awaited Jakarta EE Compatibility</a></h2>
+            <p class="story-summary">Published by Lenny Primak on the 29th of June, 2026 The Apache Shiro team is pleased to announce the release of Apache Shiro version 3.0.0. This release is available for download now. This is a new major release of Apache Shiro, with many new features and improvements, culminating more than two years of work. Jakarta EE 9/10/11+ (no javax.* namespace)</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This 3.0.0 release of Apache Shiro, the culmination of two years of development, represents a substantial leap forward for the security framework. The most critical aspect is its full embrace of Jakarta EE 9/10/11+, indicating a significant modernization effort and providing crucial compatibility for applications leveraging the latest Java enterprise standards. This ensures Shiro remains a relevant and robust solution for authentication, authorization, and session management in contemporary enterprise environments.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The comment expresses strong frustration with the Java ecosystem, despite acknowledging the quality of the language itself. Key complaints revolve around the cumbersome nature of XML-driven configuration, the perpetual build system complexities and migrations between Maven and Gradle, and the associated supply chain security vulnerabilities these systems introduce.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>shiro.apache.org</span>
+        <span>·</span>
+        <span>30 pts</span>
+        <span>·</span>
+        <span>2 comments</span>
+        <span>·</span>
+        <span>by lprimak</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://shiro.apache.org/blog/2026/06/apache-shiro-300-released.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48812736" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Model Release</div>
+            
+            <h2 class="story-title"><a href="https://x.ai/news/grok-4-5" target="_blank" rel="noopener">xAI Launches Grok 4.5: Its Smartest AI Model Yet for Coding, Engineering, and Agentic Work</a></h2>
+            <p class="story-summary">Grok 4.5 is SpaceXAI's smartest model built for coding, agentic tasks, and knowledge work. Today, we're launching Grok 4.5 , SpaceXAI's smartest model built to excel at coding, agentic tasks, and knowledge work. It's our strongest model ever and was trained alongside Cursor . Grok 4.5 was trained on datasets spanning knowledge in coding, science, engineering, and math. With both intelligent and efficient reasoning, Grok 4.5 excels at real engineering tasks and exceeds comparable leading models at these tasks.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Grok 4.5, despite the &quot;SpaceXAI&quot; typo likely referring to xAI, marks a significant iteration designed to be a top-tier competitor in high-stakes coding, agentic, and general knowledge work. Its explicit training alongside Cursor suggests a strategic focus on deep integration into developer workflows, aiming for superior performance in complex engineering tasks. This release intensifies the race among AI foundational models, emphasizing specialized capabilities and practical application over broad generalizations.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community holds a deeply divided view on Grok 4.5, with significant ethical concerns and accusations of political bias heavily influencing sentiment. While some acknowledge its impressive speed, efficiency, and competitive pricing in technical benchmarks and specific use cases, many express deep distrust, questioning its reliability for business and its overall moral standing.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>x.ai</span>
+        <span>·</span>
+        <span>613 pts</span>
+        <span>·</span>
+        <span>865 comments</span>
+        <span>·</span>
+        <span>by BoumTAC</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://x.ai/news/grok-4-5" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48835111" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · July 09, 2026</div>
+    </footer>
+</body>
+</html>
