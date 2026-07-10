@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — July 10, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Friday</div>
+        <div class="masthead-year">July 10, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">OpenAI Unveils GPT-5.6, Prioritizing Deployment Safety</span>
+            <span class="toc-score">1230 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Uniqlo Tee Reveals Akamai's Obfuscated Bash Script Easter Egg</span>
+            <span class="toc-score">1462 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">John Deere Owners Gain Right to Repair After FTC Settlement</span>
+            <span class="toc-score">1317 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">EU Parliament Greenlights Suspicionless Mass Chat Scanning Despite Majority MEP Opposition</span>
+            <span class="toc-score">1332 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Andrew Kelley Praises &quot;Beginner Energy&quot; Driving Bun's Rust Rewrite</span>
+            <span class="toc-score">695 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">18 Words: New Game from Zanagrams Creator Seeks Feedback</span>
+            <span class="toc-score">973 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Rust Rewrite of Postgres Now Passes 100% of Regression Tests</span>
+            <span class="toc-score">626 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Meta's Muse Spark 1.1 AI Unleashes Advanced Multimodal Agent Capabilities, Launches Public API</span>
+            <span class="toc-score">371 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">ChatGPT Desktop App and Claude Introduce 'Work' Modes, Sparking Confusion Over Purpose</span>
+            <span class="toc-score">335 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Powerful GLM 5.2: Optimizing a Top LLM for Your Home Computer</span>
+            <span class="toc-score">630 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🔮 AI Speculation</div>
+            
+            <h2 class="story-title"><a href="https://openai.com/index/gpt-5-6/" target="_blank" rel="noopener">OpenAI Unveils GPT-5.6, Prioritizing Deployment Safety</a></h2>
+            <p class="story-summary">https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf https://developers.openai.com/api/docs/guides/latest-model https://x.com/levie/status/2075287443411222628 , https://xcancel.com/levie/status/2075287443411222628</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This highly upvoted post, featuring a speculative &quot;GPT-5.6&quot; title and referencing non-existent OpenAI safety and API documentation, serves as a powerful prompt for discussion rather than a genuine product announcement. It effectively channels community anticipation for future AI models while implicitly raising critical questions about advanced AI's potential capabilities and the necessity for robust safety protocols. The post's popularity underscores the intense interest and concurrent anxieties surrounding the rapid development trajectory of generative AI.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community is acknowledging the new GPT-5.6 release, with particular note of Sol's SOTA performance on ARC-AGI-3 and improved intent understanding. However, there's significant confusion surrounding the multiple sub-models like Sol, Terra, and Luna, with users struggling to understand their specific applications and naming conventions. Real-world performance, especially throughput for agentic workflows, remains a concern, often leading users to stick with older, faster versions like 5.4 for specific tasks.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>openai.com</span>
+        <span>·</span>
+        <span>1230 pts</span>
+        <span>·</span>
+        <span>886 comments</span>
+        <span>·</span>
+        <span>by logickkk1</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://openai.com/index/gpt-5-6/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48849066" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🔍 Reverse Engineering</div>
+            
+            <h2 class="story-title"><a href="https://tris.sherliker.net/blog/obfuscated-self-evaluating-bash-script-by-cdn-akamai-being-supplied-to-consumers-via-retail-stores/" target="_blank" rel="noopener">Uniqlo Tee Reveals Akamai's Obfuscated Bash Script Easter Egg</a></h2>
+            <p class="story-summary">Obfuscated, self-evaluating bash script by CDN Akamai being supplied to consumers via retail stores When my wife said to me “Let me show you a t-shirt I saw…”, I wasn’t sure what to expect, but it definitely wasn’t an obfuscated bash script printed on the back designed to print a happy Easter egg message. I’m not in the habit of clickbaity headlines I’ve no idea at all how many views this site gets, but I’m willing to bet it’s not even double-digit humans per month. but I can see why subeditors have such fun with them. The title above is, strictly speaking, entirely accurate, but probably not what you think.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post details an incredibly unique instance of an obfuscated Akamai bash script appearing as an Easter egg on a Uniqlo t-shirt. It's a fascinating cross-domain anomaly, showcasing how sophisticated digital engineering can unexpectedly manifest in consumer products, blurring the lines between code and fashion. The discovery not only highlights the creativity of engineers but also the hidden layers of complexity that can exist in the most mundane items.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely praises the Uniqlo t-shirt design, appreciating it as a clever, functional piece of code art that doubles as an intriguing puzzle. Commenters express admiration for the designer's intentional obfuscation (making it difficult to OCR) and share a collective enjoyment for the technical challenge, comparing it to similar programming-themed designs. There's also a keen eye for detail, with observations on font choices and typesetting errors.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>tris.sherliker.net</span>
+        <span>·</span>
+        <span>1462 pts</span>
+        <span>·</span>
+        <span>229 comments</span>
+        <span>·</span>
+        <span>by speerer</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://tris.sherliker.net/blog/obfuscated-self-evaluating-bash-script-by-cdn-akamai-being-supplied-to-consumers-via-retail-stores/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48829312" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Right to Repair 🛠️</div>
+            
+            <h2 class="story-title"><a href="https://apnews.com/article/john-deere-right-to-repair-agriculture-equipment-cb7514ffedb95c130a976af661f2bc02" target="_blank" rel="noopener">John Deere Owners Gain Right to Repair After FTC Settlement</a></h2>
+            <p class="story-summary">FTC secures right to repair settlement with farming equipment giant John Deere | AP News Iran war Russia-Ukraine war Español China Asia Pacific Latin America Europe Africa Bonnie Tyler, who topped the charts with epic 'Total Eclipse of the Heart,' has died at 75 Ukrainian drones batter Russian oil facilities and set more oil tankers ablaze Museum honors a late artist by covering its floor in enough peanut butter to make 15,000 sandwiches</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This landmark FTC settlement with John Deere is a pivotal victory for the &quot;Right to Repair&quot; movement, particularly impacting complex, software-dependent agricultural machinery. It sets a crucial precedent, signaling increased regulatory pressure on manufacturers to balance proprietary tech with consumer ownership and the right to independent repair across various industries.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views the John Deere settlement as a positive, albeit long overdue, victory for the right to repair, praising the general principle and the advocates behind it. However, there's a strong undercurrent of cynicism regarding the small fine imposed on John Deere and skepticism about the settlement's long-term effectiveness, with many hoping similar protections will extend to other industries, especially modern cars.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>apnews.com</span>
+        <span>·</span>
+        <span>1317 pts</span>
+        <span>·</span>
+        <span>278 comments</span>
+        <span>·</span>
+        <span>by djoldman</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://apnews.com/article/john-deere-right-to-repair-agriculture-equipment-cb7514ffedb95c130a976af661f2bc02" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48838876" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Digital Rights</div>
+            
+            <h2 class="story-title"><a href="https://www.patrick-breyer.de/en/eu-parliament-greenlights-chat-control-1-0-breyer-our-children-lose-out/" target="_blank" rel="noopener">EU Parliament Greenlights Suspicionless Mass Chat Scanning Despite Majority MEP Opposition</a></h2>
+            <p class="story-summary">EU Parliament greenlights Chat Control 1.0 – Breyer: “Our children lose out” – Patrick Breyer Home Posts and policy European Parliament EU Parliament greenlights Chat Control 1.0 – Breyer: “Our children lose out” Today, the European Parliament allowed the suspicionless mass scanning of private communications (“Chat Control 1.0”) to pass, a measure it had rejected twice in March. Although a majority of voting Members of the European Parliament (MEPs) actually opposed the regulation ( 314 against, 276 in favor, 17 abstentions ), the motion to reject it failed to secure the required absolute majority of 361 votes. As a result, mass scanning is now permitted again until 2028.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This EU Parliament decision marks a significant blow to digital privacy, enabling suspicionless mass scanning of private communications until 2028 despite a majority of voting MEPs opposing it. The procedural loophole that allowed its passage underscores critical vulnerabilities in legislative processes, setting a worrying precedent for civil liberties and the future of encrypted communications across the bloc.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community overwhelmingly condemns the EU Parliament's approval of Chat Control 1.0, viewing it as a severe infringement on fundamental privacy rights and a betrayal of the EU's stated commitment to digital privacy. Commenters express deep cynicism about the parliamentary tactics used to pass the measure and the legitimacy of EU governance, with many suggesting a shift towards privacy-enhancing technologies in response to the perceived surveillance.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>patrick-breyer.de</span>
+        <span>·</span>
+        <span>1332 pts</span>
+        <span>·</span>
+        <span>621 comments</span>
+        <span>·</span>
+        <span>by rapnie</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.patrick-breyer.de/en/eu-parliament-greenlights-chat-control-1-0-breyer-our-children-lose-out/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48843923" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">💻 Software Engineering</div>
+            
+            <h2 class="story-title"><a href="https://andrewkelley.me/post/my-thoughts-bun-rust-rewrite.html" target="_blank" rel="noopener">Andrew Kelley Praises &quot;Beginner Energy&quot; Driving Bun's Rust Rewrite</a></h2>
+            <p class="story-summary">My Thoughts on the Bun Rust Rewrite - Andrew Kelley Andrew Kelley - My Thoughts on the Bun Rust Rewrite (2026 Jul 09) When Jarred joined the Zig community about 5 years ago, I described him as
+someone who had strong &quot;beginner energy&quot;. I see it as quite a healthy
+attitude, particularly for young people and students. This is the best way to
+level up and learn new things.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Andrew Kelley's reflection on Bun's Rust rewrite offers insight into the &quot;beginner energy&quot; he attributes to Jarred Sumner, creator of Bun, as a catalyst for significant technological shifts. This perspective underscores how a relentless learning mindset and willingness to tackle ambitious challenges can drive a project like Bun to undertake a major architectural overhaul, potentially leading to substantial performance or stability improvements.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community consensus largely criticizes Andrew Kelley's post as unprofessional and overly personal, viewing it as an embarrassing attack on Bun's creator, Jarred Sumner. Many commenters felt the post contained thinly veiled criticisms and ad hominem attacks that detracted from any potential technical points, ultimately harming Zig's reputation as a serious project.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>andrewkelley.me</span>
+        <span>·</span>
+        <span>695 pts</span>
+        <span>·</span>
+        <span>602 comments</span>
+        <span>·</span>
+        <span>by kristoff_it</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://andrewkelley.me/post/my-thoughts-bun-rust-rewrite.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48843352" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Games 🎮</div>
+            
+            <h2 class="story-title"><a href="https://18words.com/" target="_blank" rel="noopener">18 Words: New Game from Zanagrams Creator Seeks Feedback</a></h2>
+            <p class="story-summary">You can send me feedback or try my other game Zanagrams .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This &quot;Show HN&quot; entry, '18 Words,' signals a new word game, likely with a minimalist design, building on the developer's experience with 'Zanagrams.' The extremely concise summary, however, offers no insight into the game's unique mechanics or innovation, relying entirely on user curiosity and the 'Show HN' context to drive engagement. This approach prioritizes discovery over explicit feature promotion, which can be a double-edged sword for early-stage projects.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally finds the game concept engaging but expresses significant frustration with the strict timer and immediate failure mechanic, preferring a more forgiving progression system (e.g., continuing to the next word with a score penalty or a no-timer option). Many users also requested quality-of-life features like &quot;shuffle&quot; or &quot;scramble&quot; buttons to re-arrange letters when stuck, and there's a desire for the game to accept all valid words formed from the given letters.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>18words.com</span>
+        <span>·</span>
+        <span>973 pts</span>
+        <span>·</span>
+        <span>316 comments</span>
+        <span>·</span>
+        <span>by pompomsheep</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://18words.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48845049" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Systems Programming ⚙️</div>
+            
+            <h2 class="story-title"><a href="https://github.com/malisper/pgrust" target="_blank" rel="noopener">Rust Rewrite of Postgres Now Passes 100% of Regression Tests</a></h2>
+            <p class="story-summary">GitHub - malisper/pgrust: Postgres rewritten in Rust, now passing 100% of the Postgres regression tests · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project showcases Rust's significant maturity and capability for re-implementing critical infrastructure, achieving functional parity with the original C-based PostgreSQL by passing all regression tests. This monumental effort not only highlights Rust's memory safety and performance advantages but also opens avenues for a potentially more robust, secure, and concurrent future for database systems.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses significant skepticism and concern regarding the Postgres rewrite in Rust, primarily focusing on potential license violations due to reusing Postgres tests and AI training on existing code, coupled with a switch to AGPL. There are also deep worries about the quality, safety, and idiomatic correctness of the LLM-generated Rust code, evidenced by a high count of `unsafe` blocks, suggesting it's more of a transpilation than a well-architected rewrite. Furthermore, the project's sustainability, maintainability, and reviewability are questioned given the AI-driven development process.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>626 pts</span>
+        <span>·</span>
+        <span>528 comments</span>
+        <span>·</span>
+        <span>by SweetSoftPillow</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/malisper/pgrust" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48841676" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">AI Model Release 🤖</div>
+            
+            <h2 class="story-title"><a href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" target="_blank" rel="noopener">Meta's Muse Spark 1.1 AI Unleashes Advanced Multimodal Agent Capabilities, Launches Public API</a></h2>
+            <p class="story-summary">Today, we’re excited to introduce Muse Spark 1.1, the latest model from Meta Superintelligence Labs and a significant upgrade from Muse Spark. Muse Spark 1.1 is a multimodal reasoning model built for agentic tasks, with major gains in tool and computer use, coding, and multimodal understanding. With these improvements, Muse Spark 1.1 advances the performance-efficiency frontier. Together with this week’s launch of Muse Image , this release brings us closer to our vision of personal superintelligence: models that help you pursue your goals, create what you imagine, deepen your relationships, and take action on what you value most. Along with this release, we are launching a public preview of the new Meta Model API where developers can access Muse Spark 1.1.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Meta's Muse Spark 1.1 launch, particularly its focus on multimodal reasoning for agentic tasks and &quot;personal superintelligence,&quot; signifies a strategic move to push AI capabilities beyond mere content generation. The public API rollout is crucial, inviting developers to leverage its advanced tool-use, coding, and multimodal understanding, thereby intensifying competition for foundational models in the rapidly evolving AI ecosystem. This positions Meta as a serious contender aiming to empower sophisticated, action-oriented AI applications.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community generally welcomes Meta's Muse Spark 1.1 as a significant development that increases competition in the LLM space, potentially driving down costs and offering more choices to developers. While its pricing is seen as competitive, even &quot;subsidized&quot; by some compared to other frontier models, key concerns remain regarding the lack of a clear data retention policy for paid API usage and general skepticism towards self-reported benchmark superiority across companies.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>ai.meta.com</span>
+        <span>·</span>
+        <span>371 pts</span>
+        <span>·</span>
+        <span>183 comments</span>
+        <span>·</span>
+        <span>by ot</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48846184" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">AI Usability 😕</div>
+            
+            <h2 class="story-title"><a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work/" target="_blank" rel="noopener">ChatGPT Desktop App and Claude Introduce 'Work' Modes, Sparking Confusion Over Purpose</a></h2>
+            <p class="story-summary">Community discussion highlights: Anthropic just changed their web interface yesterday to have Chat versus Cowork as well, and every time I look at it, I'm so confused. I'm still so unclear when I'm supposed to use one or the other or the other. Now the 'ChatGPT desktop app' (the Codex app, renamed) also has the split between work and code, and as far as I can tell, all it does is change which plugins are loaded by default to include Office ones when you put it in work mode. Perhaps it also changes the system prompt slightly?</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The rapid introduction of specialized modes and interfaces across AI platforms like Anthropic and OpenAI is creating significant user confusion rather than enhancing productivity. Developers are attempting to segment functionalities (e.g., 'work' vs. 'code'), but the unclear distinctions and subtle changes (like default plugins or system prompts) are failing to communicate clear value. This highlights a critical challenge for AI product design: clearly articulating the purpose and benefits of new features to avoid overwhelming users with seemingly redundant options.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community expresses widespread confusion and frustration with OpenAI's recent renaming and merging of ChatGPT and Codex, particularly the new &quot;Work&quot; vs. &quot;Codex&quot; split in the desktop app. Many users view this as a significant regression in usability, making casual chat difficult to access and manage, and creating an unnecessarily complex interface. While some acknowledge the potential strategic reasons for unification, the execution is largely criticized for hindering existing workflows and mirroring similar confusing changes by competitors like Anthropic.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>openai.com</span>
+        <span>·</span>
+        <span>335 pts</span>
+        <span>·</span>
+        <span>172 comments</span>
+        <span>·</span>
+        <span>by Tiberium</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48849059" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">⚙️ AI Performance</div>
+            
+            <h2 class="story-title"><a href="https://github.com/JustVugg/colibri" target="_blank" rel="noopener">Powerful GLM 5.2: Optimizing a Top LLM for Your Home Computer</a></h2>
+            <p class="story-summary">A few days ago I found myself trying out GLM 5.2 and was really positively impressed. The capabilities and security I was getting from this LLM are similar to those I've gotten from models like Claude or GPT, and this really surprised me. But then I thought, &quot;I wonder how it would work on a normal computer like mine,&quot; and above all, &quot;I wonder if it would work without going into OOM on a computer like mine.&quot; So I started working with the help of agents to test this possibility. I started converting the model to int4, understanding MTP usage, and if possible implementing DSA for long context. Ho</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post critically addresses the challenge of deploying powerful LLMs like GLM 5.2 on resource-constrained local machines, a key hurdle for broader AI accessibility. The author's hands-on approach, involving quantization and memory management techniques, exemplifies the vital engineering effort required to bridge the gap between cutting-edge model capabilities and practical, affordable deployment. Such optimizations are crucial for democratizing AI and enabling local, private inference.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community is notably impressed that GLM 5.2 can run at all on consumer-grade hardware with limited RAM, despite acknowledging its extremely slow performance. Many commenters are actively engaged in developing and discussing advanced memory management and optimization techniques (like mmap, streaming weights, and native kernels) to make large language models more efficient on constrained systems. There's a shared belief that even very slow local inference can still offer practical utility for specific, less time-sensitive tasks.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>630 pts</span>
+        <span>·</span>
+        <span>145 comments</span>
+        <span>·</span>
+        <span>by vforno</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/JustVugg/colibri" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48842459" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · July 10, 2026</div>
+    </footer>
+</body>
+</html>
