@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — July 12, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }
+        a { overflow-wrap: anywhere; }
+        a:hover { opacity: 0.7; }
+
+        /* Masthead */
+        .masthead { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }
+        .masthead::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }
+        .masthead-label { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }
+        .masthead h1 { font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }
+        .masthead h1 em { font-style: italic; color: #C84B31; }
+        .masthead-date { font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }
+        .masthead-year { font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }
+
+        /* TOC */
+        .toc { padding: 120px 8vw; max-width: 720px; margin: 0 auto; }
+        .toc-header { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }
+        .toc-header::after { content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }
+        .toc-item { display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }
+        .toc-item:hover { padding-left: 12px; opacity: 0.7; }
+        .toc-num { font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }
+        .toc-title { font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }
+        .toc-score { font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }
+
+        /* Story Section */
+        .story { min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }
+        .story-content { max-width: 760px; width: 100%; }
+        .story-category { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }
+        .story-category::after { content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }
+        .story-title { font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }
+        .story-title a { color: inherit; text-decoration: none; }
+        .story-summary { font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }
+        .story-insight { padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }
+        .story-insight-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }
+        .story-insight-text { font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }
+        .story-community { padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }
+        .story-community-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }
+        .story-community-text { font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }
+        .story-meta { font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .story-meta span:first-child { font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }
+        .story-links { display: flex; gap: 32px; }
+        .story-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }
+        .story-num { position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }
+        .flag { display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }
+
+        /* Floating Action Bar */
+        .action-bar { position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }
+        .action-btn { background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .action-btn.primary { background: #1A1A1A; color: #FAF6F0; border: none; }
+        .action-btn:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .story { padding: 80px 24px; min-height: auto; }
+            .story-num { display: none; }
+            .toc { padding: 80px 24px; }
+            .toc-item { gap: 16px; }
+            .toc-title { font-size: 1.1rem; }
+            .masthead { padding: 12vh 24px; }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- FLOATING ACTION BAR -->
+    <div class="action-bar">
+        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
+        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
+        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
+    </div>
+    <script>
+        // Set download link to the exact HTML file it's viewed from
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('download-btn');
+            // If on the web, grab the last part of path, else fallback
+            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
+            btn.href = window.location.href;
+            btn.download = filename;
+        });
+    </script>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+        <div class="masthead-label">A Curated Daily Digest</div>
+        <h1>Morning<br><em>Edition</em></h1>
+        <div class="masthead-date">Sunday</div>
+        <div class="masthead-year">July 12, 2026</div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc" id="toc">
+        <div class="toc-header">In This Issue</div>
+        <nav>
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">18 Words&quot; Challenges Your Vocabulary and Speed in a Race Against the Clock</span>
+            <span class="toc-score">1125 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">GLM 5.2: A GPT-Class LLM Optimized for Efficient Local Use on Consumer Hardware</span>
+            <span class="toc-score">898 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Pioneering Open-Source AI Trading Assistant Generates Strategies and Backtests Locally, Privately</span>
+            <span class="toc-score">15 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Wire-Level Analysis Exposes Data Transmitted by xAI's Grok Build CLI</span>
+            <span class="toc-score">252 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Nvidia's Self-Feeding Loop: Powering CoreWeave, Nebius in the AI GPU Boom</span>
+            <span class="toc-score">231 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">iroh Powers Distributed LLMs, Breaking Free From Data Centers</span>
+            <span class="toc-score">201 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">ClickHouse Quadruples PgBouncer Throughput by Scaling Processes on Multi-Core Systems</span>
+            <span class="toc-score">201 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Master Engineering: Rebuild Redis, Git, and Databases From Scratch</span>
+            <span class="toc-score">157 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">QuadRF: Raspberry Pi 5 Radio Sees WiFi Through Walls and Tracks Drones</span>
+            <span class="toc-score">733 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Countering Drone Thermal Imaging: Stealth Techniques for Night Operations</span>
+            <span class="toc-score">119 pts</span>
+        </a></nav>
+    </div>
+
+    <!-- STORIES -->
+    
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🎮 Word Game</div>
+            
+            <h2 class="story-title"><a href="https://18words.com/" target="_blank" rel="noopener">18 Words&quot; Challenges Your Vocabulary and Speed in a Race Against the Clock</a></h2>
+            <p class="story-summary">Find a word using all the letters before time runs out! You can send me feedback or try my other game Zanagrams .</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This &quot;Show HN&quot; demonstrates the enduring appeal of simple, yet well-executed word puzzles, evidenced by its high score and community engagement. The game's specific twist of using *all* available letters under a time constraint offers a satisfying challenge, suggesting that innovative takes on classic game mechanics can still capture significant attention. It also highlights a developer building a portfolio and actively seeking user feedback, a key strategy for indie success.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally embraced the concept of &quot;18 Words&quot; but expressed a strong consensus against the initial timer and harsh loss condition, preferring a more forgiving experience that allowed players to complete all 18 words. This feedback was quickly incorporated by the developer, who updated the game to allow progression through all words for a final score, addressing the primary concern for player enjoyment and engagement.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>18words.com</span>
+        <span>·</span>
+        <span>1125 pts</span>
+        <span>·</span>
+        <span>355 comments</span>
+        <span>·</span>
+        <span>by pompomsheep</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://18words.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48845049" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">⚙️ AI Optimization</div>
+            
+            <h2 class="story-title"><a href="https://github.com/JustVugg/colibri" target="_blank" rel="noopener">GLM 5.2: A GPT-Class LLM Optimized for Efficient Local Use on Consumer Hardware</a></h2>
+            <p class="story-summary">A few days ago I found myself trying out GLM 5.2 and was really positively impressed. The capabilities and security I was getting from this LLM are similar to those I've gotten from models like Claude or GPT, and this really surprised me. But then I thought, &quot;I wonder how it would work on a normal computer like mine,&quot; and above all, &quot;I wonder if it would work without going into OOM on a computer like mine.&quot; So I started working with the help of agents to test this possibility. I started converting the model to int4, understanding MTP usage, and if possible implementing DSA for long context. Ho</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post showcases a significant step towards democratizing powerful LLMs by demonstrating GLM 5.2's viability on consumer-grade hardware. The use of int4 quantization and other optimizations underscores the ongoing drive to make advanced AI accessible locally, challenging the cloud-centric paradigm for model deployment. This effort enables wider experimentation, addresses privacy concerns, and reduces reliance on costly external compute, fostering a new era of personal AI.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is highly engaged with the challenge of running large language models like GLM 5.2 on commodity or constrained hardware. There's a strong consensus that this is a valuable and actively explored problem, with several members sharing their own similar efforts involving techniques like memory mapping, weight streaming, and platform-specific optimizations. The general sentiment is positive, recognizing the practical utility of even slower local inference.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>898 pts</span>
+        <span>·</span>
+        <span>230 comments</span>
+        <span>·</span>
+        <span>by vforno</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/JustVugg/colibri" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48842459" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">AI Trading 📈</div>
+            
+            <h2 class="story-title"><a href="https://github.com/mrhustlex/TradingSpy-TradingAgentService" target="_blank" rel="noopener">Pioneering Open-Source AI Trading Assistant Generates Strategies and Backtests Locally, Privately</a></h2>
+            <p class="story-summary">GitHub - mrhustlex/TradingSpy-TradingAgentService: Fully local trading agent with loop engineering doing research, trading strategy generation and backtesting · GitHub</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project marks a significant step in algorithmic trading by introducing the first open-source, local, and privacy-first AI assistant. Its emphasis on on-device processing directly challenges the reliance on external cloud services for sensitive financial data, addressing major privacy and security concerns. By providing tools for research, strategy generation, and backtesting in a transparent, user-controlled environment, it democratizes access to sophisticated trading technology and fosters trust in a traditionally opaque industry.</p>
+    </div>
+            
+            
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>15 pts</span>
+        <span>·</span>
+        <span>0 comments</span>
+        <span>·</span>
+        <span>by mrhustlex</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://github.com/mrhustlex/TradingSpy-TradingAgentService" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48875678" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Security Research</div>
+            
+            <h2 class="story-title"><a href="https://gist.github.com/cereblab/dc9a40bc26120f4540e4e09b75ffb547" target="_blank" rel="noopener">Wire-Level Analysis Exposes Data Transmitted by xAI's Grok Build CLI</a></h2>
+            <p class="story-summary">What xAI Grok Build CLI actually sends to xAI - a wire-level analysis (grok 0.2.93) · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This wire-level analysis offers critical transparency into the data collection practices of xAI's Grok Build CLI, detailing precisely what information is transmitted back to the company. Such independent scrutiny is vital for user privacy and fosters trust in proprietary AI tools, particularly as they integrate deeper into developer workflows. It underscores the growing importance of auditing software for unexpected telemetry and ensuring responsible data handling.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely expresses strong concern and distrust regarding xAI's Grok Build CLI, particularly its practice of uploading entire repositories and git histories. Many commenters view this as a significant privacy and security risk, advocating for sandboxing or open-source alternatives over proprietary coding agents due to potential hidden data collection. While a few found it expected, the overwhelming sentiment highlights a lack of trust in proprietary AI tools with broad file access.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>gist.github.com</span>
+        <span>·</span>
+        <span>252 pts</span>
+        <span>·</span>
+        <span>119 comments</span>
+        <span>·</span>
+        <span>by jhoho</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://gist.github.com/cereblab/dc9a40bc26120f4540e4e09b75ffb547" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48877371" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">📈 Tech Business &amp; Finance</div>
+            
+            <h2 class="story-title"><a href="https://io-fund.com/ai-stocks/nvidia-coreweave-nebius-circular-financing-gpu-boom" target="_blank" rel="noopener">Nvidia's Self-Feeding Loop: Powering CoreWeave, Nebius in the AI GPU Boom</a></h2>
+            <p class="story-summary">Nvidia, CoreWeave, and Nebius: Inside the Circular Financing of the GPU Boom Blogs - Nvidia, CoreWeave, and Nebius: Inside the Circular Financing of the GPU Boom Nvidia, CoreWeave, and Nebius: Inside the Circular Financing of the GPU Boom Neoclouds are seeing massive hyperscaler demand as companies race to scale AI infrastructure, resulting in rapid revenue and backlog growth. Leaders like CoreWeave and Nebius enable this through access to the latest Nvidia GPU’s while also optimizing compute utilization.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This article illuminates the intricate financial web fueling the AI infrastructure boom, revealing how key players like Nvidia, CoreWeave, and Nebius are bound by a &quot;circular financing&quot; model. While this interconnected system rapidly accelerates GPU demand and revenue growth across the ecosystem, it also introduces questions about the long-term sustainability and potential systemic risks within such a highly interdependent market.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely dismisses the article's premise of &quot;circular financing,&quot; arguing that Nvidia's investment is too small a fraction of CoreWeave's total spending to be truly circular or problematic. Commenters suggest it's either not a significant issue or not genuinely circular, with some even viewing Nvidia's investments as a natural outcome of its market dominance. While a few express general concern about a potential &quot;house of cards&quot; in the broader AI boom, the specific claim of circular financing between these entities is widely downplayed.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>io-fund.com</span>
+        <span>·</span>
+        <span>231 pts</span>
+        <span>·</span>
+        <span>77 comments</span>
+        <span>·</span>
+        <span>by adletbalzhanov</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://io-fund.com/ai-stocks/nvidia-coreweave-nebius-circular-financing-gpu-boom" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48873836" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🌐 Distributed AI</div>
+            
+            <h2 class="story-title"><a href="https://www.iroh.computer/blog/mesh-llm" target="_blank" rel="noopener">iroh Powers Distributed LLMs, Breaking Free From Data Centers</a></h2>
+            <p class="story-summary">Mesh LLM: distributed AI computing on iroh - Iroh When people picture running a large language model, they picture a data center. Racks of GPUs that belong to someone else, a metered API, and a bill that grows every month you succeed. For a lot of teams that is a bad trade. You give up control over when models change, where your data goes, and what hardware runs your workloads.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project directly confronts the limitations of centralized LLM deployments, addressing concerns around data control, privacy, and escalating costs inherent to proprietary data centers. By leveraging distributed computing on iroh for Mesh LLMs, it offers a compelling alternative that empowers teams with greater sovereignty over their AI models and infrastructure. This approach could foster more private, customizable, and cost-efficient AI solutions, challenging the prevailing vendor lock-in model.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community finds Mesh LLM an interesting concept but expresses significant skepticism regarding its practical implementation and performance. Users highlight the high hardware barriers, report &quot;rough edges&quot; and installation difficulties, and question its speed compared to local computing due to network latency. While some see potential for distributed inference on smaller, purpose-built models, there's a general consensus that it faces substantial challenges for larger LLMs and competes with existing solutions like AI Horde.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>iroh.computer</span>
+        <span>·</span>
+        <span>201 pts</span>
+        <span>·</span>
+        <span>46 comments</span>
+        <span>·</span>
+        <span>by tionis</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.iroh.computer/blog/mesh-llm" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48876505" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🚀 Database Performance</div>
+            
+            <h2 class="story-title"><a href="https://clickhouse.com/blog/pgbouncer-clickhouse-managed-postgres" target="_blank" rel="noopener">ClickHouse Quadruples PgBouncer Throughput by Scaling Processes on Multi-Core Systems</a></h2>
+            <p class="story-summary">How we scale PgBouncer in ClickHouse Managed Postgres | ClickHouse How we scale PgBouncer in ClickHouse Managed Postgres A single process uses one CPU core, no matter how many the machine has. On a 16-vCPU box that means one core does all the connection pooling while the other fifteen sit idle, and the pooler starts capping throughput long before Postgres runs out of room. In ClickHouse Managed Postgres we run a fleet of PgBouncer processes, sized proportional to the available cores.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This post details a critical optimization for PgBouncer, addressing its inherent single-CPU bottleneck by deploying a fleet of processes proportional to available cores. This strategy effectively parallelizes connection pooling, enabling a 4x throughput increase and significantly better hardware utilization for ClickHouse Managed Postgres. It highlights how optimizing often-overlooked infrastructure components, not just the database itself, is key to achieving high-performance cloud services.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely acknowledges PgBouncer as a valuable and widely used tool, but the comments reveal a clear interest in (and existing challenges with) scaling it, particularly regarding cancellation requests and multi-core utilization. While the article's &quot;peering&quot; solution is discussed, several users quickly point to alternative tools like Odyssey or pgdog as existing, scalable solutions, suggesting that the problem is well-known and has other established answers in the ecosystem. There's also curiosity about how these advanced scaling techniques integrate with Kubernetes deployments.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>clickhouse.com</span>
+        <span>·</span>
+        <span>201 pts</span>
+        <span>·</span>
+        <span>41 comments</span>
+        <span>·</span>
+        <span>by saisrirampur</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://clickhouse.com/blog/pgbouncer-clickhouse-managed-postgres" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48872874" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">📚 Programming Education</div>
+            
+            <h2 class="story-title"><a href="https://shipthatcode.com" target="_blank" rel="noopener">Master Engineering: Rebuild Redis, Git, and Databases From Scratch</a></h2>
+            <p class="story-summary">Ship That Code — Build Real Systems, Not Tutorials Learn by building and shipping real systems. Every lesson is choose → write → run , until it clicks. Get started — it’s free Browse all courses 80+ build-from-scratch courses · 9 languages · no credit card</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This platform offers a compelling 'learning by doing' approach, challenging developers to rebuild foundational systems like Redis and Git from scratch. Such a method fosters a much deeper understanding of system architecture and implementation details than traditional tutorials, moving beyond mere API usage to truly grasp the core engineering principles. It directly addresses the common desire among developers to understand &quot;how things really work&quot; by providing iterative, hands-on problem-solving exercises.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally appreciates the core concept of learning by rebuilding foundational tools from scratch, seeing it as a valuable alternative to passive tutorials and similar to services like CodeCrafters but free. However, the initial user experience is plagued by technical errors, and there's significant skepticism regarding the originality of the content, with several users questioning if it's copied from existing books or generated by AI.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>shipthatcode.com</span>
+        <span>·</span>
+        <span>157 pts</span>
+        <span>·</span>
+        <span>43 comments</span>
+        <span>·</span>
+        <span>by acley</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://shipthatcode.com" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48871973" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">📡 Radio Tech</div>
+            
+            <h2 class="story-title"><a href="https://www.jeffgeerling.com/blog/2026/quadrf-can-spot-drones-and-see-wifi-through-my-wall/" target="_blank" rel="noopener">QuadRF: Raspberry Pi 5 Radio Sees WiFi Through Walls and Tracks Drones</a></h2>
+            <p class="story-summary">QuadRF can spot drones and see WiFi through my wall - Jeff Geerling QuadRF can spot drones and see WiFi through my wall The QuadRF (pictured above) a phased-array radio built around a Raspberry Pi 5 and an FPGA board with picosecond-level timing. It does advanced signal processing and beamforming. It can see WiFi through walls and track drones in flight.</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project represents a compelling fusion of accessible embedded computing (Raspberry Pi 5) with sophisticated RF engineering, leveraging an FPGA for picosecond-level timing and beamforming. Its demonstrated ability to &quot;see&quot; WiFi through walls and track drones signifies a major step toward democratizing advanced, high-precision radio-based sensing and surveillance capabilities, potentially enabling new applications far beyond current consumer-grade solutions.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community is clearly impressed and intrigued by QuadRF's RF visualization capabilities, particularly its drone detection potential, which many commenters quickly linked to current defense applications. There's significant interest in expanding its utility to uncover hidden RF signals and integrate it into other form factors, with several users drawing parallels to acoustic or thermal imaging technology. The overall consensus highlights the tool's immediate practical and fascinating implications.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>jeffgeerling.com</span>
+        <span>·</span>
+        <span>733 pts</span>
+        <span>·</span>
+        <span>231 comments</span>
+        <span>·</span>
+        <span>by speckx</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.jeffgeerling.com/blog/2026/quadrf-can-spot-drones-and-see-wifi-through-my-wall/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48861717" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">Defense Tech 🛡️</div>
+            
+            <h2 class="story-title"><a href="https://www.economist.com/science-and-technology/2026/07/08/how-to-hide-from-killer-drones" target="_blank" rel="noopener">Countering Drone Thermal Imaging: Stealth Techniques for Night Operations</a></h2>
+            <p class="story-summary">Community discussion highlights: Half the time it is the nighttime and the things are in IR https://news.ycombinator.com/item?id=47000051 . You may still try to camouflage and decrease your IR visibility - stealth planes try to do it, and there are some IR-decreasing covers for tanks and people. The night time hunt using IR is widely practiced today in Ukraine and even was widely practiced by US and USSR in Afghanistan and Iraq as surroundings gets cooled down and cars, people and say donkeys used to transport weapons in mounta</p>
+            
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This discussion underscores the critical shift in modern warfare, where ubiquitous drone surveillance, particularly via infrared, renders traditional concealment inadequate. It highlights an urgent technological arms race, pushing for advanced, accessible counter-surveillance methods for both military personnel and civilians in conflict zones. The emphasis on individual thermal signatures suggests a new frontier in personal defense against increasingly sophisticated and automated threats.</p>
+    </div>
+            
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely agrees that traditional camouflage, like dazzle patterns, is ineffective against modern killer drones, as machine vision and AI can easily overcome such visual disguises. There's a pervasive sense of dread and futility, with many comments suggesting that truly hiding from advanced drones is nearly impossible and expressing concern about the terrifying societal implications, often referencing dystopian sci-fi scenarios.</p>
+    </div>
+            
+    <div class="story-meta">
+        <span>economist.com</span>
+        <span>·</span>
+        <span>119 pts</span>
+        <span>·</span>
+        <span>157 comments</span>
+        <span>·</span>
+        <span>by pseudolus</span>
+    </div>
+            
+    <div class="story-links">
+        <a href="https://www.economist.com/science-and-technology/2026/07/08/how-to-hide-from-killer-drones" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48874357" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
+        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
+        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · July 12, 2026</div>
+    </footer>
+</body>
+</html>
