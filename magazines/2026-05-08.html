@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — May 08, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 012, May 08, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — May 08, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Friday</div>
-        <div class="masthead-year">May 08, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 012</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Friday</span>
+                    <time datetime="2026-05-08">May 08, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">🛠️ Open Hardware</div>
-            
+
             <h2 class="story-title"><a href="https://www.digitalfoundry.net/news/2026/05/valve-releases-steam-controller-cad-files-under-creative-commons-license" target="_blank" rel="noopener">Valve Open Sources Steam Controller CAD Files</a></h2>
             <p class="story-summary">Valve Releases Steam Controller CAD Files Under Creative Commons License | Digital Foundry</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Valve's decision to release Steam Controller CAD files under Creative Commons is a significant boon for open-source hardware and the right-to-repair movement. This empowers the community to indefinitely repair, modify, and even innovate upon the controller's design, extending its lifespan and fostering new customizations. Such a move sets a valuable precedent for other tech companies in promoting hardware longevity and consumer empowerment.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely applauds Valve's decision to release the Steam Controller CAD files, particularly valuing its potential for 3D printing replacement parts, customization, and improving accessibility for disabled gamers. While this open approach is well-received, some users express frustration with the controller's immediate sell-out to scalpers and voice minor concerns about Valve's ecosystem potentially becoming a &quot;walled garden.&quot;</p>
     </div>
-            
+
     <div class="story-meta">
         <span>digitalfoundry.net</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by haunter</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.digitalfoundry.net/news/2026/05/valve-releases-steam-controller-cad-files-under-creative-commons-license" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48037555" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,16 +206,16 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">AI &amp; Logic Programming</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/jam5991/anam" target="_blank" rel="noopener">AnamDB: Rust Powers New AI-Native Differentiable Datalog Engine</a></h2>
             <p class="story-summary">[Source content could not be fetched]</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">AnamDB represents a fascinating convergence of symbolic AI (Datalog) and modern machine learning principles through its &quot;differentiable&quot; design. This Rust-based engine could enable systems that learn and optimize complex declarative rules, bridging the gap between traditional knowledge representation and data-driven AI. Its &quot;AI-native&quot; approach suggests new paradigms for developing more integrated, adaptable, and potentially explainable AI solutions.</p>
     </div>
-            
-            
+
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -212,7 +225,7 @@
         <span>·</span>
         <span>by jam5991</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/jam5991/anam" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48057731" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -223,21 +236,21 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">📉 Digital Decline</div>
-            
+
             <h2 class="story-title"><a href="https://rmoff.net/2026/05/06/ai-slop-is-killing-online-communities/" target="_blank" rel="noopener">AI Slop Is Drowning Online Communities</a></h2>
             <p class="story-summary">06 May 2026 by · Rant , AI at https://rmoff.net/2026/05/06/ai-slop-is-killing-online-communities/ Like a young child coming home from kindergarten with their latest crayon scrawls, the internet is currently awash with people sharing their AI-generated work. And just like the young child’s drawings, much of that work should be proudly put up on the walls within the artist’s house—and no further. In fact, I think AI-haters are on the wrong side of history . It’s just that I know when to keep my crayon-drawings to myself ;)
 And I am getting increasingly sad and frustrated seeing communities that I value slowly wilting under the onslaught of shit.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post critically examines how the uncontrolled proliferation of low-quality AI-generated content, or &quot;AI slop,&quot; is actively degrading the authentic and valuable interactions within online communities. The author, while not entirely anti-AI, expresses profound frustration as digital spaces decline under this incessant flood of triviality, underscoring a crucial challenge for maintaining the integrity and authenticity of future online engagement.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely agrees that &quot;AI slop&quot; is fundamentally eroding trust and authenticity in online communities by making human-generated content indistinguishable. While moderation efforts against this influx are immense and often unsustainable, many believe it threatens to collapse larger platforms, driving users towards smaller, more curated spaces or away from social networks entirely. This crisis highlights the urgent need for robust authentication and solutions that prioritize genuine human interaction.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>rmoff.net</span>
         <span>·</span>
@@ -247,7 +260,7 @@ And I am getting increasingly sad and frustrated seeing communities that I value
         <span>·</span>
         <span>by thm</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://rmoff.net/2026/05/06/ai-slop-is-killing-online-communities/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48053203" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -258,7 +271,7 @@ And I am getting increasingly sad and frustrated seeing communities that I value
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🚨 Security Vulnerability</div>
-            
+
             <h2 class="story-title"><a href="https://www.openwall.com/lists/oss-security/2026/05/07/8" target="_blank" rel="noopener">Dirty Frag&quot; Unveiled: New Universal Linux LPE Grants Root Across All Major Distros</a></h2>
             <p class="story-summary">oss-security - Dirty Frag: Universal Linux LPE Follow @Openwall on Twitter for new release announcements and other news [&lt;prev] [next&gt;] [thread-next&gt;] [day] [month] [year] [list] Message-ID: &lt;afzgS2SCWNcZU3vU@v4bel&gt;
 Date: Fri, 8 May 2026 03:56:11 +0900
@@ -269,22 +282,22 @@ Subject: Dirty Frag: Universal Linux LPE
 
 Hi,
 
-This is a report on &quot;Dirty Frag&quot;, a universal LPE that allows obtaining 
-root privileges on all major distributions. This vulnerability has a similar impact to the previous Copy Fail. Because the embargo has now been broken, no patches or CVEs exist for 
+This is a report on &quot;Dirty Frag&quot;, a universal LPE that allows obtaining
+root privileges on all major distributions. This vulnerability has a similar impact to the previous Copy Fail. Because the embargo has now been broken, no patches or CVEs exist for
 these vulnerabilities. After consultation with the linux-distros@...openwall.org
-maintainers, and at the maintainers' request, I am publicly releasing this 
+maintainers, and at the maintainers' request, I am publicly releasing this
 Dirty Frag document.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This report unveils &quot;Dirty Frag,&quot; a critical universal Linux Local Privilege Escalation (LPE) vulnerability affecting all major distributions, signaling an urgent security threat. The immediate public disclosure, occurring before official patches or CVEs are available due to a broken embargo, underscores the severity and the high risk users face. This situation will likely trigger a rapid scramble among Linux vendors to develop and deploy mitigations.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely views Dirtyfrag as a direct successor or variant of Copy Fail, expressing frustration that the underlying kernel design flaws, specifically related to `authencesn`, were not adequately addressed. There's significant criticism directed at Linux kernel maintainers for enabling obscure and seemingly unnecessary modules by default, which unnecessarily expands the attack surface. The premature breaking of the embargo, leaving users without immediate patches or CVEs, is also a notable point of concern.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>openwall.com</span>
         <span>·</span>
@@ -294,7 +307,7 @@ Dirty Frag document.</p>
         <span>·</span>
         <span>by flipped</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.openwall.com/lists/oss-security/2026/05/07/8" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48053623" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -305,20 +318,20 @@ Dirty Frag document.</p>
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">🔒 Privacy &amp; Trust</div>
-            
+
             <h2 class="story-title"><a href="https://old.reddit.com/r/chrome/comments/1t5qayz/chrome_removes_claim_of_ondevice_al_not_sending/" target="_blank" rel="noopener">Chrome Removes Claim: On-Device AI Data May Now Go To Google</a></h2>
             <p class="story-summary">Community discussion highlights: I mean to be expected of Google. Even their Google Pay sends data to their servers whenever you use it to make payments, effectively also making it so you can't even use it without service. Apple Pay does not, runs the whole thing on-device, and not only is private, but as a result also enables payments entirely offline.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Google's quiet retraction regarding Chrome's on-device AI data handling significantly erodes user trust, revealing a persistent tension between its AI ambitions and its data-driven business model. This incident reinforces broader skepticism about Google's &quot;on-device&quot; claims and its commitment to user privacy, especially when contrasted with competitors like Apple who deliver truly offline and private functionalities. It underscores the critical need for transparency and verifiable claims in the evolving landscape of AI and data privacy.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community overwhelmingly expresses deep distrust regarding Google's removal of the &quot;on-device AI&quot; claim, interpreting it as further evidence of the company's intent to collect more user data. Commenters widely believe that AI integration, particularly in desktop applications, serves primarily as a new mechanism for data acquisition, reinforcing a cynical view of Google's commitment to user privacy. Many also anticipate that any data-sending features will be enabled by default.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>old.reddit.com</span>
         <span>·</span>
@@ -328,7 +341,7 @@ Dirty Frag document.</p>
         <span>·</span>
         <span>by newsoftheday</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://old.reddit.com/r/chrome/comments/1t5qayz/chrome_removes_claim_of_ondevice_al_not_sending/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48050964" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -339,20 +352,20 @@ Dirty Frag document.</p>
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">Retro Computing 💾</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/wojtczyk/trust" target="_blank" rel="noopener">TRUST Reimagines Rust Coding with a 1989 Retro Workflow</a></h2>
             <p class="story-summary">GitHub - wojtczyk/trust: TRUST – Coding Rust like it's 1989 · GitHub</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This &quot;Show HN&quot; project creatively reimagines the Rust development experience by adopting a 1989-era retro aesthetic, likely featuring a terminal-based interface reminiscent of classic text editors or IDEs. It cleverly bridges modern language capabilities with a nostalgic UI, offering a unique take on developer tooling that prioritizes simplicity or a distinct visual style over contemporary graphical environments.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community overwhelmingly embraces &quot;TRUST&quot; with strong nostalgia for the Turbo Pascal/C++ era, appreciating its aesthetic for rekindling the &quot;fun in coding.&quot; However, many commenters also humorously highlight the irony that Rust's notoriously slow compile times still fall short of the blazingly fast experience characteristic of 1989 development environments.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -362,7 +375,7 @@ Dirty Frag document.</p>
         <span>·</span>
         <span>by wojtczyk</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/wojtczyk/trust" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48045939" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -373,20 +386,20 @@ Dirty Frag document.</p>
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">AI/ML Performance ⚡️</div>
-            
+
             <h2 class="story-title"><a href="https://unsloth.ai/blog/nvidia-collab" target="_blank" rel="noopener">Unsloth &amp; NVIDIA Accelerate LLM Training by 25%</a></h2>
             <p class="story-summary">How to Make LLM Training Faster with Unsloth and NVIDIA How to Make LLM Training Faster with Unsloth and NVIDIA Authors: Daniel, Michael, Mathew and Datta, with help from NVIDIA We collabed with NVIDIA to make LLM training ~25% faster and in this blog/guide we'll breakdown exactly how we did it. These optimizations have no loss in accuracy and are an extra addition on top of Unsloth’s already 2-5x faster speedup!</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This collaboration between Unsloth and NVIDIA delivers a significant breakthrough in LLM training efficiency, achieving a cumulative speedup (25% on top of Unsloth's existing 2-5x) without any loss in accuracy. Such advancements are critical for democratizing access to large model development, dramatically reducing computational costs and accelerating the pace of AI research and deployment. This work exemplifies the potent synergy between specialized software optimizations and powerful hardware in addressing the growing demands of modern AI.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community generally acknowledges Unsloth's utility in accelerating LLM training, with some users keen to leverage it for custom model development. However, a significant question also arises about the practical necessity of training for the &quot;average joe&quot; or common business use cases, suggesting that off-the-shelf models and inference might suffice for many applications.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>unsloth.ai</span>
         <span>·</span>
@@ -396,7 +409,7 @@ Dirty Frag document.</p>
         <span>·</span>
         <span>by segmenta</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://unsloth.ai/blog/nvidia-collab" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48046397" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -407,20 +420,20 @@ Dirty Frag document.</p>
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">Web Security 🔒</div>
-            
+
             <h2 class="story-title"><a href="https://xeiaso.net/blog/2026/abstain-from-install/" target="_blank" rel="noopener">Anubis PoW: Websites Deploy Proof-of-Work to Combat AI Scrapers, Potentially Causing User Downtime</a></h2>
             <p class="story-summary">You are seeing this because the administrator of this website has set up Anubis to protect the server against the scourge of AI companies aggressively scraping websites. This can and does cause downtime for the websites, which makes their resources inaccessible for everyone. Anubis uses a Proof-of-Work scheme in the vein of Hashcash, a proposed proof-of-work scheme for reducing email spam. The idea is that at individual scales the additional load is ignorable, but at mass scraper levels it adds up and makes scraping much more expensive. Ultimately, this is a placeholder solution so that more time can be spent on fingerprinting and identifying headless browsers (EG: via how they do font rendering) so that the challenge proof of work page doesn't need to be presented to users that are much more likely to be legitimate.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This describes a temporary Proof-of-Work (PoW) scheme, Anubis, designed to deter aggressive AI scrapers causing downtime for websites. It underscores the escalating arms race between online content providers and AI models seeking data, forcing sites to implement user-facing friction to protect resources. This also highlights an evolving web security landscape, moving from broad PoW challenges towards more sophisticated, less intrusive browser fingerprinting to differentiate legitimate users from bots.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely agrees that the extensive software dependency ecosystem poses a significant and growing supply chain attack risk, making simple advice like &quot;wait a week to install software&quot; ineffective due to the rapid weaponization of exploits. Instead, the consensus leans towards proactive security measures such as rigorously pinning package versions, avoiding &quot;latest&quot; tags in CI/CD, and considering operating systems with more disciplined security update processes. There's a shared concern that the ease of reverse-engineering patches into exploits is a critical and worsening problem.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>xeiaso.net</span>
         <span>·</span>
@@ -430,7 +443,7 @@ Dirty Frag document.</p>
         <span>·</span>
         <span>by psxuaw</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://xeiaso.net/blog/2026/abstain-from-install/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48056227" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -441,20 +454,20 @@ Dirty Frag document.</p>
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🛠️ Craftsmanship &amp; Education</div>
-            
+
             <h2 class="story-title"><a href="https://www.popularwoodworking.com/editors-blog/tools-in-the-grass/" target="_blank" rel="noopener">Fostering Hands-On Skills: Raising the Next Generation of Makers</a></h2>
             <p class="story-summary">Tools in the Grass 2026-04-07 2026-04-20 https://media.popularwoodworking.com/app/uploads/popwood_logos-01.png Popular Woodworking https://media.popularwoodworking.com/app/uploads/2026/03/18104335/ae8459ce-c536-4cdb-9be0-2147c861dc79_2016x1512.jpg 200px 200px We may receive a commission when you use our affiliate links. However, this does not impact our recommendations. Raising the next generation of crafts person As an adult, I’m often asked what my parents did that all their 6 children craft things with their hands.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece explores the crucial role parents play in cultivating hands-on crafting skills in the next generation, offering insights into fostering practical aptitude in an increasingly digital world. It likely delves into specific methods and philosophies that encourage children to engage with tools and materials, thereby preserving and promoting traditional craftsmanship.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community shows a general appreciation for the nostalgic appeal and empowering nature of hands-on crafting, with some commenters finding the concept inspiring. However, a strong undercurrent of skepticism exists, primarily regarding the practicality of fostering such an environment for young children given perceived lack of societal support and significant impediments like safety concerns and &quot;danger zones.&quot;</p>
     </div>
-            
+
     <div class="story-meta">
         <span>popularwoodworking.com</span>
         <span>·</span>
@@ -464,7 +477,7 @@ Dirty Frag document.</p>
         <span>·</span>
         <span>by NaOH</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.popularwoodworking.com/editors-blog/tools-in-the-grass/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48027275" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -475,20 +488,20 @@ Dirty Frag document.</p>
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">🚀 Motivation &amp; Productivity</div>
-            
+
             <h2 class="story-title"><a href="https://3quarksdaily.com/3quarksdaily/2026/05/let-me-convince-you-to-be-prolific.html" target="_blank" rel="noopener">Make More: The Compelling Case for Prolific Output</a></h2>
             <p class="story-summary">Let Me Convince You to Be Prolific - 3 Quarks Daily</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This article presents a persuasive argument for adopting a prolific mindset, likely challenging conventional views on output volume and its relationship with quality. It probably delves into the intrinsic benefits of consistent creation, aiming to inspire readers to overcome hesitations and embrace a more productive approach to their work.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community appears highly receptive to the post's message, expressing gratitude and identifying with the need for such encouragement. Commenters resonate with the struggle of overthinking and appreciate the reminder to simply &quot;do the thing&quot; to be more prolific.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>3quarksdaily.com</span>
         <span>·</span>
@@ -498,7 +511,7 @@ Dirty Frag document.</p>
         <span>·</span>
         <span>by herbertl</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://3quarksdaily.com/3quarksdaily/2026/05/let-me-convince-you-to-be-prolific.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48056128" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -506,11 +519,36 @@ Dirty Frag document.</p>
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 08, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-05-07.html">
+        <small>Previous issue</small>
+        <strong>← May 07, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-05-18.html">
+        <small>Next issue</small>
+        <strong>→ May 18, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

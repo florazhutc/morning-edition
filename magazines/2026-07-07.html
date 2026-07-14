@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — July 07, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 062, July 07, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — July 07, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Tuesday</div>
-        <div class="masthead-year">July 07, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 062</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Tuesday</span>
+                    <time datetime="2026-07-07">July 07, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,21 +167,21 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">💡 Worth Watching</div>
-            
+
             <h2 class="story-title"><a href="https://organicmaps.app/" target="_blank" rel="noopener">Organic Maps</a></h2>
             <p class="story-summary">Organic Maps: Offline Hike, Bike, Trails and Navigation Organic Maps: Offline Hike, Bike, Trails and Navigation Organic Maps is a privacy-focused offline maps &amp; GPS app for hiking, cycling, biking, and driving. Developed with love by the open-source community and the same people, who created MapsWithMe / Maps.Me app. Organic Maps is one of the few applications nowadays that supports 100% of features without an active Internet connection.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This story is trending among tech professionals today.</p>
     </div>
-            
-            
+
+
     <div class="story-meta">
         <span>organicmaps.app</span>
         <span>·</span>
@@ -178,7 +191,7 @@
         <span>·</span>
         <span>by tosh</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://organicmaps.app/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48794446" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -189,16 +202,16 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">💡 Worth Watching</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/mozilla-ai/otari" target="_blank" rel="noopener">Show HN: Otari: your open-source LLM control plane</a></h2>
             <p class="story-summary">GitHub - mozilla-ai/otari: Open-source, OpenAI-compatible LLM gateway you run yourself. One endpoint for 40+ providers, with virtual keys, budgets, and usage tracking.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This story is trending among tech professionals today.</p>
     </div>
-            
-            
+
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -208,7 +221,7 @@
         <span>·</span>
         <span>by angpt</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/mozilla-ai/otari" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48810528" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -219,16 +232,16 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">💡 Worth Watching</div>
-            
+
             <h2 class="story-title"><a href="https://www.comaps.app/" target="_blank" rel="noopener">CoMaps – FOSS Offline Maps</a></h2>
             <p class="story-summary">Hike, Bike, Drive Offline – Navigate with Privacy | CoMaps Hike, Bike, Drive Offline – Navigate with Privacy Discover more of your journey - Powered by the community Plan and navigate your trip abroad with just GPS, no need for mobile data. Search waypoints while on distant hiking trails or bike paths.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This story is trending among tech professionals today.</p>
     </div>
-            
-            
+
+
     <div class="story-meta">
         <span>comaps.app</span>
         <span>·</span>
@@ -238,7 +251,7 @@
         <span>·</span>
         <span>by basilikum</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.comaps.app/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48808928" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -252,13 +265,13 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://github.com/iOfficeAI/OfficeCLI" target="_blank" rel="noopener">OfficeCLI: Office suite for AI agents to read and edit Microsoft Office files</a></h2>
             <p class="story-summary">GitHub - iOfficeAI/OfficeCLI: OfficeCLI is the first and best Office suite  purpose-built for AI agents to read, edit, and automate Word, Excel, and PowerPoint files. Free, open-source, single binary, no Office installation required.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This story is trending among tech professionals today.</p>
     </div>
-            
-            
+
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -268,7 +281,7 @@
         <span>·</span>
         <span>by maxloh</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/iOfficeAI/OfficeCLI" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48807225" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -279,17 +292,17 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">💡 Worth Watching</div>
-            
+
             <h2 class="story-title"><a href="https://blog.cr.yp.to/20260706-fairness.html" target="_blank" rel="noopener">NSA and IETF: Fairness</a></h2>
-            <p class="story-summary">cr.yp.to: 
+            <p class="story-summary">cr.yp.to:
 2026.07.06: NSA and IETF, part 8 Older (Access-J): 2026.07.04: Bugs happen: The easy way to compare solo PQ to ECC+PQ. #pqcrypto #bugs #vulnerabilities #hybrids Table of contents (Access-I for index page) 2026.07.06: NSA and IETF, part 8: Fairness.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This story is trending among tech professionals today.</p>
     </div>
-            
-            
+
+
     <div class="story-meta">
         <span>blog.cr.yp.to</span>
         <span>·</span>
@@ -299,7 +312,7 @@
         <span>·</span>
         <span>by WatchDog</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.cr.yp.to/20260706-fairness.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48811887" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -310,16 +323,16 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">💡 Worth Watching</div>
-            
+
             <h2 class="story-title"><a href="https://www.map.signalbox.io" target="_blank" rel="noopener">Real-time map of Great Britain's rail network</a></h2>
             <p class="story-summary">Community discussion highlights: I remember my colleague from MFF UK, Robert Babilon, producing his first real-time map of Czech trains in 2004. The page, called Babitron, still exists and still keeps that delightful 2004 look. I visited it a few days ago. Unfortunately today there is a message &quot;We are moving Babitron to a different server&quot;, so the link isn't working. https://kam.mff.cuni.cz/~babilon/zpmapa2</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This story is trending among tech professionals today.</p>
     </div>
-            
-            
+
+
     <div class="story-meta">
         <span>map.signalbox.io</span>
         <span>·</span>
@@ -329,7 +342,7 @@
         <span>·</span>
         <span>by scrlk</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.map.signalbox.io" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48802535" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -340,16 +353,16 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">💡 Worth Watching</div>
-            
+
             <h2 class="story-title"><a href="https://martinalderson.com/posts/the-upcoming-ai-margin-collapse-part-1-glm-5-2/" target="_blank" rel="noopener">GLM 5.2 and the coming AI margin collapse</a></h2>
             <p class="story-summary">GLM 5.2 and the coming AI margin collapse (part 1) - Martin Alderson This is a two part series focusing on what I believe is perhaps the least understood upcoming shift in AI economics. What feels like decades ago, markets recoiled at DeepSeek's R1 model. The theory being that given the underlying V3 model reportedly cost under $6m to train, the market therefore thought the huge investment in capex for model training was over, and thus the stock price of Nvidia et al collapsed overnight . Of course, this was a hugely poor read of where the costs actually lie in AI.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This story is trending among tech professionals today.</p>
     </div>
-            
-            
+
+
     <div class="story-meta">
         <span>martinalderson.com</span>
         <span>·</span>
@@ -359,7 +372,7 @@
         <span>·</span>
         <span>by martinald</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://martinalderson.com/posts/the-upcoming-ai-margin-collapse-part-1-glm-5-2/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48809877" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -370,16 +383,16 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">💡 Worth Watching</div>
-            
+
             <h2 class="story-title"><a href="https://www.anthropic.com/research/global-workspace" target="_blank" rel="noopener">A global workspace in language models</a></h2>
             <p class="story-summary">A global workspace in language models \ Anthropic As you read this sentence, circuits in your brain are adjusting your posture, controlling your breathing, and transforming lines and curves on the screen into recognizable words. Most of this processing is invisible to you. But some of what takes place in your brain you do have access to—an image that pops into your head, or a deliberate plan you make about where to go shopping. Neuroscientists and philosophers sometimes refer to the latter type of brain activity as “consciously accessible,” to distinguish it from all the other processing that goes on unconsciously.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This story is trending among tech professionals today.</p>
     </div>
-            
-            
+
+
     <div class="story-meta">
         <span>anthropic.com</span>
         <span>·</span>
@@ -389,7 +402,7 @@
         <span>·</span>
         <span>by in-silico</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.anthropic.com/research/global-workspace" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48808002" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -400,16 +413,16 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">💡 Worth Watching</div>
-            
+
             <h2 class="story-title"><a href="https://www.nintendo.com/en-gb/Support/Nintendo-Switch-2/Information-about-upcoming-battery-related-revisions-to-some-Nintendo-products-3132901.html" target="_blank" rel="noopener">Nintendo announces new product revisions in Europe with replaceable batteries</a></h2>
             <p class="story-summary">Information about upcoming battery-related revisions to some Nintendo products | Support | Nintendo UK Starting from: {{regularPrice}} {{lowestPrice}}</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This story is trending among tech professionals today.</p>
     </div>
-            
-            
+
+
     <div class="story-meta">
         <span>nintendo.com</span>
         <span>·</span>
@@ -419,7 +432,7 @@
         <span>·</span>
         <span>by akyuu</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.nintendo.com/en-gb/Support/Nintendo-Switch-2/Information-about-upcoming-battery-related-revisions-to-some-Nintendo-products-3132901.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48804193" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -430,16 +443,16 @@
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">💡 Worth Watching</div>
-            
+
             <h2 class="story-title"><a href="https://instantvideos.org/" target="_blank" rel="noopener">Show HN: InstantVideos.org – short documentaries in ~30 seconds</a></h2>
             <p class="story-summary">Hiya! So I've been playing around with having Claude make videos for a bit now even had some success posting the results to TikTok (and setup a whole pipeline so Claude can generate and post autonomously). With the release of Nano Banana 2 Lite, I was curious show fast I could make the generation, so last night I gave it a whirl and got down to around 30s for short-form video. It uses GLM-5.2 fast via Fireworks to generate the scripts and image prompts and, like I said, Nano Banana 2 Lite for the images, gpt-4o-mini-tts for the narration, and ffmpeg to string it all together and add the Ken Bu</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This story is trending among tech professionals today.</p>
     </div>
-            
-            
+
+
     <div class="story-meta">
         <span>instantvideos.org</span>
         <span>·</span>
@@ -449,7 +462,7 @@
         <span>·</span>
         <span>by pw</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://instantvideos.org/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48812045" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -457,11 +470,36 @@
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · July 07, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-07-06.html">
+        <small>Previous issue</small>
+        <strong>← July 06, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-07-08.html">
+        <small>Next issue</small>
+        <strong>→ July 08, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

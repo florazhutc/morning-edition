@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — May 29, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 023, May 29, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — May 29, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Friday</div>
-        <div class="masthead-year">May 29, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 023</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Friday</span>
+                    <time datetime="2026-05-29">May 29, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,28 +167,28 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">🤖 AI Policy</div>
-            
+
             <h2 class="story-title"><a href="https://blog.youtube/news-and-events/improving-ai-labels-viewers-creators/" target="_blank" rel="noopener">YouTube to Auto-Label AI Videos</a></h2>
             <p class="story-summary">Improving AI labels for viewers and creators
-            
-          
+
+
            - YouTube Blog</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">YouTube's decision to automatically label AI-generated videos represents a significant step towards platform responsibility and content transparency in the age of generative AI. This initiative aims to build viewer trust and combat misinformation by distinguishing human-created content from synthetic media. The effectiveness, however, will heavily depend on the accuracy and scope of YouTube's detection algorithms as AI generation tools continue to evolve rapidly.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely supports YouTube's move to label AI-generated videos, viewing it as a much-needed step to address widespread misinformation and undisclosed AI content that can victimize vulnerable users like children and seniors. However, there are significant concerns regarding the accuracy of detection systems and the ambiguity of defining &quot;AI-generated&quot; content, particularly for AI-assisted works, b-roll, or specific content types like music.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.youtube</span>
         <span>·</span>
@@ -185,7 +198,7 @@
         <span>·</span>
         <span>by nopg</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.youtube/news-and-events/improving-ai-labels-viewers-creators/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48299753" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -199,17 +212,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://www.anthropic.com/news/claude-opus-4-8" target="_blank" rel="noopener">Anthropic Unveils Claude Opus 4.8: Enhanced Performance, Granular Effort Control</a></h2>
             <p class="story-summary">We’re upgrading Claude Opus to a new version: Claude Opus 4.8. It builds on Opus 4.7 with improvements across benchmarks, and is a more effective collaborator. It’s available today for the same price. Opus 4.8 launches alongside several new features. Users on claude.ai now have control over the amount of effort Claude puts into a task.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Anthropic's release of Claude Opus 4.8 signals a strategic focus on iterative refinement, enhancing existing benchmarks and collaborative effectiveness rather than a revolutionary architectural shift. Maintaining the same pricing despite improvements is a competitive play, aiming to solidify user base and market share against rival LLMs. The new &quot;effort control&quot; feature for users highlights a growing emphasis on customizability and efficiency, empowering users to balance resource consumption with desired output quality.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community generally views Claude Opus 4.8 as a modest but tangible improvement over its predecessors, with several users praising its enhanced coding capabilities and problem-solving prowess on complex tasks. While some benchmarks hint at better token efficiency from competitors, others shared specific successes where Opus 4.8 significantly outperformed, particularly in debugging and generating intricate code. Users also appreciate quality-of-life updates like the ability to disable adaptive thinking in the UI.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>anthropic.com</span>
         <span>·</span>
@@ -219,7 +232,7 @@
         <span>·</span>
         <span>by craigmart</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.anthropic.com/news/claude-opus-4-8" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48311647" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -233,17 +246,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://llmgame.scalex.dev" target="_blank" rel="noopener">60-Second Game Exposes AI Permission Fatigue</a></h2>
             <p class="story-summary">Y/N — How carefully do you read AI commands?</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This game shrewdly gamifies the increasingly relevant issue of &quot;permission fatigue&quot; in AI interactions, where users become desensitized to consent prompts. By making players confront the consequences of their inattention within a 60-second window, it effectively highlights a critical UX challenge for future AI development and user safety. It underscores the need for thoughtful AI design that mitigates cognitive overload while ensuring informed user control.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">Hacker News users generally praised &quot;Continue? Y/N&quot; as a fun and relevant concept addressing AI agent permission fatigue. However, many criticized some of the &quot;unsafe&quot; commands, like reading `~/.zshrc`, as unrealistic or not truly dangerous in practice, and suggested improvements for game context and end-of-game feedback.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>llmgame.scalex.dev</span>
         <span>·</span>
@@ -253,7 +266,7 @@
         <span>·</span>
         <span>by Wirbelwind</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://llmgame.scalex.dev" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48308376" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -264,20 +277,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">Cybersecurity Policy 🛡️</div>
-            
+
             <h2 class="story-title"><a href="https://www.tomshardware.com/tech-industry/cyber-security/microsofts-github-bans-security-researcher-who-posted-zero-day-windows-exploits-because-company-ruined-their-life-expert-claims-action-is-vindictive-and-promises-further-retaliation" target="_blank" rel="noopener">GitHub Bans Zero-Day Exploit Researcher, Faces 'Vindictive' Retaliation Claims</a></h2>
             <p class="story-summary">Microsoft's GitHub bans security researcher who posted zero-day Windows exploits because company 'ruined their life' — expert claims action is vindictive and promises further retaliation | Tom's Hardware</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This incident highlights the precarious balance platforms like GitHub must strike between enforcing their terms of service and managing public security disclosures. While a researcher's malicious intent stemming from a personal vendetta is problematic, the banning and potential suppression of valid zero-day exploits sparks crucial debates about responsible disclosure ethics and the transparency of vulnerability information, regardless of the submitter's motivations.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views GitHub's ban of the security researcher as a short-sighted and detrimental decision. There's a strong consensus that this action disincentivizes responsible disclosure, potentially driving researchers to sell zero-day exploits elsewhere and eroding trust between vendors and the security community. Many users express confusion about the specific reasons for the ban and question the consistency of platform policies regarding security research.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>tomshardware.com</span>
         <span>·</span>
@@ -287,7 +300,7 @@
         <span>·</span>
         <span>by possibilistic</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.tomshardware.com/tech-industry/cyber-security/microsofts-github-bans-security-researcher-who-posted-zero-day-windows-exploits-because-company-ruined-their-life-expert-claims-action-is-vindictive-and-promises-further-retaliation" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48315968" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -298,20 +311,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">Collectibles &amp; Crime 💰</div>
-            
+
             <h2 class="story-title"><a href="https://mybricklog.com/blog/bricks-minifigs-corporate-stole-old-mans-200000-lego-collection" target="_blank" rel="noopener">MyBrickLog: Free LEGO Collection Tracker and Price Guide</a></h2>
             <p class="story-summary">MyBrickLog – Free LEGO® Collection Tracker &amp; Price Guide</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This headline details a significant theft within the specialized world of high-value collectibles, raising questions about trust and security in niche communities or commercial dealings. The ironic inclusion of a LEGO collection tracker in the summary subtly highlights the critical need for meticulous documentation and valuation tools to protect such valuable assets, especially against sophisticated breaches of trust. It underscores both the passion and substantial financial risks associated with unique collections.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community generally finds the provided blog post confusing and incomplete, questioning the alleged motivations of Bricks &amp; Minifigs given the company's size and the disproportionate fallout compared to the $200k collection. Many commenters also critically observe that the situation seems to have been mishandled by the victim's apparent lack of professional legal representation, suggesting a lawyer could have quickly resolved the dispute.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>mybricklog.com</span>
         <span>·</span>
@@ -321,7 +334,7 @@
         <span>·</span>
         <span>by philips</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://mybricklog.com/blog/bricks-minifigs-corporate-stole-old-mans-200000-lego-collection" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48314136" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -332,20 +345,20 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">🚀 Programming Languages</div>
-            
+
             <h2 class="story-title"><a href="https://coalton-lang.github.io/" target="_blank" rel="noopener">Coalton: Lisp Gets Statically Typed Efficiency from Haskell and OCaml</a></h2>
             <p class="story-summary">Coalton is an efficient, statically typed functional programming language that supercharges Common Lisp by taking great ideas from Haskell, Scheme, and OCaml. May 2025: Robert Smith's talk at ELS 2025.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Coalton presents an innovative bridge between the dynamic expressiveness of Lisp and the rigorous static typing and functional purity typically associated with languages like Haskell and OCaml. By compiling to and &quot;supercharging&quot; Common Lisp, it aims to provide Lisp developers with enhanced efficiency, compile-time guarantees, and greater reliability. This hybrid approach addresses common criticisms of traditional Lisp, potentially broadening its appeal for robust, large-scale application development.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses significant interest in the concept of a statically typed Lisp, with &quot;Haskell&quot; and &quot;Statically Typed&quot; being key attractors, particularly for the potential benefits in program understanding and side-effect management. However, a notable point of friction is the perceived difficulty in getting started with Coalton, especially for those unfamiliar with Common Lisp. There's also a curiosity about how Coalton implements features like Haskell's IO Monad and whether similar typed Lisp experiences could be achieved by adapting existing languages like OCaml.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>coalton-lang.github.io</span>
         <span>·</span>
@@ -355,7 +368,7 @@
         <span>·</span>
         <span>by b-man</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://coalton-lang.github.io/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48280451" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -366,20 +379,20 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">Virtual Worlds 🥳</div>
-            
+
             <h2 class="story-title"><a href="https://hallucinate.site" target="_blank" rel="noopener">Hallucinate Pioneers Massively Multiplayer Online Raves</a></h2>
             <p class="story-summary">Hallucinate - Massively Multiplayer Online Rave</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project is a compelling example of how virtual social spaces are evolving, moving beyond simple video calls to create immersive, shared entertainment experiences. By combining massively multiplayer technology with a rave concept, it addresses the demand for interactive digital gatherings that capture the communal energy of physical events, hinting at a future where such virtual worlds become significant platforms for culture and interaction.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses a largely positive reception for &quot;Hallucinate,&quot; frequently describing it as &quot;cool&quot; and &quot;fun,&quot; and often drawing comparisons to past online music festivals and virtual club experiences. While appreciating the concept, users also offer constructive feedback, suggesting features like jumping, improved chat interaction, and basic reward systems to enhance the multiplayer experience. There's a clear interest in engaging with and further developing the virtual rave concept.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>hallucinate.site</span>
         <span>·</span>
@@ -389,7 +402,7 @@
         <span>·</span>
         <span>by stagas</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://hallucinate.site" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48304260" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -400,20 +413,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">🤖 Robotics Simulation</div>
-            
+
             <h2 class="story-title"><a href="https://www.elodin.systems/post/elodin-ai-grand-prix-race-sim-harness" target="_blank" rel="noopener">Elodin Launches Open-Source AI Flight Sim for Grand Prix Competitors</a></h2>
             <p class="story-summary">Hi I'm Dan from Elodin, making an open source real-time capable flight software simulation. For AI Grand Prix contestants, the wait for the Round 1 virtual qualifier simulation has been grueling. If you’re competing, check out our simulation harness to tide you over, built to match the published competition constraints and message format. It runs against real Betaflight, which we learned requires at least 1000 sensor samples per second to run real-time correctly. The competition warranted introducing a new feature to generate the camera sensor directly in the simulation loop. Typically people </p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This open-source flight software simulation provides AI Grand Prix contestants with a crucial real-time testing environment that matches competition constraints. Its ability to run against real Betaflight and generate camera sensors directly in the simulation loop underscores the significant technical demands of high-fidelity, real-time robotics emulation necessary for effective AI development. This project empowers participants by offering an accessible platform to refine their AI agents, driving innovation in autonomous racing.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The comments show a divergence in initial reactions, with one user raising significant ethical concerns about the project's potential contribution to military applications and killer drones. In contrast, another user's comment reflects a practical interest in the technical onboarding and usability of the simulator.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>elodin.systems</span>
         <span>·</span>
@@ -423,7 +436,7 @@
         <span>·</span>
         <span>by danAtElodin</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.elodin.systems/post/elodin-ai-grand-prix-race-sim-harness" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48300280" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -434,20 +447,20 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">AI Economics 💰</div>
-            
+
             <h2 class="story-title"><a href="https://finance.yahoo.com/sectors/technology/articles/microsoft-data-suggests-using-ai-225900743.html" target="_blank" rel="noopener">Microsoft Data: AI Costs Outpace Human Hiring</a></h2>
             <p class="story-summary">Microsoft data suggests using AI is more expensive than hiring people Skip to navigation Skip to main content Skip to right column</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This Microsoft data challenges the prevailing narrative that AI universally delivers cost savings and immediate efficiency gains over human labor. It suggests that the total cost of ownership for AI, encompassing development, infrastructure, maintenance, and potentially the specialized human talent required to operate and refine it, might be significantly higher than anticipated. This insight prompts businesses to conduct a more nuanced and rigorous cost-benefit analysis before fully committing to AI-driven automation, highlighting the enduring economic value and competitive advantage of human capital in many use cases.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely dismisses the article's claims as speculative, lacking factual basis, and potentially premature, drawing parallels to early technological adoption costs. Many comments emphasize that AI and human talent are complementary rather than competing forces, suggesting that the premise of one being &quot;more expensive&quot; than the other misses the larger picture of their combined value.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>finance.yahoo.com</span>
         <span>·</span>
@@ -457,7 +470,7 @@
         <span>·</span>
         <span>by voxadam</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://finance.yahoo.com/sectors/technology/articles/microsoft-data-suggests-using-ai-225900743.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48317563" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -468,20 +481,20 @@
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">💰 AI Funding</div>
-            
+
             <h2 class="story-title"><a href="https://www.anthropic.com/news/series-h" target="_blank" rel="noopener">Anthropic Rockets to Near-$1 Trillion Valuation with $65B Series H Funding</a></h2>
             <p class="story-summary">Anthropic raises $65B in Series H funding at $965B post-money valuation Anthropic has raised $65 billion in Series H funding led by Altimeter Capital, Dragoneer, Greenoaks, and Sequoia Capital, valuing the company at $965 billion post-money. Global enterprises across industries are deploying Claude in their core operations, and a growing number of people around the world use it for their everyday work. Since our Series G in February, adoption has continued to grow across global enterprise customers, and our run-rate revenue crossed $47 billion earlier this month. This latest funding is expected to advance our safety and interpretability research, expand compute to meet growing demand for Claude, and scale the products and partnerships our customers rely on.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Anthropic's staggering $65B Series H funding and near-trillion-dollar valuation highlight the immense capital and speculative fervor driving the foundational AI market, positioning it as a key contender in the competitive landscape. This monumental raise will fuel the company's aggressive expansion in compute resources and product scaling, while also committing to critical safety research amidst rapid commercial deployment of its Claude models.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses significant skepticism and astonishment regarding Anthropic's near-trillion-dollar valuation and the reported $47 billion run-rate revenue, often calling it &quot;insane&quot; or &quot;astonishing.&quot; There's concern about the number of funding rounds and who ultimately bears the cost, although some acknowledge the product's quality and the market's belief in AI's disruptive power.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>anthropic.com</span>
         <span>·</span>
@@ -491,7 +504,7 @@
         <span>·</span>
         <span>by meetpateltech</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.anthropic.com/news/series-h" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48313048" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -499,11 +512,36 @@
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 29, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-05-28.html">
+        <small>Previous issue</small>
+        <strong>← May 28, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-05-30.html">
+        <small>Next issue</small>
+        <strong>→ May 30, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

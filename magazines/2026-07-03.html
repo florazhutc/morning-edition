@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — July 03, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 058, July 03, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — July 03, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Friday</div>
-        <div class="masthead-year">July 03, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 058</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Friday</span>
+                    <time datetime="2026-07-03">July 03, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">🚨 **Cybersecurity Alert**</div>
-            
+
             <h2 class="story-title"><a href="https://f-droid.org/2026/07/01/adv-malware.html" target="_blank" rel="noopener">4 Billion Android Devices Infected: Google's 'Developer Verifier' Is a Silent Root Trojan</a></h2>
             <p class="story-summary">What We Talk About When We Talk About Malware | F-Droid - Free and Open Source Android App Repository Google is changing the way you install apps on your device. If you are running Android 8 or higher, a virus has been installed on your device and is silently awaiting remote activation. Over the past few months, devices around the world have been infected with this novel strain, with as many as 4 billion Android handsets and tablets estimated to have already been contaminated, meaning that around half of all humanity may be at risk from this threat. Disguising itself as the innocuously-titled “Android Developer Verifier” (ADV) process, this trojan horse runs surreptitiously in the background as a system service with full root privileges, quietly awaiting an activation signal.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This report uncovers an alarming Android security vulnerability where a sophisticated trojan, disguised as a legitimate system verifier, has allegedly gained full root access on billions of devices. The sheer scale and surreptitious nature of this threat, silently awaiting remote activation, fundamentally undermines user trust and presents an unprecedented global cybersecurity challenge for the Android ecosystem.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views Google's Android developer verification as an unwelcome infringement on user freedom and device ownership, rather than genuine protection. Commenters express deep distrust of Google's motives, often equating its services with data harvesting and control, and emphasize the fundamental right to install arbitrary software as crucial for digital freedom and resisting authoritarianism. Many advocate for open-source alternatives like GrapheneOS or new Linux-based mobile operating systems.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>f-droid.org</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by drewfax</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://f-droid.org/2026/07/01/adv-malware.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48755965" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,43 +206,219 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">🔒 Privacy &amp; Law</div>
-            
+
             <h2 class="story-title"><a href="https://www.hunton.com/privacy-and-cybersecurity-law-blog/virginia-bans-sale-of-geolocation-data" target="_blank" rel="noopener">Virginia Prohibits Geolocation Data Sales</a></h2>
-            <p class="story-summary">      í}mwÛFîçäü¬î9£äAáýÅ±e;v&quot;Ù^Ëñd²³Ç!H0 HYÞÝsîß¸ïþ[OuH¢A'Í|ÉX êêêîêêêFu?ÿåÉ«ó·}ýTUóìÑçqÑ²h1==NÇxDºÌ*&quot;j©'¿¬Òõéñy¾¨E¥¿½_&amp;ÇZ,~WÉêL¾ÖâYTIuºªnôàX;ÙÇåGý3ý &lt; /£*½ÎÚ^ &lt; =M&amp;ÓD¤»ÊDÉÍéñÉÉÝÝÝx¶ZTùbçóe®£ø^=¾¿N(ÏxU¤Õ½EwúuOOZ/|Õýéq&gt;}P¥U'Ïwi1Mi¤=¥veßhß&amp;yÇ$`¾ÐDUÔÇmUd-^(eùà×H»Rè×$^z~£O7Rèé &lt; &amp;¿QI­W0ÃR¯L?°Ë7MïÄ2 &lt; ×4ÆËÅt¯Õ]ZUIñ IKr5GÅýû,*¦É{)§&quot;yVíüësþì{e¢? ø?d=ztö &lt; &lt; Ô²h¯ÓänUKð»tRÍN'É:4â^¥Q¦11?5µtrz6ïô'´ÏféâV+ìô8%~Ç²ç¨
-äXN0¾K®¢rË¸HVQß&gt;=â.ýs´ÄÓ#­,âÓº^ã	*4¿Mª¸q^LO(ÇJpb¡=1lO¿±-S÷CûZ¡;×~\[åWÕÙªÊSÝ.©U2E3³ÈýñOvbUh &lt; ¹µ¿_ZáêÃ«_&gt;ù_ÊËûO¿35¯¼gÖüÏÑ»??éO¯oÖ&quot;Ï½yýô/OÏþ|¤ÅE^yRÓE|q?ÏWåÑ£'¢8¾øüv[Mó|J]Ú§¯&quot;½IEë5msôÓOïf÷ÿvõüÃôß2óÙüâ§êóûéß*ýêÇoÞ?æ=_Ü&gt;ûîñÅËøêóWä0ó¬èí]¿üëÝú«'o&amp;Ù¯Óg?èzúñVÿáiÿ¼¿¿ÌX?£ÿmÚýhIóhr$þ¨\¾3j©ÔÆ¿¡ &lt; Ëe¾\¦æª_çÙD'ÀÛñ]~sciQyzßGR1p&quot;ßµªòüÞâÌIºÿ	T$Ó²?P&quot;ôâäþêï¢&quot;hü|FoÞÙ¢ÝMgÿÕ¥$ÇXIÊ»è¾¾þ&gt;zÔ6°R¢ÚÆÆeW
-$úìöMLÆôöÕ=ÎM¸Lü
+            <p class="story-summary">      í}mwÛFîçäü¬î9£äAáýÅ±e;v&quot;Ù^Ëñd²³Ç!H0 HYÞÝsîß¸ïþ[OuH¢A'Í|ÉX êêêîêêêFu?ÿåÉ«ó·}ýTUóìÑçqÑ²h1==NÇxDºÌ*&quot;j©'¿¬Òõéñy¾¨E¥¿½_&amp;ÇZ,~
+WÉêL¾ÖâYTIuºªnôàX;ÙÇåGý3ý &lt; /£*½ÎÚ^ &lt; =M&amp;ÓD¤»ÊDÉÍéñÉÉÝÝÝx¶ZTùb
+çóe®£ø^=¾¿N(ÏxU¤Õ½EwúuOOZ/|Õýéq&gt;}P¥U'Ïwi1Mi¤=¥veßhß&amp;yÇ$`¾ÐDUÔÇmUd-^(eùà×H»Rè×$
+^z~£O7Rè
+é &lt; &amp;¿
+QI­W0ÃR¯L?°
+Ë7MïÄ2 &lt; ×4ÆËÅt¯Õ]ZUIñ IKr5GÅýû,*¦É{)§&quot;yVíüësþì{e¢? ø?d=ztö &lt; &lt; Ô²h
+¯ÓänUKð»tRÍN'É:4â^¥Q¦11?5µtrz
+6ïô'´ÏféâV+ìô8%~Ç²ç¨
+äXN0¾K®¢rË¸HVQß&gt;=â.ýs´ÄÓ#­,âÓº^ã	*4¿Mª¸q^LO(ÇJpb¡=1lO¿±-S÷CûZ¡;×~\[åWÕÙªÊS
+Ý.©U2E3³È
+ýñOvbUh &lt; ¹µ¿_ZáêÃ«_&gt;ù_ÊËûO¿35¯¼gÖüÏÑ»??éO¯oÖ&quot;Ï½yýô/OÏþ|¤ÅE^yRÓ
+E|q?ÏWåÑ£'¢8¾øüv[
+Mó|J]Ú§¯&quot;½IEë
+5msôÓOïf÷ÿvõüÃôß2óÙüâ§êóûéß*ýêÇoÞ?æ=_Ü&gt;ûîñÅËøêóWä0ó¬èí]¿üëÝú«'o&amp;Ù¯Óg?èzúñVÿáiÿ¼¿¿ÌX?£ÿmÚýhIóhr$þ¨\¾3j©ÔÆ¿¡ &lt; Ëe¾\¦æª_çÙD'
+ÀÛñ]~sc
+iQyzßGR1p&quot;ßµªòüÞâÌIºÿ	T$Ó²?P&quot;ôâäþêï¢&quot;hü|FoÞÙ¢ÝMgÿÕ¥$ÇXIÊ»è¾¾þ&gt;zÔ6°R¢ÚÆÆeW
+$úìöMLÆôö
+Õ=
+ÎM¸Lü
 ¦wÃ:µ&quot;ÓÕÌÿg\
-ààÒ B#[2¥æ¢³$©åã!ðôøÍÕö,I&amp;ÚM^h:_ÿ3uñM¹DQF]lUMEËe&amp;Mö	ýùÃ &lt; À¿èºö-[wím4Õ.£µ¦ë4ÈAõÑ7«E´_Þ&amp;£rÒ¯þóîß³ÿ8Åÿú¯ÿ¯q3^®ÊÙÿy &lt; ­æã²hlðÅçäµ|ùÕxToÓ9Ý5ðçòø¿¿úzÚÍé$O³dNoËÇ÷$ÏK}¾,¿úwã?F_|þ3ÄEBÌ$½M²Óì_NQÑ}Rsü§h¾üjáÏÙãã¯)ÝºÚYUéõ9æx &lt; :ÎôU§zI¦yq¯aÅI¢ò~VÅ*ùÒûðÅç#bMç¢Æ¸-E¾óçôÏìëñ2*HÒù$u!ÏïqBª|ùóèý÷W_Þ¥INÇ+jt,jÜjtüíÛKýòûß½|C¶ &lt; nÀ§IO#÷URVüüDN®óÉ={cÜEín\wðþ¤æwÒi»\ö &lt; &quot;Æû¶³¦`4rÁÌ¡¬? &lt; ¹ &lt; uyùôå[Q^ªUÜK#=I×üXäMÉ¢Å&quot;%§$·Õ*19ì|'ºR­e ¶À9Q®òúéÒC¢kÇÞØÖ±7&quot;N½9¶ÅEiKÉ&gt;ûÄ¯±nÙ¡ÛQänºcwdÛc;sÎuPÂ$4(¿PpFý3½		Åò*E©M$¦?v¨ ½¥¼|*3sÂ±Y¨clÏtÛÍ£¬M*¢Ø3®
+ààÒ B#[2¥æ¢³$©åã!ðôøÍÕö,I&amp;ÚM^h:_ÿ3uñM¹DQF]lUMEËe&amp;Mö	ýùÃ &lt; À¿èºö-[wím4Õ.£µ
+¦ë4ÈAõÑ7«E´_Þ&amp;£rÒ¯þóîß³ÿ8Åÿú¯ÿ¯q3^®ÊÙÿy &lt; ­æã²hlðÅçäµ|ùÕxToÓ9Ý5
+ðçòø¿¿úz
+ÚÍé$O³dNoËÇ÷$ÏK}¾,¿úwã?F_|þ3ÄEBÌ$
+½M²Óì_NQÑ}R
+sü§h¾üjáÏÙãã¯)ÝºÚYUéõ9æx &lt; :ÎôU§zI¦yq¯a
+ÅI¢ò~VÅ*ùÒûðÅç#bMç¢Æ¸-E¾óçôÏìëñ2*HÒù$u!ÏïqBª|ùóèý÷W_Þ¥INÇ+jt,jÜjtüíÛKýòûß½|C¶ &lt; nÀ§IO#÷URVüüDN®óÉ={cÜEín\wðþ¤æwÒi»\ö &lt; &quot;Æû¶³¦`4rÁÌ¡¬? &lt; ¹ &lt; uyùôå[Q^ª
+UÜ
+K#=I×üXäMÉ¢Å&quot;%§$·Õ*19ì|'ºR­e ¶À9Q®òúéÒC¢kÇÞØÖ±7&quot;N½9¶ÅEiKÉ&gt;
+ûÄ¯±nÙ¡ÛQänºcwdÛc;sÎu
+PÂ$4(¿Pp
+Fý3½		Å
+ò*E©M$¦?v¨ ½¥¼|*3sÂ±Y¨clÏtÛÍ£¬M*¢Ø3®
 l¼v(#7£2ÒÌ&gt;ý
-ÁÅéÕeFe·Fv0óÇfWt%A-Yâ.D¡é÷ÈçDË8¥ÎÅð9]©uª
-Ù:Þp]Ð]Iù8# W4A²Vq¸*ù®´|!!U/îèÿwË×.}r¹T1±bSÒDc m¡t '	G7¬2ô9ÊëX3®´5ÝÅXP Ü0`èpfh ×ËWÊâTTñ\CdN¨Bmð¹æ:,®ª } ÄpkÌ7à±T)î!½FµBNfÓ32aFàûê¶d¿2É&gt;8¬¡&gt;3óùJz±Õ4íXbéB×­÷t®?)uÁ@Ø7 WËLÚ²k®R¢	-pèAlp%±r2@Ó¨=½dd_Ðl+Úär÷sfÄÑb}%¸ú¢gÒÄÇÔE=èâ%¥Æ7Ì/Û}×ÃXjd9³ºQòÞf#/¬&gt;5zi²¹\N³Î ÙÑ/¦üº cT4*+ªe²N7cÌxÈýVÂ %÷¹A\6Vi±NÙÜýÌMÎ!tÊ:÷0´
+ÁÅéÕeFe·Fv0óÇfWt%A-Yâ.D¡é÷ÈçDË8¥ÎÅð9]©u
+ª
+Ù:Þp]Ð]Iù8# W4A²Vq¸*ù®´|!!U/îèÿwË×.}
+r¹T1±bS
+ÒDc m¡t
+ '	G7¬2ô9Êë
+X3®´5ÝÅXP Ü0`èpfh 
+×
+ËWÊâTTñ\CdN¨Bmð¹æ:
+,®ª } ÄpkÌ7à
+±
+T)î!½FµBNf
+Ó32aFàû
+ê¶d¿2É&gt;8¬¡&gt;3óùJz
+±Õ4íXbéB×­÷t®?)uÁ@Ø7
+ WËLÚ²k®R¢	-pèAlp%±r2@Ó¨=½
+dd_Ð
+l+
+Úär÷sfÄÑb}%¸ú¢gÒÄÇÔE=èâ
+%¥Æ7Ì/Û}×ÃXjd9³ºQòÞf#/¬&gt;5zi²¹\N³Î ÙÑ/¦üº cT4*+ªe²N7cÌxÈýVÂ %÷¹A\6Vi±NÙÜýÌMÎ!tÊ:
+÷0´
 MeKlsJðr3-¯îZ q!-·
-IàBÞ+Î	:ªY8? DFÿåAÖ@T»Ç½Â*¹`è³r$@u5ÈÄp##¿0æ&gt;íqÇµdÇµhÌ×È·7è4nàÒ7ÅEÛá5q;ª¶P­nlÈe_Ç´ÏÉ¬Èþû&quot;/ÊÊªhé¬0±¸gI©Û`t¥ÑEú3Ý¿o2_t@ýJÒÑ¢Â(:5yh-õ÷ÄÊ ecû¾nÃõU5»Ej8	sa6úBW*¦ÁûlsÐ
-!C.;¸¶á½q¦ñÛ/Ð}q%%2Z&quot;Js¨sýú²¸êìØº½1*ÜºhG3vX¨ø/´_g³²©Håa¶è#h¬/Ò\1â+&quot;ºw­²îcº| F¶å±ãÌEýîü$&quot;¼§62Ícë3#k)ZÅæþâÁ ûâ¹ÜH©EzL-UÉ&amp;D]¨b©íáo¶þØÛµëBÒ¹_Ï7®ðVl¯­CÅ#ü ÕøO3ý?c¦}½}[1S` N3Va&amp;íÿôer`À!Ã3ß:Vìªf°](W¨¦OskïÎO¢]îcÖ_ &lt; 9%5yeÁw¨7ó÷&amp; É¦èVÁ¨É B²¡&gt;+7 |qåæ b¿7cOºÌÞÉD§a)§0hK98äö2^21yRf÷Àä^'aìÅì}ç¾¨êÎÙåqµ]ÕW(;\¼'1Ê¼êrã`~«û¢&amp;¶ÆZ¨wÈÖÄd'WÖ²n¼ ú£¿Á
-1üâjùí®âWç{«åÓÿøÚÊt|kÝï¾¬îO)þ¶¯¦}ôÇ&amp;~ñùæ£)¯kX¼n.Ñ0é¾èýb?=Wð·i3É,!3¹ç³I¿øü³Øu`Å\Öäï²Çc'WLEù_ÈW\®,x×}Ô.ù{ ß ó]Øâ+ý»òFò{&amp;¸øyò°¯þ[¼ÄÂî*[.±â&quot;Ù^4wDØæ¾^.n®W&gt;f£Ñúm&gt;r(¹è¢óü:ÍêZswµ,R¸ZêN»v:`ë	:=éxËÎ]73õÅN¾¤Ì1â]qù´gÝ{sº¨d\Ø®l¨&quot;Ê_TE&quot;X¹¶LbÒÃ¦8«ìÑÃ,­ëõ13Ñ£ë|UµAäï3\áÍÒ}É¨¤ë¤l§lÉ;EzTzWíôGçòN¶¡¢e¾*â;o.ð@ã`+íMýxÃúÕ²·jÈ`%ó¼ùÑe*øÉØFþ)B{øIýoás-MÜÏöãÿèá2«Uhåâ&quot;!v{BÁèë`tÍrãn¤¿Çr'%1Ý&amp;	ßdy`.[§ÀÝ	ü&amp;ÿ°Ü&amp;÷°&amp;ÜÕéOÄ2ýP§2®ï6VÆ6ün:ÞeÔÊúeW_kâr\ÇÏIõh{LÛÔ¸Cü¼(ËÒ)+_û!vÉ¡ñáÌÜt1éýkªýI;ojÑö8Ë§¢7 KÒf[Î£,|¿Íòë(ÓjnÑb²ßËIT%%¿=[DÙ}më¯(,÷³ &lt; å-¨»«ùõqñÜ-Åó|4ý¶!iåGV_w­uþ$]ðuÈÈ¼wQì·ðãp`âjÜÃòáIÞ¦Ü·Û9®[¸7ÜãÆtMOËMþK-3$Á6åFÛ:CB¿ÎËª$m_ÐÐ{lwku^eUù&gt;Kw^-úIREi¶ÖIîÇ[¡ÝHÇÇ
-~AGóÄ¾´7m+.ò|±¸É»L¡dU:OþpoaËúêfÐ	v|u3 ÿà«3Ý!¾zG¸OðÔ÷¥Ã³ßÕKjUAªpóÓ#¾Í®ä{.¾ç~uDä=âïgÇ&gt;`8Àâ X	ÄgG¾Ò?^ãFòÉ¨~jÊ(\sW³êH5=k &lt; ë¥ø8häúÙywè?âûà¨ ¹?ÞZê?ýèÕBU`*m¶Ì|YävvNiTÒ®¨Dä`ßB	i­¹F²Aö
+IàBÞ+Î	:ª
+Y8? DFÿå
+AÖ@T»Ç½Â*¹`è³r$@u5
+
+
+ÈÄp##¿0æ&gt;íqÇµdÇµhÌ×È·7è4nàÒ7ÅEÛá5q;ª¶P­nlÈe_Ç´ÏÉ¬Èþû&quot;/ÊÊªhé¬0±¸gI©Û`t¥ÑEú3Ý¿o
+2_t@ýJÒÑ¢Â(:5yh-õ÷ÄÊ ecû
+¾nÃõU5»E
+j8
+	sa6úBW*¦ÁûlsÐ
+!C.;¸¶á½q¦ñÛ/Ð}q%%2Z&quot;Js¨sýú²¸êì
+Øº½1*ÜºhG3vX¨ø/´_g³
+²©
+Håa¶è#h¬/
+Ò\1â+&quot;ºw­²îcº| F
+¶å±ãÌEýîü$&quot;¼§62Ícë3#k)ZÅæþâÁ ûâ¹ÜH
+©EzL-UÉ&amp;
+D]¨b©íáo¶þØÛµëBÒ¹_Ï7®ðVl¯­CÅ#ü ÕøO3ý?c¦}½}[1S`
+ N3Va&amp;íÿôer`À!Ã3ß:Vìªf°](W¨¦OskïÎO¢]îcÖ_ &lt; 9%5yeÁw¨7ó÷&amp; É¦èVÁ¨É B²
+¡&gt;+7 |qåæ b¿
+7cOºÌÞ
+ÉD§a)
+§0hK98äö2^21yRf
+÷Àä^
+'aìÅì
+}ç¾¨êÎÙåqµ]ÕW(;\¼'1Ê
+¼êrã`~«û¢&amp;¶ÆZ¨wÈÖÄd'WÖ²n¼ ú£¿Á
+1üâjùí®âWç{«åÓÿøÚÊt|kÝï¾¬îO)þ¶¯¦
+}ô
+Ç&amp;~ñùæ£)¯kX¼n.Ñ0é¾èýb
+?=Wð·
+i3É
+,
+!3¹ç³I¿øü³Øu`Å\Öäï²Çc'WLEù_ÈW
+\®,x×}Ô.ù{ ß ó]
+Ø
+â+ý»òFò{&amp;¸øyò°¯
+þ[¼ÄÂî*[.±â&quot;Ù^4wDØæ¾^.n®W&gt;f£Ñúm&gt;r(¹è¢óü:ÍêZswµ,R
+¸ZêN»v:`ë	:=éxËÎ]73õÅN¾¤Ì1â]qù´gÝ{sº¨d\Ø®l¨&quot;Ê_TE&quot;X¹¶LbÒÃ¦8«ìÑÃ,­ëõ13Ñ£ë|UµAäï3\áÍÒ}É¨¤ë¤l§l
+É;EzTzWíôGçòN
+¶
+¡¢e¾*â;o.ð@ã`+íMýxÃúÕ²·jÈ`
+%ó¼ùÑe*øÉØFþ)B{øIýoás
+-MÜÏöã
+ÿèá2«Uhåâ&quot;!v
+{BÁèë`tÍr
+ãn¤
+¿Çr'%1Ý&amp;	ß
+dy`.[§ÀÝ	ü&amp;
+ÿ°
+Ü&amp;÷°
+&amp;ÜÕéOÄ2ýP§2®ï6VÆ6ün:ÞeÔÊúeW_kâr\ÇÏIõh{LÛÔ¸Cü¼(ËÒ)+_û!vÉ¡ñáÌÜt1éýkªýI;ojÑö8Ë§¢7 KÒf[Î£,|¿Íòë(ÓjnÑb²ßËIT%%¿=[DÙ}më¯(,÷³ &lt; å-¨»«ùõqñÜ-Åó|4ý¶!iåGV_w­uþ$]ðuÈÈ¼wQì·ðãp`âjÜÃòáIÞ¦Ü·Û9®[¸7ÜãÆtMOËMþK-3$
+Á6åF
+Û:CB¿ÎËª$m_ÐÐ{lwku^eUù&gt;Kw^-úIREi¶
+Ö
+IîÇ[¡ÝHÇÇ
+~AGóÄ¾´7m+.ò|±¸É»L¡dU:Oþpo
+aËúêfÐ	
+v|u3 ÿà«3Ý!¾zG¸OðÔ÷¥Ã³ßÕKjUAªpóÓ#¾Í
+®ä{.¾ç~uDä=âïgÇ&gt;`8Àâ X	ÄgG¾Ò?^ãFòÉ¨~jÊ(\sW³êH5=k &lt; ë¥ø8h
+äúÙywè?âûà¨ ¹?ÞZê?ýèÕBU`*m¶Ì|Yä
+vvNiTÒ®¨Dä`ßB	i­¹F²Aö
 ;p«Ó£÷×Y´¸= ¡`¦Ox8,O yrõØ¶ÞùÃ·Gjæ¨v7KãÍÅ¤ÔªY²)
-ÚåjNrcl#+¯Þ-£Åöå²	ù_¿;òúìOß¥QÁ¨:géuZ1¯RíØß0Ö^æ÷#%häô¦^3ÒJÆ4w§	Ì&quot;*ü.»§$¤79%¤*å¥¹l³Ü¡u¢ÉG¨â^xÍ9%bJ V3aÍ»K«^ä×«²¢õ/«´{8ë&quot;&amp;zE3li¥
-×[û·ÕÅ^²ç¾)á«ú6)ÐÒF1ëbB~J©ræ¦ÇÒsk·G&quot;GüXÌÈÐéÇ¤ZÓø'åfõåòSË
-5ß§å¤ó$Ó¯¨2aG_&amp;óGô[ôu­à}uµøá	ÑÔzºéä?ç4ÐÊ¬eÐêT0Q¥Í&quot;êQES3ì°yI6¬Ö­N¶mfQ*±=&gt;ÎVp6îì±n[µa§eÒ©ÎtÇJîÄV[@Ç-ýÇÂÞÃ[²E|­Ï³J0þó0¾Á³÷ä*RsÑÉ³Ç$É+YJSµÓØ/;úv56C¦lå$¹I*13­MY²â¸]ê(Ð@QiÜ*$J)Jr÷+¨,£x¶*JÌ,UE QÑ7!=©;2*.×êþ ´mÙgçìUkå&amp;u´§4l¾õ8u5[aêäjìGÞ	Ø/ýóÇäü:¬¤«[Þ dh #ã»Í8)ÁøµøfüIq
-¼ð÷×$*X=ø×&gt;ì¡¢±åô&amp;ÊÊäèÑ_¢rFÕeg6°x¬Áè7ºÕlºÆDm²ÅVõ¼¼ÕøýÐÑîK Ûè¨vV§ErOóÐzï-JËnB.Ö	Í|§²»nFã¹MpAó &lt; êr:Íôô8^Fznó wI²ÔEkRYôÎvG=]LhÌ(îu¤æEïuçK¬%³&amp;Xo&quot;Ü;­zàÏÞkèbí§ô¦Å~Mù-7E&gt;×K®¢8KaÅ6I§|Gºys¹ê1%å\5pÕ$×Ý!ÞÀ~ï¸¦4Í¦m´F·Úãóz ­6æbtgì£ÝD­áøÑÅæÇÒÚsÝ,¯lyçõê_§ÔífQl¨ºøÏÛËbR=Èc|ð©¾üê_oy9]p±ìÎéî.¹X¶FÏYt,»teüu½	ùáï·«TLÇ^ÅY©Gâ[)âM¬pì¼ã Ä±-blÔ9sÅ&quot;1â½Døí9³Æ.Ó·&amp;¿ 
-á?]Äaé¼aX,ÍZ&quot;¨a]Ûé&quot;
-ËEx3/RðSþëMt¯	w_ÎÞ73Þycÿ¹ÅûÅ,÷ Î3ã§KÛyðÌ².E,¶&quot;¢÷#¸ã¿Âò7\%£Íø&gt;ËRØ× ¢_d ²Ñü]IëÏ¨b[ù`hSÓ¨vOl09Æ
-_©KT!U'Ödä3Ùñ_¿ª°±	@ÆêE2Ûæ]\àáéIÏyGçðAþmÊJjRùz§8Æs|].EKäÍ[#ÔQóHÎÙ`»Ð·r2 Wd1Ú-J»$#Þ¼ÉíÝ´×9ÔLFêp¸¨GIl·û¨m±uÓÚª+Þ³;âb6Eh¨nµ%ä=s¼ûLÛJPrGTTØÌnÆ¤pb=!ÛØ£¼UÄ@4¿×¤·ëØNÞÁùð^!SÖÔG¶BWÞdËôÜ6Ûpc±&amp;Ñî&quot;¹ùç²´µ_:üµâër° 4Z¹A¹`z­ë2[SFºÖå.&amp;74ø,ÐKÞkÃfv£­Ë &lt; $³v2ÞUûÅáºØgäÉætdDgZZ\@ÞSÃ;'8'Wh#!ìè¢'2¤;äÈ[QäØÓ:XlÚqKCÇl¹ÂEà°;9m[Ý~`Ö¡ða#g&quot;Äñm&gt;z.6Bº 42®ã­M±¸¸Ñ  R½d:ÂàÂ5,°OºËvd#nrm#À²koÞp2é_ì:$ïElÅûdÎ_ ê,&amp;¸b7½D_ÙÿÄ	B;ùÊàCO÷3¯c1óúÃ}§§¨á}'Ûê;miyßÄtxM]é&gt;ÁkÚþ^^ÂmïaÆÓÉr``¶Û+©ÏCT7cáG0ÂË¹ýú´½æHn`bËæ`?QÑÑíàj;ÑBÌØ2æÊc9Ä5`ÿÁlÈ¼²ñØ9b'7ñVp3ÃO|&gt;/(lÇã_´ÊËÿwj¿Û1J}eÜ\fÚàzÈDr²(FC ÎÅR*cdÃ? ØØÉ-Þø¬0ÎplmÝ~lL½Þ¶Î'Cè6qÅ1 ¾çñCÖ¨Wû9ù¢Ä(xÍ¤'`&quot;ð&amp;3Kz+ÔÆKQï9'ìÈBðð×ÛAyøç?-áßó«½¨cýÇ­¡c´­¡½fë¡;$Ìéút¿#á§|¿ïK,_üøûÇÛR¾G¸!·(¦?Èf8[Q¨ÖõXlÕÃ±#b;Clæpf8Þ&amp;ÓM;3ÛVÁ¹°8
-\p0®ñø~Ô.íØýâóÏfÔë2wØI?/äÛ¡ÈWeG&quot;%TàöÄ¿cO¼|¨[Ò¡±½]·$Ðlï·ttÄ?¡ö¥­ÿ}¢ÞyÓ9vÂ&quot;ÊÅÖ¹Å¼÷ÖÐzî²ûïq°º &lt; (±UÈâmFÍv#¤ÅZ!v×êâ° ðÉyã7ïÊ;±hÆrí9õ2EïC0Þ Ég!ñJÂRwæpznàü17áYôú:ÊÛü}Þ¼³,,%é&quot; ç¦µ×
-bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ sç@}Ï÷uÕüqÃ0ßM; &lt; #gÜsh).ÿG&gt;¿«ÁºY¶c?¶}x®/ïÉú8WÌ³¬çcÛð×B
-Ëgtõ|ÎCoÇÛ[â&amp;6XÄe5¡QGKVí;8ôh7¶}nèàÍg®oXâôõÖë}ÇQÊÄ[òà\ÓCEáM¯®NÓ!*aK²íÓÞµ	I;ñ÷QÏ§À?ÒdõÖ!Üí;®òî¥ÌGÜt;¤º	½.W×ÝxêM &lt; ÷¾bÅÇ±%Ò¦¹Uð¹ &lt; 3¶ÞÂ6³5!áµY®¨¼Q1©÷ÖYhu¡½ :¯´gy1×j=j6P%Ô;%Ço^¾¿zzöæü¹&amp;ö:¾G¤VGÛój YNé§8¸:â¯&quot;ö¾µ9¡qÃäX~LËL8¥IB&gt;°ÀväïÑîïK)Ü~àÒ$³9Ë¿]!³¨|÷Íæ *DõD(Þ?</p>
-            
+
+ÚåjNrcl#+¯Þ-£Åöå²	ù_¿;òúìOß¥QÁ¨:géuZ1¯Rí
+Øß0Ö^æ÷#%häô¦^3ÒJÆ4w§	Ì&quot;*ü.»§$¤79%¤*å¥¹
+l³Ü¡u¢ÉG¨â^xÍ9%bJ V3aÍ»K«^ä×«²¢õ/«´{8ë&quot;&amp;zE3li¥
+×[û·
+ÕÅ^²ç¾)á«ú6)ÐÒF1ëbB~J©ræ¦
+ÇÒsk·G&quot;G
+üXÌÈ
+ÐéÇ¤ZÓø'åfõåòSË
+5ß§å¤ó$Ó¯¨2aG_&amp;óGô[ôu­à}uµøá	ÑÔzºéä?ç4ÐÊ¬eÐêT0Q¥Í&quot;êQES3ì°yI6¬Ö
+­N¶mfQ*±=&gt;ÎVp6îì±n[µa§eÒ©ÎtÇJîÄV[@Ç-ý
+ÇÂÞÃ[²E|­Ï³J0þó0¾Á³÷ä*RsÑÉ³Ç$É+YJSµÓØ/;úv56C¦l
+å
+$¹I*13­MY²â¸]
+ê(Ð@QiÜ*$J)Jr÷+
+¨,£x¶*JÌ,UE QÑ7!=©;2*.×êþ ´mÙgçìUkå&amp;u´§4l¾õ8u5[aêäjìGÞ	Ø/ýóÇäü:¬¤«[Þ dh #ã»Í8)ÁøµøfüIq
+¼ð÷×$*X=ø×
+&gt;ì¡¢±åô&amp;ÊÊäèÑ_¢rFÕ
+eg6°x¬Áè7
+º
+ÕlºÆDm²ÅVõ¼¼ÕøýÐÑîK Ûè¨vV§ErOóÐzï-JËn
+B.Ö	Í|§²»
+nFã¹
+MpAó &lt; êr:Íôô8^Fzn
+ó wI²ÔEkRYôÎvG=]LhÌ(î
+u¤æEïuçK¬%³&amp;Xo&quot;Ü;­zàÏÞkèbí§ô¦Å~M
+ù-
+7E&gt;×K®¢8KaÅ6I§|Gºys¹ê1%å\5pÕ$×Ý!ÞÀ~ï¸¦4Í¦m´F·Úãóz ­6æbtgì£ÝD­áøÑÅæÇ
+ÒÚsÝ,¯lyçõê_
+§ÔífQl¨ºøÏÛËbR
+=Èc|ð©¾üê_oy
+9]p±ìÎéî.¹X¶FÏYt,»teüu½	ùáï·«TLÇ
+^
+ÅY©Gâ[)âM¬pì¼ã Ä±-blÔ9sÅ&quot;1â½Døí9³Æ.Ó·&amp;¿
+ 
+á?]Äaé¼aX,ÍZ&quot;¨
+a]
+Ûé&quot;
+ËEx3/RðSþëMt¯	w_Î
+Þ73Þycÿ¹ÅûÅ,÷ Î3ã§KÛ
+yðÌ².E,¶&quot;¢÷#¸ã¿Âò7\
+%£Íø&gt;ËRØ× ¢_d ²Ñü]IëÏ¨b[ù`hSÓ¨vOl09Æ
+_©KT!U'Ödä3Ùñ_¿ª°±	@Æ
+ê
+E2Ûæ]\àáé
+IÏyGçðAþmÊJjRùz§8Æs|].E
+KäÍ[#ÔQóHÎÙ`»Ð·r2 Wd1Ú-J»$#Þ¼ÉíÝ´×9ÔLFêp
+¸¨GIl·û¨m±uÓÚª+Þ³;âb6Eh¨nµ%ä=s¼ûLÛJPrGTT
+ØÌnÆ¤pb=!ÛØ£¼UÄ@4¿×¤·ëØNÞÁùð^!SÖÔG¶BWÞdË
+ôÜ6Ûpc±&amp;Ñî&quot;¹ùç²´µ_:üµâër° 4Z¹A
+¹`z­ë2[SFºÖå.
+&amp;74ø,ÐKÞkÃfv£­Ë &lt; $³v2ÞUûÅáºØgäÉætdDgZZ\@ÞSÃ;'8'Wh#!ìè¢'2¤;äÈ[QäØÓ:XlÚqKCÇl¹ÂEà°;9m[Ý~`Ö¡ða#
+g&quot;Äñm&gt;z.6Bº 42®ã­M±¸¸Ñ  R½d:ÂàÂ5,°OºËvd#nrm#À
+²koÞp2é_ì:$ïElÅûdÎ_ ê,&amp;¸b
+
+7½D_ÙÿÄ	B;ùÊàCO÷3¯c1óúÃ}§§¨á}'Ûê;miyßÄtxM]é&gt;ÁkÚþ^^ÂmïaÆÓÉr``¶Û+©ÏCT7cáG0ÂË¹ýú´½æHn`bËæ`?QÑÑíàj
+;ÑBÌØ2æÊc9Ä5`ÿÁlÈ¼²ñØ9b'7ñVp3ÃO|&gt;
+/(lÇã_´ÊËÿwj¿Û
+1J}eÜ\fÚàzÈDr²(FC ÎÅR
+*cdÃ? ØØÉ-Þø¬0Îpl
+mÝ~lL½Þ¶Î'Cè6qÅ1 ¾çñCÖ¨Wû9ù¢Ä(xÍ¤'`&quot;ð&amp;3Kz+ÔÆ
+KQï9'ìÈBðð×ÛAyøç?-áßó«½¨cýÇ­¡c´­¡½fë¡;$Ìéút¿#á§|¿ïK,_üøûÇÛR¾G¸!·(¦?Èf8[Q¨ÖõXlÕÃ±#b;Clæpf8Þ&amp;ÓM;3
+ÛVÁ¹°8
+\p0®ñø~Ô.íØýâóÏfÔë2wØI?/äÛ¡ÈWeG&quot;%TàöÄ¿cO¼|¨[Ò¡±½]·$Ðlï·ttÄ
+?¡ö¥­ÿ}¢ÞyÓ9vÂ&quot;ÊÅ
+Ö¹Å¼÷ÖÐzî²ûïq°º &lt; (±UÈâmFÍv#¤ÅZ
+!v×êâ° ð
+Éyã7ïÊ;±hÆrí9õ
+2EïC0Þ Ég!ñJÂRwæpznàü17áYôú:ÊÛü}Þ¼³,,%é&quot; ç¦µ×
+bs¿Á»ËÅ6$
+£9þ»¸ -ÍÂá6gfcÇÅºëz8
+ÄåSÞ,×l
+rÞ­ s
+ç@}Ï÷uÕüqÃ0ßM; &lt; #gÜsh).ÿG&gt;¿«ÁºY¶c?¶}x®/ïÉú
+8WÌ³¬çcÛð×B
+Ëgtõ|
+ÎCoÇÛ[â&amp;6XÄe5¡QGKV
+í;8ôh7¶}nèàÍg®oXâôõÖë}ÇQÊÄ[òà\ÓCEáM¯®NÓ!*aK²
+íÓÞµ	I;ñ÷QÏ§À?ÒdõÖ!Üí;®òî¥ÌGÜt;¤º	½.W×ÝxêM &lt; ÷¾bÅÇ±%Ò¦¹Uð¹ &lt; 3¶ÞÂ6³
+5!áµY®¨¼Q1©÷ÖYhu¡½ :¯´gy1×j=j6P%Ô;%Ço^¾¿zzöæü¹&amp;ö:¾G¤VGÛój YNé§8¸:â¯&quot;ö¾µ9¡qÃäX~LËL8¥IB&gt;°ÀväïÑîïK)Ü~àÒ$³9Ë¿]!³¨|÷Íæ *DõD(Þ?</p>
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This legislative action by Virginia marks a significant step in state-level efforts to protect digital privacy, directly confronting the often-unregulated sale of sensitive consumer geolocation data. It signals a growing trend of governments intervening to restrict data brokers and potentially sets a precedent for broader data privacy regulations across other U.S. states.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views Virginia's ban on precise geolocation data sales as a positive, overdue step toward protecting privacy. However, there's a strong consensus that the law is a &quot;bare minimum&quot; with significant loopholes, particularly concerning its 1750ft threshold, the narrow definition of &quot;sale&quot; versus other forms of data sharing, and potential challenges with interstate enforcement. Many believe it will be easily circumvented, resulting in &quot;fuzzy&quot; data sales rather than a true privacy crackdown.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>hunton.com</span>
         <span>·</span>
@@ -239,7 +428,7 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <span>·</span>
         <span>by toomuchtodo</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.hunton.com/privacy-and-cybersecurity-law-blog/virginia-bans-sale-of-geolocation-data" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48767347" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -250,20 +439,20 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🕵️ Forensics &amp; Human Interest</div>
-            
+
             <h2 class="story-title"><a href="https://www.dailymail.com/news/article-15943905/Mystery-identity-Green-Boots-climber-macabre-landmark-frozen-ice-dying-Everest-finally-solved-DNA-test.html" target="_blank" rel="noopener">Everest's 'Green Boots' Climber Identified by DNA Test</a></h2>
             <p class="story-summary">Mystery identity of 'Green Boots' climber - who became a macabre landmark frozen in ice after dying on Everest - is finally solved after DNA test | Daily Mail Online Friday, Jul 3rd 2026 4AM 73°F 7AM 81°F 5-Day Forecast Taylor and Travis wedding spectacle descends into one big grift as groom promotes his podcast, 'bridesmaids' peddle their own brands, and the bride makes sure it's ALL on camera Midwest woman walked into Florida Publix supermarket and was never seen again, distraught mother says Taylor Swift spotted returning home after partying late into the night at surreal MSG wedding celebration… as first pics from inside are revealed: Live updates</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This story highlights the profound impact of modern forensic science, particularly DNA testing, in providing closure to long-standing human mysteries, even decades after tragic events in extreme environments like Everest. It underscores how advancements in biotechnology can intersect with historical and human interest narratives, offering new avenues for identification and understanding previously unsolvable cases.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely acknowledges the iconic, if morbid, status of &quot;Green Boots&quot; as a long-standing landmark for Everest climbers, expressing a sense of relief that the individual has finally been identified. There's an underlying respect for the deceased and an understanding of the extreme dangers of high-altitude mountaineering, particularly the immense difficulty and risk involved in retrieving bodies from such conditions.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>dailymail.com</span>
         <span>·</span>
@@ -273,7 +462,7 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <span>·</span>
         <span>by FireBeyond</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.dailymail.com/news/article-15943905/Mystery-identity-Green-Boots-climber-macabre-landmark-frozen-ice-dying-Everest-finally-solved-DNA-test.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48768336" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -287,17 +476,17 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://github.com/HUANGCHIHHUNGLeo/claude-real-video" target="_blank" rel="noopener">Any LLM Can Now &quot;Watch&quot; Videos Using Scene-Aware Frames and Transcripts</a></h2>
             <p class="story-summary">GitHub - HUANGCHIHHUNGLeo/claude-real-video: Let Claude (or any LLM) actually watch a video — scene-aware, deduplicated frames + transcript, from a URL or local file.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project introduces a practical method for enabling any LLM to &quot;watch&quot; videos by intelligently processing them into scene-aware, deduplicated frames paired with transcripts. This approach provides a highly contextualized and digestible visual stream, significantly enhancing LLMs' ability to understand dynamic content beyond static text or images. It marks a critical step towards more robust general-purpose AI, with implications for applications ranging from advanced video summarization to automated content analysis.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community finds the concept of using LLMs to analyze video compelling and sees practical applications, from automating tedious tasks to logging data. However, there's a strong consensus that using expensive models like Claude for this specifically is inefficient and costly, with privacy concerns about sending frames to third parties also highlighted. Many suggest the method is broadly applicable, recommending more efficient local or alternative VLMs.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -307,7 +496,7 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <span>·</span>
         <span>by cortexosmain</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/HUANGCHIHHUNGLeo/claude-real-video" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48766005" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -318,20 +507,20 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">Tech Policy 🚫</div>
-            
+
             <h2 class="story-title"><a href="https://clashreport.com/world/articles/spain-orders-blacklist-of-us-tech-giant-palantir-from-public-and-private-companies-fsnc2z17gjv" target="_blank" rel="noopener">Spain Bans Palantir From State-Controlled Companies Citing National Security Risks</a></h2>
             <p class="story-summary">Spain Orders Blacklist of US Tech Giant Palantir From Public and Private Companies Spain Orders Blacklist of US Tech Giant Palantir From Public and Private Companies Spain Orders Blacklist of US Tech Giant Palantir From Public and Private Companies The Spanish government has blacklisted U.S. data analytics giant Palantir Technologies from public and private state-controlled companies due to growing concerns over the potential misuse of classified national security information.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Spain's unprecedented move to blacklist Palantir from public and private state-controlled companies signals a significant escalation in global concerns over data sovereignty and national security. This action not only directly impacts a US tech giant known for its deep government ties but also sets a strong precedent, potentially encouraging other nations to re-evaluate their reliance on foreign-controlled data analytics platforms and bolster domestic tech ecosystems.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views Spain's decision to blacklist Palantir positively, with some commending Spain's direction and expressing general disapproval of Palantir itself. However, there's significant skepticism regarding Spain's true motivations, with several commenters suggesting the move might be driven by corruption or protectionism rather than purely national security concerns, and questions about the long-term viability of a targeted ban versus broader legal reforms.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>clashreport.com</span>
         <span>·</span>
@@ -341,7 +530,7 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <span>·</span>
         <span>by mgh2</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://clashreport.com/world/articles/spain-orders-blacklist-of-us-tech-giant-palantir-from-public-and-private-companies-fsnc2z17gjv" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48762725" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -352,20 +541,20 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">⚙️ Performance &amp; Infrastructure</div>
-            
+
             <h2 class="story-title"><a href="https://engineering.zalando.com/posts/2026/06/client-side-load-balancing.html?v=2](https://engineering.zalando.com/posts/2026/06/client-side-load-balancing.html" target="_blank" rel="noopener">Zalando Eliminates Shared Ingress Latency with Client-Side Load Balancing at Millions of RPS</a></h2>
             <p class="story-summary">Client-Side Load Balancing at a Million Requests Per Second Our busiest API ran its high-volume internal traffic through the cluster's shared edge ingress load balancer. For years we could never be sure whether a latency spike came from our own code or from reusing that shared edge router internally. In a previous post , we described how we built Zalando's Product Read API (PRAPI), serving millions of requests per second with single-digit-millisecond latency across 25 European markets. Every product page, search result, and checkout depends on it.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post describes a crucial architectural evolution for high-volume internal APIs, demonstrating how Zalando moved from a shared edge ingress load balancer to client-side load balancing. This strategic shift addresses diagnostic ambiguity and performance bottlenecks, empowering teams to achieve single-digit-millisecond latency at millions of requests per second. It underscores the importance of specialized, distributed solutions for critical services when operating at extreme scale.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">Given the extremely limited number of comments, it's impossible to ascertain a community consensus. The primary engagement is from the author, who is available for questions and highlights the effort put into the article's readability. One reader has expressed interest in the described sequenced rollout strategy and inquired about the naming convention of the regions used.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>engineering.zalando.com</span>
         <span>·</span>
@@ -375,7 +564,7 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <span>·</span>
         <span>by cjbooms</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://engineering.zalando.com/posts/2026/06/client-side-load-balancing.html?v=2](https://engineering.zalando.com/posts/2026/06/client-side-load-balancing.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48745118" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -386,20 +575,20 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">🎥 Decentralized Video</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/Chocobozzz/PeerTube" target="_blank" rel="noopener">PeerTube Pioneers Free, Decentralized Video Streaming with Browser P2P</a></h2>
             <p class="story-summary">GitHub - Chocobozzz/PeerTube: ActivityPub-federated video streaming platform using P2P directly in your web browser · GitHub</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">PeerTube offers a compelling vision for a post-YouTube internet, leveraging ActivityPub and P2P technology to build a federated video streaming platform that empowers users and reduces reliance on corporate giants. By distributing content and infrastructure, it promises greater censorship resistance and lower operational costs for hosts, fostering a more open and diverse media landscape. However, its success hinges on overcoming inherent challenges in P2P streaming performance and establishing effective, decentralized content moderation policies to ensure a healthy ecosystem.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community recognizes PeerTube's potential as a much-needed decentralized and open-source alternative to YouTube, appreciating its technical foundation, especially for niche content like open-source tutorials. However, there's a strong consensus that it faces significant barriers to widespread adoption, primarily due to the lack of built-in monetization for professional creators, a complex user experience, and the absence of a substantial content library or audience. Users feel that while the technology is promising, its current state overlooks crucial social factors and user-friendly features necessary to compete effectively with established platforms.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -409,7 +598,7 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <span>·</span>
         <span>by doener</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/Chocobozzz/PeerTube" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48759634" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -420,20 +609,20 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">💬 Communication Skills</div>
-            
+
             <h2 class="story-title"><a href="https://pradyuprasad.com/writings/how-to-ask-for-help/" target="_blank" rel="noopener">The Right Way to Ask for Help From Strangers (Hint: It's Not About You)</a></h2>
             <p class="story-summary">How to ask for help from people who don't know you No matter what you’re doing, from building a civilization on Mars to getting a summer internship, you will have to ask people for help. Yet, most people get this crucial skill wrong. They put themselves at the front of their request, when they should be putting the other person there. But isn’t getting help just charisma and luck?</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece delves into the often-misunderstood art of asking for help, reframing it as a critical communication skill rather than a matter of innate charisma or luck. It pragmatically advises shifting the focus from one's own needs to the potential helper's perspective, emphasizing empathy and strategic framing as key to successful outreach and networking.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely agrees that successfully asking strangers for help hinges on demonstrating seriousness and respect for their time. This is best achieved by showing you've already put in significant effort (&quot;proof of work&quot;), clearly articulating your specific need and why you've chosen *them*, and making the ask as easy as possible to answer. Many commenters also suggest that offering to compensate, meet in person, or otherwise reduce the burden on the helper are strong signals of commitment.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>pradyuprasad.com</span>
         <span>·</span>
@@ -443,7 +632,7 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <span>·</span>
         <span>by FigurativeVoid</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://pradyuprasad.com/writings/how-to-ask-for-help/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48761118" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -454,20 +643,20 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">💰 Business &amp; Law</div>
-            
+
             <h2 class="story-title"><a href="https://www.thebignewsletter.com/p/crime-pays-the-egg-bandits-made-a" target="_blank" rel="noopener">Major Egg Producers Fined Paltry Sums for Price-Fixing, Yet Investigation Prompts Dropping Egg Prices</a></h2>
             <p class="story-summary">Crime Pays: The Egg Bandits Made A Thousand Times the Fine They Just Paid for Price Fixing Crime Pays: The Egg Bandits Made A Thousand Times the Fine They Just Paid for Price Fixing The Stringer Bell rule is obsolete, as Trump let big egg producers off the hook for what looks like a brazen multi-year conspiracy. Still, egg prices did drop as a result of the investigation. A few days ago, 18 states and the DOJ Antitrust Division signed a series of decrees with three major egg producers, Cal-Maine , Versova , and Hickman’s Egg Ranch , the largest egg producers in the country.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece highlights a stark failure in antitrust enforcement, revealing how major egg producers reaped exponentially more from price fixing than the fines they ultimately paid, reinforcing the cynical &quot;crime pays&quot; narrative. This outcome severely undermines the deterrent effect of legal penalties and prompts critical questions about corporate accountability, regulatory effectiveness, and the true cost of justice for consumers when powerful cartels are involved.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community expresses significant outrage and a sense of being misled regarding the true cause of the &quot;egg crisis,&quot; which many now understand was price fixing rather than natural market forces or avian flu. There's a strong consensus that the financial penalties for such corporate misconduct are woefully inadequate, underscoring broader concerns about market concentration, corporate immunity, and a perceived systemic failure in holding large companies accountable.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>thebignewsletter.com</span>
         <span>·</span>
@@ -477,7 +666,7 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <span>·</span>
         <span>by toomuchtodo</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.thebignewsletter.com/p/crime-pays-the-egg-bandits-made-a" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48761229" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -488,20 +677,20 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">🔒 Security</div>
-            
+
             <h2 class="story-title"><a href="https://mathstodon.xyz/@iblech/116769502749142438" target="_blank" rel="noopener">Security Flaw: Linux 6.9 LUKS Suspend Stops Wiping Encryption Keys From Memory</a></h2>
             <p class="story-summary">For the past few days I've been deep in a fun…&quot; - Mathstodon</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post highlights a critical security regression in Linux 6.9+ where LUKS suspend no longer wipes disk encryption keys from memory, leaving suspended systems vulnerable to physical attacks like cold boot attacks. This oversight compromises data confidentiality for users relying on full disk encryption. It underscores the continuous challenge of maintaining robust security in complex kernel development and the critical need for thorough regression testing around sensitive cryptographic components.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community shows a mixed reaction to the LUKS suspend regression; while some users express indifference based on their threat models or argue keys naturally remain in memory during suspend-to-RAM, others voice significant concern. Many are frustrated by the discovery of silent security regressions, the perceived lack of robust testing for critical features, and the overall security of large codebases. There's also debate regarding the bug's scope and suspicion about its origins.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>mathstodon.xyz</span>
         <span>·</span>
@@ -511,7 +700,7 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         <span>·</span>
         <span>by IngoBlechschmid</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://mathstodon.xyz/@iblech/116769502749142438" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48763035" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -519,11 +708,36 @@ bs¿Á»ËÅ6$£9þ»¸ -ÍÂá6gfcÇÅºëz8ÄåSÞ,×lrÞ­ s
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · July 03, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-07-02.html">
+        <small>Previous issue</small>
+        <strong>← July 02, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-07-04.html">
+        <small>Next issue</small>
+        <strong>→ July 04, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

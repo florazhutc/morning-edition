@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — June 16, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 041, June 16, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — June 16, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Tuesday</div>
-        <div class="masthead-year">June 16, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 041</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Tuesday</span>
+                    <time datetime="2026-06-16">June 16, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,7 +167,7 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
@@ -162,17 +175,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=48542100" target="_blank" rel="noopener">Local LLMs: Ready to Replace GPT/Claude for Daily Coding?</a></h2>
             <p class="story-summary">Has anyone here fully swapped Claude/GPT for a local model as their main coding tool, not just for side experiments? If so, please share your setup and performance (e.g tok/s)</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This &quot;Ask HN&quot; signifies a strong developer desire for enhanced privacy, cost efficiency, and greater control over their coding AI by replacing cloud models with local alternatives. It underscores the ongoing quest for practical, performant local LLM setups that can genuinely match or even surpass the daily utility of proprietary solutions, despite current trade-offs in raw performance and hardware demands.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community shows a mixed but growing trend of replacing cloud-based LLMs like Claude/GPT with local models for daily coding, driven primarily by privacy concerns and cost savings. While models like Qwen3.6-35B and Gemma 4 running on powerful local hardware (e.g., high-RAM Macs or dedicated GPUs) are frequently cited as capable for many tasks, users generally acknowledge they don't quite match the intelligence of the latest cloud offerings, especially for complex architectural or spec-driven development. The setup also demands significant time, effort, and hardware investment.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>news.ycombinator.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by cloudking</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://news.ycombinator.com/item?id=48542100" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48542100" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">🎮 Indie Game</div>
-            
+
             <h2 class="story-title"><a href="https://tinywind.io" target="_blank" rel="noopener">TinyWind: Browser-Based Pixel Pirate Game with Real Wind Physics Invites Free Playtesting</a></h2>
             <p class="story-summary">Community discussion highlights: The 2 game modes are free to play in browser. Come join our 245 active captains, I’d love any and all playtest feedback at this stage!</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">TinyWind impressively combines nostalgic pixel art with a unique, physics-driven sailing mechanic, attracting a significant active player base for a browser game. The developer's direct call for playtest feedback, even with established engagement, highlights a smart, community-centric approach to iterative development. This strategy is crucial for refining the gameplay and expanding its niche appeal.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community generally finds TinyWind to be an &quot;awesome&quot; and &quot;great&quot; concept with good execution, appreciating its fun and unique premise. However, many comments express skepticism regarding the depth of the &quot;real wind physics,&quot; suggesting the sailing mechanics (tacking, upwind/downwind, sail trim) could be more realistic and impactful. Common feedback also includes requests for clearer UI (especially wind direction and controls) and difficulty adjustments, while some envision further expansion into more complex sailing simulations or real-world scenarios.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>tinywind.io</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by tinywind</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://tinywind.io" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48543475" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">Decentralized Networking 🔗</div>
-            
+
             <h2 class="story-title"><a href="https://www.iroh.computer/blog/v1" target="_blank" rel="noopener">Iroh 1.0 Redefines Internet Addressing: Stable, User-Controlled Keys Replace IPs for Universal Device Access</a></h2>
             <p class="story-summary">It's a simple idea really, and it's the right abstraction for the future of the internet. IP addresses can break, without warning, and it's outside of your device's control. Keys, however, are created &amp; controlled by you. They stay the same as your device moves, and are yours to throw away, or not. IP addresses can be private and inaccessible behind firewalls, but with iroh your device can be securely addressable no matter where it is.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Iroh 1.0 proposes a fundamental paradigm shift for internet addressing, replacing fragile, system-assigned IP addresses with persistent, user-controlled cryptographic keys. This innovation promises to enhance device mobility, security, and universal addressability by allowing devices to be securely reached anywhere, bypassing the limitations of traditional firewalls and dynamic IPs. It represents a significant step towards a more resilient and user-centric peer-to-peer internet architecture.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community offers a mixed consensus on Iroh 1.0. While existing users highly praise its effectiveness and the supportive development team for specific applications like distributed ML, a significant portion of the audience expresses confusion regarding its core problem statement, how it differentiates from existing networking solutions (like IP or Tailscale), and fundamental concepts such as &quot;Dial keys.&quot; There's also some skepticism and questions around its &quot;Pricing&quot; model for what many perceive as a protocol.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>iroh.computer</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by chadfowler</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.iroh.computer/blog/v1" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48542480" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,29 +274,131 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🚨 Cybersecurity Threat</div>
-            
+
             <h2 class="story-title"><a href="https://roman.pt/posts/linkedin-backdoor/" target="_blank" rel="noopener">LinkedIn Job Offers Weaponized with Backdoors</a></h2>
-            <p class="story-summary">      ÿÔ{}sÛ6¶÷ÿû)NÕyg*R8­,±¾ &lt; ï¶½Ö{wg:ÌqDÂ %«»ûÝï ([NÜ¤³;wÚqLÀyÁï¼$Lé·-AíUÌÓOBQÌ]ieëU§K/&gt;¡±ë±Çÿ Ý/þñÏþüËÉÛÎÕ'ÿU¾ÉGëG³Mø==Î+ò²¡ÇcZö³0ìÊþõø|páyÈ7ÒÞ}¹½ÄêlèD?þyúËX.|^ZBOiÄ~ &lt; ¶÷Ñb$Ðãw¸%;úbôZ&gt;u³Ñè\æè¶º\|4ËÜÙr1ª½oÝl2Ùl6yeL¥ÈcÕ Æl^fúBÅèSó©cÞ¢%í0r©Yÿ%­¥9ÆÇÿz|²ZÍX²cÆ£¨¯ÑxÀÓxôíå÷Ù_¾~ý¿¿z=z &lt; $ÎòeÖ_t~}Þ1ýÚÉõâïÙ__f_¦E/ 4ÚöÑÅ7¹^QñX^c,HßI}MâBÃYY­ÈB?5\4¨¯;eÖóI©jlh!(r'ÞÓz	+¼&amp;°TÚNz²c@(í¶õ,µf¨ XjgÝPÙUZÜ*j)éÈ'ça%å£»&quot;'²B]uXíe~D:ëÜ£!»kIÖX¿çu#¯Ö²¤, &lt; ¥^¢Ê\OzÒSÓZÓ.x¥¡°ïRäþSJÛ3^wK%]MbÏÂéôô,eO_N§³ðÿ§áçÑ¾7B®äûÍß+¾2lÄÙÙÙa²îçÎ-Ã2oý¤5Î»
-:ë7bâZ®Î[]ÝYò¶LÜíWýÊÎJ¿íò0²~»jÖY5z®å¤§7Á·,ìè¼`t£÷AÜÁ2Ôþ­°;àB¶ª¤ßtî¸ÜÛv8­¥¢»CÓ£òpa{îÐö&amp;ðÆË]y'ï®Õ$køòXÏ` ïÐ»ü£ßHïÉÎJ´»v]Ó Ý¾Qh+ziõÇëÁ²ÿïÿUþN%ÚÒjñ¨×ÅÊhïR2­t!(ûbTÛÅkÛJûé×µ²½N%µp~«ÈÕDØ0n &lt; ÏLdÞ6®´D:2tgoJç&amp;ÚØüò?vÝ¥KÆ- Î®ú¥Ðù¤äÚæüD·ÍdEèk²,v!ï_åäñÅ&gt;-:²æúU&quot;~0áÝrrA©Gí¡-ëüÊýù42ÍEV?6½ðÿ^º¯©¡UeÄ=Ý{(=\ñ=åÝOb°4b[Ì\C©Ð¹Å-¥&amp;mlX~\YÎ¹ksEÂYù0dUûÅbÊ7°MMçkéäR*é·³hÕÅ|óÉ=ã,Ùá\£G[Ìñ(æ²©(84;{vsö,¿j+@u4%`1¹.æõDs,eã÷Qêu+]&amp;Ð^g¥QÆ6ã-T!`wò|&amp;X?|h1oÿß)9å5¼ÞúÚh´&amp;Åñ)/;©ÔÜæÏ5¤É¥)~
-¿1µ|&gt;i¹ÆøWgJjTÌ;^¯û½#s%}Ý-ÃöË^	ý,¾ß®¹.Æ²äpqmBÚ	¦hVßn{.ã÷g!-ýnØ(úøµ¡ï*d0ßÄý5(7³Å®ø=3Xùß}IÇo4®{Ù*`êÀæWnÎùG&amp;¤ÙãÌÍùUç¼\m³'Ì\%eKò&quot;}JV:ãÂÍJÒ¾·)Éõ.ÍM¢ÙØìiÏÉý0îMõ@Å+ÓÐQåNZÓv
+            <p class="story-summary">      ÿÔ{}sÛ6¶÷ÿû)NÕyg*R8­,±¾ &lt; ï¶½Ö{wg:ÌqDÂ %«»ûÝï
+ ([NÜ¤³;wÚqLÀyÁï¼$Lé·-AíUÌÓOBQÌ]ieëU§K/&gt;¡±ë±Çÿ Ý/
+þñÏþüËÉÛÎÕ'ÿU¾ÉGëG³Mø==Î+ò²¡ÇcZö³0ìÊþõø|páyÈ7ÒÞ}¹½ÄêlèD?þyúËX.|^ZBOiÄ~ &lt; ¶
+÷Ñb$Ðãw¸%;úbôZ&gt;u³Ñè\æè¶º\|4
+ËÜÙr1ª½oÝl2Ùl6yeL¥ÈcÕ Æl^fúBÅèSó©
+cÞ¢%í0r©
+Yÿ%­¥9ÆÇÿz|²ZÍX²cÆ£¨¯ÑxÀÓxôíå÷Ù_¾~ý¿¿z=z &lt; $ÎòeÖ_t~}Þ1ýÚÉõâïÙ__f_¦E/ 4ÚöÑÅ7
+¹^QñX^
+c,H
+ßI}MâBÃYY­ÈB?5\4¨¯;eÖóI©jlh!(r'ÞÓz	+¼&amp;°TÚNz²c@(í¶õ,µf
+¨ XjgÝPÙ
+UZÜ*j)éÈ'ça%å£»&quot;'²B]uXíe~D:ëÜ£!»kIÖX¿çu#
+¯Ö²¤, &lt; ¥^¢Ê\OzÒSÓZÓ.x¥¡°ïRäþSJÛ3^wK%]MbÏÂéôô,eO_N§³ðÿ§áçÑ¾7B®äûÍß+¾2
+lÄÙÙÙa²îçÎ
+-Ã2oý¤5Î»
+:ë7bâZ
+®Î[]ÝYò¶LÜíWýÊÎJ¿íò0²~»jÖY5z®å¤§7
+Á·,ìè¼`t£÷AÜÁ2Ôþ­°;àB¶ª¤ßtî¸ÜÛv8­¥¢»CÓ£òpa{îÐö&amp;ðÆË]y'ï®Õ$køòX
+Ï` ïÐ»ü£ßHïÉÎJ´»v]Ó Ý¾Qh+zi
+õÇëÁ²ÿïÿUþN%
+ÚÒjñ¨×ÅÊhïR2­t!(ûb
+TÛÅk
+ÛJûé×µ²½N%µp~«ÈÕD
+Ø0n &lt; ÏLdÞ6®´D:2tgoJç&amp;ÚØüò?vÝ¥KÆ- Î®ú¥Ðù¤äÚæüD·ÍdEèk²,v!ï_åäñÅ&gt;-:²æúU&quot;~0áÝr
+rA©Gí
+¡-ëüÊýù42ÍEV?6½ðÿ^º¯©¡
+UeÄ=Ý{(=\ñ=åÝOb°4b[Ì
+\C©Ð¹Å-¥&amp;
+mlX~\YÎ¹
+ksEÂYù0dUûÅbÊ7
+°
+
+
+MMçkéäR*é·³hÕÅ|óÉ=ã,Ùá\£G[Ìñ
+(æ²©(84;{vsö,¿j+@u4%`1¹.æõD
+s,eã÷Qêu+]&amp;Ð^g¥QÆ6ã-T!`wò|&amp;X?|h1oÿß)9å5¼ÞúÚh´&amp;Åñ)/;©ÔÜæÏ5¤É¥)~
+¿1µ|&gt;i¹Æ
+
+øWgJjTÌ;^¯û½#s%}Ý-ÃöË^	ý,¾
+ß
+®¹.Æ²äpqmBÚ	¦hVßn{.ã÷g!-ýn
+Ø(úøµ¡ï*d0ßÄý
+5(7³Å
+®ø=3Xùß}IÇo4®{Ù*`êÀæWnÎùG&amp;¤ÙãÌÍùUç¼\m³'Ì\%eKò&quot;}JV:ãÂÍJÒ¾·)Éõ.ÍM¢ÙØìiÏÉý0îMõ@Å+ÓÐQåNZÓv
 íñi¯ãÇûfr
-vtÞK¥ |&gt;&gt;¦ó÷ÌäOG· ©¥ÞeÉ±÷þ$jjøeènèVõ..K®SÞÁ	¹¼RGv¤îè·`øsO¥¾ýÝõìS¹.æ®E½{±- &lt; OøUñ§áKÎÿÕiàr ¸£©ï\ýCû5Ñcß·¨½f£bn.ã|4sò7Ê7åh8À2éßãRU8»mI±¸äÏÿ½ú*}d¤`çc_Ó.Û/.kÚÉrj×fIy+«¬+^HýóñI-µfC&quot;´~ËJKï wßdG¥ÑâèñÓCòµtY:«Ô:ó&amp;C½5ËZ:(QCüÂ_Þâ½V²ê,r·×PoêîÍÙêL &lt; {&gt;Sñô)&gt;çº*å Qâ×Î5×`ºÀ j-èIÀ\56FtHç:Ê?±aJHzÚâÂb?;ÐÆC§KÓ4&amp;âÃ]3ÏA«Ìk5Ðts+®HèhËÎ3ùß¯HyÞÆ «EéXP¡mxÃ-°3pJÉÚò*â=[Jtã-Bµ&quot;ïyÕÎ³FÙ(£ÅRü(¨%-HÅµ®åÚ¸¶fÜÂÿ¼þ	WäÓ\tóR6%é¾&amp;Kq£Z#5kñv¦ÓÊ\Ðºx-ÙxiÒ³`PdF«-kÆ°¾ðÌEyÆIor@Ù9½¬jÅµB1o-Ç¥Ônv[NeM§E³WSþï ?lhyÍà}QpÎbú¾©-ÑÕ1ùáW~L±çnJ?­,²ÜãÊR;^I-ÆÊýiÒ?L³OZ6÷èzÚâ&quot;á÷+6Qw=úÂF­2¶®s­,¥é\7mËTqd:Ô·.\`ÛN &lt; 2VÐM~åSzõ)G·úY¾ì!,@Ék¶î	KÏîãÀh &lt; ´È'z-lÐ1ÞÎÓB:§Ï§ ¤&amp;Bºªvæú&gt;c7Ãv±ð×¿é £]æÊb°þO ñÊ`ÈµýÛA8üN_LO§ç!õØ¢|öb:-J£Oxd¯îMivvV,úG¾?¾â´øäã§ÏÎ»¿¥	ãÛÈ;û Â4Èxø0&gt;7&gt;Gì½±ÊÊl2ù FZôõò0½âÃðÿ¼xñaÒ-ÿ|pºYZ(²ÄÖÐÚ?D?ÊTfÈÊùÇeMÃC³@jo?Ýõ¨nI°xñâÀõõ4§8VTÃr±(iØ}ÈBöEÎ»qO}ÞvÚíCqd9Ét¤1#ÛÖt,k©)R~pö(eRgL? ' wdûrÀálÛI])Fêxª¢àN¸ëlðð,øö¨!«%î:s·(õOO¡!ÿZÅ°uì~w*=¢É¨Épù]Ycò;«µ}dfµ0ätÊx=lPúâò¶!Éèt&gt;Á·¢/HïH­ÒQ¹42¨XúµNåA£ï&quot;÷¦e¬ÓcFÇCR6Ä¢Åò+Ê¯Ñ=GiÉ½c½¯~f¿[\Æä²Øu{lôÒIhÌtZË#&amp;iØ¶3N%vóÝË Í!(Ál%%ÄU{ùÈËÝÒ·ì?ß!p ãã@è9J8BH $ÖXÚÑnÄÙ­êAÒåºm®Òõgí2Óm+ÜÇJ®(+·¥¢^óGÅ5HçM&gt;+®ÈmÓWH;­8hÝW9í±íYîÀ¶ûü^Uh*BCÂ»d+Lå_¬jm§ïå~Wr®Ô¸&amp;Päo;]v3ÁÛ¢Ks¸A_Ö$`S£¿å}ôÄèÒûÐuq«TÞ^ìÊPæð²¯ÑÇmæE)vÒ²^»#´éªh-YË4,,Ü=Ú;3vÒ»^ÈÀÊØÐ:_KØmGÇ®±øÞ\ÅsM¦ö&amp;\¬öç)»E,V4+¤F»Ý·]ZkØòÄ¬3lhé¤§þÜ:õ3°,Ã]Tø(£+¨%GÜm}ãE@-1»®ÉKs}_&gt;Õu_}G6m¼iºõðkGá`lÀAm6PÓnQËeY¥W:z*!:ìæÆX.CShrxµ±ä¸%¤æÐè^îe¸{7à2Â9/f£c§Iú¨®Â(mR`@¨2_KÊ+
-@âu¬OÉ{ÏqËüÎ´¡4Ú[¹ì¼±Ye±­÷~=0á WMè»ôiÄ`Lä÷éç;p²`ÏÆÏ^Li;vh`I`éIM#6µQ=Ø{Ô$Æ&gt;$£ij}k3½éèmæÝ	Æ{6gÔÜõÙíÀØ&quot;ãÉ&quot;ÑzW¦³tØRÙµÑ a@v-(·FUvÊwìËó ì°¨¬5G	Fªô9ü­&amp;mCÄ¤¦Z°,$?»OªÞ×ZsEeðÜÉCÇÄwÏ&gt;¤c|µßYÍ
-Ò¡ïtÓå8¢$Ó!bMÖ1JBÛ±þ+k°	Áq &lt; ð	·¿îºm²ÄgÆgöý$ûò»÷¾,µ!9|þs[£÷ùõé³mwÍ|Ô Å(h¢êÚpúÞïÎàRë ­¶À~/Øý®b£²sa{÷ás@îÝ ¯cñ~KÖì:ÑælôKè9¤4Ø.SjÐþë1°nì28¹4ÄQÓy©Øq:åKËUVpôpk½Ç°ýlMvj%­óÝýH1TA;g/9R¶QnÇ=àÐIµùÅÛÞÓ3õëPßøÐmîª:Ìä«»ÔÝ¾sp.Lâû'ö7ÀÈ}+6+cûp5êm%ISòpugûº©-^²Ù³ÛÃk
-½ï©rÂÈôiè´%/²ïa§¦k4\Þ¹ ²ÖÁßÆØóNB7[.b7swÀÃV,,9]:pÊ´íTI­Éêqcö­ÞÂ=cì«G7ëö_M{³Ë7´¸e½Þì´Î+´;X£ÝIÞg¬©¿®MösëTÓcåÞz¬Î&amp;ý.ýMÊÛÇmGOL97ÏBôÀk÷]Hç­mv
+vtÞK¥ |&gt;&gt;¦ó÷ÌäOG· ©¥ÞeÉ±÷þ$jjøeènèVõ..K®SÞÁ	¹¼RGv¤îè·`øsO¥¾ýÝõìS¹.æ®E½{±- &lt; OøUñ§áKÎÿÕiàr
+¸£©ï\ýCû5Ñcß·¨½f£bn.ã|4sò7Ê7åh8À2éßãRU8»mI±¸äÏÿ½ú*}d¤`çc_Ó.Û/.kÚÉrj×fIy+«¬+^
+HýóñI-µfC&quot;´~ËJKï wßdG¥ÑâèñÓCòµtY:«Ô:ó&amp;C½5ËZ:(QCüÂ_Þâ½V²ê,
+r·×PoêîÍÙêL &lt; {&gt;Sñô)&gt;çº*å Qâ×Î5×`ºÀ j-èIÀ\56Ft
+Hç:Ê?±aJHzÚâÂb
+?;ÐÆC§KÓ4&amp;âÃ]3ÏA«Ì
+k5Ðts+®Hèh
+ËÎ3
+ùß¯HyÞÆ «EéXP¡mxÃ-°3pJÉÚò*â=[Jtã-Bµ&quot;ïyÕÎ³FÙ(£ÅRü(¨%-H
+Åµ®åÚ¸¶fÜÂÿ¼þ	WäÓ\tóR6%é¾&amp;Kq£Z#5kñv¦ÓÊ\Ðºx-ÙxiÒ³`PdF«-kÆ°¾ðÌEyÆIor@
+Ù9½¬jÅµB1o-Ç¥Ônv[NeM§E³WSþï ?lhyÍ
+à}QpÎb
+ú
+¾©-ÑÕ1ùáW
+~L±çnJ?­,²ÜãÊR;^I-ÆÊýiÒ?L³OZ6÷èzÚâ&quot;á÷+6Qw=úÂF­2¶®s­,¥é\
+7mËTq
+d:Ô·.\`ÛN &lt; 2VÐM~åSzõ)G·úY¾ì!,@Ék¶î	KÏîãÀh &lt; ´È'z-lÐ1ÞÎÓB:§Ï§ ¤&amp;Bºªvæú&gt;c7Ã
+v±ð×¿é £]æÊb°þO ñÊ
+`ÈµýÛA8üN_LO§ç!õØ¢|öb:-J£Oxd¯îMi
+vvV,úG¾?¾â´øäã§ÏÎ»¿¥	ãÛÈ;û Â4Èxø0&gt;7&gt;Gì½±ÊÊl2ù FZôõò0½âÃðÿ¼xñaÒ-ÿ|pºYZ(²ÄÖÐÚ?D?ÊTfÈÊùÇeMÃC³@jo?Ýõ¨nI°xñâÀõõ4§8VTÃr±(iØ}ÈBöEÎ»qO}ÞvÚíCqd9Ét¤
+
+1#ÛÖt,k©)R~pö(eRgL? ' wdûrÀálÛI])Fêxª¢àN¸ëlðð,øö¨!«%î:s·(õOO¡!ÿZÅ°uì~w*=¢É¨Épù]Ycò;«µ}dfµ0ätÊx=lPúâò¶!Éèt&gt;Á·¢/HïH­ÒQ
+¹42¨XúµN
+åA£
+ï&quot;÷¦e
+¬ÓcFÇCR6Ä¢Åò+Ê¯Ñ=GiÉ½c½¯~f¿[\Æä²Øu{l
+ôÒIhÌtZË#&amp;iØ¶3N%vóÝË Í!(Á
+l%%ÄU{ùÈËÝÒ·ì?ß!p ãã@è9J8
+BH $ÖXÚÑnÄÙ­êAÒåºm®Òõgí2Óm+ÜÇJ®(+·¥¢^óGÅ5HçM&gt;+®ÈmÓWH;­8hÝW9í±íYîÀ¶ûü^Uh*BCÂ»d+Lå_¬jm§ïå~W
+r®Ô¸&amp;Päo;]v3ÁÛ¢Ks¸A_Ö$`S£¿å}ôÄèÒûÐuq
+«TÞ^ìÊPæð²¯ÑÇmæE)vÒ²
+^
+»#´éªh-YË4,,
+Ü=Ú;3vÒ»^ÈÀÊØÐ:_KØmGÇ®
+±øÞ\ÅsM¦ö&amp;\
+¬öç)»E,V4+¤F»Ý·]ZkØòÄ¬3lhé¤§þÜ:õ3°,Ã]Tø(£+¨%GÜm}ãE@-1»
+®ÉKs}_&gt;Õu_}G6m¼iºõðkGá`lÀAm6PÓnQËeY¥W:z*!:ìæÆX.CShrxµ±ä¸%¤æÐè^îe¸{7à2Â9/f£c§Iú¨®Â(mR`@¨2_K
+Ê+
+@âu¬OÉ{ÏqËüÎ´¡4Ú[¹ì¼±Ye±­÷~=0á
+WMè»ôiÄ`Lä÷éç;p²`ÏÆÏ^L
+i;vh`I`éI
+M#6µQ=Ø{Ô$Æ&gt;
+$£ij}k3½éèmæÝ	Æ{6g
+ÔÜõÙíÀØ&quot;ãÉ&quot;ÑzW¦³t
+ØRÙµÑ a@v-(
+·FUvÊwìËó ì
+°¨¬5G	Fªô9ü­&amp;
+mCÄ¤¦Z°,$?»OªÞ×ZsEeðÜÉCÇÄwÏ&gt;¤c|µßYÍ
+Ò¡ï
+tÓå8¢$Ó
+!bMÖ1JBÛ±þ+k°	Áq &lt; ð	·¿îºm²ÄgÆgöý$ûò
+»÷¾,µ!9
+
+|þs[£÷ùõé³mwÍ|Ô Å(h¢êÚpúÞïÎàRë ­¶À~/Øý®b£²sa{÷ás@îÝ ¯cñ~KÖì:ÑælôKè9¤4Ø.SjÐþë1°nì28¹4ÄQÓy©Øq:åKËUVpôpk½Ç°ýlMvj%­óÝýH1TA
+;g/9R
+¶
+QnÇ=àÐIµùÅÛÞÓ3õëPßøÐmîª:Ìä«»ÔÝ¾sp.Lâû'ö7ÀÈ}+
+6+cûp5êm%ISòpugûº©-^²Ù³ÛÃk
+½ï©rÂÈôiè´%/²ïa§¦k4\Þ¹ ²ÖÁßÆØóNB7[.b7swÀÃV,,9]:pÊ´íTI­Éêqcö­ÞÂ=cì«G7ëö_
+M{³Ë7´¸e½Þì´Î+´;X£ÝIÞg¬©¿®MösëTÓcåÞz¬Î&amp;ý.ýMÊÛÇmGOL97ÏBôÀk÷]
+Hç­mv
 ­ÍÒr¼ÂìÉû@§ÓÓçoêîÍçÓÏÏ¨|AOÏNÏ4]ÝC(­Îøf\7xÅûN³'§µ7çKcÙÌ¢=NÿßcðìtÈÙóbÞö'éÞ]¯(Ø&amp;6ñvXÀæ0y½{è«ÎZ
-Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´2Æ^G^$	CxçmÓ5±þÆ¢¥VaI'?åÄpð§3ÿ  ÿÿ óóP3  </p>
-            
+Qhù{®CL-QeÑ¼º¼|
+Þâj%KvìxL8ÕK4w
+úá­
+âûç×ß©hß~'`´2Æ^G^$	CxçmÓ5±þÆ¢¥VaI'?åÄ
+pð§3ÿ  ÿÿ óóP3  </p>
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This incident reveals a critical and sophisticated attack vector where malicious actors are exploiting trusted professional platforms like LinkedIn. By embedding backdoors within seemingly legitimate job offers, attackers aim to compromise job seekers' systems or data, bypassing conventional security measures. It underscores the urgent need for enhanced vigilance and robust security protocols, especially in recruitment, to protect against social engineering and malware distribution.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community widely recognizes this as a sophisticated and prevalent supply-chain attack disguised as a job offer, exploiting common developer practices and targeting both job seekers and project maintainers. There's a strong consensus that these attacks are increasingly common and dangerous, yet reporting mechanisms to platforms like GitHub and LinkedIn are ineffective, highlighting a societal gap in addressing organized cybercrime.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>roman.pt</span>
         <span>·</span>
@@ -293,7 +408,7 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
         <span>·</span>
         <span>by lwhsiao</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://roman.pt/posts/linkedin-backdoor/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48546294" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -304,20 +419,20 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">Developer Learning 🧠</div>
-            
+
             <h2 class="story-title"><a href="https://fata.dev" target="_blank" rel="noopener">Fata Fights AI-Induced Skill Rot with Spaced Repetition for Developers</a></h2>
             <p class="story-summary">Hi HN, I'm Djoumé. I've been a developer for over 20 years, and like a lot of you I've been coding almost exclusively through an agent in the past few months. It's been amazing to vibe code prototypes in any stack, but when it comes to building something reliable/scalable, I couldn't effectively guide the agent unless I knew the technology. And the scariest part is that I'm seeing a lot of my technical skills decreasing due to AI coding. Reflecting on my journey, I also worry about how the new &quot;AI native&quot; generation of software developer is going to acquire technical depth. So I built fata.dev</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This Show HN critically addresses the quiet erosion of fundamental coding skills by AI assistance, a growing concern for both veteran engineers and the emerging &quot;AI-native&quot; generation. Fata proposes a proactive solution using spaced repetition to combat this &quot;skill rot,&quot; emphasizing the ongoing necessity of deep technical understanding to effectively guide and evaluate AI agents. It underscores a crucial shift: developers must deliberately cultivate core competencies to remain true engineers, rather than just prompts for AI.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses skepticism regarding the premise that &quot;AI skill rot&quot; is a significant concern for experienced engineers, with several comments suggesting the problem is overblown or that spaced repetition isn't the appropriate solution. While some find the tool interesting or relatable, particularly for non-programmers or those already engaged in similar practice methods, there's also criticism about its pricing and marketing claims.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>fata.dev</span>
         <span>·</span>
@@ -327,7 +442,7 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
         <span>·</span>
         <span>by djoume</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://fata.dev" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48489163" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -338,20 +453,20 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">🚫 Software Criticism</div>
-            
+
             <h2 class="story-title"><a href="https://andreklein.net/your-epub-is-fine-kobo-disagrees-blame-adobe/" target="_blank" rel="noopener">Your ePub Is Fine: Blame Adobe</a></h2>
             <p class="story-summary">Blame Adobe - André Klein Dot Net Your EPUB Is Fine. Blame Adobe - André Klein Dot Net [drop_cap]A[/drop_cap]dobe isn’t exactly a beloved company these days. People begrudgingly use their stuff, because the Creative Suite is an industry standard (read: monopoly) or there are simply no worthwhile alternatives, not because anyone is genuinely excited about these tools. I’m happy to report that I (mostly) make do without Adobeware these days (shoutout to Photopea), and yet, my disdain of Adobe just reached a completely new level.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece highlights the deep-seated frustration many users feel towards monopolistic software providers like Adobe, leveraging the ePub format as a tangible example of how their market dominance can lead to compatibility issues and user dissatisfaction. It critically points out how a lack of viable alternatives forces an industry to begrudgingly adopt tools, hindering innovation and creating widespread technical debt.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely agrees that while the ePub format is widespread, it's far from &quot;fine,&quot; often requiring users to tinker with files due to inconsistent rendering and complex underlying standards. Adobe is frequently cited as a major contributor to these issues, with its problematic RMSDK and history of poor maintenance in the e-reading ecosystem. Many users resort to workarounds or specific device features to achieve a satisfactory experience, underscoring the format's persistent challenges.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>andreklein.net</span>
         <span>·</span>
@@ -361,7 +476,7 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
         <span>·</span>
         <span>by sohkamyung</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://andreklein.net/your-epub-is-fine-kobo-disagrees-blame-adobe/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48533848" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -372,7 +487,7 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">😂 Satire</div>
-            
+
             <h2 class="story-title"><a href="https://crankgpt.com" target="_blank" rel="noopener">CrankGPT: Human Power Fuels Your Private, Local AI</a></h2>
             <p class="story-summary">What do climate
                   change , wealth
@@ -380,17 +495,17 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
                   arms have in common? A human-powered , fully
                   local and private AI solution. Use the
                   appropriate tool for the job. Our basic hand-cranked model is sufficient for everyday home use. Power users and small companies should consider our more capable pedal-powered models.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">CrankGPT masterfully blends humor with pointed critique, lampooning the energy consumption, centralization, and privacy concerns inherent in modern AI by proposing absurd human-powered alternatives. This satirical jab forces readers to reflect on the real-world trade-offs and environmental impacts often overlooked in the rush for AI innovation. It cleverly questions the &quot;appropriate tool for the job&quot; when convenience comes at a significant societal cost.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely critiques the main website's poor design, preferring the linked technical documentation for readability. There's a strong consensus that &quot;CrankGPT&quot; blurs the line between satire and a plausible future product, sparking discussions about AI's significant energy consumption, the abandonment of climate pledges by tech companies, and the somewhat dystopian concept of human-powered computing. While some appreciate the engineering challenge of designing for hand-crank power, the underlying sentiment leans towards concern over AI's resource demands.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>crankgpt.com</span>
         <span>·</span>
@@ -400,7 +515,7 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
         <span>·</span>
         <span>by rishikeshs</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://crankgpt.com" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48540854" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -411,20 +526,20 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">🧠 AI Tools</div>
-            
+
             <h2 class="story-title"><a href="https://openrouter.ai/openrouter/fusion" target="_blank" rel="noopener">OpenRouter Fusion API: Multi-Model AI Panel Delivers Comprehensive, Judged Answers</a></h2>
             <p class="story-summary">Fusion - API Pricing &amp; Providers | OpenRouter Fusion turns your prompt into a small multi-model deliberation. A panel of expert models (see below) analyzes your prompt in parallel with web search and web fetch enabled, then a judge model synthesizes their responses into a structured analysis — consensus, contradictions, partial coverage, unique insights, and blind spots — and writes the final answer from it. By default the panel is the Quality preset; switch to Budget for cheaper members, or override the panel and judge entirely with the fusion plugin's analysis_models and model fields. Reach for Fusion when a single model isn't enough — research, expert critique, or anywhere the cost of being wrong outweighs a few extra completions.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Openrouter Fusion pioneers a multi-model deliberation approach, orchestrating a panel of AI models with web access to dissect a prompt, and a judge model to synthesize diverse insights into a comprehensive, structured answer. This methodology directly addresses the inherent limitations and potential for error in single-model outputs, offering a path towards more reliable and nuanced AI-generated content. By trading higher computational cost for enhanced accuracy, it offers a compelling solution for tasks requiring expert critique or where the cost of being wrong is high.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses significant skepticism about Openrouter's Fusion API, finding it to be considerably slower and more expensive while often yielding worse or no better results than using a single, powerful model directly. While the theoretical idea of combining model outputs is intriguing, practical experiences suggest current implementations struggle to deliver superior quality, with some questioning its fundamental advantage over adjusting parameters on individual models.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>openrouter.ai</span>
         <span>·</span>
@@ -434,7 +549,7 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
         <span>·</span>
         <span>by tdchaitanya</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://openrouter.ai/openrouter/fusion" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48537641" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -445,20 +560,20 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">💲 Cloud Pricing</div>
-            
+
             <h2 class="story-title"><a href="https://docs.hetzner.com/general/infrastructure-and-availability/price-adjustment/#cloud-servers" target="_blank" rel="noopener">Hetzner's New Pricing Takes Effect June 15, 2026 for New Services and Rescales</a></h2>
             <p class="story-summary">Hetzner Price Adjustment 15 June 2026 - Hetzner Docs Last change on 2026-06-15 • Created on 2026-06-15 • ID: GE-D9256 The price adjustment applies to new orders and cloud instance rescales starting from 15 June 2026; 8 AM CEST . For orders placed before 15 June 2026, but delivered after 15 June 2026, the previous prices will apply. The availability of these limited offerings is dependent on the hardware used in these servers.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Hetzner's advance notice of price adjustments starting June 2026 signals a strategic move, likely influenced by rising hardware, energy, or operational costs in the competitive cloud market. This gives existing customers a window to secure current rates, while new orders and rescales will reflect the updated pricing. Such changes often prompt users to re-evaluate their infrastructure spending and explore alternative providers or optimize current resource usage.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is largely shocked and dismayed by Hetzner's significant price adjustments, with many users reporting increases of 2-3x for their cloud services. While some acknowledge the reality of rising hardware costs and potential AI infrastructure investments, the consensus is that the magnitude of these hikes is &quot;insane&quot; and prompts users to actively seek alternative providers.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>docs.hetzner.com</span>
         <span>·</span>
@@ -468,7 +583,7 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
         <span>·</span>
         <span>by tuhtah</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://docs.hetzner.com/general/infrastructure-and-availability/price-adjustment/#cloud-servers" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48540844" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -479,20 +594,20 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">🔒 Security</div>
-            
+
             <h2 class="story-title"><a href="https://kobzol.github.io/rust/2026/06/15/how-memory-safety-cves-differ-between-rust-and-c-cpp.html" target="_blank" rel="noopener">Rust's Memory Safety Wins: Fewer CVEs Compared to C/C++</a></h2>
             <p class="story-summary">How memory safety CVEs differ between Rust and C/C++ | Kobzol’s blog</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This analysis empirically validates Rust's core value proposition by detailing how its design inherently prevents memory safety CVEs common in C/C++. Such a comparison offers critical insights for organizations and developers weighing language choices for secure, high-performance systems and validates the significant shift in vulnerability profiles when adopting modern, memory-safe languages.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community broadly dismisses comparing CVE counts between Rust and C/C++ as a useful metric, acknowledging that Rust generally offers superior memory safety. However, many emphasize the distinction between legacy C code and modern C++, arguing that contemporary C++ practices can significantly mitigate memory safety issues. There's also a sentiment that Rust isn't the sole solution for memory safety and might introduce other considerations, such as supply chain risk.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>kobzol.github.io</span>
         <span>·</span>
@@ -502,7 +617,7 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
         <span>·</span>
         <span>by nicoburns</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://kobzol.github.io/rust/2026/06/15/how-memory-safety-cves-differ-between-rust-and-c-cpp.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48543392" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -510,11 +625,36 @@ Qhù{®CL-QeÑ¼º¼|Þâj%KvìxL8ÕK4wúá­âûç×ß©hß~'`´
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 16, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-06-15.html">
+        <small>Previous issue</small>
+        <strong>← June 15, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-06-17.html">
+        <small>Next issue</small>
+        <strong>→ June 17, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — June 04, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 029, June 04, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — June 04, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Thursday</div>
-        <div class="masthead-year">June 04, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 029</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Thursday</span>
+                    <time datetime="2026-06-04">June 04, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">🧠 LLM Infrastructure</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/zaydmulani09/mnemo" target="_blank" rel="noopener">Mnemo Brings Local-First Persistent Memory to Any LLM.</a></h2>
             <p class="story-summary">GitHub - zaydmulani09/mnemo: Local-first AI memory layer for any LLM. Persistent knowledge graph, entity extraction, semantic retrieval. Works with Ollama, OpenAI, Anthropic, or any OpenAI-compatible backend.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Mnemo offers a significant advancement for LLM applications by providing a local-first, persistent memory layer that transcends the limitations of typical context windows. Its approach of building a knowledge graph via entity extraction and semantic retrieval allows LLMs to maintain long-term context and learn from past interactions, making them more useful for personalized and stateful applications. This solution enhances privacy, reduces reliance on external services, and boasts broad compatibility with various LLM backends.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community views Mnemo as another entry in a crowded market of local-first AI memory layers, emphasizing the project's need for clear differentiation and a strong &quot;why Mnemo&quot; explanation. There's a shared sentiment that standalone memory tools like this will likely be absorbed into larger LLM harnesses, coupled with skepticism about the practical performance benefits of loading extensive memories into model contexts.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by zaydmulani</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/zaydmulani09/mnemo" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48389586" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,23 +206,23 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">🔒 Security</div>
-            
+
             <h2 class="story-title"><a href="https://blog.ammaraskar.com/github-token-stealing/" target="_blank" rel="noopener">Critical VSCode Vulnerability in github.dev Allows One-Click GitHub Token Theft, Granting Full Repo Access</a></h2>
             <p class="story-summary">1-Click GitHub Token Stealing via a VSCode Bug – Ammar's Blog Just by clicking a link, it’s possible for an attacker to steal a GitHub
 token that can read and write to your repos, including private ones . Did you know GitHub has this really cool feature called github.dev ? On any repository you have access to, if you can change the url from github.com to github.dev or you click this little menu item: You’ll be launched into a little light-weight version of VSCode that runs
 entirely in your browser (I guess that’s one advantage of having your app
 written with electron).</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This critical 1-click vulnerability leverages a VSCode bug within the github.dev environment to facilitate GitHub token theft, granting attackers read/write access to all user repositories, including private ones. It highlights the inherent security risks introduced by web-based developer tools and the subtle attack surfaces they present, underscoring the need for continuous vigilance and robust security hardening in widely used developer ecosystems.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely commends the researcher for publicly disclosing a significant VSCode vulnerability and appreciates Microsoft's swift *stopgap* fix. However, there's a strong consensus of frustration and distrust regarding Microsoft's Security Response Center (MSRC), with many hoping this public pressure will force them to improve their often poor communication and response to security reports. Underlying these concerns are broader worries about VSCode's large attack surface, especially concerning extension trust and web integration.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.ammaraskar.com</span>
         <span>·</span>
@@ -219,7 +232,7 @@ written with electron).</p>
         <span>·</span>
         <span>by ammar2</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.ammaraskar.com/github-token-stealing/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48371562" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -230,20 +243,20 @@ written with electron).</p>
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🤖 AI Innovation</div>
-            
+
             <h2 class="story-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/" target="_blank" rel="noopener">Gemma 4 12B: Google DeepMind's Powerful, Efficient Multimodal AI for Laptops</a></h2>
             <p class="story-summary">Introducing Gemma 4 12B: a unified, encoder-free multimodal model Gemma 4 12B is designed to bring high-performance multimodal intelligence directly to your laptop, combining mobile-first efficiency with advanced reasoning. Director of Product Management, Google Deepmind Your browser does not support the audio element. This content is generated by Google AI.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Gemma 4 12B marks a significant stride in democratizing advanced AI, bringing a high-performance, unified, and encoder-free multimodal model directly to personal devices like laptops. This Google DeepMind initiative emphasizes mobile-first efficiency, signaling a strategic shift towards empowering on-device AI capabilities with sophisticated reasoning, reducing reliance on cloud infrastructure for many applications.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community is keenly interested in Gemma 4 12B's novel &quot;encoder-free&quot; architecture, though there's some technical debate about its implementation. However, a major point of concern is its reportedly poor multimodal image processing capabilities, which users found significantly lacking compared to smaller models. Additionally, there is considerable discussion and skepticism regarding Google's business strategy and motivations for releasing open models.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.google</span>
         <span>·</span>
@@ -253,7 +266,7 @@ written with electron).</p>
         <span>·</span>
         <span>by rvz</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48385906" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -264,20 +277,20 @@ written with electron).</p>
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🎓 Education Impact</div>
-            
+
             <h2 class="story-title"><a href="https://www.dailycal.org/news/campus/academics/failing-grades-soar-as-professors-see-greater-ai-usage-dwindling-math-skills-in-uc-berkeley/article_16fad0bf-02cb-4b8c-8d88-888ffd9f8608.html" target="_blank" rel="noopener">UC Berkeley CS Sees Soaring Failures Driven by AI Use and Declining Math Skills</a></h2>
             <p class="story-summary">Failing grades soar as professors see greater AI usage, dwindling math skills in UC Berkeley computer science classes | Academics | dailycal.org Skip to main content You have permission to edit this article.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This report from Berkeley highlights a critical challenge in higher education: the double-edged sword of AI. While AI tools can augment learning, an over-reliance appears to be eroding fundamental math skills, leading to a decline in academic performance rather than improvement. This necessitates educators rethinking curriculum design and assessment to ensure AI serves as a learning aid, not a substitute for core competency development.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely views the reported decline in Berkeley CS students' math skills and soaring failing grades as a multi-faceted issue. While acknowledging that AI tools like LLMs likely exacerbate the problem by tempting students to bypass genuine learning, many commenters emphasize that this trend primarily reflects a long-standing erosion of fundamental math proficiency. A significant portion of the discussion points to the removal of standardized testing requirements (ACT/SAT) as a major contributing factor to students arriving unprepared, suggesting the problem predates the widespread availability of current AI tools.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>dailycal.org</span>
         <span>·</span>
@@ -287,7 +300,7 @@ written with electron).</p>
         <span>·</span>
         <span>by littlexsparkee</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.dailycal.org/news/campus/academics/failing-grades-soar-as-professors-see-greater-ai-usage-dwindling-math-skills-in-uc-berkeley/article_16fad0bf-02cb-4b8c-8d88-888ffd9f8608.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48392004" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -298,20 +311,20 @@ written with electron).</p>
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">🛠️ Device Hacking</div>
-            
+
             <h2 class="story-title"><a href="https://handwritten.danieljanus.pl/2026-06-01-edsger.html" target="_blank" rel="noopener">Handwritten Clojure REPL Transforms reMarkable 2 Into a Novel Code Scratchpad</a></h2>
             <p class="story-summary">Community discussion highlights: This awesome! I actually had no idea I could ssh into my Remarkable and do neat stuff like this! &gt; Why do it? It's so impractical! Because you can and it's fun is always a perfectly valid answer here!</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project brilliantly exemplifies the spirit of &quot;because you can,&quot; transforming the reMarkable 2 from a note-taking tablet into a unique, handwritten Clojure REPL. It showcases how dedicated hardware can be creatively repurposed through custom development, pushing beyond its intended use for the sheer joy of engineering and interactive exploration.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community is largely impressed by the innovative and &quot;fun&quot; concept of a handwritten Clojure REPL on a reMarkable, celebrating the technical ingenuity despite its impracticality. However, there's a strong consensus that the significant latency (up to 14 seconds) makes it challenging for real-time use, with many comments pointing out the technical difficulties of working with the reMarkable's e-paper display as a likely cause.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>handwritten.danieljanus.pl</span>
         <span>·</span>
@@ -321,7 +334,7 @@ written with electron).</p>
         <span>·</span>
         <span>by nathell</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://handwritten.danieljanus.pl/2026-06-01-edsger.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48374552" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -332,20 +345,20 @@ written with electron).</p>
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">🤖 AI Impact</div>
-            
+
             <h2 class="story-title"><a href="https://www.science.org/content/article/mathematicians-issue-warning-ai-rapidly-gains-ground" target="_blank" rel="noopener">Mathematicians Debate AI's Advance: Overblown Threat or Practical Workflow Upgrade?</a></h2>
             <p class="story-summary">Community discussion highlights: As a mathematician by trade I think they’re overblowing it. You can choose to use it or not. I choose not to because I enjoy the process. But I’m not doing formal research or getting paid to do it these days. I will note that the average corporate mathematical modelling is usually a fucking circus so adding AI might make it better.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The community discussion reveals a nuanced perspective among mathematicians regarding AI's encroachment, with some dismissing warnings as exaggerated while valuing the human process, especially in pure research. However, there's acknowledgment that AI could significantly improve the often-chaotic landscape of corporate mathematical modeling, suggesting its impact might be more transformative in applied, less rigorous fields. This tension highlights a future where AI serves as a practical tool for efficiency rather than a direct replacement for intellectual discovery.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community generally acknowledges AI's rapidly growing capabilities in mathematics and its potential for significant disruption, likening the sentiment to that of artists and authors facing generative AI. While recognizing AI's ability to produce answers, many commenters emphasize that true human understanding, judgment, and the underlying curiosity-driven process remain crucial distinctions, with AI currently lacking deeper comprehension and being prone to errors. The prevailing view suggests a future of human-machine collaboration, where human oversight is still vital to ensure accuracy and meaningful insights.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>science.org</span>
         <span>·</span>
@@ -355,7 +368,7 @@ written with electron).</p>
         <span>·</span>
         <span>by pseudolus</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.science.org/content/article/mathematicians-issue-warning-ai-rapidly-gains-ground" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48382052" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -369,17 +382,17 @@ written with electron).</p>
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://simonwillison.net/2026/Jun/3/uber-caps-usage/" target="_blank" rel="noopener">Uber Caps Employee AI Tool Spending at $1,500/Month Per Tool After Blowing Budget</a></h2>
             <p class="story-summary">Uber Caps Usage of AI Tools Like Claude Code to Manage Costs Uber Caps Usage of AI Tools Like Claude Code to Manage Costs . I wrote the other day about Uber blowing its 2026 AI budget in four months, and how that wasn't particularly surprising given they would have set that budget in 2025, before anyone could have predicted how popular token-burning coding agents were about to become. The rideshare giant is limiting all employees to $1,500 in monthly token spending per AI coding tool, an Uber spokesperson said in response to a Bloomberg News inquiry. That means spending on one tool doesn’t have a bearing on the budget for another.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Uber's implementation of a per-tool AI spending cap starkly illustrates the unforeseen and rapidly escalating operational costs associated with integrating generative AI into enterprise workflows. This move signals a critical shift towards granular cost management in AI adoption, serving as an early benchmark for how other large organizations will need to proactively budget and track their burgeoning AI expenditures amidst unpredictable usage patterns.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views Uber's $1,500/month AI limit as confirmation of AI coding tools' rapid adoption and high value, indicating companies are willing to invest significantly per seat. Many note that actual API usage often far exceeds this due to current subsidies, making cost-benefit comparisons to human engineer salaries and the potential for local LLM alternatives key considerations.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>simonwillison.net</span>
         <span>·</span>
@@ -389,7 +402,7 @@ written with electron).</p>
         <span>·</span>
         <span>by pdyc</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://simonwillison.net/2026/Jun/3/uber-caps-usage/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48383056" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -400,20 +413,20 @@ written with electron).</p>
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">💻 Programming Language</div>
-            
+
             <h2 class="story-title"><a href="https://elixir-lang.org/blog/2026/06/03/elixir-v1-20-0-released/" target="_blank" rel="noopener">Gradual Typing Lands in Elixir v1.20, Redefining the Language</a></h2>
             <p class="story-summary">Elixir v1.20 released: now a gradually typed language - The Elixir programming language Elixir v1.20 released: now a gradually typed language June 03, 2026 · by José Valim · in Announcements In 2022, we announced the effort to add set-theoretic types to Elixir . In June 2023, we published an award winning paper on Elixir’s type system design and said our work was transitioning from research to development .</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Elixir's adoption of gradual typing in v1.20, after years of research and development into set-theoretic types, marks a significant architectural evolution for the language. This strategic shift aims to blend dynamic flexibility with static safety, enhancing code maintainability and tooling for complex applications. It positions Elixir to attract a wider enterprise audience by offering increased robustness while retaining its concurrent, fault-tolerant programming paradigm.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Elixir community generally expresses strong excitement and anticipation for the introduction of gradual typing in v1.20, with many seeing it as a crucial step that enhances the language's appeal and addresses a previous barrier for adoption. While there's enthusiasm for the potential to catch bugs and improve code quality, a subset of commenters voice skepticism regarding the effectiveness of belatedly adding types to a language, and raise questions about its practical implementation and performance implications compared to inherently typed systems.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>elixir-lang.org</span>
         <span>·</span>
@@ -423,7 +436,7 @@ written with electron).</p>
         <span>·</span>
         <span>by cloud8421</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://elixir-lang.org/blog/2026/06/03/elixir-v1-20-0-released/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48388324" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -434,20 +447,20 @@ written with electron).</p>
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🛡️ Workplace Privacy</div>
-            
+
             <h2 class="story-title"><a href="https://www.bbc.com/news/articles/c93x0k194yno" target="_blank" rel="noopener">Meta Backtracks on Employee AI Tracking After Backlash, Offers 30-Minute Opt-Outs</a></h2>
             <p class="story-summary">Meta scales back plan to track workers' clicks and keystrokes to train AI Meta is scaling back its plan to start tracking its employees' computer activity, according to an internal memo sent on Tuesday. In April the company received criticism from its own staff after it announced a new tool would log their keystrokes and mouse clicks to train its AI models. Now, according to Reuters , new controls will allow employees to pause the data collection for &quot;up to 30 minutes at a time&quot; as well as request exemptions from the initiative altogether. It follows weeks of backlash from employees, including some who started a petition against the move which now has more than 1,500 signatures.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Meta's partial retraction of extensive employee tracking for AI training, driven by significant internal backlash, underscores the critical tension between corporate data ambitions and workforce privacy. This incident highlights the power of employee advocacy in shaping corporate policy, especially concerning sensitive data collection for burgeoning AI initiatives, forcing a compromise rather than a full retreat.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community views Meta's &quot;opt-out&quot; policy for employee tracking with significant skepticism, largely seeing it as a performative and ironic gesture rather than a genuine concession. Many commenters draw parallels to dystopian fiction, expressing concerns that choosing to opt-out could negatively impact performance reviews and reflecting a broader worry about the increasing and often punitive surveillance in tech workplaces.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>bbc.com</span>
         <span>·</span>
@@ -457,7 +470,7 @@ written with electron).</p>
         <span>·</span>
         <span>by reconnecting</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.bbc.com/news/articles/c93x0k194yno" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48383220" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -471,17 +484,17 @@ written with electron).</p>
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://www.anthropic.com/engineering/how-we-contain-claude" target="_blank" rel="noopener">Anthropic Details Engineering Containment for Claude's Powerful AI Across Products</a></h2>
             <p class="story-summary">How we contain Claude across products \ Anthropic As agents grow more capable, so does their potential blast radius. The engineering question is how to cap it. Here’s what we’ve learned building containment for claude.ai, Claude Code, and Cowork. Twelve months ago, we'd have rejected out of hand the idea of granting Claude access sufficient to take down an internal Anthropic service.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This Anthropic piece highlights the critical, evolving engineering challenge of containing powerful AI agents, like Claude, as their capabilities and &quot;blast radius&quot; grow across diverse product deployments. The admission that internal service disruption by Claude was once unthinkable, yet now requires explicit containment strategies, signals a significant maturation in AI safety concerns. It underscores the urgent need for robust control mechanisms that scale with AI intelligence, moving beyond theoretical safeguards to practical, system-level security.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses skepticism towards Anthropic's dramatic framing of AI &quot;danger,&quot; viewing it more as marketing than an accurate representation of current threats. Instead, the overwhelming consensus favors practical, system-level containment strategies—such as virtual machines, restricted file access, and network isolation—as the most effective and reliable methods for controlling LLM agents and mitigating real-world risks like data exfiltration. Many believe that environmental safeguards are superior to relying on model-level behavior steering.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>anthropic.com</span>
         <span>·</span>
@@ -491,7 +504,7 @@ written with electron).</p>
         <span>·</span>
         <span>by jbredeche</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.anthropic.com/engineering/how-we-contain-claude" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48392082" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -499,11 +512,36 @@ written with electron).</p>
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 04, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-06-03.html">
+        <small>Previous issue</small>
+        <strong>← June 03, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-06-05.html">
+        <small>Next issue</small>
+        <strong>→ June 05, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

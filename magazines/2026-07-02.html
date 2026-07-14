@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — July 02, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 057, July 02, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — July 02, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Thursday</div>
-        <div class="masthead-year">July 02, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 057</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Thursday</span>
+                    <time datetime="2026-07-02">July 02, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,7 +167,7 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
@@ -162,17 +175,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://thereallo.dev/blog/claude-code-prompt-steganography" target="_blank" rel="noopener">Claude AI Steganographically Embeds API &amp; Timezone Data as Hidden Identifiers in Requests</a></h2>
             <p class="story-summary">Claude Code Is Steganographically Marking Requests Claude Code Is Steganographically Marking Requests I inspected Claude Code for privacy reasons and found hidden system prompt markers based on API base URL and timezone. I was inspecting Claude Code for privacy reasons. Most devs give their harnesses ridiculous access.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This revelation exposes a deeply concerning practice by Claude AI, embedding steganographic markers in requests based on user metadata like API base URL and timezone. Such hidden tracking mechanisms critically erode user privacy and trust, as they enable potential de-anonymization or profiling without explicit consent. It underscores the urgent need for greater transparency, robust ethical guidelines, and independent auditing in AI development to prevent surreptitious data collection.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses strong disapproval and distrust regarding Anthropic's covert marking of requests, viewing it as a breach of transparency and an unethical practice. Many commenters highlight a perceived history of untrustworthy behavior from the company, advocating for open-source alternatives due to their inherent audibility and transparency. While some acknowledge potential business motivations, the consensus is that such actions without explicit disclosure erode user confidence.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>thereallo.dev</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by kirushik</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://thereallo.dev/blog/claude-code-prompt-steganography" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48734373" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -196,17 +209,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://twitter.com/AnthropicAI/status/2072106151890809341" target="_blank" rel="noopener">US Commerce Dept. Lifts Export Controls on Claude Fable 5, Mythos 5</a></h2>
             <p class="story-summary">Anthropic on X: &quot;We’ve received notice that the Department of Commerce has lifted export controls on Claude Fable 5 and Mythos 5. We'll begin restoring access tomorrow, and will share an update soon. We’re grateful to our users for their patience, and to everyone who worked with us on&quot; / X We’ve received notice that the Department of Commerce has lifted export controls on Claude Fable 5 and Mythos 5. We'll begin restoring access tomorrow, and will share an update soon.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This decision by the Department of Commerce marks a significant reversal, indicating a more permissive stance on the global deployment of advanced AI models like Anthropic's Fable 5 and Mythos 5. It suggests a recalibration of US export control strategy, potentially prioritizing market competitiveness for domestic AI firms while still navigating national security concerns surrounding powerful AI capabilities. This could set a precedent for how future frontier AI models are regulated for international distribution.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses frustration and skepticism regarding the government's handling of AI export controls. Commenters perceive the regulations as unpredictable and lacking clear legal frameworks, leading to uncertainty for businesses and investors. There's also significant doubt about the genuine impact and motives behind these controls, with many believing they are arbitrary or politically driven and could stifle innovation and free speech.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>twitter.com</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by Pragmata</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://twitter.com/AnthropicAI/status/2072106151890809341" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48740771" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🧬 Synthetic Biology</div>
-            
+
             <h2 class="story-title"><a href="https://www.quantamagazine.org/for-the-first-time-a-cell-built-from-scratch-grows-and-divides-20260701/" target="_blank" rel="noopener">First Cell Built From Scratch Self-Replicates</a></h2>
             <p class="story-summary">For the First Time, a Cell Built From Scratch Grows and Divides | Quanta Magazine</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This landmark achievement represents a fundamental breakthrough, moving beyond genetic modification to demonstrate the construction of a cell *de novo* that exhibits the core life properties of growth and division. It profoundly advances our understanding of life's minimal requirements and could pave the way for novel bioengineering applications, while simultaneously prompting critical discussions on the ethical implications of creating artificial life.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely recognizes this as a significant scientific breakthrough, specifically highlighting the achievement of cell division in a synthetic cell as a major hurdle overcome in the field. Users show keen technical curiosity, asking detailed questions about aspects like amino acid chirality and the implications of sidestepping the cytoskeleton. While some comments touch on the lead researcher's approach to publicizing the work, the overarching sentiment is one of excitement and interest in the scientific details and future potential.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>quantamagazine.org</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by defrost</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.quantamagazine.org/for-the-first-time-a-cell-built-from-scratch-grows-and-divides-20260701/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48747304" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🎮 Game Dev</div>
-            
+
             <h2 class="story-title"><a href="https://box2d.org/posts/2026/06/announcing-box3d/" target="_blank" rel="noopener">Box3D Brings Box2D's Open Source Physics to the Third Dimension</a></h2>
             <p class="story-summary">I’m happy to announce the release of Box3D, an open source 3D physics engine. You can think of Box3D as a fork of Box2D, extended with many features needed for 3D games. The core architecture of Box3D remains almost identical to Box2D. Large world support with doubles for position If you want to see Box3D in action, watch this video:</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Box3D's emergence as an open-source 3D physics engine, forking from the widely adopted Box2D, offers a significant boon for game developers seeking robust, familiar, and customizable solutions. By extending a proven 2D architecture to 3D with features like double-precision for large worlds, it aims to deliver scalable performance without the steep learning curve of entirely new systems. This move could empower a new generation of 3D games and simulations, especially within the indie and open-source communities.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community expresses strong appreciation for Erin Catto, the author, with many acknowledging Box2D's significant impact on indie games and its foundational role in ML/reinforcement learning environments. There is considerable excitement and anticipation for Box3D, viewing it as a valuable open-source addition to the landscape of 3D physics engines.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>box2d.org</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by makepanic</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://box2d.org/posts/2026/06/announcing-box3d/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48745445" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">🔒 Privacy Tech</div>
-            
+
             <h2 class="story-title"><a href="https://blog.google/innovation-and-ai/technology/safety-security/opening-up-zero-knowledge-proof-technology-to-promote-privacy-in-age-assurance/" target="_blank" rel="noopener">Open-Sourced ZKP Libraries Simplify Private Age Assurance and Digital ID Development</a></h2>
             <p class="story-summary">Now open source: our Zero-Knowledge Proof (ZKP) libraries for age assurance Opening up ‘Zero-Knowledge Proof’ technology to promote privacy in age assurance Today, we open sourced our Zero-Knowledge Proof (ZKP) libraries , fulfilling a promise and building on our partnership with Sparkasse to support EU age assurance . Open sourcing these powerful cryptographic tools will make it much easier for private and public sector developers to build their own privacy-enhancing applications and digital ID solutions, meeting an urgent need. In layperson’s terms, ZKP makes it possible for people to prove that something about them is true without exchanging any other data.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The open-sourcing of Zero-Knowledge Proof (ZKP) libraries for age assurance is a pivotal moment for practical privacy-enhancing technology, democratizing access to advanced cryptography. This move enables developers to build compliant digital identity solutions that verify age without revealing sensitive personal data, critically important for regulatory frameworks and user trust. It highlights a proactive approach to embedding privacy-by-design into critical online interactions.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community expresses widespread skepticism and significant privacy concerns regarding the use of Zero-Knowledge Proof (ZKP) technology for age assurance. Many users fear it will inevitably lead to government overreach, censorship, and the erosion of online anonymity, seeing the &quot;zero-knowledge&quot; aspect as oversold and the stated purpose as a potential cover for ulterior motives like information control.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.google</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by consumer451</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.google/innovation-and-ai/technology/safety-security/opening-up-zero-knowledge-proof-technology-to-promote-privacy-in-age-assurance/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48753979" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -332,17 +345,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://twitter.com/claudeai/status/2072402636813607381" target="_blank" rel="noopener">Fable 5 Returns With Stricter 50% Usage Cap and Faster Credit Consumption</a></h2>
             <p class="story-summary">Community discussion highlights: &gt; Until July 7, you can use up to 50% of your plan's weekly usage limit on Fable 5. If you hit your limit, you can continue on Fable 5 with usage credits. Fable 5 draws down usage faster than Opus 4.8. This is what I see in my Claude Code terminal. I don't feel like that 50% rule was there before?</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Fable 5, seemingly an advanced or resource-intensive AI model, is being rolled out with significant usage limitations and a faster credit consumption rate compared to previous versions like Opus 4.8. This strategic implementation, noted by user surprise, likely reflects its higher computational cost and aims to manage demand and infrastructure strain. It indicates a move towards premium tiering or more granular monetization for cutting-edge AI capabilities within the Claude ecosystem.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses overwhelming disappointment and a significant loss of trust in Anthropic, largely due to confusing and seemingly restrictive changes to their Fable 5 model access for existing subscribers. Users feel betrayed by what they perceive as price gouging and reduced value, exacerbated by concerns over model censorship and government influence impacting the product's reliability and usefulness. Many are now questioning their continued investment in Anthropic's offerings.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>twitter.com</span>
         <span>·</span>
@@ -352,7 +365,7 @@
         <span>·</span>
         <span>by mfiguiere</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://twitter.com/claudeai/status/2072402636813607381" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48752030" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -363,20 +376,20 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">🌐 WebAssembly &amp; Data</div>
-            
+
             <h2 class="story-title"><a href="https://wasm.chdb.io/" target="_blank" rel="noopener">ClickHouse OLAP Engine Arrives on WebAssembly, Drawing Scrutiny for Its 95MB+ Footprint</a></h2>
             <p class="story-summary">Community discussion highlights: I like the initiative but would love if there was a heavily stripped down version, it seems this one needs to download 95mb+. DuckDB also has a WASM version which is also not tiny but comes in at something like 36mb if I recall correctly.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This initiative pushes the boundaries of client-side analytics by compiling a full OLAP engine like ClickHouse to WebAssembly, aiming for powerful, browser-native data processing. However, the community discussion immediately highlights the critical trade-off between feature completeness and practical deployment, as its substantial bundle size presents a significant challenge for web performance compared to leaner alternatives like DuckDB. This underscores the ongoing engineering hurdle of optimizing complex data systems for the constrained environments of the browser or edge.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is largely impressed by the technical achievement of compiling a complete OLAP engine like ClickHouse to WebAssembly, deeming it &quot;impressive&quot; and &quot;awesome.&quot; However, the 95MB download size is a significant point of discussion; while many users find it acceptable given the utility, others express concern and a desire for a heavily stripped-down version, drawing comparisons to smaller WASM alternatives like DuckDB.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>wasm.chdb.io</span>
         <span>·</span>
@@ -386,7 +399,7 @@
         <span>·</span>
         <span>by porridgeraisin</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://wasm.chdb.io/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48750000" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -397,20 +410,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">⚖️ Digital Rights</div>
-            
+
             <h2 class="story-title"><a href="https://reclaimthenet.org/sony-deletes-551-studiocanal-movies-playstation-owners-paid-for" target="_blank" rel="noopener">Sony Wipes 551 Paid Movies From PlayStation Libraries</a></h2>
             <p class="story-summary">Sony Deletes 551 StudioCanal Movies PlayStation Owners Paid For Sony Deletes 551 StudioCanal Movies PlayStation Owners Paid For Skip to content</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This incident starkly illustrates the precarious nature of 'owning' digital content, revealing that consumers often merely license access rather than truly purchasing enduring assets. It underscores a critical issue in digital rights, eroding trust and setting a concerning precedent for the permanence and value of any digital purchases, from movies to games and software.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community overwhelmingly condemns Sony's action, arguing that companies are misrepresenting a revocable license as a &quot;purchase&quot; for digital content, a practice they see as fundamentally dishonest. There is a strong consensus on the urgent need for new legislation to protect consumers' rights to digital media, with many advocating for ownership of physical media or DRM-free downloads as the only true form of ownership. This incident further reinforces skepticism about the permanence of digital purchases from major platforms.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>reclaimthenet.org</span>
         <span>·</span>
@@ -420,7 +433,7 @@
         <span>·</span>
         <span>by bilsbie</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://reclaimthenet.org/sony-deletes-551-studiocanal-movies-playstation-owners-paid-for" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48747389" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -431,20 +444,20 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🕷️ Biomechanics</div>
-            
+
             <h2 class="story-title"><a href="https://phys.org/news/2026-06-newly-australian-ballista-spider-snare.html" target="_blank" rel="noopener">Newly Discovered Spider Deploys Spring-Loaded Snare to Catch Ants</a></h2>
             <p class="story-summary">Community discussion highlights: I wonder why biological organisms are capable of such absurdly high accelerations. Article reminded me of cnidocytes which apparently produce anywhere between 40,000 and 5,410,000 g. Is it because of the small masses involved?</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This discovery of a spider's spring-loaded snare illuminates the remarkable biomechanical ingenuity in nature, showcasing how small biological organisms can achieve astonishingly high accelerations. The community insight correctly identifies that the physics of tiny masses allows for extreme g-forces, enabling specialized predatory or defensive mechanisms impossible for larger creatures. This intersection of physics and biology reveals the profound efficiency and precision of evolutionary engineering at the micro-scale.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community is largely captivated by the newly discovered spider's ingenious spring-loaded snare, expressing profound fascination with its unique evolutionary adaptation and the underlying biological mechanisms. Many commenters ponder how such a specialized hunting method evolved and readily connect it to other examples of complex animal intelligence and natural survival strategies. There's also some interest in specific details like the pheromone mechanism and a minor complaint about the article's website experience.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>phys.org</span>
         <span>·</span>
@@ -454,7 +467,7 @@
         <span>·</span>
         <span>by chimpanzee</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://phys.org/news/2026-06-newly-australian-ballista-spider-snare.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48711052" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -465,20 +478,20 @@
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">💰 Business &amp; HR</div>
-            
+
             <h2 class="story-title"><a href="https://mynintendonews.com/2026/06/26/nintendo-has-raised-its-employees-base-salary-by-10/" target="_blank" rel="noopener">Nintendo Hikes Base Salary 10% for Talent Retention</a></h2>
             <p class="story-summary">Nintendo has raised its employees base salary by 10% - My Nintendo News Nintendo has raised its employees base salary by 10% Nintendo president Shuntaro Furukawa has stated to shareholders that the Kyoto-based company has now raised its base salary for employees by 10% in a move to retain talent. Furukawa told investors today via machine translation. We maintain salaries at an appropriate level.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Nintendo's 10% base salary increase, explicitly aimed at talent retention, underscores the intense competition for skilled professionals in the global tech and gaming sectors and reflects a proactive investment in human capital. This strategic move not only enhances employee morale and loyalty but also positions Nintendo as a desirable employer amidst inflationary pressures, potentially influencing industry compensation standards.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views Nintendo's 10% base salary increase for its Japanese employees as a positive and commendable step, especially within the context of Japan's typically stagnant wages. Many commenters highlight Nintendo's commitment to employee welfare in Japan, contrasting it with other gaming companies or the perceived underpayment at Nintendo of America. This move is seen as reflecting Nintendo's unique corporate culture and success in the industry.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>mynintendonews.com</span>
         <span>·</span>
@@ -488,7 +501,7 @@
         <span>·</span>
         <span>by _tk_</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://mynintendonews.com/2026/06/26/nintendo-has-raised-its-employees-base-salary-by-10/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48745113" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -496,11 +509,36 @@
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · July 02, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-07-01.html">
+        <small>Previous issue</small>
+        <strong>← July 01, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-07-03.html">
+        <small>Next issue</small>
+        <strong>→ July 03, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

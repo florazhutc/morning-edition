@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — June 14, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 039, June 14, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — June 14, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Sunday</div>
-        <div class="masthead-year">June 14, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 039</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Sunday</span>
+                    <time datetime="2026-06-14">June 14, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,27 +167,27 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">📊 **Data Privacy Policy**</div>
-            
+
             <h2 class="story-title"><a href="https://desfontain.es/blog/banning-noise.html" target="_blank" rel="noopener">Census Bureau Nixes Confidentiality-Protecting 'Noise Infusion,' Sparking Fears for Data Integrity</a></h2>
             <p class="story-summary">Banning noise will be a disaster for statistical data products - Ted is writing things Last week , the United States Department of Commerce issued an order declaring that &quot;noise infusion&quot; will be banned from all statistical products
 published by the Census Bureau and the Bureau of Economic Analysis. What does it mean, and why should you care? Statistical products are a bunch of numbers published from a secret dataset. Often, that dataset contains confidential information, and it is important that
 the numbers don't reveal that information.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The Census Bureau's decision to ban &quot;noise infusion,&quot; a technique used for differential privacy, marks a critical shift that prioritizes apparent statistical precision over individual data privacy. This move, while potentially yielding seemingly more accurate public statistics, removes a vital layer of protection for confidential underlying data. Consequently, it risks undermining public trust in government data handling and could have significant implications for the security and ethical use of sensitive information.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses concern over the Census Bureau's decision to ban noise infusion (differential privacy). Many commenters argue that such privacy protections are essential to maintain public trust and prevent data misuse, fearing that their absence will ultimately lead to less accurate data as individuals become reluctant to participate honestly. While some acknowledge the inherent tension between data utility and privacy, the dominant sentiment emphasizes the long-term importance of privacy safeguards for the integrity and trustworthiness of census data.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>desfontain.es</span>
         <span>·</span>
@@ -184,7 +197,7 @@ the numbers don't reveal that information.</p>
         <span>·</span>
         <span>by nl</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://desfontain.es/blog/banning-noise.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48517377" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -195,20 +208,20 @@ the numbers don't reveal that information.</p>
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">Python &amp; WebAssembly 🐍🌐</div>
-            
+
             <h2 class="story-title"><a href="https://blog.pyodide.org/posts/314-release/" target="_blank" rel="noopener">PEP 783 Powers Pyodide 314.0: Python WebAssembly Wheels Land on PyPI</a></h2>
             <p class="story-summary">Experimental Support for Socket Operations in Node.js JavaScript Resource Management and Python Context Managers We are pleased to announce the Pyodide 314.0 release. This release focuses on standardization and packaging, marking a significant milestone in the Python-in-the-browser ecosystem. PEP 783 is Accepted: What Does It Mean?</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Pyodide 314.0's support for publishing WebAssembly wheels directly to PyPI dramatically streamlines the use of Python packages in browser environments. This standardization of distribution eliminates significant friction for web developers, enabling easier integration of Python's rich ecosystem into client-side applications. It marks a critical milestone for Python-in-the-browser, fostering broader adoption and bridging the gap between Python's backend strengths and interactive web experiences.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is overwhelmingly enthusiastic about Pyodide 314.0, recognizing its game-changing ability to publish and install WebAssembly wheels directly from PyPI. This advancement fundamentally transforms &quot;Python in the browser&quot; into a practical reality, greatly simplifying the deployment of complex Python libraries for applications like educational tools, scientific notebooks, and even spreadsheet integration.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.pyodide.org</span>
         <span>·</span>
@@ -218,7 +231,7 @@ the numbers don't reveal that information.</p>
         <span>·</span>
         <span>by agriyakhetarpal</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.pyodide.org/posts/314-release/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48462759" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -229,20 +242,20 @@ the numbers don't reveal that information.</p>
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">💡 Tech Innovation</div>
-            
+
             <h2 class="story-title"><a href="https://www.renaultgroup.com/en/magazine/energy-and-powertrains/all-about-electric-motors-with-no-rare-earths/" target="_blank" rel="noopener">Renault Champions Rare-Earth-Free EV Motors Amid Magnet-Heavy Market</a></h2>
             <p class="story-summary">An electric motor with no rare earths: cutting-edge technology - Renault Group All about electric motors with no rare earths A historical pioneer in the complex technology of electric motors without magnets, i.e. with no rare earths , Renault Group is continuing to set itself apart on a market where 90% of electric cars have motors with magnets. Discover the range of electric motors by Renault Group.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Renault's focus on rare-earth-free electric motors marks a significant strategic pivot, addressing critical supply chain vulnerabilities and environmental concerns associated with traditional magnet-based designs. This technological differentiation positions the company as an innovator in sustainable EV manufacturing, potentially offering enhanced geopolitical independence and cost stability in the long term.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views &quot;electric motors with no rare earths&quot; not as a groundbreaking innovation, but as a rediscovery of century-old technology like electrically excited synchronous motors (EESMs) or wound-rotor motors. Commenters point out known disadvantages of these designs, such as requiring brushes, and note that more advanced rare-earth-free alternatives are already in production (e.g., by BMW), suggesting any real innovation must lie in their miniaturization and efficiency for modern EV applications rather than the core concept itself.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>renaultgroup.com</span>
         <span>·</span>
@@ -252,7 +265,7 @@ the numbers don't reveal that information.</p>
         <span>·</span>
         <span>by bestouff</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.renaultgroup.com/en/magazine/energy-and-powertrains/all-about-electric-motors-with-no-rare-earths/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48510010" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -263,20 +276,20 @@ the numbers don't reveal that information.</p>
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">💼 Corporate Influence</div>
-            
+
             <h2 class="story-title"><a href="https://www.wsj.com/tech/ai/amazon-ceos-talks-with-u-s-officials-triggered-crackdown-on-anthropic-models-dcc90578?st=Yct6gx&reflink=desktopwebshare_permalink" target="_blank" rel="noopener">Amazon CEO Talks With U.S. Officials Spark Anthropic AI Crackdown</a></h2>
             <p class="story-summary">https://www.wsj.com/tech/ai/amazon-ceos-talks-with-u-s-offic...</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This report reveals the significant influence of major tech CEOs in shaping nascent regulatory landscapes, highlighting how corporate concerns can directly trigger government scrutiny of AI models. Amazon's CEO leveraging direct talks with U.S. officials to scrutinize Anthropic suggests intense competitive dynamics, where incumbents might use policy to manage perceived risks or gain strategic advantage in the rapidly evolving AI sector. Such actions underscore the critical intersection of corporate strategy, lobbying power, and emerging technology regulation.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely views the reported reason for the crackdown—jailbreaking—with skepticism, noting it's a known issue across all LLMs. Many commenters suggest the government's intervention is more likely a regulatory shakedown or a broader attempt to control advanced AI capabilities. While Amazon has a stake in Anthropic, some believe Amazon's involvement could stem from its own compliance concerns regarding data retention or its willingness to cooperate with the government as a key customer, gaining negotiating power in the process.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>wsj.com</span>
         <span>·</span>
@@ -286,7 +299,7 @@ the numbers don't reveal that information.</p>
         <span>·</span>
         <span>by ls612</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.wsj.com/tech/ai/amazon-ceos-talks-with-u-s-officials-triggered-crackdown-on-anthropic-models-dcc90578?st=Yct6gx&reflink=desktopwebshare_permalink" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48519092" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -297,20 +310,20 @@ the numbers don't reveal that information.</p>
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">🧬 Biotech Innovation</div>
-            
+
             <h2 class="story-title"><a href="https://innovativegenomics.org/news/crispr-technique-selectively-shreds-cancer-cells/" target="_blank" rel="noopener">CRISPR Chromatin Shredder Destroys Untreatable Cancers by Targeting Common Mutation</a></h2>
             <p class="story-summary">New CRISPR Technique Selectively Shreds Cancer Cells, Including “Undruggable” Cancers - Innovative Genomics Institute (IGI) New CRISPR Technique Selectively Shreds Cancer Cells, Including “Undruggable” Cancers Innovative chromatin shredding technique shown to selectively destroy cancer cells carrying a mutation found in nearly half of all cancer cases The job of a tumor suppressor protein is right in the name: stopping us from getting cancer at the cellular level. But when they’re not working properly, the cell is left with limited defenses.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This groundbreaking CRISPR technique presents a significant leap in oncology, offering a precise method to target previously &quot;undruggable&quot; cancers by exploiting common tumor suppressor mutations. By selectively shredding chromatin, it bypasses the limitations of conventional therapies, potentially revolutionizing treatment for a substantial portion of cancer patients. This approach underscores the growing power of gene-editing to create highly targeted and effective therapeutic strategies.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community shows a cautious optimism for this CRISPR advancement, with many expressing hope for its potential against &quot;undruggable&quot; cancers and a general excitement for progress in the field. However, this enthusiasm is tempered by significant skepticism regarding CRISPR's perceived &quot;overhype,&quot; practical challenges like delivery mechanisms, and the long road to FDA approval, suggesting clinical application is still years away.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>innovativegenomics.org</span>
         <span>·</span>
@@ -320,7 +333,7 @@ the numbers don't reveal that information.</p>
         <span>·</span>
         <span>by gmays</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://innovativegenomics.org/news/crispr-technique-selectively-shreds-cancer-cells/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48505231" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -331,20 +344,20 @@ the numbers don't reveal that information.</p>
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">AI Misconduct in Law Enforcement ⚖️</div>
-            
+
             <h2 class="story-title"><a href="https://news.sky.com/story/derbyshire-police-officer-investigated-for-using-ai-to-create-evidence-in-multiple-cases-13553661" target="_blank" rel="noopener">Police Officer Probed for AI-Fabricated Evidence in Multiple Cases</a></h2>
             <p class="story-summary">Community discussion highlights: per ft.com: https://archive.fo/BIOej [The Derbyshire Police] declined to give more detail about what the evidential material consisted of. The term [evidential material] can be used to describe witness statements.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This incident exposes a deeply concerning frontier of AI misuse, where an officer allegedly fabricated evidence, potentially even witness statements, to build cases. It not only risks perverting justice and eroding public trust in law enforcement but also underscores the urgent need for robust ethical guidelines and legal frameworks to prevent AI from becoming a tool for deception within sensitive domains like criminal justice.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses profound concern that a police officer using AI to create &quot;evidence&quot; severely undermines the integrity of the justice system, making entire classes of evidence potentially unreliable. Commenters advocate for systemic responses, including automatic reviews of all cases handled by the implicated officer and implementing technical safeguards like content credentials for police cameras. There is also significant speculation about the nature of the AI fabrication, ranging from &quot;enhancing&quot; blurry images to fabricating witness statements, highlighting the novel challenges this presents.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>news.sky.com</span>
         <span>·</span>
@@ -354,7 +367,7 @@ the numbers don't reveal that information.</p>
         <span>·</span>
         <span>by austinallegro</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://news.sky.com/story/derbyshire-police-officer-investigated-for-using-ai-to-create-evidence-in-multiple-cases-13553661" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48520807" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -365,20 +378,20 @@ the numbers don't reveal that information.</p>
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">🤖 AI &amp; Open Source</div>
-            
+
             <h2 class="story-title"><a href="https://openai.com/form/codex-for-oss/" target="_blank" rel="noopener">New Program Grants GPT5.5 Access to Bolster Open Source Security</a></h2>
             <p class="story-summary">Community discussion highlights: I think programs like this are cool, the company gets to promote their product and do good at the same time. This looks like a broader program than past ones and giving out GPT5.5 could be meaningful in improving open-source projects' security.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This initiative highlights a growing trend where tech companies strategically align their product promotion with impactful community contributions, specifically leveraging advanced AI like GPT5.5 to bolster open-source project security. Such programs represent a significant resource injection into the open-source ecosystem, potentially accelerating development and security improvements beyond what individual projects could achieve independently.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is largely skeptical and critical of the &quot;Codex for Open Source&quot; program, primarily viewing the 6-month free offer as a tactic to hook maintainers into paid subscriptions rather than a genuine, sustainable commitment to open source. Commenters frequently describe the limited free period as &quot;stingy&quot; and akin to a &quot;drug dealer's tactic,&quot; expressing concern that it encourages unsustainable work patterns. Furthermore, several maintainers with established projects report not receiving responses to their applications, suggesting the program's accessibility is also a point of contention.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>openai.com</span>
         <span>·</span>
@@ -388,7 +401,7 @@ the numbers don't reveal that information.</p>
         <span>·</span>
         <span>by EvgeniyZh</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://openai.com/form/codex-for-oss/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48497195" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -399,20 +412,20 @@ the numbers don't reveal that information.</p>
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">AI &amp; Project Management 🤖</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/Paca-AI/paca" target="_blank" rel="noopener">Paca: Free, Lightweight Jira Alternative Where Humans and AI Are Equal Teammates</a></h2>
             <p class="story-summary">I built Paca out of pure passion—a free and lightweight Jira alternative written in Go where humans and AI agents work together as equal teammates to plan sprints and assign tasks to each other. It is fully customizable with custom views, fields, and a WASM-based plugin architecture. My team uses it daily for our own development, so it will be continuously maintained and completely free forever</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Paca addresses common frustrations with existing project management tools by offering a lightweight, free Jira alternative with a novel approach to human-AI collaboration. Its core innovation allows AI agents to act as equal teammates in sprint planning and task assignment, potentially streamlining agile workflows beyond traditional AI assistance. The customizable, WASM-based architecture and commitment to continuous, free maintenance position it as a compelling option for teams seeking future-proof productivity.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community shows strong interest in lightweight Jira alternatives with good CLI/MCP and self-hosting capabilities, appreciating Paca's free offering. However, significant concerns revolve around the AI integration, specifically regarding data privacy, potential for AI errors, and the long-term sustainability of a 100% free model.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -422,7 +435,7 @@ the numbers don't reveal that information.</p>
         <span>·</span>
         <span>by pikann22</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/Paca-AI/paca" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48515385" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -433,20 +446,20 @@ the numbers don't reveal that information.</p>
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🎨 UI/UX Design</div>
-            
+
             <h2 class="story-title"><a href="https://tonsky.me/blog/every-frame-perfect/" target="_blank" rel="noopener">UI Motion: Why Instant Snaps Often Beat 'Every Frame Perfect</a></h2>
             <p class="story-summary">Community discussion highlights: I'm sure a UI that had none of these imperfect frames would feel better, but now I really want someone to edit each of these clips to show what it would actually look like. At the same time, why does everything need motion? My understanding is that motion should be used if an action subtly changes the UI in a region that's different from where the action was triggered (e.g. toasts) I think many of these transitions are unnecessary and would feel just as good if they snapped immediately with inst</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This discussion critically examines the often-overlooked trade-off between fluid UI animations and immediate user feedback. It questions the pervasive use of motion, arguing that imperfect frames or unnecessary transitions can degrade usability more than they enhance it. The underlying sentiment advocates for intentional design: either flawless, purposeful animations or instant, snappy responses, prioritizing user experience over gratuitous visual effects.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely agrees that some of the animation examples presented are indeed poor. However, there's a strong consensus that the article's argument is weakly presented, lacking positive examples or practical alternatives. Many commenters prioritize low latency and functional UI over perfectly rendered animation frames, with some questioning the fundamental necessity of extensive motion in user interfaces.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>tonsky.me</span>
         <span>·</span>
@@ -456,7 +469,7 @@ the numbers don't reveal that information.</p>
         <span>·</span>
         <span>by ravenical</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://tonsky.me/blog/every-frame-perfect/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48516251" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -467,20 +480,20 @@ the numbers don't reveal that information.</p>
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">⚖️ Regulation &amp; Oversight</div>
-            
+
             <h2 class="story-title"><a href="https://www.nytimes.com/2026/06/13/technology/states-investigating-openai.html" target="_blank" rel="noopener">State AGs Probe OpenAI Over Data Privacy, Child Safety, and Advertising Practices</a></h2>
             <p class="story-summary">State Attorneys General Are Investigating OpenAI - The New York Times You have a preview view of this article while we are checking your access. When we have confirmed access, the full article content will load. A coalition of states has opened a wide-ranging investigation into the artificial intelligence start-up OpenAI, the company said Saturday, adding to a growing backlash over A.I. State attorneys general subpoenaed OpenAI on Friday asking for internal documents on its practices, including its handling of user data, safety of minors and advertising activities, according to the company.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This multi-state investigation by Attorneys General represents a significant escalation in regulatory pressure on leading AI firms like OpenAI, moving from conceptual policy discussions to concrete legal probes into their operational practices. It signals a growing governmental focus on data privacy, child safety, and advertising ethics within the AI space, indicating that the era of largely unchecked innovation may be drawing to a close. This scrutiny will likely force AI companies to prioritize robust compliance frameworks and ethical AI development, potentially shaping future industry standards and the pace of innovation.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The provided comments do not reveal a community consensus regarding the investigation into OpenAI. Instead, one user shared personal observations about ChatGPT's inconsistent behavior when discussing sensitive topics, while another merely pointed out a typo in the article's subtitle. These remarks offer individual observations rather than a collective stance on the news.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>nytimes.com</span>
         <span>·</span>
@@ -490,7 +503,7 @@ the numbers don't reveal that information.</p>
         <span>·</span>
         <span>by donohoe</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.nytimes.com/2026/06/13/technology/states-investigating-openai.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48522675" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -498,11 +511,36 @@ the numbers don't reveal that information.</p>
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 14, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-06-13.html">
+        <small>Previous issue</small>
+        <strong>← June 13, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-06-15.html">
+        <small>Next issue</small>
+        <strong>→ June 15, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

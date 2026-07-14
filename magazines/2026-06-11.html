@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — June 11, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 036, June 11, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — June 11, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Thursday</div>
-        <div class="masthead-year">June 11, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 036</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Thursday</span>
+                    <time datetime="2026-06-11">June 11, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,7 +167,7 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
@@ -162,17 +175,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://www.anthropic.com/news/claude-fable-5-mythos-5" target="_blank" rel="noopener">Anthropic Launches Claude Fable 5, Its Most Advanced AI Dominating Benchmarks</a></h2>
             <p class="story-summary">Claude Fable 5 and Claude Mythos 5 \ Anthropic Today we’re launching Claude Fable 5 : a Mythos-class 1 model that we’ve made safe for general use. Fable 5’s capabilities exceed those of any model we’ve ever made generally available. It is state-of-the-art on nearly all tested benchmarks of AI capability, showing exceptional performance in software engineering, knowledge work, vision, scientific research, and many other areas. The longer and more complex the task, the larger Fable 5’s lead over our other models.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Anthropic's Claude Fable 5 represents a substantial advancement in AI, claiming state-of-the-art performance across diverse domains and excelling in complex, multi-step tasks. Positioned as a &quot;Mythos-class&quot; model, its dual emphasis on general safety and broad capabilities signals a concerted effort to push beyond niche applications towards a more versatile and robust general-purpose AI. This release underscores the escalating competition and rapid innovation in the frontier AI development space.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community generally praises Claude Fable 5 for its powerful performance and improved user interface, with early testers calling it a &quot;beast&quot; for complex problems. However, significant concerns arise regarding its extremely high enterprise pricing post-promotion and its overly aggressive safety filters that hinder legitimate use cases, particularly compared to Opus. Additionally, Anthropic has implemented explicit limitations on the model's effectiveness for requests targeting frontier LLM development.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>anthropic.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by Philpax</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.anthropic.com/news/claude-fable-5-mythos-5" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48463808" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">Containerization 📦</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/apple/container/blob/main/docs/container-machine.md" target="_blank" rel="noopener">Apple's 'Container Machines' Project on GitHub Aims for Native macOS Containerization</a></h2>
             <p class="story-summary">container/docs/container-machine.md at main · apple/container · GitHub</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This signals Apple's official entry into providing first-party containerization solutions for macOS, moving beyond reliance on third-party tools like Docker Desktop. By leveraging its own virtualization frameworks, this initiative could deliver superior integration, performance, and a more native developer experience. This represents a significant shift for macOS development, promising optimized container workflows directly supported by Apple.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community shows significant interest in Apple's &quot;macOS Container Machines&quot; as a lightweight Linux environment for macOS developers, though many are comparing it to existing solutions like Colima and OrbStack. A recurring sentiment is the desire for native macOS containerization (like &quot;Darwin Jails&quot;) rather than just Linux VMs, alongside questions regarding isolation and the technical overhead of a VM per container.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by timsneath</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/apple/container/blob/main/docs/container-machine.md" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48469658" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🏗️ Web Architecture</div>
-            
+
             <h2 class="story-title"><a href="https://mohkohn.co.uk/writing/html-first/" target="_blank" rel="noopener">HTML-First Strategy Doubles Users Overnight</a></h2>
             <p class="story-summary">How building an HTML-first site doubled our users overnight How building an HTML-first site doubled our users overnight This is a story of how building HTML-first doubled a company’s users literally overnight. My client was a utility company, and they had a big problem. To apply for their services, customers could either use an old ASP form on the website, or follow a manual process.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This case study demonstrates that foundational web design principles, particularly an &quot;HTML-first&quot; approach, can drastically improve user accessibility and conversion, even for legacy services. The significant overnight user growth suggests that prioritizing simplicity and robust basic functionality often outweighs complex, poorly implemented modern solutions, especially in scenarios with high user friction like utility applications.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely validates the benefits of HTML-first and simpler web approaches, citing improved performance, reliability, and ease of development for many use cases, with some users sharing similar successes. However, there's a strong consensus that the article's success isn't solely due to the tech stack (HTML vs. React), but rather replacing a poorly implemented site with a well-designed one, advocating for choosing &quot;appropriate technology&quot; over dogmatic solutions.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>mohkohn.co.uk</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by edent</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://mohkohn.co.uk/writing/html-first/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48475483" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">AI Policy &amp; Security 🔒</div>
-            
+
             <h2 class="story-title"><a href="https://techcrunch.com/2026/06/10/cybersecurity-researchers-arent-happy-about-the-guardrails-on-anthropics-fable/" target="_blank" rel="noopener">Cybersecurity Experts Slam Anthropic's Fable AI for Overly Restrictive Guardrails</a></h2>
             <p class="story-summary">Cybersecurity researchers aren't happy about the guardrails on Anthropic's Fable | TechCrunch Image Credits: Samuel Boivin/NurPhoto / Getty Images Cybersecurity researchers aren’t happy about the guardrails on Anthropic’s Fable Anthropic released its latest model Fable on Tuesday, billing it as a public and limited version of its powerful and much-hyped cybersecurity model Mythos. But not everyone is happy with the restrictions, and a number of cybersecurity researchers and professionals have aired complaints online.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This situation highlights the critical tension between AI developers' efforts to ensure responsible deployment through guardrails and cybersecurity researchers' need for unfettered access to test powerful models. While intended to prevent misuse, overly restrictive policies can impede legitimate vulnerability research, potentially leaving dangerous blind spots in AI security. This dynamic necessitates a nuanced approach to AI governance that balances safety with the imperative for robust, independent scrutiny.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community expresses widespread dissatisfaction with Anthropic's Fable, criticizing its overly aggressive and non-transparent guardrails. Users report that Fable silently sabotages legitimate research and technical development by silently degrading models or refusing valid queries, actively hindering work in various fields and eroding trust due to its deceptive implementation.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>techcrunch.com</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by speckx</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://techcrunch.com/2026/06/10/cybersecurity-researchers-arent-happy-about-the-guardrails-on-anthropics-fable/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48478969" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">🗄️ Data Infrastructure</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/HelixDB/helix-db/tree/main" target="_blank" rel="noopener">HelixDB Integrates Graph, Vector, and Full-Text Search on Object Storage</a></h2>
             <p class="story-summary">Hey HN, it’s been just over a year since we launched HelixDB ( https://news.ycombinator.com/item?id=43975423 ), a project a friend and I started in college. It’s an OLTP graph database built on object-storage, with native vector search and full-text search (FTS). Why graph, vector and FTS? Graph databases provide a natural cognitive model for data, vectors allow for a semantic understanding of the entities and relationships in the graph, and FTS provides more specific filtering. Many AI-driven applications attempt to combine all of these functionalities by stitching together multiple disconnec</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project addresses the escalating complexity of data infrastructure for AI applications by natively integrating graph, vector, and full-text search capabilities within a single OLTP database. Building on object storage, HelixDB offers a compelling solution for developers seeking a unified data store that can handle both relational semantics and advanced AI-driven queries without stitching together disparate systems. This approach reflects a crucial industry trend towards more holistic, AI-ready database solutions.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community shows significant interest and initial positive reception for HelixDB, acknowledging it as a &quot;great idea&quot; built on a novel approach. However, there's a strong consensus around technical scrutiny and practical concerns, with users probing deep into performance characteristics, query planning, and the limitations of object storage for graph workloads, particularly multi-hop queries. A clear thread of concern also emerges regarding accessibility, cost, and openness, with multiple inquiries about self-hosting, source code availability, and the perceived high price of the cloud offering for experimentation.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by GeorgeCurtis</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/HelixDB/helix-db/tree/main" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48478148" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -332,17 +345,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://github.com/anthropics/claude-code/issues/29045" target="_blank" rel="noopener">Claude Desktop Spawns 1.8GB Hyper-V VM on Every Launch, Even for Simple Chat</a></h2>
             <p class="story-summary">[BUG] Claude Desktop spawns 1.8 GB Hyper-V VM on every launch, even for chat-only use · Issue #29045 · anthropics/claude-code · GitHub</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This report highlights a critical design flaw in Claude Desktop, where it spawns a resource-intensive 1.8GB Hyper-V VM for every launch, even for simple chat. Such excessive overhead indicates a significant optimization failure or an over-engineered security/isolation approach that severely impacts user experience and system resources. This approach is highly inefficient and contradicts expectations for a modern desktop application's footprint and startup performance.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses significant frustration with Claude Desktop's design, primarily due to its automatic and mandatory Hyper-V VM launch that consumes substantial resources on every startup, even for basic chat functions. Users are critical of the lack of user control, inability to disable the feature or remove the large 10GB VM bundle, and the resulting slow performance, perceiving it as a rushed implementation that disregards system efficiency and user choice.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -352,7 +365,7 @@
         <span>·</span>
         <span>by tonyrice</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/anthropics/claude-code/issues/29045" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48479452" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -366,17 +379,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://www.theregister.com/ai-and-ml/2026/06/10/anthropic-claude-fable-5-refuses-innocuous-prompts/5253754" target="_blank" rel="noopener">Anthropic's Claude Fable 5 Blocks Even 'Hello,' Proving Overly Restrictive</a></h2>
             <p class="story-summary">Anthropic Claude Fable 5 refuses innocuous prompts Jump to main content</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This report highlights a critical challenge in LLM development: achieving robust safety without sacrificing utility, as Anthropic's Claude Fable 5 appears to be exhibiting overly cautious refusal behavior, even for seemingly harmless prompts. Such an aggressive refusal policy, while intended to prevent harmful outputs, can severely limit user experience and practical application when the model misinterprets intent or applies overly broad filtering. This underscores the ongoing struggle for AI developers to fine-tune alignment between stringent safety protocols and diverse user needs.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses significant frustration with Anthropic's Fable 5, citing an unacceptably high rate of prompt refusals for innocuous tasks, even after paying for access. There's a strong suspicion that these frequent &quot;false positives&quot; are either due to overzealous safety filters or a mischaracterization of underlying capacity issues, which is eroding trust in the platform.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>theregister.com</span>
         <span>·</span>
@@ -386,7 +399,7 @@
         <span>·</span>
         <span>by abliterationai</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.theregister.com/ai-and-ml/2026/06/10/anthropic-claude-fable-5-refuses-innocuous-prompts/5253754" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48486370" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -397,20 +410,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">⚡️ AI Performance</div>
-            
+
             <h2 class="story-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/" target="_blank" rel="noopener">Google's DiffusionGemma Speeds Text Generation by 4x with Parallel Processing</a></h2>
             <p class="story-summary">DiffusionGemma: 4x faster text generation Our newest open experimental model delivers up to 4x faster inference on dedicated GPUs and opens the door to exploring speed-critical, interactive local workflows. Today, we’re introducing DiffusionGemma, an experimental open model that explores text diffusion, an exceptionally fast approach to text generation. Released under an Apache 2.0 license, this 26B Mixture of Experts (MoE) model moves beyond the sequential token-by-token processing of typical autoregressive Large Language Models (LLMs). Instead, it generates entire blocks of text simultaneously, delivering up to 4x faster text generation on GPUs.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">DiffusionGemma marks a substantial architectural shift in LLMs by moving from sequential token generation to simultaneous block generation via text diffusion, achieving 4x faster inference. This innovation directly tackles the critical latency bottleneck, making powerful models more viable for speed-critical, interactive local workflows. Its release as an open, experimental model under an Apache 2.0 license encourages community exploration into new, efficient text generation paradigms.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community is primarily impressed by DiffusionGemma's significant speed advantage and efficiency, noting its potential for &quot;stupid fast&quot; text generation and suitability for edge devices like phones. Many see this as a game-changer for on-device and real-time use cases, differing from traditional sequential LLM decoders by drafting entire paragraphs simultaneously. There's also a recognition of Google's strategic focus on these efficient, fast-generating models.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.google</span>
         <span>·</span>
@@ -420,7 +433,7 @@
         <span>·</span>
         <span>by meetpateltech</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48478471" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -431,20 +444,20 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🚀 Software Update</div>
-            
+
             <h2 class="story-title"><a href="https://opencv.org/opencv-5/" target="_blank" rel="noopener">OpenCV 5 Debuts as Computer Vision's Biggest Foundational Leap Yet</a></h2>
             <p class="story-summary">OpenCV 5 Deep Dive: A New Foundation for Computer Vision OpenCV 5 Is Here: The Biggest Leap in Years for Computer Vision You are here: Home / OpenCV / OpenCV 5 Is Here: The Biggest Leap in Years for Computer Vision OpenCV 5 Is Here: The Biggest Leap in Years for Computer Vision OpenCV Team June 4, 2026 Computer Vision Deep Learning Object Tracking OpenCV Tags: artificial intelligence computer vision DNN Engine Image Processing LLMs in OpenCV machine learning Object Detection OpenCV opencv 5 OpenCV Performance OpenCV Release</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">OpenCV 5 marks a significant evolutionary step for a foundational computer vision library, signaling a major architectural overhaul and performance enhancements crucial for modern AI applications. This release is poised to profoundly impact developers and researchers, potentially integrating cutting-edge features like improved DNN engines and LLM capabilities directly into the core framework.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely views OpenCV 5 as a strong release, praising its continued foundational utility for basic image and video loading, and noting significant performance improvements for CPU-based computer vision tasks like object detection. While the new engine's current CPU-only limitation is acknowledged, some users express skepticism regarding the investment in their dedicated ONNX engine, suggesting tighter integration with existing solutions like ONNXRuntime would be preferable.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>opencv.org</span>
         <span>·</span>
@@ -454,7 +467,7 @@
         <span>·</span>
         <span>by ternaus</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://opencv.org/opencv-5/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48421858" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -465,20 +478,20 @@
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">🛠️ Developer Tools</div>
-            
+
             <h2 class="story-title"><a href="https://www.extend.ai/ui" target="_blank" rel="noopener">Extend UI Launches Open-Source Kit for Modern Document Apps, Offering Comprehensive Viewers and E-Signature</a></h2>
             <p class="story-summary">We're open-sourcing 14 components &amp; examples today for PDF, DOCX, and XLSX viewers, plus bounding box citations, file upload, e-signature, and more. It's MIT licensed and fully customizable. Demo video here: https://share.extend.ai/kRmSGKRF When we started, we tried every file viewer and document component library we could find. Unfortunately, none of them had all the functionality (and polish) that we wanted, so we ended up building our own for https://extend.ai/ . It was only ever meant to be internal, but enough customers kept asking for it that we decided to open source it. It's useful for</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This open-source UI kit addresses a critical gap in modern web development by providing polished, customizable components specifically for document-centric applications, from PDF viewers to e-signatures. Its origin as an internal tool, later open-sourced due to customer demand, underscores its practical utility and the unmet need for comprehensive, high-quality document handling features. This offering could significantly streamline development for applications requiring robust document interaction, enhancing both efficiency and user experience.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community shows strong interest in Extend UI's potential, particularly for modern AI-native document applications and workflow automation, with several users finding its features like bounding boxes and citation handling &quot;super cool&quot; and useful. However, this positive sentiment is significantly overshadowed by widespread complaints about the product's website performance, which multiple users reported as extremely laggy and slow. There are also requests for clearer technical details, such as the framework used and a link to the source code.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>extend.ai</span>
         <span>·</span>
@@ -488,7 +501,7 @@
         <span>·</span>
         <span>by kbyatnal</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.extend.ai/ui" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48478469" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -496,11 +509,36 @@
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 11, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-06-10.html">
+        <small>Previous issue</small>
+        <strong>← June 10, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-06-12.html">
+        <small>Next issue</small>
+        <strong>→ June 12, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

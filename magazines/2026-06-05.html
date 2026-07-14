@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — June 05, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 030, June 05, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — June 05, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Friday</div>
-        <div class="masthead-year">June 05, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 030</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Friday</span>
+                    <time datetime="2026-06-05">June 05, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">AI Philosophy 🤖</div>
-            
+
             <h2 class="story-title"><a href="https://maxleiter.com/blog/weights" target="_blank" rel="noopener">They're Made Out of Weights: The Mathematical Reality of AI Writing Your Performance Reviews</a></h2>
             <p class="story-summary">After Terry Bisson's &quot;They're Made Out of Meat&quot; . We checked the whole thing through. There's no dictionary in there, no grammar rules, no little man. Eighty layers of numbers getting multiplied together.&quot; It wrote my performance review last week.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece ingeniously leverages Terry Bisson's sci-fi story to offer a profound metaphor for modern AI, particularly large language models. It highlights how these systems, despite producing sophisticated outputs like performance reviews, are fundamentally opaque structures of 'weights' and numerical layers rather than explicitly programmed intelligence, underscoring the &quot;black box&quot; mystery of their operation.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is deeply divided on the philosophical implications of AI, particularly regarding whether large language models exhibit emergent consciousness or merely advanced pattern recognition. While some commenters find the idea of AI consciousness thought-provoking or even &quot;crazy&quot; in its normalization, many others express strong skepticism, often drawing on established works in philosophy and linguistics to dispute such claims. The discussion also touches on the technical mechanics of AI and the distinction between original human creative work and AI-generated pastiche.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>maxleiter.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by MaxLeiter</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://maxleiter.com/blog/weights" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48391611" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">📚🤖 AI &amp; Education</div>
-            
+
             <h2 class="story-title"><a href="https://www.dailycal.org/news/campus/academics/failing-grades-soar-as-professors-see-greater-ai-usage-dwindling-math-skills-in-uc-berkeley/article_16fad0bf-02cb-4b8c-8d88-888ffd9f8608.html" target="_blank" rel="noopener">AI Use and Declining Math Skills Drive Soaring Failures in Berkeley CS</a></h2>
             <p class="story-summary">Failing grades soar as professors see greater AI usage, dwindling math skills in UC Berkeley computer science classes | Academics | dailycal.org Skip to main content You have permission to edit this article.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This report from UC Berkeley identifies a critical challenge where increasing AI usage correlates with dwindling math skills and soaring failing grades in CS classes. It suggests that over-reliance on AI might be bypassing the development of essential foundational understanding, rather than enhancing it. This raises serious concerns about the long-term impact on academic integrity, genuine learning, and the preparedness of future tech professionals.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community generally agrees that students are indeed using AI tools like LLMs for assignments, often without understanding the underlying concepts, which contributes to poor academic performance. However, a significant counter-narrative suggests the primary driver of declining grades and math skills isn't AI usage itself, but rather the absence of standardized testing (ACT/SAT) in UC admissions, leading to less prepared students entering challenging CS programs. While some express concern about AI's misuse, the discussion often pivots to broader systemic issues of academic rigor and admissions standards.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>dailycal.org</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by littlexsparkee</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.dailycal.org/news/campus/academics/failing-grades-soar-as-professors-see-greater-ai-usage-dwindling-math-skills-in-uc-berkeley/article_16fad0bf-02cb-4b8c-8d88-888ffd9f8608.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48392004" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🤖 AI &amp; Machine Learning</div>
-            
+
             <h2 class="story-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/" target="_blank" rel="noopener">Google DeepMind's Gemma 4 12B Brings High-Performance Multimodal AI to Laptops</a></h2>
             <p class="story-summary">Introducing Gemma 4 12B: a unified, encoder-free multimodal model Gemma 4 12B is designed to bring high-performance multimodal intelligence directly to your laptop, combining mobile-first efficiency with advanced reasoning. Director of Product Management, Google Deepmind Your browser does not support the audio element. This content is generated by Google AI.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Gemma 4 12B signals a significant push towards democratizing powerful multimodal AI, making advanced reasoning capabilities accessible directly on personal devices. Its 'encoder-free' and 'mobile-first efficiency' design indicates an architecture optimized for local execution, reducing reliance on cloud infrastructure and fostering the development of more privacy-centric, on-device AI applications.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community acknowledges Gemma 4 12B's innovative encoder-free architecture, recognizing it as a key technical advancement that also improves resource efficiency, allowing it to run comfortably within 16GB VRAM. However, there's significant criticism regarding its multimodal (vision) performance, with multiple users reporting it as notably poor and often inaccurate. Many also question Google's underlying business strategy for releasing these open models, wondering about their motivations and impact on the broader AI ecosystem.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.google</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by rvz</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48385906" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🔒 Censorship &amp; AI</div>
-            
+
             <h2 class="story-title"><a href="https://discuss.privacyguides.net/t/south-korean-online-communities-will-need-to-scan-every-images-with-ai-censorship-tools/38341" target="_blank" rel="noopener">South Korea Mandates AI Censorship for All Online Forum Images</a></h2>
             <p class="story-summary">South Korean Online Communities Will Need to Scan Every Images with AI Censorship Tools - News - Privacy Guides Community</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">South Korea's mandate for AI-powered image scanning on online forums represents a significant escalation in digital content control and raises profound privacy concerns. This policy could lead to a chilling effect on freedom of expression as every user-uploaded image faces automated scrutiny, potentially stifling open discourse. It also sets a concerning precedent for algorithmic censorship and the erosion of digital rights within a democratic society.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views South Korea's new AI image censorship mandate with strong skepticism and disapproval. Commenters express significant concerns about the technical impracticality, the extremely short implementation deadline, and the severe implications for internet freedom, drawing parallels to more authoritarian nations. While acknowledging the societal problems that may have prompted the law, the consensus remains highly critical of the proposed solution and its execution.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>discuss.privacyguides.net</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by Cider9986</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://discuss.privacyguides.net/t/south-korean-online-communities-will-need-to-scan-every-images-with-ai-censorship-tools/38341" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48406198" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">🛡️ AI Security</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/anthropics/defending-code-reference-harness" target="_blank" rel="noopener">Anthropic Open-Sources AI Framework for Autonomous Code Vulnerability Discovery and Patching</a></h2>
             <p class="story-summary">GitHub - anthropics/defending-code-reference-harness: Skills for threat modeling, scanning, triage, patching, plus an autonomous scanning harness you can /customize · GitHub</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Anthropic's open-source framework represents a significant push to leverage advanced AI in practical cybersecurity, specifically for automating and enhancing the vulnerability discovery and remediation lifecycle. This comprehensive toolkit, encompassing threat modeling, scanning, triage, and patching via an autonomous harness, offers a customizable solution that could democratize sophisticated security tooling. Its release has the potential to elevate industry standards for proactive software defense and integrate AI more deeply into developer security workflows.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community acknowledges AI's strong potential for vulnerability discovery through pattern matching but expresses significant reservations about the practical utility of Anthropic's open-source framework. Commenters highlight high operational costs, the crucial need for custom, effective &quot;harnesses&quot; beyond the basic framework, and note the repo's 'not maintained' status. Overall, the sentiment suggests that while AI is a valuable tool in security, it's not a silver bullet and merely contributes to an ongoing &quot;arms race.&quot;</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by binyu</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/anthropics/defending-code-reference-harness" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48403980" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -329,20 +342,20 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">🚀 Programming Language Update</div>
-            
+
             <h2 class="story-title"><a href="https://elixir-lang.org/blog/2026/06/03/elixir-v1-20-0-released/" target="_blank" rel="noopener">Elixir 1.20 Embraces Gradual Typing After Years of Development</a></h2>
             <p class="story-summary">Elixir v1.20 released: now a gradually typed language - The Elixir programming language Elixir v1.20 released: now a gradually typed language June 03, 2026 · by José Valim · in Announcements In 2022, we announced the effort to add set-theoretic types to Elixir . In June 2023, we published an award winning paper on Elixir’s type system design and said our work was transitioning from research to development .</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The introduction of gradual typing in Elixir v1.20 marks a pivotal evolution, bridging the gap between dynamic flexibility and static analysis for enhanced code reliability. This significant feature, backed by years of research into set-theoretic types, aims to boost developer productivity and broaden Elixir's appeal, especially for larger, more complex systems.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely expresses excitement and positive anticipation for Elixir v1.20's introduction of gradual typing, viewing it as a significant step towards improved code quality and early bug detection. While many appreciate Elixir's consistent, stable upgrade path and &quot;free bug fixes&quot; from new compiler features, some users voice skepticism about the long-term effectiveness of adding types to a language not originally designed with them, and raise questions about potential performance implications.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>elixir-lang.org</span>
         <span>·</span>
@@ -352,7 +365,7 @@
         <span>·</span>
         <span>by cloud8421</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://elixir-lang.org/blog/2026/06/03/elixir-v1-20-0-released/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48388324" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -363,20 +376,20 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">🤖 AI DevTools</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">Alibaba Debuts AI-Powered Open Code Review CLI for Scalable, Precise Bug Detection</a></h2>
             <p class="story-summary">GitHub - alibaba/open-code-review: Battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in fine-tuned ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI &amp; Anthropic compatible.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This tool represents a significant step in AI-assisted development, blending traditional deterministic analysis with LLM capabilities to deliver precise, line-level code review feedback. Its proven effectiveness at Alibaba's scale, coupled with a fine-tuned ruleset for critical vulnerabilities, highlights its potential to dramatically enhance code quality and security in large-scale enterprise environments.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses strong interest in the potential of AI-powered code review to automate bottlenecks, noting the concept is valuable for developers. However, the current implementation of Open Code Review faces significant criticism for usability issues, including rule files being exclusively in Chinese and incompatibility with newer GPT models. Furthermore, while it shows good recall, its low precision and high rate of false positives make it less practical for real-world use.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -386,7 +399,7 @@
         <span>·</span>
         <span>by geoffbp</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48406358" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -397,20 +410,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">AI Evolution 🚀</div>
-            
+
             <h2 class="story-title"><a href="https://www.anthropic.com/institute/recursive-self-improvement" target="_blank" rel="noopener">AI Now Designs Its Own Successors</a></h2>
             <p class="story-summary">Our progress toward recursive self-improvement, and its implications. For most of AI’s history, humans drove every step in its development cycle. But at Anthropic, we are delegating a growing share of AI development to AI systems themselves, which is speeding up our work. Taken far enough, and given enough compute, that trend points to an AI system capable of fully autonomously designing and developing its own successor. This is called recursive self-improvement .</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Anthropic's pursuit of recursive self-improvement signifies a profound paradigm shift, transitioning AI development from human-driven design to systems capable of autonomously improving and designing their own successors. This delegation promises an unprecedented acceleration in AI capabilities, potentially leading to exponential growth in intelligence. However, it also introduces critical long-term challenges concerning control, alignment, and the ethical implications of a rapidly self-evolving AI.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses strong skepticism regarding Anthropic's claims of progress toward recursive self-improvement, often viewing the article as promotional material for an upcoming IPO rather than a genuine scientific update. Many commenters also raise significant ethical concerns about the pursuit of such technology, arguing that it should be strictly supervised or even forbidden, while also doubting the validity of &quot;lines of code&quot; as a meaningful metric for AI productivity gains.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>anthropic.com</span>
         <span>·</span>
@@ -420,7 +433,7 @@
         <span>·</span>
         <span>by meetpateltech</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.anthropic.com/institute/recursive-self-improvement" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48400842" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -431,20 +444,20 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🕯️ Obituary</div>
-            
+
             <h2 class="story-title"><a href="https://www.france24.com/en/culture/20260604-french-iranian-author-marjane-satrapi-author-of-persepolis-dies-at-56" target="_blank" rel="noopener">Marjane Satrapi, 'Persepolis' Author, Dies at 56 of &quot;Sadness</a></h2>
             <p class="story-summary">Marjane Satrapi, French-Iranian author of 'Persepolis', dies of 'sadness' at 56 - France 24 Marjane Satrapi, French-Iranian author of 'Persepolis', dies of 'sadness' at 56 French-Iranian author and illustrator Marjane Satrapi, best known for the book and film “Persopolis”, has died of &quot;sadness&quot;, members of her entourage said Thursday. Issued on: 04/06/2026 - 10:00 Modified: 04/06/2026 - 18:59 One of your browser extensions seems to be blocking the video player from loading.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Marjane Satrapi's passing at 56 represents a significant loss for global literature, with 'Persepolis' having profoundly shaped international understanding of Iranian culture and history through a personal lens. The reported cause of &quot;sadness&quot; adds a poignant, almost metaphorical, layer to her death, reflecting perhaps the immense emotional burden of chronicling such complex personal and political narratives. Her powerful legacy will undoubtedly continue to inspire empathy and critical dialogue across cultural divides.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community expresses deep sorrow over the death of Marjane Satrapi, primarily honoring her for her seminal work, &quot;Persepolis.&quot; Commenters widely praise the graphic novel and its film adaptation for its relatable storytelling and insightful depiction of Iranian history. There is also a notable sense of sadness and sympathy regarding the reported circumstances of her passing, often attributed to &quot;sadness&quot; following the loss of her husband.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>france24.com</span>
         <span>·</span>
@@ -454,7 +467,7 @@
         <span>·</span>
         <span>by fidotron</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.france24.com/en/culture/20260604-french-iranian-author-marjane-satrapi-author-of-persepolis-dies-at-56" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48397233" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -465,7 +478,7 @@
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">💻 Linux SysAdmin</div>
-            
+
             <h2 class="story-title"><a href="https://sigwait.org/~alex/blog/2026/05/28/smdBC8.html" target="_blank" rel="noopener">Build Persistent Debian or Fedora Live USBs to Keep Your Changes</a></h2>
             <p class="story-summary">Alexander Gromnitsky's Blog
    :: 2026-05-28
@@ -478,17 +491,17 @@ Number  Start   End     Size    File system  Name       Flags
  1      32.8kB  2897MB  2897MB               ISO9660    hidden, msftdata
  2      2897MB  2929MB  31.5MB  fat16        Appended2  boot, esp
         2929MB  2929MB  512B    Free Space</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This article addresses a common frustration with live USB images: the loss of changes upon reboot. By detailing how to make Debian or Fedora images persistent, it transforms a temporary diagnostic tool into a powerful, portable, and personalized operating system, offering significant utility for IT professionals and power users.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community demonstrates a range of effective strategies for creating persistent live images, highlighting that there isn't a single dominant consensus. Approaches vary from leveraging distro-specific utilities like Alpine's Local Backup Utility (LBU) or Ubuntu's disk-creator, to manual setups with separate persistent partitions or even full installations on external NVMe drives. While users appreciate simpler tools, they ultimately prioritize robust state management and flexibility across different use cases, often aware of the underlying UnionFS/OverlayFS technologies.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>sigwait.org</span>
         <span>·</span>
@@ -498,7 +511,7 @@ Number  Start   End     Size    File system  Name       Flags
         <span>·</span>
         <span>by henry_flower</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://sigwait.org/~alex/blog/2026/05/28/smdBC8.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48360414" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -506,11 +519,36 @@ Number  Start   End     Size    File system  Name       Flags
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 05, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-06-04.html">
+        <small>Previous issue</small>
+        <strong>← June 04, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-06-06.html">
+        <small>Next issue</small>
+        <strong>→ June 06, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

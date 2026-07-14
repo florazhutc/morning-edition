@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — July 13, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 068, July 13, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — July 13, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Monday</div>
-        <div class="masthead-year">July 13, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 068</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Monday</span>
+                    <time datetime="2026-07-13">July 13, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,7 +167,7 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
@@ -162,17 +175,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://systima.ai/blog/claude-code-vs-opencode-token-overhead" target="_blank" rel="noopener">Claude Code Sends 33K Hidden Tokens Before Prompts, Making It 4.7x Less Efficient Than OpenCode</a></h2>
             <p class="story-summary">Claude Code Sends 4.7x More Tokens Than OpenCode Before Reading Your Prompt | Systima Blog We put Claude Code and OpenCode on the same model, the same machine, and the same tasks, then examined everything sent and received. When we asked both harnesses for a one-line reply, Claude Code used roughly 33,000 tokens of system prompt, tool schemas, and injected scaffolding before the prompt even arrived. Claude Code is far more cache inefficient: OpenCode's request prefix was byte-identical in every run we captured; it paid to cache its payload once per session and read it back for pennies.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This analysis uncovers a critical, often hidden, aspect of LLM operational costs: the substantial &quot;pre-prompt&quot; token overhead from system prompts and tool schemas. Claude Code's 4.7x higher hidden token usage compared to OpenCode, which benefits from efficient caching due to its byte-identical prefix, directly impacts developer expenses and the overall efficiency of AI applications. Such transparency around API design is crucial for predicting costs and optimizing performance in the evolving LLM ecosystem.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community generally agrees that Claude Code exhibits significantly high and often inefficient token usage, primarily due to aggressive sub-agent deployment and excessive tool calls, leading to higher costs. Many perceive a lack of transparency and control compared to alternative agents, with some users suggesting this behavior is driven by Anthropic's business model rather than pure efficiency.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>systima.ai</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by systima</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://systima.ai/blog/claude-code-vs-opencode-token-overhead" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48883275" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">🔒 Security &amp; Privacy</div>
-            
+
             <h2 class="story-title"><a href="https://gist.github.com/cereblab/dc9a40bc26120f4540e4e09b75ffb547" target="_blank" rel="noopener">Wire-Level Analysis Exposes xAI Grok Build CLI's Data Transmissions</a></h2>
             <p class="story-summary">What xAI Grok Build CLI actually sends to xAI - a wire-level analysis (grok 0.2.93) · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This wire-level analysis of xAI's Grok build CLI offers critical transparency into what data the tool transmits back to its developers. Such community-driven scrutiny is increasingly important as proprietary AI tools become prevalent, allowing users to understand potential data collection practices and hold companies accountable for privacy. The findings will reveal if xAI's CLI adheres to expected data minimization or if it collects unexpected information, impacting user trust in their burgeoning AI ecosystem.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is largely disturbed and concerned by xAI's Grok build CLI, which is shown to upload entire code repositories, including git history, unencrypted. While some users acknowledge AI agents need access to the workspace, the automatic, comprehensive, and unencrypted exfiltration of user code is viewed as a significant privacy and security risk. This has led to strong recommendations for sandboxing coding tools, using open-source alternatives, or configuring telemetry to be disabled.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>gist.github.com</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by jhoho</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://gist.github.com/cereblab/dc9a40bc26120f4540e4e09b75ffb547" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48877371" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🤖 AI Reality Check</div>
-            
+
             <h2 class="story-title"><a href="https://geohot.github.io//blog/jekyll/update/2026/07/12/i-love-llms.html" target="_blank" rel="noopener">Year of the Linux Desktop' Is Finally Here, Says AI Veteran Giddy Over Local LLMs (Despite the Hype)</a></h2>
             <p class="story-summary">I love LLMs, I hate hype | the singularity is nearer I think from this blog you may misunderestimate how absolutely giddy I am about AI. I did hacking from 2007-2014, after that my whole career has been devoted to AI. I’m so excited for the new LLMs , self driving cars , video generation models , and coding agents . I set up a Linux box with opencode on my local GLM-5.2 last week and wow like just saying install tmux with the geohot configuration works; the Year of the Linux Desktop is finally here!</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece captures the nuanced perspective of an experienced AI practitioner: deep-seated enthusiasm for the technology's genuine progress, particularly with local LLMs enabling practical applications, juxtaposed against a strong aversion to industry hype. The author's personal anecdote of a local LLM efficiently handling a complex Linux command serves as compelling evidence that AI is now delivering on its potential, signaling a new era of practical utility akin to the &quot;Year of the Linux Desktop.&quot;</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community generally appreciates LLMs for enabling significant personal productivity in building custom, specific solutions, often self-hosted. However, there's strong skepticism towards industry hype and frontier labs, with a consensus that these labs may not capture the true value generated. Many express concerns about current model costs and advocate for powerful, locally runnable alternatives.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>geohot.github.io</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by therepanic</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://geohot.github.io//blog/jekyll/update/2026/07/12/i-love-llms.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48883343" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,7 +274,7 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🤖 AI Research</div>
-            
+
             <h2 class="story-title"><a href="http://incompleteideas.net/IncIdeas/OneStepTrap.html" target="_blank" rel="noopener">AI's One-Step Trap: The Myth of Iterating Short-Term Predictions for World Models</a></h2>
             <p class="story-summary">The one-step trap is the common mistake of thinking that all or
       most of an AI agents learned predictions can be one-step ones,
@@ -276,17 +289,17 @@
       if all one-step predictions can be made with perfect accuracy,
       then they can be used to make all longer-term prediction with
       perfect accuracy.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The &quot;one-step trap&quot; exposes a fundamental pitfall in AI design: the assumption that complex, long-term predictions can be accurately derived solely by iterating a simple, one-step world model. This approach often crumbles due to the compounding of errors and immense computational cost, highlighting the necessity for AI systems to develop hierarchical, multi-scale predictive capabilities rather than just simulating every granular step.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community shows a mixed understanding of &quot;The One-Step Trap,&quot; with some participants agreeing with the premise and suggesting multi-step world models as a solution. However, there's also skepticism regarding its universal applicability, with one commenter noting that Large Language Models (LLMs) defy predictions of compounding error by improving and self-correcting over multiple steps. Another comment highlights a lack of clarity on the precise definition of &quot;one-step,&quot; indicating further explanation may be needed for some readers.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>incompleteideas.net</span>
         <span>·</span>
@@ -296,7 +309,7 @@
         <span>·</span>
         <span>by jxmorris12</span>
     </div>
-            
+
     <div class="story-links">
         <a href="http://incompleteideas.net/IncIdeas/OneStepTrap.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48883415" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -307,20 +320,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">Platform Policy ⚙️</div>
-            
+
             <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=48886741" target="_blank" rel="noopener">Hacker News Debates Labeling AI-Generated Articles</a></h2>
             <p class="story-summary">Should HN add the ability to flag articles as AI-generated? This doesn't have to act as a regular flag, i.e., it won't de-rank the article; it could just show up as an indicator, allowing others (like myself) who don't like reading AI-generated text, to skip it. Open questions: 1. Why is the regular voting system not enough? 2. Should HN change in response to the gen AI era? It has been successful not changing fundamentals.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This &quot;Ask HN&quot; post spotlights the growing tension between user demand for content provenance and Hacker News's minimalist, community-driven moderation ethos. The proposed non-de-ranking flag attempts to balance these desires, acknowledging the platform's historical success with fundamental stability, yet still represents a departure from its core principles. It underscores a crucial challenge for all online communities: adapting to AI's content deluge while preserving authenticity without over-moderating.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses skepticism and opposition to implementing a flag for AI-generated articles. Many users prioritize an article's content quality and informational value over its composition method, arguing that such a flag could harm author credibility and lead to frequent false positives. While the platform bans AI-generated comments, there's a general sense that flagging article content would be difficult to enforce and often unnecessary.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>news.ycombinator.com</span>
         <span>·</span>
@@ -330,7 +343,7 @@
         <span>·</span>
         <span>by levkk</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://news.ycombinator.com/item?id=48886741" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48886741" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -344,17 +357,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://ploy.ai/blog/migrating-a-production-ai-agent-to-gpt-5-6" target="_blank" rel="noopener">GPT-5.6 Sol Drives Production AI Agent Performance: 2.2x Faster, 27% Cheaper, Outperforms Claude Opus</a></h2>
             <p class="story-summary">Migrating a production AI agent to GPT-5.6 | Ploy As of today, Ploy’s agent runs on GPT-5.6 Sol, the flagship tier of the model family OpenAI released this morning. For months, we couldn’t find a model that challenges Claude Opus given our incredibly high bar for quality. After running it head-to-head against Claude Opus, we’ve made GPT 5.6 Sol the default model powering every Ploy workspace. That’s a bigger switch than it sounds.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This case study on Ploy's migration to GPT-5.6 Sol reveals a significant competitive shift, demonstrating OpenAI's latest model offers superior quality, speed, and cost-efficiency over Claude Opus for production AI agents. It underscores the critical practical business value of choosing the right foundational LLM, impacting operational efficiency and potentially setting a new performance benchmark for enterprise-grade AI applications.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely validates the article's claims, confirming that GPT-5.6 offers significant performance enhancements and cost reductions for production AI agent workloads. While some users critiqued the article's perceived LLM-generated writing style, the consensus emphasizes the practical value of the deep technical insights provided. There's also a strong agreement that models are not easily interchangeable in production, necessitating specific migration efforts rather than simple failover solutions.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>ploy.ai</span>
         <span>·</span>
@@ -364,7 +377,7 @@
         <span>·</span>
         <span>by brryant</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://ploy.ai/blog/migrating-a-production-ai-agent-to-gpt-5-6" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48882716" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -375,20 +388,20 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">AI Impact 🤖</div>
-            
+
             <h2 class="story-title"><a href="https://spectrum.ieee.org/ai-science-research-flattens-discovery" target="_blank" rel="noopener">AI Boosts Research Careers While Flattening Scientific Discovery</a></h2>
             <p class="story-summary">AI in Science Research Boosts Speed, Limits Scope - IEEE Spectrum IEEE.org IEEE Xplore IEEE Standards IEEE Job Site More Sites AI Boosts Research Careers but Flattens Scientific Discovery Aerospace AI Biomedical Climate Tech Computing Consumer Electronics Energy History of Technology Robotics Semiconductors Telecommunications Transportation Aerospace AI Biomedical Climate Tech Computing Consumer Electronics Energy History of Technology Robotics Semiconductors Telecommunications Transportation</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This study highlights a concerning paradox in AI's influence on science: while it demonstrably boosts research careers and efficiency, it simultaneously narrows the scope of explored ideas. This trade-off between accelerated productivity and the flattening of scientific discovery raises critical questions about the long-term breadth and novelty of human knowledge generated with AI assistance.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely agrees that AI isn't fundamentally altering research but rather amplifying pre-existing issues and incentive structures within academia. Commenters suggest that AI enables scientists to game flawed productivity metrics (like publication and citation counts) that reward volume over original ideas, exacerbating a focus on career advancement rather than genuine discovery. This leads to concerns that AI is accelerating a trend towards less original, quantitatively driven research.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>spectrum.ieee.org</span>
         <span>·</span>
@@ -398,7 +411,7 @@
         <span>·</span>
         <span>by zaikunzhang</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://spectrum.ieee.org/ai-science-research-flattens-discovery" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48881043" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -409,20 +422,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">🏗️ Go GUI Framework</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/hasenj/go-shirei/" target="_blank" rel="noopener">Shirei Launches Native Go GUI Framework with Immediate Mode, Flexbox for Cross-Platform Apps</a></h2>
             <p class="story-summary">GitHub - hasenj/go-shirei: Go based GUI framework: practical, immediate mode, flexbox model · GitHub</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Shirei is a notable addition to the Go ecosystem, aiming to fill the long-standing void of robust, native cross-platform GUI solutions. Its adoption of an immediate mode paradigm and a flexbox layout model offers a modern and potentially performant approach to UI development in Go. This framework could significantly empower Go developers to build standalone desktop applications without resorting to CGo bindings or web-based wrappers, enhancing the language's versatility.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community is primarily intrigued by and somewhat skeptical of the extensive AI co-authorship visible in the project's commit history, questioning the &quot;vibecoded&quot; development approach. Technically, while there's appreciation for its native implementation details like avoiding `cgo` on Windows, several users express doubts about the scalability and long-term viability of its &quot;immediate mode API&quot; for complex GUI applications. Overall, it's seen as a noteworthy, if unconventional, effort in the native Go GUI framework landscape.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -432,7 +445,7 @@
         <span>·</span>
         <span>by hsn915</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/hasenj/go-shirei/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48882562" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -443,20 +456,20 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">Reading Habits 📚</div>
-            
+
             <h2 class="story-title"><a href="https://scotto.me/blog/2026-07-12-how-to-read-more-books/" target="_blank" rel="noopener">How I Went From 10 to 50 Books a Year (And You Can Too)</a></h2>
             <p class="story-summary">I’ve read roughly a book a week for a few years, and I can tell you it’s doable. I didn’t always read this much. When I started, I read fewer than ten volumes per year, but making it a goal made me switch gears and achieve what I once thought was impossible. I want to explain to you here what I did to become a prolific reader, and what I learned in the process, so that, with a bit of effort, you can do it too. I promise, it will be worth it.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post combines a compelling personal narrative of transforming reading habits with a promise of practical, actionable strategies for others. It reframes extensive reading as an achievable skill, demonstrating that significant increases in book consumption are possible through goal-setting and consistent effort rather than innate ability.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely agrees that increasing reading volume stems from intentional habit formation, primarily by removing digital distractions like social media and phone scrolling. Commenters emphasize integrating reading into daily routines, such as using audiobooks during chores or reading on public transport, and often suggest having multiple books concurrently to match different contexts and maintain interest.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>scotto.me</span>
         <span>·</span>
@@ -466,7 +479,7 @@
         <span>·</span>
         <span>by silcoon</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://scotto.me/blog/2026-07-12-how-to-read-more-books/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48882056" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -477,20 +490,20 @@
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">🎨 Generative Art</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/unable12/codebase-posters" target="_blank" rel="noopener">Your Code, Your Art: Generative Posters From Local Git History</a></h2>
             <p class="story-summary">npx codebase-posters inside any git repo opens a local exhibition: 18 pieces painted live from your commit history. everything renders from git log, nothing leaves your machine.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project offers a fascinating bridge between the technical realm of software development and artistic expression, transforming raw Git commit history into unique generative poster art. By operating entirely client-side, it provides a private and introspective way for developers to visualize and appreciate the evolution of their codebases, turning complex project histories into personalized, aesthetic artifacts.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community's initial reaction is overwhelmingly positive, with users expressing strong admiration for the concept. There's also a keen interest in the technical implementation, accompanied by proactive and constructive feedback, particularly regarding accessibility considerations like color palette compatibility for colorblind users.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -500,7 +513,7 @@
         <span>·</span>
         <span>by unable0</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/unable12/codebase-posters" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48885500" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -508,11 +521,36 @@
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · July 13, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-07-12.html">
+        <small>Previous issue</small>
+        <strong>← July 12, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-07-14.html">
+        <small>Next issue</small>
+        <strong>→ July 14, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

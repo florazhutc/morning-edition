@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — April 24, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 003, April 24, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — April 24, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;600;700&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
@@ -36,48 +37,51 @@
             .action-btn.primary { background: #1A1A1A; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
         }
     </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 目录</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div style="margin-bottom:40px;">
-            <div style="width:60px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#8C7A6B;">
-                A Curated Daily Digest · 中英双语晨报
-            </span>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
         </div>
-        <h1 style="font-family:'Fraunces',serif;font-size:clamp(3.5rem,10vw,8rem);font-weight:900;color:#1A1A1A;line-height:0.95;letter-spacing:-0.03em;margin-bottom:16px;">
-            Morning<br><em style="font-style:italic;font-weight:400;color:#C84B31;">Edition</em>
-        </h1>
-        <div style="width:40px;height:1px;background:#D4C5B5;margin:24px auto;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.8vw,1.3rem);color:#8C7A6B;font-weight:400;font-style:italic;">Friday</div>
-        <div style="font-family:'Inter',sans-serif;font-size:clamp(0.8rem,1.2vw,0.95rem);color:#B0A090;font-weight:400;letter-spacing:0.1em;margin-top:6px;">April 24, 2026</div>
-    </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 003</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Friday</span>
+                    <time datetime="2026-04-24">April 24, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
+    <div class="toc" id="toc" aria-labelledby="toc-title">
         <div style="max-width:700px;margin:0 auto;width:100%;">
             <div style="margin-bottom:40px;">
-                <span style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:#8C7A6B;">
-                    In This Issue / 本期提要
-                </span>
+                <h2 id="toc-title" style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:#8C7A6B;">In This Issue</h2>
                 <div style="width:30px;height:2px;background:#C84B31;margin-top:12px;"></div>
             </div>
             <nav>
@@ -85,91 +89,91 @@
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">01</span>
             <div style="flex-grow:1;margin-right:20px;">
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Alberta Startup's Half-Price, No-Tech Tractors Spark Farmer Demand</div>
-                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">阿尔伯塔一家初创公司，其半价、摒弃复杂技术的拖拉机引发了农民的抢购潮。</div>
+
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 2176 热度</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">2176 pts</span>
         </a>
         <a href="#story-2" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">02</span>
             <div style="flex-grow:1;margin-right:20px;">
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">OpenAI Unleashes GPT-5.5: A Leap in AI Performance and Efficiency</div>
-                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">OpenAI 重磅推出 GPT-5.5：AI 性能与效率实现飞跃</div>
+
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 1290 热度</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">1290 pts</span>
         </a>
         <a href="#story-3" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">03</span>
             <div style="flex-grow:1;margin-right:20px;">
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Firefox Flaw: Stable Identifier Unmasks Tor Identities</div>
-                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">火狐漏洞：持久性标识符揭露 Tor 身份</div>
+
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 905 热度</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">905 pts</span>
         </a>
         <a href="#story-4" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">04</span>
             <div style="flex-grow:1;margin-right:20px;">
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Bitwarden CLI `bw list` command exposes full password vaults and TOTP codes to terminal history.</div>
-                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Bitwarden CLI 的 `bw list` 命令会将完整的密码库和 TOTP 码暴露在终端历史记录中。</div>
+
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 727 热度</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">727 pts</span>
         </a>
         <a href="#story-5" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">05</span>
             <div style="flex-grow:1;margin-right:20px;">
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">New Subsystem Brings Linux to Windows 9x</div>
-                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">全新子系统让 Linux 登陆 Windows 9x。</div>
+
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 993 热度</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">993 pts</span>
         </a>
         <a href="#story-6" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">06</span>
             <div style="flex-grow:1;margin-right:20px;">
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Qwen3.6-27B Promises Flagship Coding in 27B Model; Community Expects Early Bugs</div>
-                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Qwen3.6-27B 号称其27B模型可实现旗舰级编程；然而，社区普遍预计初期版本仍可能存在一些bug。</div>
+
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 952 热度</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">952 pts</span>
         </a>
         <a href="#story-7" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">07</span>
             <div style="flex-grow:1;margin-right:20px;">
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Honker Supercharges SQLite with Postgres NOTIFY/LISTEN for Durable Messaging and Scheduling</div>
-                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">悍客 通过 PostgreSQL 的 NOTIFY/LISTEN 机制，为 SQLite 注入强劲动力，实现持久化消息与任务调度。</div>
+
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 251 热度</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">251 pts</span>
         </a>
         <a href="#story-8" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">08</span>
             <div style="flex-grow:1;margin-right:20px;">
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Exe.dev Announces Funding, Aims to Redefine Cloud Computing</div>
-                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">Exe.dev 宣布获得融资，旨在重新定义云计算</div>
+
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 1045 热度</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">1045 pts</span>
         </a>
         <a href="#story-9" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">09</span>
             <div style="flex-grow:1;margin-right:20px;">
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">Anthropic Pinpoints Three Internal Changes Behind Recent Claude AI Performance Decline <span style="color:#C84B31;">⚡</span></div>
-                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">安索罗普明确指出，近期Claude AI性能下滑源于三项内部调整。</div>
+
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 668 热度</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">668 pts</span>
         </a>
         <a href="#story-10" style="display:flex;align-items:baseline;gap:20px;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.05);transition:padding-left 0.2s;" onmouseover="this.style.paddingLeft='12px'" onmouseout="this.style.paddingLeft='0'">
             <span style="font-family:'Fraunces',serif;font-size:0.9rem;color:rgba(0,0,0,0.25);font-weight:600;min-width:24px;">10</span>
             <div style="flex-grow:1;margin-right:20px;">
                 <div style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.2vw,1.15rem);color:#1A1A1A;font-weight:600;line-height:1.3;margin-bottom:4px;">DeepSeek Launches v4 Models with OpenAI/Anthropic API Compatibility</div>
-                <div style="font-family:'Noto Serif SC',serif;font-size:clamp(0.85rem,1vw,0.95rem);color:#8C7A6B;line-height:1.4;">深度求索发布v4模型，全面兼容OpenAI与Anthropic API。</div>
+
             </div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">🔥 614 热度</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:rgba(0,0,0,0.3);white-space:nowrap;">614 pts</span>
         </a></nav>
         </div>
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" style="background:#FAF6F0;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
         <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(200,75,49,0.06);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">1</div>
         <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
-            
+
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
         <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#8C7A6B;letter-spacing:0.05em;">01</span>
         <span style="width:40px;height:1px;background:#D4C5B5;"></span>
@@ -177,46 +181,39 @@
             Frugal Innovation 🚜 &nbsp;|&nbsp; Frugal Innovation 🚜
         </span>
     </div>
-            
+
             <div style="margin:0 0 32px 0;max-width:760px;">
         <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A1A1A;margin:0 0 12px 0;">
             <a href="https://wheelfront.com/this-alberta-startup-sells-no-tech-tractors-for-half-price/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Alberta Startup's Half-Price, No-Tech Tractors Spark Farmer Demand</a>
         </h2>
-        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#8C7A6B;margin:0;">
-            阿尔伯塔一家初创公司，其半价、摒弃复杂技术的拖拉机引发了农民的抢购潮。
-        </h3>
+
     </div>
-            
+
         <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
             <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D2D2D;margin:0 0 12px 0;">This Alberta Startup Sells No-Tech Tractors for Half Price | Wheel Front This Alberta Startup Sells No-Tech Tractors for Half Price April 20, 2026                                                at 4:24pm ET Four hundred inquiries from American farmers poured in after a single interview. For a tractor built in Alberta with a remanufactured 1990s diesel engine and zero electronics.</p>
-            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#8C7A6B;margin:0;">阿尔伯塔一家初创企业半价销售“极简”拖拉机
-车轮前沿
-2026年4月20日 东部时间下午4:24
 
-仅仅一次采访之后，四百名美国农民的咨询蜂拥而至。而这些咨询，是针对一款在阿尔伯塔省制造的拖拉机——它搭载的是一台翻新过的上世纪90年代柴油发动机，且不含任何电子设备。</p>
         </div>
-            
+
     <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #C84B31;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
         <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#C84B31;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Actionable Insight / 洞察与行动
+            Actionable Insight
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D2D2D;font-style:italic;margin:0 0 12px 0;">This startup illustrates a compelling market counter-trend: sometimes, simplifying technology and reducing costs dramatically unlocks significant demand, especially when high-tech solutions become overly complex or expensive. By offering 'no-tech' tractors with remanufactured components at half price, they effectively serve a segment of the agricultural market underserved by modern, feature-rich machinery. This strategy highlights the enduring appeal of affordability and maintainability over cutting-edge innovation for many practical applications.</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#8C7A6B;margin:0;">这家初创公司展示了一个引人注目的市场逆向趋势：有时，大幅简化技术并降低成本反而能释放巨大的市场需求，尤其当高科技解决方案变得过于复杂或昂贵时。通过以半价提供使用翻新部件的“无技术”拖拉机，他们有效地服务了现代功能丰富机械所未能满足的农业市场细分领域。这一策略突显了对许多实际应用而言，可负担性和可维护性相对于尖端创新的持久吸引力。</p>
+
         </div>
     </div>
-            
+
     <div style="margin-top:28px;padding-left:24px;border-left:2px solid #D4C5B5;">
         <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#8C7A6B;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Community Voice / 社区声音
+            Community Voice
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#8C7A6B;margin:0 0 8px 0;font-style:italic;">"English Analysis"</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#8C7A6B;opacity:0.8;margin:0;">"中文社区观点
-The Hacker News community largely praises the &quot;no-tech&quot; tractor concept, viewing it as a strong reaction against the locked-down ecosystems and repairability issues of modern farm equipment. There's a clear desire for simpler, more maintainable machines across various industries, reflecting a growing market for stripped-down products that prioritize functionality and user control over complex, often unnecessary, digital features. While supporting the core idea, some users also express a nuanced wish for a balance of modern efficiency without invasive tracking or touchscreens."</p>
+
         </div>
     </div>
-            
+
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#8C7A6B;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">wheelfront.com</span>
         <span style="opacity:0.5;">·</span>
@@ -226,13 +223,13 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
         <span style="opacity:0.5;">·</span>
         <span>by Kaibeezy</span>
     </div>
-            
+
     <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
         <a href="https://wheelfront.com/this-alberta-startup-sells-no-tech-tractors-for-half-price/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#C84B31;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #C84B31;padding-bottom:2px;transition:opacity 0.2s;">
-            Read Source / 阅读原稿 →
+            Read Source →
         </a>
         <a href="https://news.ycombinator.com/item?id=47865868" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#8C7A6B;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D4C5B5;padding-bottom:2px;transition:opacity 0.2s;">
-            HN Discussion / 参与讨论 →
+            HN Discussion →
         </a>
     </div>
         </div>
@@ -240,7 +237,7 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
     <section id="story-2" style="background:#F5F1EA;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
         <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(27,42,74,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">2</div>
         <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
-            
+
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
         <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#7A8BA0;letter-spacing:0.05em;">02</span>
         <span style="width:40px;height:1px;background:#C8BFB0;"></span>
@@ -248,41 +245,39 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
             AI Release 🤖 &nbsp;|&nbsp; AI Release 🤖
         </span>
     </div>
-            
+
             <div style="margin:0 0 32px 0;max-width:760px;">
         <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1B2A4A;margin:0 0 12px 0;">
             <a href="https://openai.com/index/introducing-gpt-5-5/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">OpenAI Unleashes GPT-5.5: A Leap in AI Performance and Efficiency</a>
         </h2>
-        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#7A8BA0;margin:0;">
-            OpenAI 重磅推出 GPT-5.5：AI 性能与效率实现飞跃
-        </h3>
+
     </div>
-            
+
         <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
             <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3A3A3A;margin:0 0 12px 0;">The article announces the release of GPT-5.5, OpenAI's latest large language model, detailing its gradual rollout to various platforms like ChatGPT and Codex. It highlights the model's improved benchmark performance, its potential for applications such as cybersecurity and game development, and architectural enhancements for increased token generation efficiency.</p>
-            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#7A8BA0;margin:0;">OpenAI 近日宣布发布其最新大型语言模型 GPT-5.5，并详细阐述了该模型将逐步部署至 ChatGPT、Codex 等多个平台。文章着重指出，GPT-5.5 的基准测试性能得到了显著提升，展现了其在网络安全、游戏开发等领域的广阔应用潜力。同时，模型在架构层面的优化，也大幅提高了令牌生成效率。</p>
+
         </div>
-            
+
     <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #1B2A4A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
         <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#1B2A4A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Actionable Insight / 洞察与行动
+            Actionable Insight
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3A3A3A;font-style:italic;margin:0 0 12px 0;">GPT-5.5 signifies an iterative yet crucial advancement in large language model technology, emphasizing improved benchmark performance and architectural efficiencies for token generation. This gradual rollout and focus on diverse applications like cybersecurity and game development suggest a strategic push towards practical, scalable AI deployment rather than just raw parameter scaling. It underscores the evolving industry trend of refining existing models for broader utility and real-world integration.</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#7A8BA0;margin:0;">GPT-5.5代表着大型语言模型技术的一次迭代但至关重要的进步，重点在于提升基准性能和改进token生成效率的架构。这种逐步推广以及对网络安全和游戏开发等多元应用的关注，表明OpenAI正战略性地推动AI的实用化和可扩展部署，而不仅仅是堆砌参数。这也突显了行业正在将现有模型精炼以实现更广泛应用和实际集成的演进趋势。</p>
+
         </div>
     </div>
-            
+
     <div style="margin-top:28px;padding-left:24px;border-left:2px solid #C8BFB0;">
         <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#7A8BA0;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Community Voice / 社区声音
+            Community Voice
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#7A8BA0;margin:0 0 8px 0;font-style:italic;">"The Hacker News community generally sees GPT-5.5 as a significant and accessible release, noting its strong benchmark performance and immediate utility for fields like cybersecurity, contrasting it favorably with more restricted alternatives. Discussions extend beyond raw scores to highlight underlying technical efficiency improvements in GPU utilization and question whether it's a new pre-trained model or a fine-tune, often alongside concerns about its pricing and rapid consumption of usage limits. Some also pointed out early access avenues through specific APIs and practical applications in areas like game development."</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#7A8BA0;opacity:0.8;margin:0;">"中文社区普遍认为GPT-5.5是一次重要且易于获取的发布，赞扬其在基准测试中的出色表现以及在网络安全等领域的即时实用性，并将其与更受限的竞争产品进行了积极对比。讨论不仅限于原始分数，还深入探讨了其在GPU利用率方面的潜在技术效率改进，并质疑这究竟是全新的预训练模型还是微调版本，同时伴随着对其定价和快速消耗使用限额的担忧。此外，一些评论者还指出了通过特定API提前访问的途径以及在游戏开发等领域的实际应用。"</p>
+
         </div>
     </div>
-            
+
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A8BA0;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">openai.com</span>
         <span style="opacity:0.5;">·</span>
@@ -292,13 +287,13 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
         <span style="opacity:0.5;">·</span>
         <span>by rd</span>
     </div>
-            
+
     <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
         <a href="https://openai.com/index/introducing-gpt-5-5/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#1B2A4A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #1B2A4A;padding-bottom:2px;transition:opacity 0.2s;">
-            Read Source / 阅读原稿 →
+            Read Source →
         </a>
         <a href="https://news.ycombinator.com/item?id=47879092" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A8BA0;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C8BFB0;padding-bottom:2px;transition:opacity 0.2s;">
-            HN Discussion / 参与讨论 →
+            HN Discussion →
         </a>
     </div>
         </div>
@@ -306,7 +301,7 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
     <section id="story-3" style="background:#FBF3F0;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
         <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(166,61,64,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">3</div>
         <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
-            
+
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
         <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#A08070;letter-spacing:0.05em;">03</span>
         <span style="width:40px;height:1px;background:#D8C4BC;"></span>
@@ -314,41 +309,39 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
             🛡️ Cybersecurity &amp; Privacy &nbsp;|&nbsp; 🛡️ Cybersecurity &amp; Privacy
         </span>
     </div>
-            
+
             <div style="margin:0 0 32px 0;max-width:760px;">
         <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#2A1A16;margin:0 0 12px 0;">
             <a href="https://fingerprint.com/blog/firefox-tor-indexeddb-privacy-vulnerability/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Firefox Flaw: Stable Identifier Unmasks Tor Identities</a>
         </h2>
-        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#A08070;margin:0;">
-            火狐漏洞：持久性标识符揭露 Tor 身份
-        </h3>
+
     </div>
-            
+
         <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
             <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3D2D28;margin:0 0 12px 0;">Community discussion highlights: Very cool research and wonderfully written. I was expecting an ad for their product somewhere towards the end, but it wasn't there! I do wonder though: why would this company report this vulnerability to Mozilla if their product is fingeprinting? Isn't it better for the business (albeit unethical) to keep the vulnerability private, to differentiate from the competitors? For example, I don't see many threat actors burning their zero days through responsible disclosure!</p>
-            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#A08070;margin:0;">社群討論精選：這項研究著實令人驚艷，文筆極佳。我原以為文章結尾會出現他們產品的廣告，結果卻沒有！不過我倒是想知道：如果他們本身就是做指紋識別產品的，為什麼還要向 Mozilla 報告這個漏洞呢？從商業角度考量，為了與競爭對手拉開差距，難道將這個漏洞私下保留（儘管這可能不道德）對他們會更有利嗎？舉例來說，我可從未見過幾個惡意行為者會透過負責任披露的方式，白白燒掉他們的零日漏洞！</p>
+
         </div>
-            
+
     <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #A63D40;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
         <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#A63D40;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Actionable Insight / 洞察与行动
+            Actionable Insight
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3D2D28;font-style:italic;margin:0 0 12px 0;">This research uncovers a significant Firefox vulnerability that creates a persistent identifier, enabling the linking of distinct Tor identities and thus compromising user anonymity. The community discussion delves into the ethical tightrope walked by security companies: whether to disclose such flaws responsibly or exploit them for competitive advantage, especially when their core business involves fingerprinting. This incident underscores the perpetual challenge of preserving privacy in an increasingly tracked digital landscape, even with anonymity tools like Tor.</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#A08070;margin:0;">这项研究揭露了Firefox的一个重要漏洞，它能生成一个持久性标识符，从而将独立的Tor身份关联起来，损害了用户的匿名性。社区讨论深入探讨了安全公司所面临的道德困境：是负责任地披露此类漏洞，还是将其用于竞争优势，尤其当其核心业务涉及指纹识别时。这一事件凸显了在日益被追踪的数字环境中，即使借助Tor等匿名工具，维护隐私也面临着持续不断的挑战。</p>
+
         </div>
     </div>
-            
+
     <div style="margin-top:28px;padding-left:24px;border-left:2px solid #D8C4BC;">
         <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#A08070;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Community Voice / 社区声音
+            Community Voice
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#A08070;margin:0 0 8px 0;font-style:italic;">"The community acknowledges the research as significant, particularly its finding of a stable Firefox identifier that can link Tor identities, though some debate its full deanonymization capability, often seeing it as a form of &quot;pseudonymization&quot; if the browser is restarted. Key discussions revolve around mitigation strategies like diligently restarting Tor Browser between sessions or disabling JavaScript, alongside broader concerns about browsers' default permissions allowing such information access without user consent."</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#A08070;opacity:0.8;margin:0;">"社区普遍认为这项研究意义重大，因为它发现了一个可用于关联Tor身份的稳定Firefox标识符；但也有人对此标识符是否能完全去匿名化提出质疑，如果浏览器重启，它通常被视为一种“假名化”。核心讨论围绕着如每次会话后勤奋重启Tor浏览器或禁用JavaScript等缓解策略，以及对浏览器默认权限允许在未经用户同意的情况下访问此类信息的普遍担忧。"</p>
+
         </div>
     </div>
-            
+
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#A08070;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">fingerprint.com</span>
         <span style="opacity:0.5;">·</span>
@@ -358,13 +351,13 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
         <span style="opacity:0.5;">·</span>
         <span>by danpinto</span>
     </div>
-            
+
     <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
         <a href="https://fingerprint.com/blog/firefox-tor-indexeddb-privacy-vulnerability/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#A63D40;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #A63D40;padding-bottom:2px;transition:opacity 0.2s;">
-            Read Source / 阅读原稿 →
+            Read Source →
         </a>
         <a href="https://news.ycombinator.com/item?id=47866697" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#A08070;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D8C4BC;padding-bottom:2px;transition:opacity 0.2s;">
-            HN Discussion / 参与讨论 →
+            HN Discussion →
         </a>
     </div>
         </div>
@@ -372,7 +365,7 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
     <section id="story-4" style="background:#F4F6F0;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
         <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(61,90,62,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">4</div>
         <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;">
-            
+
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
         <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#6B8A6B;letter-spacing:0.05em;">04</span>
         <span style="width:40px;height:1px;background:#C0CDBA;"></span>
@@ -380,23 +373,21 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
             🔒 Security Alert &nbsp;|&nbsp; 🔒 Security Alert
         </span>
     </div>
-            
+
             <div style="margin:0 0 32px 0;max-width:760px;">
         <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A2E1A;margin:0 0 12px 0;">
             <a href="https://socket.dev/blog/bitwarden-cli-compromised" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Bitwarden CLI `bw list` command exposes full password vaults and TOTP codes to terminal history.</a>
         </h2>
-        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#6B8A6B;margin:0;">
-            Bitwarden CLI 的 `bw list` 命令会将完整的密码库和 TOTP 码暴露在终端历史记录中。
-        </h3>
+
     </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,60px);margin-top:24px;" class="two-col-grid">
                 <div>
-                    
+
         <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
             <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D3D2D;margin:0 0 12px 0;">Community discussion highlights: I had a really bad experience with the bitwarden cli. I believe it was `bw list` that I ran, assuming it would list the names of all my passwords, but too my surprise, it listed everything, including passwords and current totp codes. That's not the worst of it though. For some reason, when I ssh'ed into one of my servers and opened tmux, where I keep a weechat irc client running, I noticed that the entire content of the bw command was accessible from within the weechat text input field history. </p>
-            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#6B8A6B;margin:0;">社区热议速览：我对 Bitwarden CLI 的使用体验非常糟糕。我记得当时运行了 `bw list` 命令，本以为它只会列出我所有密码的名称，没想到它却把所有内容，包括密码和当前的 TOTP 验证码，都一并列了出来。然而，这还不是最糟糕的。不知为何，当我通过 SSH 连接到一台服务器并打开 tmux 时——我通常会在那里运行 WeeChat IRC 客户端——我注意到 `bw` 命令的完整输出竟然可以在 WeeChat 的文本输入历史记录中找到。</p>
+
         </div>
-                    
+
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6B8A6B;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">socket.dev</span>
         <span style="opacity:0.5;">·</span>
@@ -406,35 +397,35 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
         <span style="opacity:0.5;">·</span>
         <span>by tosh</span>
     </div>
-                    
+
     <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
         <a href="https://socket.dev/blog/bitwarden-cli-compromised" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#3D5A3E;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #3D5A3E;padding-bottom:2px;transition:opacity 0.2s;">
-            Read Source / 阅读原稿 →
+            Read Source →
         </a>
         <a href="https://news.ycombinator.com/item?id=47876043" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#6B8A6B;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C0CDBA;padding-bottom:2px;transition:opacity 0.2s;">
-            HN Discussion / 参与讨论 →
+            HN Discussion →
         </a>
     </div>
                 </div>
                 <div>
-                    
+
     <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #3D5A3E;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
         <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#3D5A3E;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Actionable Insight / 洞察与行动
+            Actionable Insight
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D3D2D;font-style:italic;margin:0 0 12px 0;">The reported incident with Bitwarden CLI exposes a critical flaw in sensitive data handling, where bw list inadvertently prints passwords and TOTP codes to standard output. This output subsequently leaked into shell history and even an IRC client's input buffer via tmux, creating a severe data exfiltration risk. It underscores the profound challenge of securing secrets in CLI environments, emphasizing how application-shell-terminal interactions can turn seemingly benign commands into serious security vulnerabilities.</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#6B8A6B;margin:0;">Bitwarden CLI此次事件暴露出其在敏感数据处理上的严重缺陷，其中bw list命令意外地将密码和TOTP验证码直接打印到标准输出。这些输出随后泄露到shell历史记录乃至通过tmux进入IRC客户端的输入缓冲区，构成了严重的数据外泄风险。这凸显了在CLI环境中保护机密信息的深远挑战，强调了应用程序、shell和终端之间的交互如何将看似无害的命令转变为严重的安全漏洞。</p>
+
         </div>
     </div>
-                    
+
     <div style="margin-top:28px;padding-left:24px;border-left:2px solid #C0CDBA;">
         <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#6B8A6B;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Community Voice / 社区声音
+            Community Voice
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#6B8A6B;margin:0 0 8px 0;font-style:italic;">"The Hacker News community largely emphasizes the critical need for robust software supply chain security, advocating for measures like pinning dependencies and setting minimum package release ages to prevent future compromises. Many users also expressed concerns about the trustworthiness of large dependency trees in ecosystems like NPM, suggesting alternatives such as Rust-based CLIs or fully offline solutions like KeePass to enhance security and reduce external trust dependencies. The discussion further highlighted the particular danger of pre-install script exploits, which bypass traditional post-installation inspection."</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#6B8A6B;opacity:0.8;margin:0;">"Hacker News 社区主要强调了软件供应链安全的关键性，倡导采取诸如固定依赖项版本和设置软件包最低发布时间等措施，以防止未来的安全漏洞。许多用户也对 NPM 等生态系统中庞大的依赖关系树的信任度表示担忧，建议采用基于 Rust 的 CLI 或像 KeePass 这样的完全离线解决方案，以增强安全性并减少对外部依赖的信任。讨论还进一步突出了预安装脚本漏洞的特殊危险性，因为此类攻击可以绕过传统的安装后检查。"</p>
+
         </div>
     </div>
                 </div>
@@ -444,7 +435,7 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
     <section id="story-5" style="background:#F8F4EC;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
         <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(122,92,61,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">5</div>
         <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
-            
+
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
         <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#9A8A70;letter-spacing:0.05em;">05</span>
         <span style="width:40px;height:1px;background:#D0C4B0;"></span>
@@ -452,41 +443,39 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
             ⚙️ Engineering &nbsp;|&nbsp; ⚙️ Engineering
         </span>
     </div>
-            
+
             <div style="margin:0 0 32px 0;max-width:760px;">
         <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#2A2015;margin:0 0 12px 0;">
             <a href="https://social.hails.org/@hailey/116446826733136456" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">New Subsystem Brings Linux to Windows 9x</a>
         </h2>
-        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#9A8A70;margin:0;">
-            全新子系统让 Linux 登陆 Windows 9x。
-        </h3>
+
     </div>
-            
+
         <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
             <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3A3025;margin:0 0 12px 0;">Hailey: &quot;With Windows 9x Subsystem for Linux you can run a…&quot; - hails.org</p>
-            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#9A8A70;margin:0;">海莉：“借助适用于 Windows 9x 的 Linux 子系统，你可以运行一个……”</p>
+
         </div>
-            
+
     <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #7A5C3D;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
         <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#7A5C3D;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Actionable Insight / 洞察与行动
+            Actionable Insight
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3A3025;font-style:italic;margin:0 0 12px 0;">The Windows 9x Subsystem for Linux is a remarkable engineering feat, porting the modern compatibility concept of WSL to an archaic operating system. This project demonstrates profound technical skill in bridging vastly different OS architectures, opening up possibilities for retro-computing enthusiasts to explore modern tooling on vintage platforms. It's a compelling blend of nostalgia and cutting-edge system integration.</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#9A8A70;margin:0;">Windows 9x Subsystem for Linux 是一项卓越的工程壮举，它将WSL的现代兼容性概念移植到了一个老旧的操作系统上。该项目展示了弥合截然不同的操作系统架构所需的深厚技术功底，为复古计算爱好者在老旧平台上探索现代工具开辟了新的可能性。这是一种引人入胜的融合，既有怀旧情怀，又体现了尖端的系统集成。</p>
+
         </div>
     </div>
-            
+
     <div style="margin-top:28px;padding-left:24px;border-left:2px solid #D0C4B0;">
         <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#9A8A70;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Community Voice / 社区声音
+            Community Voice
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#9A8A70;margin:0 0 8px 0;font-style:italic;">"The Hacker News community views the Windows 9x Subsystem for Linux as a truly impressive technical feat, drawing immediate parallels to historical projects like CoLinux and modern WSL. Many express awe at the developer's deep understanding of vintage Windows internals, contrasting this complex, dedicated engineering effort with the perceived simplicity of modern AI-assisted projects. The discussion also highlights a curiosity about the architecture of older operating systems."</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#9A8A70;opacity:0.8;margin:0;">"Hacker News 社区普遍认为“适用于 Linux 的 Windows 9x 子系统”是一项令人赞叹的技术成就，评论中立即将其与 CoLinux 等历史项目和现代 WSL 进行类比。许多人对开发者对老旧 Windows 内部机制的深入理解表示惊叹，并将这种复杂、需要高度投入的工程努力与现代 AI 辅助项目的相对简易性形成对比。此次讨论也激发了社区对旧操作系统架构的浓厚兴趣。"</p>
+
         </div>
     </div>
-            
+
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#9A8A70;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">social.hails.org</span>
         <span style="opacity:0.5;">·</span>
@@ -496,13 +485,13 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
         <span style="opacity:0.5;">·</span>
         <span>by sohkamyung</span>
     </div>
-            
+
     <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
         <a href="https://social.hails.org/@hailey/116446826733136456" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A5C3D;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #7A5C3D;padding-bottom:2px;transition:opacity 0.2s;">
-            Read Source / 阅读原稿 →
+            Read Source →
         </a>
         <a href="https://news.ycombinator.com/item?id=47861270" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#9A8A70;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D0C4B0;padding-bottom:2px;transition:opacity 0.2s;">
-            HN Discussion / 参与讨论 →
+            HN Discussion →
         </a>
     </div>
         </div>
@@ -510,7 +499,7 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
     <section id="story-6" style="background:#F0F2F5;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
         <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(58,74,92,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">6</div>
         <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
-            
+
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
         <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#7A8A9A;letter-spacing:0.05em;">06</span>
         <span style="width:40px;height:1px;background:#BCC5CF;"></span>
@@ -518,41 +507,39 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
             🤖 AI Models &nbsp;|&nbsp; 🤖 AI Models
         </span>
     </div>
-            
+
             <div style="margin:0 0 32px 0;max-width:760px;">
         <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A2A3A;margin:0 0 12px 0;">
             <a href="https://qwen.ai/blog?id=qwen3.6-27b" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Qwen3.6-27B Promises Flagship Coding in 27B Model; Community Expects Early Bugs</a>
         </h2>
-        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#7A8A9A;margin:0;">
-            Qwen3.6-27B 号称其27B模型可实现旗舰级编程；然而，社区普遍预计初期版本仍可能存在一些bug。
-        </h3>
+
     </div>
-            
+
         <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
             <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D3D4D;margin:0 0 12px 0;">Community discussion highlights: Good news! Friendly reminder: wait a couple weeks to judge the ”final” quality of these free models. Many of them suffer from hidden bugs when connected to an inference backend or bad configs that slow them down. The dev community usually takes a week or two to find the most glaring issues. Some of them may require patches to tools like llama.cpp, and some require users to avoid specific default options. Gemma 4 had some issues that were ironed out within a week or two. This model is likely no d</p>
-            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#7A8A9A;margin:0;">社区讨论精华：好消息！友情提醒：请稍等几周再来判断这些免费模型的“最终”质量。它们中的许多在与推理后端对接时会暴露出隐藏的缺陷，或是由于配置不当而导致运行缓慢。开发者社区通常需要一两周时间来排查出最突出的问题。其中一些可能需要对llama.cpp等工具打补丁，另一些则要求用户避免使用特定的默认设置。Gemma 4 之前也出现过类似问题，并在短短一两周内就得到了解决。这款模型很可能也不例外。</p>
+
         </div>
-            
+
     <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #3A4A5C;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
         <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#3A4A5C;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Actionable Insight / 洞察与行动
+            Actionable Insight
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D3D4D;font-style:italic;margin:0 0 12px 0;">This discussion on Qwen3.6-27B highlights a crucial aspect of new open-source AI models: initial excitement often precedes discovery of hidden bugs and configuration issues that hinder practical deployment. The community wisely advises a waiting period of a few weeks for these teething problems to be identified and ironed out, often requiring patches or user adjustments.</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#7A8A9A;margin:0;">这篇讨论围绕Qwen3.6-27B模型展开，但核心在于提醒用户，新发布的开源模型在初期表现与实际稳定运行之间常有差距。社区讨论指出，部署这些模型时，隐藏的缺陷和配置问题往往需要数周时间才能被发现并修复，因此建议用户耐心等待，而非急于下结论。</p>
+
         </div>
     </div>
-            
+
     <div style="margin-top:28px;padding-left:24px;border-left:2px solid #BCC5CF;">
         <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#7A8A9A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Community Voice / 社区声音
+            Community Voice
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#7A8A9A;margin:0 0 8px 0;font-style:italic;">"The community views Qwen 3.6-27B as a highly impressive open-source model that significantly closes the performance gap with commercial flagships. Users are particularly enthusiastic about its practical utility for complex coding tasks and efficient local deployment on consumer hardware, making it a compelling and cost-effective alternative for most daily needs. This reinforces a broader trend where self-hosted models are becoming increasingly competitive."</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#7A8A9A;opacity:0.8;margin:0;">"社区认为Qwen 3.6-27B是一个令人印象深刻的开源模型，它显著缩小了与商业旗舰模型的性能差距。用户对其在消费级硬件上高效本地部署以及处理复杂编码任务的实用性感到特别兴奋，这使其成为满足日常大部分需求的引人注目且具有成本效益的替代方案。这进一步印证了自托管模型竞争力日益增强的普遍趋势。"</p>
+
         </div>
     </div>
-            
+
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A8A9A;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">qwen.ai</span>
         <span style="opacity:0.5;">·</span>
@@ -562,13 +549,13 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
         <span style="opacity:0.5;">·</span>
         <span>by mfiguiere</span>
     </div>
-            
+
     <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
         <a href="https://qwen.ai/blog?id=qwen3.6-27b" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#3A4A5C;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #3A4A5C;padding-bottom:2px;transition:opacity 0.2s;">
-            Read Source / 阅读原稿 →
+            Read Source →
         </a>
         <a href="https://news.ycombinator.com/item?id=47863217" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A8A9A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #BCC5CF;padding-bottom:2px;transition:opacity 0.2s;">
-            HN Discussion / 参与讨论 →
+            HN Discussion →
         </a>
     </div>
         </div>
@@ -576,7 +563,7 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
     <section id="story-7" style="background:#F7F3EB;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
         <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(139,58,58,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">7</div>
         <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;">
-            
+
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
         <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#9A8575;letter-spacing:0.05em;">07</span>
         <span style="width:40px;height:1px;background:#D0C0A8;"></span>
@@ -584,23 +571,21 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
             Database &amp; Messaging 🔔 &nbsp;|&nbsp; Database &amp; Messaging 🔔
         </span>
     </div>
-            
+
             <div style="margin:0 0 32px 0;max-width:760px;">
         <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A1A1A;margin:0 0 12px 0;">
             <a href="https://github.com/russellromney/honker" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Honker Supercharges SQLite with Postgres NOTIFY/LISTEN for Durable Messaging and Scheduling</a>
         </h2>
-        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#9A8575;margin:0;">
-            悍客 通过 PostgreSQL 的 NOTIFY/LISTEN 机制，为 SQLite 注入强劲动力，实现持久化消息与任务调度。
-        </h3>
+
     </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,60px);margin-top:24px;" class="two-col-grid">
                 <div>
-                    
+
         <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
             <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#333333;margin:0 0 12px 0;">GitHub - russellromney/honker: SQLite extension + bindings for Postgres NOTIFY/LISTEN semantics with durable queues, streams, pub/sub, and scheduler · GitHub</p>
-            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#9A8575;margin:0;">GitHub项目 russellromney/honker：该项目提供一个SQLite扩展及其绑定，旨在实现Postgres NOTIFY/LISTEN的语义，并内置持久化队列、数据流、发布/订阅系统和调度器等功能。</p>
+
         </div>
-                    
+
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#9A8575;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">github.com</span>
         <span style="opacity:0.5;">·</span>
@@ -610,35 +595,35 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
         <span style="opacity:0.5;">·</span>
         <span>by russellthehippo</span>
     </div>
-                    
+
     <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
         <a href="https://github.com/russellromney/honker" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#8B3A3A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #8B3A3A;padding-bottom:2px;transition:opacity 0.2s;">
-            Read Source / 阅读原稿 →
+            Read Source →
         </a>
         <a href="https://news.ycombinator.com/item?id=47874647" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#9A8575;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #D0C0A8;padding-bottom:2px;transition:opacity 0.2s;">
-            HN Discussion / 参与讨论 →
+            HN Discussion →
         </a>
     </div>
                 </div>
                 <div>
-                    
+
     <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #8B3A3A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
         <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#8B3A3A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Actionable Insight / 洞察与行动
+            Actionable Insight
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#333333;font-style:italic;margin:0 0 12px 0;">Honker addresses a common challenge with SQLite: its lack of built-in real-time event notification capabilities, a feature often critical for dynamic, distributed applications. By porting PostgreSQL's NOTIFY/LISTEN semantics, this extension transforms SQLite into a powerful local messaging and coordination primitive, enabling durable queues, streams, and pub/sub patterns within a lightweight, file-based database. This innovation significantly broadens SQLite's applicability beyond simple data storage, empowering developers to build more reactive and sophisticated local-first or edge computing solutions.</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#9A8575;margin:0;">Honker解决了SQLite的一个常见挑战：它缺乏内置的实时事件通知功能，而这对于动态、分布式应用至关重要。通过移植PostgreSQL的NOTIFY/LISTEN语义，这个扩展将SQLite转变为一个强大的本地消息传递和协调原语，在一个轻量级、基于文件的数据库中实现了持久队列、流和发布/订阅模式。这一创新显著拓宽了SQLite在简单数据存储之外的应用范围，使开发者能够构建更具响应性和复杂的本地优先或边缘计算解决方案。</p>
+
         </div>
     </div>
-                    
+
     <div style="margin-top:28px;padding-left:24px;border-left:2px solid #D0C0A8;">
         <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#9A8575;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Community Voice / 社区声音
+            Community Voice
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#9A8575;margin:0 0 8px 0;font-style:italic;">"The Hacker News community largely appreciates Honker for bringing Postgres-style NOTIFY/LISTEN semantics to SQLite, enabling efficient cross-process event delivery without external brokers. A significant advantage noted is the atomic commitment of notifications with database transactions, which prevents common data consistency issues. While questions arose regarding the technical choice of `stat()` polling over OS-specific file system events, the consensus acknowledged it as a pragmatic solution for cross-platform reliability despite its perceived inelegance."</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#9A8575;opacity:0.8;margin:0;">"Hacker News 社区普遍赞赏 Honker 将类似 Postgres 的 NOTIFY/LISTEN 语义引入 SQLite，从而实现在无需外部代理的情况下，高效地进行跨进程事件传递。评论中强调的一个显著优势是通知与数据库事务的原子性提交，这有效避免了常见的数据一致性问题。尽管有人对选择 `stat()` 轮询而非操作系统特定的文件系统事件这一技术方案提出了疑问，但社区普遍认为，尽管这种方法可能不够优雅，却是实现跨平台可靠性的实用解决方案。"</p>
+
         </div>
     </div>
                 </div>
@@ -648,7 +633,7 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
     <section id="story-8" style="background:#F3F0F8;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
         <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(90,74,122,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">8</div>
         <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
-            
+
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
         <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#8A7AA0;letter-spacing:0.05em;">08</span>
         <span style="width:40px;height:1px;background:#C8BFD8;"></span>
@@ -656,41 +641,39 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
             🚀 Startup &nbsp;|&nbsp; 🚀 Startup
         </span>
     </div>
-            
+
             <div style="margin:0 0 32px 0;max-width:760px;">
         <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#2A1A3A;margin:0 0 12px 0;">
             <a href="https://crawshaw.io/blog/building-a-cloud" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Exe.dev Announces Funding, Aims to Redefine Cloud Computing</a>
         </h2>
-        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#8A7AA0;margin:0;">
-            Exe.dev 宣布获得融资，旨在重新定义云计算
-        </h3>
+
     </div>
-            
+
         <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
             <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#3A2D4A;margin:0 0 12px 0;">Today is fundraising announcement day . As is the nature of writing for a larger audience, it is a formal, safe announcement. Writing must necessarily become impersonal at scale. But I would like to write something personal about why I am doing this. What is the goal of building exe.dev ?</p>
-            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#8A7AA0;margin:0;">今天，我们正式对外公布了融资消息。鉴于其面向更广泛的受众，这份公告自然采取了正式且稳妥的措辞。在规模化传播的语境下，文字的表达也必然趋于非个人化。然而，我更希望借此机会，用个人化的笔触，阐述我投身此事的深层缘由。那么，构建exe.dev的终极目标究竟是什么呢？</p>
+
         </div>
-            
+
     <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #5A4A7A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
         <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#5A4A7A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Actionable Insight / 洞察与行动
+            Actionable Insight
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#3A2D4A;font-style:italic;margin:0 0 12px 0;">This post captures the inherent tension for startup founders navigating the transition from personal vision to corporate messaging, especially during fundraising. It poignantly illustrates the struggle to maintain authenticity and convey deeply personal motivations when communicating with a large, formal audience about building a new cloud platform.</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#8A7AA0;margin:0;">这篇文章捕捉了创业公司创始人在个人愿景与企业传播之间转换时固有的张力，尤其是在融资期间。它深刻地阐明了当向庞大而正式的受众沟通其构建新云平台的深层个人动机时，如何努力保持真实性。</p>
+
         </div>
     </div>
-            
+
     <div style="margin-top:28px;padding-left:24px;border-left:2px solid #C8BFD8;">
         <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#8A7AA0;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Community Voice / 社区声音
+            Community Voice
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#8A7AA0;margin:0 0 8px 0;font-style:italic;">"The community expresses significant skepticism towards the complexity and necessity of Kubernetes for many applications, viewing it as often over-engineered. There's a strong consensus that traditional cloud VMs are inefficient due to their rigid CPU/memory tying, poor default performance (like IOPS), and high costs, prompting many to consider self-hosting or cheaper alternatives. Overall, commenters desire a simpler, more cost-effective, and performance-optimized infrastructure model that truly reflects usage rather than abstract resource allocations."</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#8A7AA0;opacity:0.8;margin:0;">"社区对 Kubernetes 的复杂性和对许多应用的必要性持明显怀疑态度，认为它往往设计过度。人们普遍认为，传统云虚拟机因其僵化的CPU/内存绑定、糟糕的默认性能（如IOPS）以及高昂的成本而效率低下，促使许多人考虑自托管或更便宜的替代方案。总的来说，评论者渴望一种更简单、更具成本效益且性能优化的基础设施模式，这种模式能真正反映使用情况，而非抽象的资源分配。"</p>
+
         </div>
     </div>
-            
+
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#8A7AA0;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">crawshaw.io</span>
         <span style="opacity:0.5;">·</span>
@@ -700,13 +683,13 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
         <span style="opacity:0.5;">·</span>
         <span>by bumbledraven</span>
     </div>
-            
+
     <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
         <a href="https://crawshaw.io/blog/building-a-cloud" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#5A4A7A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #5A4A7A;padding-bottom:2px;transition:opacity 0.2s;">
-            Read Source / 阅读原稿 →
+            Read Source →
         </a>
         <a href="https://news.ycombinator.com/item?id=47872324" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#8A7AA0;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C8BFD8;padding-bottom:2px;transition:opacity 0.2s;">
-            HN Discussion / 参与讨论 →
+            HN Discussion →
         </a>
     </div>
         </div>
@@ -714,7 +697,7 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
     <section id="story-9" style="background:#F0F5F4;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
         <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(42,90,90,0.05);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">9</div>
         <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
-            
+
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
         <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#6A9090;letter-spacing:0.05em;">09</span>
         <span style="width:40px;height:1px;background:#B0C8C4;"></span>
@@ -722,50 +705,44 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
             🤖 AI Performance &nbsp;|&nbsp; 🤖 AI Performance
         </span>
     </div>
-            
+
         <div style="display:inline-flex;align-items:center;gap:6px;background:#2A5A5A;color:#F0F5F4;
             padding:4px 14px;border-radius:2px;font-family:'Inter',sans-serif;font-size:0.7rem;
             font-weight:700;letter-spacing:0.12em;margin-bottom:24px;">
-            ⚡ HIGHLY RELEVANT TO YOU / 高度相关
+            ⚡ HIGHLY RELEVANT
         </div>
             <div style="margin:0 0 32px 0;max-width:760px;">
         <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A2E2E;margin:0 0 12px 0;">
             <a href="https://www.anthropic.com/engineering/april-23-postmortem" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">Anthropic Pinpoints Three Internal Changes Behind Recent Claude AI Performance Decline</a>
         </h2>
-        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#6A9090;margin:0;">
-            安索罗普明确指出，近期Claude AI性能下滑源于三项内部调整。
-        </h3>
+
     </div>
-            
+
         <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
             <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D3E3E;margin:0 0 12px 0;">An update on recent Claude Code quality reports We traced recent reports of Claude Code quality issues to three separate changes. Here's what happened and what we're changing. Over the past month, we’ve been looking into reports that Claude’s responses have worsened for some users. We’ve traced these reports to three separate changes that affected Claude Code, the Claude Agent SDK, and Claude Cowork.</p>
-            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#6A9090;margin:0;">近期 Claude Code 质量报告更新。
 
-我们发现，近期关于 Claude Code 质量问题的报告，其根源在于三项独立的改动。接下来，我们将阐述具体情况，并说明我们正在采取的调整措施。
-
-近一个月来，我们一直在深入调查部分用户反映 Claude 响应质量下降的问题。经过追溯，我们发现这些问题均源于三项独立的系统变更，它们分别影响了 Claude Code、Claude Agent SDK 和 Claude Cowork。</p>
         </div>
-            
+
     <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #2A5A5A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
         <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#2A5A5A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Actionable Insight / 洞察与行动
+            Actionable Insight
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D3E3E;font-style:italic;margin:0 0 12px 0;">Anthropic's transparent update attributes recent Claude performance dips to three specific changes impacting code generation, SDK, and agent workflows, rather than a general model regression. Such detailed post-mortems are crucial for maintaining user trust and demonstrating accountability, underscoring the delicate and complex nature of iterative AI development.</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#6A9090;margin:0;">Anthropic 此次透明的更新将近期 Claude 性能下降的问题归因于影响代码生成、SDK 和代理工作流的三个具体改动，而非普遍的模型退化。这种详细的事后分析对于维护用户信任和展现责任至关重要，也突显了迭代式 AI 模型开发过程中敏感而复杂的特性。</p>
+
         </div>
     </div>
-            
+
     <div style="margin-top:28px;padding-left:24px;border-left:2px solid #B0C8C4;">
         <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#6A9090;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Community Voice / 社区声音
+            Community Voice
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#6A9090;margin:0 0 8px 0;font-style:italic;">"The Hacker News community largely confirms experiencing a significant decline in Claude's code quality, appreciating Anthropic's attempt at transparency regarding a &quot;forgetfulness&quot; bug and reduced default reasoning effort. However, many users criticize these explanations as insufficient, pointing to the lowering of reasoning effort as a workaround for UI issues and disputing the &quot;corner case&quot; definition for idle sessions. The discussion also highlights broader concerns about LLM transparency, observed instances of Claude responding to internal prompts, and competitive pressures from other AI models."</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#6A9090;opacity:0.8;margin:0;">"Hacker News 社区普遍证实 Claude 代码质量确有显著下降，并对 Anthropic 尝试透明化处理“健忘”bug和降低默认推理努力的做法表示认可。然而，许多用户认为这些解释不够充分，批评降低推理努力是解决UI问题的权宜之计，并质疑将空闲会话定义为“边缘情况”的说法。讨论还凸显了对大型语言模型透明度、Claude响应内部提示的现象，以及来自其他AI模型的竞争压力的普遍担忧。"</p>
+
         </div>
     </div>
-            
+
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6A9090;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">anthropic.com</span>
         <span style="opacity:0.5;">·</span>
@@ -775,13 +752,13 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
         <span style="opacity:0.5;">·</span>
         <span>by mfiguiere</span>
     </div>
-            
+
     <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
         <a href="https://www.anthropic.com/engineering/april-23-postmortem" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#2A5A5A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #2A5A5A;padding-bottom:2px;transition:opacity 0.2s;">
-            Read Source / 阅读原稿 →
+            Read Source →
         </a>
         <a href="https://news.ycombinator.com/item?id=47878905" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#6A9090;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #B0C8C4;padding-bottom:2px;transition:opacity 0.2s;">
-            HN Discussion / 参与讨论 →
+            HN Discussion →
         </a>
     </div>
         </div>
@@ -789,7 +766,7 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
     <section id="story-10" style="background:#EDEBE5;min-height:100vh;padding:clamp(60px,10vh,100px) clamp(32px,8vw,100px);position:relative;overflow:hidden;display:flex;align-items:center;">
         <div style="position:absolute;top:-4vw;right:4vw;font-family:'Fraunces',serif;font-size:clamp(8rem,18vw,16rem);font-weight:900;color:rgba(42,42,42,0.06);line-height:1;pointer-events:none;user-select:none;" aria-hidden="true">10</div>
         <div style="position:relative;z-index:2;width:100%;max-width:860px;margin:0 auto;">
-            
+
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
         <span style="font-family:'Fraunces',serif;font-size:0.85rem;font-weight:400;color:#7A7A70;letter-spacing:0.05em;">10</span>
         <span style="width:40px;height:1px;background:#C0BDB5;"></span>
@@ -797,48 +774,39 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
             AI/LLM 🤖 &nbsp;|&nbsp; AI/LLM 🤖
         </span>
     </div>
-            
+
             <div style="margin:0 0 32px 0;max-width:760px;">
         <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:#1A1A1A;margin:0 0 12px 0;">
             <a href="https://api-docs.deepseek.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:opacity 0.2s;">DeepSeek Launches v4 Models with OpenAI/Anthropic API Compatibility</a>
         </h2>
-        <h3 style="font-family:'Noto Serif SC',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);font-weight:600;line-height:1.4;color:#7A7A70;margin:0;">
-            深度求索发布v4模型，全面兼容OpenAI与Anthropic API。
-        </h3>
+
     </div>
-            
+
         <div class="bilingual-block" style="margin-bottom:24px;max-width:680px;">
             <p style="font-family:'Fraunces',serif;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.75;color:#2D2D2D;margin:0 0 12px 0;">The DeepSeek API uses an API format compatible with OpenAI/Anthropic. By modifying the configuration, you can use the OpenAI/Anthropic SDK or softwares compatible with the OpenAI/Anthropic API to access the DeepSeek API. deepseek-v4-flash deepseek-v4-pro deepseek-chat (to be deprecated on 2026/07/24) deepseek-reasoner (to be deprecated on 2026/07/24) * The model names deepseek-chat and deepseek-reasoner will be deprecated on 2026/07/24. For compatibility, they correspond to the non-thinking mode and thinking mode of deepseek-v4-flash , respectively.</p>
-            <p style="font-family:'Noto Serif SC',serif;font-size:1rem;line-height:1.8;color:#7A7A70;margin:0;">DeepSeek API 采用与 OpenAI/Anthropic 兼容的 API 接口规范。通过修改配置，您即可使用 OpenAI/Anthropic 的 SDK 或与 OpenAI/Anthropic API 兼容的软件来访问 DeepSeek API。
 
-*   deepseek-v4-flash
-*   deepseek-v4-pro
-*   deepseek-chat (将于 2026/07/24 停用)
-*   deepseek-reasoner (将于 2026/07/24 停用)
-
-* 模型名称 deepseek-chat 和 deepseek-reasoner 将于 2026/07/24 停用。为保持兼容性，它们分别对应 deepseek-v4-flash 的非思考模式和思考模式。</p>
         </div>
-            
+
     <div style="margin-top:32px;padding:24px 28px;border-left:3px solid #2A2A2A;background:rgba(0,0,0,0.02);border-radius:0 4px 4px 0;">
         <div style="font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:700;color:#2A2A2A;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Actionable Insight / 洞察与行动
+            Actionable Insight
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Fraunces',serif;font-size:1rem;line-height:1.7;color:#2D2D2D;font-style:italic;margin:0 0 12px 0;">DeepSeek v4's strategic API compatibility with OpenAI/Anthropic significantly streamlines developer migration, positioning it as a highly accessible alternative in the competitive LLM landscape. This move capitalizes on existing tooling ecosystems, lowering adoption barriers while signaling a clear product lifecycle with the deprecation of older models.</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.9rem;line-height:1.7;color:#7A7A70;margin:0;">DeepSeek v4 在 API 上与 OpenAI/Anthropic 的战略兼容性显著简化了开发者的迁移过程，使其在竞争激烈的 LLM 领域中成为一个高度可用的替代方案。此举充分利用了现有的工具生态系统，有效降低了采用门槛，同时通过淘汰旧模型预示着明确的产品生命周期和对最新迭代的聚焦。</p>
+
         </div>
     </div>
-            
+
     <div style="margin-top:28px;padding-left:24px;border-left:2px solid #C0BDB5;">
         <div style="font-family:'Inter',sans-serif;font-size:0.6rem;font-weight:600;color:#7A7A70;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">
-            Community Voice / 社区声音
+            Community Voice
         </div>
         <div class="bilingual-block">
             <p style="font-family:'Inter',sans-serif;font-size:0.9rem;line-height:1.6;color:#7A7A70;margin:0 0 8px 0;font-style:italic;">"The Hacker News community largely celebrates DeepSeek v4 for its developer-first approach, exemplified by its exceptional documentation, truly open-source nature, and remarkably low pricing for a frontier model. Users are impressed by its technical achievements, including a guaranteed determinism feature and strong performance on coding benchmarks like SWE-bench, while also noting its unique independence from CUDA via Huawei chips. This combination of accessibility, cutting-edge capability, and cost-effectiveness positions DeepSeek v4 as a significant and welcome offering in the AI space."</p>
-            <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;line-height:1.6;color:#7A7A70;opacity:0.8;margin:0;">"Hacker News 社区普遍赞扬 DeepSeek v4 的开发者优先策略，这体现在其卓越的文档、真正的开源性质以及前沿模型极低的价格上。用户对其技术成就印象深刻，包括其保证确定性的特性和在 SWE-bench 等编码基准上的强大表现，同时还注意到它通过华为芯片实现对 CUDA 的独特独立性。这种易用性、尖端能力和成本效益的结合，使 DeepSeek v4 成为人工智能领域一个重要且受欢迎的产品。"</p>
+
         </div>
     </div>
-            
+
     <div style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#7A7A70;letter-spacing:0.06em;margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
         <span style="font-weight:600;background:rgba(0,0,0,0.05);padding:3px 8px;border-radius:2px;">api-docs.deepseek.com</span>
         <span style="opacity:0.5;">·</span>
@@ -848,24 +816,48 @@ The Hacker News community largely praises the &quot;no-tech&quot; tractor concep
         <span style="opacity:0.5;">·</span>
         <span>by impact_sy</span>
     </div>
-            
+
     <div style="display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;">
         <a href="https://api-docs.deepseek.com/" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#2A2A2A;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1.5px solid #2A2A2A;padding-bottom:2px;transition:opacity 0.2s;">
-            Read Source / 阅读原稿 →
+            Read Source →
         </a>
         <a href="https://news.ycombinator.com/item?id=47884971" target="_blank" rel="noopener" style="font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:600;color:#7A7A70;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #C0BDB5;padding-bottom:2px;transition:opacity 0.2s;">
-            HN Discussion / 参与讨论 →
+            HN Discussion →
         </a>
     </div>
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · April 24, 2026</div>
-        <div style="font-family:'Noto Sans SC',sans-serif;font-size:0.65rem;color:#B0A090;margin-top:8px;letter-spacing:0.05em;">双语精排版 · 为技术人定制的每日视角</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-04-23.html">
+        <small>Previous issue</small>
+        <strong>← April 23, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-04-25.html">
+        <small>Next issue</small>
+        <strong>→ April 25, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

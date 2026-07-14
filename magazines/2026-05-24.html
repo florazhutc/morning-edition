@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — May 24, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 019, May 24, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — May 24, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Sunday</div>
-        <div class="masthead-year">May 24, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 019</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Sunday</span>
+                    <time datetime="2026-05-24">May 24, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">🚀 Space Exploration</div>
-            
+
             <h2 class="story-title"><a href="https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-v3-megarocket-first-test-flight" target="_blank" rel="noopener">SpaceX's Most Powerful Starship V3 Megarocket Soars on Maiden Flight</a></h2>
             <p class="story-summary">SpaceX just launched Starship V3 — its most powerful megarocket yet — into space for the 1st time in spectacular Flight 12 test (video) | Space Skip to main content</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This successful maiden flight of Starship V3 marks a significant iterative step in SpaceX's ambitious deep-space architecture, pushing the boundaries of heavy-lift capability critical for future lunar and Martian missions. Such tests, regardless of full success, provide invaluable data, solidifying the private sector's pivotal role in accelerating the pace of space exploration through rapid, iterative engineering.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses admiration for SpaceX's &quot;rapid iteration&quot; approach, emphasizing the value of quick build-test-learn cycles even with &quot;negative outcome learning experiences.&quot; Despite an engine anomaly on the booster, commentators highlighted significant progress in the heat shield's performance and the ship's guidance system, seeing the flight as a successful demonstration of advancements and data collection.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>space.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by busymom0</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-v3-megarocket-first-test-flight" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48242959" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">⚖️ Civil Liberties</div>
-            
+
             <h2 class="story-title"><a href="https://reclaimthenet.org/texas-woman-arrested-for-facebook-post-about-town-water-quality" target="_blank" rel="noopener">Texas Woman Arrested Over Water Quality Facebook Post, Fueling Outcry Over Free Speech and Justice Disparity</a></h2>
             <p class="story-summary">Community discussion highlights: Not surprised. Tarrant County told the US Marshals my styrofoam cooler with vomit in it was a “bomb threat” and charged me with use of a DEADLY WEAPON. Honestly. If my public defender hadn’t colluded with the Prosecution it wouldn’t be on my record today. This is going to get a lot worse before it gets better in the US. I’m a nonviolent cripple. Meanwhile a pardoned Jan 6 rioter just told a City Counsel “they should be strung up” and isn’t even being charged. Totally depends what team you’re on </p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This incident starkly illustrates the erosion of civil liberties, where expressing concerns about public welfare on social media can lead to arrest, raising serious questions about the scope of free speech and government overreach. Compounded by perceived disparities in legal enforcement and allegations of political bias within the justice system, such cases fuel public distrust and deepen concerns about an increasingly weaponized legal framework applied unequally across citizens.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely viewed the arrest as an unjust overreach of authority and a clear infringement on free speech, a sentiment validated by the subsequent dismissal of charges. There's a strong consensus that the woman was wrongfully targeted and should pursue a significant settlement, though some users expressed cynicism about true systemic change or accountability for local officials.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>reclaimthenet.org</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by abawany</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://reclaimthenet.org/texas-woman-arrested-for-facebook-post-about-town-water-quality" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48249747" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">📈 Business Strategy</div>
-            
+
             <h2 class="story-title"><a href="https://davidoks.blog/p/why-japanese-companies-do-so-many" target="_blank" rel="noopener">Unpacking the Internal Logic of Japan's Highly Diversified Corporations</a></h2>
             <p class="story-summary">Why Japanese companies do so many different things Why Japanese companies do so many different things The internal logic of the world’s strangest corporations Photos from Lars Tunbjörk’s “Office” series If you spend much time in American public bathrooms, or rather if you’re simply a particularly attentive patron of American public bathrooms, you’ll probably have noticed Toto’s toilets at some point or another: they’re distinguished by a quite memorable serif-font “TOTO” logo.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece delves into the unique business strategies of Japanese corporations, exploring the underlying cultural and historical factors that drive their often-perplexing diversification across varied industries. Unlike Western models focused on specialization, this approach highlights an internal logic that prioritizes long-term stability and resilience. It shapes a distinct form of corporate governance and market engagement.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely agrees that lifetime employment and low job market fluidity are defining characteristics of Japanese companies, contrasting with the current Western emphasis on high profitability and specialization. However, there's a consensus that the article oversimplifies the reasons for Japanese corporate diversification, with commenters pointing out historical Western diversification and a tendency to idealize the Japanese model. Many also feel the article misses crucial external factors like government support or specific industry demands (e.g., software innovation).</p>
     </div>
-            
+
     <div class="story-meta">
         <span>davidoks.blog</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by d0ks</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://davidoks.blog/p/why-japanese-companies-do-so-many" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48237163" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">👾 Demoscene</div>
-            
+
             <h2 class="story-title"><a href="https://hellmood.111mb.de/wake_up_16b_writeup.html" target="_blank" rel="noopener">16-Byte x86 Assembly: A Veteran's Demoparty Ode to Algorithmic Density</a></h2>
             <p class="story-summary">Released at the Outline Demoparty in May 2026, Ommen, NL An exploration of algorithmic density in 16 bytes of x86 assembly. I learned programming as a kid on an old IBM PC with a monochrome green monitor over 30 years ago and always wanted to create a program for this system. I created well over 100 tiny intros in the last 15 years. Recently I was not too active but the fantastic &quot;Rainbow Surf&quot; from Plex in just 16 bytes motivated me to dig up some old dusty sketches again and get to work. The creation of this program happened with the usual tinkering around.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This submission masterfully showcases the extreme art of code golf within the demoscene, pushing algorithmic density into an incredible 16 bytes of x86 assembly. It's a testament to the author's decades of experience and the enduring inspiration found in competitive, constraint-based programming, blending retro computing nostalgia with cutting-edge optimization.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is overwhelmingly impressed and awestruck by the &quot;16b&quot; (16-byte) demo, mistaking it for a large language model parameter count initially. Commenters universally praise it as a masterful, artistic display of extreme programming ingenuity, evoking deep appreciation for the beauty and technical challenge of such size-constrained work. Many describe being &quot;floored,&quot; &quot;hypnotized,&quot; and seeing it as a &quot;masterpiece&quot; that rekindles their love for programming.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>hellmood.111mb.de</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by MaximilianEmel</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://hellmood.111mb.de/wake_up_16b_writeup.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48253060" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">🚀 ML Engineering</div>
-            
+
             <h2 class="story-title"><a href="https://horace.io/brrr_intro.html" target="_blank" rel="noopener">Deep Learning Performance: Master Optimization with First Principles</a></h2>
             <p class="story-summary">Making Deep Learning go Brrrr From First Principles Making Deep Learning Go Brrrr From First Principles So, you want to improve the performance of your deep learning model. How might you approach such a task? Often, folk fall back to a grab-bag of tricks that might've worked before or saw on a tweet.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece targets the common frustration of optimizing deep learning models by advocating a &quot;first principles&quot; approach over a &quot;grab-bag of tricks.&quot; It highlights the critical need for a foundational understanding of model mechanics and performance bottlenecks. Such a systematic perspective is essential for developing truly robust and scalable deep learning solutions, moving beyond anecdotal successes to principled engineering practices.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely praises the post as a foundational guide to understanding deep learning performance from first principles, frequently acknowledging NVIDIA's sustained hardware dominance and the immense speed difference between high-level code and specialized silicon. While recognizing the post's clarity, commenters also highlight the significant practical challenges of achieving consistent, portable performance optimization in real-world systems and express a strong desire for deeper, &quot;from scratch&quot; understanding beyond just using existing models.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>horace.io</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by tosh</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://horace.io/brrr_intro.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48246889" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -329,21 +342,21 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">🔬 Vintage Hardware</div>
-            
+
             <h2 class="story-title"><a href="https://www.righto.com/2026/05/reverse-engineering-spacelab-computer.html" target="_blank" rel="noopener">Reverse Engineering Spacelab's 1980 Pre-Microprocessor Computer Circuitry</a></h2>
             <p class="story-summary">Reverse engineering circuitry in a Spacelab computer from 1980 Reverse engineering circuitry in a Spacelab computer from 1980 Spacelab was a reusable laboratory that could be carried in the cargo bay of the Space Shuttle, providing lab space for astronauts
 and experiments. Spacelab was controlled by a French-built minicomputer, called the Mitra 125 MS . Unlike modern computers, this computer didn't contain a microprocessor chip.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project offers a fascinating glimpse into the foundational era of computing and space technology, showcasing how complex systems were engineered without the benefit of integrated microprocessors. Reverse engineering such a system reveals architectures built from discrete logic components, highlighting the ingenuity and robust design practices required for critical aerospace applications of the early 1980s. Such endeavors are crucial for preserving historical technical knowledge and appreciating the remarkable evolution of computing hardware.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses significant admiration for the &quot;insanely detailed&quot; reverse engineering effort, highlighting the fascinating historical insights provided by delving into vintage Spacelab computer hardware. There's particular curiosity regarding the unique construction and design choices of the multi-layer PCBs from that era.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>righto.com</span>
         <span>·</span>
@@ -353,7 +366,7 @@ and experiments. Spacelab was controlled by a French-built minicomputer, called 
         <span>·</span>
         <span>by elpocko</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.righto.com/2026/05/reverse-engineering-spacelab-computer.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48248954" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -364,20 +377,20 @@ and experiments. Spacelab was controlled by a French-built minicomputer, called 
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">🌍 Humanitarian Tech</div>
-            
+
             <h2 class="story-title"><a href="https://notesbylex.com/shipping-a-laptop-to-a-refugee-camp-in-uganda" target="_blank" rel="noopener">Laptop Powers Congolese Refugee's Degree Pursuit in Ugandan Camp</a></h2>
             <p class="story-summary">Shipping a Laptop to a Refugee Camp in Uganda - NotesByLex.com Shipping a Laptop to a Refugee Camp in Uganda For the last few years, while finally earning my belated Bachelor's Degree in the University of London's World Class program, I've met some amazing people from all across the world, completing their degrees after hours while balancing work, families, and other extremely challenging circumstances. But few have circumstances as challenging as Django’s. Django is a Congolese refugee living in a camp in Western Uganda.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This initiative powerfully illustrates the critical role of digital access and personal technology in empowering individuals facing extreme adversity, like refugees pursuing higher education. It underscores the significant practical challenges of bridging the digital divide in humanitarian contexts, yet also showcases how a single piece of tech can be a lifeline for learning, connection, and future opportunities.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely agrees that shipping electronics to Uganda via traditional international methods (mail or couriers) is an extremely difficult, unreliable, and often corrupt process, burdened by high taxes and bureaucratic hurdles. Most commenters advocate for alternative approaches, such as hand-carrying items when someone travels to the region or simply sending money for a local purchase, as these are considered far more reliable and cost-effective.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>notesbylex.com</span>
         <span>·</span>
@@ -387,7 +400,7 @@ and experiments. Spacelab was controlled by a French-built minicomputer, called 
         <span>·</span>
         <span>by lexandstuff</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://notesbylex.com/shipping-a-laptop-to-a-refugee-camp-in-uganda" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48241997" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -398,20 +411,20 @@ and experiments. Spacelab was controlled by a French-built minicomputer, called 
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">Productivity Hack 🚀</div>
-            
+
             <h2 class="story-title"><a href="https://veronicaexplains.net/my-first-writerdeck/" target="_blank" rel="noopener">Transform Your Old Laptop into a Distraction-Free Writerdeck</a></h2>
             <p class="story-summary">A couple of weeks ago, I decided to convert my old laptop into a writerdeck , a dedicated writing device free from the distractions of the modern internet. Lots of folks build really elaborate offline devices for this, and I'd love to do that... Right now I have no shortage of projects and the point is to get writing, so I used what I had: a six-year-old laptop which still runs great, has plenty of power, but isn't getting much use anymore. Crucially, this laptop has an excellent keyboard, and a matte screen, which makes it awesome to type on for long stretches, and functional enough in the daylight (I like to sit outside with my dog and write). Now, you could certainly just use a regular desktop OS and keep it offline, although that's easier said than done.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The &quot;writerdeck&quot; concept offers a clever, low-cost solution to digital distraction by repurposing existing hardware into a dedicated, single-purpose tool for creative work. This reflects a growing trend towards digital minimalism, where the deliberate limitation of technology — often via older, offline devices — serves as a powerful feature to foster deeper focus and enhance productivity, rather than constantly seeking new or more powerful multi-purpose tools.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">While acknowledging the technical impressiveness, the Hacker News community largely views the &quot;writerdeck&quot; as an over-engineered and potentially ironic solution to the problem of distraction. Many comments suggest the elaborate setup process itself could be a form of distraction or dopamine-chasing, questioning its long-term efficacy compared to simpler methods or underlying issues. This reflects a common pattern on HN where users elaborate technically intricate solutions for problems that might have more straightforward fixes.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>veronicaexplains.net</span>
         <span>·</span>
@@ -421,7 +434,7 @@ and experiments. Spacelab was controlled by a French-built minicomputer, called 
         <span>·</span>
         <span>by hggh</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://veronicaexplains.net/my-first-writerdeck/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48250144" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -432,20 +445,20 @@ and experiments. Spacelab was controlled by a French-built minicomputer, called 
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🛠️ Developer Tools</div>
-            
+
             <h2 class="story-title"><a href="https://uvic-aurora.github.io/acav-manual/index.html" target="_blank" rel="noopener">Interactive C/C++ AST Explorer Streamlines Static Analysis with Structural Search</a></h2>
             <p class="story-summary">I built this software to help users who need to do static code analysis for C/C++ codebase. This can help you to explore the ASTs interactively. It can replace the Clang ast dump completely and also you can search the code/ASTs in a structual way. For example you can search a function which matches specific name or number of paremeters.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This &quot;Show HN&quot; offers a much-needed interactive and structurally searchable alternative to the raw `Clang ast dump` for C++ AST exploration. It significantly streamlines static code analysis and understanding complex C/C++ codebases by providing a more accessible interface for tasks like refactoring or building custom analysis tools. Its ability to search based on structural properties, like function name or parameter count, marks a notable improvement in efficiency for developers working on deep code understanding.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community shows initial interest in new static analysis tools for C++ AST exploration. However, there's an immediate desire for more advanced capabilities, specifically highlighting the potential for cross-translation unit analysis beyond basic source file discovery.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>uvic-aurora.github.io</span>
         <span>·</span>
@@ -455,7 +468,7 @@ and experiments. Spacelab was controlled by a French-built minicomputer, called 
         <span>·</span>
         <span>by leomicv</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://uvic-aurora.github.io/acav-manual/index.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48228106" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -466,20 +479,20 @@ and experiments. Spacelab was controlled by a French-built minicomputer, called 
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">📚 Linguistics</div>
-            
+
             <h2 class="story-title"><a href="https://www.worldwidewords.org/surprise.html" target="_blank" rel="noopener">The Latin Roots of 'Column's Silent 'N</a></h2>
             <p class="story-summary">Home Search pages Index to pages Random page About the author Email the author Pronunciation guide Affixes dictionary Q From Turner Hooch : Why is there a letter n at the end of the word column ? A Or, putting it another way, why it is there but not pronounced? The source of our word is the Latin columna , which had a syllable break between the m and n , so both letters were pronounced. It appeared in English like that in the fifteenth century, but it was a rather unEnglish looking (and sounding) word, and it went through a lot of changes and different spellings in the following 250 years.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece offers a concise yet insightful etymological journey into the word &quot;column,&quot; vividly illustrating how language borrowing leads to phonetic and orthographic transformations over centuries. It effectively demystifies the presence of silent letters by tracing the word's adaptation from Latin, underscoring the dynamic and often &quot;un-English&quot; challenges faced by loanwords.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community quickly identified that the original submission's link was erroneous and irrelevant to the title &quot;Limerick.&quot; Commenters noted it pointed to a random word generator page with unstable content, rather than information about limericks. The clear consensus is that the link should be corrected to a stable and relevant source, such as Wikipedia's entry on limericks.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>worldwidewords.org</span>
         <span>·</span>
@@ -489,7 +502,7 @@ and experiments. Spacelab was controlled by a French-built minicomputer, called 
         <span>·</span>
         <span>by jruohonen</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.worldwidewords.org/surprise.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48254684" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -497,11 +510,36 @@ and experiments. Spacelab was controlled by a French-built minicomputer, called 
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 24, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-05-23.html">
+        <small>Previous issue</small>
+        <strong>← May 23, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-05-26.html">
+        <small>Next issue</small>
+        <strong>→ May 26, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

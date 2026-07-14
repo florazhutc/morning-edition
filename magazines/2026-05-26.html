@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — May 26, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 020, May 26, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — May 26, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Tuesday</div>
-        <div class="masthead-year">May 26, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 020</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Tuesday</span>
+                    <time datetime="2026-05-26">May 26, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">📜 Philosophy &amp; Speculation</div>
-            
+
             <h2 class="story-title"><a href="https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html" target="_blank" rel="noopener">Pope Leo XIV Issues 'Magnifica Humanitas' Encyclical</a></h2>
             <p class="story-summary">Encyclical Letter of His Holiness Leo XIV Magnifica Humanitas (15 May 2026)</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post introduces a fictional encyclical from a future Pope, &quot;Leo XIV,&quot; dated 2026, signaling a speculative thought experiment rather than religious news. The title &quot;Magnifica Humanitas&quot; suggests a profound philosophical or ethical exploration into humanity's dignity, challenges, or future potential. By adopting the gravitas of a papal letter, the author likely offers commentary on contemporary societal issues, inviting readers to ponder humanity's trajectory through a unique, authoritative lens.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely concurs with the Pope's central thesis that &quot;technology is never neutral,&quot; reflecting the values of its creators and controllers. Many commenters, even non-religious ones, express surprise and appreciation for the Vatican's insightful and relevant ethical perspective on technology's societal impact. There's a shared emphasis on the critical responsibility of builders to deeply consider the implications of their innovations.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>vatican.va</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by theletterf</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.vatican.va/content/leo-xiv/en/encyclicals/documents/20260515-magnifica-humanitas.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48265206" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">Social Theory 💡</div>
-            
+
             <h2 class="story-title"><a href="https://www.urbanhonking.com/ideasfordozens/2012/06/24/designing-for-and-against-the-manufactured-normalcy-field/index.html" target="_blank" rel="noopener">The Manufactured Normalcy Field: How Design Creates and Resists Our Normal</a></h2>
             <p class="story-summary">Designing for and Against the Manufactured Normalcy Field | Ideas For Dozens In-Screen Graphics as Religious Experience: On the Purpose of Invoviz → Designing for and Against the Manufactured Normalcy Field This post tells the story of the session at FOO camp this year that I co-ran with Matt Webb on the Manufactured Normalcy Field. It explains the background of the idea, describes the structure of the brainstorming session, outlines its results, and then tracks some of the uptake of the idea since FOO, specifically in a recent episode of A Show with Ze Frank .</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post explores the genesis and early impact of the &quot;Manufactured Normalcy Field&quot; concept, which describes how pervasive social and media influences subtly shape our perception of what is &quot;normal.&quot; It provides a critical framework for understanding societal conformity and encourages designers and thinkers to strategically interact with these constructed realities. The article's focus on its origin from a collaborative FOO camp session highlights the interdisciplinary nature of influential ideas.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely interprets the article's concept as a form of **framing or manipulating perceived normalcy**. Commenters connect it to established ideas like the **Overton Window**, highlighting how narratives can intentionally shift what is considered acceptable or understandable. They also note its application in creative fields, either by making strange concepts familiar or, conversely, by making the familiar seem strange.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>urbanhonking.com</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by nvader</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.urbanhonking.com/ideasfordozens/2012/06/24/designing-for-and-against-the-manufactured-normalcy-field/index.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48273597" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">AI &amp; Dev Strategy 🤖</div>
-            
+
             <h2 class="story-title"><a href="https://nolanlawson.com/2026/05/25/using-ai-to-write-better-code-more-slowly/" target="_blank" rel="noopener">Better Code, Slower Development: The AI Coding Paradox</a></h2>
             <p class="story-summary">Using AI to write better code more slowly | Read the Tea Leaves Read the Tea Leaves Software and other dark arts, by Nolan Lawson Using AI to write better code more slowly Posted May 25, 2026 by Nolan Lawson in software engineering . A lot of people seem convinced that the point of AI coding is to write low-quality code as fast as possible.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post provocatively challenges the common perception that AI in coding is primarily for generating low-quality code at speed. It argues that AI's true value might lie in facilitating the creation of superior code, even if it means a more deliberate, slower development process. This perspective encourages a strategic shift in how developers leverage AI, prioritizing craftsmanship and thoughtful integration over pure output velocity.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely concurs that integrating AI into the coding workflow, while potentially leading to *better-designed or refactored solutions*, often results in a slower, more iterative process. Many developers report spending considerable time in &quot;back-and-forth&quot; review and correction loops, particularly when dealing with generated code's initial quality or when the task involves complex micro-architectural decisions, making it sometimes less efficient than direct manual coding for experienced practitioners.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>nolanlawson.com</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by signa11</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://nolanlawson.com/2026/05/25/using-ai-to-write-better-code-more-slowly/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48272984" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">Cybercrime Takedown 🚨</div>
-            
+
             <h2 class="story-title"><a href="https://krebsonsecurity.com/2026/05/netherlands-seizes-800-servers-arrests-2-for-aiding-cyberattacks/" target="_blank" rel="noopener">Dutch Seize 800 Servers, Arrest Two for Facilitating Russian Cyberattacks in EU</a></h2>
             <p class="story-summary">Netherlands Seizes 800 Servers, Arrests 2 for Aiding Cyberattacks – Krebs on Security Authorities in the Netherlands have arrested the co-owners of two related Internet hosting companies for operating IT infrastructure used by Russia to carry out cyberattacks, influence operations and disinformation campaigns inside the European Union. The two men were the focus of a 2025 KrebsOnSecurity story about how their hosting companies had assumed control over the technical infrastructure of Stark Industries Solutions , an Internet service provider sanctioned last year by the EU as a frequent staging ground for cyber mischief from Russia’s intelligence agencies. An investigator with the Tax Intelligence and Investigation Service (FIOD), the Dutch financial crimes agency, during the raid. The Dutch daily news outlet de Volkskrant reports that the Dutch financial crime agency FIOD on May 18 arrested a 57-year-old from Amsterdam and a 39-year-old from The Hague, charging them with violating sanctions law by directly or indirectly making economic resources available to EU-sanctioned entities.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This significant action by Dutch authorities underscores the increasing international resolve to disrupt state-sponsored cyber warfare by targeting its critical infrastructure and enablers. By seizing servers and arresting individuals tied to Russian cyberattacks and disinformation, it directly impacts adversarial capabilities within the EU and sends a clear message to complicit hosting providers globally that facilitating such activities carries severe legal consequences.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely agrees that the seized &quot;hosting companies&quot; were not legitimate but rather front operations directly supporting cybercrime, with many expressing little surprise given the significant engineering effort often seen in such illicit infrastructure. Several comments highlight the Netherlands' consistent, if notorious, role as a hub for these types of operations and services. While some questioned the strategic efficacy of the seizure, the overall sentiment points to a recognition of sophisticated, dedicated support for cyberattacks.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>krebsonsecurity.com</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by jruohonen</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://krebsonsecurity.com/2026/05/netherlands-seizes-800-servers-arrests-2-for-aiding-cyberattacks/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48266906" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">AI Infrastructure 🧠</div>
-            
+
             <h2 class="story-title"><a href="https://www.blocksandfiles.com/flash/2026/05/22/norways-2-petabytes-of-huawei-flash-storage-and-llm-training/5244910" target="_blank" rel="noopener">Norway Powers LLM Training With 2PB Huawei Flash Storage</a></h2>
             <p class="story-summary">Norway’s 2 petabytes of Huawei flash storage and LLM training Jump to main content</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Norway's substantial investment of 2 petabytes of Huawei flash storage for LLM training signals a serious commitment to building sovereign AI capabilities. This choice is particularly notable given the geopolitical scrutiny and security concerns often associated with Huawei equipment in Western nations. The decision likely reflects a strategic balance between cost-effectiveness, performance needs, and the complex considerations of data sovereignty and national security in developing critical AI infrastructure.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses skepticism about Norway's plan to train a &quot;sovereign LLM&quot; from scratch, with many suggesting that fine-tuning existing models or contributing quality Norwegian training data would be a more practical and effective use of resources. There's also notable concern regarding the use of Huawei storage for such a project, given current geopolitical sentiment. While the importance of Norwegian language support in LLMs is implicitly acknowledged, the described methodology and hardware raise doubts.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blocksandfiles.com</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by rbanffy</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.blocksandfiles.com/flash/2026/05/22/norways-2-petabytes-of-huawei-flash-storage-and-llm-training/5244910" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48270770" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -329,22 +342,22 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">Tech Policy ⚖️</div>
-            
+
             <h2 class="story-title"><a href="https://www.tomshardware.com/software/linux/california-moves-to-exempt-linux-from-its-upcoming-age-verification-law-after-backlash-over-forcing-operating-systems-to-collect-users-ages-amendment-proposed-by-the-same-lawmaker-who-wrote-the-original-law" target="_blank" rel="noopener">California Bows to Backlash, Exempts Linux from Age-Verification Law</a></h2>
             <p class="story-summary">California moves to exempt Linux from its upcoming age-verification law after backlash over forcing operating systems to collect users’ ages — amendment proposed by the same lawmaker who wrote the original law | Tom's Hardware Skip to main content Unlock world-class roadmaps &amp; trusted Bench data. Tom's Hardware Premium equips you with world-class
 coverage and detailed insights into the evolving hardware landscape. Full access to our trusted Bench database: Access granular performance data instantly. Exclusive hardware roadmaps: Peer into the
 future of the hardware industry.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This swift amendment by California's lawmaker highlights the inherent difficulty in crafting tech regulation that avoids unintended consequences, particularly when impacting core infrastructure like open-source operating systems. The initial broad scope of the age-verification law risked imposing an impractical and privacy-invasive requirement on Linux, prompting a crucial course correction that underscores the importance of public feedback in refining technologically complex legislation.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community generally views California's age-verification law as fundamentally flawed, misplacing the burden on operating systems instead of applications or browsers. While acknowledging the exemption for open-source software like Linux as a necessary technical correction, many express cynicism about the law's overall intent and its potential negative implications for internet privacy and user anonymity. There's a strong sentiment that the legislation is poorly conceived and lacks adequate consultation with the tech industry.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>tomshardware.com</span>
         <span>·</span>
@@ -354,7 +367,7 @@ future of the hardware industry.</p>
         <span>·</span>
         <span>by rbanffy</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.tomshardware.com/software/linux/california-moves-to-exempt-linux-from-its-upcoming-age-verification-law-after-backlash-over-forcing-operating-systems-to-collect-users-ages-amendment-proposed-by-the-same-lawmaker-who-wrote-the-original-law" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48269961" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -365,20 +378,20 @@ future of the hardware industry.</p>
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">💰 AI Business Strategy</div>
-            
+
             <h2 class="story-title"><a href="https://www.businessinsider.com/uber-coo-andrew-macdonald-ai-token-spending-harder-justify-2026-5" target="_blank" rel="noopener">Uber COO Warns AI Spending Increasingly Hard to Justify</a></h2>
             <p class="story-summary">Uber's COO Says It's Getting Harder to Justify the Money Spent on AI - Business Insider Uber's COO says it's getting harder to justify the money spent on AI tokenmaxxing You're currently following this author!</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Uber's COO struggling to justify AI spending, especially 'tokenmaxxing,' signals a critical shift from speculative investment to demanding tangible ROI in the AI space. This reflects a growing industry challenge where companies must now demonstrate clear business value and efficiency from their AI initiatives beyond initial hype. It portends a move towards more scrutinized, bottom-line driven AI adoption, where inefficient or unproven applications will face significant cuts.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views &quot;tokenmaxxing&quot; as a misguided and wasteful practice, driven by misaligned incentives rather than genuine productivity gains. Commenters express strong skepticism about the ROI of AI-assisted development when the focus is on maximizing token consumption, comparing it to past technological fads and warning against using such metrics for employee performance. The overall consensus is that this approach signals poor engineering leadership and a misunderstanding of how to effectively leverage AI.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>businessinsider.com</span>
         <span>·</span>
@@ -388,7 +401,7 @@ future of the hardware industry.</p>
         <span>·</span>
         <span>by _____k</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.businessinsider.com/uber-coo-andrew-macdonald-ai-token-spending-harder-justify-2026-5" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48268871" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -399,20 +412,20 @@ future of the hardware industry.</p>
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">🔒 Privacy &amp; Surveillance</div>
-            
+
             <h2 class="story-title"><a href="https://techxplore.com/news/2026-05-online-age-pointless-privacy.html" target="_blank" rel="noopener">Yoti Age Checks Harvest Your Face and Fingerprints for Third Parties</a></h2>
             <p class="story-summary">Community discussion highlights: I've been telling people for years now not to engage with systems such as these. Some say I'm just being paranoid. But a growing number concerningly reply with either &quot;So? What are they gonna do with it?&quot; or &quot;They already have it, it doesn't matter.&quot; Normal people either don't know the dangers present or they don't understand that stopping the flow hurts the machine. And they want neither to know or understand. Apathy or the desire for convenience cannot adequately explain why.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This report exposes a significant privacy breach, as Yoti's age verification shares sensitive facial photos and device fingerprints with third parties, vastly expanding users' digital profiles without explicit consent or clear understanding of data handling. More critically, it illuminates a concerning societal apathy towards data privacy, where convenience often outweighs awareness of the profound long-term implications of uncontrolled personal data sharing.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses strong disapproval of Yoti's age verification system, citing significant privacy concerns over the real-time sharing of facial photos and device fingerprints with numerous third parties. Many commenters view mandated age verification as &quot;identity theft at scale&quot; enabled by the state, advocating for distrust in such systems and preferring alternatives like zero-knowledge proofs. While a few comments question the article's accuracy regarding encryption or note Yoti's relative &quot;privacy focus&quot; compared to other vendors, the overarching sentiment is one of alarm and condemnation.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>techxplore.com</span>
         <span>·</span>
@@ -422,7 +435,7 @@ future of the hardware industry.</p>
         <span>·</span>
         <span>by Lihh27</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://techxplore.com/news/2026-05-online-age-pointless-privacy.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48271327" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -433,24 +446,24 @@ future of the hardware industry.</p>
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🛠️ AI Engineering</div>
-            
+
             <h2 class="story-title"><a href="https://www.netmeister.org/blog/ai-errno.html" target="_blank" rel="noopener">AI's Error Codes: Unpacking Failure in Intelligent Systems</a></h2>
-            <p class="story-summary">Opinions, mostly my own, on the importance of being and other things. [ homepage ] 
-      [ blog ] 
-      [ jschauma@netmeister.org ] 
-      [ @jschauma ] 
+            <p class="story-summary">Opinions, mostly my own, on the importance of being and other things. [ homepage ]
+      [ blog ]
+      [ jschauma@netmeister.org ]
+      [ @jschauma ]
       [ RSS ]</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece likely delves into the critical, yet often overlooked, challenge of establishing standardized error reporting and diagnostics for AI systems, akin to how `errno` functions in traditional software. It highlights the need for a more structured, auditable, and transparent way to understand and debug AI failures, moving beyond opaque &quot;black box&quot; issues towards greater reliability and explainability in AI engineering.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely embraces the &quot;AI errno&quot; concept with humor, using it to satirize common and often frustrating AI behaviors such as hallucination, &quot;sycophancy&quot; (agreeing with incorrect user input), and refusal to perform tasks due to internal prompts. Many commenters express a desire for AI to explicitly signal these failures with specific error codes, suggesting a need for more transparent and debuggable AI systems. This playful yet insightful approach highlights both the technical challenges and the user experience frustrations prevalent in AI development.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>netmeister.org</span>
         <span>·</span>
@@ -460,7 +473,7 @@ future of the hardware industry.</p>
         <span>·</span>
         <span>by zdw</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.netmeister.org/blog/ai-errno.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48236816" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -471,20 +484,20 @@ future of the hardware industry.</p>
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">⚙️ Compiler Challenges</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/yugr/rust-slides/" target="_blank" rel="noopener">Rust's Unstable Compiler and Lost Semantics Block Deeper Performance Optimizations</a></h2>
             <p class="story-summary">Community discussion highlights: Rust is in an awkward position of being already complicated enough that adding proofs for skipping bounds checks probably will not happen for a long time, even though this kind of low-level operation is where a lot of optimisation is lost. Compounding on this, Rust is also unstable underneath, since there is no public, stable contract for carrying high-level semantics from HIR into MIR. Because these high-level invariants are lost during compilation, the compiler cannot easily use them to prove </p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This discussion reveals that Rust's pursuit of optimal performance is complicated by its internal architecture and design philosophy. The loss of high-level semantic invariants during compilation (HIR to MIR) critically hinders the compiler's ability to perform advanced, proof-based optimizations like skipping bounds checks. This highlights a fundamental tension between Rust's complexity, its compiler's current stability, and its potential for deep low-level performance gains.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community generally agrees that Rust's performance is competitive with C but often slightly behind modern C++. This difference is primarily attributed to the overhead of Rust's memory safety guarantees, such as mandatory bounds checks, which can introduce a small performance penalty if not explicitly optimized away. While high performance is achievable, some commenters note it might require strategic use of `unsafe` code or advanced static analysis to mitigate these checks.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -494,7 +507,7 @@ future of the hardware industry.</p>
         <span>·</span>
         <span>by tanelpoder</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/yugr/rust-slides/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48273147" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -502,11 +515,36 @@ future of the hardware industry.</p>
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 26, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-05-24.html">
+        <small>Previous issue</small>
+        <strong>← May 24, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-05-27.html">
+        <small>Next issue</small>
+        <strong>→ May 27, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

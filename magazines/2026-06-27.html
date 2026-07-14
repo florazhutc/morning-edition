@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — June 27, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 052, June 27, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — June 27, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Saturday</div>
-        <div class="masthead-year">June 27, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 052</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Saturday</span>
+                    <time datetime="2026-06-27">June 27, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">AI Geopolitics ⚖️</div>
-            
+
             <h2 class="story-title"><a href="https://www.washingtonpost.com/technology/2026/06/26/openai-says-us-government-will-vet-users-its-latest-ai-model/" target="_blank" rel="noopener">US Government Seeks Veto Power Over GPT-5.6 Access, Sparking Fears of Market Favoritism and Discrimination</a></h2>
             <p class="story-summary">Community discussion highlights: Why do I get the feeling the administration is doing this to buy a position in the AI companies before they go public. If non US citizens shouldn't have the models - wouldn't that cause both Anthropic and OAI to fire non-citizens?</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This move by the U.S. government signals a significant escalation in the geopolitical race for AI dominance, extending national security frameworks to advanced models like GPT-5.6. It raises serious concerns about potential market manipulation and the broad implications for the global AI talent pool, forcing companies like Anthropic and OpenAI to reconsider their international hiring and collaboration strategies.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views the U.S. government's control over GPT-5.6 access with significant apprehension, seeing it as regulatory capture that will stifle innovation, create an uneven playing field for established companies, and potentially lead to corruption due to a lack of transparent policy. While there are concerns about individual users losing access and the future of open source, a strong counter-sentiment suggests this move will paradoxically accelerate the development and adoption of open-weight AI models.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>washingtonpost.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by alain94040</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.washingtonpost.com/technology/2026/06/26/openai-says-us-government-will-vet-users-its-latest-ai-model/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48690101" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">Archaeology 📜</div>
-            
+
             <h2 class="story-title"><a href="https://scrollprize.org/firstscroll" target="_blank" rel="noopener">Vesuvius Challenge Digitally Unwraps and Reads First Entire Herculaneum Scroll</a></h2>
             <p class="story-summary">An entire Herculaneum scroll has been read for the first time | Vesuvius Challenge We read an entire scroll — without ever opening it 1667, sealed since the eruption of Vesuvius in 79 AD, has been virtually unwrapped and read from beginning to end. Read the preprint: Complete virtual unwrapping and reading of a rolled Herculaneum papyrus (PDF) . The data is openly available at scrollprize.org/data , and the code on GitHub .</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This groundbreaking achievement in virtually unwrapping an entire Herculaneum scroll represents a monumental convergence of archaeology, AI, and imaging technology. By deciphering texts sealed since 79 AD without physical intervention, it offers an unprecedented pathway to unlocking vast amounts of lost ancient knowledge and revolutionizing cultural heritage preservation. This success underscores the immense potential of interdisciplinary collaboration to overcome previously insurmountable historical and scientific challenges.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community expresses immense excitement and awe over the groundbreaking achievement of reading an entire Herculaneum scroll, celebrating it as a profound application of AI for historical preservation. Many commend this project as a refreshing example of technology used for significant positive impact, distinct from common commercial endeavors. There is also widespread anticipation for future discoveries, with hopes of uncovering more scrolls and expanding our understanding of the ancient world.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>scrollprize.org</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by verditelabs</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://scrollprize.org/firstscroll" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48675179" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🤖 AI &amp; Machine Learning</div>
-            
+
             <h2 class="story-title"><a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener">OpenAI Previews GPT-5.6 Sol: A Next-Generation AI Model</a></h2>
             <p class="story-summary">System card: https://deploymentsafety.openai.com/gpt-5-6-preview</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This preview of 'GPT-5.6 Sol' signals a significant advancement in OpenAI's large language model capabilities, potentially introducing breakthroughs beyond current GPT-4 iterations. The accompanying 'system card' linked to a deployment safety domain highlights OpenAI's proactive commitment to addressing ethical concerns and responsible AI development from the earliest stages of a powerful new model's lifecycle.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is cautiously optimistic about GPT-5.6 Sol's performance, particularly for coding, and notes its impressive speed and new features like &quot;ultra mode.&quot; However, there's significant scrutiny regarding its complex pricing strategy, skepticism towards marketing claims that might obscure actual capabilities, and concerns about potential &quot;cheating&quot; in evaluation benchmarks. Many also acknowledge the initial limited access for the model.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>openai.com</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by minimaxir</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48689028" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🕊️ **Obituary**</div>
-            
+
             <h2 class="story-title"><a href="https://om.co/2026/06/24/1966-2026/" target="_blank" rel="noopener">Pioneering Tech Journalist and Investor Om Malik Dies Following Heart Condition</a></h2>
             <p class="story-summary">Om Malik passed away on June 24, 2026, at Stanford Hospital after a long health journey with his heart. He was surrounded by family and friends. We invite you to share your remembrances of Om in the comments below or by posting and tagging his accounts on X/Twitter , Instagram , Threads , or LinkedIn . Om Malik is a San Francisco based writer, photographer and investor. This site uses Akismet to reduce spam.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The passing of Om Malik marks a significant loss for the tech journalism and venture capital communities, where he was a highly respected writer, analyst, and investor, notably through his founding of Gigaom. His critical insights profoundly influenced how emerging technologies and startups were understood and discussed. This event prompts a collective reflection on his enduring legacy and contributions to shaping the tech media landscape.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is deeply saddened by the death of Om Malik, widely remembering him as a pioneering and influential figure in early tech journalism and blogging, notably through GigaOm. Commenters consistently praise him as a genuinely kind, compassionate, and generous mentor who selflessly provided guidance and support, emphasizing his authentic and human approach.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>om.co</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by minimaxir</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://om.co/2026/06/24/1966-2026/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48678852" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">[AI &amp; Cybersecurity Satire] 🤣</div>
-            
+
             <h2 class="story-title"><a href="https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html" target="_blank" rel="noopener">AI-Augmented Defenses Negotiate Global Breach CVE-2026-LGTM With Trillion-Token Effort</a></h2>
             <p class="story-summary">Incident Report: CVE-2026-LGTM | Andrew Nesbitt Report filed: 04:13 UTC Status: Resolved (by treaty) Severity: Informational → Critical → Withdrawn → Critical → Negotiated Duration: 96 hours (billable: 2.1 trillion tokens) Affected systems: All of them, plus several we do not own Executive Summary: A security incident occurred. Our AI-augmented defence-in-depth strategy, deployed in direct response to CVE-2024-YIKES , performed exactly as configured. We continue to take security seriously, now at scale.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This incident report is a masterful satire, brilliantly lampooning the hype around AI-augmented security and corporate incident response. It comically warns of a future where AI, by &quot;performing exactly as configured,&quot; could escalate minor issues into global &quot;treaties&quot; and &quot;trillion-token&quot; incidents, rather than solving them. The report exposes the absurdity of blindly trusting autonomous systems and bureaucratic jargon in cybersecurity.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community overwhelmingly lauded the &quot;Incident CVE-2026-LGTM&quot; post as incredibly sharp and humorous satire, particularly appreciating its detailed, plausible lampooning of AI-driven incidents, corporate jargon, and tech bureaucracy. Many commenters highlighted the unsettling accuracy of the satire, admitting they initially mistook it for a real incident report, underscoring a shared anxiety about the future direction of AI integration and human roles in software development.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>nesbitt.io</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by mooreds</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://nesbitt.io/2026/06/26/incident-report-cve-2026-lgtm.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48686093" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -329,20 +342,20 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">🏛️ AI Policy &amp; Governance</div>
-            
+
             <h2 class="story-title"><a href="https://www.semafor.com/article/06/27/2026/us-releases-powerful-anthropic-model-mythos-to-some-us-companies" target="_blank" rel="noopener">US Reverses Block, Permits Anthropic's Mythos AI for Trusted Domestic Organizations</a></h2>
             <p class="story-summary">US releases powerful Anthropic model Mythos to some US companies | Semafor Exclusive / US releases powerful Anthropic model Mythos to some US companies The US government Friday lifted its block on Anthropic’s powerful Claude Mythos 5 AI model, allowing the company to release it to more than 100 US institutions, including major companies and government agencies. The decision, in a letter sent Friday afternoon to Anthropic, is a major de-escalation in the confrontation between the Trump Administration and one of the world’s most valuable private companies. Two weeks ago the administration imposed export controls on Mythos, leading to a shut down of the model and its cousin Fable 5 after warnings from Amazon and other companies that they could be “jailbroken” for malicious purposes.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The US government's decision to lift export controls on Anthropic's Mythos AI for trusted organizations signals a pragmatic pivot, balancing national security concerns over potential misuse with the strategic imperative to foster domestic AI innovation. This de-escalation, influenced by industry safety warnings, establishes a precedent for controlled deployment of powerful models, reflecting a complex interplay between regulation, risk mitigation, and economic competitiveness in the evolving AI landscape.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community expresses significant concern and skepticism regarding the U.S. government's decision to restrict Anthropic's Mythos AI to &quot;trusted&quot; organizations. Commenters are worried about the precedent this sets for future AI development, fearing it will limit public access to advanced models, disadvantage non-US companies, and create an unfair competitive landscape through opaque &quot;trusted partner&quot; lists. Many also question the rationale behind the Commerce Secretary's involvement and the overall impact on international collaboration and innovation in AI.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>semafor.com</span>
         <span>·</span>
@@ -352,7 +365,7 @@
         <span>·</span>
         <span>by bobrenjc93</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.semafor.com/article/06/27/2026/us-releases-powerful-anthropic-model-mythos-to-some-us-companies" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48692995" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -363,20 +376,20 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">🚂 **Creative Development**</div>
-            
+
             <h2 class="story-title"><a href="https://popflame.quickish.space/hn-flipboard/" target="_blank" rel="noopener">Hacker News Goes Retro: Flip Board App Showcases New Remixable Web Platform</a></h2>
             <p class="story-summary">Although the page itself is more just fun to have made and look at (I like the flip sound), the fun part is how I made it to verify the (and I hate to say it) vibe host service I've been working on. The recent flip board back and forth's on Twitter (X) are what inspired me. The idea here is that people (like me or you) can create something neat like this, and others can remix it, change it and publish their own version. This is that all in action and it worked great. I wrote a blog about it (the blog is dogfooding, it's just an app hosted on quickish that uses the built in db lib). For the HN </p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project cleverly leverages a nostalgic &quot;flip board&quot; UI for Hacker News as a compelling proof-of-concept for a new &quot;vibe host service.&quot; Beyond the aesthetic fun, the core innovation lies in its mission to empower users to easily create, remix, and publish applications, fostering a collaborative and customizable ecosystem. This dogfooding approach effectively showcases the service's potential for rapid development and community-driven content, hinting at a fresh platform for creative app hosting.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community generally finds the digital &quot;flip board&quot; presentation of Hacker News aesthetically pleasing and a &quot;neat&quot; web trick. However, there's a strong, recurring sentiment that many users were hoping for, or even expected, an actual *physical* flip board implementation. Some users also reported encountering initial &quot;rate limited&quot; errors or visual glitches with the text readability.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>popflame.quickish.space</span>
         <span>·</span>
@@ -386,7 +399,7 @@
         <span>·</span>
         <span>by PaybackTony</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://popflame.quickish.space/hn-flipboard/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48693912" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -397,16 +410,16 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">⚙️ Hardware Revival</div>
-            
+
             <h2 class="story-title"><a href="https://www.fosslinux.com/158206/linux-on-older-hardware-revival-guide.htm" target="_blank" rel="noopener">Revive Your Older Hardware with Linux: The Complete Guide</a></h2>
             <p class="story-summary">Linux on Older Hardware: The Complete Revival Guide (2026)</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This guide emphasizes Linux's exceptional efficiency and minimal resource footprint, making it an ideal platform for breathing new life into older computer hardware. By revitalizing legacy machines, it offers a cost-effective computing solution while significantly contributing to tech sustainability by reducing electronic waste.</p>
     </div>
-            
-            
+
+
     <div class="story-meta">
         <span>fosslinux.com</span>
         <span>·</span>
@@ -416,7 +429,7 @@
         <span>·</span>
         <span>by tapanjk</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.fosslinux.com/158206/linux-on-older-hardware-revival-guide.htm" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48668747" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -427,20 +440,20 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">📈 AI Trends</div>
-            
+
             <h2 class="story-title"><a href="https://blog.doubleword.ai/frontier-os-llm" target="_blank" rel="noopener">Open-Source LLMs Projected to Reach Closed-Source Frontier Performance by 2026</a></h2>
             <p class="story-summary">Prediction: A Frontier Open Source LLM Will Be Released On 3rd December 2026 | Doubleword Interactive plot of the Artificial Analysis Intelligence Index for open and closed frontier models. I have seen a version of the above plot going around Twitter and wanted to dig a bit deeper into it. What the plot above is showing is the gap between open weights LLMs and closed source LLMs. We measure this gap by looking at the frontier of performance of open weights LLMs on a benchmark and then looking back into the past how long ago was the closed source frontier at that level.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This analysis quantifies the performance lag between open-weight and closed-source LLMs, predicting an upcoming frontier open-source release that could significantly narrow this gap. The methodology highlights the rapid progress of open-source models, suggesting an imminent shift towards greater capability parity and increased competition in the advanced AI space, which promises to democratize cutting-edge AI.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses skepticism regarding the long-term sustainability and true comparative performance of open-weights LLMs versus their closed-source counterparts. Commenters highlight that open-weights models often rely on philanthropic funding and face an uneven playing field due to closed models potentially &quot;cheating&quot; benchmarks with augmented backend systems. There's also significant discussion about the geopolitical implications, with some suggesting US export bans might inadvertently bolster Chinese open-weight model development.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.doubleword.ai</span>
         <span>·</span>
@@ -450,7 +463,7 @@
         <span>·</span>
         <span>by kkm</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.doubleword.ai/frontier-os-llm" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48692058" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -464,17 +477,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://github.com/workweave/router" target="_blank" rel="noopener">Intelligent Model Router Slashes AI Coding Costs for Claude, Codex, and Cursor</a></h2>
             <p class="story-summary">We built a model router that plugs into coding agents (e.g. Claude Code, Codex, Cursor, etc.) and intelligently sends requests to the best model to serve them. Here's a quick demo of running it locally: https://www.youtube.com/watch?v=isKhAyivtfM . At Weave, we write most of our code with AI, and it's been getting more expensive. This came to a head when Opus 4.7 was released and, thanks to its tokenizer changes, our costs shot up. We knew we didn't need Opus for everything but we didn't want to lose out on the intelligence for the cases where you really need it. So we decided to build a model</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project tackles the growing challenge of escalating costs in AI-assisted coding by introducing intelligent model routing. By dynamically selecting the most cost-effective and performant model for specific tasks, it optimizes resource allocation, ensuring powerful but expensive models are only used when truly needed. This solution highlights a critical shift towards more sophisticated infrastructure for managing diverse AI models in development workflows, making AI-driven coding more practical and economically sustainable.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">While the community acknowledges the underlying problem of managing LLM API costs and varied model access, there's a strong consensus that the proposed smart model routing solution faces significant practical challenges. The primary concern is that proxy-level routing inherently conflicts with crucial prompt caching mechanisms, leading to increased cache misses and potentially negating any cost savings, especially for complex or agentic workflows. Users also express skepticism about the accuracy of routing decisions and the tool's applicability beyond simple, one-off interactive prompts.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -484,7 +497,7 @@
         <span>·</span>
         <span>by adchurch</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/workweave/router" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48688700" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -492,11 +505,36 @@
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 27, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-06-26.html">
+        <small>Previous issue</small>
+        <strong>← June 26, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-06-28.html">
+        <small>Next issue</small>
+        <strong>→ June 28, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

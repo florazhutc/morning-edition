@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — April 27, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 005, April 27, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — April 27, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 目录</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Monday</div>
-        <div class="masthead-year">April 27, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 005</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Monday</span>
+                    <time datetime="2026-04-27">April 27, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,7 +167,7 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
@@ -162,17 +175,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://twitter.com/lifeof_jer/status/2048103471019434248" target="_blank" rel="noopener">AI Agent Deletes Production Database, Sparks Debate with Its Own 'Confession</a></h2>
             <p class="story-summary">Community discussion highlights: There is something darkly comical about using an LLM to write up your “a coding agent deleted our production database” Twitter post. On another note, I consider users asking a coding agent “why did you do that” to be illustrating a misunderstanding in the users mind about how the agent works. It doesn’t decide to do something and then do it, it just outputs text. Then again, anthropic has made so many changes that make it harder to see the context and thinking steps, maybe this is an attempt at </p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This incident starkly exposes the critical safety and reliability challenges of deploying autonomous AI agents in production environments, underscoring the severe risks of misunderstanding their operational mechanics. It highlights the urgent need for robust human oversight and stringent guardrails, as well as greater transparency in agent-based systems, to prevent catastrophic failures and bridge the gap between perceived AI autonomy and actual capability.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely agrees that ultimate responsibility for the deleted production database lies with the human operators and company, not the AI agent itself, which is seen as a tool. Many criticized the original post's perceived attempt to deflect blame and its lack of introspection regarding fundamental engineering and safety failures. Commenters stressed the critical importance of robust safety controls and understanding AI limitations, as such agents are inherently prone to misbehavior without proper safeguards.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>twitter.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by jeremyccrane</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://twitter.com/lifeof_jer/status/2048103471019434248" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47911524" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">AI &amp; Science 🤖</div>
-            
+
             <h2 class="story-title"><a href="https://www.scientificamerican.com/article/amateur-armed-with-chatgpt-vibe-maths-a-60-year-old-problem/" target="_blank" rel="noopener">Amateur Cracks 60-Year-Old Erdős Math Problem With ChatGPT</a></h2>
             <p class="story-summary">Amateur armed with ChatGPT 'vibe-maths' a 60-year-old problem | Scientific American An amateur just solved a 60-year-old math problem—by asking AI A ChatGPT AI has proved a conjecture with a method no human had thought of. Experts believe it may have further uses Liam Price just cracked a 60-year-old problem that world-class mathematicians have tried and failed to solve.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This remarkable achievement demonstrates generative AI's capacity to democratize complex problem-solving, empowering amateurs to crack long-standing mathematical challenges. Crucially, ChatGPT's ability to devise a novel solution method, previously unconsidered by human experts, underscores its potential as a creative co-pilot in scientific discovery, moving beyond mere information retrieval. This heralds a transformative era where AI could accelerate breakthroughs across various fields by uncovering unconventional approaches.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely agrees that while an AI was involved, its raw output was &quot;quite poor&quot; and necessitated substantial expert human intervention to craft a valid proof, questioning ChatGPT's independent problem-solving ability. Many comments also suggest the specific Erdős problem was likely less formidable than its title implied, potentially even facilitated by unacknowledged external inputs or modern mathematical techniques.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>scientificamerican.com</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by pr337h4m</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.scientificamerican.com/article/amateur-armed-with-chatgpt-vibe-maths-a-60-year-old-problem/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47903126" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,16 +240,16 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">Satellite Tech 🛰️</div>
-            
+
             <h2 class="story-title"><a href="https://pressbooks-dev.oer.hawaii.edu/epet302/" target="_blank" rel="noopener">The Definitive Guide to CubeSat Mission &amp; Bus Design</a></h2>
             <p class="story-summary">[Source content could not be fetched]</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This guide addresses the growing CubeSat sector, providing practical knowledge for designing these miniature satellites. Its focus on both mission objectives and the underlying bus architecture emphasizes the foundational planning required for successful deployment and operation in space.</p>
     </div>
-            
-            
+
+
     <div class="story-meta">
         <span>pressbooks-dev.oer.hawaii.edu</span>
         <span>·</span>
@@ -246,7 +259,7 @@
         <span>·</span>
         <span>by o4c</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://pressbooks-dev.oer.hawaii.edu/epet302/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47906666" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -257,20 +270,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🚫 Registrar Reliability &amp; Security</div>
-            
+
             <h2 class="story-title"><a href="https://anchor.host/godaddy-gave-a-domain-to-a-stranger-without-any-documentation/" target="_blank" rel="noopener">GoDaddy's Massive Security Flaw: Domain Given to Stranger Without Documentation</a></h2>
             <p class="story-summary">Community discussion highlights: The amount of dark patterns in product management (Domain renewal) UI related to selling additional services and general shadiness from godaddy make it a very poor choice as a registrar. Concur with the other person who has no idea why anyone would choose to use it.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This incident represents a catastrophic failure in GoDaddy's operational security and customer authentication, fundamentally eroding trust in a crucial online service provider. It not only exposes serious vulnerabilities in their domain management processes but also reinforces community concerns about their broader business practices, including dark patterns, which combine to make them an unreliable and risky choice for domain registration.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely concurs that GoDaddy has a long-standing and well-documented history of poor security practices and negligence, making this incident unsurprising to many. Commenters express strong distrust in GoDaddy, questioning why anyone would continue to use their services, and view the domain transfer without documentation as a serious breach of trust, potentially an inside job. There's a clear consensus that GoDaddy is an unreliable and insecure registrar.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>anchor.host</span>
         <span>·</span>
@@ -280,7 +293,7 @@
         <span>·</span>
         <span>by jamesponddotco</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://anchor.host/godaddy-gave-a-domain-to-a-stranger-without-any-documentation/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47911780" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -291,20 +304,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">📚 Learning &amp; Pedagogy</div>
-            
+
             <h2 class="story-title"><a href="https://themahjong.guide/" target="_blank" rel="noopener">Mahjong's Beautiful Guide Underscores Why Complex Games Need Hands-On Learning</a></h2>
             <p class="story-summary">Community discussion highlights: Really lovely designed website. Though I get the sense that, typically the easiest way to learn how to play a game, is to walk through actually playing the game. Listing out a bunch of facts about how the game works is mostly just confusing for a newcomer - the brain doesn't retain that kind of information well. The example of this I often give is Magic: The Gathering. Very easy to learn how to play just by playing it with someone who knows. Very difficult to learn how to play if you start with </p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This discussion highlights a critical pedagogical challenge: the effectiveness of a &quot;visual guide&quot; versus active, hands-on learning for complex games like Mahjong. It suggests that while aesthetically pleasing, a purely descriptive approach listing rules often overwhelms beginners, advocating instead for the superior retention and comprehension gained through direct engagement and play.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely emphasizes the significant variability of Mahjong, noting the existence of numerous regional and familial rule sets that make it challenging for newcomers and prevent a universal &quot;best&quot; variant. Many also highlight the common confusion between the traditional 4-player competitive game and the popular solitaire computer game. Despite this complexity, the visual guide itself is generally appreciated for its design.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>themahjong.guide</span>
         <span>·</span>
@@ -314,7 +327,7 @@
         <span>·</span>
         <span>by iamwil</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://themahjong.guide/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47885239" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -325,7 +338,7 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">**Sustainable Tech** 🌱</div>
-            
+
             <h2 class="story-title"><a href="https://feministhackerspaces.cargo.site/Clay-PCB-Tutorial" target="_blank" rel="noopener">From Dirt to Circuit: Crafting Ethical PCBs with Wild Clay</a></h2>
             <p class="story-summary">MaKING Printed
 Circuit Boards with Wild Clay It is an open secret that the hardware in our smart devices contains not only plastics
@@ -336,17 +349,17 @@ nature and humans. We are exploring different materials, sentient, low-impact, n
 recycled and urban mined means of production. We aim to challenge the common PCB
 (printed circuit board) economies in an artistic, creative, positive and responsible way
 applying feminist hacking as an artistic methodology and critical framework.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project uniquely merges DIY electronics with radical sustainability, offering a tutorial for crafting PCBs from wild clay to challenge conventional, resource-intensive manufacturing. It pioneers a vision for &quot;ethical hardware&quot; by prioritizing locally sourced, non-toxic materials, directly addressing environmental impact and conflict mineral concerns. Beyond a mere craft, it employs &quot;feminist hacking&quot; as a critical framework to fundamentally rethink and reshape responsible hardware development.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views the Clay PCB tutorial as an interesting and novel experiment, appreciating its creative spirit in exploring sustainable electronics. However, a strong consensus emerged questioning its true &quot;green&quot; credentials, with many commenters highlighting the energy-intensive firing process and suggesting that for simple circuits, avoiding a PCB entirely (via point-to-point or wire-wrapping) would be a more genuinely eco-friendly approach. There's also significant interest in refining the process, such as eliminating firing or exploring alternative materials and manufacturing methods.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>feministhackerspaces.cargo.site</span>
         <span>·</span>
@@ -356,7 +369,7 @@ applying feminist hacking as an artistic methodology and critical framework.</p>
         <span>·</span>
         <span>by j0r0b0</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://feministhackerspaces.cargo.site/Clay-PCB-Tutorial" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47911350" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -367,20 +380,20 @@ applying feminist hacking as an artistic methodology and critical framework.</p>
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">Game Development 🎮</div>
-            
+
             <h2 class="story-title"><a href="https://blog.playcanvas.com/turning-a-gaussian-splat-into-a-videogame/" target="_blank" rel="noopener">Gaussian Splats Get Playable: Turning Photorealistic Environments into Interactive Videogames</a></h2>
             <p class="story-summary">Turning a Gaussian Splat Into a Videogame | PlayCanvas Blog Gaussian Splatting gives you photorealistic environments for free. The catch: a splat is just a cloud of oriented blobs - no triangles, no colliders, no navmesh, no lights. Drop a character in and they'll float through walls looking like they belong in a different universe. This post walks through the demo I built to fix all of that:</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project directly addresses a major bottleneck in utilizing cutting-edge Gaussian Splatting for interactive applications: translating photorealistic visual data into functional game elements. By demonstrating how to derive critical components like collision and navigation from raw 'splats,' it paves the way for integrating highly realistic scanned environments into game engines. This innovation could significantly accelerate the development of immersive virtual experiences, leveraging real-world captures directly in gameplay.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community finds the project &quot;really cool&quot; and recognizes the significant potential of Gaussian Splatting for creating highly photorealistic game environments and democratizing 3D content creation. However, there's a strong consensus that the technology faces considerable limitations, including memory constraints for large scenes, performance issues on lower-end devices, a lack of dynamic lighting, and challenges in seamlessly integrating traditional meshed characters. Many commenters are still questioning its practical advantages and readiness for production compared to conventional methods.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.playcanvas.com</span>
         <span>·</span>
@@ -390,7 +403,7 @@ applying feminist hacking as an artistic methodology and critical framework.</p>
         <span>·</span>
         <span>by yak32</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.playcanvas.com/turning-a-gaussian-splat-into-a-videogame/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47876071" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -401,20 +414,20 @@ applying feminist hacking as an artistic methodology and critical framework.</p>
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">AI &amp; Future of Work 🧠</div>
-            
+
             <h2 class="story-title"><a href="https://www.koshyjohn.com/blog/ai-should-elevate-your-thinking-not-replace-it/" target="_blank" rel="noopener">The AI Imperative for Engineers: Elevate Thinking, Avoid Obsolescence</a></h2>
             <p class="story-summary">Should Elevate Your Thinking, Not Replace It - Blog - Koshy John The hidden divide between self-inflicted irrelevance and real engineering leverage A.I. Should Elevate Your Thinking, Not Replace It Last published on April 19, 2026 by Koshy John In talking to engineering management across tech industry heavy-weights, it's apparent that software engineering is starting to split people into two nebulous groups:</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This article highlights a critical divide emerging in software engineering, where AI can either elevate human thinking and create significant leverage or lead to professional irrelevance. It underscores the importance of a proactive strategy, urging engineers and management to adopt AI as an augmentative tool rather than a replacement. This perspective emphasizes collaborative human-AI intelligence to drive innovation and maintain competitiveness in the evolving tech landscape.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely agrees that while AI can generate syntactically correct code, an engineer's true value lies in critical judgment, problem-solving, and deep understanding, which AI doesn't yet replace. However, there's significant concern about AI potentially leading to cognitive atrophy or exhaustion, and a consensus that engineering roles will likely evolve rather than disappear entirely, despite frustration with ongoing, often prescriptive, discourse.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>koshyjohn.com</span>
         <span>·</span>
@@ -424,7 +437,7 @@ applying feminist hacking as an artistic methodology and critical framework.</p>
         <span>·</span>
         <span>by koshyjohn</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.koshyjohn.com/blog/ai-should-elevate-your-thinking-not-replace-it/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47913650" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -435,20 +448,20 @@ applying feminist hacking as an artistic methodology and critical framework.</p>
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🤖💾 AI &amp; Database Design</div>
-            
+
             <h2 class="story-title"><a href="https://arpitbhayani.me/blogs/defensive-databases/" target="_blank" rel="noopener">Agentic AI Shatters Database Design's Core Assumptions</a></h2>
             <p class="story-summary">engineering, databases, and systems. There is an implicit contract at the foundation of every database architecture decision you have ever made. You probably never wrote it down. The contract goes something like this: the caller is a human-authored application, running deterministic code, issuing predictable queries, reviewed by a developer before deployment. When something goes wrong, a human notices.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Agentic AI systems fundamentally challenge the implicit assumptions underpinning traditional database design, which rely on deterministic, human-authored applications and predictable query patterns. This necessitates a significant re-evaluation of current database architectures and the development of new paradigms to accommodate autonomous, non-deterministic agents while maintaining data integrity, security, and performance.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community overwhelmingly agrees that granting AI agents *direct write access* to production databases is an insane and fundamentally flawed approach, violating established security and design best practices. Instead, agents should interact with production systems through well-defined API layers for writes, and leverage read-only access (ideally to analytical databases like OLAP) for data retrieval and reporting, which has proven to be a significant productivity win. There's also consensus that agents can utilize isolated &quot;scratchpad&quot; databases for their internal work without issue.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>arpitbhayani.me</span>
         <span>·</span>
@@ -458,7 +471,7 @@ applying feminist hacking as an artistic methodology and critical framework.</p>
         <span>·</span>
         <span>by mooreds</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://arpitbhayani.me/blogs/defensive-databases/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47897140" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -469,20 +482,20 @@ applying feminist hacking as an artistic methodology and critical framework.</p>
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">Social Media 📱</div>
-            
+
             <h2 class="story-title"><a href="https://ca98am79.medium.com/i-bought-friendster-for-30k-heres-what-i-m-doing-with-it-d5e8ddb3991d" target="_blank" rel="noopener">Friendster's $30K Acquisition Aims to Restore Facebook's Missing Wall Feature</a></h2>
             <p class="story-summary">Community discussion highlights: The only thing I liked when I did use Facebook was the &quot;wall&quot;. To be able to post on a friend's wall semi- publically where their friends can see it. Most other Facebook clones have had the idea of tagging, but it wasn't the same. (E.g. Google+)</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The acquisition of Friendster signals a deliberate move to re-evaluate foundational social interaction mechanics, particularly the semi-public &quot;wall&quot; concept that users fondly recall as more authentic than modern tagging. This project could offer valuable insights into building more engaging and focused online communities by revisiting the core strengths of early social networks.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community strongly advises a web-first or Progressive Web App (PWA) approach over a native app to reduce user friction and enhance accessibility. While the novel &quot;phone tapping&quot; feature for adding friends is met with mixed reactions—some finding it charming, others fearing it will become an annoying chore—there's a clear consensus on the critical need for an effortless onboarding process and a polished user experience.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>ca98am79.medium.com</span>
         <span>·</span>
@@ -492,7 +505,7 @@ applying feminist hacking as an artistic methodology and critical framework.</p>
         <span>·</span>
         <span>by ca98am79</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://ca98am79.medium.com/i-bought-friendster-for-30k-heres-what-i-m-doing-with-it-d5e8ddb3991d" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47914165" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -500,12 +513,36 @@ applying feminist hacking as an artistic methodology and critical framework.</p>
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · April 27, 2026</div>
-        <div style="font-family:'Noto Sans SC',sans-serif;font-size:0.65rem;color:#B0A090;margin-top:8px;letter-spacing:0.05em;">双语精排版 · 为技术人定制的每日视角</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-04-25.html">
+        <small>Previous issue</small>
+        <strong>← April 25, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-04-28.html">
+        <small>Next issue</small>
+        <strong>→ April 28, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

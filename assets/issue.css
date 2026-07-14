@@ -1,0 +1,162 @@
+:root {
+    --font-display: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --font-sans: Inter, "Helvetica Neue", Arial, sans-serif;
+    --warm-white: #F8F4EC;
+    --sand: #E5DED2;
+    --deep-forest: #073D2D;
+    --builder-yellow: #F5B82E;
+    --soft-olive: #8A9A7B;
+    --olive-text: #52634A;
+    --soft-mint: #DDEFE5;
+    --soft-peach: #F6D7C8;
+    --lilac-mist: #E6DDF7;
+    --mist-blue: #D6EAF7;
+    --charcoal: #121212;
+    --muted-gray: #62625C;
+    --white: #FFFEFB;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--warm-white) !important;
+    color: var(--charcoal) !important;
+    font-family: var(--font-sans) !important;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--builder-yellow); outline-offset: 4px; }
+.issue-shell { width: min(100% - 2.5rem, 76rem); margin-inline: auto; }
+.skip-link {
+    position: fixed; top: 1rem; left: 1rem; z-index: 100;
+    padding: .7rem 1rem; border-radius: 999px; transform: translateY(-200%);
+    background: var(--builder-yellow); color: var(--deep-forest); font-weight: 700;
+}
+.skip-link:focus { transform: translateY(0); }
+
+.issue-site-header {
+    position: sticky; top: 0; z-index: 30;
+    border-bottom: 1px solid rgba(229, 222, 210, .88);
+    background: rgba(248, 244, 236, .9);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+}
+.issue-header-inner { min-height: 4.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+.issue-brand { display: inline-flex; align-items: center; gap: .75rem; color: var(--deep-forest); text-decoration: none; }
+.issue-brand svg { width: 2.7rem; height: 1.8rem; }
+.issue-wordmark { display: grid; line-height: 1; text-transform: uppercase; font-weight: 700; }
+.issue-wordmark span:first-child { font-size: .72rem; letter-spacing: .24em; }
+.issue-wordmark span:last-child { margin-top: .28rem; font-size: .58rem; letter-spacing: .45em; }
+.issue-header-nav { display: flex; align-items: center; gap: 1.25rem; }
+.issue-header-nav a { min-height: 2.75rem; display: inline-flex; align-items: center; padding-inline: .35rem; color: var(--deep-forest); font-size: .72rem; font-weight: 700; text-decoration: none; }
+.issue-header-nav a:first-child { padding: .55rem .85rem; border: 1px solid rgba(7, 61, 45, .28); border-radius: 999px; }
+
+.issue-hero {
+    min-height: 31rem !important; display: flex !important; align-items: center !important;
+    padding: clamp(4rem, 9vw, 7rem) 0 !important;
+    background: linear-gradient(135deg, var(--deep-forest), #0D4B3D) !important;
+    color: var(--white); scroll-snap-align: none !important;
+}
+.issue-hero-layout { display: grid; grid-template-columns: 1.2fr .8fr; align-items: end; gap: clamp(3rem, 8vw, 8rem); }
+.issue-kicker { margin: 0 0 1.4rem; color: var(--builder-yellow); font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+.issue-hero h1 { margin: 0; color: var(--white); font-family: var(--font-display); font-weight: 600; line-height: .86; letter-spacing: -.05em; }
+.issue-hero h1 span { display: block; }
+.issue-hero h1 span:first-child { font-family: var(--font-sans); font-size: clamp(1.8rem, 4vw, 3.4rem); font-weight: 700; letter-spacing: .13em; line-height: 1; }
+.issue-hero h1 span:last-child { font-size: clamp(4rem, 8vw, 7rem); }
+.issue-stroke { display: block; width: min(24rem, 82%); height: 2rem; margin-top: .8rem; }
+.issue-stroke path { fill: none; stroke: var(--builder-yellow); stroke-width: 5; stroke-linecap: round; }
+.issue-date-block { padding-left: 2rem; border-left: 1px solid rgba(255,255,255,.22); }
+.issue-date-block > span { color: rgba(255,255,255,.68); font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.issue-date-block time { display: block; margin-top: .45rem; color: var(--builder-yellow); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1; }
+.issue-date-block p { max-width: 22rem; margin: 1rem 0 0; color: rgba(255,255,255,.7); font-size: .88rem; }
+
+.toc {
+    width: min(100% - 2.5rem, 50rem) !important; max-width: 50rem !important; min-height: 0 !important;
+    margin: 0 auto !important; padding: clamp(4.5rem, 9vw, 7rem) 0 !important;
+    background: transparent !important; scroll-snap-align: none !important;
+}
+.toc-header, .toc > div > div:first-child > span {
+    color: var(--olive-text) !important; font-family: var(--font-sans) !important;
+    font-size: .66rem !important; font-weight: 700 !important; letter-spacing: .2em !important; text-transform: uppercase;
+}
+.toc a, .toc-item {
+    display: grid !important; grid-template-columns: 2.2rem 1fr auto !important; align-items: baseline !important;
+    gap: 1rem !important; padding: 1.1rem 0 !important; border-bottom: 1px solid var(--sand) !important;
+    color: var(--deep-forest) !important; text-decoration: none !important;
+}
+.toc a:hover { padding-left: .5rem !important; opacity: 1 !important; }
+.toc-title, .toc a > div > div:first-child { color: var(--deep-forest) !important; font-family: var(--font-display) !important; font-size: 1.22rem !important; font-weight: 600 !important; line-height: 1.25 !important; }
+.toc-num, .toc a > span:first-child { color: var(--olive-text) !important; font-family: var(--font-sans) !important; font-size: .68rem !important; }
+.toc-score, .toc a > span:last-child { color: var(--muted-gray) !important; font-size: .68rem !important; }
+
+.story, main > section[id^="story-"] {
+    min-height: 0 !important; padding: clamp(5rem, 9vw, 8rem) max(1.25rem, calc((100vw - 54rem) / 2)) !important;
+    display: flex !important; align-items: center !important; position: relative; overflow: hidden;
+    background: var(--warm-white) !important; scroll-snap-align: none !important;
+}
+.story:nth-of-type(5n+2), main > section[id^="story-"]:nth-of-type(5n+2) { background: rgba(221,239,229,.62) !important; }
+.story:nth-of-type(5n+3), main > section[id^="story-"]:nth-of-type(5n+3) { background: rgba(214,234,247,.54) !important; }
+.story:nth-of-type(5n+4), main > section[id^="story-"]:nth-of-type(5n+4) { background: rgba(246,215,200,.48) !important; }
+.story:nth-of-type(5n+5), main > section[id^="story-"]:nth-of-type(5n+5) { background: rgba(230,221,247,.46) !important; }
+.story-content, main > section[id^="story-"] > div:last-child { width: 100% !important; max-width: 50rem !important; margin-inline: auto !important; }
+.story-category { color: var(--olive-text) !important; font-size: .62rem !important; font-weight: 700; letter-spacing: .18em !important; }
+.story-title { margin-bottom: 2rem !important; color: var(--deep-forest) !important; font-family: var(--font-display) !important; font-size: clamp(2.25rem, 5vw, 4rem) !important; font-weight: 600 !important; line-height: 1.06 !important; }
+.story-title a { color: inherit; text-decoration: none; }
+.story-summary { margin-bottom: 2.5rem !important; color: #343B37 !important; font-family: var(--font-display) !important; font-size: 1.12rem !important; line-height: 1.8 !important; }
+.story-summary-source { color: var(--olive-text) !important; font-size: .58rem !important; font-weight: 700; }
+.story-insight { margin-bottom: 2rem !important; padding: 1.6rem 1.8rem !important; border-left: 3px solid var(--builder-yellow) !important; border-radius: 0 .8rem .8rem 0 !important; background: rgba(255,255,255,.5) !important; }
+.story-insight-label { color: var(--deep-forest) !important; font-weight: 700 !important; }
+.story-insight-text { color: #343B37 !important; font-family: var(--font-display) !important; }
+.story-community { border-left-color: var(--soft-olive) !important; }
+.story-community-label, .story-meta { color: var(--muted-gray) !important; }
+.story-link { min-height: 2rem; display: inline-flex; align-items: center; color: var(--deep-forest) !important; border-bottom-color: var(--builder-yellow) !important; font-weight: 700; }
+.story-num { color: rgba(7,61,45,.045) !important; }
+.flag { border-radius: 999px !important; background: var(--builder-yellow) !important; color: var(--deep-forest) !important; }
+[style*="'Noto Serif SC'"], [style*="'Noto Sans SC'"] { display: none !important; }
+
+.edition-navigation { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding-block: clamp(3rem, 7vw, 5rem); }
+.issue-nav-link { min-height: 7.5rem; display: flex; flex-direction: column; justify-content: space-between; padding: 1.25rem 1.4rem; border: 1px solid var(--sand); border-radius: 1.1rem; background: rgba(255,255,255,.55); color: var(--deep-forest); text-decoration: none; }
+.issue-nav-link:last-child { text-align: right; }
+.issue-nav-link small { color: var(--olive-text); font-size: .66rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.issue-nav-link strong { font-family: var(--font-display); font-size: 1.25rem; }
+.issue-nav-link.is-disabled { opacity: .58; }
+
+.issue-footer { background: var(--deep-forest); color: var(--white); }
+.issue-footer-inner { min-height: 12rem; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; padding-block: 2.5rem; }
+.issue-footer-brand { display: flex; align-items: center; gap: .8rem; font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.issue-footer-brand svg { width: 3rem; height: 2rem; color: var(--white); }
+.issue-footer p { margin: .8rem 0 0; color: rgba(255,255,255,.68); font-size: .78rem; }
+.issue-footer-signature { display: grid; justify-items: end; }
+.issue-footer-signature strong { font-family: var(--font-display); font-size: 1.55rem; font-style: italic; }
+.issue-footer-signature a { min-height: 2rem; display: inline-flex; align-items: center; margin-top: .5rem; color: var(--builder-yellow); font-size: .72rem; font-weight: 700; text-decoration: none; }
+
+@media (max-width: 700px) {
+    .issue-shell { width: min(100% - 2rem, 76rem); }
+    .issue-wordmark { display: none; }
+    .issue-header-nav a:last-child { display: none; }
+    .issue-hero { min-height: 0 !important; }
+    .issue-hero-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .issue-hero h1 span:last-child { font-size: clamp(3.25rem, 17vw, 5rem); line-height: .9; }
+    .issue-date-block { padding: 1.5rem 0 0; border-top: 1px solid rgba(255,255,255,.22); border-left: 0; }
+    .toc a, .toc-item { grid-template-columns: 1.8rem 1fr !important; }
+    .toc-score, .toc a > span:last-child { display: none; }
+    .story, main > section[id^="story-"] { padding: 4.5rem 1.25rem !important; }
+    .story-num { display: none; }
+    .story-links { flex-wrap: wrap; gap: 1rem 1.5rem !important; }
+    .edition-navigation { grid-template-columns: 1fr; }
+    .issue-nav-link:last-child { text-align: left; }
+    .issue-footer-inner { grid-template-columns: 1fr; }
+    .issue-footer-signature { justify-items: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: .001ms !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
+}
+
+@media (forced-colors: active) {
+    .issue-hero, .issue-nav-link, .story-insight { border: 1px solid CanvasText; }
+}

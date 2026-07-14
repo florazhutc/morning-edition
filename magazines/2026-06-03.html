@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — June 03, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 028, June 03, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — June 03, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Wednesday</div>
-        <div class="masthead-year">June 03, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 028</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Wednesday</span>
+                    <time datetime="2026-06-03">June 03, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">Security Exploit 🛡️</div>
-            
+
             <h2 class="story-title"><a href="https://www.0xsid.com/blog/meta-account-takeover-fiasco" target="_blank" rel="noopener">Location Spoofing Flaw Allows Easy Instagram Account Takeovers</a></h2>
             <p class="story-summary">The Newest Instagram &quot;Exploit&quot; is the Goofiest I've Seen | Sid's Blog Yesterday, a slew of Instagram accounts, including some high profile ones like the Obama White House account, seemingly got hacked. I’ve spent almost a decade and a half identifying vulnerabilities and exploits at unicorn scale, but this is hands down the most unserious, &quot;almost too stupid to be true&quot; of them all. Step 01: Faking the Location &amp; Initiating Support All the attacker needs to kick this off is your account username. Then, they hop on a VPN or proxy close to your city so Instagram's security algorithms don't suspect a thing.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This &quot;goofiest&quot; exploit, leveraging simple social engineering tactics like faking location and initiating support with just a username, exposes a critical flaw in Instagram's account recovery processes. It underscores how major platforms can still be vulnerable to surprisingly low-tech attacks that exploit procedural gaps rather than complex code, bypassing seemingly sophisticated security algorithms.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely agrees that the Instagram &quot;exploit&quot; reveals a critical security vulnerability within Meta's support system, specifically its apparent reliance on AI/LLMs for sensitive account recovery. Commenters express disbelief and strong criticism that the system allows bypassing 2FA or sending verification codes to arbitrary email addresses, highlighting this as a fundamental and easily exploitable flaw.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>0xsid.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by ssiddharth</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.0xsid.com/blog/meta-account-takeover-fiasco" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48359102" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">🤖 AI &amp; User Experience</div>
-            
+
             <h2 class="story-title"><a href="https://moddedbear.com/gmail-thinks-im-stupid-so-i-left" target="_blank" rel="noopener">Gmail's Overzealous AI Features Drive User to Abandon Service</a></h2>
             <p class="story-summary">Gmail Thinks I'm Stupid, So I Left | moddedbear.com I go to check my email in Gmail’s web UI. I see a few new messages regarding feedback on a project I’m working on. I click through to read one of them and the first thing I’m greeted with is a message summary I didn’t ask for generated by a language model. I focus the message box to draft a reply, but there’s already one there.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post highlights a growing tension between intrusive AI features and user autonomy, where unsolicited AI summaries and reply drafts are perceived as presumptuous rather than helpful. It underscores a critical challenge for product designers to balance innovation with user control, as aggressive default AI integration can alienate users and drive them away from established services.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely agrees that Gmail's (and Google's broader) aggressive push for AI-powered &quot;smart features&quot; like &quot;Help me write&quot; is intrusive, distracting, and unwelcome. Users express significant frustration over these features making them feel &quot;stupid&quot; and being difficult to disable, leading many to seek alternatives like Fastmail or advocate for de-Googling their digital lives entirely.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>moddedbear.com</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by speckx</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://moddedbear.com/gmail-thinks-im-stupid-so-i-left" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48375016" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,23 +240,23 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🔒 Security Vulnerability</div>
-            
+
             <h2 class="story-title"><a href="https://blog.ammaraskar.com/github-token-stealing/" target="_blank" rel="noopener">Critical VSCode Bug Allows 1-Click GitHub Token Theft, Exposing All Repositories</a></h2>
             <p class="story-summary">1-Click GitHub Token Stealing via a VSCode Bug – Ammar's Blog Just by clicking a link, it’s possible for an attacker to steal a GitHub
 token that can read and write to your repos, including private ones . Did you know GitHub has this really cool feature called github.dev ? On any repository you have access to, if you can change the url from github.com to github.dev or you click this little menu item: You’ll be launched into a little light-weight version of VSCode that runs
 entirely in your browser (I guess that’s one advantage of having your app
 written with electron).</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This critical &quot;1-click&quot; exploit leverages a flaw in the `github.dev` browser-based VSCode environment to steal GitHub tokens, granting an attacker full read/write access to a user's repositories, private ones included. This vulnerability poses a significant supply chain risk and highlights the inherent dangers of integrating powerful developer tools and sensitive credentials within a web browser context. It underscores the urgent need for robust security-by-design in modern development workflows and rigorous input validation across interconnected services.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely agrees that the reported VSCode bug exposes a critical architectural vulnerability, primarily due to the broad trust given to extensions and the deep GitHub integration creating an extensive and hard-to-audit attack surface. There's also widespread frustration with Microsoft's Security Response Center (MSRC) for its unresponsiveness and poor handling of bug reports, making public disclosure a necessary means to pressure for better security practices and accountability.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.ammaraskar.com</span>
         <span>·</span>
@@ -253,7 +266,7 @@ written with electron).</p>
         <span>·</span>
         <span>by ammar2</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.ammaraskar.com/github-token-stealing/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48371562" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -264,20 +277,20 @@ written with electron).</p>
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">⚖️ **Legal Dispute**</div>
-            
+
             <h2 class="story-title"><a href="https://blog.adafruit.com/" target="_blank" rel="noopener">Flux.ai's Fenwick Lawyers Send Demand Letter to Adafruit</a></h2>
             <p class="story-summary">Adafruit Industries – Makers, hackers, artists, designers and engineers!</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This demand letter from Fenwick legal counsel on behalf of Flux.ai signifies a serious legal challenge for Adafruit, a prominent open-source hardware company. It likely involves intellectual property or competitive practices, posing a direct threat to Adafruit's operational freedom and highlighting the growing tensions between open-source principles and proprietary commercial interests in the tech hardware sector.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely supports Adafruit, with its founders actively engaging and promising to share their side of the story. There is a strong negative consensus regarding Flux.ai's product quality, with multiple users describing it as an &quot;awful&quot; and inefficient tool. Many believe Flux.ai's legal action is an overreaction that has backfired, generating negative publicity and reducing community interest in their product.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.adafruit.com</span>
         <span>·</span>
@@ -287,7 +300,7 @@ written with electron).</p>
         <span>·</span>
         <span>by semanser</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.adafruit.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48368121" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -298,20 +311,20 @@ written with electron).</p>
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">Observability</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/s2-streamstore/replaya" target="_blank" rel="noopener">RePlaya Brings Real-Time Session Replay to Self-Hosted Deployments</a></h2>
             <p class="story-summary">Hi HN, I'm one of the founders of s2.dev. RePlaya ( https://github.com/s2-streamstore/replaya ) is a self-hosted browser session replay tool using rrweb ( https://github.com/rrweb-io/rrweb ). It occurred to me that a durable stream per session would be a much neater architectural foundation for much of what you'd want from such a tool. As a unique feature, it also made live tailing straightforward because the player can read from the same stream the recorder is appending to. The alternative architecture is likely an ingest firehose which is then indexed, with associated complexity and latency.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">🔎 RePlaya offers a clever architectural shift for browser session replay by leveraging durable streams per session, which naturally facilitates live tailing and bypasses the complexity of traditional ingest firehose designs. This self-hosted solution provides a more efficient and real-time approach to understanding user interactions, a critical component for debugging and enhancing web applications. Its unique streaming foundation could set a new standard for performance and simplicity in session replay tools.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community acknowledges the significant utility of session replay tools like RePlaya for gaining qualitative insights into user behavior, especially for new features or early-stage products. However, a prominent ethical concern regarding user privacy and informed consent is immediately raised, questioning the practice itself and advocating for transparency to users. There's also interest in how it compares to existing solutions and its operational costs.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -321,7 +334,7 @@ written with electron).</p>
         <span>·</span>
         <span>by shikhar</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/s2-streamstore/replaya" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48373482" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -332,20 +345,20 @@ written with electron).</p>
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">🤖 AI Development</div>
-            
+
             <h2 class="story-title"><a href="https://microsoft.ai/news/introducingmai-code-1-flash/" target="_blank" rel="noopener">Microsoft AI Unveils MAI-Code-1-Flash: New Fast Coding Model for GitHub Copilot</a></h2>
             <p class="story-summary">Introducing MAI-Code-1-Flash  | Microsoft AI Skip to main content Source Signal blog Official Microsoft Blog Microsoft On The Issues Asia Canada Europe, Middle East and Africa Latin America The Code of Us Conexiones What's new today AI Innovation Digital Transformation Sustainability Security Work &amp; Life Diversity &amp; Inclusion Unlocked Microsoft 365 Azure Copilot Windows Surface XBOX Deals Small Business Support Windows Apps Outlook OneDrive Microsoft Teams OneNote Microsoft Edge Moving from Skype to Teams Computers Shop XBOX Accessories VR &amp; mixed reality Certified Refurbished Trade-in for cash XBOX Game Pass Ultimate PC Game Pass XBOX games PC games Microsoft AI Microsoft Security Dynamics 365 Microsoft 365 for business Microsoft Power Platform Windows 365 Small Business Digital Sovereignty Azure Microsoft Developer Microsoft Learn Support for AI marketplace apps Microsoft Tech Community Microsoft Marketplace Software companies Visual Studio Microsoft Rewards Free downloads &amp; security Education Gift cards Licensing Unlocked stories View Sitemap Today we’re introducing MAI-Code-1-Flash, a new Microsoft coding model built for fast, efficient assistance in everyday developer workflows. It is built end-to-end by Microsoft using clean and appropriately licensed data. The model is rolling out to GitHub Copilot individual users in Visual Studio Code in the model picker and under the default auto picker.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Microsoft's MAI-Code-1-Flash reinforces its commitment to AI-powered developer tools, offering fast coding assistance directly within GitHub Copilot and VS Code. Crucially, the model's development using &quot;clean and appropriately licensed data&quot; addresses pressing industry concerns about data provenance and intellectual property. This strategic move aims to build trust among developers while significantly enhancing productivity within Microsoft's vast ecosystem.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community expresses considerable skepticism regarding MAI-Code-1-Flash's practical utility and performance. Commenters are underwhelmed by its SWE-bench pro score, finding it unimpressive for a 137B model and questioning its marketing given that it's benchmarked against older, smaller models like Claude Haiku 4.5 rather than more powerful alternatives. Overall, while some welcome new competition, many doubt its effectiveness for &quot;serious coding&quot; compared to larger, more capable models.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>microsoft.ai</span>
         <span>·</span>
@@ -355,7 +368,7 @@ written with electron).</p>
         <span>·</span>
         <span>by EvanZhouDev</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://microsoft.ai/news/introducingmai-code-1-flash/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48374466" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -366,20 +379,20 @@ written with electron).</p>
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">Construction Tech 🏗️</div>
-            
+
             <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=48374528" target="_blank" rel="noopener">Rudus AI Automates Concrete Takeoffs and Estimation for Subcontractors</a></h2>
             <p class="story-summary">Hi HN, we’re Rishi and Sahil. We’ve developed Rudus ( https://www.rudus.ai/ ), an AI-powered takeoff and estimation platform built for concrete subcontractors. Takeoff is the process of measuring and quantifying materials from concrete plan sheets. Rudus identifies every concrete structure (footings, walls, columns, slabs), pulls in related details, and eliminates hours of manual quantity calculation. Here’s a demo: https://www.youtube.com/watch?v=PAMNDRWEdlI . The problem: Concrete subcontractors are the backbone of every building, but their estimating workflow hasn't changed in 20 years. Rig</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This Launch HN strategically targets a specific, historically underserved niche within the massive construction industry – concrete estimation. By applying AI to automate the tedious &quot;takeoff&quot; process, Rudus promises significant time savings and accuracy improvements for subcontractors, addressing a workflow that has remained largely unchanged for decades. This exemplifies the growing trend of specialized AI solutions bringing crucial digital transformation to 'legacy' industries with high-value, manual tasks.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community generally finds Rudus's AI-powered concrete estimation tool appealing, particularly appreciating its transparent, &quot;copilot&quot; approach rather than a black box. However, significant skepticism emerges regarding the founders' apparent lack of industry experience and, more critically, the crucial question of liability and responsibility should an AI miscalculation lead to structural failure.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>news.ycombinator.com</span>
         <span>·</span>
@@ -389,7 +402,7 @@ written with electron).</p>
         <span>·</span>
         <span>by rishipankhaniya</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://news.ycombinator.com/item?id=48374528" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48374528" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -400,20 +413,20 @@ written with electron).</p>
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">⚛️ Quantum Computing Controversy</div>
-            
+
             <h2 class="story-title"><a href="https://www.science.org/content/article/doubling-down-controversial-claims-microsoft-accelerates-quantum-computing-plans" target="_blank" rel="noopener">Microsoft's Quantum Computing Claims Challenged by Simpler Physical Explanations</a></h2>
             <p class="story-summary">Community discussion highlights: It really looks like they are trying hard to scale a system that is simply explained away by a simpler model... From TFA: The switching behavior they see could just be an electron hopping on and off a quantum dot, perhaps one formed incidentally by part of the wirelike region, Legg says. “This is exactly what you could get from a quantum dot.” I won't pretend I have a deep understanding of any of this, so the only parameters I can judge is the consensus of people that do, and these people aren't</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Microsoft's continued push for controversial quantum computing claims, despite the scientific community offering simpler, classical explanations for observed phenomena, underscores the immense pressure and speculative nature surrounding frontier technologies. This situation highlights the critical importance of rigorous peer review and independent validation in distinguishing genuine breakthroughs from potential misinterpretations or overhyped assertions in high-stakes scientific endeavors.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community shows significant skepticism regarding Microsoft's quantum computing claims, with one commenter suggesting that the observed &quot;switching behavior&quot; might be attributable to simpler classical phenomena rather than groundbreaking quantum effects. While another user speculates on future quantum programming languages, the immediate sentiment leans towards questioning the scientific validity of Microsoft's specific findings.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>science.org</span>
         <span>·</span>
@@ -423,7 +436,7 @@ written with electron).</p>
         <span>·</span>
         <span>by igortru</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.science.org/content/article/doubling-down-controversial-claims-microsoft-accelerates-quantum-computing-plans" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48380516" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -434,20 +447,20 @@ written with electron).</p>
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🔧 Hardware Hacking</div>
-            
+
             <h2 class="story-title"><a href="https://handwritten.danieljanus.pl/2026-06-01-edsger.html" target="_blank" rel="noopener">Handwritten Clojure REPL Transforms reMarkable 2 into a Portable Coding Pad</a></h2>
             <p class="story-summary">Community discussion highlights: This awesome! I actually had no idea I could ssh into my Remarkable and do neat stuff like this! &gt; Why do it? It's so impractical! Because you can and it's fun is always a perfectly valid answer here!</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project perfectly embodies the hacker ethos of &quot;because you can,&quot; transforming a specialized e-ink tablet into an unconventional handwritten Clojure REPL. It highlights the often-underestimated potential of devices like the reMarkable 2 as platforms for creative software development and unique user interfaces, defying standard usage models for the joy of exploration.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses strong enthusiasm for Edsger, particularly appreciating the innovative use of the reMarkable 2's SSH capabilities. There's a clear consensus that projects, even those deemed &quot;impractical,&quot; are highly valued when driven by curiosity, enjoyment, and the spirit of exploring what's possible.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>handwritten.danieljanus.pl</span>
         <span>·</span>
@@ -457,7 +470,7 @@ written with electron).</p>
         <span>·</span>
         <span>by nathell</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://handwritten.danieljanus.pl/2026-06-01-edsger.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48374552" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -468,7 +481,7 @@ written with electron).</p>
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">💻 Architecture &amp; Assembly</div>
-            
+
             <h2 class="story-title"><a href="https://ariadne.space/2023/04/12/writing-portable-arm-assembly.html" target="_blank" rel="noopener">Crafting Portable ARM64 Assembly for Apple Silicon, Linux, and Beyond</a></h2>
             <p class="story-summary">Writing portable ARM64 assembly · Ariadne's Space An unfortunate side effect of the rising popularity of Apple’s ARM-based
 computers is an increase in unportable assembly code which targets the
@@ -480,17 +493,17 @@ Apple’s computers as well as the other 64-bit ARM devices running
 operating systems other than Darwin. It just requires being aware of
 a few differences between the Mach-O and ELF ABIs, as well as knowing
 what Apple-specific syntax extensions to avoid.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The increasing adoption of Apple Silicon has inadvertently fostered a generation of ARM64 assembly code optimized solely for Apple's ecosystem, neglecting broader portability. This article highlights the critical differences between Mach-O and ELF ABIs and Apple-specific syntax, offering practical guidance to write assembly that performs efficiently across diverse ARM64 platforms like Linux servers and SBCs, preventing vendor lock-in and maximizing code reuse.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely disputes the notion of &quot;portable ARM64 assembly,&quot; arguing that assembly language is inherently non-portable across different platforms. Commenters specifically highlight that the article's approach, by making assumptions like &quot;clang implies macOS,&quot; contradicts its own stated goal of portability.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>ariadne.space</span>
         <span>·</span>
@@ -500,7 +513,7 @@ what Apple-specific syntax extensions to avoid.</p>
         <span>·</span>
         <span>by luu</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://ariadne.space/2023/04/12/writing-portable-arm-assembly.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48347977" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -508,11 +521,36 @@ what Apple-specific syntax extensions to avoid.</p>
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 03, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-06-02.html">
+        <small>Previous issue</small>
+        <strong>← June 02, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-06-04.html">
+        <small>Next issue</small>
+        <strong>→ June 04, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>
