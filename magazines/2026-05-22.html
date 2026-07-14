@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — May 22, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 017, May 22, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — May 22, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Friday</div>
-        <div class="masthead-year">May 22, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 017</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Friday</span>
+                    <time datetime="2026-05-22">May 22, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">AI &amp; Math Breakthrough 📐🤖</div>
-            
+
             <h2 class="story-title"><a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/" target="_blank" rel="noopener">OpenAI Model Debunks Core Discrete Geometry Conjecture</a></h2>
             <p class="story-summary">https://x.com/wtgowers/status/2057175727271800912 , https://xcancel.com/wtgowers/status/2057175727271800912</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This news marks a pivotal moment where an AI model actively disproved a central conjecture in discrete geometry, showcasing AI's capability beyond mere data processing to fundamental scientific discovery. It highlights the increasing potential for AI to act as a powerful tool for generating counterexamples or even proofs, potentially accelerating progress in complex mathematical fields. This development opens new avenues for AI-assisted discovery, challenging long-held assumptions and pushing the boundaries of mathematical understanding.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community views this achievement as genuinely impressive and exciting, acknowledging it as a significant milestone for AI in complex mathematical reasoning. While recognizing the sophistication of the proof, some commenters express a degree of skepticism regarding the *true* independence of the AI's discovery, questioning the extent of human guidance, training data influence, and whether it represents genuine creative insight versus advanced pattern recognition.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>openai.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by tedsanders</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48212493" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">🔒 Cybersecurity Breach</div>
-            
+
             <h2 class="story-title"><a href="https://www.bleepingcomputer.com/news/security/github-confirms-breach-of-3-800-repos-via-malicious-vscode-extension/" target="_blank" rel="noopener">Malicious VSCode Extension Breaches 3,800 GitHub Repos</a></h2>
             <p class="story-summary">GitHub confirms breach of 3,800 repos via malicious VSCode extension</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This incident profoundly highlights the expanding attack surface within the software supply chain, shifting from traditional package dependencies to ubiquitous developer tools like VSCode extensions. The breach of 3,800 repositories underscores the critical need for stricter security vetting mechanisms for development environment components and a heightened 'zero trust' approach to even seemingly innocuous tools. It forces a reevaluation of developer workstation security as a primary line of defense.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely agrees that VSCode's extension security model is critically flawed and an &quot;obvious attack vector,&quot; expressing long-standing concerns about the lack of sandboxing and explicit permission systems. Many users are frustrated that Microsoft has not prioritized these security improvements despite years of requests. There's a strong consensus that a fundamental change is needed to prevent malicious extensions from gaining broad access.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>bleepingcomputer.com</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by Timofeibu</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.bleepingcomputer.com/news/security/github-confirms-breach-of-3-800-repos-via-malicious-vscode-extension/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48207660" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🚀 Science Fiction &amp; Astronomy</div>
-            
+
             <h2 class="story-title"><a href="https://valhovey.github.io/gaia-mary/" target="_blank" rel="noopener">From Project Hail Mary to Practical Stellar Navigation for Astrophotography</a></h2>
             <p class="story-summary">Community discussion highlights: I am so happy this movie did great, the book was great Similar to me books: Bobiverse, Long Way To A Small Angry Planet I'm not a heavy reader This site is cool, I want to get to know stellar navigation stuff for astrophotography watching a video like this where they pull up star charts to point the telescope at it pretty cool https://www.youtube.com/live/TexqPMQMyZg?si=oEnvrxW21-D0VXGV... Tangent I'll throw in here, I never get the fabric folding gravity well diagrams as it seems to have a &quot;dow</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The Hacker News community's engagement with &quot;Project Hail Mary&quot; transcends mere literary appreciation, inspiring a practical exploration into stellar navigation for astrophotography. This exemplifies how compelling science fiction can ignite genuine curiosity in STEM fields, prompting readers to bridge fictional concepts with real-world technical learning. The discussion also highlights the community's penchant for recommending hard sci-fi works that blend scientific accuracy with engaging narratives.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses strong enthusiasm for &quot;Project Hail Mary&quot; (book and movie), appreciating the project's technical depth and its use of real astronomical data to visualize the story's setting. There's a clear shared interest in space, stellar navigation, and astrophysics, leading commenters to recommend related books, games, videos, and even their own alternative star maps.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>valhovey.github.io</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by speleo</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://valhovey.github.io/gaia-mary/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48225297" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">Portable Tech 📱</div>
-            
+
             <h2 class="story-title"><a href="https://blog.flipper.net/flipper-one-we-need-your-help/" target="_blank" rel="noopener">Flipper One Fans Demand QWERTY Keyboard and PC Power for True Hacking</a></h2>
             <p class="story-summary">Community discussion highlights: Cool, but I think they're holding themselves back with that weird form-factor. I would've preferred if they'd included a full QWERTY keyboard, like the the GPD Pocket 4[1] or the GPD Win Mini. With a proper keyboard, I could write code on the go, easily edit files, navigate a terminal and mess with things... and do so much more in general. Also, 8GB RAM is barely enough these days, whereas the GPD comes with upto 64GB RAM - and an X86 CPU too, which means you can run your favorite Linux distro a</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The community discussion signals a strong user demand for portable, powerful computing devices featuring full QWERTY keyboards, optimized for on-the-go coding and system administration. Users perceive the Flipper One's current specialized form factor and limited specifications as a missed opportunity, advocating for a more general-purpose, Linux-capable hardware solution akin to the versatile GPD devices. This highlights a persistent market desire for truly versatile handheld developer tools that balance portability with robust functionality.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views Flipper One as suffering from significant scope creep, embodying the &quot;second system effect&quot; by attempting to incorporate too many features without a clear, focused purpose. Many commenters struggle to understand its core value proposition compared to existing devices and question the prioritization of features like local AI, expressing skepticism about its eventual utility and success.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.flipper.net</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by sandebert</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.flipper.net/flipper-one-we-need-your-help/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48220647" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">💻 Developer Tools</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/helvesec/rmux" target="_blank" rel="noopener">Rmux: Programmable Terminal Multiplexer Brings Playwright-Style Automation</a></h2>
             <p class="story-summary">Author here. RMUX started from a frustration: I've used tmux for years and got tired of scraping output with grep and sleeps to automate anything. So I rebuilt the multiplexer from scratch in Rust, with a programmable layer on top. Two surfaces: a tmux-compatible CLI (~90 commands, your keybindings just work), and a typed async Rust SDK on the same daemon — stable pane IDs, structured snapshots, locator-style waits. The idea is Playwright-style automation, but for terminals. Native on Linux, macOS, Windows (real ConPTY, no WSL). Demos and docs at rmux.io. Happy to answer questions about the da</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project innovatively addresses a long-standing pain point in terminal automation by replacing unreliable screen-scraping with a robust, Playwright-style SDK for structured interaction. By providing stable pane IDs and locator-style waits, Rmux promises to significantly enhance the reliability and maintainability of complex CLI workflows and terminal application testing. This shift could streamline development and operations for tasks heavily reliant on programmatic terminal control.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses initial interest in Rmux's programmable nature and `tmux`-compatible CLI, but a strong consensus points to a lack of clarity regarding its core advantages over existing tools like `tmux`. Many users question what unique benefits it offers, particularly for agent integration, given `tmux`'s established capabilities. This skepticism is compounded by a crowded market of terminal multiplexers and minor concerns about the project's presentation.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by shideneyu</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/helvesec/rmux" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48219918" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -329,20 +342,20 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">🐍 Python Update</div>
-            
+
             <h2 class="story-title"><a href="https://blog.changs.co.uk/python-315-features-that-didnt-make-the-headlines.html" target="_blank" rel="noopener">Python 3.15: The Unsung Features That Will Transform Your Code</a></h2>
             <p class="story-summary">Python 3.15: features that didn't make the headlines It's that time of the year again, a new version of Python is just around the corner. With the Python 3.15.0b1 feature freeze, we know what's coming to Python later this year. There are so many big features coming including lazy imports and the tachyon profiler which I previously covered . Last year, I really enjoyed investigating the smaller features of Python 3.14.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This article thoughtfully pivots from the typical hype around major features, emphasizing the substantial collective impact of &quot;under-the-radar&quot; additions in Python 3.15. It underscores that many of the most valuable improvements to a language often come from these smaller, quality-of-life enhancements and performance tweaks, which collectively refine the developer experience and system efficiency over time. This perspective is crucial for understanding the holistic evolution of a mature programming language beyond headline-grabbing releases.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community generally welcomes the &quot;smaller&quot; features in Python 3.15, with `frozendict` for immutable JSON and `Iterator` synchronization primitives receiving particular appreciation for their practical utility. However, a notable undercurrent of discussion reveals growing disillusionment with language design and even a shift away from Python for performance-critical tasks, largely attributed to the impact of AI code generation and a changing developer landscape.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.changs.co.uk</span>
         <span>·</span>
@@ -352,7 +365,7 @@
         <span>·</span>
         <span>by rbanffy</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.changs.co.uk/python-315-features-that-didnt-make-the-headlines.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48220696" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -363,20 +376,20 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">😡 Software Update Fiasco</div>
-            
+
             <h2 class="story-title"><a href="https://www.0xsid.com/blog/antigravity-bait-n-switch" target="_blank" rel="noopener">Google's Antigravity 'Upgrade' Replaces Full IDE with Basic AI Chatbot</a></h2>
             <p class="story-summary">Google's Antigravity Bait and Switch | Sid's Blog The day was to begin like any other, with Antigravity open (yes, there are tens of us!), expecting to get some work done before my attention fragments. They had rolled out a new version of Antigravity the day before, at I/O 2026 , presenting it as a shiny, standalone Codex-style experience. Before I launched it, Antigravity had automatically &quot;updated&quot; my existing installation to the new one and, in the process, nuked the IDE, the actual Antigravity I had been using for months. When I clicked my usual shortcut, my entire IDE was just gone, and in its place stood a single conversational prompt box.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post highlights a severe misstep in product strategy, where Google's aggressive push for AI integration (a &quot;Codex-style experience&quot;) resulted in a destructive and forced update that completely obliterated an existing developer IDE. Such &quot;bait and switch&quot; tactics alienate power users by prioritizing a trendy, simplified interface over the stability and functionality of established tools, underscoring a critical challenge in how major tech companies balance innovation with user continuity and respect for existing installations.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses significant frustration and distrust with Google's handling of the &quot;Antigravity&quot; product line, viewing it as another instance of the company abandoning or radically altering tools without regard for existing users. Many commenters criticize Google's inconsistent product strategy and perceived lack of focus, which they believe undermines user trust and hampers its competitiveness, especially in the AI development space.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>0xsid.com</span>
         <span>·</span>
@@ -386,7 +399,7 @@
         <span>·</span>
         <span>by ssiddharth</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.0xsid.com/blog/antigravity-bait-n-switch" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48222529" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -397,20 +410,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">🗣️ Digital Etiquette</div>
-            
+
             <h2 class="story-title"><a href="https://noslopgrenade.com/" target="_blank" rel="noopener">AI's Text Wall Problem: How Generative AI Overloads Conversations</a></h2>
             <p class="story-summary">Stop throwing AI-generated walls of text into conversations. The choice between Redis and Memcached is a nuanced decision that requires careful consideration of multiple factors. Let me break down the key differences: Redis offers a rich set of data structures including strings, hashes, lists, sets, and sorted sets, which provide flexibility for various use cases. It supports persistence through RDB snapshots and AOF logs, enabling data durability . Redis also includes built-in replication, Lua scripting, pub/sub messaging, and atomic operations.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post articulates a growing frustration with the thoughtless insertion of verbose AI-generated content into human discussions, which often prioritizes quantity over genuine insight or conciseness. Such practices dilute conversational quality and highlight a critical need for users to apply human curation and discernment when leveraging AI tools. It underscores a crucial aspect of digital etiquette in the age of generative AI, where ease of generation can lead to information overload rather than enhanced communication.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely agrees that &quot;throwing AI-generated walls of text into conversations&quot; is unwelcome and often annoying. Many users liken it to sharing dreams—deeply personal but uninteresting to others—highlighting its excessive verbosity and lack of genuine human relevance. There's a strong preference for concise, direct human communication, with such AI use often seen as counterproductive to effective interaction and potentially detrimental in professional settings.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>noslopgrenade.com</span>
         <span>·</span>
@@ -420,7 +433,7 @@
         <span>·</span>
         <span>by napolux</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://noslopgrenade.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48219992" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -431,20 +444,20 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">DIY AI Infrastructure 🤖</div>
-            
+
             <h2 class="story-title"><a href="https://rosmine.ai/2026/05/13/was-my-48k-gpu-worth-it/" target="_blank" rel="noopener">FAANG Exit, $48K GPU Server: One Researcher's Verdict on DIY AI vs. Cloud</a></h2>
             <p class="story-summary">Was my $48K GPU server worth it? In 2024 I quit my FAANG job to become an independent researcher. To do this I needed GPUs, so I built “grumbl”, a 6x 6000 Ada GPU server. This blog describes the build, some of the issues I faced, and answers the question “was it worth it to build the server myself, or should I have rented cloud GPUs?” (It’s called “grumbl” because apparently I cannot spell “GPUs”)</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post offers a compelling first-hand account for independent researchers and AI practitioners grappling with the critical 'build vs. buy' decision for high-performance GPU compute. It meticulously details the practical challenges and financial implications of self-hosting a multi-GPU server compared to utilizing cloud services, providing invaluable real-world data and insights into the economic justification and operational realities of such a significant personal investment.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses general skepticism about the broad utility of a $48K GPU server for independent researchers, with many arguing that cloud services offer better flexibility and cost-efficiency for experimentation. While acknowledging the psychological benefit of ownership encouraging more experimentation, the consensus leans towards fixed capacity being a niche investment. However, the original poster's successful launch and subsequent business interest indicate that for their specific, high-impact use case, the investment ultimately paid off.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>rosmine.ai</span>
         <span>·</span>
@@ -454,7 +467,7 @@
         <span>·</span>
         <span>by apwheele</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://rosmine.ai/2026/05/13/was-my-48k-gpu-worth-it/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48184402" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -465,20 +478,20 @@
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">🤖 Agentic AI</div>
-            
+
             <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=48225596" target="_blank" rel="noopener">AI Agents Get Dedicated Inboxes With Agent.email's Curl-Based Signup</a></h2>
             <p class="story-summary">Hi HN! We're Haakam, Michael, and Adi from AgentMail- a ycs25 company. We give AI agents their own email inboxes. Recently, we ran an experiment called Agent.Email. It's a signup flow designed specifically for AI agents instead of humans. The inspiration came from a few comments we received when we did our seed launch a few months back. They all came from the very apt observation that agents not being able to sign up to a product made for agents without human credentials was ironic and unideal. This is basically the thesis we built AgentMail on: The internet was made for humans exclusively, de</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project highlights a crucial emerging challenge in AI development: the inherent conflict between human-centric internet infrastructure and the growing need for autonomous AI agents to interact with online services. By creating an agent-specific signup and email flow, AgentMail addresses a fundamental friction point, signaling a necessary evolution in how digital identity and access management must adapt for a future populated by both human and AI participants. The &quot;human OTP&quot; for claiming, however, points to the ongoing transitional phase, balancing agent autonomy with current security paradigms.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community is overwhelmingly skeptical of Agent.email, primarily concerned that giving AI agents email inboxes is a fast track to widespread spam and domain blacklisting. Commenters struggled to identify compelling, legitimate use cases beyond commercial spam, frequently questioning the product's overall viability and potential for abuse.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>news.ycombinator.com</span>
         <span>·</span>
@@ -488,7 +501,7 @@
         <span>·</span>
         <span>by adisingh13</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://news.ycombinator.com/item?id=48225596" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48225596" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -496,11 +509,36 @@
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 22, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-05-21.html">
+        <small>Previous issue</small>
+        <strong>← May 21, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-05-23.html">
+        <small>Next issue</small>
+        <strong>→ May 23, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

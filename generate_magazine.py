@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Morning Edition — Daily HN Magazine Generator
-New Yorker–inspired editorial design · Bilingual (EN/ZH) · Real content summaries
+New Yorker–inspired editorial design · English · Real content summaries
 """
 
 import json
@@ -13,7 +13,6 @@ import datetime
 import urllib.request
 import urllib.parse
 import urllib.error
-import time
 import smtplib
 import ssl
 from email.mime.text import MIMEText
@@ -21,6 +20,10 @@ from email.mime.multipart import MIMEMultipart
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urlparse
 from html.parser import HTMLParser
+from pathlib import Path
+
+from editorial_ai import generate_editorial_package
+from issue_branding import issue_details, render_issue_footer, render_issue_header
 
 # ---------------------------------------------------------------------------
 # CONFIG
@@ -50,17 +53,22 @@ def send_email(config, html_content, subject):
         print("   ⚠️  SMTP credentials not configured.")
         return False
 
-    # Add magazine link at top of email
+    stylesheet_path = Path(SCRIPT_DIR) / "assets" / "issue.css"
+    if stylesheet_path.exists():
+        stylesheet = stylesheet_path.read_text(encoding="utf-8")
+        html_content = html_content.replace("</head>", f"<style>{stylesheet}</style></head>", 1)
+
+    # Add a direct link to the published issue at the top of the email.
     magazine_link = os.environ.get("MORNING_EDITION_SITE_URL") or email_config.get("site_url", "")
     magazine_link = magazine_link.rstrip("/")
     header_html = f'''
-    <div style="background:#FAF6F0;padding:24px;text-align:center;border-radius:8px;margin-bottom:24px;">
-        <h3 style="font-family:Inter,sans-serif;color:#1A1A1A;margin:0 0 12px;">☕ Morning Edition</h3>
-        <a href="{magazine_link}" style="background:#C84B31;color:#fff;padding:12px 24px;text-decoration:none;border-radius:6px;font-family:Inter,sans-serif;font-weight:600;">View Online →</a>
+    <div style="background:#073D2D;padding:24px;text-align:center;margin-bottom:24px;">
+        <h3 style="font-family:Georgia,serif;color:#FFFEFB;margin:0 0 12px;">HN Daily Brief</h3>
+        <a href="{magazine_link}" style="background:#F5B82E;color:#073D2D;padding:12px 24px;text-decoration:none;border-radius:999px;font-family:Inter,sans-serif;font-weight:700;">View online →</a>
     </div>
     '''
     if magazine_link:
-        html_content = html_content.replace('<div class="masthead">', f'{header_html}<div class="masthead">', 1)
+        html_content = html_content.replace("<body>", f"<body>{header_html}", 1)
 
     try:
         msg = MIMEMultipart("alternative")
@@ -84,112 +92,6 @@ def send_email(config, html_content, subject):
     except Exception as e:
         print(f"   ⚠️  Email failed: {e}")
         return False
-
-# ---------------------------------------------------------------------------
-# BILINGUAL TRANSLATION & LLM API (Google Gemini 1.5 Flash)
-# ---------------------------------------------------------------------------
-
-def call_gemini_llm(prompt, system_instruction=None, max_retries=3):
-    """Call Google Gemini API natively using urllib with exponential backoff for Rate Limits."""
-    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
-    if not api_key:
-        print("    [WARNING] GEMINI_API_KEY not found in environment. Translation will fail or be empty.")
-        return ""
-    
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
-    payload = { "contents": [{"parts": [{"text": prompt}]}] }
-    
-    if system_instruction:
-        payload["systemInstruction"] = { "parts": [{"text": system_instruction}] }
-        
-    data = json.dumps(payload).encode('utf-8')
-    
-    for attempt in range(max_retries):
-        req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
-        try:
-            with urllib.request.urlopen(req, timeout=20) as resp:
-                resp_data = json.loads(resp.read().decode('utf-8'))
-                try:
-                    text = resp_data["candidates"][0]["content"]["parts"][0]["text"]
-                    return text.strip()
-                except (KeyError, IndexError):
-                    return ""
-        except Exception as e:
-            is_rate_limit_or_server_error = isinstance(e, urllib.error.HTTPError) and e.code in [429, 404, 500, 502, 503, 504]
-            wait_time = (attempt + 1) * 5 if is_rate_limit_or_server_error else 3
-            
-            if attempt < max_retries - 1:
-                print(f"    [API ERROR] {e}. Retrying in {wait_time}s... (Attempt {attempt+1}/{max_retries})")
-                time.sleep(wait_time)
-            else:
-                print(f"    [API FATAL] Failed after {max_retries} attempts: {e}")
-                return ""
-            
-    return ""
-
-def translate_text(text, target_lang='en'):
-    """Translation disabled - English only version."""
-    if not text or not text.strip():
-        return ""
-    return text  # Return original English, skip translation
-
-def rewrite_title_llm(original_title, article_summary):
-    """Rewrite Hacker News title into an essence-focused engaging title."""
-    if not article_summary or len(article_summary) < 20:
-        return original_title
-    
-    sys_prompt = "You are a senior editor for a tech magazine. You are given a raw Hacker News title and a summary of the article. Rewrite the title into a SINGLE clear, punchy, and highly informative headline that instantly tells the reader the essence of the news. Output ONLY the English title, without quotes."
-    prompt = f"Original Title: {original_title}\n\nSummary: {article_summary}"
-    res = call_gemini_llm(prompt, system_instruction=sys_prompt)
-    # Remove quotes if LLM adds them
-    if res:
-        return res.strip('"').strip("'")
-    return original_title
-
-def generate_insight_llm(title, summary, score):
-    """Generate a category label and a unique, content-aware deep insight in English only."""
-    if not summary or len(summary) < 20:
-        return ["💡 Worth Watching", "This story is trending among tech professionals today."]
-
-    sys_prompt = "You are a senior tech editor. Based on the Hacker News title and summary, provide a category label (with an emoji) in English. Then, write a 2-3 sentence deep-dive analytical insight in ENGLISH. Format: [Category Label] | [Your English Insight here]"
-    prompt = f"Title: {title}\nScore: {score}\nSummary: {summary}"
-    res = call_gemini_llm(prompt, system_instruction=sys_prompt)
-    if res:
-        if "Your English Insight here" in res or "English Insight" in res and len(res) < 150:
-            return ["💡 Worth Watching", "This story is trending among tech professionals today."]
-
-        parts = [p.strip() for p in res.split("|")]
-        if len(parts) >= 2:
-            return [parts[0], parts[1]]
-        elif len(parts) == 1:
-            return [parts[0], "This story is trending among tech professionals today."]
-    return ["💡 Worth Watching", "This story is trending among tech professionals today."]
-
-def analyze_community_llm(title, comments_text):
-    """Analyze community comments - English only."""
-    if not comments_text or len(comments_text) < 20:
-        return ["", ""]
-    sys_prompt = "You are a tech community analyst. Read the following Hacker News comments. Write a 2-3 sentence analysis of the community's consensus in ENGLISH."
-    prompt = f"Title: {title}\nComments:\n{comments_text}"
-    res = call_gemini_llm(prompt, system_instruction=sys_prompt)
-    if res:
-        if "Your actual English analysis here" in res or "English Analysis" in res and len(res) < 100:
-            return ["", ""]
-        return [res.strip(), ""]
-    return ["", ""]
-
-def translate_insight_category(category):
-    """Pre-translated categories for consistency."""
-    mapping = {
-        "🔬 AI/ML Landscape": "🔬 AI/ML 发展图景",
-        "🛠 Developer Tooling": "🛠 开发者工具",
-        "🔒 Security & Privacy": "🔒 安全与隐私",
-        "🎨 Creative Tools": "🎨 创意工具",
-        "🔭 Science & Research": "🔭 科学与研究",
-        "📊 Industry Signal": "📊 行业信号",
-        "💡 Worth Watching": "💡 值得关注",
-    }
-    return mapping.get(category, category)
 
 # ---------------------------------------------------------------------------
 # HTML TEXT EXTRACTOR
@@ -520,6 +422,16 @@ def extract_domain(url):
         return domain[4:] if domain.startswith("www.") else domain
     except Exception: return "unknown"
 
+def keyword_matches(keyword, searchable):
+    """Match short technical terms as words instead of arbitrary substrings."""
+    keyword = keyword.lower().strip()
+    if not keyword:
+        return False
+    if len(keyword) <= 3 and re.fullmatch(r"[a-z0-9+#.-]+", keyword):
+        return re.search(rf"(?<![a-z0-9]){re.escape(keyword)}(?![a-z0-9])", searchable) is not None
+    return keyword in searchable
+
+
 def score_story(story, config):
     taste = config.get("taste", {})
     boost_kw = taste.get("boost_keywords", [])
@@ -532,13 +444,13 @@ def score_story(story, config):
     searchable = f"{title} {url} {domain}"
 
     for kw in skip_kw:
-        if kw.lower() in searchable: return (-100, False, ["skip"])
+        if keyword_matches(kw, searchable): return (-100, False, ["skip"])
 
-    taste_score = sum(3 for kw in boost_kw if kw.lower() in searchable)
-    tags = [kw for kw in boost_kw if kw.lower() in searchable]
+    taste_score = sum(3 for kw in boost_kw if keyword_matches(kw, searchable))
+    tags = [kw for kw in boost_kw if keyword_matches(kw, searchable)]
     
-    flagged = any(kw.lower() in searchable for kw in flag_kw)
-    if flagged: tags.extend([f"⚡{kw}" for kw in flag_kw if kw.lower() in searchable])
+    flagged = any(keyword_matches(kw, searchable) for kw in flag_kw)
+    if flagged: tags.extend([f"⚡{kw}" for kw in flag_kw if keyword_matches(kw, searchable)])
 
     hn_score = story.get("score", 0)
     combined = (taste_score * 100) + hn_score
@@ -562,11 +474,12 @@ def curate_stories(stories, config, n=10):
     return scored[:n]
 
 def enrich_stories(curated):
-    print("   Fetching content and translating (this may take a moment)...")
+    print("   Fetching content and generating English editorial analysis...")
 
     def enrich_one(story):
         # STEP 1: Try to get article content from multiple sources
         summary_en = ""
+        summary_source = "unavailable"
         
         # For Show HN posts, try HN post body text first (most reliable)
         if story["title"].lower().startswith("show hn") or story["domain"] == "news.ycombinator.com":
@@ -582,6 +495,7 @@ def enrich_stories(curated):
                 
                 if len(text) > 40 and (url_count / word_count) < 0.2:
                     summary_en = text[:600]
+                    summary_source = "hn_post"
         
         # Try fetching the actual article HTML
         if not summary_en:
@@ -589,6 +503,8 @@ def enrich_stories(curated):
             if html_content:
                 paragraphs = extract_article_text(html_content)
                 summary_en = smart_summarize(paragraphs, max_sentences=5)
+                if summary_en:
+                    summary_source = "article"
         
         # Fallback: Try HN post body for non-Show-HN posts too
         if not summary_en:
@@ -603,61 +519,54 @@ def enrich_stories(curated):
                 
                 if len(text) > 40 and (url_count / word_count) < 0.2:
                     summary_en = text[:600]
+                    summary_source = "hn_post"
         
         # Fallback: Try Algolia API for richer content
         if not summary_en:
             summary_en = fetch_hn_algolia_content(story["id"])
+            if summary_en:
+                summary_source = "hn_algolia"
         
-        # Final fallback: construct a minimal but honest summary from title context
+        # Do not infer article facts when no source content is available.
         if not summary_en:
-            summary_en = f"[Source content could not be fetched]"
             print(f"    ⚠ Could not fetch content for: {story['title'][:50]}")
 
         # STEP 2: Fetch top community comments and analyze deeply
         top_comments = fetch_top_comments(story["id"], n=8)
-        community_en = ""
-        community_zh = ""
         raw_comments_text = ""
         if top_comments:
             raw_comments_text = "\n---\n".join([c[:300] for c in top_comments])
-            comm_parts = analyze_community_llm(story["title"], raw_comments_text)
-            community_en = comm_parts[0]
-            community_zh = comm_parts[1] if len(comm_parts) > 1 else comm_parts[0]
-            
-        # STEP 2.5: Validation - If summary missing, use LLM to guess from comments
-        if "[Source content could not be fetched]" in summary_en and raw_comments_text:
-            sys_p = f"Based on the following community comments about a Hacker News post titled '{story['title']}', write a 2-sentence summary of what the article must be about. Do not mention 'the comments say', just summarize the inferred topic."
-            guessed_summary = call_gemini_llm(raw_comments_text, system_instruction=sys_p)
-            if guessed_summary and len(guessed_summary) > 20:
-                summary_en = guessed_summary
 
-        # STEP 3: Generate category and insight (Bilingual)
-        insight_parts = generate_insight_llm(story["title"], summary_en, story["score"])
-        cat_en = insight_parts[0] if insight_parts else ""
-        insight_en = insight_parts[1] if len(insight_parts) > 1 else ""
-        insight_zh = insight_parts[2] if len(insight_parts) > 2 else insight_en
+        # STEP 3: Generate all editorial fields in one structured Gemini request.
+        fallback_category, fallback_insight = generate_insight(
+            story["title"],
+            story.get("tags", []),
+            story["domain"],
+            story["score"],
+            summary_en,
+        )
+        editorial = generate_editorial_package(
+            title=story["title"],
+            summary=summary_en,
+            score=story["score"],
+            comments_text=raw_comments_text,
+            fallback_category=fallback_category,
+            fallback_insight=fallback_insight,
+        )
 
-        # STEP 4: Rewrite title - English only
-        story["title_en"] = rewrite_title_llm(story["title"], summary_en)
-        story["title_zh"] = story["title_en"]  # Same as English
+        story["title_en"] = editorial["headline"]
 
         story["summary_en"] = summary_en
-        story["summary_zh"] = summary_en  # Same as English
+        story["summary_source"] = summary_source
 
-        story["insight_cat_en"] = cat_en
-        story["insight_cat_zh"] = cat_en  # Same as English
-
-        story["insight_en"] = insight_en
-        story["insight_zh"] = insight_en  # Same as English
-
-        story["community_en"] = community_en
-        story["community_zh"] = community_en  # Same as English
+        story["insight_cat_en"] = editorial["category"]
+        story["insight_en"] = editorial["insight"]
+        story["community_en"] = editorial["community_analysis"]
+        story["ai_enriched"] = editorial["ai_enriched"]
         
         # Override original title for final HTML render
         story["title"] = story["title_en"]
         
-        # Pace API requests to respect Rate Limits
-        time.sleep(3)
         return story
 
     # Sequential enrichment to avoid rate limits and ensure quality (Single Worker)
@@ -667,14 +576,22 @@ def enrich_stories(curated):
         for future in as_completed(futures):
             idx = futures[future]
             results[idx] = future.result()
-            has_content = "[Source content could not be fetched" not in results[idx].get("summary_en", "")
+            has_content = results[idx].get("summary_source") != "unavailable"
             status = "✓" if has_content else "⚠"
-            print(f"   {status} [{idx+1:2d}/10] {results[idx]['title'][:50]} | 翻译完成")
+            print(f"   {status} [{idx+1:2d}/10] {results[idx]['title'][:50]}")
+
+    source_counts = {}
+    for story in results:
+        source = story.get("summary_source", "unavailable")
+        source_counts[source] = source_counts.get(source, 0) + 1
+    ai_enriched_count = sum(1 for story in results if story.get("ai_enriched"))
+    source_report = ", ".join(f"{name}={count}" for name, count in sorted(source_counts.items()))
+    print(f"   Enrichment summary: AI={ai_enriched_count}/{len(results)}; {source_report}")
 
     return results
 
 # ---------------------------------------------------------------------------
-# RENDER — BILINGUAL EDITORIAL DESIGN
+# RENDER — ENGLISH EDITORIAL DESIGN
 # ---------------------------------------------------------------------------
 
 PAGE_STYLES = [
@@ -718,9 +635,17 @@ def render_story_section(story, index, style):
     headline = f'<h2 class="story-title"><a href="{story["url"]}" target="_blank" rel="noopener">{title_en}</a></h2>'
 
     # Summary Block
-    summary_html = ""
+    summary_source_labels = {
+        "article": "Source: original article",
+        "hn_post": "Source: Hacker News post",
+        "hn_algolia": "Source: Hacker News / Algolia context",
+    }
+    source_label = summary_source_labels.get(story.get("summary_source", ""), "")
     if sum_en:
-        summary_html = f'<p class="story-summary">{sum_en}</p>'
+        summary_html = f'''<div class="story-summary-source">{source_label}</div>
+        <p class="story-summary">{sum_en}</p>'''
+    else:
+        summary_html = '<p class="story-summary story-summary-unavailable">Summary unavailable. Read the original source for details.</p>'
 
     # Insight
     insight_html = ""
@@ -776,14 +701,22 @@ def render_story_section(story, index, style):
         </div>
     </section>'''
 
-def render_magazine(stories, date_str):
+def render_magazine(stories, date_str, issue=None, previous_issue=None, next_issue=None):
     sections = [render_story_section(story, i, PAGE_STYLES[i % len(PAGE_STYLES)]) for i, story in enumerate(stories)]
     try:
         dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
         formatted_date = dt.strftime("%B %d, %Y")
-        day_name = dt.strftime("%A")
     except:
-        formatted_date = date_str; day_name = ""
+        formatted_date = date_str
+
+    if issue is None:
+        issue = {
+            "filename": f"{date_str}.html",
+            "date_iso": date_str,
+            "display_date": formatted_date,
+            "day_name": "",
+            "number": 1,
+        }
 
     toc_items = ""
     for i, story in enumerate(stories):
@@ -800,121 +733,32 @@ def render_magazine(stories, date_str):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — {formatted_date}</title>
+    <meta name="description" content="HN Daily Brief issue {issue['number']:03d}, {formatted_date}: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — {formatted_date}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after {{ margin:0; padding:0; box-sizing:border-box; }}
-        html {{ scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }}
-        body {{ font-family: 'Inter', sans-serif; background: #FAF6F0; color: #1A1A1A; line-height: 1.6; word-break: break-word; }}
-        a {{ overflow-wrap: anywhere; }}
-        a:hover {{ opacity: 0.7; }}
-
-        /* Masthead */
-        .masthead {{ min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12vh 8vw; position: relative; }}
-        .masthead::before {{ content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C84B31; }}
-        .masthead-label {{ font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: #8C7A6B; font-weight: 500; margin-bottom: 40px; }}
-        .masthead h1 {{ font-family: 'Instrument Serif', serif; font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.9; letter-spacing: -0.03em; color: #1A1A1A; margin-bottom: 24px; }}
-        .masthead h1 em {{ font-style: italic; color: #C84B31; }}
-        .masthead-date {{ font-family: 'Instrument Serif', serif; font-size: 1.2rem; font-style: italic; color: #8C7A6B; margin-bottom: 8px; }}
-        .masthead-year {{ font-size: 0.75rem; letter-spacing: 0.2em; color: #B0A090; }}
-
-        /* TOC */
-        .toc {{ padding: 120px 8vw; max-width: 720px; margin: 0 auto; }}
-        .toc-header {{ font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 48px; }}
-        .toc-header::after {{ content: ''; display: block; width: 30px; height: 2px; background: #C84B31; margin-top: 12px; }}
-        .toc-item {{ display: flex; align-items: baseline; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: padding-left 0.2s; }}
-        .toc-item:hover {{ padding-left: 12px; opacity: 0.7; }}
-        .toc-num {{ font-family: 'Instrument Serif', serif; font-size: 0.85rem; color: rgba(0,0,0,0.2); min-width: 24px; }}
-        .toc-title {{ font-family: 'Instrument Serif', serif; font-size: 1.3rem; font-weight: 400; flex-grow: 1; line-height: 1.3; }}
-        .toc-score {{ font-size: 0.7rem; color: rgba(0,0,0,0.3); white-space: nowrap; }}
-
-        /* Story Section */
-        .story {{ min-height: 100vh; padding: 120px 8vw; display: flex; align-items: center; position: relative; }}
-        .story-content {{ max-width: 760px; width: 100%; }}
-        .story-category {{ font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 32px; display: flex; align-items: center; gap: 16px; }}
-        .story-category::after {{ content: ''; width: 32px; height: 1px; background: rgba(0,0,0,0.1); }}
-        .story-title {{ font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1A1A1A; margin-bottom: 40px; }}
-        .story-title a {{ color: inherit; text-decoration: none; }}
-        .story-summary {{ font-family: 'Instrument Serif', serif; font-size: 1.15rem; line-height: 1.8; color: #3A3A3A; margin-bottom: 48px; max-width: 680px; }}
-        .story-insight {{ padding: 28px 32px; border-left: 3px solid #C84B31; background: rgba(0,0,0,0.015); margin-bottom: 32px; }}
-        .story-insight-label {{ font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #C84B31; font-weight: 600; margin-bottom: 12px; }}
-        .story-insight-text {{ font-family: 'Instrument Serif', serif; font-size: 1.1rem; line-height: 1.7; color: #3A3A3A; font-style: italic; }}
-        .story-community {{ padding: 24px 0; border-left: 2px solid #D4C5B5; padding-left: 24px; margin-bottom: 32px; }}
-        .story-community-label {{ font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8C7A6B; margin-bottom: 12px; }}
-        .story-community-text {{ font-size: 0.9rem; line-height: 1.7; color: #6A6A6A; font-weight: 300; }}
-        .story-meta {{ font-size: 0.7rem; color: #8C7A6B; letter-spacing: 0.05em; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }}
-        .story-meta span:first-child {{ font-weight: 600; background: rgba(0,0,0,0.03); padding: 3px 8px; border-radius: 2px; }}
-        .story-links {{ display: flex; gap: 32px; }}
-        .story-link {{ font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #C84B31; text-decoration: none; border-bottom: 1px solid #C84B31; padding-bottom: 2px; }}
-        .story-num {{ position: absolute; top: 8%; right: 6vw; font-family: 'Instrument Serif', serif; font-size: clamp(10rem, 22vw, 20rem); font-weight: 400; color: rgba(200,75,49,0.04); line-height: 1; pointer-events: none; user-select: none; }}
-        .flag {{ display: inline-flex; align-items: center; gap: 6px; background: #C84B31; color: #FAF6F0; padding: 4px 14px; border-radius: 2px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; margin-bottom: 24px; }}
-
-        /* Floating Action Bar */
-        .action-bar {{ position: fixed; top: 20px; right: clamp(20px, 4vw, 40px); z-index: 9999; display: flex; gap: 12px; }}
-        .action-btn {{ background: rgba(250,246,240,0.9); border: 1px solid rgba(0,0,0,0.08); padding: 8px 16px; border-radius: 30px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); color: #1A1A1A; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }}
-        .action-btn.primary {{ background: #1A1A1A; color: #FAF6F0; border: none; }}
-        .action-btn:hover {{ opacity: 0.8; }}
-
-        @media (max-width: 768px) {{
-            .story {{ padding: 80px 24px; min-height: auto; }}
-            .story-num {{ display: none; }}
-            .toc {{ padding: 80px 24px; }}
-            .toc-item {{ gap: 16px; }}
-            .toc-title {{ font-size: 1.1rem; }}
-            .masthead {{ padding: 12vh 24px; }}
-        }}
-    </style>
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {{
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        }});
-    </script>
-
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">{day_name}</div>
-        <div class="masthead-year">{formatted_date}</div>
-    </div>
+    {render_issue_header(issue)}
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
-        <nav>{toc_items}</nav>
-    </div>
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">{toc_items}</nav>
+    </section>
 
     <!-- STORIES -->
     {"".join(sections)}
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · {formatted_date}</div>
-    </footer>
+    {render_issue_footer(issue, previous_issue, next_issue)}
 </body>
 </html>'''
 
 def main():
     print("=" * 60)
-    print("  ☕  MORNING EDITION  —  Bilingual Editorial Design")
+    print("  HN DAILY BRIEF  —  A Wilderness Studio Product")
     print("=" * 60)
     config = load_config()
     today = datetime.date.today().strftime("%Y-%m-%d")
@@ -938,22 +782,26 @@ def main():
                 curated.append({"id": s.get("id"), "title": s.get("title", "Untitled"), "url": s.get("url", f"https://news.ycombinator.com/item?id={s['id']}"), "hn_url": f"https://news.ycombinator.com/item?id={s['id']}", "score": s.get("score", 0), "comments": s.get("descendants", 0), "by": s.get("by", "anonymous"), "domain": extract_domain(s.get("url", "")), "flagged": False, "tags": [], "time": s.get("time", 0), "combined_score": s.get("score", 0)})
                 existing.add(s.get("title"))
 
-    print(f"\n📖 Enriching & Translating... (Using Google Translate)")
+    print(f"\n📖 Enriching stories with Gemini...")
     curated = enrich_stories(curated)
 
-    print(f"\n🎨 Rendering bilingual magazine...")
-    html = render_magazine(curated, today)
+    print(f"\n🎨 Rendering English magazine...")
+    issue_paths = sorted(set(Path(output_dir).glob("*.html")) | {Path(output_path)})
+    issue_index = issue_paths.index(Path(output_path))
+    issues = [issue_details(path, index) for index, path in enumerate(issue_paths, start=1)]
+    issue = issues[issue_index]
+    previous_issue = issues[issue_index - 1] if issue_index > 0 else None
+    next_issue = issues[issue_index + 1] if issue_index + 1 < len(issues) else None
+    html = render_magazine(curated, today, issue, previous_issue, next_issue)
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"   ✅ Saved to {output_path}")
 
-    # Send email if enabled
-    subject = f"Morning Edition - {datetime.datetime.now().strftime('%B %d, %Y')}"
-    email_sent = send_email(config, html, subject)
-    email_required = os.environ.get("MORNING_EDITION_REQUIRE_EMAIL", "").lower() in {"1", "true", "yes"}
-    if email_required and config.get("email", {}).get("enabled", False) and not email_sent:
-        print("   ❌ Email delivery is required but failed.")
-        sys.exit(1)
+    # Email is best-effort and must never block publishing the generated issue.
+    send_email_enabled = os.environ.get("MORNING_EDITION_SEND_EMAIL", "true").lower() in {"1", "true", "yes"}
+    if send_email_enabled:
+        subject = f"HN Daily Brief - {datetime.datetime.now().strftime('%B %d, %Y')}"
+        send_email(config, html, subject)
 
     print(f"\n{'=' * 60}\n  ✅ Done!\n{'=' * 60}")
 

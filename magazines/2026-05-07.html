@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — May 07, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 011, May 07, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — May 07, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Thursday</div>
-        <div class="masthead-year">May 07, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 011</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Thursday</span>
+                    <time datetime="2026-05-07">May 07, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">🚫 Privacy &amp; Resource Abuse</div>
-            
+
             <h2 class="story-title"><a href="https://www.thatprivacyguy.com/blog/chrome-silent-nano-install/" target="_blank" rel="noopener">Google Chrome Surreptitiously Installs 4GB AI Model, Sparking Outcry Over User Consent and Environmental Cost</a></h2>
             <p class="story-summary">At a billion-device scale the climate costs are insane. Architecture Flux DiT (Diffusion Transformer) + T5-XXL + CLIP-L text encoders · 12B (DiT) + 4.7B (T5-XXL) + 0.4B (CLIP-L) Text encoders T5-XXL + OpenAI CLIP ViT-L/14 Generator DrawThings (Flux.1 Dev q8p) via TPG Blog Pipeline Hardware Apple M1 Ultra · 20 cores (16 performance + 4 efficiency) · 48 cores GPU · 128 GB unified</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Google Chrome's silent, non-consensual installation of a 4GB AI model comprising multi-billion parameter components presents a significant breach of user autonomy and device resource control. At a billion-device scale, this imposes substantial storage and processing burdens on user hardware, raising alarming environmental sustainability concerns due to the cumulative energy footprint. This aggressive deployment strategy erodes user trust and sets a troubling precedent for how large tech companies manage software updates and integrate resource-intensive AI features without explicit consent.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">While many in the community debate whether Chrome's AI model installation truly requires explicit &quot;consent&quot; or constitutes a &quot;silent&quot; install, there's widespread concern about its practical implications. Users are primarily frustrated by the significant 4GB storage footprint, especially in multi-user environments, and question the actual utility of the AI model, leading some to seek ways to disable/remove it or further abandon Chrome.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>thatprivacyguy.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by john-doe</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.thatprivacyguy.com/blog/chrome-silent-nano-install/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48019219" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">🎮 Open Hardware</div>
-            
+
             <h2 class="story-title"><a href="https://www.digitalfoundry.net/news/2026/05/valve-releases-steam-controller-cad-files-under-creative-commons-license" target="_blank" rel="noopener">Valve Open-Sources Steam Controller Designs</a></h2>
             <p class="story-summary">Valve releases Steam Controller CAD files under Creative Commons license | Digital Foundry</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This move by Valve is a significant commitment to the open hardware philosophy, empowering the community to repair, modify, and even innovate upon the discontinued Steam Controller's design. By releasing CAD files under Creative Commons, Valve not only extends the utility and potential lifespan of the device but also fosters a maker-centric ecosystem. This could inspire other peripheral manufacturers to adopt more transparent and community-driven approaches, shifting towards user empowerment rather than planned obsolescence.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely appreciates Valve's release of the Steam Controller CAD files, viewing it as a positive move for modding, repairs, and accessibility solutions. However, this enthusiasm is significantly tempered by criticism of the chosen Creative Commons Non-Commercial (CC BY-NC-SA) license, with many advocating for a more permissive open-source license. Additionally, frustrations were voiced regarding the controller's immediate unavailability due to scalping and concerns about its potential to create a &quot;walled garden&quot; ecosystem around Steam.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>digitalfoundry.net</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by haunter</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.digitalfoundry.net/news/2026/05/valve-releases-steam-controller-cad-files-under-creative-commons-license" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48037555" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🚨 Network Incident</div>
-            
+
             <h2 class="story-title"><a href="https://status.denic.de/pages/incident/592577eab611ce1e0d00046f/69fa60ef9d12f5057a974f38" target="_blank" rel="noopener">Germany's .de Domain DNSSEC Outage Resolved</a></h2>
             <p class="story-summary">DNSSEC disruption affecting .de domains Operational May 6, 2026 01:34 CEST May 5, 2026 23:34 UTC May 5, 2026 23:28 CEST May 5, 2026 21:28 UTC Frankfurt am Main, 5 May 2026 – DENIC eG is currently experiencing a disruption in its DNS service for .de domains. As a result, all DNSSEC-signed .de domains are currently affected in their reachability.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This incident with .de domains underscores the delicate balance between security and availability within critical internet infrastructure, specifically when DNSSEC, designed to enhance trust, becomes a point of failure. It highlights the inherent complexities and potential widespread impact of issues within security extensions for top-level domains, necessitating robust monitoring and swift resolution capabilities from registries like DENIC.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community quickly identified a DNSSEC signature error originating from DENIC as the cause for widespread outages affecting all .de domains. Many commenters expressed frustration with DNSSEC, highlighting its complexity and how it created a critical single point of failure through the central authority, leading to significant economic disruption and user stress.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>status.denic.de</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by warpspin</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://status.denic.de/pages/incident/592577eab611ce1e0d00046f/69fa60ef9d12f5057a974f38" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48027897" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">💼 Workplace Dynamics</div>
-            
+
             <h2 class="story-title"><a href="https://nooneshappy.com/article/appearing-productive-in-the-workplace/" target="_blank" rel="noopener">AI Fuels the Workplace Productivity Illusion</a></h2>
             <p class="story-summary">Appearing Productive in The Workplace — No One's Happy Parkinson’s Law states that work expands to fill the time available. In the era of AI, workers now have a tool that expands to fill whatever a large language model can be persuaded to generate, which is to say, without limit. What I have watched happen in my profession in the last two years, I am still struggling to describe. The first time I knew something was wrong, roughly a year and a quarter ago, I noticed a colleague replying to me using AI.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece insightfully argues that AI exacerbates the problem of &quot;appearing productive&quot; by allowing Parkinson's Law to expand work into an infinite void of AI-generated content, rather than genuine output. It highlights a growing dissatisfaction as professional interactions become performative, with individuals creating a surplus of low-value text to project busyness. This trend risks eroding the very definition of meaningful contribution and fostering a collectively unfulfilling work environment.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely agrees that the problem of &quot;appearing productive&quot; through excessive, often superficial documentation and over-elaboration is a pervasive workplace issue. Many commentators attribute this trend to the misuse of AI, which enables the rapid generation of voluminous, but ultimately low-value content and over-engineered solutions by managers and less-skilled personnel. This ultimately leads to negative outcomes such as reduced quality, poor performance, and a disconnect from meaningful work.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>nooneshappy.com</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by diebillionaires</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://nooneshappy.com/article/appearing-productive-in-the-workplace/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48038001" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -298,17 +311,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://www.anthropic.com/news/higher-limits-spacex" target="_blank" rel="noopener">Anthropic Secures SpaceX Compute Deal, Raises Claude Usage Limits</a></h2>
             <p class="story-summary">Higher usage limits for Claude and a compute deal with SpaceX We’ve agreed to a partnership with SpaceX that will substantially increase our compute capacity. This, along with our other recent compute deals, means that we’ve been able to increase our usage limits for Claude Code and the Claude API. Below, we describe these changes and the progress we’re making on compute. The following three changes—all effective today—are aimed at improving the experience of using Claude for our most dedicated customers.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">🚀 This partnership highlights the critical and insatiable demand for high-performance compute in the current AI landscape, driving companies like Anthropic to forge unconventional alliances to secure essential resources. By substantially increasing its compute capacity through a deal with SpaceX, Anthropic can significantly scale its Claude AI, directly improving user access and enhancing its competitive position against rivals. This underscores how infrastructure acquisition remains a pivotal bottleneck and strategic differentiator in the race for AI dominance.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community acknowledges the immense scale of AI compute infrastructure being built, which validates the industry's aggressive capacity needs. However, there's widespread skepticism regarding the announced &quot;higher usage limits,&quot; with many users dismissing them as insufficient or merely a marketing ploy that won't genuinely improve the experience. Additionally, concerns are raised about the environmental impact of such large data centers and the ambitious claims of &quot;orbital AI compute&quot; with SpaceX.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>anthropic.com</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by meetpateltech</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.anthropic.com/news/higher-limits-spacex" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48037986" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -329,20 +342,20 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">⚡️ AI Optimization</div>
-            
+
             <h2 class="story-title"><a href="https://sander.ai/2026/05/06/flow-maps.html" target="_blank" rel="noopener">Integral Learning Unlocks Ultra-Fast Diffusion Model Sampling</a></h2>
             <p class="story-summary">Learning the integral of a diffusion model – Sander Dieleman Sampling from a diffusion model is an iterative process: at each step, the denoiser estimates the tangent direction to a path through input space. We move along this path by repeatedly taking small steps in this direction, effectively calculating an integral across noise levels . This gradually transforms samples from a simple noise distribution into samples from a target distribution, and traces out the path that connects them. Can we train neural networks to directly predict this integral instead, in order to speed up sampling?</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This research directly addresses a fundamental bottleneck in diffusion models: their slow, iterative sampling process, which effectively calculates an integral over noise levels. By proposing to train neural networks to directly predict this integral, the work aims to drastically accelerate inference, making these powerful generative models far more efficient and practical for real-world applications requiring high-speed generation.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely appreciates the post for its rigorous, scientific approach to deep learning, finding it a refreshing contrast to speculative content. While commending its theoretical depth, some commenters also express a desire for either broader connections to related models (like continuous normalizing flows) or more practical, &quot;from-scratch&quot; resources for building diffusion models, indicating a mixed audience of theorists and practitioners. Additionally, some readers found the topic highly specialized and requested simpler explanations.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>sander.ai</span>
         <span>·</span>
@@ -352,7 +365,7 @@
         <span>·</span>
         <span>by benanne</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://sander.ai/2026/05/06/flow-maps.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48040002" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -366,17 +379,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://academy.dair.ai/blog/wiki-builder-claude-code-plugin" target="_blank" rel="noopener">Wiki Builder: Claude Code Plugin Automates LLM Knowledge Base Development</a></h2>
             <p class="story-summary">Wiki Builder: A Claude Code Plugin for Building LLM Knowledge Bases | DAIR.AI Academy Blog | DAIR.AI Academy 🚀 NEW COURSE — Vibe Coding AI Apps with Claude Code 🤖✨ Enroll now Wiki Builder: A Claude Code Plugin for Building LLM Knowledge Bases llm knowledge-bases ai-agents claude-code plugins workflow tutorial In two earlier posts I walked through the idea of LLM knowledge bases and then how to build one by hand using nothing more than markdown files, a few prompts, and an agent that follows a repeatable loop.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post introduces Wiki Builder, a Claude Code plugin designed to automate the creation of LLM knowledge bases, streamlining a previously manual process of integrating markdown files and prompts. This development signifies a growing trend towards specialized AI tools that abstract complex LLM engineering, making advanced AI agent and knowledge base construction more accessible to developers. It leverages structured workflows to enhance efficiency and consistency in building robust AI applications.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community expresses significant interest in the concept of building LLM knowledge bases, but their focus quickly shifts to the critical challenges of ongoing maintenance and verification. Commenters seek solutions that simplify updating, ensure correctness without full rescans, and offer formats easily consumable by LLMs, viewing traditional Git-based development workflows as unsuitable for the dynamic nature of a true &quot;wiki.&quot;</p>
     </div>
-            
+
     <div class="story-meta">
         <span>academy.dair.ai</span>
         <span>·</span>
@@ -386,7 +399,7 @@
         <span>·</span>
         <span>by omarsar</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://academy.dair.ai/blog/wiki-builder-claude-code-plugin" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47997915" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -397,20 +410,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">LLM Optimization 🚀</div>
-            
+
             <h2 class="story-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/multi-token-prediction-gemma-4/" target="_blank" rel="noopener">Gemma 4 Inference Turbocharged by Multi-Token Prediction Drafters, Cutting Latency</a></h2>
             <p class="story-summary">Accelerating Gemma 4: faster inference with  multi-token prediction drafters By using Multi-Token Prediction (MTP) drafters, Gemma 4 models reduce latency bottlenecks and achieve improved responsiveness for developers. Your browser does not support the audio element. This content is generated by Google AI.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This advancement for Gemma 4 models underscores the critical ongoing effort to boost Large Language Model inference speed. By employing Multi-Token Prediction drafters, Google directly tackles latency bottlenecks, aiming to deliver significantly faster and more responsive AI applications for developers. This approach is key to improving user experience and reducing operational costs as LLMs become more integrated into real-time systems.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely praises Gemma 4 for its impressive efficiency and performance, particularly for local inference, attributing much of this to innovations like multi-token prediction and speculative decoding. Google is widely seen as a key leader in advancing Western open-source models, enabling significant improvements in speed and quality for self-hosted setups despite ongoing hardware constraints like VRAM.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.google</span>
         <span>·</span>
@@ -420,7 +433,7 @@
         <span>·</span>
         <span>by amrrs</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.google/innovation-and-ai/technology/developers-tools/multi-token-prediction-gemma-4/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48024540" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -431,20 +444,20 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🤖 AI Automation</div>
-            
+
             <h2 class="story-title"><a href="https://blog.cloudflare.com/agents-stripe-projects/" target="_blank" rel="noopener">Cloudflare Empowers AI Agents: Create Accounts, Buy Domains, Deploy to Production</a></h2>
             <p class="story-summary">Agents can now create Cloudflare accounts, buy domains, and deploy Agents can now create Cloudflare accounts, buy domains, and deploy This post is also available in 日本語 and 한국어 . Coding agents are great at building software. But to deploy to production they need three things from the cloud they want to host their app — an account, a way to pay, and an API token.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This announcement signifies a major leap in AI agent capabilities, enabling them to autonomously provision cloud resources, acquire domains, and deploy applications without direct human intervention. This move transforms AI from a coding assistant to an end-to-end software delivery engine, dramatically enhancing the potential for fully automated development and deployment pipelines on platforms like Cloudflare.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is largely skeptical of agents being able to create Cloudflare accounts and deploy, viewing it more as an underexplored &quot;toy&quot; feature than a major AI milestone. Most commenters express significant concern over its potential for misuse, ranging from sophisticated fraud and spam campaigns to merely impulsive, low-value website creation, rather than identifying clear constructive applications. There's a prevailing sense of irony, noting the shift from &quot;prove you are not a robot&quot; to granting agents broad account access.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.cloudflare.com</span>
         <span>·</span>
@@ -454,7 +467,7 @@
         <span>·</span>
         <span>by rolph</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.cloudflare.com/agents-stripe-projects/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48031684" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -465,20 +478,20 @@
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">🛡️ Security</div>
-            
+
             <h2 class="story-title"><a href="https://cloud.google.com/blog/products/identity-security/introducing-google-cloud-fraud-defense-the-next-evolution-of-recaptcha/" target="_blank" rel="noopener">Google Cloud Debuts Fraud Defense: reCAPTCHA's Next Evolution</a></h2>
             <p class="story-summary">Introducing Google Cloud Fraud Defense, the next evolution of reCAPTCHA | Google Cloud Blog</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This announcement marks Google's evolution of reCAPTCHA into a more holistic, cloud-integrated fraud detection system, shifting beyond simple bot challenges to comprehensive fraud prevention. Leveraging deeper behavioral analytics and machine learning within Google Cloud, it aims to combat sophisticated threats like account takeovers and financial fraud proactively. This move underscores the escalating arms race in online security and Google's strategy to offer embedded, enterprise-grade defense mechanisms.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely perceives Google's new fraud defense as a significant and concerning move towards making modern mobile devices mandatory for web access, thereby enabling increased de-anonymization and tracking. There is strong negative sentiment regarding the erosion of privacy, potential anti-competitive implications, and the marginalization of desktop-only users or open platforms. Many also express concerns about the security and inconvenience of QR code-based verification.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>cloud.google.com</span>
         <span>·</span>
@@ -488,7 +501,7 @@
         <span>·</span>
         <span>by unforgivenpasta</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://cloud.google.com/blog/products/identity-security/introducing-google-cloud-fraud-defense-the-next-evolution-of-recaptcha/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48039362" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -496,11 +509,36 @@
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 07, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-05-06.html">
+        <small>Previous issue</small>
+        <strong>← May 06, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-05-08.html">
+        <small>Next issue</small>
+        <strong>→ May 08, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

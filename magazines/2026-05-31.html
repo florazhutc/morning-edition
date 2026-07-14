@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — May 31, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 025, May 31, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — May 31, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Sunday</div>
-        <div class="masthead-year">May 31, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 025</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Sunday</span>
+                    <time datetime="2026-05-31">May 31, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,28 +167,28 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">Database Systems 💾</div>
-            
+
             <h2 class="story-title"><a href="https://obeli.sk/blog/sqlite-is-all-you-need-for-durable-workflows/" target="_blank" rel="noopener">SQLite: The Simple, Single-Tier Solution for Durable Workflows</a></h2>
             <p class="story-summary">SQLite is All You Need for Durable Workflows
 - Blog SQLite is All You Need for Durable Workflows DBOS recently argued that Postgres
 is all you need for durable execution : if you already trust your database, you do not need a
 separate orchestration tier. I agree with the direction, and I think the idea can be pushed further. For a large class of durable systems, SQLite is all you need.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This article advances the argument for simplified system design, proposing that SQLite can effectively serve as the sole component for durable workflows, even surpassing recent claims for Postgres in this role. It challenges the conventional reliance on separate orchestration tiers or heavier databases, advocating for a significantly lighter, embedded database approach for a broad class of durable systems. This perspective emphasizes SQLite's often-underestimated transactional capabilities and robustness for resilient application architecture.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community presents a nuanced but divided opinion on using SQLite for durable workflows. While many commenters advocate for SQLite's efficiency and simplicity in single-node applications, local development, or specific workflow tasks, praising its performance and ability to replace various services, a significant portion expresses strong reservations. Critics highlight SQLite's unsuitability for traditional multi-process concurrency and broad scalability needed in &quot;real production apps,&quot; asserting that dedicated database servers like Postgres are designed for such demands. The discussion suggests SQLite is highly valued for its niche strengths but not seen as a universal solution for all production requirements.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>obeli.sk</span>
         <span>·</span>
@@ -185,7 +198,7 @@ separate orchestration tier. I agree with the direction, and I think the idea ca
         <span>·</span>
         <span>by tomasol</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://obeli.sk/blog/sqlite-is-all-you-need-for-durable-workflows/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48326802" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -196,16 +209,16 @@ separate orchestration tier. I agree with the direction, and I think the idea ca
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">🧘‍♀️ Wellness Tool</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/marekkowalczyk/breathe-cli" target="_blank" rel="noopener">macOS Terminal App Guides Paced Breathing to Boost Cardiac Vagal Tone</a></h2>
             <p class="story-summary">I built a terminal app that paces slow breathing at 6 breaths per minute for vagal tone training. It's a single Python file, stdlib only, no dependencies — just run breathe and follow the bar. I'm a cardiology patient (HFrEF). Slow breathing at resonance frequency is one of the few non-pharmacological interventions shown to improve cardiac vagal tone and baroreflex sensitivity (Bernardi et al., Circulation 2002; Lancet 1998). I wanted a frictionless daily habit tool — no app store, no account, no subscription, just open terminal and go. Design constraints, all grounded in the clinical literatu</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This `Show HN` presents a compelling example of leveraging minimalist CLI design for a direct, clinically-grounded health intervention. By offering a dependency-free, terminal-based paced breathing tool, the author addresses a personal cardiac need while creating a frictionless daily habit. This project underscores the potential for developers to build highly effective, private, and accessible wellness tools outside traditional app ecosystems, merging personal health with command-line utility.</p>
     </div>
-            
-            
+
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -215,7 +228,7 @@ separate orchestration tier. I agree with the direction, and I think the idea ca
         <span>·</span>
         <span>by marekkowalczyk</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/marekkowalczyk/breathe-cli" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48340315" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -226,20 +239,20 @@ separate orchestration tier. I agree with the direction, and I think the idea ca
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">AI Ethics 🚨</div>
-            
+
             <h2 class="story-title"><a href="https://gptzero.me/investigations/ey" target="_blank" rel="noopener">EY Canada's Cybersecurity Report Riddled with AI-Hallucinated Citations</a></h2>
             <p class="story-summary">Investigation: Hallucinations in Ernst &amp; Young Report on Loyalty Fraud | GPTZero Ernst &amp; Young (EY) Canada published a cybersecurity report on loyalty program safeguards. Earlier this year, an engineer at GPTZero coined the term “vibe citing” to describe the accidental creation of fake references via LLM hallucinations. It turns out that the friction of creating and checking citations is leading many researchers, consultants, lawyers, and public officials to embrace the vibe (if you know what we mean). Among the converts are the authors of a 2025 Ernst &amp; Young report titled Points of Attack: Uncovering Cyber Threats and Fraud in Loyalty Systems.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This incident with EY Canada publishing a report filled with hallucinated citations highlights a critical breakdown in professional due diligence, likely due to uncritical reliance on LLMs. It underscores the profound risks of &quot;vibe citing&quot; for major firms, eroding trust in expert analyses and raising serious questions about the integrity of research in an AI-driven era. This forces a re-evaluation of verification processes and ethical AI integration policies across professional services.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views EY's hallucinated report as a stark illustration of unchecked AI use and a critical failure in professional vetting by knowledgeable experts, indicative of declining quality standards at high-profile firms. Beyond the report's content, a significant portion of the discussion also centered on widespread frustration with the poor design and usability of the website hosting the document.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>gptzero.me</span>
         <span>·</span>
@@ -249,7 +262,7 @@ separate orchestration tier. I agree with the direction, and I think the idea ca
         <span>·</span>
         <span>by smartmic</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://gptzero.me/investigations/ey" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48339580" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -260,20 +273,20 @@ separate orchestration tier. I agree with the direction, and I think the idea ca
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">💡 Software Development Philosophy</div>
-            
+
             <h2 class="story-title"><a href="https://www.brethorsting.com/blog/2026/05/domain-expertise-has-always-been-the-real-moat/" target="_blank" rel="noopener">Domain Expertise, Not Coding, Is Software's True Moat</a></h2>
             <p class="story-summary">Domain Expertise Has Always Been the Real Moat | Aaron Brethorst Domain Expertise Has Always Been the Real Moat The hard part of writing software has never been the writing. It was building a working model of the domain in your head first. Before you could ship a payroll system you had to understand garnishments and pre-tax deductions and what happens when someone’s pay period straddles a rate change.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece challenges the common tech-centric view of software development, positing that deep domain expertise, not just coding prowess, constitutes the true competitive &quot;moat.&quot; It highlights how thoroughly understanding complex business rules and edge cases is the most difficult and valuable aspect, far preceding the act of writing code. This perspective advocates for interdisciplinary teams where domain specialists are as crucial as engineers in building effective and defensible software.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely agrees that **domain expertise remains a critical and enduring &quot;moat,&quot;** especially as AI makes coding more accessible. Commenters emphasize that the true value lies in deeply understanding and defining problems within a specific field, which is far more challenging than merely generating or verifying code. Many also note that this combination of deep domain knowledge and technical skill has always been invaluable, not just a new phenomenon in the age of AI.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>brethorsting.com</span>
         <span>·</span>
@@ -283,7 +296,7 @@ separate orchestration tier. I agree with the direction, and I think the idea ca
         <span>·</span>
         <span>by aaronbrethorst</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.brethorsting.com/blog/2026/05/domain-expertise-has-always-been-the-real-moat/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48340411" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@ separate orchestration tier. I agree with the direction, and I think the idea ca
         <div class="story-content">
             <div class="story-category">obsolescence.
 Software Lifecycle 🔄</div>
-            
+
             <h2 class="story-title"><a href="https://consumerrights.wiki/w/Microsoft_Office_2019_and_2021_for_Mac_view-only_conversion_(2026)" target="_blank" rel="noopener">Microsoft to Make Office 2019/2021 for Mac View-Only in 2026</a></h2>
             <p class="story-summary">Microsoft Office 2019 and 2021 for Mac view-only conversion (2026) - Consumer Rights Wiki Jump to content</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Microsoft's move to convert perpetual license Office for Mac versions (2019, 2021) to view-only status by 2026 underscores the industry's relentless push towards subscription models. This action fundamentally erodes the long-term value proposition of one-time software purchases, effectively forcing users into continuous upgrades or cloud-based alternatives like Microsoft 365. It sparks critical debates around consumer rights, the true meaning of a &quot;perpetual license,&quot; and the vendor's ultimate control over software functionality post-sale.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses strong outrage and condemnation over Microsoft's decision to degrade perpetual Office 2019/2021 for Mac licenses to view-only, viewing it as a clear breach of consumer trust and the original fixed-in-time purchase agreement. Many users consider the move unethical and potentially illegal, advocating for a widespread pushback through boycotts and switching to open-source alternatives like LibreOffice.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>consumerrights.wiki</span>
         <span>·</span>
@@ -318,7 +331,7 @@ Software Lifecycle 🔄</div>
         <span>·</span>
         <span>by antipurist</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://consumerrights.wiki/w/Microsoft_Office_2019_and_2021_for_Mac_view-only_conversion_(2026)" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48341578" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -329,20 +342,20 @@ Software Lifecycle 🔄</div>
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">☀️ Green Tech</div>
-            
+
             <h2 class="story-title"><a href="https://helios.southlondonscientific.com/" target="_blank" rel="noopener">Helios Uses LIDAR to Unlock UK Homes' Plug-in Solar Power &amp; Savings Potential</a></h2>
             <p class="story-summary">Plug-in solar panels (no electrician needed) have just become legal in the UK and will go on sale soon. Helios estimates how much electricity a typical installation could generate at a given address and what that's worth against your tariff. It uses UK government LIDAR data to reflect the actual skyline, so it knows whether there's a building or a hill blocking the sun. Caveats: - Outside LIDAR coverage (most of Scotland and Wales) it falls back to a synthetic horizon (less accurate). - Trees and recent developments (post-2022 or so) may not be in the data, and some address placements could be</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Helios significantly lowers the barrier to entry for micro-renewable energy by offering an accessible, data-driven projection of plug-in solar panel generation and value. By leveraging UK government LIDAR data, it provides homeowners with unprecedented accuracy on potential savings, transforming a complex energy investment decision into a transparent calculation. This innovative tool could accelerate the adoption of domestic solar power, empowering individuals to actively participate in the energy transition.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely praises Helios as an innovative and valuable tool, particularly highlighting its clever use of LIDAR data for accurate shading calculations and its leverage of the UK's open data initiatives. While impressed, users also offer constructive feedback, suggesting improvements in address precision, customizable parameters for diverse installations, and potential expansion to include broader rooftop solar calculations.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>helios.southlondonscientific.com</span>
         <span>·</span>
@@ -352,7 +365,7 @@ Software Lifecycle 🔄</div>
         <span>·</span>
         <span>by ruaraidh</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://helios.southlondonscientific.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48334949" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -363,20 +376,20 @@ Software Lifecycle 🔄</div>
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">🧠 Neuroscience &amp; AI</div>
-            
+
             <h2 class="story-title"><a href="https://fermatslibrary.com/s/it-takes-two-neurons-to-ride-a-bicycle#email-newsletter" target="_blank" rel="noopener">Two Neurons Are All It Takes for Bicycle Control and Stability</a></h2>
             <p class="story-summary">Fermat's Library | It Takes Two Neurons To Ride a Bicycle annotated/explained version. Ask a question or post a comment about the paper Ask questions and share your comments. Sign in with Google Sign in with Facebook Sign in with email This paper was presented at NIPS 2004 and is about control, causali...</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This 2004 NIPS paper likely explores how complex motor control, such as riding a bicycle, can be understood through a remarkably simplified neural model. It illustrates foundational principles of control and causality, suggesting that intricate behaviors can emerge from minimalist neural architectures. Its continued annotation on Fermat's Library signifies its lasting relevance as a didactic example in neuroscience and AI research.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely views the &quot;two neurons to ride a bicycle&quot; paper as an interesting concept, but one that significantly oversimplifies the task. Commenters point out the model's lack of pedaling control, focusing only on steering and balancing, and question whether the &quot;neurons&quot; are biologically representative or merely hand-coded functions. Many also suggest the approach isn't novel, likening it to existing control systems like PID.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>fermatslibrary.com</span>
         <span>·</span>
@@ -386,7 +399,7 @@ Software Lifecycle 🔄</div>
         <span>·</span>
         <span>by malshe</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://fermatslibrary.com/s/it-takes-two-neurons-to-ride-a-bicycle#email-newsletter" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48282335" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -397,20 +410,20 @@ Software Lifecycle 🔄</div>
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">🚀 AI Infrastructure Funding</div>
-            
+
             <h2 class="story-title"><a href="https://openrouter.ai/announcements/series-b" target="_blank" rel="noopener">OpenRouter Raises $113M Series B from Alphabet's CapitalG, NVIDIA to Scale AI Infrastructure</a></h2>
             <p class="story-summary">OpenRouter Raises $113M Series B | OpenRouter Today we're announcing our $113M Series B, led by CapitalG (opens in new tab) (Alphabet's independent growth fund), with participation from NVentures (opens in new tab) (NVIDIA's venture capital arm), ServiceNow (opens in new tab) Ventures, MongoDB (opens in new tab) Ventures, Snowflake (opens in new tab) Ventures, Databricks (opens in new tab) Ventures, AMP PBC (opens in new tab) , and Pace Capital (opens in new tab) , alongside our existing investors Andreessen Horowitz (opens in new tab) and Menlo Ventures (opens in new tab) . Over the last six months, weekly volume on OpenRouter has grown from 5 trillion to 25 trillion tokens. We are on pace to process over a quadrillion tokens this year and serve 8M+ developers building across 400+ models. AI is rapidly shifting from experimentation into critical production apps and agents, and that transition requires infrastructure that works reliably at scale, across providers, across modalities, and across use cases.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This substantial Series B round, backed by a formidable syndicate of industry giants like Alphabet, NVIDIA, and major enterprise SaaS companies, powerfully validates the critical and growing demand for robust, multi-model AI infrastructure. OpenRouter's explosive growth in token volume and developer adoption underscores the market's urgent need for a reliable, scalable routing layer as AI transitions from experimental development to core production applications. This investment positions OpenRouter as a crucial neutral intermediary in the increasingly complex and fragmented AI ecosystem.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely praises OpenRouter for its immense utility, highlighting its unmatched ease in experimenting with and managing multiple LLM APIs through a single, feature-rich interface (e.g., billing caps, smart routing, API key management). While users are highly satisfied with the product's value proposition, there is notable skepticism regarding the necessity of a $113M Series B for what some perceive as primarily an API proxy, alongside questions about its &quot;open&quot; branding and long-term defensibility.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>openrouter.ai</span>
         <span>·</span>
@@ -420,7 +433,7 @@ Software Lifecycle 🔄</div>
         <span>·</span>
         <span>by freeCandy</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://openrouter.ai/announcements/series-b" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48338660" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -431,21 +444,21 @@ Software Lifecycle 🔄</div>
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">Computer Architecture 💻</div>
-            
+
             <h2 class="story-title"><a href="https://www.righto.com/2026/05/microcode-inside-intel-8087-floating.html" target="_blank" rel="noopener">Intel 8087 Microcode: How Register Exchange Revolutionized Floating-Point</a></h2>
             <p class="story-summary">Microcode inside the Intel 8087 floating-point chip: register exchange Microcode inside the Intel 8087 floating-point chip: register exchange In 1980, Intel introduced the 8087 floating-point chip, a co-processor that made floating-point operations
 up to 100 times faster. This chip was highly influential, and today most processors use the floating-point standard introduced by the 8087. The 8087 uses complicated algorithms to accurately compute functions such as square roots, tangents, and exponentials.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This detailed exploration of the Intel 8087's microcode, focusing on its register exchange mechanism, offers a crucial historical perspective on floating-point unit design. It illuminates the intricate low-level engineering and algorithmic complexity required to dramatically accelerate mathematical operations in early processors, laying the groundwork for the modern FPU standard still prevalent today. The article highlights the enduring legacy of early architectural decisions and the ingenuity applied to hardware acceleration.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses strong appreciation and enthusiasm for the detailed technical deep dive into the Intel 8087's microcode. Users consider the article a valuable &quot;treasure&quot; and a &quot;wealth of information,&quot; showing genuine excitement for the in-depth content.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>righto.com</span>
         <span>·</span>
@@ -455,7 +468,7 @@ up to 100 times faster. This chip was highly influential, and today most process
         <span>·</span>
         <span>by pwg</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.righto.com/2026/05/microcode-inside-intel-8087-floating.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48338656" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -469,17 +482,17 @@ up to 100 times faster. This chip was highly influential, and today most process
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://openenvelope.org/docs/schema/" target="_blank" rel="noopener">Open Envelope Tackles AI Agent Team Fragmentation with New Open JSON Schema</a></h2>
             <p class="story-summary">Built an open JSON Schema for defining AI agent teams. Multi-agent systems are becoming a real deployment pattern — not single assistants, but teams with roles, handoffs, and human checkpoints. But there's no shared way to define one that travels across frameworks. Every implementation is scattered, locked to whichever tool you picked first. Built the schema to fix that. The schema lives at schema.openenvelope.org and is registered in SchemaStore, so if you drop a .envelope.json file in VS Code you get autocomplete and validation without installing anything. It's also on npm as @openenvelope/s</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This initiative thoughtfully addresses a critical fragmentation point in the nascent multi-agent AI ecosystem by proposing an open JSON schema for defining agent teams. By standardizing roles, handoffs, and human checkpoints across frameworks, Open Envelope could significantly accelerate the development of composable, robust AI systems, moving beyond isolated implementations. This push for interoperability is essential for the maturity and broader adoption of complex AI architectures.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The initial community feedback immediately questions Open Envelope's purely declarative approach, suggesting that an imperative-to-declarative compilation might be a more robust solution for defining AI agent teams. Commenters also swiftly compare it to vendor-specific offerings like Claude's dynamic workflows, highlighting Open Envelope's potential value proposition as its vendor-agnosticism in this emerging space.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>openenvelope.org</span>
         <span>·</span>
@@ -489,7 +502,7 @@ up to 100 times faster. This chip was highly influential, and today most process
         <span>·</span>
         <span>by ashconway</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://openenvelope.org/docs/schema/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48315016" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -497,11 +510,36 @@ up to 100 times faster. This chip was highly influential, and today most process
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 31, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-05-30.html">
+        <small>Previous issue</small>
+        <strong>← May 30, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-06-01.html">
+        <small>Next issue</small>
+        <strong>→ June 01, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

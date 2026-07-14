@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — May 20, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 015, May 20, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — May 20, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Wednesday</div>
-        <div class="masthead-year">May 20, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 015</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Wednesday</span>
+                    <time datetime="2026-05-20">May 20, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">🤖 AI &amp; Industry</div>
-            
+
             <h2 class="story-title"><a href="https://twitter.com/karpathy/status/2056753169888334312" target="_blank" rel="noopener">Former OpenAI AI Director Andrej Karpathy Jumps to Anthropic</a></h2>
             <p class="story-summary">https://xcancel.com/karpathy/status/2056753169888334312 https://www.axios.com/2026/05/19/anthropic-openai-karpathy-a... , https://archive.ph/h6T3X</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The high-profile move of Andrej Karpathy to Anthropic signifies the intense talent war raging at the forefront of AI development. This acquisition not only bolsters Anthropic's research and development capabilities but also lends significant credibility, potentially influencing their competitive standing against rivals like OpenAI in the rapidly evolving LLM space.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views Karpathy's move to Anthropic positively, recognizing his talent, educational contributions, and good character as a significant asset for the company. However, alongside the appreciation for Karpathy, there's a discernible undercurrent of apprehension regarding Anthropic's rapidly expanding influence, with some commenters expressing concern about its potential impact on the industry.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>twitter.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by dmarcos</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://twitter.com/karpathy/status/2056753169888334312" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48194352" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">🤖 AI Release</div>
-            
+
             <h2 class="story-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" target="_blank" rel="noopener">Google DeepMind's Gemini 3.5 Flash Powers Advanced Agentic AI Workflows</a></h2>
             <p class="story-summary">Gemini 3.5: frontier intelligence with action Gemini 3.5: frontier intelligence with action Gemini 3.5 is built to help you execute complex, agentic workflows. CTO, Google DeepMind and Chief AI Architect, Google Chief Scientist, Google DeepMind and Google Research</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Google's introduction of Gemini 3.5 Flash signals a strategic pivot towards more autonomous and actionable AI, emphasizing &quot;frontier intelligence&quot; for &quot;complex, agentic workflows.&quot; This release indicates Google's commitment to moving beyond conversational AI to models capable of executing multi-step, goal-oriented tasks. The &quot;Flash&quot; likely denotes speed and efficiency, crucial for real-world agentic applications and solidifying Google's position in the evolving AI landscape.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community highlights Gemini 3.5 Flash's **significant speed improvements**, making it a strong contender for low-latency applications, with benchmarks showing it to be much faster than competitors. However, a major concern is the **notable 3x price increase** from previous versions, which some find surprising and potentially problematic for quota usage. While capable of complex tasks, quality remains a mixed bag, with some outputs exhibiting flaws.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.google</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by spectraldrift</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48196570" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🤖 AI/ML Trends</div>
-            
+
             <h2 class="story-title"><a href="https://simonwillison.net/2026/May/19/5-minute-llms/" target="_blank" rel="noopener">PyCon 2026: Six Months of LLM Advancements Distilled Into Five Minutes</a></h2>
             <p class="story-summary">The last six months in LLMs in five minutes The last six months in LLMs in five minutes I put together these annotated slides from my five minute lightning talk at PyCon US 2026, using the latest iteration of my annotated presentation tool . I presented this lightning talk at PyCon US 2026, attempting to summarize the last six months of developments in LLMs in five minutes. Six months is a pretty convenient time period to cover, because it captures what I’ve been calling the November 2025 inflection point .</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post highlights the remarkable speed of development in the LLM space, where even a six-month period constitutes a significant enough span to warrant a dedicated &quot;lightning talk&quot; summary for expert audiences. The need for specialized tools to effectively annotate and condense such rapid advancements underscores the ongoing challenge of staying current with AI's accelerating evolution.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses significant skepticism regarding the claimed &quot;inflection point&quot; in LLM capabilities, especially for complex and creative tasks like coding, where models are still perceived to struggle despite incremental improvements in tool use and code comprehension. While some acknowledge progress in generating novel content (like pelicans on unicycles), there's a strong undercurrent of concern about the practical utility of recent advancements for developers and the potential for negative consequences such as IP exfiltration and &quot;unreadable&quot; code.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>simonwillison.net</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by yakkomajuri</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://simonwillison.net/2026/May/19/5-minute-llms/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48188183" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🛠️ AI Infrastructure</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/antoinezambelli/forge" target="_blank" rel="noopener">Forge: Open-Source Guardrails Boost 8B LLM Agents From 53% to 99% Success Without Retraining</a></h2>
             <p class="story-summary">Hi HN, I'm Antoine Zambelli, AI Director at Texas Instruments. I built Forge, an open-source reliability layer for self-hosted LLM tool-calling. What it does: - Adds domain-and-tool-agnostic guardrails (retry nudges, step enforcement, error recovery, VRAM-aware context management) to local models running on consumer hardware - Takes an 8B model from ~53% to ~99% on multi-step agentic workflows without changing the model - just the system around it - Ships with an eval harness and interactive dashboard so you can reproduce every number I wanted to run a handful of always-on agentic systems for </p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project highlights a crucial advancement in AI engineering, demonstrating that robust system-level guardrails can dramatically enhance the performance of smaller LLMs on complex agentic tasks without requiring model retraining. By boosting an 8B model's efficacy from 53% to 99%, Forge significantly democratizes reliable AI agents for consumer hardware, diminishing the over-reliance on massive, expensive proprietary models. This emphasizes the growing importance of MLOps and intelligent reliability layers in deploying practical, production-ready LLM applications.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses strong validation for using guardrails and intelligent orchestration to drastically improve the performance of smaller, local LLMs on agentic tasks. There's a clear consensus that such &quot;harnesses&quot; are crucial for overcoming common limitations like tool-call ambiguity, enabling these models to perform &quot;incredibly well&quot; despite their size.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by zambelli</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/antoinezambelli/forge" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48192383" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">🤖 AI Tooling</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/wiltodelta/remove-ai-watermarks" target="_blank" rel="noopener">New Open-Source Tool Strips All AI Watermarks from Images</a></h2>
             <p class="story-summary">GitHub - wiltodelta/remove-ai-watermarks: CLI and library for removing visible (Gemini) and invisible (SynthID, C2PA, EXIF) AI watermarks from images · GitHub</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This tool marks a significant development in the ongoing cat-and-mouse game concerning AI content authenticity, enabling the removal of both visible and invisible provenance markers. While it empowers users with more control over their digital media, it critically undermines efforts like C2PA and SynthID designed to build trust and transparency, creating new challenges for content verification and the fight against misinformation.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely expresses strong ethical reservations about the &quot;Remove-AI-Watermarks&quot; tool, with many users concerned about eroding societal trust and enabling AI misuse. While a few voices highlight privacy implications regarding &quot;barcoding&quot; digital content, a more prevalent sentiment critiques the tool's practical efficacy and finds its purpose potentially malicious. Several comments also indicate that the tool is misleading or ineffective in practice.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by janalsncm</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/wiltodelta/remove-ai-watermarks" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48200569" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -329,20 +342,20 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">Graphics &amp; Simulation ✨</div>
-            
+
             <h2 class="story-title"><a href="https://superspl.at/scene/84df8849" target="_blank" rel="noopener">SuperSplat Adds Software Attribution, Collision Generation, and GPU-Powered Histograms to Gaussian Splatting</a></h2>
             <p class="story-summary">New in SuperSplat: Software Attribution, Collision Generation and GPU-Powered Histogram New in SuperSplat: Software Attribution, Collision Generation and GPU-Powered Histogram</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project highlights Gaussian Splatting's evolution from a novel rendering technique to a robust foundation for interactive 3D environments. New features in SuperSplat like collision generation and GPU-powered histograms indicate a significant stride towards enabling complex simulations and dynamic interactions with splat-based scenes. This promises to expand applications in gaming, AR/VR, and sophisticated 3D content creation.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is overwhelmingly impressed and fascinated by Gaussian Splatting, with many users expressing &quot;wow&quot; and &quot;beautiful&quot; sentiments while diving deep into exploring examples and related projects. While some are still learning the underlying technology, there's a strong appreciation for its unique visual qualities, particularly how it &quot;degrades dreamily,&quot; and an eagerness to discuss its potential, such as dynamic lighting or single-image generation.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>superspl.at</span>
         <span>·</span>
@@ -352,7 +365,7 @@
         <span>·</span>
         <span>by danybittel</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://superspl.at/scene/84df8849" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48191602" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -363,20 +376,20 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">Open Source Sustainability 💔</div>
-            
+
             <h2 class="story-title"><a href="https://nesbitt.io/2026/05/19/dumb-ways-for-an-open-source-project-to-die.html" target="_blank" rel="noopener">Zombie Open Source: How Critical Projects Silently Die</a></h2>
             <p class="story-summary">Dumb Ways for an Open Source Project to Die | Andrew Nesbitt Weekend at Bernie’s showed that a good chunk of the most-depended-on open source packages are dead, and there are a lot of different ways for a project to end up that way. The simplest and most common case: last human commit some years back, issues accumulating unanswered, the repo not archived so it doesn’t show up in any filter that would flag it. Usually the maintainer just moved on to other things and the project wasn’t important enough to them to formally hand over or shut down, though the same silence covers everything up to and including the maintainer having died, which neither the registry nor the repo has any way to represent. From outside it’s indistinguishable from a long holiday until enough unanswered issues have piled up to make the silence unambiguous, and the npm utilities at the top of the Bernie’s dead list are mostly this.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece highlights the silent but critical issue of &quot;dead&quot; open-source projects, many of which are highly depended upon, where maintainers simply move on without formal handover or clear signals of project abandonment. This lack of lifecycle management or archival mechanisms creates significant systemic risk, leaving the broader software ecosystem unknowingly reliant on unmaintained and potentially vulnerable code. It underscores a pressing need for community-driven protocols or platform-level solutions to better track project vitality and facilitate transitions.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely attributes the death of open-source projects to maintainer burnout and disinterest, often stemming from scope creep and unsustainable maintenance expectations. There's a strong sentiment that the original problem-solving ethos of open source has shifted towards personal branding and external pressures, further complicated by the difficulty of finding new maintainers and dealing with self-serving contributions like drive-by security scanner PRs.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>nesbitt.io</span>
         <span>·</span>
@@ -386,7 +399,7 @@
         <span>·</span>
         <span>by chmaynard</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://nesbitt.io/2026/05/19/dumb-ways-for-an-open-source-project-to-die.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48198127" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -397,20 +410,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">☁️ Cloud Incident</div>
-            
+
             <h2 class="story-title"><a href="https://status.railway.com/?date=20260519" target="_blank" rel="noopener">Google Cloud Outage Disrupts Railway Services</a></h2>
             <p class="story-summary">This status page reports incidents with significant, widespread user impact. Smaller or isolated issues won't show up here. If you are experiencing an issue, please report it at station.railway.com .</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This incident vividly demonstrates the critical dependency modern deployment platforms like Railway have on underlying hyperscale cloud providers. It underscores how issues in a major cloud's infrastructure can cascade, effectively 'blocking' dependent services and highlighting the inherent fragility and single points of failure within even sophisticated cloud ecosystems.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community's consensus is sharply divided: many criticize Google Cloud for its perceived history of heavy-handed actions leading to service disruptions, often contrasting it with AWS or Azure. Conversely, a substantial portion points to Railway's own poor abuse prevention, particularly concerning their free tier and the resulting spam/abuse, as the likely cause for GCP blocking their services. Both platforms are noted for having prior operational issues.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>status.railway.com</span>
         <span>·</span>
@@ -420,7 +433,7 @@
         <span>·</span>
         <span>by aarondf</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://status.railway.com/?date=20260519" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48201484" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -431,22 +444,22 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">💾 Retro Computing</div>
-            
+
             <h2 class="story-title"><a href="https://virtualosmuseum.org/" target="_blank" rel="noopener">Explore Decades of OS History with a Ready-to-Run Virtual Museum.</a></h2>
             <p class="story-summary">This is a virtual museum of operating systems (and standalone applications)
 running under emulation, implemented as a Linux VM for QEMU, VirtualBox, or UTM. A custom emulator-independent launcher is provided, and all OSes and emulators
 are pre-installed and pre-configured. The launcher includes a snapshot feature to quickly revert broken installations back to a working state. Hypervisor installers and shortcuts to run the VM on Windows, macOS, and Linux are also included. Want to see the earliest resident monitors?</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project offers an exceptionally accessible and well-packaged virtual museum, providing a streamlined way for anyone to explore the rich history of operating systems through pre-configured emulation. Its custom launcher with snapshot capabilities significantly lowers the barrier to entry for retrocomputing and software archaeology, making experimentation both easy and non-destructive. This initiative serves as a powerful educational tool and a valuable act of digital preservation, democratizing access to historical computing environments.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community views the virtual museum project as an impressive and highly nostalgic endeavor, evoking fond memories of past computing experiences. While appreciative of the effort, many users are quick to suggest specific &quot;missing&quot; operating systems they'd like to see included, reflecting a desire for even broader historical coverage. Some also offer technical critiques regarding the nuances of emulation or the choice of specific OS versions.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>virtualosmuseum.org</span>
         <span>·</span>
@@ -456,7 +469,7 @@ are pre-installed and pre-configured. The launcher includes a snapshot feature t
         <span>·</span>
         <span>by andreww591</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://virtualosmuseum.org/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48195009" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -467,20 +480,20 @@ are pre-installed and pre-configured. The launcher includes a snapshot feature t
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">🚨 Cybersecurity</div>
-            
+
             <h2 class="story-title"><a href="https://krebsonsecurity.com/2026/05/cisa-admin-leaked-aws-govcloud-keys-on-github/" target="_blank" rel="noopener">Egregious CISA Leak: AWS GovCloud Keys and Internal Systems Exposed on GitHub</a></h2>
             <p class="story-summary">CISA Admin Leaked AWS GovCloud Keys on Github – Krebs on Security Until this past weekend, a contractor for the Cybersecurity &amp; Infrastructure Security Agency (CISA) maintained a public GitHub repository that exposed credentials to several highly privileged AWS GovCloud accounts and a large number of internal CISA systems. Security experts said the public archive included files detailing how CISA builds, tests and deploys software internally, and that it represents one of the most egregious government data leaks in recent history. On May 15, KrebsOnSecurity heard from Guillaume Valadon , a researcher with the security firm GitGuardian . Valadon’s company constantly scans public code repositories at GitHub and elsewhere for exposed secrets, automatically alerting the offending accounts of any apparent sensitive data exposures.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This egregious leak by a CISA contractor, exposing highly privileged AWS GovCloud keys and internal system details on GitHub, vividly demonstrates the persistent challenge of securing critical government infrastructure against human error and lax security protocols. It underscores the vital need for stringent access controls, rigorous code review, and continuous oversight of contractors, even within an agency dedicated to cybersecurity. This incident serves as a stark reminder that advanced scanning tools are a necessary but insufficient defense against a fundamental breakdown in operational security culture.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses strong disbelief and condemnation regarding the CISA admin's highly negligent leak of sensitive AWS GovCloud keys, especially given the agency's security mission and the &quot;Private-CISA&quot; repository name. There is widespread concern over the prolonged exposure (6-7 months) and the apparent failure of both internal security protocols and automated scanning tools to detect the critical information promptly. Commenters generally agree this highlights systemic issues in secret management, demanding better preventative measures, response protocols, and fundamental security hygiene.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>krebsonsecurity.com</span>
         <span>·</span>
@@ -490,7 +503,7 @@ are pre-installed and pre-configured. The launcher includes a snapshot feature t
         <span>·</span>
         <span>by LelouBil</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://krebsonsecurity.com/2026/05/cisa-admin-leaked-aws-govcloud-keys-on-github/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48190454" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -498,11 +511,36 @@ are pre-installed and pre-configured. The launcher includes a snapshot feature t
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 20, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-05-19.html">
+        <small>Previous issue</small>
+        <strong>← May 19, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-05-21.html">
+        <small>Next issue</small>
+        <strong>→ May 21, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

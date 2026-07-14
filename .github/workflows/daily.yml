@@ -8,9 +8,14 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: daily-magazine
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
@@ -21,15 +26,13 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install deps
-        run: pip install requests beautifulsoup4 lxml
+      - name: Run tests
+        run: python3 -m unittest discover -s tests
 
       - name: Generate magazine
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          MORNING_EDITION_EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-          MORNING_EDITION_SITE_URL: https://morning-edition.vercel.app
-          MORNING_EDITION_REQUIRE_EMAIL: "true"
+          MORNING_EDITION_SEND_EMAIL: "false"
         run: python3 generate_magazine.py
 
       - name: Update archive index
@@ -46,3 +49,21 @@ jobs:
             git commit -m "📰 Auto-publish $(date +%Y-%m-%d)"
             git push
           fi
+
+      - name: Send email
+        continue-on-error: true
+        env:
+          MORNING_EDITION_EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          MORNING_EDITION_SITE_URL: https://morning-edition.vercel.app
+        run: |
+          python3 - <<'PY'
+          import datetime
+          from pathlib import Path
+          from generate_magazine import load_config, send_email
+
+          today = datetime.date.today().strftime("%Y-%m-%d")
+          issue = Path("magazines") / f"{today}.html"
+          html = issue.read_text(encoding="utf-8")
+          if not send_email(load_config(), html, f"HN Daily Brief - {today}"):
+              raise SystemExit(1)
+          PY

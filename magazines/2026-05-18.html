@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — May 18, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 013, May 18, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — May 18, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Monday</div>
-        <div class="masthead-year">May 18, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 013</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Monday</span>
+                    <time datetime="2026-05-18">May 18, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">🔒 Privacy Advocacy</div>
-            
+
             <h2 class="story-title"><a href="https://blog.mozilla.org/netpolicy/2026/05/15/mozilla-to-uk-regulators-vpns-are-essential-privacy-and-security-tools-and-should-not-be-undermined/" target="_blank" rel="noopener">Mozilla Urges UK Regulators to Protect VPNs as Essential Privacy and Security Tools</a></h2>
             <p class="story-summary">Mozilla to UK regulators: VPNs are essential privacy and security tools and should not be undermined  - Open Policy &amp; Advocacy</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Mozilla's strong stance with UK regulators highlights the increasing global tension between government surveillance interests and individual digital rights. This intervention underscores the critical role VPNs play in safeguarding user privacy and enhancing security, positioning tech organizations as key advocates for an open and trustworthy internet. The call to &quot;not undermine&quot; these tools implicitly warns against regulatory efforts that could weaken encryption or enable monitoring.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely supports Mozilla's defense of VPNs as essential privacy and security tools, with many expressing strong opposition to the UK government's consideration of age-gating them. There's a prevailing sentiment that such government intervention is an overreach and that the focus should instead be on holding platforms accountable for online harm, rather than restricting user tools. Some acknowledge Mozilla's potentially self-interested motives as a VPN provider but still commend their stance on the issue.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>blog.mozilla.org</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by WithinReason</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://blog.mozilla.org/netpolicy/2026/05/15/mozilla-to-uk-regulators-vpns-are-essential-privacy-and-security-tools-and-should-not-be-undermined/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48166459" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">📚 Digital Heritage</div>
-            
+
             <h2 class="story-title"><a href="https://www.gutenberg.org/" target="_blank" rel="noopener">Before the Web: Project Gutenberg Launched Digital Books on ARPANET in 1971</a></h2>
             <p class="story-summary">Community discussion highlights: While PG has probably gotten a lot of use and growth with the growth/maintreaming of the Internet since the 1990s, (TIL) it started back in 1971: &gt; Michael S. Hart began Project Gutenberg in 1971 with the digitization of the United States Declaration of Independence.[5] Hart, a student at the University of Illinois, obtained access to a Xerox Sigma V mainframe computer in the university's Materials Research Lab. […] This computer was one of the 15 nodes on ARPANET, the computer network that woul</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Project Gutenberg's 1971 inception on ARPANET illustrates its foundational, pioneering role in digital libraries and open access, long before the internet became mainstream. This remarkable longevity and continuous evolution highlight the enduring value of democratizing knowledge and preserving cultural heritage digitally. Its journey underscores how early technological efforts can sow the seeds for vast, sustained public resources.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely celebrates Project Gutenberg as a valuable &quot;treasure trove&quot; and acknowledges its long-standing contribution to free access to literature, with many appreciating its ongoing improvements. However, users also highlight areas for improvement, such as friction with e-reader integration and challenges with consistent typesetting for their books. A notable concern emerged regarding geo-blocking and judicial seizure notices reported by users in some regions, which sharply contrasts with the generally positive sentiment.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>gutenberg.org</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by JSeiko</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.gutenberg.org/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48150431" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,7 +240,7 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">Demoscene 👾</div>
-            
+
             <h2 class="story-title"><a href="https://hellmood.111mb.de//wake_up_16b_writeup.html" target="_blank" rel="noopener">Extreme Algorithmic Density: 16 Bytes of x86 Assembly Render Matrix Rain Visuals as Sound</a></h2>
             <p class="story-summary">Released at the Outline Demoparty in May 2026, Ommen, NL An exploration of algorithmic density in 16 bytes of x86 assembly. In the demoscene, exploring what can be achieved within extreme constraints is a rewarding technical challenge. The following 16 bytes of x86 real-mode DOS assembly code represent a careful exercise in algorithmic density. When executed, it utilizes the computer's video memory as a calculation space to draw an infinite Sierpinski fractal, while simultaneously interpreting that geometry as audio data. int 10h          ; 2 bytes
 mov bh, 0xb8     ; 2 bytes
@@ -238,17 +251,17 @@ sub si, byte 57  ; 3 bytes
 xor [si], al     ; 2 bytes
 out 61h, al      ; 2 bytes
 jmp short L      ; 2 bytes</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece perfectly embodies the demoscene's ethos of extreme algorithmic density, squeezing a dynamic visual (Sierpinski fractal from &quot;Matrix rain&quot;) and synchronized audio into a mere 16 bytes of x86 assembly. The ingenious technique of repurposing video memory as a computational canvas, while simultaneously deriving sound directly from its evolving geometry, highlights a profound understanding of low-level hardware interaction. It's a testament to the creative power achievable through severe technical constraints and optimized code.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is overwhelmingly impressed and amazed by the demo's ability to generate both visual and sound from such a tiny amount of code, often describing it as &quot;magic.&quot; There's a strong appreciation for the technical ingenuity, with many comments drawing parallels and sharing links to other similarly impressive &quot;size-coding&quot; demoscene creations, highlighting its place within a revered tradition of extreme code optimization.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>hellmood.111mb.de</span>
         <span>·</span>
@@ -258,7 +271,7 @@ jmp short L      ; 2 bytes</p>
         <span>·</span>
         <span>by HellMood</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://hellmood.111mb.de//wake_up_16b_writeup.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48173962" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -269,24 +282,24 @@ jmp short L      ; 2 bytes</p>
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🎨 CSS Architecture</div>
-            
+
             <h2 class="story-title"><a href="https://jvns.ca/blog/2026/05/15/moving-away-from-tailwind--and-learning-to-structure-my-css-/" target="_blank" rel="noopener">Ditching Tailwind: How I Learned Structured CSS with Vanilla &amp; Semantic HTML</a></h2>
             <p class="story-summary">Moving away from Tailwind, and learning to structure my CSS 8 years ago, I wrote excitedly about discovering Tailwind . At that time I really had no idea how to structure my CSS code and given the
 choice between a pile of complete chaos and Tailwind, I was really happy to choose
 Tailwind. It helped me make a lot of tiny sites! I spent the last week or so migrating a couple of sites away from Tailwind and
 towards more semantic HTML + vanilla CSS, and it was SO fun and SO interesting,
 so here are some things I learned!</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post highlights a prevalent developer journey from initial reliance on opinionated frameworks like Tailwind for immediate structure, to a deeper appreciation and mastery of vanilla CSS and semantic HTML. It underscores that while utility-first CSS offers quick solutions to chaos, truly understanding and structuring CSS often becomes a more rewarding and sustainable approach in the long run.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community's consensus is largely critical of Tailwind CSS, with many commenters arguing it hinders proper CSS structuring, semantic HTML, and can be a crutch for developers who haven't mastered traditional CSS. While proponents highlight its developer convenience and efficient production optimization, the majority of the discussion advocates for learning fundamental CSS principles or using alternatives like CSS Modules.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>jvns.ca</span>
         <span>·</span>
@@ -296,7 +309,7 @@ so here are some things I learned!</p>
         <span>·</span>
         <span>by mpweiher</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://jvns.ca/blog/2026/05/15/moving-away-from-tailwind--and-learning-to-structure-my-css-/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48158400" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -307,27 +320,27 @@ so here are some things I learned!</p>
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">💾 Retro Tech</div>
-            
+
             <h2 class="story-title"><a href="https://hardware.majix.org/computers/sgi/buyers-guide.shtml" target="_blank" rel="noopener">The 2003 Buyer's Guide to Used SGI Systems</a></h2>
-            <p class="story-summary">home | hardware | software | reviews | downloads | links This 
-                guide tries to help you when you want to buy an used SGI. First 
-                it will try to help you deciding which system fits best 
-                to your needs and then it will point out important items you should 
-                care about when buying a machine. Okay this answer is rather short, but I really don't know other 
-                alternatives (except you simply know people who want to get rid 
-                off used systems) to get an inexpensive used SGI. You may also google a bit, maybe there 
+            <p class="story-summary">home | hardware | software | reviews | downloads | links This
+                guide tries to help you when you want to buy an used SGI. First
+                it will try to help you deciding which system fits best
+                to your needs and then it will point out important items you should
+                care about when buying a machine. Okay this answer is rather short, but I really don't know other
+                alternatives (except you simply know people who want to get rid
+                off used systems) to get an inexpensive used SGI. You may also google a bit, maybe there
                 is a reseller somewhere in your country.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This 2003 buyer's guide for used SGI systems illustrates the early establishment of retro computing as a hobby, long before it became a widespread cultural phenomenon. It highlights the dedication of enthusiasts to preserve and acquire historically significant, once-cutting-edge hardware, shifting its value from professional utility to collectible appreciation.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community views SGI through a lens of profound nostalgia and historical reverence, fondly recalling past experiences with machines like the O2 and Indy and acknowledging their significant impact on visual effects. While recognizing that these systems are now largely impractical and often overpriced collector's items, there's a shared sense of wonder at their former glory and a lingering desire to revisit that era.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>hardware.majix.org</span>
         <span>·</span>
@@ -337,7 +350,7 @@ so here are some things I learned!</p>
         <span>·</span>
         <span>by uticus</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://hardware.majix.org/computers/sgi/buyers-guide.shtml" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48148766" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -348,20 +361,20 @@ so here are some things I learned!</p>
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">AI Economics 💰</div>
-            
+
             <h2 class="story-title"><a href="https://www.williamangel.net/blog/2026/05/17/offline-llm-energy-use.html" target="_blank" rel="noopener">Apple Silicon Local LLM Inference Costs More Than Cloud APIs, Hits $1.50 Per Million Tokens</a></h2>
             <p class="story-summary">Offline Agentic Coding part 3: Apple Silicon costs more than OpenRouter. Apple silicon costs more than OpenRouter. At ~50-100 watts under load, and ~$0.20 per kWh, my M5 MacbookPro will cost a few cents per hour. Accelerated depreciation (if any) from shortening the lifespan of the device will be more expensive than the electricity. At a few tens of tokens per second this works out to ammortized costs of ~$1.50 per million tokens.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This analysis reveals that the total cost of ownership for running AI inference locally on Apple Silicon, particularly when factoring in accelerated device depreciation, can surprisingly exceed the per-token cost of cloud services like OpenRouter. It challenges the common assumption that local inference is inherently cheaper, prompting developers to consider the often-overlooked indirect hardware costs alongside direct energy consumption. This highlights a crucial economic trade-off between hardware investment and transactional cloud expenses for individual AI development.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely critiques the original post's financial analysis, deeming it flawed due to methodological errors like inflated electricity costs, misattributing the entire laptop cost, and overlooking free input tokens for local inference. While some acknowledge that hosted inference *might* still be cheaper for pure token generation *today* (often due to providers selling at a loss), many emphasize the significant non-monetary benefits of local inference, such as privacy, censorship resistance, and long-term control, which the initial comparison fails to address.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>williamangel.net</span>
         <span>·</span>
@@ -371,7 +384,7 @@ so here are some things I learned!</p>
         <span>·</span>
         <span>by datadrivenangel</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.williamangel.net/blog/2026/05/17/offline-llm-energy-use.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48168198" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -382,20 +395,20 @@ so here are some things I learned!</p>
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">AI Critique 🚫</div>
-            
+
             <h2 class="story-title"><a href="https://frederickvanbrabant.com/blog/2026-05-15-i-dont-think-ai-will-make-your-processes-go-faster/" target="_blank" rel="noopener">AI Is Not A Shortcut To Faster Processes</a></h2>
             <p class="story-summary">I don't think AI will make your processes go faster</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This article presents a vital counter-argument to the common assumption that AI universally translates into faster business processes. It likely delves into the complexities of AI integration, suggesting that poorly understood problems or significant re-engineering efforts can introduce new bottlenecks or even slow operations down. This perspective encourages a more critical and realistic assessment of AI's practical impact on organizational efficiency, moving beyond mere hype.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely agrees that AI's primary impact isn't on speeding up overall processes by merely accelerating coding, as the true bottlenecks in complex software development lie in defining clear requirements and understanding the problem. While AI can significantly boost output, this speed comes with a greater need for precise input and human clarity on *what* to build, potentially shifting the focus of human effort rather than eliminating it. Some commenters also highlight AI's potential to accelerate other phases like ideation and documentation, provided these upstream definition challenges are addressed.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>frederickvanbrabant.com</span>
         <span>·</span>
@@ -405,7 +418,7 @@ so here are some things I learned!</p>
         <span>·</span>
         <span>by TheEdonian</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://frederickvanbrabant.com/blog/2026-05-15-i-dont-think-ai-will-make-your-processes-go-faster/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48168221" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -416,20 +429,20 @@ so here are some things I learned!</p>
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">🛠️ Developer Tools</div>
-            
+
             <h2 class="story-title"><a href="https://crates.io/crates/zerostack/1.0.0" target="_blank" rel="noopener">Zerostack: Unix-Inspired Rust Agent Combats Development Tool Bloat and Slowdowns</a></h2>
             <p class="story-summary">Community discussion highlights: Funny this comes out today. I was just about to start to write one in rust. It's amazing having opencode slowly leak memory and end up becoming 6gbs on a large project and then get slower and slower. Will check this out! Seems cool!</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Zerostack directly addresses the critical performance and resource consumption issues prevalent in modern coding agents, which are often memory-hungry and slow down on large projects. By leveraging Rust and Unix-inspired principles, it promises a highly efficient, reliable, and potentially more transparent alternative. This approach offers a compelling solution for developers seeking robust tooling that prioritizes stability and performance over the resource demands of current AI-driven assistants.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely praises Zerostack for its impressively low memory footprint and speed, directly addressing a common frustration with existing LLM agent tools that often consume excessive RAM. There's a clear shared interest in building such Rust-based coding agents, with many noting they are pursuing similar projects. While appreciating the performance, discussions also revolve around ongoing challenges in agent design, such as robust self-editing, user approvals for LLM execution, and multi-model compatibility.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>crates.io</span>
         <span>·</span>
@@ -439,7 +452,7 @@ so here are some things I learned!</p>
         <span>·</span>
         <span>by gidellav</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://crates.io/crates/zerostack/1.0.0" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48164287" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -450,20 +463,20 @@ so here are some things I learned!</p>
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🕰️ Software Longevity</div>
-            
+
             <h2 class="story-title"><a href="https://fosdem.org/2026/schedule/event/AGWUVH-mercurial-aint-you-dead-yet/" target="_blank" rel="noopener">Mercurial: 20 Years and Still Kicking</a></h2>
             <p class="story-summary">FOSDEM 2026 - Mercurial, 20 years and counting: how are we still alive and kicking?</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This FOSDEM talk highlights Mercurial's remarkable two-decade endurance, a significant feat for a version control system operating in the shadow of Git's widespread adoption. Its continued existence underscores that niche utility, maintainer dedication, and specific project requirements can sustain a tool even when it's not the market leader. The presentation likely delves into the community efforts and architectural strengths that contribute to its surprising longevity.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses a nostalgic fondness for Mercurial, often praising its perceived simplicity, safety, and clear workflows compared to Git. Despite these merits, there's a strong consensus that Git ultimately &quot;won the war&quot; due to ecosystem dominance and platform support (like Bitbucket discontinuing service), leading most users to transition away. While some still appreciate its design, many acknowledge its practical relevance has significantly diminished, with newer tools like Jujutsu now drawing interest as a modern alternative.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>fosdem.org</span>
         <span>·</span>
@@ -473,7 +486,7 @@ so here are some things I learned!</p>
         <span>·</span>
         <span>by ibobev</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://fosdem.org/2026/schedule/event/AGWUVH-mercurial-aint-you-dead-yet/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48147351" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -484,20 +497,20 @@ so here are some things I learned!</p>
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">Aviation Incident ✈️</div>
-            
+
             <h2 class="story-title"><a href="https://idahonews.com/news/local/two-f-18-fighter-jets-have-crashed-during-an-airshow-at-mountain-home-air-force-base" target="_blank" rel="noopener">Mid-Air Collision at Mountain Home Airshow: Two EA-18 Jets Crash, All Pilots Eject Safely</a></h2>
             <p class="story-summary">Two F-18 fighter jets have crashed during an airshow at Mountain Home Air Force Base Skip to main content Two EA-18 fighter jets collide at Mountain Home airshow, pilots ejected safely Video/photos captured by Shane Odgen shows two EA-18 fighter jets colliding in mid air near Mountain Home Air Force Base during the Fighter Skies Airshow. All four airmen are reportedly safe after parachutes successfully deployed following the crash. All four crew members ejected safely after two Navy jets collided and crashed on Sunday during an air show at the Mountain Home Air Force Base, officials said.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The successful ejection of all four pilots from two EA-18 fighter jets following a mid-air collision during an airshow highlights the critical importance and effectiveness of modern aerospace safety systems, even in high-risk scenarios. While the incident represents a significant loss of expensive military assets and will undoubtedly trigger an in-depth investigation into airshow safety protocols, the preservation of human life is a testament to robust aircraft design and rapid response capabilities.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community's consensus largely questions the decision to use highly specialized and expensive EA-18 Growler jets for an airshow, considering it a significant waste of taxpayer money when cheaper F-18s or dedicated aerobatic teams like the Blue Angels could have been used. There's a strong sentiment that such events, especially with high-value assets, reflect misaligned priorities, with some directly contrasting the cost with societal needs like healthcare.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>idahonews.com</span>
         <span>·</span>
@@ -507,7 +520,7 @@ so here are some things I learned!</p>
         <span>·</span>
         <span>by ChrisArchitect</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://idahonews.com/news/local/two-f-18-fighter-jets-have-crashed-during-an-airshow-at-mountain-home-air-force-base" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48173468" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -515,11 +528,36 @@ so here are some things I learned!</p>
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 18, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-05-08.html">
+        <small>Previous issue</small>
+        <strong>← May 08, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-05-19.html">
+        <small>Next issue</small>
+        <strong>→ May 19, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

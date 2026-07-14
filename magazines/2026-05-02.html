@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — May 02, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 009, May 02, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — May 02, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Saturday</div>
-        <div class="masthead-year">May 02, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 009</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Saturday</span>
+                    <time datetime="2026-05-02">May 02, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,7 +167,7 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
@@ -162,17 +175,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://github.com/leox255/loopsy" target="_blank" rel="noopener">Loopsy: A Unified Platform for Remote Terminal Access and Distributed AI Agents</a></h2>
             <p class="story-summary">I've always had the urge to have my two macbooks communicate. Having one idle while working on the other felt like underutilization of resources. So I built Loopsy. Initially the goal was to do file transfer via local network, and then came running commands. I then tried running coding agents from one machine to the other, and it worked. Later I figured there should be a better way to continue my claude sessions remotely on my phone from the gym. So I did a cloudflare worker that connects to my local machine. I just need to ensure the laptop is plugged in. I know I might be reinventing the whe</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project addresses a common developer pain point: maximizing resource utilization and maintaining workflow continuity across multiple personal devices, particularly with the rise of AI agents. Loopsy offers a lightweight, custom solution for cross-machine terminal and AI agent communication, leveraging both local networks and cloud-based tunnels for remote access. It highlights a growing trend where individuals build bespoke infrastructure to suit their specific, evolving, and often AI-driven productivity habits.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses strong approval for Loopsy's seamless functionality, appreciating how it makes distributed machines and AI agents feel like a cohesive organism. However, there's a clear desire for self-hosting capabilities to reduce reliance on third-party services like Cloudflare, and users are keen to understand how Loopsy differentiates itself from existing solutions such as Tailscale.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by todience</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/leox255/loopsy" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47973093" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">🔓 AI Jailbreaking</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/Exocija/ZetaLib/blob/main/The%20Gay%20Jailbreak/The%20Gay%20Jailbreak.md" target="_blank" rel="noopener">Researchers Uncover 'The Gay Jailbreak' AI Exploitation Technique</a></h2>
             <p class="story-summary">ZetaLib/The Gay Jailbreak/The Gay Jailbreak.md at main · Exocija/ZetaLib · GitHub</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post describes a new method for &quot;jailbreaking&quot; AI models, likely Large Language Models (LLMs), to bypass their built-in safety mechanisms and ethical restrictions. Such techniques demonstrate the ongoing challenge for developers to create truly robust and unexploitable AI safeguards, often leading to a cat-and-mouse game between model creators and users seeking unrestricted outputs. The development of new jailbreak methods constantly pushes the boundaries of AI safety and ethical deployment discussions.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community views LLM jailbreaking as a pervasive and often humorous challenge, with commenters sharing various creative techniques they've used to bypass AI guardrails. There's a collective amusement in finding unconventional prompts that expose the models' vulnerabilities, rather than a focus on the ethical implications of the content generated. Discussions often center on the cleverness of the &quot;how&quot; and &quot;why&quot; these unexpected methods succeed, highlighting the extensive &quot;surface area&quot; for such attacks.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by bobsmooth</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/Exocija/ZetaLib/blob/main/The%20Gay%20Jailbreak/The%20Gay%20Jailbreak.md" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47977134" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">[Utility] 🔌</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/darrylmorley/whatcable" target="_blank" rel="noopener">WhatCable: Mac Menu Bar App Instantly Identifies Your USB-C Cable's Full Capabilities</a></h2>
             <p class="story-summary">USB-C cables can be a mess. One cable charges at 5W, another does 100W and Thunderbolt 4, and they look identical in the drawer. WhatCable sits in your menu bar and reads the cable data your Mac already has access to. Plug in a cable and it tells you in plain English what it can actually do: charging wattage, data speed, display support, Thunderbolt, etc. Built in Swift/SwiftUI. Open source, free, no tracking. GitHub: https://github.com/darrylmorley/whatcable</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">WhatCable brilliantly addresses the widespread frustration of ambiguous USB-C cable specifications by distilling complex hardware capabilities into plain English using existing macOS data. This simple yet powerful menu bar app democratizes critical information, saving users time and potential compatibility headaches by making cable selection transparent and informed, highlighting a gap in native OS hardware feedback.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community overwhelmingly praises WhatCable for its utility and the developer's exceptional responsiveness in incorporating feedback, quickly adding CLI and regular app options. Users appreciate its native Mac implementation, effectiveness in complex setups, and particularly highlight its value as an accessible tool. While there's some discussion around App Store limitations and interest in Linux alternatives, the consensus is strongly positive regarding the app's functionality and the developer's engagement.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by sleepingNomad</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/darrylmorley/whatcable" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47972511" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🚨 Security Incident</div>
-            
+
             <h2 class="story-title"><a href="https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/" target="_blank" rel="noopener">Sustained Cyberattack Knocks Ubuntu Servers Offline for Over a Day, Halting Updates and Communications</a></h2>
             <p class="story-summary">Ubuntu infrastructure has been down for more than a day - Ars Technica Size Small Standard Large Width * Standard Wide Links Standard Orange Servers operated by Ubuntu and its parent company Canonical were knocked offline on Thursday morning and have remained down ever since, a situation that’s preventing the OS provider from communicating normally following the botched disclosure of a major vulnerability. Attempts to connect to most Ubuntu and Canonical webpages and download OS updates from Ubuntu servers have consistently failed over the past 24 hours. Updates from mirror sites, however, have continued to work normally.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This significant cyberattack on Ubuntu's core infrastructure, occurring shortly after a botched vulnerability disclosure, highlights the critical security challenges faced by foundational software providers. The sustained outage disrupts essential OS updates and communications, underscoring the severe impact of targeted attacks on widely used systems and the necessity for robust, multi-layered incident response and resilient infrastructure beyond primary services.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely speculates that the &quot;sustained, cross-border attack&quot; on Ubuntu servers is primarily intended to hinder users from patching recent, critical vulnerabilities, specifically a local root access exploit. There's also some questioning about Ubuntu's infrastructure design and its ability to withstand such attacks, especially if hosted on a cloud provider.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>arstechnica.com</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by RattlesnakeJake</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47978892" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">🛠️🤖 AI/CAD</div>
-            
+
             <h2 class="story-title"><a href="https://fusion.adam.new/install" target="_blank" rel="noopener">Adam AI Integrates Directly into CAD for Intelligent Feature Tree Editing with Full Control.</a></h2>
             <p class="story-summary">Hi HN, I'm Zach, one of the co-founders of Adam ( https://adam.new ). We've been on HN twice before with text-to-CAD/3D experiments [1][2]. The honest takeaway from those threads: prompt-to-3D model web apps are fun, but serious mechanical engineers don't want a black box that spits out an STL. They want help inside the CAD tool they already use, with full visibility and control over the feature tree. So we built that. Adam is now a harness that integrates directly with your CAD. It reads your parts, understands the existing feature tree, and edits it for you agentically. We are now live in be</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project signals a crucial evolution in AI for engineering, shifting from black-box 3D model generation to deep, integrated assistance within existing CAD software. By allowing AI to understand and agentically edit a design's feature tree, it directly addresses professional engineers' demand for control and transparency. This approach has significant potential to accelerate design iterations and reduce repetitive tasks while ensuring full user oversight and explainability.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses significant skepticism about the effectiveness of current text-to-CAD approaches, citing LLMs' limitations in spatial reasoning and the tedium of generating precise designs purely from text. While many mechanical engineers desire automation for repetitive tasks and library part generation, they prefer tools that understand design intent and context over raw text-to-CAD. There are also questions regarding the unique value proposition of this &quot;harness&quot; compared to underlying frontier models or established competitors.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>fusion.adam.new</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by zachdive</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://fusion.adam.new/install" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47977694" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -329,20 +342,20 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">AI Sustainability 💧</div>
-            
+
             <h2 class="story-title"><a href="https://californiawaterblog.com/2026/04/26/ai-water-use-distractions-and-lessons-for-california/" target="_blank" rel="noopener">AI's Water Footprint: Less Than Expected, California Insights Reveal</a></h2>
             <p class="story-summary">AI Water Use Distractions and Lessons for California - California WaterBlog AI Water Use Distractions and Lessons for California Artificial intelligence (AI) will affect many economic and natural resource sectors as these new technologies develop and mature. We are in the early years of this process. Like most new things, AI has become an object of small and great hopes and fears – from hopes for saving and helping humans to fears for destroying human minds and civilizations.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This analysis challenges prevailing public fears regarding AI's water consumption, particularly in water-stressed regions like California. It highlights the critical need for accurate, data-driven assessments to counter misconceptions and foster informed public discourse around technological sustainability. Such nuanced understanding is essential for effective resource management and policy-making as AI evolves.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely agrees that public perception regarding AI's water consumption is vastly overblown and often based on highly inaccurate figures. While some express concern about tech companies' transparency regarding datacenter water usage, the general consensus is that AI's water footprint is relatively minor compared to industries like agriculture or even golf courses, with many noting that water used for cooling often re-enters the natural cycle through evaporation rather than being permanently consumed.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>californiawaterblog.com</span>
         <span>·</span>
@@ -352,7 +365,7 @@
         <span>·</span>
         <span>by hirpslop</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://californiawaterblog.com/2026/04/26/ai-water-use-distractions-and-lessons-for-california/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47977383" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -363,23 +376,23 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">**Food Science &amp; Analytical Chemistry** 🧪</div>
-            
+
             <h2 class="story-title"><a href="https://www.nature.com/articles/s41467-026-71526-5" target="_blank" rel="noopener">Electrochemical Method Directly Evaluates Coffee Quality</a></h2>
             <p class="story-summary">Direct electrochemical appraisal of black coffee quality using cyclic voltammetry | Nature Communications Thank you for visiting nature.com. You are using a browser version with limited support for CSS. To obtain
             the best experience, we recommend you use a more up to date browser (or turn off compatibility mode in
             Internet Explorer). In the meantime, to ensure continued support, we are displaying the site without styles
             and JavaScript.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This research presents a novel electrochemical method for objectively assessing black coffee quality, leveraging cyclic voltammetry as a rapid analytical tool. Moving beyond subjective sensory evaluations, this scientific approach could revolutionize quality control in the coffee industry, offering a precise and potentially automated way to ensure consistency and set new standards for coffee products.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community views this electrochemical method as a promising tool with potential practical applications, particularly for automating coffee machine adjustments and quality control. There's a notable recognition of the researchers' established work in coffee science, coupled with a lighthearted anticipation for its adoption and discussion within the broader coffee enthusiast community.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>nature.com</span>
         <span>·</span>
@@ -389,7 +402,7 @@
         <span>·</span>
         <span>by bookofjoe</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.nature.com/articles/s41467-026-71526-5" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47952773" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -400,20 +413,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">Music &amp; AI 🎵</div>
-            
+
             <h2 class="story-title"><a href="https://www.bbc.com/news/articles/c5yerr4m1yno" target="_blank" rel="noopener">Spotify Fights AI Impersonation with New 'Verified' Artist Badges</a></h2>
             <p class="story-summary">Spotify adds 'Verified' badge to distinguish human acts from AI Spotify adds 'Verified' badges to distinguish human artists from AI Spotify is introducing a 'Verified' badge to help users identify when artists on its platform are human, not AI-generated. The world's most-used music streaming service said the 'Verified by Spotify' text and green checkmark icon would appear next to artist names when they meet &quot;defined standards demonstrating authenticity&quot;. This could include having linked social accounts on their artist profile, consistent listener activity or other &quot;signals of a real artist behind the profile,&quot; the company said, such as merchandise or concert dates.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Spotify's move to verify human artists highlights the growing challenge for digital platforms to maintain authenticity and trust in the era of generative AI. This initiative protects human artists from being overshadowed and helps listeners identify and support original creators, marking a crucial step in platform governance as the lines between human and AI content continue to blur.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community views Spotify's &quot;Verified&quot; badges with skepticism, largely perceiving them as an insufficient anti-scammer filter rather than a robust solution for the proliferation of AI-generated music. There's a strong consensus among commenters to exclude AI music from their listening experience, citing its current lack of originality and expressing concern over Spotify's potential motives in allowing its growth. Many already struggle to distinguish human from AI-generated tracks and desire better tools to curate their experience.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>bbc.com</span>
         <span>·</span>
@@ -423,7 +436,7 @@
         <span>·</span>
         <span>by reconnecting</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.bbc.com/news/articles/c5yerr4m1yno" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47976856" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -434,21 +447,21 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🚨 Security Vulnerability</div>
-            
+
             <h2 class="story-title"><a href="https://metin.nextc.org/posts/Credit_Cards_Are_Vulnerable_To_Brute_Force_Kind_Attacks.html" target="_blank" rel="noopener">Even PCI DSS-Compliant Credit Cards Vulnerable to Brute-Force Attacks</a></h2>
-            <p class="story-summary">Credit Cards Are Vulnerable To Brute Force Kind Attacks | Metin's Blog Credit Cards Are Vulnerable To Brute Force Kind Attacks These days, storing and showing what's visible on UI's and receipts are highly standardized and regulated by the industry standards such as PCI DSS. And even when you save your card on an ecommerce website, 
+            <p class="story-summary">Credit Cards Are Vulnerable To Brute Force Kind Attacks | Metin's Blog Credit Cards Are Vulnerable To Brute Force Kind Attacks These days, storing and showing what's visible on UI's and receipts are highly standardized and regulated by the industry standards such as PCI DSS. And even when you save your card on an ecommerce website,
 which strictly follows the PCI DSS, your card can still be stolen - or derived. PCI DSS is the widely known and implemented industry standard for defining bare-minimum security measures that should be taken when handling sensitive banking data such as credit cards.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post reveals a critical flaw where credit cards remain susceptible to brute-force-like attacks, even when platforms comply with PCI DSS. It suggests that current industry standards might offer insufficient protection against sophisticated derivation methods, compelling a re-evaluation of fundamental security protocols for storing and processing payment data.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely refutes the article's premise that credit cards are vulnerable to simple brute-force enumeration attacks. Commenters explain that payment processors actively prevent card testing and penalize merchants, and that the article likely misunderstands how payment systems handle authorization and settlement. Instead, the discussion points to vulnerabilities often stemming from other factors like weak passwords on merchant sites or limited 3D Secure adoption, rather than direct card number brute-forcing, while noting consumer protection via chargebacks generally remains effective.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>metin.nextc.org</span>
         <span>·</span>
@@ -458,7 +471,7 @@ which strictly follows the PCI DSS, your card can still be stolen - or derived. 
         <span>·</span>
         <span>by kodbraker</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://metin.nextc.org/posts/Credit_Cards_Are_Vulnerable_To_Brute_Force_Kind_Attacks.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47979839" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -469,20 +482,20 @@ which strictly follows the PCI DSS, your card can still be stolen - or derived. 
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">🚨 Cybersecurity</div>
-            
+
             <h2 class="story-title"><a href="https://status.canonical.com/#/incident/KNms6QK9ewuzz-7xUsPsNylV20jEt5kyKsd8A-3ptQEHpOd8VQ40ZQs-KD81fboQXeGZB94okNHdHBGlCv58Sw==" target="_blank" rel="noopener">Canonical and Ubuntu Hit by DDoS Attack</a></h2>
             <p class="story-summary">info.statuspage.switch.timezone.language info.statuspage.switch.timezone timezone.info.bar timezone.local.info.bar {{'timezone.change' | translate}}</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The report of a DDoS attack on Canonical/Ubuntu highlights the persistent threat of cyberattacks targeting critical infrastructure and service providers. The garbled status page summary, likely an artifact of the incident, suggests the attack may have been severe enough to impact even their public-facing incident communication systems or associated frontend services. This situation underscores the continuous need for robust defensive measures and resilient incident response frameworks, even for large and established technology companies.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely confirms experiencing real disruptions to Canonical/Ubuntu services, consistent with a DDoS attack. A strong consensus points to the attack being deliberately timed to coincide with the &quot;copy.fail&quot; vulnerability, with many speculating it's an attempt by malicious actors or competitors to prevent Canonical from rolling out patches. This theory is reinforced by ongoing related threads discussing &quot;Pro-Iran crew&quot; activity.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>status.canonical.com</span>
         <span>·</span>
@@ -492,7 +505,7 @@ which strictly follows the PCI DSS, your card can still be stolen - or derived. 
         <span>·</span>
         <span>by jtlebigot</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://status.canonical.com/#/incident/KNms6QK9ewuzz-7xUsPsNylV20jEt5kyKsd8A-3ptQEHpOd8VQ40ZQs-KD81fboQXeGZB94okNHdHBGlCv58Sw==" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=47972213" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -500,11 +513,36 @@ which strictly follows the PCI DSS, your card can still be stolen - or derived. 
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · May 02, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-04-30.html">
+        <small>Previous issue</small>
+        <strong>← April 30, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-05-06.html">
+        <small>Next issue</small>
+        <strong>→ May 06, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

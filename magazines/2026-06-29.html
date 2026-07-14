@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — June 29, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 054, June 29, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — June 29, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Monday</div>
-        <div class="masthead-year">June 29, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 054</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Monday</span>
+                    <time datetime="2026-06-29">June 29, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,7 +167,7 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
@@ -162,17 +175,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://semgrep.dev/blog/2026/we-have-mythos-at-home-glm-52-beats-claude-in-our-cyber-benchmarks/" target="_blank" rel="noopener">Semgrep's GLM 5.2 Outperforms Claude in Multimodal SAST Benchmarks</a></h2>
             <p class="story-summary">We have Mythos at Home: GLM 5.2 beats Claude in our Cyber Benchmarks | Semgrep At RSA, we launched Semgrep Multimodal to combine AI reasoning with rule-based detection Learn More → Find and fix the issues that matter in your code (SAST) Fix vulnerabilities in open source  dependencies and block malware Find and fix hardcoded secrets with semantic analysis</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post signals the accelerating integration of specialized AI models into cybersecurity, with GLM 5.2 outperforming established LLMs like Claude in specific &quot;Cyber Benchmarks.&quot; It highlights Semgrep's strategic move to leverage multimodal AI for enhanced static analysis and threat detection. This competitive landscape underscores the growing imperative for DevSecOps tools to adopt advanced AI for superior code security and vulnerability remediation.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community generally perceives GLM 5.2 as a strong and capable open-source model, particularly well-suited for coding tasks and even excelling in specialized areas like cybersecurity. While users praise its performance and consider it a valuable &quot;workhorse,&quot; there are notable concerns regarding its substantial parameter count (753B) which raises questions about hardware requirements for local deployment and overall efficiency. Despite some suggestions that other open models might outperform it in general benchmarks, its specific strengths are highly valued.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>semgrep.dev</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by jms703</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://semgrep.dev/blog/2026/we-have-mythos-at-home-glm-52-beats-claude-in-our-cyber-benchmarks/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48709670" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">Recruitment Tech 📝</div>
-            
+
             <h2 class="story-title"><a href="https://danunparsed.com/p/hackerrank-open-source-ats" target="_blank" rel="noopener">HackerRank's Popular Open-Source ATS Plagued by Inconsistent Resume Scoring</a></h2>
             <p class="story-summary">HackerRank's Open-Source ATS Gave My Resume a Different Score Every Time. HackerRank open sourced its ATS. This open-source ATS by HackerRank has been blowing up recently: https://github.com/interviewstreet/hiring-agent It’s popped up on LinkedIn and Reddit with hundreds, sometimes thousands, of likes. 1 A coworker mentioned it to me in passing a few days ago.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post critically highlights the significant reliability issues of HackerRank's open-source ATS, demonstrating highly inconsistent resume scoring for the same input. Such variability undermines the very purpose of an automated screening tool, raising serious concerns about the fairness and objectivity of AI-driven recruitment systems. It underscores the persistent challenges in developing robust, transparent, and bias-free algorithms for high-stakes human resource decisions.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses strong concern and skepticism regarding the reliability and fairness of LLM-based Applicant Tracking Systems (ATS). Commenters widely view these systems, especially those using smaller models, as highly inconsistent and effectively &quot;random number generators&quot; due to their stochastic nature. This inconsistency is seen as a significant flaw that unfairly disqualifies good candidates and highlights deeper issues within technical hiring processes.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>danunparsed.com</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by sambellll</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://danunparsed.com/p/hackerrank-open-source-ats" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48713832" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🎓 Education Ethics</div>
-            
+
             <h2 class="story-title"><a href="https://english.elpais.com/education/2026-06-28/ai-fraud-at-brown-university-academic-integrity-is-at-risk.html" target="_blank" rel="noopener">Brown Professor Exposes 50-Student AI Cheating Scandal, Biggest in Ivy League History</a></h2>
             <p class="story-summary">Professor denounces mass AI fraud on an exam at Brown University: ‘Academic integrity is at risk’ | Education | EL PAÍS English Skip to content The temptation to use artificial intelligence (AI) to cheat is shaking up elite universities in the United States. Professor Roberto Serrano, who is the Harrison S. Kravis University Professor of Economics at Brown University, has detected a massive fraud in one of the classes he teaches, ECON 1170, an advanced undergraduate course in mathematical economics. He has conclusive evidence that at least 50 students cheated on the March midterm exam, making it the biggest known scandal at Brown and in the entire Ivy League, which brings together the East Coast’s eight most elite private universities, including Princeton, Harvard, Yale, Columbia, Cornell, Dartmouth College and University of Pennsylvania.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This incident at Brown University underscores the immediate and widespread threat AI poses to traditional academic assessment methods, even within elite institutions. The unprecedented scale of this AI-driven fraud signals a critical inflection point, forcing educators to fundamentally rethink exam design and the very definition of academic integrity in the AI era. Universities must adapt quickly, focusing on assessment methods that measure true understanding and critical thinking beyond what AI can generate.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">Hacker News users largely concur that mass AI fraud is a significant and widespread issue in academia, fundamentally challenging traditional assessment methods. There's frustration with institutional leadership, perceived as slow or unwilling to address the problem proactively, which places students in a difficult ethical and competitive bind. Consequently, many advocate for a fundamental re-evaluation of educational design, including more in-person exams and curricula explicitly designed to counteract AI assistance.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>english.elpais.com</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by geox</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://english.elpais.com/education/2026-06-28/ai-fraud-at-brown-university-academic-integrity-is-at-risk.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48708991" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🔒 Digital Rights</div>
-            
+
             <h2 class="story-title"><a href="https://www.patrick-breyer.de/en/double-threat-to-private-communications-undemocratic-chat-control-backroom-deals-and-imminent-concessions-spark-relaunch-of-fightchatcontrol-eu/" target="_blank" rel="noopener">EU Pushes 'Chat Control' Behind Closed Doors, Sparking Privacy Alarm</a></h2>
             <p class="story-summary">“Double Threat” to Private Communications: Undemocratic Chat Control Backroom Deals and Imminent Concessions Spark Relaunch of fightchatcontrol.eu – Patrick Breyer Home Posts and policy Nicht kategorisiert “Double Threat” to Private Communications: Undemocratic Chat Control Backroom Deals and Imminent Concessions Spark Relaunch of fightchatcontrol.eu Patrick Breyer warns of an unprecedented “double-attack” on secure messaging ahead of critical Friday and Monday EU meetings. Ahead of a highly critical weekend for digital civil rights in Europe, former Member of the European Parliament Dr. Patrick Breyer is sounding the alarm.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This article highlights a critical threat to digital privacy and secure messaging in the EU, as &quot;Chat Control&quot; legislation is reportedly being pushed through via undemocratic, closed-door negotiations. Such an opaque process, coupled with the potential for unprecedented surveillance, signals a concerning erosion of digital civil rights. The re-launch of fightchatcontrol.eu underscores the urgency and public resistance to these governmental efforts.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses strong opposition and frustration over the EU's renewed push for Chat Control, particularly concerning its potential impact on privacy and end-to-end encryption. There's significant concern about the lack of transparency in the &quot;behind closed doors&quot; trilogue process and the EU's persistent attempts to pass this legislation despite previous rejections. Many commenters also show skepticism regarding the technical feasibility and effectiveness of such widespread surveillance.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>patrick-breyer.de</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by NeutralForest</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.patrick-breyer.de/en/double-threat-to-private-communications-undemocratic-chat-control-backroom-deals-and-imminent-concessions-spark-relaunch-of-fightchatcontrol-eu/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48707719" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">💻 CLI Tooling</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/kamaludu/bash4llm/" target="_blank" rel="noopener">Bash4LLM+: Control LLMs from Your Terminal with Just Bash, Curl, and JQ</a></h2>
             <p class="story-summary">Bash4LLM is a single-file Bash wrapper for interacting with LLMs from the terminal. I created it because I wanted something simple that worked without installing Python, Node, or any other runtime. It uses only Bash, curl, and jq. You can send prompts, start a small chat, process files line by line, stream output, and save session metadata in JSON format. I tried to make it safe and predictable: no use of the system /tmp, no use of eval. Groq is supported by default, and other providers can be added with dedicated Bash scripts in the extras/providers/ folder. Example: echo &quot;explains the comman</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project elegantly addresses the growing need for integrating AI into lightweight, dependency-free command-line workflows. By leveraging only `bash`, `curl`, and `jq`, it significantly lowers the barrier for developers and sysadmins to interact with LLM APIs directly from the terminal, avoiding the overhead of heavier runtimes like Python or Node. This emphasis on simplicity and native shell scripting makes AI capabilities more accessible for automation and quick tasks within traditional Unix-like environments.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses a clear consensus that the Bash code, at 5000 lines, is significantly too verbose and repetitive for its functionality, making it difficult to read and maintain. Critics suggest the author needs to refine their LLM prompting strategy to generate much more concise and higher-quality code. While the author defends the choice of Bash for portability, this doesn't address the concerns about the code's generated quality and verbosity.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by kamaludu</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/kamaludu/bash4llm/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48710827" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -329,20 +342,20 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">🎮 Gaming &amp; Open Source</div>
-            
+
             <h2 class="story-title"><a href="https://www.openra.net/" target="_blank" rel="noopener">OpenRA: Classic RTS Revived with Modern Gameplay, Online Multiplayer &amp; Mod Support</a></h2>
             <p class="story-summary">OpenRA - Classic strategy games rebuilt for the modern era Updated gameplay designed around modern features like attack-move , unit veterancy , and the fog of war Online play with full support for mods and custom maps Updated campaigns with new objectives and difficulties Natively supported on Windows, macOS and Linux</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">OpenRA exemplifies the enduring appeal of classic RTS games and the power of open-source communities to modernize and sustain them. By integrating contemporary gameplay mechanics and cross-platform support, it not only preserves beloved titles but also significantly enhances their longevity and accessibility for a new generation of players, fostering a vibrant ecosystem of mods and online play.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community holds an overwhelmingly positive consensus on OpenRA, frequently praising it as &quot;awesome&quot; and &quot;amazing.&quot; Commenters highlight its improved balance and modernized gameplay, which enhance the classic experience while retaining a nostalgic feel. There's also a broader appreciation for publishers who open-source older titles, alongside interest in other high-quality fan-made remakes of classic games.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>openra.net</span>
         <span>·</span>
@@ -352,7 +365,7 @@
         <span>·</span>
         <span>by tosh</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.openra.net/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48697560" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -363,20 +376,20 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">🌳 Traditional Forestry</div>
-            
+
             <h2 class="story-title"><a href="https://www.openculture.com/2020/10/daisugi.html" target="_blank" rel="noopener">Daisugi: Japan's 600-Year-Old &quot;Tree on Tree&quot; Cultivation for Pristine Lumber</a></h2>
             <p class="story-summary">Daisugi, the 600-Year-Old Japanese Technique of Growing Trees Out of Other Trees, Creating Perfectly Straight Lumber |  Open Culture Daisugi, the 600-Year-Old Japanese Technique of Growing Trees Out of Other Trees, Creating Perfectly Straight Lumber</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The Daisugi technique exemplifies ancient Japanese ingenuity in sustainable resource management, showcasing a 600-year-old method for continuous, high-quality lumber production through precise arboricultural practices. This sophisticated approach highlights how long-term ecological understanding and symbiotic cultivation can yield premium resources while minimizing deforestation and maximizing land efficiency.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely found the article lacking in technical detail, prompting questions about the specifics of the Daisugi technique and the veracity of its claimed benefits. Many commenters noted its strong resemblance to established European practices like pollarding and coppicing, questioning its uniqueness and the potential for &quot;orientalism&quot; in its presentation. The discussion also highlighted that this topic is a recurring one on the platform.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>openculture.com</span>
         <span>·</span>
@@ -386,7 +399,7 @@
         <span>·</span>
         <span>by MaysonL</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.openculture.com/2020/10/daisugi.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48708859" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -400,17 +413,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://antoine.fi/mri-analysis-using-claude-code-opus" target="_blank" rel="noopener">Claude AI Reads My MRI: An Early Look at AI in Medical Diagnostics</a></h2>
             <p class="story-summary">Using Opus 4.8 to get a second opinion on an MRI and where it leaves me Using Opus 4.8 to get a second opinion on an MRI and where it leaves me This article is about my experience using Opus 4.8 to read the results of an MRI and give me a sort of second opinion on the diagnosis. Of course, I know the technology might not be there yet, which is why I'm sharing this article. Maybe it can help someone or at least provide a bit of information or entertainment.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This personal account highlights the fascinating, yet challenging, intersection of advanced AI and medical diagnosis, as an individual leverages Claude Opus for a second opinion on an MRI. While demonstrating AI's burgeoning capability to process complex data and provide accessible insights, it simultaneously underscores the critical ethical considerations and accuracy limitations that must be addressed before such tools can reliably augment, let alone replace, professional medical expertise.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community expresses significant skepticism about the current reliability of AI models for medical image analysis, with professional radiologists labeling them as &quot;terrible&quot; and many users questioning their trustworthiness for critical health decisions. However, comments also highlight pervasive issues with human diagnoses, including misdiagnoses, potential financial biases, and unnecessary treatments, creating a strong implicit demand for independent second opinions. While not yet trusting AI, there's a clear underlying hope that future AI generations could provide a more objective and trustworthy alternative to mitigate these human-related problems.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>antoine.fi</span>
         <span>·</span>
@@ -420,7 +433,7 @@
         <span>·</span>
         <span>by engmarketer</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://antoine.fi/mri-analysis-using-claude-code-opus" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48708941" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -431,24 +444,24 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">Aerospace Hardware 🚀</div>
-            
+
             <h2 class="story-title"><a href="https://www.righto.com/2026/06/space-shuttle-io-processor-boards.html" target="_blank" rel="noopener">Inside the Space Shuttle's Primitive Power: Its Pre-Microprocessor I/O Processor Boards</a></h2>
             <p class="story-summary">Examining circuit boards from the Space Shuttle's I/O Processor Examining circuit boards from the Space Shuttle's I/O Processor The Space Shuttle's five 1 general-purpose computers played a critical role in each flight: controlling the
 engines, monitoring thousands of sensors, displaying data to the astronauts, and navigating
 the Shuttle. Each computer consisted of two 60-pound aluminum-alloy boxes: the box on the right is the CPU, a
 32-bit processor that executed 420,000 instructions per second. These computers were designed before microprocessors became popular, so the processor was
 built from multiple boards crammed with simple chips and they used magnetic core memory rather than DRAM chips.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This examination of Space Shuttle I/O processor boards offers a fascinating look into the pre-microprocessor era, where mission-critical computers were meticulously assembled from discrete chips and utilized magnetic core memory. It underscores the extraordinary engineering ingenuity required to achieve such complex functionality and reliability with hardware paradigms vastly different from today's highly integrated circuits. The intricate design reveals the foundational challenges overcome in an era where computational power was hard-won, setting the stage for future aerospace innovations.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community is highly fascinated by the detailed examination of the Space Shuttle's historical hardware. Commenters express awe at specific, unique components like glass capacitors and draw parallels between the architectural concepts of these older systems and modern microcontrollers, also speculating on their radiation hardness for space applications.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>righto.com</span>
         <span>·</span>
@@ -458,7 +471,7 @@ built from multiple boards crammed with simple chips and they used magnetic core
         <span>·</span>
         <span>by pwg</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.righto.com/2026/06/space-shuttle-io-processor-boards.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48708700" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -469,20 +482,20 @@ built from multiple boards crammed with simple chips and they used magnetic core
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">Digital Rights</div>
-            
+
             <h2 class="story-title"><a href="https://frequal.com/Perspectives/DrmFreeAuthors.html" target="_blank" rel="noopener">DRM-Free Books: Authors Now Choose How to Publish</a></h2>
             <p class="story-summary">After several years of mandatory DRM lockdowns from most commercial book sources, now authors have a choice when it comes to DRM for their books. Pick authors and books that are DRM-free, or download DRM-free classics that are out of copyright. https://frequal.com/Perspectives/DrmFreeAuthors.html</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This initiative highlights a crucial pivot in digital publishing, empowering authors with the choice to forgo DRM and catering to a growing consumer demand for unrestricted digital content ownership. It challenges the prevailing industry model that often prioritizes publisher control over user rights and long-term content accessibility, potentially fostering a more open and user-centric literary ecosystem.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community shows strong support and appreciation for DRM-free books, actively sharing numerous sources, authors, and publishers (like Tor, Brandon Sanderson, Cory Doctorow, and The Pragmatic Programmers) that offer them. There's a clear preference for this model, with users highlighting it as a positive trait when discussing publishers and individual works.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>frequal.com</span>
         <span>·</span>
@@ -492,7 +505,7 @@ built from multiple boards crammed with simple chips and they used magnetic core
         <span>·</span>
         <span>by TeaVMFan</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://frequal.com/Perspectives/DrmFreeAuthors.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48709186" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -500,11 +513,36 @@ built from multiple boards crammed with simple chips and they used magnetic core
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 29, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-06-28.html">
+        <small>Previous issue</small>
+        <strong>← June 28, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-06-30.html">
+        <small>Next issue</small>
+        <strong>→ June 30, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

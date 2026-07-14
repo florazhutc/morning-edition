@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — June 26, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 051, June 26, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — June 26, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Friday</div>
-        <div class="masthead-year">June 26, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 051</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Friday</span>
+                    <time datetime="2026-06-26">June 26, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,7 +167,7 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
@@ -162,17 +175,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/" target="_blank" rel="noopener">Anthropic Accuses Alibaba of Illicitly Distilling Claude AI Capabilities</a></h2>
             <p class="story-summary">Community discussion highlights: There's two basic kinds of distillation: 1) the massive [and dumb] method where you ask a question and use the answer as reinforcement (Black Box), and 2) more targeted distillation where you use one model to directly inform/train/guide another model (RLAIF). The latter is basically fine-tuning the model with direction from another model. Thousands of businesses do this every day to fine-tune. This is almost certainly what the Chinese labs are doing, since it has a much better effect on the end </p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Anthropic's accusation against Alibaba highlights a critical and complex challenge for AI IP protection: distinguishing between legitimate model fine-tuning and illicit capability distillation. This incident underscores the technical difficulty of safeguarding proprietary AI models, especially when advanced techniques like RLAIF allow one model to directly inform another. The resolution of such disputes will significantly shape future legal and ethical standards for AI development and competitive practices worldwide.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is largely skeptical of Anthropic's claim of &quot;illicitly extracted&quot; capabilities, with many commenters arguing that using model output for distillation isn't inherently illegal and challenging Anthropic's perceived hypocrisy given its own model training practices on vast public datasets. The general sentiment is that this situation—involving fraudulent accounts and capacity reselling for model output—constitutes a terms-of-service violation and a business issue rather than a criminal or deeply unethical act deserving of such strong condemnation.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>reuters.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by htrp</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48664814" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">📜 Ancient Tech Breakthrough</div>
-            
+
             <h2 class="story-title"><a href="https://scrollprize.org/firstscroll" target="_blank" rel="noopener">First Complete Herculaneum Scroll Deciphered Through Virtual Unwrapping</a></h2>
             <p class="story-summary">An entire Herculaneum scroll has been read for the first time | Vesuvius Challenge We read an entire scroll — without ever opening it 1667, sealed since the eruption of Vesuvius in 79 AD, has been virtually unwrapped and read from beginning to end. Read the preprint: Complete virtual unwrapping and reading of a rolled Herculaneum papyrus (PDF) . The data is openly available at scrollprize.org/data , and the code on GitHub .</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This landmark achievement transcends a mere historical discovery, representing a profound validation of advanced imaging and AI for preserving and deciphering previously inaccessible ancient texts. By virtually unwrapping and reading a complete Herculaneum scroll, this breakthrough opens an unprecedented window into lost knowledge from 79 AD. It sets a powerful precedent for unlocking the secrets of thousands more fragile artifacts without physical intervention, highlighting the transformative potential of interdisciplinary collaboration.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is overwhelmingly enthusiastic and celebratory about the successful reading of the Herculaneum scroll, recognizing it as a monumental achievement that bridges millennia. Commenters express awe at the historical connection, celebrate the technological ingenuity involved, and view the project as a powerful counter-narrative to common tech pessimism, optimistically hoping for more such discoveries.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>scrollprize.org</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by verditelabs</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://scrollprize.org/firstscroll" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48675179" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🧠 AI Knowledge Management</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/inkeep/open-knowledge" target="_blank" rel="noopener">OpenKnowledge Unveils Free, Open-Source AI-First WYSIWYG Markdown Editor to Rival Obsidian and Notion</a></h2>
             <p class="story-summary">Hi HN, Nick here. We’re launching OpenKnowledge ( https://openknowledge.ai/ ), a “what you see is what you get” markdown editor that has direct integrations with Claude, Codex, and other agents. Available as MacOS app or Web UI+CLI. Fully free/local and OSS. We built this because we wanted a Notion-like experience for writing and sharing markdown files across our team. Obsidian is the best alternative we tried, but found it doesn’t have a true WYSWIG UI and it didn’t integrate well with Claude/Codex outside of community plugins. So we built OpenKnowledge. It takes shape as: 1. A MacOS app with</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">OpenKnowledge enters the crowded knowledge management arena as an open-source, AI-first alternative to Obsidian and Notion, distinguished by its native integration of agents like Claude and Codex. It targets users seeking a WYSIWYG markdown editor that enhances productivity through AI, while its free, local, and OSS model appeals to those prioritizing data privacy and community over proprietary tools.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses a mixed sentiment, largely indicating that OpenKnowledge, despite a good initial launch, struggles to present a compelling advantage over established tools like Obsidian or Notion. Users found its &quot;AI-first&quot; integration clunky or incomplete, specifically noting a lack of local LLM support, and were disappointed by its barebones feature set and macOS-only platform support. While some are looking for better team sharing solutions, it's not clear OpenKnowledge fulfills this need effectively in its current state.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by engomez</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/inkeep/open-knowledge" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48675435" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🖥️ Hardware &amp; AI</div>
-            
+
             <h2 class="story-title"><a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank" rel="noopener">OpenAI Debuts Broadcom-Built Custom AI Chip</a></h2>
             <p class="story-summary">OpenAI unveils its first custom chip, built by Broadcom | TechCrunch The first StrictlyVC of 2026 hits SF on April 30. Founder Summit ticket savings of up to $190 end June 26. Join 1,000+ founders and VCs for all-day bootcamp. OpenAI unveils its first custom chip, built by Broadcom</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This move signifies OpenAI's strategic vertical integration into hardware, aiming to optimize performance and efficiency for its AI models while potentially reducing reliance on costly off-the-shelf GPUs. By co-developing custom silicon with Broadcom, OpenAI is not only pushing the boundaries of AI infrastructure but also signaling a broader industry trend of major tech players seeking greater control over their computational resources to gain a competitive edge.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community generally sees OpenAI's custom chip as a significant strategic move towards greater efficiency and cost savings in AI. While acknowledging the potential for hardware optimization, there's also skepticism regarding the chip's long-term ROI given the rapid pace of AI advancements and software optimizations, alongside a desire for more concrete details on its development and actual performance benefits.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>techcrunch.com</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by jamdesk</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48663324" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">Data Analysis 📊</div>
-            
+
             <h2 class="story-title"><a href="https://hackernewstrends.com" target="_blank" rel="noopener">Hacker Trends: Google Trends for 18 Years of Hacker News Comments</a></h2>
             <p class="story-summary">Hacker News Trends - Search &amp; Chart Any Topic Over Time Hacker Trends - see how any topic, tool, or person trended across 18 years of Hacker News T Hacker Trends | see how any topic, tool, or person trended across 18 years of Hacker News Charts how often any topic, tool, or person has come up on Hacker News. Overlay a few terms to watch their traction rise and fall.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This &quot;Google Trends for Hacker News&quot; project provides a unique quantitative window into the evolving tech discourse of the past 18 years. By indexing and charting comment frequency, it offers invaluable insights into the rise and fall of technologies, companies, and ideas within the influential HN community. Such a tool is highly significant for understanding historical tech trends, community sentiment, and the long-term relevance of various topics discussed on the platform.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community shows strong interest in the concept of trending topics from its extensive comment archive, but the immediate consensus points to significant technical issues, with multiple users reporting &quot;hug of death&quot; errors and rate-limiting. Despite these initial hurdles, users are engaged and suggesting valuable feature enhancements, such as data normalization and sentiment analysis, to unlock deeper insights.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>hackernewstrends.com</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by ytkimirti</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://hackernewstrends.com" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48673671" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -329,20 +342,20 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">Tech Business 📈</div>
-            
+
             <h2 class="story-title"><a href="https://www.reuters.com/world/asia-pacific/apple-raises-prices-macbooks-ipads-memory-costs-skyrocket-2026-06-25/" target="_blank" rel="noopener">Apple Hikes MacBook and iPad Prices</a></h2>
             <p class="story-summary">https://9to5mac.com/2026/06/25/apple-price-increases-mac-ipa...</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Apple's decision to raise prices on its popular MacBooks and iPads likely reflects broader inflationary pressures and component cost increases, rather than solely a strategic move to boost margins. This adjustment, while potentially affecting consumer purchasing decisions, underscores Apple's robust market position and brand loyalty, allowing it to pass on increased costs without significant market share erosion.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses surprise and concern over Apple's significant price increases, noting them as both painful and potentially indicative of broader industry trends. A strong consensus attributes these hikes primarily to intense competition for high-end component capacity, driven by the demands of AI development from companies like OpenAI. Some commentators also suggest Apple's strategic decisions regarding component sourcing are partly to blame for its current predicament.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>reuters.com</span>
         <span>·</span>
@@ -352,7 +365,7 @@
         <span>·</span>
         <span>by virgildotcodes</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.reuters.com/world/asia-pacific/apple-raises-prices-macbooks-ipads-memory-costs-skyrocket-2026-06-25/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48672732" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -363,20 +376,20 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">Privacy &amp; Digital Rights 🔒</div>
-            
+
             <h2 class="story-title"><a href="https://expression.fire.org/p/the-papers-please-era-of-the-internet" target="_blank" rel="noopener">Online Age Verification Is Identity Verification, Decimating Your Privacy</a></h2>
             <p class="story-summary">The ‘papers, please’ era of the internet will decimate your privacy The ‘papers, please’ era of the internet will decimate your privacy Americans, be warned: Age verification is identity verification. Imagine your favorite team just scored an incredible, last-second goal at the World Cup. So you log online to celebrate with other fans.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece warns that the increasing push for online age verification is a Trojan horse for pervasive identity verification, effectively ushering in a &quot;papers, please&quot; internet. Such a regime would dismantle online anonymity, forcing users to link all digital activities to their real-world identities, thereby creating comprehensive, surveillable profiles. This fundamental shift poses a significant threat to individual privacy, free expression, and the very architecture of an open internet.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely shares a strong consensus of concern and resistance regarding the &quot;papers, please&quot; era of the internet, fearing a significant decimation of privacy. Commenters anticipate a slippery slope towards increased government control and surveillance, with many expressing a resolute refusal to comply, even if it means opting out of the digital world. While some discuss technical solutions like anonymous credentials, the prevailing sentiment is one of dread and a call for this issue to become a major public &quot;fight.&quot;</p>
     </div>
-            
+
     <div class="story-meta">
         <span>expression.fire.org</span>
         <span>·</span>
@@ -386,7 +399,7 @@
         <span>·</span>
         <span>by bilsbie</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://expression.fire.org/p/the-papers-please-era-of-the-internet" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48679608" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -397,20 +410,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">🖥️ Systems Engineering</div>
-            
+
             <h2 class="story-title"><a href="https://explorer.oxide.computer/" target="_blank" rel="noopener">Oxide Computer's 3D Rack Tour Unveils Highly Anticipated Cloud-Alternative Hardware</a></h2>
             <p class="story-summary">Community discussion highlights: I want Oxide to do so well. The product is a breath of fresh air in the era of cloud providers. As an engineer, I'd kill to get to work with their hardware. Not to mention that working at Oxide sounds like a modern Sun Microsystems with the ideology that team has. Highly recommend their podcast &quot;Oxide and Friends&quot;, and their original &quot;On The Metal&quot; show. I've attempted to apply to their company multiple times over the years, only to be stun locked by the application process. Not because it's a b</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The discussion around Oxide Computer's 3D rack tour showcases deep community admiration for their hardware-centric approach, positioning them as a compelling alternative to hyperscale cloud providers. Their strong engineering culture and integrated systems design evoke comparisons to modern Sun Microsystems, attracting engineers despite a challenging application process. This indicates a significant appetite within the tech community for meticulously engineered, full-stack infrastructure solutions that challenge conventional cloud paradigms.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community overwhelmingly expresses strong admiration and support for Oxide Computer, praising their innovative hardware design as a refreshing alternative to traditional cloud providers and legacy server vendors. Many users see Oxide as embodying the spirit of past tech giants like Sun Microsystems, driven by strong leadership and a unique company culture, and are actively rooting for their success.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>explorer.oxide.computer</span>
         <span>·</span>
@@ -420,7 +433,7 @@
         <span>·</span>
         <span>by darthcloud</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://explorer.oxide.computer/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48631450" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -431,20 +444,20 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">In Memoriam 🕊️</div>
-            
+
             <h2 class="story-title"><a href="https://om.co/2026/06/24/1966-2026/" target="_blank" rel="noopener">Om Malik, Gigaom Founder and Veteran Tech Journalist, Dies</a></h2>
             <p class="story-summary">Om Malik passed away on June 24, 2026, at Stanford Hospital after a long health journey with his heart. He was surrounded by family and friends. We invite you to share your remembrances of Om in the comments below or by posting and tagging his accounts on X/Twitter , Instagram , Threads , or LinkedIn . Om Malik is a San Francisco based writer, photographer and investor. This site uses Akismet to reduce spam.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The passing of Om Malik signifies a profound loss for the technology and media communities, marking the end of an era for a pioneering voice. As a revered writer, investor, and founder of Gigaom, he critically shaped tech discourse and identified emerging trends, leaving an indelible mark on how we understand and engage with innovation. His legacy underscores the vital role of independent journalism and thoughtful investment in fostering a robust and critically aware tech ecosystem.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is in collective mourning, universally praising Om Malik as a profoundly kind, compassionate, and honest pioneer in tech journalism. Commenters repeatedly highlight his selfless mentorship, willingness to uplift others, and human-centered approach to writing and life, noting his significant personal impact on many careers and the industry itself.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>om.co</span>
         <span>·</span>
@@ -454,7 +467,7 @@
         <span>·</span>
         <span>by minimaxir</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://om.co/2026/06/24/1966-2026/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48678852" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -465,20 +478,20 @@
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">🤖 AI Hardware Strategy</div>
-            
+
             <h2 class="story-title"><a href="https://www.bloomberg.com/news/articles/2026-06-25/apple-to-skip-high-end-m6-mac-chips-to-launch-m7-pro-m7-max-m7-ultra-instead?embedded-checkout=true" target="_blank" rel="noopener">Apple Skips M6 Chips, Accelerates AI Focus with M7 Line for High-End Macs</a></h2>
             <p class="story-summary">Giftlink: https://www.bloomberg.com/news/articles/2026-06-25/apple-to-... also https://www.msn.com/en-ca/lifestyle/shopping/apple-to-skip-h...</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This strategic decision by Apple to bypass a high-end M6 generation for an &quot;AI-focused M7 line&quot; underscores the company's aggressive pivot towards on-device AI. It signals a critical hardware investment to support forthcoming generative AI capabilities, aiming to maintain a competitive edge and optimize for future AI workloads. This move highlights the industry-wide shift where integrated AI performance is becoming a primary differentiator for high-end computing platforms.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely views Apple's pivot to AI-focused M7 chips as a strategic move, leveraging their unique market position to drive local LLM capabilities, with some excitement about the projected memory bandwidth for future variants. However, there's skepticism about the &quot;M6 skip&quot; being a marketing tactic to boost interest and prices, coupled with disappointment over the delayed timeline for anticipated MacBook Pro refreshes given the M7's late 2027/2028 release schedule.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>bloomberg.com</span>
         <span>·</span>
@@ -488,7 +501,7 @@
         <span>·</span>
         <span>by scrlk</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.bloomberg.com/news/articles/2026-06-25/apple-to-skip-high-end-m6-mac-chips-to-launch-m7-pro-m7-max-m7-ultra-instead?embedded-checkout=true" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48676795" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -496,11 +509,36 @@
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 26, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-06-25.html">
+        <small>Previous issue</small>
+        <strong>← June 25, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-06-27.html">
+        <small>Next issue</small>
+        <strong>→ June 27, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

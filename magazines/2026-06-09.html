@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — June 09, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 034, June 09, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — June 09, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Tuesday</div>
-        <div class="masthead-year">June 09, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 034</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Tuesday</span>
+                    <time datetime="2026-06-09">June 09, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">🤖 AI UI/UX</div>
-            
+
             <h2 class="story-title"><a href="https://vorpus.github.io/performativeUI/" target="_blank" rel="noopener">Performative-UI Unveils AI-Native React Component Library</a></h2>
             <p class="story-summary">performative-ui | AI-native React Components</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project introduces a React component library offering 'AI-native' UI elements, specifically catering to the design language and interaction patterns expected in AI-powered applications. The focus on 'performative' design tropes implies a collection of common or stereotypical UI patterns that visually communicate AI functionality, enabling developers to quickly adopt familiar AI aesthetics and user experiences.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely appreciates Performative-UI as a well-executed, humorous satire of modern UI design tropes. While acknowledging its ironic intent, many commentators also admit that these &quot;performative&quot; elements are often *expected* by clients or users to perceive a site as professional. Consequently, there's a strong sentiment of users genuinely wanting to incorporate some of these ironically presented, yet professionally built, components into their own projects.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>vorpus.github.io</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by lizhang</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://vorpus.github.io/performativeUI/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48445554" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">📈 Finance &amp; Regulation</div>
-            
+
             <h2 class="story-title"><a href="https://openai.com/index/openai-submits-confidential-s-1/" target="_blank" rel="noopener">Confidential S-1 Filings Spark Debate Over Investor Transparency</a></h2>
             <p class="story-summary">Community discussion highlights: What's the point of a &quot;confidential S-1&quot;?? Isn't the S-1 supposed to inform potential investors?!? So ... shouldn't it _not_ be confidential??</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The community discussion on confidential S-1 submissions highlights a fundamental tension in financial regulation: balancing corporate flexibility and reduced public scrutiny for companies going public with the imperative of investor transparency. While designed to streamline the IPO process for emerging growth companies, the ability to file key financial disclosures confidentially sparks valid concerns about whether potential investors are truly &quot;informed&quot; if critical details are initially kept under wraps. This trade-off questions the very purpose of an S-1 as a public disclosure document.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community views OpenAI's potential IPO with significant skepticism, largely believing the company's business model is not ready for the scrutiny of public markets. Many anticipate intense competition from established tech giants like Alphabet and Apple, which could commoditize AI models and make it difficult for OpenAI to maintain its valuation. There's also an underlying fear that this move, along with others in the AI space, signals an unsustainable &quot;AI bubble&quot; reminiscent of the dot-com era.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>openai.com</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by hackerBanana</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://openai.com/index/openai-submits-confidential-s-1/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48452317" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">System Utility 🛠️</div>
-            
+
             <h2 class="story-title"><a href="https://lowtechguys.com/musicdecoy/" target="_blank" rel="noopener">Decoy App Prevents Unwanted Apple Music Launches on Mac</a></h2>
             <p class="story-summary">Music Decoy - Stop launching the Music app whenever you press ▶ Play As long as the Music Decoy app is running, the system Music app won't launch when you accidentally press ▶ Play . The app does absolutely no work in the background. It works by simply existing as a running process, thanks to having the same bundle identifier as the Music app. By having the bundle identifier com.apple.Music , the app makes the system think that the Music app is already running.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This clever solution addresses a common macOS user frustration where the Music app unwantedly launches upon pressing media keys. It ingeniously exploits a system-level mechanism, using a decoy app with the same bundle identifier to trick the OS into believing Music is already running, thereby preventing its auto-launch. This highlights how deep understanding of system internals can yield elegant, low-resource workarounds for default software behaviors, enhancing user control.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community expresses strong frustration with the Apple Music app's automatic and often unprompted launching, viewing it as an intrusive and unwanted behavior from Apple. Many users feel Apple is employing &quot;lowbrow tactics&quot; to force app usage, whether triggered by misclicks, media key presses, or opening audio files. There's a clear desire for more user control over system defaults and a general distaste for what is perceived as forced integration of Apple's services.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>lowtechguys.com</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by bobbiechen</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://lowtechguys.com/musicdecoy/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48447935" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🍎🤖 AI Development</div>
-            
+
             <h2 class="story-title"><a href="https://developer.apple.com/documentation/coreai/" target="_blank" rel="noopener">Apple's Core AI Framework Empowers On-Device AI Development for Apps</a></h2>
             <p class="story-summary">Community discussion highlights: WWDC 2026 Core AI videos Meet Core AI - https://developer.apple.com/videos/play/wwdc2026/324/ Dive into Core AI model authoring and optimization - https://developer.apple.com/videos/play/wwdc2026/325/ Integrate on-device AI models into your app using Core AI - https://developer.apple.com/videos/play/wwdc2026/326/</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Apple's &quot;Core AI&quot; framework, highlighted by upcoming developer resources potentially referencing WWDC 2026, signals a significant strategic push into on-device artificial intelligence. This comprehensive suite aims to empower developers to build, optimize, and seamlessly integrate private, performant AI models directly into apps, underscoring Apple's commitment to user privacy and device-centric experiences. Such an initiative could dramatically accelerate the widespread adoption of advanced AI capabilities across the Apple ecosystem.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses considerable excitement for Apple's Core AI Framework, anticipating a major shift towards powerful, on-device AI that enables privacy, cost savings, and &quot;infinite tokens&quot; for local execution. There's a strong belief that this move will significantly disrupt current cloud-based AI services, with users also keen on the framework's capabilities for model conversion, optimization, and broader access to the Apple Neural Engine.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>developer.apple.com</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by hmokiguess</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://developer.apple.com/documentation/coreai/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48449665" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">🤝 AI Partnership</div>
-            
+
             <h2 class="story-title"><a href="https://www.macrumors.com/2026/06/08/apple-reveals-new-ai-architecture/" target="_blank" rel="noopener">Apple Overhauls AI Platform with Google Gemini-Powered Architecture</a></h2>
             <p class="story-summary">Apple Reveals New AI Architecture Built Around Google Gemini Models - MacRumors Apple Reveals New AI Architecture Built Around Google Gemini Models Monday June 8, 2026 10:38 am PDT by Hartley Charlton Apple today announced a major overhaul of its Apple Intelligence platform, revealing a new architecture built on foundation models developed in collaboration with Google using the technologies behind the Gemini family. The new architecture centers on Apple Foundation Models co-developed with Google, which Apple says are adapted to run both on-device and on servers through its existing Private Cloud Compute infrastructure.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Apple's unprecedented move to build its new AI architecture around Google's Gemini models signals a significant strategic pivot, prioritizing powerful, proven AI capabilities through collaboration over exclusive in-house development. This partnership underscores the immense challenges of developing competitive foundation models independently, while still allowing Apple to maintain its privacy-centric approach with on-device and Private Cloud Compute integration. It represents a pragmatic acknowledgment of Google's AI leadership and could profoundly reshape the competitive landscape within the tech ecosystem.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community views Apple's new AI as a privacy-focused wrapper around external Google Gemini models, raising significant concerns about the strategic implications of this partnership for differentiation and potential data flows. There's considerable skepticism regarding the actual novelty and reliability of the offering, with many questioning its practical utility compared to existing assistants and current LLM limitations.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>macrumors.com</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by unclefuzzy</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.macrumors.com/2026/06/08/apple-reveals-new-ai-architecture/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48450142" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -329,20 +342,20 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">🍎 Apple AI</div>
-            
+
             <h2 class="story-title"><a href="https://www.apple.com/apple-intelligence/" target="_blank" rel="noopener">Apple Unveils 'Apple Intelligence' to Transform Siri with Private, Personalized AI This Fall</a></h2>
             <p class="story-summary">New Apple Intelligence features coming this fall. Siri AI coming in English later this year. Introducing the next generation of Apple Intelligence and Siri. Truly helpful AI that’s centered around you and your needs. Integrated into your apps, grounded in your context, and private at every step.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Apple's introduction of &quot;Apple Intelligence&quot; and the next-generation Siri marks a strategic pivot, aiming to deeply integrate AI into its ecosystem while emphasizing user-centric privacy. This approach, focused on contextual understanding and personal relevance, could significantly enhance the utility and seamlessness of Apple devices. By prioritizing &quot;private at every step,&quot; Apple seeks to differentiate its AI offerings and leverage its strong brand trust in the competitive AI landscape.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community is largely underwhelmed and skeptical about the new Siri AI. Many commenters feel the announced features are uninventive, merely fulfilling long-standing promises, and question their real-world utility beyond basic, recycled use cases. There's also significant criticism regarding Apple's restrictive device compatibility and limited geographic availability, alongside persistent frustration with Siri's existing deficiencies and concerns about battery life.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>apple.com</span>
         <span>·</span>
@@ -352,7 +365,7 @@
         <span>·</span>
         <span>by 0xedb</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.apple.com/apple-intelligence/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48449084" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -363,20 +376,20 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">📈 AI Business Strategy</div>
-            
+
             <h2 class="story-title"><a href="https://martinalderson.com/posts/xais-new-rental-business/" target="_blank" rel="noopener">xAI Shifts from Frontier Lab to AI Compute Provider for Anthropic and Google</a></h2>
             <p class="story-summary">xAI is looking more like a datacentre REIT than a frontier lab - Martin Alderson An unexpected development over the past few weeks is xAI's new partnerships with Anthropic and Google, providing them with a huge amount of capacity. It's worth remembering that xAI is now part of SpaceX, after the two merged back in February - so the revenue from these deals flows straight into the entity about to go public. While much has been made of the potential financial engineering given SpaceX's upcoming IPO, I think there's a bit more to this than just pure accounting tricks. If you use Claude products much, you'll be (very, probably) aware that Anthropic has had serious capacity problems, especially early afternoon onwards in Europe and in the mornings in the US (this is when demand seems to be highest as both European users and the Americas are both at work, fighting for capacity).</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">xAI's pivot to providing AI compute infrastructure for competitors like Anthropic and Google signifies a shrewd strategic move, generating immediate revenue to bolster SpaceX's pre-IPO valuation while addressing the industry's critical capacity crunch. This shift suggests that even &quot;frontier labs&quot; may increasingly operate as vital utility providers to monetize their massive compute investments and secure resources in the capital-intensive race for advanced AI.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely agrees that xAI is operating more as an infrastructure provider or &quot;datacenter REIT&quot; given its rapid, large-scale deployment of compute capacity, notably through the controversial Colossus project. While some express concerns about the environmental impact and &quot;ugly corners&quot; cut in their speedy construction, others acknowledge this strategy generates significant revenue and credibility for xAI, potentially benefiting investors like Google. This focus on building and leasing compute appears to be a central part of xAI's current business model.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>martinalderson.com</span>
         <span>·</span>
@@ -386,7 +399,7 @@
         <span>·</span>
         <span>by martinald</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://martinalderson.com/posts/xais-new-rental-business/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48446428" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -397,20 +410,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">🔒 Privacy &amp; Civil Liberties</div>
-            
+
             <h2 class="story-title"><a href="https://signal.org/blog/pdfs/2026-06-08-uk-surveillance-is-not-safety.pdf" target="_blank" rel="noopener">UK 'Child Safety' Surveillance Risks Families With False Accusations and State Intervention</a></h2>
             <p class="story-summary">Community discussion highlights: Yes, but this is preaching to the choir. The counter must be as visceral is the claim. They make an emotional pitch:your children are in danger, surveillance is the solution. The counter must show the dangers in visceral, emotionally relevant way. This surveillance is actually a risk to parents and children as well - that by the accusation of an opaque, unaccountable system, you will be labelled a pedophile, and your kids taken away. That when sharing a picture of your own child with your own mo</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This entry scrutinizes the emotional rhetoric used to justify expanding UK surveillance, arguing that perceived &quot;safety&quot; measures can actually create significant, direct risks for families and children. It emphasizes the need for a powerful counter-narrative that viscerally highlights how opaque, unaccountable systems can unjustly label and harm citizens, rather than genuinely protect them.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community overwhelmingly condemns the UK's proposed surveillance measures, viewing them as a dangerous and irreversible threat to privacy rather than a legitimate safety initiative. Commenters express deep concern over the technical implications, such as client-side scanning and remote attestation, and the broad, intrusive scope of the laws, advocating for strong resistance from privacy-focused entities like Signal. The sentiment is that these proposals represent a continuous erosion of fundamental digital rights and an overreach of governmental power.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>signal.org</span>
         <span>·</span>
@@ -420,7 +433,7 @@
         <span>·</span>
         <span>by g0xA52A2A</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://signal.org/blog/pdfs/2026-06-08-uk-surveillance-is-not-safety.pdf" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48450646" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -431,20 +444,20 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🚀 Dev Platform</div>
-            
+
             <h2 class="story-title"><a href="https://gitdot.io/" target="_blank" rel="noopener">Gitdot: Open-Source GitHub Alternative Built in Rust With a Lightning-Fast, CLI-Inspired Interface</a></h2>
             <p class="story-summary">What works now: user signups, org creations, private/public repos, and importing GitHub repositories (both as read-only mirrors and full migrations). So basically, you can create, push and pull to a repo, but we don't have many features quite yet (issues, PRs, CI). What is a bit unique is: 1) we built it in Rust and 2) the website is a little odd. Its design is inspired by CLIs (e.g., fzf, broot, vim) instead of web apps, and as such, lacks some affordances that you might typically expect in favor of keyboard-driven instant navigations (we have the very ambitious goal of an FCP of 100ms). In c</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Gitdot introduces an ambitious, Rust-powered open-source Git hosting platform aiming to challenge GitHub with a unique CLI-inspired, keyboard-driven web interface focused on extreme speed. While currently lacking advanced features like issues and PRs, its core proposition lies in a specialized, performance-oriented user experience tailored for developers who prioritize rapid, keyboard-first interactions. This niche design, alongside the technical promise of Rust, positions Gitdot as a compelling alternative for a specific segment of power users, provided it can evolve its feature set.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely praises Gitdot for its exceptional speed and responsiveness, which is a significant positive. However, there's a strong consensus that the UI/UX is currently underdeveloped, especially the lack of mobile support and visible bugs like invisible input fields, making its claim of being &quot;better than GitHub&quot; a stretch. Concerns are also raised about its business model and the overuse of &quot;written in Rust&quot; as a primary selling point.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>gitdot.io</span>
         <span>·</span>
@@ -454,7 +467,7 @@
         <span>·</span>
         <span>by baepaul</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://gitdot.io/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48447806" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -465,20 +478,20 @@
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">AI Market Critique 📉</div>
-            
+
             <h2 class="story-title"><a href="https://www.wheresyoured.at/ai-is-slowing-down/" target="_blank" rel="noopener">The AI Investment Bubble: Hype, Deceit, and Imminent Collapse</a></h2>
             <p class="story-summary">My Hater's Guides To the SaaSpocalypse , Private Credit and Private Equity are essential to understanding our current financial system, and my guide to how OpenAI Kills Oracle pairs nicely with my Hater's Guide To Oracle . Over a three week period in May , I published an exhaustive three-part guide to how the AI bubble might collapse, the events that might trigger it, and the consequences. For something lighter, check out last week’s premium, where I re-introduce you to the antagonists of the AI bubble (and their fatal weaknesses) in caustic, slightly sweary terms. Subscribing to premium is both great value and makes it possible to write these large, deeply-researched free pieces every week. Last week I went on Bloomberg and discussed the state of the AI bubble with a clarity that rattled even the sweatiest boosters, mostly because I spoke with clarity about an investment frenzy whipped up through hype, deceit and mythology.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece presents a sharp, skeptical critique of the current AI investment landscape, portraying it as an unsustainable &quot;bubble&quot; fueled by &quot;hype, deceit and mythology&quot; rather than solid fundamentals. The author, known for &quot;Hater's Guides,&quot; positions himself as a financial analyst dissecting the potential collapse, identifying &quot;antagonists&quot; and their &quot;fatal weaknesses.&quot; This is less about technical AI limitations and more about the imminent financial correction for an overinflated sector.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely dismisses the article's premise that &quot;AI is slowing down,&quot; primarily criticizing the author's pessimistic tone and perceived inability to acknowledge real-world utility. While some commenters grant that the author's financial analysis may highlight certain economic risks, they often reframe the evidence, emphasize ongoing productivity gains, and predict AI's continued integration &quot;down the stack&quot; with established tech giants.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>wheresyoured.at</span>
         <span>·</span>
@@ -488,7 +501,7 @@
         <span>·</span>
         <span>by crescit_eundo</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.wheresyoured.at/ai-is-slowing-down/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48446893" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -496,11 +509,36 @@
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 09, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-06-08.html">
+        <small>Previous issue</small>
+        <strong>← June 08, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-06-10.html">
+        <small>Next issue</small>
+        <strong>→ June 10, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

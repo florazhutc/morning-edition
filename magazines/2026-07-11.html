@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — July 11, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 066, July 11, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — July 11, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Saturday</div>
-        <div class="masthead-year">July 11, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 066</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Saturday</span>
+                    <time datetime="2026-07-11">July 11, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">🤖 AI Update</div>
-            
+
             <h2 class="story-title"><a href="https://openai.com/index/gpt-5-6/" target="_blank" rel="noopener">OpenAI's GPT-5.6 Model Detailed in New Deployment Safety Report</a></h2>
             <p class="story-summary">https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf https://developers.openai.com/api/docs/guides/latest-model https://x.com/levie/status/2075287443411222628 , https://xcancel.com/levie/status/2075287443411222628</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The emergence of &quot;GPT-5.6&quot; through official-looking OpenAI deployment safety and developer API links strongly suggests a significant new iteration of OpenAI's foundational language model. This potential release highlights both the rapid pace of AI development and OpenAI's concurrent focus on responsible deployment, balancing cutting-edge capabilities with necessary safety protocols. The inclusion of social media commentary further indicates immediate industry interest and speculation regarding its capabilities and implications.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community acknowledges specific advancements in GPT-5.6, particularly its breakthrough on ARC-AGI-3 and improved intent understanding. However, there's significant frustration and confusion regarding OpenAI's new naming conventions (Sol, Terra, Luna) for different model variants. Performance seems mixed for complex tasks, with users finding it good in some areas but not consistently superior to competitors or previous iterations.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>openai.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by logickkk1</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://openai.com/index/gpt-5-6/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48849066" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">⚖️ Law &amp; Policy</div>
-            
+
             <h2 class="story-title"><a href="https://apnews.com/article/john-deere-right-to-repair-agriculture-equipment-cb7514ffedb95c130a976af661f2bc02" target="_blank" rel="noopener">FTC Forces John Deere to Allow Right to Repair</a></h2>
             <p class="story-summary">FTC secures right to repair settlement with farming equipment giant John Deere | AP News Iran war Russia-Ukraine war Español China Asia Pacific Latin America Europe Africa US demands Iran publicly state that Strait of Hormuz is open and Tehran won't attack ships anymore Charles hosted Prince Harry and family for first time in years as they try to repair a family rift Fellow passengers pull back man partly sucked out of broken window on a flight from Greece</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This landmark FTC settlement with John Deere represents a significant victory for the &quot;right to repair&quot; movement, empowering farmers to independently service their critical equipment. It challenges a long-standing proprietary model that has limited consumer autonomy and inflated maintenance costs, setting a powerful precedent for other industries to ensure ownership rights extend to product repairability.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community overwhelmingly supports the principle of &quot;Right to Repair,&quot; viewing it as a fundamental freedom that should not require litigation. While acknowledging the John Deere settlement as a positive development, many users express significant cynicism regarding its terms, deeming the fine negligible and the compliance period insufficient for a truly enduring change. There's a strong desire for this precedent to extend to other industries, particularly modern cars, which also restrict owner repair capabilities.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>apnews.com</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by djoldman</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://apnews.com/article/john-deere-right-to-repair-agriculture-equipment-cb7514ffedb95c130a976af661f2bc02" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48838876" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🔒 Privacy &amp; Surveillance</div>
-            
+
             <h2 class="story-title"><a href="https://www.patrick-breyer.de/en/eu-parliament-greenlights-chat-control-1-0-breyer-our-children-lose-out/" target="_blank" rel="noopener">EU Parliament Greenlights Chat Control 1.0, Allowing Suspicionless Mass Scanning of Private Messages Through 2028</a></h2>
             <p class="story-summary">EU Parliament greenlights Chat Control 1.0 – Breyer: “Our children lose out” – Patrick Breyer Home Posts and policy European Parliament EU Parliament greenlights Chat Control 1.0 – Breyer: “Our children lose out” Today, the European Parliament allowed the suspicionless mass scanning of private communications (“Chat Control 1.0”) to pass, a measure it had rejected twice in March. Although a majority of voting Members of the European Parliament (MEPs) actually opposed the regulation ( 314 against, 276 in favor, 17 abstentions ), the motion to reject it failed to secure the required absolute majority of 361 votes. As a result, mass scanning is now permitted again until 2028.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The EU Parliament's decision to greenlight &quot;Chat Control 1.0&quot; marks a significant blow to digital privacy and civil liberties in Europe, authorizing suspicionless mass scanning of private communications despite a majority of MEPs actually opposing it. This procedural victory for surveillance advocates underscores how parliamentary mechanisms can override democratic will, setting a worrying precedent for fundamental rights under the guise of child protection until 2028.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community overwhelmingly condemns the EU Parliament's greenlighting of Chat Control 1.0, viewing it as a significant setback for digital privacy and a deeply undemocratic process. Commenters express outrage that the legislation was passed through controversial parliamentary tactics despite having been rejected previously and despite a majority of voting MEPs opposing it in the final vote. This move is seen as undermining the EU's credibility on digital rights and eroding fundamental privacy protections by allowing warrant-less scanning of private messages.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>patrick-breyer.de</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by rapnie</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.patrick-breyer.de/en/eu-parliament-greenlights-chat-control-1-0-breyer-our-children-lose-out/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48843923" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">🔡 Word Game</div>
-            
+
             <h2 class="story-title"><a href="https://18words.com/" target="_blank" rel="noopener">18 Words: A Timed Game of Forming Words From All Letters</a></h2>
             <p class="story-summary">Find a word using all the letters before time runs out! You can send me feedback or try my other game Zanagrams .</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This real-time word puzzle, presented as a &quot;Show HN,&quot; has garnered significant attention, likely due to its simple yet addictive premise of finding words under time pressure. Its high engagement score suggests that the quick-fire challenge and straightforward mechanic resonate well with users seeking a brain-teasing diversion. The creator's proactive request for feedback and cross-promotion demonstrates a savvy approach to community building and portfolio expansion.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community's primary consensus revolved around the original game's timer and failure state, with many players finding it frustrating to have the game end or stop progression after missing a word. This feedback was strongly acknowledged and addressed by the developer, who updated the game to allow players to complete all 18 words and receive a final score regardless of individual word success. Additionally, several users expressed a desire for a &quot;scramble&quot; or &quot;shuffle&quot; button to re-arrange letters and help when stuck.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>18words.com</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by pompomsheep</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://18words.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48845049" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -298,17 +311,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://9to5mac.com/2026/07/10/apple-sues-openai-trade-secret-theft/" target="_blank" rel="noopener">Apple Sues OpenAI Over Ex-Employee Trade Secret Theft</a></h2>
             <p class="story-summary">Apple sues OpenAI, accuses ex-employees of stealing trade secrets - 9to5Mac Skip to main content Apple sues OpenAI, accuses ex-employees of stealing trade secrets Apple has filed a lawsuit against OpenAI today, accusing the company of trade secret theft. Specifically, Apple alleges that its former employees have stolen trade secrets “for the benefit of OpenAI.” “This case is about Apple’s former employees stealing Apple’s trade secrets for the benefit of OpenAI.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This lawsuit underscores the escalating intensity of competition in the AI space, where talent acquisition and the transfer of intellectual property become flashpoints. Apple's allegations against former employees benefiting OpenAI highlight the critical need for robust IP protection strategies amidst rapid innovation and employee mobility. This case could significantly influence how tech companies manage sensitive information and employee transitions in an era of fierce AI development.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community overwhelmingly views Apple's lawsuit against OpenAI as a significant threat, believing the allegations of instructing former employees to steal trade secrets are &quot;damning&quot; and suggest a pattern of unethical behavior. Many commenters predict an &quot;open and shut&quot; case for Apple, given their resources and the perceived clear evidence, potentially leading to severe consequences for OpenAI's business and reputation.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>9to5mac.com</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by stock_toaster</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://9to5mac.com/2026/07/10/apple-sues-openai-trade-secret-theft/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48865019" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -329,20 +342,20 @@
         <div class="story-num">6</div>
         <div class="story-content">
             <div class="story-category">⚙️ Performance Optimization</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/JustVugg/colibri" target="_blank" rel="noopener">GLM 5.2 on a Budget: Running a GPT-Tier LLM on Consumer Hardware</a></h2>
             <p class="story-summary">A few days ago I found myself trying out GLM 5.2 and was really positively impressed. The capabilities and security I was getting from this LLM are similar to those I've gotten from models like Claude or GPT, and this really surprised me. But then I thought, &quot;I wonder how it would work on a normal computer like mine,&quot; and above all, &quot;I wonder if it would work without going into OOM on a computer like mine.&quot; So I started working with the help of agents to test this possibility. I started converting the model to int4, understanding MTP usage, and if possible implementing DSA for long context. Ho</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project highlights the critical trend of making powerful LLMs like GLM 5.2 accessible on consumer-grade hardware, moving beyond cloud-exclusive inference. By employing techniques such as int4 quantization and efficient memory management, the author demonstrates a practical approach to overcoming the significant computational and memory demands of modern AI models. This effort contributes to democratizing advanced AI capabilities, reducing dependency on expensive cloud services, and bringing state-of-the-art language models directly to the user's local machine.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community expresses strong interest in optimizing large language models like GLM 5.2 for efficient execution on consumer-grade and less powerful hardware. Many users are independently pursuing similar technical strategies—such as memory mapping, weight streaming, and hardware-specific optimizations—to overcome memory and performance limitations. This collective effort highlights a shared goal of making powerful open-source models more widely accessible beyond expensive, specialized hardware.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -352,7 +365,7 @@
         <span>·</span>
         <span>by vforno</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/JustVugg/colibri" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48842459" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -363,20 +376,20 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">🎮 Indie Dev Success</div>
-            
+
             <h2 class="story-title"><a href="https://kotaku.com/a-train-sim-created-by-just-one-person-is-being-called-the-best-ever-made-2000699429" target="_blank" rel="noopener">One-Man Train Sim Hailed as 'Best Ever Made' for Hyper-Realistic Japan</a></h2>
             <p class="story-summary">Solo Dev's Train Sim Created Is Being Called The Best Ever Made By John Walker Published May 26, 2026 | Comments ( 4 ) | A blue train under cherry blossom. I spent a rather embarrassing amount of time trying to match up Running Train ‘s hyper-realistic train lines and Japanese terrain with the real world. And in doing so, I paid the game the highest possible compliment.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This story powerfully demonstrates how individual passion and focused dedication can yield industry-leading results, even in complex simulation genres. It challenges the conventional wisdom that only large studios can produce &quot;best ever made&quot; titles, highlighting the immense potential and impact of a single, highly skilled developer.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community is overwhelmingly impressed and amazed by the solo developer's achievement in creating such a visually stunning and photorealistic train simulator. Many highlight the stark contrast between this individual effort and large AAA studio productions, marveling at what one person can accomplish with modern tools like Unreal Engine. While some acknowledge potential limitations in content or repetition, the consensus is one of profound admiration for the quality achieved by a single developer.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>kotaku.com</span>
         <span>·</span>
@@ -386,7 +399,7 @@
         <span>·</span>
         <span>by oumua_don17</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://kotaku.com/a-train-sim-created-by-just-one-person-is-being-called-the-best-ever-made-2000699429" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48792383" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -397,20 +410,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">AI &amp; Mathematics 🧠</div>
-            
+
             <h2 class="story-title"><a href="https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf" target="_blank" rel="noopener">GPT-5.6 Sol Ultra AI Produces Proof for Cycle Double Cover Conjecture</a></h2>
             <p class="story-summary">https://x.com/__eknight__/status/2075643450196971805 , https://xcancel.com/__eknight__/status/2075643450196971805 Prompt: https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98...</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This report, if validated, heralds a monumental breakthrough in AI, demonstrating its capacity to independently generate a proof for a significant, long-unsolved mathematical conjecture like the Cycle Double Cover. It signals a paradigm shift where AI could become a key driver of pure mathematical discovery, potentially reshaping the future of research in abstract fields and challenging traditional notions of mathematical intuition.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community views the AI's alleged proof of the Cycle Double Cover Conjecture as a potentially huge milestone, akin to AI surpassing human grandmasters in chess, if the proof holds up. While impressed by the achievement, commenters also focus on the extensive prompt engineering required to guide the model and emphasize the crucial need for rigorous human verification, with some expressing mixed feelings about the aesthetic implications of AI-driven mathematical discovery.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>cdn.openai.com</span>
         <span>·</span>
@@ -420,7 +433,7 @@
         <span>·</span>
         <span>by scrlk</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48863490" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -431,20 +444,20 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">🎨 Creative Development</div>
-            
+
             <h2 class="story-title"><a href="https://sxp.studio/apps/subz" target="_blank" rel="noopener">SubjectiveZero: Open-Source Node Editor Blends AI Agents with Creative Coding</a></h2>
             <p class="story-summary">Hey there, My name is Clem, I've been a solo indie dev for a couple years now, exploring frontier tech like XR and agentic workflows in the context of creative / interactive work. I've been building creation tools for a while and some common design challenge is to figure out the right level of abstraction for your tool. You can always make it super advanced and complex with low level concepts (shader composition, actual code etc.) but then you get something with a high complexity / learning curve. On the other hand, if you make your tool too high level, it might be easier to use at first, but </p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">SubjectiveZero addresses a core tension in creative tool design: balancing powerful low-level control with an accessible learning curve, which is critical for wider adoption of frontier tech like XR. By offering an open-source agentic node editor, it aims to democratize complex creative coding workflows and foster innovation by abstracting away some technical complexities while retaining flexibility. This approach could significantly lower the barrier to entry for artists and developers seeking to explore advanced interactive and generative experiences.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses initial interest and sees strong potential in SubjectiveZero, recognizing its roots in existing creative coding tools like vvvv and Processing. Users are already considering its practical applications, such as live performance, and suggesting advanced features like node encapsulation to enhance organization and reusability. This indicates a positive reception with an eye towards its future development and practical utility.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>sxp.studio</span>
         <span>·</span>
@@ -454,7 +467,7 @@
         <span>·</span>
         <span>by tasoeur</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://sxp.studio/apps/subz" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48861217" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -465,20 +478,20 @@
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">🔬 Science &amp; Discovery</div>
-            
+
             <h2 class="story-title"><a href="https://www.smithsonianmag.com/smart-news/spider-silk-loses-top-spot-natures-strongest-material-snails-teeth-180954346/" target="_blank" rel="noopener">Snails' Teeth Dethrone Spider Silk as Nature's Strongest Material</a></h2>
             <p class="story-summary">Snails’ Teeth Beats Spider Silk As Nature’s Strongest Material Skip to main content</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This 2015 discovery fundamentally challenged the common perception of spider silk as nature's strongest material, revealing the unexpected superiority of snail teeth. Such findings are crucial for biomimicry, offering novel insights into nanostructure and material science that could inspire the development of next-generation super-strong synthetic composites.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely found the article's analogy for strength (&quot;3,300 one-pound bags of sugar&quot;) to be confusing and poorly chosen, advocating for a more relatable comparison like a modern passenger car. Beyond the critique of presentation, many commenters expressed a strong interest in seeing visuals of snail teeth and understanding the unique biological mechanisms behind their impressive strength.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>smithsonianmag.com</span>
         <span>·</span>
@@ -488,7 +501,7 @@
         <span>·</span>
         <span>by simonebrunozzi</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.smithsonianmag.com/smart-news/spider-silk-loses-top-spot-natures-strongest-material-snails-teeth-180954346/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48862252" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -496,11 +509,36 @@
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · July 11, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-07-10.html">
+        <small>Previous issue</small>
+        <strong>← July 10, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-07-12.html">
+        <small>Next issue</small>
+        <strong>→ July 12, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

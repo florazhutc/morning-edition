@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — June 18, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 043, June 18, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — June 18, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Thursday</div>
-        <div class="masthead-year">June 18, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 043</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Thursday</span>
+                    <time datetime="2026-06-18">June 18, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">💻 Local AI</div>
-            
+
             <h2 class="story-title"><a href="https://vickiboykis.com/2026/06/15/running-local-models-is-good-now/" target="_blank" rel="noopener">Local LLMs Are Now Practical: Surprising Performance on M-Series Macs</a></h2>
             <p class="story-summary">Running local models is good now | ✰Vicki Boykis✰ I’ve been working with local models since they came out, and finally, they’re surprisingly good now. I have a 2022 M2 Mac with 64 GB RAM and 1TB storage and I’ve used Qwen 3 MOE , as well as a number of other Qwen variants like Qwen 2.5 Coder across a lot of different system setups like</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post celebrates the significant maturation of local large language models (LLMs), highlighting their surprising efficacy and usability on consumer-grade hardware like the M2 Mac with ample RAM. This development suggests a powerful shift towards more accessible, private, and offline AI applications, potentially democratizing advanced AI capabilities beyond cloud-dependent infrastructure. It underscores the convergence of efficient model architectures and robust personal computing, enabling practical on-device AI for everyday use.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">While acknowledging the impressive progress and viability of local models for specific use cases—with some users even preferring them over certain commercial alternatives for particular qualities—the community largely disputes that they are *universally &quot;good&quot; now*. Users frequently highlight persistent trade-offs between speed and intelligence/reliability, asserting that local models still lag far behind frontier cloud models for complex tasks and often require considerable compromises in quality.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>vickiboykis.com</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by jfb</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://vickiboykis.com/2026/06/15/running-local-models-is-good-now/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48555993" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -193,20 +206,20 @@
         <div class="story-num">2</div>
         <div class="story-content">
             <div class="story-category">🌳 Version Control</div>
-            
+
             <h2 class="story-title"><a href="https://lore.org/" target="_blank" rel="noopener">Epic Games Unveils Lore: Open-Source Version Control for Extreme Scale Game Development</a></h2>
             <p class="story-summary">Lore | Next-Generation Open Source Version Control - Lore Lore: next-generation open source version control Maintained by Epic Games, Lore is designed for unprecedented scalability of both data and teams. It’s optimized for projects—including games and entertainment—that combine code with large binary assets, and caters for the needs of developers and artists alike. Access and contribute to Lore on the Epic Games GitHub.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Lore's introduction as an open-source, Epic Games-backed version control system explicitly designed for unprecedented scalability and large binary assets directly addresses a critical gap in the game and entertainment industries. This initiative has the potential to challenge the dominance of proprietary solutions like Perforce by offering a powerful, community-driven alternative that caters specifically to the complex, media-heavy workflows of both developers and artists, which traditional Git often struggles with.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely views Lore as a promising and much-needed challenger to Perforce, particularly for version control of large binary assets in game development, especially within the Unreal Engine ecosystem. While acknowledging Git's limitations for such files and welcoming a new solution, some commenters also note Lore's origin as an existing internal Epic tool and point out minor inconsistencies regarding its &quot;fully open source&quot; claims.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>lore.org</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by regnerba</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://lore.org/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48571081" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">🤖 AI Model Performance</div>
-            
+
             <h2 class="story-title"><a href="https://artificialanalysis.ai/articles/glm-5-2-is-the-new-leading-open-weights-model-on-the-artificial-analysis-intelligence-index" target="_blank" rel="noopener">GLM-5.2 Takes Top Open-Weight AI Spot on Artificial Analysis, Defines New Efficiency Frontier</a></h2>
             <p class="story-summary">GLM-5.2 is the new leading open weights model on the Artificial Analysis Intelligence Index GLM-5.2 is the new leading open weights model on the Artificial Analysis Intelligence Index Z ai’s GLM-5.2 is the new leading open weights model on the Artificial Analysis Intelligence Index scoring 51 and it sits on the Pareto frontier of Intelligence vs Cost per Task GLM-5.2 is the same size as GLM-5.1 (744B total / 40B active parameters) but scores 11 points higher on the Intelligence Index v4.1, placing ahead of MiniMax-M3 (44) and DeepSeek V4 Pro (max, 44). On the first-party API it is priced in line with GLM-5.1 at $1.4/$4.4/$0.26 per 1M input/output/cache hit tokens</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">GLM-5.2's rise to the top of the Artificial Analysis Intelligence Index, while maintaining the same parameter count as its predecessor, highlights a significant leap in AI model efficiency and optimization. Its placement on the Pareto frontier for intelligence versus cost underscores a growing industry focus on developing highly capable, yet economically viable, open-weight models. This signals a shift towards smarter architectural design and training techniques rather than just scaling up model size to achieve superior performance.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community generally views GLM-5.2 as a highly capable and remarkably cost-effective open-weight model, with many praising its performance as approaching frontier models like Opus 4.7 at significantly lower prices. However, users also highlight its limitations, particularly its lack of vision capabilities, occasional verbosity, and a desire for better reasoning efficiency compared to top-tier models. Despite these caveats, its strong price-to-performance ratio and impressive technical underpinnings like KV caching are recognized.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>artificialanalysis.ai</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by himata4113</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://artificialanalysis.ai/articles/glm-5-2-is-the-new-leading-open-weights-model-on-the-artificial-analysis-intelligence-index" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48567759" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">AI in Healthcare 🏥</div>
-            
+
             <h2 class="story-title"><a href="https://www.midjourney.com/medical/blogpost" target="_blank" rel="noopener">Midjourney Expands into Medical AI</a></h2>
             <p class="story-summary">https://www.midjourney.com/medical Video: https://x.com/midjourney/status/2067422898407837797</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Midjourney's foray into the medical domain highlights the increasing specialization of generative AI tools, moving beyond general image creation to tackle complex, sensitive fields. This application could revolutionize medical illustration, educational content, and even patient communication by providing highly customizable and detailed visuals. However, it also introduces significant challenges regarding accuracy, ethical implications, and regulatory oversight to prevent misinformation and ensure patient safety.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">Hacker News commenters display a strong split regarding Midjourney Medical, with many expressing significant skepticism about its immediate diagnostic capabilities and the appropriateness of the brand in healthcare, citing concerns about &quot;hallucinated&quot; outputs and potential medical misinformation. Conversely, a considerable portion of the community sees intriguing potential in applying novel imaging technology for cheaper, earlier detection and reduced radiation, viewing it as an ambitious development despite reservations about its current fidelity or ability to displace established medical tools.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>midjourney.com</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by ricochet11</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.midjourney.com/medical/blogpost" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48579650" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">🔒 Privacy OS Development</div>
-            
+
             <h2 class="story-title"><a href="https://discuss.grapheneos.org/d/36469-grapheneos-has-been-ported-to-android-17-and-official-releases-are-coming-soon" target="_blank" rel="noopener">GrapheneOS Lands on Android 17, Official Releases Imminent</a></h2>
             <p class="story-summary">GrapheneOS has been ported to Android 17 and official releases are coming soon - GrapheneOS Discussion Forum Something went wrong while trying to load the full version of this site. Try hard-refreshing this page to fix the error.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The successful porting of GrapheneOS to Android 17 marks a vital step for privacy-conscious mobile users, ensuring they can leverage the latest Android security patches and platform advancements without sacrificing their stringent privacy requirements. This continuous development underscores GrapheneOS's commitment to providing a cutting-edge, secure alternative to stock Android. It is crucial for users seeking enhanced digital autonomy and robust protection against surveillance.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community overwhelmingly expresses strong satisfaction with GrapheneOS, praising its privacy and security benefits and often stating they won't revert to stock Android despite minor usability quirks or app compatibility issues. Users are actively seeking solutions for remaining limitations, like wider hardware support and contactless payments, while also showing interest in its continued development, particularly regarding AI integration.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>discuss.grapheneos.org</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by Cider9986</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://discuss.grapheneos.org/d/36469-grapheneos-has-been-ported-to-android-17-and-official-releases-are-coming-soon" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48561654" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -332,17 +345,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://openrouter.ai/blog/insights/royale-last-agent-standing/" target="_blank" rel="noopener">Robot Simulation Battle: Low-Cost LLM Crushes Premium Rivals, 27x More Efficiently</a></h2>
             <p class="story-summary">A Robot is Sprinting Towards You: Do You Want it Running on Claude or Grok? A Robot is Sprinting Towards You: Do You Want it Running on Claude or Grok? Do you want it running on Anthropic’s Claude or xAI’s Grok? I dropped eleven LLMs into a 2D battle royale and made them play 30 games. The cheapest model in the lineup beat the most expensive one by 27x on cost per win.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This analysis provocatively uses a battle royale scenario to benchmark LLM performance and cost-efficiency, revealing that a significantly cheaper model drastically outperformed more expensive counterparts in terms of cost-per-win. This finding challenges the conventional wisdom that higher-priced LLMs automatically equate to superior practical value, emphasizing the critical need for task-specific evaluation and optimization in real-world AI deployment rather than relying solely on model size or brand.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely prioritizes **cost-effectiveness and practical performance** over raw &quot;frontier&quot; model capabilities, with models like Grok 4.1-fast (despite recent pricing controversies) and DeepSeek V4 Flash being praised for their efficiency. Underlying these technical considerations, there's a strong emphasis on **safety and human control**, with many expressing a preference for non-threatening robots or a willingness to neutralize a perceived threat regardless of its underlying AI.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>openrouter.ai</span>
         <span>·</span>
@@ -352,7 +365,7 @@
         <span>·</span>
         <span>by Usu</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://openrouter.ai/blog/insights/royale-last-agent-standing/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48576824" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -366,17 +379,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://claude.com/blog/the-founders-playbook" target="_blank" rel="noopener">AI-Native Startups: The Founder's Playbook for Building, Automating, and Scaling with AI</a></h2>
             <p class="story-summary">The founder's playbook: Building an AI-native startup | Claude The founder's playbook: Building an AI-native startup We share how founders are using AI at every stage of the startup journey, with practical exercises, frameworks, and prompts for using Claude. AI is reshaping how startups are being built. Founders who've never written a line of code before are shipping production applications, reaching revenue before scaling headcount, and building tools to automate their most tedious workflows.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This playbook illustrates how AI is profoundly democratizing entrepreneurship, empowering non-technical founders to rapidly launch and monetize production-grade applications with unprecedented capital efficiency. It signals a paradigm shift where AI-native tools accelerate development, automate operations, and enable leaner teams to achieve market traction, fundamentally reshaping the startup landscape.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely views &quot;The founder's playbook&quot; not as genuine advice for building an AI-native startup, but rather as a **self-serving marketing piece from Anthropic** designed to promote their own tools. Commenters widely agree it's a &quot;sell the shovels&quot; tactic, oversimplifying the complexities of founding a startup while pushing their specific product, rather than offering impartial guidance.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>claude.com</span>
         <span>·</span>
@@ -386,7 +399,7 @@
         <span>·</span>
         <span>by e2e4</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://claude.com/blog/the-founders-playbook" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48566832" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -397,20 +410,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">🎨 Generative AI</div>
-            
+
             <h2 class="story-title"><a href="https://cells2pixels.github.io/" target="_blank" rel="noopener">Neural Cellular Automata Now Generate High-Res, Self-Healing Textures and 3D Worlds in Real-Time</a></h2>
             <p class="story-summary">Neural CAs model self-organizing pattern formation. Now they can generate patterns at HD resolution in real-time, enabled by turning each CA cell into a Neural Field. Try 3 demos: grow a pattern from a seed (and damage it, it heals), synthesize PBR textures that can regenerate, or create 3D textures like clouds.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project represents a significant leap for Neural Cellular Automata, pushing beyond previous resolution and performance limits to enable real-time, high-definition pattern generation through the innovative use of Neural Fields. This breakthrough unlocks new possibilities for dynamic content creation, from self-healing generative art and robust PBR texture synthesis in games to the creation of complex 3D environments like clouds. It underscores a powerful convergence of AI and computer graphics, offering interactive and resilient procedural generation capabilities previously unattainable.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community finds the High-Res Neural Cellular Automata demo fascinating and intriguing, highlighting its potential for applications like self-healing systems and resilient infrastructure beyond image generation. While some users encountered minor technical quirks or sought clarification on its mechanics, the overall sentiment is highly positive and forward-looking regarding the technology's implications.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>cells2pixels.github.io</span>
         <span>·</span>
@@ -420,7 +433,7 @@
         <span>·</span>
         <span>by esychology</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://cells2pixels.github.io/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48567877" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -431,20 +444,20 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">📐 AI Engineering</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/Adam-CAD/CADAM" target="_blank" rel="noopener">Adam's Open-Source AI CAD Generates 3D Models from Text on the Web</a></h2>
             <p class="story-summary">GitHub - Adam-CAD/CADAM: CADAM is the open source text-to-CAD web application · GitHub</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This open-source, text-to-CAD web application represents a significant stride in democratizing advanced design tools. By simplifying complex 3D modeling into natural language prompts, Adam has the potential to drastically accelerate design iteration cycles and lower the barrier to entry for engineers and hobbyists, fostering a new paradigm of AI-driven product development.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses initial positive surprise and commendation for Adam's effective prompt-to-CAD generation and smooth onboarding, especially considering general skepticism towards AI products. However, users also raise critical questions concerning its differentiation from other open-source AI CAD solutions and the challenges of interoperability and data fidelity when integrating with existing CAD workflows like Fusion or SolidWorks.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -454,7 +467,7 @@
         <span>·</span>
         <span>by zachdive</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/Adam-CAD/CADAM" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48572553" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -465,20 +478,20 @@
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">🛡️ Geopolitics &amp; Tech Policy</div>
-            
+
             <h2 class="story-title"><a href="https://www.reuters.com/world/china/us-holds-off-blacklisting-chinas-deepseek-more-than-100-firms-deemed-security-2026-06-17/" target="_blank" rel="noopener">US Holds Off Blacklisting Chinese AI Firm DeepSeek and 100+ Other Companies Deemed Security Risks</a></h2>
             <p class="story-summary">Community discussion highlights: The US government exists to defend capital interests. It's why we can't buy BYD cars. It's why we can't import any cars unless they're 25 years old. It's why a Tiktok sale was forced. It's why the US is seeking to block states from banning prediction markets. It's why the federal government is seeking to block states from blocking data center projects. As soon as DeepSeek came out I realized what was going on: China was going to make sure that no US company was going to &quot;own&quot; AI. It is an issue </p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The discussion highlights how US government actions, from trade restrictions to interventions in tech markets, are primarily driven by the strategic defense of national capital interests, viewing global competition as a geopolitical struggle. This lens is acutely applied to critical sectors like AI, where the US aims to prevent foreign dominance, as seen in the implied competition with Chinese firms like DeepSeek. The nuanced decision to delay blacklisting DeepSeek, despite broader security concerns, suggests a calculated approach to balancing economic pressure with long-term strategic objectives in the AI race.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely praises DeepSeek for its affordability and utility, making it a popular choice for personal and development projects despite its &quot;security risk&quot; designation. There is strong skepticism and criticism directed at the US government's efforts to restrict access to such foreign AI models, with many commenters perceiving these policies as hypocritical, unenforceable, and potentially counterproductive.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>reuters.com</span>
         <span>·</span>
@@ -488,7 +501,7 @@
         <span>·</span>
         <span>by giuliomagnifico</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.reuters.com/world/china/us-holds-off-blacklisting-chinas-deepseek-more-than-100-firms-deemed-security-2026-06-17/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48565498" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -496,11 +509,36 @@
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 18, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-06-17.html">
+        <small>Previous issue</small>
+        <strong>← June 17, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-06-19.html">
+        <small>Next issue</small>
+        <strong>→ June 19, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

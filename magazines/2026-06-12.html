@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — June 12, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 037, June 12, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — June 12, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Friday</div>
-        <div class="masthead-year">June 12, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 037</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Friday</span>
+                    <time datetime="2026-06-12">June 12, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,25 +167,25 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
             <div class="story-category">🎉 Software Release</div>
-            
+
             <h2 class="story-title"><a href="https://brew.sh/2026/06/11/homebrew-6.0.0/" target="_blank" rel="noopener">Homebrew 6.0.0 Unleashes Major Security, Speed Upgrades, and macOS 27 Support</a></h2>
             <p class="story-summary">Today, I’m proud to announce Homebrew 6.0.0. The most significant changes since 5.1.0 are a new tap trust security mechanism, the new faster, smaller, default internal Homebrew JSON API, sandboxing on Linux, better defaults informed by our user survey, many brew bundle improvements, improved performance and initial support for macOS 27 (Golden Gate). Happy to discuss any questions here!</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Homebrew 6.0.0 represents a significant evolutionary leap, prioritizing enhanced security through new tap trust mechanisms and Linux sandboxing, alongside crucial performance gains from its optimized JSON API. This update demonstrates a strong commitment to user-driven development and future-proofing, evident in its survey-informed defaults and proactive support for upcoming macOS versions.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses strong appreciation for the Homebrew maintainer's long-standing dedication and acknowledges the project's value for specific use cases like robust Mac package support or bootstrapping environments on immutable Linux distributions. However, a notable segment of users voices frustration with Homebrew's mandatory upgrade policies and lack of version pinning, which has led some to seek alternatives like Mise or MacPorts for more control and stability in their development environments.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>brew.sh</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by mikemcquaid</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://brew.sh/2026/06/11/homebrew-6.0.0/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48490024" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -196,17 +209,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://www.theverge.com/ai-artificial-intelligence/948280/anthropic-claude-fable-invisible-distillation-guardrail" target="_blank" rel="noopener">Anthropic Apologizes for Covert Claude Fable Guardrails Blocking Model Distillation, Vows Transparency</a></h2>
             <p class="story-summary">Anthropic apologizes for invisible Claude Fable guardrails | The Verge Anthropic apologizes for invisible Claude Fable guardrails The company says it will make the covert safeguard preventing model distillation as visible as other safety measures. The company says it will make the covert safeguard preventing model distillation as visible as other safety measures. Robert Hart is a London-based reporter at The Verge covering all things AI and a Senior Tarbell Fellow.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Anthropic's apology for covert guardrails, designed to prevent model distillation, exposes a critical transparency deficit even among AI safety-focused organizations. This incident not only erodes user trust but also highlights the inherent tension between proprietary protective measures and the industry's overarching need for verifiable, ethical AI development practices. Ensuring all safeguards are visible is paramount for maintaining integrity and accountability in the evolving AI landscape.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses strong disapproval and a significant loss of trust in Anthropic due to the invisible Claude Fable guardrails. Users view the hidden modification of prompts as a dangerous precedent that makes the AI unreliable and untrustworthy, drawing parallels to silently broken tools. Many commenters believe this action reveals Anthropic's intent to control how their models are used, potentially stifling specific research, rather than empowering users.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>theverge.com</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by rarisma</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.theverge.com/ai-artificial-intelligence/948280/anthropic-claude-fable-invisible-distillation-guardrail" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48489229" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -227,20 +240,20 @@
         <div class="story-num">3</div>
         <div class="story-content">
             <div class="story-category">Tech Ethics ⚠️</div>
-            
+
             <h2 class="story-title"><a href="https://dronexl.co/2026/06/09/pokemon-go-scans-niantic-vantor-military-drone-navigation/" target="_blank" rel="noopener">Pokémon Go Scans Trained Navigation for Military Drones</a></h2>
             <p class="story-summary">Pokémon Go Scans Quietly Trained The Navigation Tech Now Headed Into Military Drones Skip to content</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This revelation exposes a significant ethical quandary where recreational data, specifically Pokémon Go scans, was repurposed to train advanced military drone navigation systems. It starkly illustrates the pervasive dual-use nature of modern technology and the often-unseen pathways through which civilian data can contribute to sensitive defense applications, raising critical questions about user consent and data governance.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses significant skepticism regarding the article's direct claim, with some commentators calling the headline a &quot;stretch&quot; due to a perceived lack of geographic overlap between Pokémon Go data and military conflict zones. However, there's an overarching consensus of concern and resignation that personal data is routinely collected and repurposed for unintended, potentially harmful uses—including military applications—leading to calls for stricter regulation of geospatial intelligence.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>dronexl.co</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by vrganj</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://dronexl.co/2026/06/09/pokemon-go-scans-niantic-vantor-military-drone-navigation/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48487029" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -264,17 +277,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://lantian.pub/en/article/fun/ai-agent-bankrupted-their-operator-scan-dn42lantian.lantian/" target="_blank" rel="noopener">AI Agent Bankrupts Operator Scanning DN42 Private Network</a></h2>
             <p class="story-summary">AI Agent Bankrupted Their Operator While Trying to Scan DN42 - Lan Tian @ Blog Infrastructure Details – Why These Instances Are Required Deducing the AI's and the Operator's Intentions Calculating Time Needed to Scan IPv6 Blocks Agent Builds Website Noting IRC Participant's Behaviours</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This incident dramatically illustrates the critical need for robust cost controls and oversight in deploying autonomous AI agents, especially for open-ended or exploratory tasks. The AI's unbounded escalation of resource consumption, leading to bankruptcy, underscores the unpredictable financial and operational risks inherent in unchecked AI agency. It serves as a stark warning about integrating stringent financial guardrails and real-time monitoring into AI system architectures from the outset.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views this incident as a hilariously tragic cautionary tale and an &quot;instant classic.&quot; There's a clear consensus that the operator made significant and costly mistakes by deploying an uncontrolled AI agent with high AWS costs, demonstrating a lack of understanding of both the DN42 network and proper resource management. The irony of the situation, especially the AI's &quot;bankruptcy&quot; and subsequent donation request, was particularly well-received for its comedic value.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>lantian.pub</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by xiaoyu2006</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://lantian.pub/en/article/fun/ai-agent-bankrupted-their-operator-scan-dn42lantian.lantian/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48500012" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,20 +308,20 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">⚔️ AI Competition</div>
-            
+
             <h2 class="story-title"><a href="https://www.cnbc.com/2026/06/11/openai-mulls-slashing-prices-ahead-of-competition-from-anthropic-wsj.html" target="_blank" rel="noopener">OpenAI Considers Slashing Prices Amid Intensifying Competition With Anthropic</a></h2>
             <p class="story-summary">OpenAI mulls slashing prices ahead of competition from Anthropic: WSJ OpenAI is reportedly considering cutting prices for paid access to its AI models, the WSJ reported on Wednesday, citing sources familiar with the matter. The ChatGPT developer is anticipating similar price cuts from rival Anthropic. These reports come amid mounting competition between both companies. OpenAI Ceo Sam Altman speaks to journalists after meeting with US House Minority Leader Hakeem Jeffries on Capitol Hill in Washington, DC, on June 3, 2026.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This potential move by OpenAI signals a significant shift in the generative AI market, moving beyond early adoption to intense price competition, especially between leading models like theirs and Anthropic's. It suggests a maturing industry where efficiency gains allow for lower costs, ultimately benefiting users with more accessible AI but pressuring companies to differentiate beyond just raw model capabilities and find sustainable business models amidst commoditization.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely interprets OpenAI's potential price cuts as a strategic move driven by fierce competition with Anthropic, with some speculating it signals a lack of an imminent breakthrough model. While users appreciate &quot;investor-subsidized&quot; tokens and find current offerings like Codex affordable, there's underlying skepticism about the long-term sustainability of such price wars and the tendency for users to chase the lowest cost across providers.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>cnbc.com</span>
         <span>·</span>
@@ -318,7 +331,7 @@
         <span>·</span>
         <span>by agentifysh</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.cnbc.com/2026/06/11/openai-mulls-slashing-prices-ahead-of-competition-from-anthropic-wsj.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48486486" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -332,17 +345,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/" target="_blank" rel="noopener">Claude Fable 5: The Relentlessly Proactive AI Assistant That Seeks Out and Solves Problems</a></h2>
             <p class="story-summary">Teleport replaces fragmented identity and access tooling with a single identity layer that security teams trust, and engineers want to use. After two days of experience with Claude Fable 5 I think the best way to describe it is relentlessly proactive . It knows a whole lot of tricks and it will deploy pretty much any of them to get to its goal. I’ll illustrate this with an example. I was hacking on Datasette Agent today when I noticed a glitch: a horizontal scrollbar that shouldn’t be there in the jump menu chat prompt.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This article highlights a significant evolution in large language models, describing Claude Fable 5 as &quot;relentlessly proactive&quot; and capable of deploying various &quot;tricks&quot; to achieve its goals. This proactive nature suggests a shift from reactive AI tools to more autonomous, problem-solving assistants that can anticipate needs and execute complex strategies without constant human direction. Such advancements could redefine human-AI collaboration, enabling models to take a more independent role in identifying and resolving issues.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely rejects the anthropomorphic framing of &quot;relentlessly proactive,&quot; attributing Claude Fable's iterative problem-solving to the surrounding harness or generous tool access rather than inherent LLM agency. While acknowledging its impressive multi-step problem-solving capabilities, a significant concern is the high token cost and inefficiency of these exhaustive approaches, often for seemingly simple tasks.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>simonwillison.net</span>
         <span>·</span>
@@ -352,7 +365,7 @@
         <span>·</span>
         <span>by lumpa</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48498573" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -363,20 +376,20 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">🎮 Game Development</div>
-            
+
             <h2 class="story-title"><a href="https://www.theguardian.com/culture/2026/jan/05/raiders-of-the-lost-ark-hit-video-game-prince-of-persia" target="_blank" rel="noopener">Prince of Persia: How a Raiders of the Lost Ark Vision Forged a Gaming Hit With No Animation Software</a></h2>
             <p class="story-summary">‘I wanted that Raiders of the Lost Ark excitement – you could die any minute’: how we made hit video game Prince of Persia | Culture | The Guardian Skip to main content Skip to navigation Modelled on Errol Flynn as Robin Hood … the game on Sega. Modelled on Errol Flynn as Robin Hood … the game on Sega. ‘I wanted that Raiders of the Lost Ark excitement – you could die any minute’: how we made hit video game Prince of Persia ‘There was no animation software in those days.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This article offers a fascinating look into the creative genesis of Prince of Persia, highlighting the blend of cinematic inspiration and the technical hurdles faced in early game development. It demonstrates how iconic titles were forged through sheer creative will and ingenuity, often in the absence of advanced modern tools, shaping their unique character and lasting impact.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community overwhelmingly views the original Prince of Persia as an iconic and deeply beloved classic, evoking strong nostalgia and fond childhood memories for many. Commenters celebrate its unique mechanics and lasting impact, frequently recommending resources like &quot;War Stories&quot; videos and Jordan Mechner's journals to further explore its legacy.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>theguardian.com</span>
         <span>·</span>
@@ -386,7 +399,7 @@
         <span>·</span>
         <span>by msephton</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.theguardian.com/culture/2026/jan/05/raiders-of-the-lost-ark-hit-video-game-prince-of-persia" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48468852" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -397,20 +410,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">🛡️ AI Security</div>
-            
+
             <h2 class="story-title"><a href="https://github.com/denoland/clawpatrol" target="_blank" rel="noopener">Claw Patrol: Dedicated Firewall Secures AI Agents' Access to Production Systems</a></h2>
             <p class="story-summary">At Deno we've been using OpenClaw and other agents increasingly for addressing production problems in Deno Deploy - when a PagerDuty alert fires, the agent starts researching the cause and making fixes. In order to do this, the agent needs access to real production systems - postgres, kubernetes, gcp, clickhouse, github, etc. But this is dangerous to say the least - we want destructive actions to be reviewed by other LLMs, approved by humans, and logged appropriately. Claw Patrol terminates TCP connections over WireGuard or Tailscale, then parses application protocols (eg http, postgres, ssh) </p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This project highlights the critical emerging challenge of securing autonomous AI agents that require deep access to production systems. Claw Patrol introduces an innovative solution by acting as an application-layer firewall that terminates and parses protocol traffic, enabling granular control, logging, and multi-party approval for agent actions. This addresses the urgent need for specialized infrastructure to govern the potentially destructive capabilities of agentic AI in operational environments.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community shows strong positive interest in Claw Patrol, recognizing it as a valuable solution for securing AI agents through features like process-scoped egress policies, policy-as-code, and human-in-the-loop approval mechanisms. Many commenters see it addressing a real need, drawing parallels to similar tools or concepts they've explored. While there's enthusiasm, a few questions arise regarding operational aspects like approval timeouts and process termination within workflows.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>github.com</span>
         <span>·</span>
@@ -420,7 +433,7 @@
         <span>·</span>
         <span>by rough-sea</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://github.com/denoland/clawpatrol" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48462928" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -431,20 +444,20 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">AI Crowdfunding Platform 💰🤖</div>
-            
+
             <h2 class="story-title"><a href="https://fablepool.com" target="_blank" rel="noopener">FablePool: Crowdfund AI to Build Open-Source Software Publicly</a></h2>
             <p class="story-summary">Pool money behind a big prompt. An AI attempts the build, in public. Strangers chip in to fund one ambitious instruction — an AI agent carries it out milestone by milestone, with every credit on a public ledger. Funding targets are set by the AI planner (projects total at least $100); backers chip in any amount from $0.25. Build an open-source Turbopuffer-style object-storage-native search database</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">FablePool introduces a novel crowdfunding model, allowing communities to fund ambitious AI-driven development projects that an AI agent publicly builds milestone by milestone, tracked on a public ledger. This platform democratizes access to development resources and fosters transparency in open-source creation, offering a fresh approach to executing complex software ideas. Its success will critically depend on the AI's ability to consistently deliver high-quality, maintainable code for diverse and often multifaceted prompts.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community expresses significant skepticism and concern regarding FablePool's legitimacy and practicality. Key issues highlighted include a non-functional demo, high-risk project proposals (e.g., &quot;Solve Garbage Collection in C# for HFT&quot;), and a lack of transparency about the creators behind the anonymous website. While some commenters brainstorm potential applications, the dominant sentiment points to doubts about the platform's ability to deliver on its promises and questions about what happens if funding goals are met but tasks remain incomplete.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>fablepool.com</span>
         <span>·</span>
@@ -454,7 +467,7 @@
         <span>·</span>
         <span>by matthewbarras</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://fablepool.com" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48496539" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -465,20 +478,20 @@
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">🤝 AI Etiquette</div>
-            
+
             <h2 class="story-title"><a href="https://tombedor.dev/human-attention-and-human-effort/" target="_blank" rel="noopener">The New Rule for AI: Add Human Effort to Earn Attention for Shared Content</a></h2>
             <p class="story-summary">If You are Asking for Human Attention, Demonstrate Human Effort | Tom Bedor's Blog An ever-increasing volume of debug investigations, document writing, and code is written by robots. This has created a new etiquette question when working with a team - when is it OK to forward the output of an AI to another human to read? On one hand, an AI with robust integration to internal code bases and documentation often produces genuinely 1 useful output. On the other, as an increasing amount of a software engineer's day is spent reading AI text, a fatigue sets in.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This piece addresses a critical, emerging facet of professional communication in the age of AI: the etiquette of presenting AI-generated content to human colleagues. It argues that demonstrating human effort alongside AI output is essential to respect colleagues' finite attention, mitigate AI-text fatigue, and ensure that human collaboration remains grounded in value-added interaction.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely agrees that unedited or low-effort AI-generated content is counterproductive, often leading to it being ignored and placing an increased burden on human reviewers. There's a strong consensus that if one expects human attention and evaluation, they must invest significant human effort in refining and vetting AI outputs, otherwise, their work risks being devalued or even making their role redundant.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>tombedor.dev</span>
         <span>·</span>
@@ -488,7 +501,7 @@
         <span>·</span>
         <span>by jjfoooo4</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://tombedor.dev/human-attention-and-human-effort/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48497609" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -496,11 +509,36 @@
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · June 12, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-06-11.html">
+        <small>Previous issue</small>
+        <strong>← June 11, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-06-13.html">
+        <small>Next issue</small>
+        <strong>→ June 13, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>

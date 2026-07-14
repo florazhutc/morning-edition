@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Edition — July 01, 2026</title>
+    <meta name="description" content="HN Daily Brief issue 056, July 01, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — July 01, 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -69,37 +70,49 @@
             .masthead { padding: 12vh 24px; }
         }
     </style>
-    </style>
+    <link rel="stylesheet" href="../assets/issue.css">
 </head>
 <body>
-    <!-- FLOATING ACTION BAR -->
-    <div class="action-bar">
-        <a href="#toc" class="action-btn" style="text-decoration:none;">🏠 Catalogue</a>
-        <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');" class="action-btn">🔗 Share</button>
-        <a href="#" id="download-btn" class="action-btn primary" style="text-decoration:none;">⬇️ Download</a>
-    </div>
-    <script>
-        // Set download link to the exact HTML file it's viewed from
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('download-btn');
-            // If on the web, grab the last part of path, else fallback
-            const filename = window.location.pathname.split('/').pop() || 'magazine.html';
-            btn.href = window.location.href;
-            btn.download = filename;
-        });
-    </script>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
 
-    <!-- MASTHEAD -->
-    <div class="masthead">
-        <div class="masthead-label">A Curated Daily Digest</div>
-        <h1>Morning<br><em>Edition</em></h1>
-        <div class="masthead-date">Wednesday</div>
-        <div class="masthead-year">July 01, 2026</div>
-    </div>
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 056</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Wednesday</span>
+                    <time datetime="2026-07-01">July 01, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
 
     <!-- TABLE OF CONTENTS -->
-    <div class="toc" id="toc">
-        <div class="toc-header">In This Issue</div>
+    <div class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
         <nav>
         <a href="#story-1" class="toc-item">
             <span class="toc-num">01</span>
@@ -154,7 +167,7 @@
     </div>
 
     <!-- STORIES -->
-    
+
     <section id="story-1" class="story" style="background:#FAF6F0;">
         <div class="story-num">1</div>
         <div class="story-content">
@@ -162,17 +175,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://thereallo.dev/blog/claude-code-prompt-steganography" target="_blank" rel="noopener">Claude AI Caught Steganographically Marking User Requests with Hidden Tracking Data</a></h2>
             <p class="story-summary">Claude Code Is Steganographically Marking Requests Claude Code Is Steganographically Marking Requests I inspected Claude Code for privacy reasons and found hidden system prompt markers based on API base URL and timezone. I was inspecting Claude Code for privacy reasons. Most devs give their harnesses ridiculous access.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">The discovery of steganographic markers in Claude AI's code output reveals a significant, non-transparent privacy risk, potentially allowing the AI provider to covertly track user environments and usage patterns. This practice erodes user trust and underscores a critical need for rigorous auditing of AI model outputs for hidden data, pushing for greater transparency in AI development and deployment practices.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely expresses deep distrust towards Anthropic and other major AI labs, viewing the covert steganographic marking as unethical and another example of their lack of transparency. While some acknowledge a possible business rationale, the secretive method is strongly criticized, leading many to advocate for open-source alternatives and question the trustworthiness of proprietary AI tools. There's a clear consensus that such undisclosed behavior is unacceptable and undermines user confidence.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>thereallo.dev</span>
         <span>·</span>
@@ -182,7 +195,7 @@
         <span>·</span>
         <span>by kirushik</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://thereallo.dev/blog/claude-code-prompt-steganography" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48734373" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -196,17 +209,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" rel="noopener">Claude Sonnet 5 Unlocks Opus-Level Agentic AI for Less</a></h2>
             <p class="story-summary">Claude Sonnet 5 is built to be the most agentic Sonnet model yet. It can make plans, use tools like browsers and terminals, and run autonomously at a level that, just a few months ago, required larger and more expensive models. For many developers, the agentic AI era began with Sonnet-class models: Claude Sonnet 3.5, 3.6, and 3.7 were the first models that showed impressive skills in coding and tool use. More recently, though, the clearest gains in agentic capabilities have been in our Opus-class models. Sonnet 5 narrows the gap: its performance is close to that of Opus 4.8, but at lower prices.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Claude Sonnet 5 marks a pivotal moment by democratizing advanced agentic AI, bringing high-level planning and tool-use capabilities previously exclusive to larger, more expensive models to a more accessible price point. This performance-to-cost efficiency is crucial for developers, as it accelerates the deployment of sophisticated autonomous applications and underscores the rapid evolution of AI towards broader utility.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely expresses skepticism about the value proposition of Claude Sonnet 5, primarily due to its suboptimal cost-per-task ratio. Many commenters note that at medium-to-high effort levels, its cost-per-task often exceeds Opus, making Opus a more economically sound choice for similar or better performance. While acknowledging improved &quot;agentic&quot; capabilities over previous Sonnet versions, users struggle to identify strong reasons to choose Sonnet 5 over Opus or even other models like GLM 5.2, given its observed weaknesses in trivia, tool-calling, and puzzle-solving.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>anthropic.com</span>
         <span>·</span>
@@ -216,7 +229,7 @@
         <span>·</span>
         <span>by marinesebastian</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48736605" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -230,17 +243,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://twitter.com/AnthropicAI/status/2072106151890809341" target="_blank" rel="noopener">US Commerce Greenlights Anthropic's Claude Fable 5, Mythos 5 for Export</a></h2>
             <p class="story-summary">Anthropic on X: &quot;We’ve received notice that the Department of Commerce has lifted export controls on Claude Fable 5 and Mythos 5. We'll begin restoring access tomorrow, and will share an update soon. We’re grateful to our users for their patience, and to everyone who worked with us on&quot; / X We’ve received notice that the Department of Commerce has lifted export controls on Claude Fable 5 and Mythos 5. We'll begin restoring access tomorrow, and will share an update soon.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This decision by the Department of Commerce underscores the highly dynamic and evolving regulatory landscape for advanced AI, particularly regarding international access and potential dual-use concerns. Lifting export controls on Anthropic's models suggests a refined understanding of their risks or a successful collaboration between industry and government to address initial security implications. This move could accelerate global AI adoption and competition, while also highlighting the ongoing challenges governments face in balancing innovation with national security in the AI domain.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community largely agrees that the temporary export controls on Claude Fable 5 and Mythos 5 severely damaged the predictability and trustworthiness of building business-critical functions on American frontier AI models. Commenters widely criticize the government's handling as arbitrary, ineffective, and poorly conceived, leading to significant uncertainty for the industry. Many call for clear, predictable laws governing AI model deployment rather than reactive, ad-hoc decisions.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>twitter.com</span>
         <span>·</span>
@@ -250,7 +263,7 @@
         <span>·</span>
         <span>by Pragmata</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://twitter.com/AnthropicAI/status/2072106151890809341" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48740771" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -261,20 +274,20 @@
         <div class="story-num">4</div>
         <div class="story-content">
             <div class="story-category">⚙️ Local AI Development</div>
-            
+
             <h2 class="story-title"><a href="https://quesma.com/blog/qwen-36-is-awesome/" target="_blank" rel="noopener">Qwen 3.6 27B: The Optimal LLM for Local AI Development</a></h2>
             <p class="story-summary">Qwen 3.6 27B is the sweet spot for local development - Quesma Blog</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Qwen 3.6 27B's designation as a &quot;sweet spot&quot; for local development underscores the critical balance between AI model performance and practical resource efficiency. This highlights a significant trend towards optimizing advanced LLMs for consumer-grade hardware, enabling broader experimentation and application development without heavy cloud reliance. It signals a shift towards democratizing AI, making powerful models more accessible for individual developers and smaller teams to innovate locally.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely refutes the idea of expensive MacBook Pros (especially 128GB models) being a &quot;sweet spot&quot; for local LLM development. Commenters highlight the prohibitive cost, poor value compared to much cheaper cloud API services like OpenRouter, and practical issues like excessive heat and noise on Apple hardware. Many argue that dedicated GPUs offer better performance for dense models and that the economics simply don't make sense for serious work.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>quesma.com</span>
         <span>·</span>
@@ -284,7 +297,7 @@
         <span>·</span>
         <span>by stared</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://quesma.com/blog/qwen-36-is-awesome/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48721903" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -295,24 +308,24 @@
         <div class="story-num">5</div>
         <div class="story-content">
             <div class="story-category">🛠️ DIY &amp; Sustainability</div>
-            
+
             <h2 class="story-title"><a href="https://opensourcelowtech.org/" target="_blank" rel="noopener">Open Source Low-Tech: DIY Essential Infrastructure with Recycled Materials</a></h2>
             <p class="story-summary">I prototype and develop basic technologies which anyone can make using recycled
           materials and simple tools. The aim is for everyone everywhere to be able to build and maintain their own infrastructure; producing their
           own energy, food, clean water, communications, and anything else they need. All designs are open source and license free for any purpose, and full construction tutorials and how-tos are
           available here . The Facebook group is also a
           good place to ask questions and post results from your own builds. Featured In: Al Jazeera ¦ The Guardian ¦ New Statesman ¦ Le Monde ¦ Makezine</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This initiative champions accessible self-sufficiency by democratizing essential infrastructure through open-source, low-tech designs. By focusing on recycled materials and simple tools, it empowers individuals globally to build their own energy, food, and water systems, fostering resilience and independence from complex proprietary technologies. Its open-source nature promotes community-driven innovation and widespread adoption, especially in regions lacking robust commercial infrastructure.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views &quot;Open Source Low Tech&quot; as a valuable and timely concept, recognizing its deep roots in the &quot;Appropriate Technology&quot; and &quot;Small is Beautiful&quot; movements of past decades. There's a strong consensus that this approach fosters self-sufficiency and local manufacturing, offering practical solutions that reduce dependence on external resources, especially in contexts where high-tech alternatives are impractical or inaccessible.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>opensourcelowtech.org</span>
         <span>·</span>
@@ -322,7 +335,7 @@
         <span>·</span>
         <span>by grep_it</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://opensourcelowtech.org/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48683098" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -336,17 +349,17 @@
             <div class="flag">⚡ Highly Relevant</div>
             <h2 class="story-title"><a href="https://claude.com/product/claude-science" target="_blank" rel="noopener">Anthropic Debuts Claude Science Beta: AI Automates and Reproduces Scientific Research</a></h2>
             <p class="story-summary">Claude Science beta | Claude by Anthropic Your research partner for rigorous science The Claude Science app runs analyses, searches databases, and traces every step from data wrangling to publication, so you can spend time on science. Rich scientific artifacts, fully reproducible View proteins, structures, and molecules natively, with every result reproducible and traced to its code.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This new Claude Science application from Anthropic aims to significantly streamline the scientific research workflow by leveraging AI for data analysis, database searching, and complete process tracing. Its emphasis on rich, native visualizations of scientific artifacts and full reproducibility, with every step traceable to code, directly addresses critical pain points in research efficiency and scientific rigor, potentially accelerating discoveries and enhancing trust in research outcomes.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely views Claude Science as a promising and highly effective tool, particularly for **data science** in biological and bioinformatics research. Users are **impressed** by its ability to significantly **speed up complex tasks**, generate reproducible research, and tackle challenging problems like whole genome sequencing analysis. While some note it might occasionally take a &quot;naive approach&quot; or challenge users' mental models, its overall practical utility for real lab workflows is well-received.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>claude.com</span>
         <span>·</span>
@@ -356,7 +369,7 @@
         <span>·</span>
         <span>by lebovic</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://claude.com/product/claude-science" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48735770" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -367,20 +380,20 @@
         <div class="story-num">7</div>
         <div class="story-content">
             <div class="story-category">🎮 Retro Gaming</div>
-            
+
             <h2 class="story-title"><a href="https://www.youtube.com/watch?v=lHQ8c8i42VE" target="_blank" rel="noopener">From Pixels to Playfield: Building a Real Space Cadet Pinball Machine</a></h2>
             <p class="story-summary">Community discussion highlights: I got my amateur radio license in the sixties. There was an old timer on 80 meters who was the leader of a chat group that met daily. Any ham could join the conversation with one exception. He had a phrase: &quot;no kids, lids or space cadets.&quot; Just like Gen Z these days he did not like Boomers ;&lt;). That phrase to this day brings a smile to amateur radio operators of a certain vintage.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post showcases an ambitious DIY project to physically build a Space Cadet Pinball machine, tapping into significant retro gaming nostalgia. The accompanying community discussion, however, offers a fascinating tangent, delving into the historical and cultural origins of the &quot;Space Cadet&quot; phrase within the amateur radio community, illustrating how titles can trigger diverse, generational anecdotes.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community displays overwhelming enthusiasm and support for the Space Cadet Pinball Machine project. Many commenters express admiration and inspiration, relating to the joy of undertaking large-scale, unconventional building projects themselves. The sentiment is highly positive, celebrating the craftsmanship and the pursuit of unique, passion-driven endeavors.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>youtube.com</span>
         <span>·</span>
@@ -390,7 +403,7 @@
         <span>·</span>
         <span>by skibz</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.youtube.com/watch?v=lHQ8c8i42VE" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48689820" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -401,20 +414,20 @@
         <div class="story-num">8</div>
         <div class="story-content">
             <div class="story-category">⚙️ Database Internals</div>
-            
+
             <h2 class="story-title"><a href="https://www.buraksen.dev/articles/internals-of-postgresql-db-cluster-and-tables" target="_blank" rel="noopener">Unpacking PostgreSQL Internals: Clusters, Databases, and Tables Demystified</a></h2>
             <p class="story-summary">Reading The Internals of PostgreSQL: Database Cluster, Databases, and Tables — Burak Sen Reading The Internals of PostgreSQL: Database Cluster, Databases, and Tables I'm delving into Postgres Internals and while doing that I thought it would be better to write my notes to keep me accountable and try to internalize my readings. Thanks Hironobu Suzuki for this great reference and his work on Postgres. Here is the source link https://www.interdb.jp/pg/index.html .</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This post offers a valuable deep dive into PostgreSQL's fundamental architecture, dissecting how data is organized from the cluster level down to individual tables. Understanding these internals is crucial for advanced performance tuning, effective troubleshooting, and designing robust, scalable database systems. The author's approach of note-taking for accountability highlights an effective learning strategy for mastering complex system knowledge.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community shows a strong fascination with the low-level internals of databases like Postgres, expressing curiosity beyond basic SQL literacy. There's clear appreciation for the intricate memory management and OS-level programming techniques employed, which some view as the essence of &quot;true programming.&quot;</p>
     </div>
-            
+
     <div class="story-meta">
         <span>buraksen.dev</span>
         <span>·</span>
@@ -424,7 +437,7 @@
         <span>·</span>
         <span>by buraksen</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.buraksen.dev/articles/internals-of-postgresql-db-cluster-and-tables" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48718716" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -435,20 +448,20 @@
         <div class="story-num">9</div>
         <div class="story-content">
             <div class="story-category">AI Policy</div>
-            
+
             <h2 class="story-title"><a href="https://www.pcgamer.com/gaming-industry/open-source-game-engine-godot-will-no-longer-accept-ai-authored-code-contributions-we-cant-trust-heavy-users-of-ai-to-understand-their-code-enough-to-fix-it/" target="_blank" rel="noopener">Godot Engine Bans AI-Authored Code Contributions Over Trust and Maintainability Concerns</a></h2>
             <p class="story-summary">Open source game engine Godot will no longer accept AI-authored code contributions: 'We can't trust heavy users of AI to understand their code enough to fix it' | PC Gamer</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">Godot's decision to ban AI-authored code highlights a critical emerging challenge for open-source projects: the perceived trade-off between automated efficiency and the depth of contributor understanding and accountability. This move underscores concerns about code quality, maintainability, and the practical difficulties of relying on contributions where the original author may not fully grasp or debug their own work. It signals a potential precedent for other open-source communities grappling with how to integrate AI tools responsibly while preserving core principles of human expertise and long-term project health.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The Hacker News community largely supports Godot's decision, viewing AI-authored code as &quot;slop&quot; that creates a significant burden for volunteer reviewers, hinders mentorship, and wastes maintainer time. While a few comments question basing the policy on the tool used rather than the quality of the contribution, or whether AI could objectively improve code, the prevailing sentiment is that such contributions are akin to a &quot;denial-of-service attack&quot; on human reviewers.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>pcgamer.com</span>
         <span>·</span>
@@ -458,7 +471,7 @@
         <span>·</span>
         <span>by pjmlp</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://www.pcgamer.com/gaming-industry/open-source-game-engine-godot-will-no-longer-accept-ai-authored-code-contributions-we-cant-trust-heavy-users-of-ai-to-understand-their-code-enough-to-fix-it/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48743472" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -469,20 +482,20 @@
         <div class="story-num">10</div>
         <div class="story-content">
             <div class="story-category">Future of Work 👷‍♂️</div>
-            
+
             <h2 class="story-title"><a href="https://ramp.com/data/ai-jobs-impact" target="_blank" rel="noopener">Generative AI Adoption: Firms' Job Impact Challenges &quot;AI Kills All Jobs&quot; Claims</a></h2>
             <p class="story-summary">Community discussion highlights: So, more skynet leads to more real jobs? I am confused. Wasn't the initial claim that AI kills all jobs? I feel the claim right now is not really correct. One needs to do a thorough analysis of the whole job market across different countries, say, over 5 years. Or at the least 3 years but very complete and unbiased either way.</p>
-            
+
     <div class="story-insight">
         <div class="story-insight-label">Actionable Insight</div>
         <p class="story-insight-text">This discussion highlights the ongoing confusion and evolving narrative around generative AI's impact on employment, challenging initial widespread fears of mass job displacement. It underscores the critical need for comprehensive, long-term empirical analysis across diverse economies to understand the nuanced ways AI is truly transforming roles, requiring new skills, and potentially creating new job categories rather than simply eliminating them.</p>
     </div>
-            
+
     <div class="story-community">
         <div class="story-community-label">Community Voice</div>
         <p class="story-community-text">The community is highly skeptical of the study's conclusions, primarily questioning the validity and sufficiency of data given the recent emergence of widespread generative AI adoption. Many commenters suggest that any observed correlations might be coincidental or driven by confounding factors, such as already-growing companies being more likely to invest in AI, rather than AI directly causing employment changes. They seek a deeper analysis of *what* new roles are created and if these are genuinely productive.</p>
     </div>
-            
+
     <div class="story-meta">
         <span>ramp.com</span>
         <span>·</span>
@@ -492,7 +505,7 @@
         <span>·</span>
         <span>by nreece</span>
     </div>
-            
+
     <div class="story-links">
         <a href="https://ramp.com/data/ai-jobs-impact" target="_blank" rel="noopener" class="story-link">Read Source →</a>
         <a href="https://news.ycombinator.com/item?id=48742176" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
@@ -500,11 +513,36 @@
         </div>
     </section>
 
-    <!-- COLOPHON -->
-    <footer class="colophon">
-        <div style="width:30px;height:1px;background:#C84B31;margin:0 auto 20px;"></div>
-        <div style="font-family:'Fraunces',serif;font-size:1.2rem;color:#1A1A1A;font-style:italic;margin-bottom:8px;">Morning Edition</div>
-        <div style="font-family:'Inter',sans-serif;font-size:0.7rem;color:#8C7A6B;letter-spacing:0.08em;">Curated from Hacker News · July 01, 2026</div>
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-06-30.html">
+        <small>Previous issue</small>
+        <strong>← June 30, 2026</strong>
+    </a>
+        <a class="issue-nav-link" href="2026-07-02.html">
+        <small>Next issue</small>
+        <strong>→ July 02, 2026</strong>
+    </a>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
     </footer>
+<!-- ISSUE FOOTER END -->
 </body>
 </html>
