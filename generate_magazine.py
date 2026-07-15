@@ -23,6 +23,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 from editorial_ai import generate_editorial_package
+from email_digest import build_issue_url, render_email_digest, render_email_text
 from issue_branding import issue_details, render_issue_footer, render_issue_header
 
 # ---------------------------------------------------------------------------
@@ -36,7 +37,17 @@ def load_config():
     with open(CONFIG_PATH, "r") as f:
         return json.load(f)
 
-def send_email(config, html_content, subject):
+def build_email_message(sender, recipients, subject, html_content, text_content):
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = subject
+    msg["From"] = sender
+    msg["To"] = ", ".join(recipients)
+    msg.attach(MIMEText(text_content, "plain", "utf-8"))
+    msg.attach(MIMEText(html_content, "html", "utf-8"))
+    return msg
+
+
+def send_email(config, html_content, subject, text_content=None):
     """Send email with magazine HTML content."""
     email_config = config.get("email", {})
     if not email_config.get("enabled", False):
@@ -47,39 +58,18 @@ def send_email(config, html_content, subject):
     smtp_port = email_config.get("smtp_port", 587)
     smtp_user = email_config.get("smtp_user", "")
     smtp_password = os.environ.get(email_config.get("smtp_password_env", ""))
-    recipients = email_config.get("to", "").split(",")
+    recipients = [address.strip() for address in email_config.get("to", "").split(",") if address.strip()]
 
     if not smtp_user or not smtp_password:
         print("   ⚠️  SMTP credentials not configured.")
         return False
 
-    stylesheet_path = Path(SCRIPT_DIR) / "assets" / "issue.css"
-    if stylesheet_path.exists():
-        stylesheet = stylesheet_path.read_text(encoding="utf-8")
-        html_content = html_content.replace("</head>", f"<style>{stylesheet}</style></head>", 1)
-
-    # Add a direct link to the published issue at the top of the email.
-    magazine_link = os.environ.get("MORNING_EDITION_SITE_URL") or email_config.get("site_url", "")
-    magazine_link = magazine_link.rstrip("/")
-    header_html = f'''
-    <div style="background:#073D2D;padding:24px;text-align:center;margin-bottom:24px;">
-        <h3 style="font-family:Georgia,serif;color:#FFFEFB;margin:0 0 12px;">HN Daily Brief</h3>
-        <a href="{magazine_link}" style="background:#F5B82E;color:#073D2D;padding:12px 24px;text-decoration:none;border-radius:999px;font-family:Inter,sans-serif;font-weight:700;">View online →</a>
-    </div>
-    '''
-    if magazine_link:
-        html_content = html_content.replace("<body>", f"<body>{header_html}", 1)
+    if not text_content:
+        site_url = os.environ.get("MORNING_EDITION_SITE_URL") or email_config.get("site_url", "")
+        text_content = f"{subject}\n\nRead online: {site_url}\n"
 
     try:
-        msg = MIMEMultipart("alternative")
-        msg["Subject"] = subject
-        msg["From"] = smtp_user
-        msg["To"] = ", ".join(recipients)
-
-        text_part = MIMEText("Open the HTML version in your email client to read the magazine.", "plain")
-        html_part = MIMEText(html_content, "html", "utf-8")
-        msg.attach(text_part)
-        msg.attach(html_part)
+        msg = build_email_message(smtp_user, recipients, subject, html_content, text_content)
 
         ctx = ssl.create_default_context()
         with smtplib.SMTP(smtp_server, smtp_port) as server:
@@ -797,11 +787,22 @@ def main():
         f.write(html)
     print(f"   ✅ Saved to {output_path}")
 
+    email_config = config.get("email", {})
+    site_url = os.environ.get("MORNING_EDITION_SITE_URL") or email_config.get("site_url", "")
+    issue_url = build_issue_url(site_url, today)
+    email_html = render_email_digest(curated, today, issue_url)
+    email_text = render_email_text(curated, today, issue_url)
+    email_output_dir = Path(SCRIPT_DIR) / ".email"
+    email_output_dir.mkdir(exist_ok=True)
+    (email_output_dir / f"{today}.html").write_text(email_html, encoding="utf-8")
+    (email_output_dir / f"{today}.txt").write_text(email_text, encoding="utf-8")
+    print(f"   ✅ Email preview saved to {email_output_dir / f'{today}.html'}")
+
     # Email is best-effort and must never block publishing the generated issue.
     send_email_enabled = os.environ.get("MORNING_EDITION_SEND_EMAIL", "true").lower() in {"1", "true", "yes"}
     if send_email_enabled:
         subject = f"HN Daily Brief - {datetime.datetime.now().strftime('%B %d, %Y')}"
-        send_email(config, html, subject)
+        send_email(config, email_html, subject, email_text)
 
     print(f"\n{'=' * 60}\n  ✅ Done!\n{'=' * 60}")
 

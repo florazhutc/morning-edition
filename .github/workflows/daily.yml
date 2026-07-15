@@ -62,8 +62,9 @@ jobs:
           from generate_magazine import load_config, send_email
 
           today = datetime.date.today().strftime("%Y-%m-%d")
-          issue = Path("magazines") / f"{today}.html"
-          html = issue.read_text(encoding="utf-8")
-          if not send_email(load_config(), html, f"HN Daily Brief - {today}"):
+          email_dir = Path(".email")
+          html = (email_dir / f"{today}.html").read_text(encoding="utf-8")
+          text = (email_dir / f"{today}.txt").read_text(encoding="utf-8")
+          if not send_email(load_config(), html, f"HN Daily Brief - {today}", text):
               raise SystemExit(1)
           PY
