@@ -54,7 +54,7 @@ jobs:
         continue-on-error: true
         env:
           MORNING_EDITION_EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-          MORNING_EDITION_SITE_URL: https://morning-edition.vercel.app
+          MORNING_EDITION_SITE_URL: https://wilderness-signal.vercel.app
         run: |
           python3 - <<'PY'
           import datetime

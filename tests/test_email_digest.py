@@ -17,11 +17,11 @@ class EmailDigestTests(unittest.TestCase):
             "summary_en": "A concise sourced summary for people reading the daily brief on a phone.",
             "insight_cat_en": "Developer Tooling",
         }
-        self.issue_url = "https://morning-edition.vercel.app/magazines/2026-07-14.html"
+        self.issue_url = "https://wilderness-signal.vercel.app/magazines/2026-07-14.html"
 
     def test_issue_url_points_to_exact_date(self):
         self.assertEqual(
-            build_issue_url("https://morning-edition.vercel.app/", "2026-07-14"),
+            build_issue_url("https://wilderness-signal.vercel.app/", "2026-07-14"),
             self.issue_url,
         )
 
