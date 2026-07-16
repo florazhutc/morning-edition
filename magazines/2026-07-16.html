@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HN Daily Brief issue 071, July 16, 2026: curated Hacker News signals for AI-native builders.">
+    <title>HN Daily Brief — July 16, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 071</p>
+                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Thursday</span>
+                    <time datetime="2026-07-16">July 16, 2026</time>
+                    <p>Curated Hacker News signals for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Thinking Machines Lab Releases Inkling, a 975B-Parameter Open-Weights MoE Model</span>
+            <span class="toc-score">908 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Firefox Browser Successfully Ported to WebAssembly</span>
+            <span class="toc-score">185 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Coasty Launches API for Computer-Use Agents</span>
+            <span class="toc-score">32 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Article Details Jurassic Park's On-Screen Computer Technology</span>
+            <span class="toc-score">888 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Proposal for SQLite to Adopt Rust-Style Editions for Managed Evolution</span>
+            <span class="toc-score">230 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Report Urges Investment in Free, Open-Source AI</span>
+            <span class="toc-score">161 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">xAI Open-Sources Grok Build Coding Agent Harness</span>
+            <span class="toc-score">400 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Sleep Regularity Predicts Mortality Risk More Strongly Than Sleep Duration</span>
+            <span class="toc-score">685 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">E-- Language Blends English and Python Syntax with Compile-Time LLM Assistance</span>
+            <span class="toc-score">22 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Whispr: Open-Source Transcription Tool Leverages Cloudflare AI</span>
+            <span class="toc-score">12 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">AI Models 🤖</div>
+
+            <h2 class="story-title"><a href="https://thinkingmachines.ai/news/introducing-inkling/" target="_blank" rel="noopener">Thinking Machines Lab Releases Inkling, a 975B-Parameter Open-Weights MoE Model</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Inkling: Our open-weights model - Thinking Machines Lab Our mission is to build AI that extends human will and judgment. We have developed a platform that lets anyone customize models, previewed an AI system built for interactive collaboration, and published novel research . Today we are advancing our mission by releasing a model we trained from scratch with the full weights available, so that people can make it their own. Our model, called Inkling, is a Mixture-of-Experts transformer with 975B total parameters, 41B active.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Thinking Machines Lab has released Inkling, a 975B-parameter Mixture-of-Experts model designed as an open-weights base for customization. This model, with 41B active parameters, is intended to empower users to adapt AI to their specific needs, aligning with the lab's mission to extend human will and judgment. Its focus on multimodal capabilities and efficient thinking positions it as a versatile foundation for further development.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community highlights Inkling's multimodal capabilities, particularly audio support, and its significance as a large open-weight model. There's a strong desire for more US-based open models, with some seeing Inkling as a potential contender against models like DeepSeek. While not considered the strongest overall, its value as a customizable base model for fine-tuning is emphasized. Early, preliminary testing suggests its performance might exceed public benchmarks, fostering optimism for its potential and for American open research labs. The availability of a smaller Inkling-Small model and tools for local deployment were also noted.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>thinkingmachines.ai</span>
+        <span>·</span>
+        <span>908 pts</span>
+        <span>·</span>
+        <span>222 comments</span>
+        <span>·</span>
+        <span>by vimarsh6739</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://thinkingmachines.ai/news/introducing-inkling/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48924912" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">Web Development 🌐</div>
+
+            <h2 class="story-title"><a href="https://developer.puter.com/labs/firefox-wasm/" target="_blank" rel="noopener">Firefox Browser Successfully Ported to WebAssembly</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">This is the entire Firefox browser rendering to a &lt;canvas&gt; element. Gecko, all UI components, and the Spidermonkey JS engine are all compiled and running in WebAssembly. Here are a few things you might find interesting: - This is fully end to end encrypted! We use the WISP protocol for TCP-over-websockets. - There is a novel WASM-&gt;JS JIT for experimental site speedup - This port cost over 25k in opus/fable tokens for debugging and JIT research This was just a fun experiment to push the boundaries of WebAssembly. For a more usable &quot;browser in browser&quot; experience, we also built https://github.co</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This experimental project showcases the advanced capabilities of WebAssembly by compiling the entire Firefox browser, including its rendering engine and JavaScript engine, to run within a `&lt;canvas&gt;` element. It integrates novel technologies like the WISP protocol for secure TCP-over-websockets and a WASM-to-JS JIT for experimental site speedup. The endeavor pushes the boundaries of in-browser application development and WebAssembly's potential.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community questioned the project's characterization as a 'fun experiment' given its reported $25k cost for debugging and JIT research. Discussions also highlighted related prior art, such as porting WebKit to JavaScript and Gecko to iOS. Some users explored the project's limits, successfully nesting Firefox-WASM instances, while others reported specific technical issues with certain browser versions.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>developer.puter.com</span>
+        <span>·</span>
+        <span>185 pts</span>
+        <span>·</span>
+        <span>97 comments</span>
+        <span>·</span>
+        <span>by coolelectronics</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://developer.puter.com/labs/firefox-wasm/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48926939" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">AI Agents 🤖</div>
+
+            <h2 class="story-title"><a href="https://coasty.ai/docs" target="_blank" rel="noopener">Coasty Launches API for Computer-Use Agents</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Run autonomous tasks on managed machines, compose them into workflows, and drop to prediction primitives only when you need direct control. Generate a ready-made prompt tailored to Cursor, Claude Code, ChatGPT, or any LLM. Start with task runs, workflows, and machines. Drop to prediction primitives only when your application needs to own the control loop. Start with a task run : give Coasty a goal and a machine, then let the agent drive to completion.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Coasty provides an API for computer-use agents, enabling autonomous task execution on managed machines and their composition into workflows. It allows developers to delegate task completion to agents while offering the flexibility to drop to prediction primitives for direct control when necessary. The platform also supports generating tailored prompts for various large language models.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community is primarily interested in understanding how Coasty differentiates itself from other Computer-Use Agent (CUA) APIs that have recently emerged.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>coasty.ai</span>
+        <span>·</span>
+        <span>32 pts</span>
+        <span>·</span>
+        <span>7 comments</span>
+        <span>·</span>
+        <span>by nkov47</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://coasty.ai/docs" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48922706" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Film Tech 🎬</div>
+
+            <h2 class="story-title"><a href="https://fabiensanglard.net/jurrasic_park_computers/index.html" target="_blank" rel="noopener">Article Details Jurassic Park's On-Screen Computer Technology</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Jurassic Park computers in excruciating detail Jurassic Park computers in excruciating detail After I mentioned a Jurassic Park anecdote the other day , I watched the movie again. I must have seen it at least ten times now. This time, I researched every computer/software I spotted.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The article meticulously dissects the computer hardware and software featured in *Jurassic Park*, revealing the production's commitment to technological authenticity. This deep dive highlights how the film's on-screen tech, from specific workstations to operating systems, was carefully chosen and often real. It demonstrates the lasting impact of the film's tech aesthetic on viewers and developers.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters shared anecdotes about the film's tech, including the Motorola Envoy's origin as a frogdesign mockup shown to Spielberg. They noted Nedry's on-screen code was actual Macintosh Programmers Workshop example code and discussed the use of a Thinking Machines CM-5 supercomputer after Cray declined, a detail even mentioned by Nedry in the film. The community also highlighted the specialized role of a &quot;24 Frame Computer Sync Engineer&quot; to synchronize film cameras with CRT monitors, and how the film's computers inspired some viewers to emulate their aesthetic in personal projects.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>fabiensanglard.net</span>
+        <span>·</span>
+        <span>888 pts</span>
+        <span>·</span>
+        <span>232 comments</span>
+        <span>·</span>
+        <span>by vinhnx</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://fabiensanglard.net/jurrasic_park_computers/index.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48915709" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">💾 Database Development</div>
+
+            <h2 class="story-title"><a href="https://mort.coffee/home/sqlite-editions/" target="_blank" rel="noopener">Proposal for SQLite to Adopt Rust-Style Editions for Managed Evolution</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">SQLite should have (Rust-style) editions - Mort's Ramblings SQLite is an amazing database engine. I use it as a database for plenty of embedded projects,
+and I don't think it's an exaggeration to call it the industry standard
+for local data storage. Some server software even uses it; for example, lobste.rs is now running on SQLite . Unlike traditional RDBMSes (Relational DataBase Management Systems),
+SQLite is not a separate process;
+it's an RDBMS as a library, meaning your software remains self contained.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A proposal suggests SQLite implement a Rust-style 'editions' system to introduce new features and improve default behaviors without sacrificing backward compatibility. This approach would allow developers to opt into newer language versions, addressing 'pet peeves' and evolving the database engine while maintaining stability for existing deployments. Given SQLite's role as an embedded, self-contained RDBMS, such a mechanism is crucial for its continued development and widespread use.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely supports the concept of editions for SQLite as a method to introduce alternative defaults and fix 'absurd behavior' while preserving backward compatibility. However, some users express concerns about potential confusion if too many editions are introduced, similar to C++. Commenters also note that SQLite's nature as a data container, frequently moved between different application versions and machines, presents unique challenges compared to Rust's compile-time focus. Alternative solutions like wrapper libraries for setting sane defaults were discussed, along with the difficulty of implementing compile-time defaults in environments using prebuilt libraries, such as iOS.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>mort.coffee</span>
+        <span>·</span>
+        <span>230 pts</span>
+        <span>·</span>
+        <span>82 comments</span>
+        <span>·</span>
+        <span>by gnyeki</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://mort.coffee/home/sqlite-editions/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48928135" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Artificial Intelligence 🤖</div>
+
+            <h2 class="story-title"><a href="https://www.siegelendowment.org/wp-content/uploads/2026/07/fortune-david-siegel-open-source-ai.pdf" target="_blank" rel="noopener">Report Urges Investment in Free, Open-Source AI</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: We really need to band together to fund / sponsor targeted inducement prizes (a la Nobel laureate Michael Kremer) for open models. Every 6-12 months, give out $200K to the first model to hit a min threshold on a set of ~5-10 hard benchmarks (+ perhaps one secret benchmark) using a total of 16GB / 32GB / 64GB / 128GB of VRAM (at a min context length of 200K), then move the threshold up. Quantization etc. is dealers choice, it just needs to nail the benchmark on a reference machine by using exactl</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A recent report advocates for significant investment from governments, companies, and nonprofits into free, open-source AI development. This strategy aims to foster innovation and establish performance benchmarks for open models. Proposed mechanisms include targeted inducement prizes to incentivize the creation of models meeting specific technical thresholds.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely supports the idea of funding open models, with specific suggestions for prize-based incentives tied to benchmarks and hardware constraints. However, skepticism exists regarding the true 'openness' of many models and whether non-commercial efforts can reliably compete with profit-driven AI development. Some also question the premise, suggesting that the call for funding open source AI might be a request for public subsidy of private interests.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>siegelendowment.org</span>
+        <span>·</span>
+        <span>161 pts</span>
+        <span>·</span>
+        <span>58 comments</span>
+        <span>·</span>
+        <span>by bilsbie</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.siegelendowment.org/wp-content/uploads/2026/07/fortune-david-siegel-open-source-ai.pdf" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48927095" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">AI Development 🤖</div>
+
+            <h2 class="story-title"><a href="https://github.com/xai-org/grok-build" target="_blank" rel="noopener">xAI Open-Sources Grok Build Coding Agent Harness</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - xai-org/grok-build: SpaceXAI's coding agent harness and TUI. Fullscreen, mouse interactive, extensible.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">xAI has open-sourced Grok Build, its coding agent harness and TUI, which includes notable features like a terminal-based Mermaid renderer. While some users praise the harness's performance and potential, others view the open-sourcing as a tactical move to address prior data privacy concerns and improve its reputation. This release aims to foster community development around the tool, despite skepticism regarding its codebase size and past controversies.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community notes &quot;surprising stuff&quot; in the codebase, such as a terminal-based Mermaid renderer, and some developers are already creating forks like &quot;gork-build&quot; to remove telemetry and auto-updates. While the harness is praised for being &quot;butter smooth&quot; and the model &quot;actually good,&quot; many view the open-sourcing as a &quot;tactical move&quot; to counter negative reputation from past data exfiltration. Some users recommend alternatives like pi.dev or question its value given other investments like Cursor, and others find the codebase excessively large for its features.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>400 pts</span>
+        <span>·</span>
+        <span>426 comments</span>
+        <span>·</span>
+        <span>by skp1995</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/xai-org/grok-build" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48926590" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Health 😴</div>
+
+            <h2 class="story-title"><a href="https://academic.oup.com/sleep/article/47/1/zsad253/7280269" target="_blank" rel="noopener">Sleep Regularity Predicts Mortality Risk More Strongly Than Sleep Duration</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: I wonder how much of this is driven by confounding variables they haven't accounted for. They do factor in shift work as a categorical variable, and employment status as a categorical variable not taking into account occupation. But probably occupation (not a variable here) interacts with sleep status. Any job that involves a lot of flying (pilot, crew, people travelling for business) get more cosmic radiation exposure, for example, and potentially more sleep disruption. Certain operations and m</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Research indicates that consistent sleep patterns are a more significant predictor of mortality risk than the total duration of sleep. This suggests that maintaining a regular sleep schedule may be more crucial for long-term health outcomes than simply achieving a certain number of hours. However, the exact causal mechanisms and potential confounding lifestyle factors warrant further investigation.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community frequently questions whether sleep regularity is a direct cause or merely a marker for other healthy lifestyle choices and reduced stress. Many comments highlight the challenge of distinguishing causation from correlation, suggesting that confounding variables like occupation or overall life stability might play a significant role. Some users shared personal anecdotes about improving sleep through supplements or consistent early bedtimes, while others discussed the body's physiological benefits from a regular schedule.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>academic.oup.com</span>
+        <span>·</span>
+        <span>685 pts</span>
+        <span>·</span>
+        <span>361 comments</span>
+        <span>·</span>
+        <span>by bilsbie</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://academic.oup.com/sleep/article/47/1/zsad253/7280269" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48919363" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Programming Languages 💻</div>
+
+            <h2 class="story-title"><a href="https://github.com/frmoded/e--" target="_blank" rel="noopener">E-- Language Blends English and Python Syntax with Compile-Time LLM Assistance</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: So my very first reaction was Inwoukd rather write python. My second reaction was, can this make an awesome cucumber like test scenario language? I think my issues are twofold 1. You still have a DSL (“give back” &gt; “return”) so it’s not English - it’s a DSL that looks more like English than python 2. Where there is English language like flexibility (Set tempo to {{ a tempo appropriate for a slow blues }}.) we are still passing out to an LLM during the compile process - so it’s not entirely deter</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">E-- is a new language designed to allow developers to mix English-like syntax with Python, utilizing LLMs during compilation for specific code generation slots. These LLM-generated segments are cached, ensuring deterministic runtime behavior. The language aims to provide flexibility in syntax, letting users dial the level of English versus Python per line.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Initial community reactions express a preference for writing pure Python, while others see potential for E-- in creating test scenario languages or user-friendly application wrappers. Critics point out that E-- functions more as a domain-specific language than pure English, and question the necessity of LLM involvement if generated code is checked in. Concerns were also raised regarding some esoteric syntax choices and a potential name conflict with an existing programming language.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>22 pts</span>
+        <span>·</span>
+        <span>14 comments</span>
+        <span>·</span>
+        <span>by OdedF</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/frmoded/e--" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48863891" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI Tools 🤖</div>
+
+            <h2 class="story-title"><a href="https://github.com/PrestigePvP/Voicebox" target="_blank" rel="noopener">Whispr: Open-Source Transcription Tool Leverages Cloudflare AI</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: Very similar to handy [1], which is free, open source [2] and available on Windows, MacOS and Linux. [1] https://handy.computer/ [2] https://github.com/cjpais/Handy</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Whispr emerges as an open-source transcription tool, utilizing Cloudflare AI and providing a free tier. Its introduction highlights a growing trend within the developer community towards accessible and privacy-conscious AI-powered transcription solutions. This project contributes to a competitive landscape of free and local alternatives.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community quickly drew comparisons to existing free and open-source transcription tools like Handy and VoiceWrite, which offer local processing and multi-platform support. There was also curiosity regarding Whispr's unique value proposition compared to built-in macOS transcription features.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>12 pts</span>
+        <span>·</span>
+        <span>7 comments</span>
+        <span>·</span>
+        <span>by TreDub</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/PrestigePvP/Voicebox" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48929870" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-07-15.html">
+        <small>Previous issue</small>
+        <strong>← July 15, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
