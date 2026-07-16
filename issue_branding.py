@@ -43,13 +43,13 @@ def render_issue_header(issue):
             <div class="issue-shell issue-hero-layout">
                 <div>
                     <p class="issue-kicker">A Wilderness Studio product · Issue {issue['number']:03d}</p>
-                    <h1 id="issue-title"><span>HN</span><span>Daily Brief</span></h1>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
                     <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
                 </div>
                 <div class="issue-date-block">
                     <span>{issue['day_name']}</span>
                     <time datetime="{issue['date_iso']}">{issue['display_date']}</time>
-                    <p>Curated Hacker News signals for AI-native builders.</p>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
                 </div>
             </div>
         </section>
@@ -79,7 +79,7 @@ def render_issue_footer(issue, previous_issue, next_issue):
         <div class="issue-shell issue-footer-inner">
             <div>
                 <div class="issue-footer-brand">{MOUNTAIN_MARK}<span>Wilderness Studio</span></div>
-                <p>HN Daily Brief · Curated daily intelligence for AI-native builders.</p>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
             </div>
             <div class="issue-footer-signature">
                 <strong>Experience leads. AI amplifies.</strong>
@@ -130,18 +130,20 @@ def update_issue_page(path, issue, previous_issue, next_issue):
     html = normalize_legacy_english(html)
     html = re.sub(
         r"<title>.*?</title>",
-        f"<title>HN Daily Brief — {issue['display_date']}</title>",
+        f"<title>Wilderness Signal — {issue['display_date']}</title>",
         html,
         count=1,
         flags=re.DOTALL,
     )
 
-    if 'name="description"' not in html:
-        description = (
-            f'    <meta name="description" content="HN Daily Brief issue {issue["number"]:03d}, '
-            f'{issue["display_date"]}: curated Hacker News signals for AI-native builders.">\n'
-        )
-        html = html.replace("    <title>", description + "    <title>", 1)
+    description = (
+        f'<meta name="description" content="Wilderness Signal issue {issue["number"]:03d}, '
+        f'{issue["display_date"]}: Daily Hacker News intelligence for AI-native builders.">'
+    )
+    if 'name="description"' in html:
+        html = re.sub(r'<meta name="description" content="[^"]*">', description, html, count=1)
+    else:
+        html = re.sub(r"<title>", f"{description}\n<title>", html, count=1)
 
     stylesheet = '    <link rel="stylesheet" href="../assets/issue.css">\n'
     if '../assets/issue.css' not in html:

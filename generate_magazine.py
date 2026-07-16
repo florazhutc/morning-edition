@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Morning Edition — Daily HN Magazine Generator
+Wilderness Signal — Daily HN Magazine Generator
 New Yorker–inspired editorial design · English · Real content summaries
 """
 
@@ -723,8 +723,8 @@ def render_magazine(stories, date_str, issue=None, previous_issue=None, next_iss
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HN Daily Brief issue {issue['number']:03d}, {formatted_date}: curated Hacker News signals for AI-native builders.">
-    <title>HN Daily Brief — {formatted_date}</title>
+    <meta name="description" content="Wilderness Signal issue {issue['number']:03d}, {formatted_date}: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — {formatted_date}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -748,7 +748,7 @@ def render_magazine(stories, date_str, issue=None, previous_issue=None, next_iss
 
 def main():
     print("=" * 60)
-    print("  HN DAILY BRIEF  —  A Wilderness Studio Product")
+    print("  WILDERNESS SIGNAL  —  A Wilderness Studio Product")
     print("=" * 60)
     config = load_config()
     today = datetime.date.today().strftime("%Y-%m-%d")
@@ -801,7 +801,7 @@ def main():
     # Email is best-effort and must never block publishing the generated issue.
     send_email_enabled = os.environ.get("MORNING_EDITION_SEND_EMAIL", "true").lower() in {"1", "true", "yes"}
     if send_email_enabled:
-        subject = f"HN Daily Brief - {datetime.datetime.now().strftime('%B %d, %Y')}"
+        subject = f"Wilderness Signal - {datetime.datetime.now().strftime('%B %d, %Y')}"
         send_email(config, email_html, subject, email_text)
 
     print(f"\n{'=' * 60}\n  ✅ Done!\n{'=' * 60}")

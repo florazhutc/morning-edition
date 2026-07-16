@@ -42,7 +42,7 @@ class EmailDigestTests(unittest.TestCase):
     def test_plain_text_contains_story_and_fallback_links(self):
         text = render_email_text([self.story], "2026-07-14", self.issue_url)
 
-        self.assertIn("HN DAILY BRIEF — July 14, 2026", text)
+        self.assertIn("WILDERNESS SIGNAL — July 14, 2026", text)
         self.assertIn(self.issue_url, text)
         self.assertIn("A <safe> launch for builders", text)
         self.assertIn(self.story["url"], text)
@@ -62,7 +62,7 @@ class EmailDigestTests(unittest.TestCase):
         message = build_email_message(
             "sender@example.com",
             ["reader@example.com"],
-            "HN Daily Brief",
+            "Wilderness Signal",
             "<html><body>HTML digest</body></html>",
             "Plain digest",
         )

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Morning Edition cron launcher
+# Wilderness Signal cron launcher
 # Runs daily at 1:00 PM
 
 cd "/Users/flora/Desktop/news magazines test"
@@ -28,7 +28,7 @@ if ! grep -q "$FILENAME" index.html; then
 \\
         <a href=\"magazines/$FILENAME\" class=\"issue-card\">\\
             <div class=\"issue-date\">$DISPLAY_DATE</div>\\
-            <div class=\"issue-title\">Morning Edition - $DATE_STR</div>\\
+            <div class=\"issue-title\">Wilderness Signal - $DATE_STR</div>\\
             <div class=\"issue-arrow\">→</div>\\
         </a>|" index.html
 fi

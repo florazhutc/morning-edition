@@ -1,4 +1,4 @@
-name: Daily Magazine
+name: Wilderness Signal Daily
 
 on:
   schedule:
@@ -41,7 +41,7 @@ jobs:
       - name: Commit and push
         run: |
           git config --local user.email "bot@github.com"
-          git config --local user.name "Morning Edition Bot"
+          git config --local user.name "Wilderness Signal Bot"
           git add -A
           if git diff --cached --quiet; then
             echo "No changes to publish."
@@ -65,6 +65,6 @@ jobs:
           email_dir = Path(".email")
           html = (email_dir / f"{today}.html").read_text(encoding="utf-8")
           text = (email_dir / f"{today}.txt").read_text(encoding="utf-8")
-          if not send_email(load_config(), html, f"HN Daily Brief - {today}", text):
+          if not send_email(load_config(), html, f"Wilderness Signal - {today}", text):
               raise SystemExit(1)
           PY

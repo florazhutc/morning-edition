@@ -85,7 +85,7 @@ class RenderingTests(unittest.TestCase):
     def test_magazine_uses_branded_issue_shell(self):
         html = magazine.render_magazine([self.story], "2026-07-13")
 
-        self.assertIn("HN Daily Brief — July 13, 2026", html)
+        self.assertIn("Wilderness Signal — July 13, 2026", html)
         self.assertIn("A Wilderness Studio product", html)
         self.assertIn('../assets/issue.css', html)
         self.assertIn('href="../index.html">Issue archive</a>', html)

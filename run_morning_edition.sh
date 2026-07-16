@@ -1,5 +1,5 @@
 #!/bin/bash
-# Morning Edition — Runner Script
+# Wilderness Signal — Runner Script
 # Ensures proper environment for launchd execution
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -17,7 +17,7 @@ if [ -f "$OUTPUT_DIR/$TODAY.html" ]; then
     exit 0
 fi
 
-echo "[$(date)] Starting Morning Edition generation for $TODAY..." >> "$LOG_FILE"
+echo "[$(date)] Starting Wilderness Signal generation for $TODAY..." >> "$LOG_FILE"
 
 # Load environment variables if .env exists
 if [ -f "$SCRIPT_DIR/.env" ]; then
@@ -41,7 +41,7 @@ if [ $EXIT_CODE -eq 0 ] && [ -f "$OUTPUT_DIR/$TODAY.html" ]; then
     # Auto-commit and push to Trigger Netlify Background Deployment
     echo "[$(date)] ☁️ Pushing to GitHub (for Netlify deployment)..." >> "$LOG_FILE"
     git add magazines/ index.html >> "$LOG_FILE" 2>> "$ERROR_LOG"
-    git commit -m "📰 Publish Morning Edition $TODAY" >> "$LOG_FILE" 2>> "$ERROR_LOG"
+    git commit -m "📰 Publish Wilderness Signal $TODAY" >> "$LOG_FILE" 2>> "$ERROR_LOG"
     git push origin main >> "$LOG_FILE" 2>> "$ERROR_LOG"
 else
     echo "[$(date)] ❌ Generation failed (exit code: $EXIT_CODE)" >> "$ERROR_LOG"

@@ -26,7 +26,7 @@ with open('index.html', 'r') as f:
 if latest.name not in content:
     new_link = f'''<a href="magazines/{latest.name}" class="issue-card">
             <div class="issue-date">{display}</div>
-            <div class="issue-title">Morning Edition - {date_str}</div>
+            <div class="issue-title">Wilderness Signal - {date_str}</div>
             <div class="issue-arrow">→</div>
         </a>'''
     content = content.replace('<div class="archive-grid">', '<div class="archive-grid">' + new_link)

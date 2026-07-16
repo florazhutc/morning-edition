@@ -27,13 +27,13 @@ def build_issue(path, issue_number):
 def render_issue_card(issue, color_class):
     number = f"{issue['number']:03d}"
     return f'''
-        <a href="magazines/{issue['filename']}" class="issue-card {color_class}" aria-label="Read HN Daily Brief issue {number}, {issue['display_date']}">
+        <a href="magazines/{issue['filename']}" class="issue-card {color_class}" aria-label="Read Wilderness Signal issue {number}, {issue['display_date']}">
             <div class="issue-card-meta">
                 <span>Issue {number}</span>
                 <time datetime="{issue['date_iso']}">{issue['short_date']}</time>
             </div>
             <div class="issue-card-body">
-                <span class="issue-card-title">HN Daily Brief</span>
+                <span class="issue-card-title">Wilderness Signal</span>
                 <span class="issue-card-arrow" aria-hidden="true">Read issue <span>↗</span></span>
             </div>
         </a>
@@ -82,7 +82,7 @@ def generate_index():
     if latest:
         latest_number = f"{latest['number']:03d}"
         latest_html = f'''
-        <a href="magazines/{latest['filename']}" class="latest-card" aria-label="Read latest HN Daily Brief, {latest['display_date']}">
+        <a href="magazines/{latest['filename']}" class="latest-card" aria-label="Read latest Wilderness Signal, {latest['display_date']}">
             <div class="latest-card-topline">
                 <span class="latest-label"><span aria-hidden="true"></span> Latest issue</span>
                 <span>Issue {latest_number}</span>
@@ -114,8 +114,8 @@ def generate_index():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HN Daily Brief is a curated daily intelligence product from Wilderness Studio for AI-native builders.">
-    <title>HN Daily Brief · A Wilderness Studio Product</title>
+    <meta name="description" content="Wilderness Signal is a daily Hacker News intelligence product from Wilderness Studio for AI-native builders.">
+    <title>Wilderness Signal · A Wilderness Studio Product</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -317,9 +317,9 @@ def generate_index():
         <section class="shell hero" aria-labelledby="page-title">
             <div class="hero-copy">
                 <div class="product-label">A Wilderness Studio product</div>
-                <h1 id="page-title"><span>HN</span><span>DAILY BRIEF</span></h1>
+                <h1 id="page-title"><span>WILDERNESS</span><span>SIGNAL</span></h1>
                 <svg class="brand-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
-                <p class="hero-description">Curated daily brief for AI-native builders. Relevant Hacker News signals, shaped into a clearer starting point for product, creative, and technical decisions.</p>
+                <p class="hero-description">Daily Hacker News intelligence for AI-native builders. Relevant signals, shaped into a clearer starting point for product, creative, and technical decisions.</p>
                 <p class="hero-meta">{issue_count} editions · Updated daily</p>
                 <div class="hero-tags" aria-label="Coverage areas"><span>AI signals</span><span>Developer tools</span><span>Product thinking</span></div>
             </div>
@@ -345,7 +345,7 @@ def generate_index():
                     {MOUNTAIN_MARK}
                     <span class="brand-wordmark"><span>Wilderness</span><span>Studio</span></span>
                 </div>
-                <p class="footer-copy">HN Daily Brief · A daily intelligence product for AI-native builders.</p>
+                <p class="footer-copy">Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
             </div>
             <div>
                 <p class="footer-signature">Experience leads. AI amplifies.</p>

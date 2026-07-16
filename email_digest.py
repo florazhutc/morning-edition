@@ -74,7 +74,7 @@ def render_email_digest(stories, date_str, issue_url):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HN Daily Brief — {display_date}</title>
+    <title>Wilderness Signal — {display_date}</title>
 </head>
 <body style="margin:0;padding:0;background-color:{WARM_WHITE};">
     <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">Today's Hacker News signals for AI-native builders.</div>
@@ -86,9 +86,9 @@ def render_email_digest(stories, date_str, issue_url):
                     <tr>
                         <td bgcolor="{DEEP_FOREST}" style="padding:34px 28px 38px;background-color:{DEEP_FOREST};">
                             <div style="color:{BUILDER_YELLOW};font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;letter-spacing:2px;line-height:1.5;text-transform:uppercase;">Wilderness Studio · Daily intelligence</div>
-                            <h1 style="margin:18px 0 0;color:{WHITE};font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:1.05;">HN Daily Brief</h1>
+                            <h1 style="margin:18px 0 0;color:{WHITE};font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:1.05;">Wilderness<br>Signal</h1>
                             <div style="margin-top:12px;color:{BUILDER_YELLOW};font-family:Georgia,'Times New Roman',serif;font-size:21px;line-height:1.4;">{display_date}</div>
-                            <p style="margin:18px 0 0;color:#DDE9E4;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;">Curated Hacker News signals for AI-native builders, product thinkers, and creative technologists.</p>
+                            <p style="margin:18px 0 0;color:#DDE9E4;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;">Daily Hacker News intelligence for AI-native builders.</p>
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin-top:24px;">
                                 <tr>
                                     <td bgcolor="{BUILDER_YELLOW}" style="background-color:{BUILDER_YELLOW};border-radius:999px;">
@@ -113,7 +113,7 @@ def render_email_digest(stories, date_str, issue_url):
                     <tr>
                         <td align="center" bgcolor="{DEEP_FOREST}" style="padding:30px 24px;background-color:{DEEP_FOREST};">
                             <div style="color:{WHITE};font-family:Georgia,'Times New Roman',serif;font-size:22px;font-style:italic;line-height:1.4;">Experience leads. AI amplifies.</div>
-                            <p style="margin:10px 0 18px;color:#DDE9E4;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.5;">HN Daily Brief is a Wilderness Studio product.</p>
+                            <p style="margin:10px 0 18px;color:#DDE9E4;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.5;">Wilderness Signal is a Wilderness Studio product.</p>
                             <a href="{safe_issue_url}" style="color:{BUILDER_YELLOW};font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:bold;text-decoration:underline;">View this issue online →</a>
                         </td>
                     </tr>
@@ -128,7 +128,7 @@ def render_email_digest(stories, date_str, issue_url):
 
 def render_email_text(stories, date_str, issue_url):
     lines = [
-        f"HN DAILY BRIEF — {format_date(date_str)}",
+        f"WILDERNESS SIGNAL — {format_date(date_str)}",
         "A Wilderness Studio product",
         "",
         f"Read the full issue: {issue_url}",

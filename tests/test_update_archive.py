@@ -20,8 +20,8 @@ class ArchiveGenerationTests(unittest.TestCase):
                 update_archive.generate_index()
 
                 html = Path("index.html").read_text(encoding="utf-8")
-                self.assertIn("<span>HN</span><span>DAILY BRIEF</span>", html)
-                self.assertIn("Curated daily brief for AI-native builders.", html)
+                self.assertIn("<span>WILDERNESS</span><span>SIGNAL</span>", html)
+                self.assertIn("Daily Hacker News intelligence for AI-native builders.", html)
                 self.assertIn("Daily Issue Archive from wildernesstudio.com", html)
                 self.assertIn("A Wilderness Studio product", html)
                 self.assertIn("Experience leads. AI amplifies.", html)

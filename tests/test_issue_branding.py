@@ -35,6 +35,8 @@ class IssueBrandingTests(unittest.TestCase):
             self.assertIn('href="2026-07-12.html"', second_html)
             self.assertIn("Latest published issue", second_html)
             self.assertIn('../assets/issue.css', second_html)
+            self.assertIn("Wilderness Signal — July 13, 2026", second_html)
+            self.assertIn("Wilderness Signal issue 002", second_html)
             self.assertNotIn("Morning Edition", second_html)
             self.assertNotIn("中文内容", second_html)
             self.assertIn('id="toc-title"', second_html)
