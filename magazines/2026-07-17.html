@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 072, July 17, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — July 17, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 072</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Friday</span>
+                    <time datetime="2026-07-17">July 17, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Kimi K3 Launches as First Open 3T-Class AI Model with 1M Token Context</span>
+            <span class="toc-score">1505 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Thinking Machines Lab Releases Inkling, a 975B-Parameter Open-Weights Mixture-of-Experts Model</span>
+            <span class="toc-score">1189 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">AI Models Autonomously Produce Music Videos for $100 Budget ⚡</span>
+            <span class="toc-score">230 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Turso is Building a Modern Postgres Implementation in Rust</span>
+            <span class="toc-score">79 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Microsoft Comic Chat Released as Open Source</span>
+            <span class="toc-score">642 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Traceforce Launches AI App Security Monitoring for Enterprise Endpoints</span>
+            <span class="toc-score">39 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Roc Compiler Achieves Feature Parity After Rust-to-Zig Rewrite</span>
+            <span class="toc-score">488 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Detecting LLM-Generated Texts with Classical Machine Learning</span>
+            <span class="toc-score">188 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">The Lost Joy of Music Piracy</span>
+            <span class="toc-score">785 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Training a Generative AI Kick Drum Model on Low-VRAM Linux Desktops</span>
+            <span class="toc-score">120 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">AI Model Release 🤖</div>
+
+            <h2 class="story-title"><a href="https://www.kimi.com/blog/kimi-k3" target="_blank" rel="noopener">Kimi K3 Launches as First Open 3T-Class AI Model with 1M Token Context</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Kimi K3 Tech Blog: Open Frontier Intelligence Today, we are introducing Kimi K3 — our most capable model. Kimi K3 is a 2.8T-parameter model built on our Kimi Delta Attention and Attention Residuals, with native vision capabilities and a 1-million-token context window. It is the world's first open 3T-class model, designed for frontier intelligence across long-horizon coding, knowledge work, and reasoning. While its overall performance still trails the most powerful proprietary models, Claude Fable 5 and GPT 5.6 Sol, Kimi K3 demonstrated frontier-level performance across our evaluation suite, consistently outperforming other tested models.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Kimi K3 introduces a 2.8T-parameter model, positioning itself as the world's first open 3T-class model with native vision and a 1-million-token context window. While it trails top proprietary models like Claude Fable 5 and GPT 5.6 Sol, it demonstrates frontier-level performance, outperforming other tested models in its class. This release signifies a significant advancement in accessible large-scale AI capabilities.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community highlights Kimi K3's impressive scale as the largest open model at 2.8 trillion parameters, with some benchmarks suggesting performance comparable to Sol/Fable tier models and superior to Opus 4.8. While its pricing for a 1M token context window is considered high for an open-weight Chinese model, its ability to handle complex tasks like chip design and generate creative HTML files is noted. Some speculate this release signifies a strategy by Chinese labs to commoditize intelligence, shifting value towards hardware and infrastructure.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>kimi.com</span>
+        <span>·</span>
+        <span>1505 pts</span>
+        <span>·</span>
+        <span>903 comments</span>
+        <span>·</span>
+        <span>by vincent_s</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.kimi.com/blog/kimi-k3" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48935342" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">AI Model Release 🤖</div>
+
+            <h2 class="story-title"><a href="https://thinkingmachines.ai/news/introducing-inkling/" target="_blank" rel="noopener">Thinking Machines Lab Releases Inkling, a 975B-Parameter Open-Weights Mixture-of-Experts Model</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Inkling: Our open-weights model - Thinking Machines Lab Our mission is to build AI that extends human will and judgment. We have developed a platform that lets anyone customize models, previewed an AI system built for interactive collaboration, and published novel research . Today we are advancing our mission by releasing a model we trained from scratch with the full weights available, so that people can make it their own. Our model, called Inkling, is a Mixture-of-Experts transformer with 975B total parameters, 41B active.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Thinking Machines Lab has introduced Inkling, a 975B-parameter open-weights Mixture-of-Experts transformer model, designed for customization and to extend human judgment. While not positioned as the strongest overall model, its multimodal capabilities, particularly strong audio support, and efficient design make it a promising base for fine-tuning and specialized applications. This release aims to empower users to adapt the model to their specific needs.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses excitement for Inkling as a significant open-weights, multimodal model, particularly noting its audio capabilities and long-context support. Many view it as a crucial step for American open-source AI, hoping it can rival leading models from other regions. While acknowledging it may not be the strongest overall, its qualities as an efficient, customizable base model are highly valued, with some early testers reporting performance that exceeds public benchmarks. Resources for local deployment and fine-tuning are already being shared.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>thinkingmachines.ai</span>
+        <span>·</span>
+        <span>1189 pts</span>
+        <span>·</span>
+        <span>281 comments</span>
+        <span>·</span>
+        <span>by vimarsh6739</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://thinkingmachines.ai/news/introducing-inkling/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48924912" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Creativity 🤖</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://www.tryai.dev/blog/ai-music-video-arena-claude-vs-gpt-5.6" target="_blank" rel="noopener">AI Models Autonomously Produce Music Videos for $100 Budget</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">$100 AI Music Video: Claude Fable 5 vs. We built a small agentic harness with one job: hand a model a song, a hard dollar budget, and a set of tools, then get out of the way and let it produce a full music video on its own. The model researches which video models exist, generates clips, watches its own footage, edits with ffmpeg, and assembles a final cut. A few readers of our last build-off said they wanted to see how tool use actually varies between models, so we gave frontier-level models an open-ended, long-horizon task where each model decides on its own what to research, what to generate, and how to edit. We log every tool call, so you can see exactly how each one worked (full transcripts below).</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">An experiment tasked frontier AI models with creating full music videos from a song and a $100 budget, using an agentic harness. The models independently researched video tools, generated clips, edited footage with ffmpeg, and assembled a final cut. This setup allowed for observation of how AI models handle open-ended, long-horizon creative tasks and utilize tools autonomously.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely found the AI-generated music videos to be technically impressive but artistically lacking, describing them as having 'zero artistic value' and being a 'grey goo' of literal lyric interpretations. Many commenters argued that art is inherently human, emphasizing the importance of an artist's story and struggle, and expressed concern about AI's potential to destroy the economics for human artists. While acknowledging the technological advancement, several users suggested that a human could produce a superior video for the same time and cost, with some proposing that future AI music videos should lean into their 'uncanny valley' aesthetic rather than trying to mimic human creativity.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>tryai.dev</span>
+        <span>·</span>
+        <span>230 pts</span>
+        <span>·</span>
+        <span>277 comments</span>
+        <span>·</span>
+        <span>by hershyb_</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.tryai.dev/blog/ai-music-video-arena-claude-vs-gpt-5.6" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48939524" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Databases 🗄️</div>
+
+            <h2 class="story-title"><a href="https://turso.tech/blog/a-new-modern-version-of-postgres-in-rust" target="_blank" rel="noopener">Turso is Building a Modern Postgres Implementation in Rust</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">We're building Postgres in Rust. Register now for early access to concurrent writes in the Turso Cloud. We're building Postgres in Rust. We are writing a modern, from-scratch version of Postgres in Rust, on top of Turso. Here is the architecture, what works today, and where we are headed.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Turso is developing a new version of Postgres written in Rust, aiming for a modern, from-scratch implementation. This initiative promises features like concurrent writes in the Turso Cloud, leveraging Rust's performance and safety benefits. The project builds upon the Turso platform, which is known for its SQLite compatibility.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters questioned the strategic necessity of this project, seeking clarification on its unique value proposition compared to existing solutions like SQLite-compatible Turso or Amazon Aurora. There was interest in potential use cases beyond direct Postgres replacement and a discussion about the 'LLVM of databases' concept, with one user suggesting DataFusion rather than Turso fits that description.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>turso.tech</span>
+        <span>·</span>
+        <span>79 pts</span>
+        <span>·</span>
+        <span>17 comments</span>
+        <span>·</span>
+        <span>by polyrand</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://turso.tech/blog/a-new-modern-version-of-postgres-in-rust" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48935487" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Software 💻</div>
+
+            <h2 class="story-title"><a href="https://opensource.microsoft.com/blog/2026/07/16/microsoft-comic-chat-is-now-open-source/" target="_blank" rel="noopener">Microsoft Comic Chat Released as Open Source</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Microsoft Comic Chat is now open source | Microsoft Open Source Blog Skip to content The chat client that brought Comic Sans to the world is now on GitHub Today, we’re excited to announce the open-source release of Microsoft Comic Chat , the chat client that automatically turned conversations within Internet Relay Chat (IRC) into comic panels featuring illustrated characters, speech bubbles, and expressions, and helped introduce the world to a little font called Comic Sans . Originally designed by Microsoft typographer Vincent Connare in 1994, Comic Sans found its first real home in Comic Chat, where its informal, hand-lettered feel matched the software’s speech-bubble conversations perfectly. For many people, Comic Chat is a nostalgic artifact from the early days of the internet as we transitioned from technologies like telnet, Usenet, and IRC to the largely visual web that we enjoy today.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Microsoft Comic Chat's open-source release revives a unique piece of early internet history, known for transforming IRC conversations into comic panels. It notably introduced the world to Comic Sans, where the font's informal style complemented the software's visual communication. This move offers a nostalgic look at the experimental phase of the web, bridging text-based communication with visual storytelling.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The open-sourcing of Microsoft Comic Chat has generated enthusiasm, with its creator expressing excitement. Commenters view it as a significant piece of internet history, despite some recalling it being &quot;reviled&quot; on IRC in the early 2000s. Many appreciate it as an example of early web experimentation, where unconventional ideas like comic-style chat rooms were built and widely distributed. One user noted it as the only appropriate context for Comic Sans, and it even inspired a comic creation startup. A related academic paper on its layout engine was also shared.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>opensource.microsoft.com</span>
+        <span>·</span>
+        <span>642 pts</span>
+        <span>·</span>
+        <span>142 comments</span>
+        <span>·</span>
+        <span>by jervant</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://opensource.microsoft.com/blog/2026/07/16/microsoft-comic-chat-is-now-open-source/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48936426" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🔒 AI Security</div>
+
+            <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=48937020" target="_blank" rel="noopener">Traceforce Launches AI App Security Monitoring for Enterprise Endpoints</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hey HN, we’re Xia and Varun, the founders of Traceforce ( https://www.traceforce.ai/ ). Traceforce provides visibility and control over AI apps such as ChatGPT, Claude etc directly on all devices (laptops, sandboxes, virtual machines) by discovering not just which apps are being used but also how they are connected to other data sources via MCPs. We also have an open-source dynamic MCP pentesting tool https://github.com/traceforce/mcp-xray to detect vulnerable MCPs. The purpose of Traceforce is to: - Give a company’s employees a standardized way to ensure that AI software running on their devi</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Traceforce addresses the emerging challenge of securing AI application usage within enterprises by providing visibility into AI app deployment and their connections to data sources via Multi-Cloud Platforms (MCPs). This specialized focus aims to identify risks and vulnerabilities unique to AI tool interactions, going beyond traditional endpoint detection and response (EDR) capabilities. The solution is crucial for companies seeking to manage data flow and potential security gaps introduced by generative AI tools across their devices.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community raises questions about Traceforce's differentiation against both established EDR providers and new AI-native security startups, with some commenters suggesting that existing EDRs may already offer similar capabilities. However, others highlight the specific challenge of understanding how AI tools interact with multiple cloud MCPs in real-time and the unique risks that emerge from these connections, suggesting a potential niche for Traceforce. There's also curiosity about what tools companies are currently using for this type of visibility.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>news.ycombinator.com</span>
+        <span>·</span>
+        <span>39 pts</span>
+        <span>·</span>
+        <span>19 comments</span>
+        <span>·</span>
+        <span>by XiaHua</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://news.ycombinator.com/item?id=48937020" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48937020" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Programming Languages ⚙️</div>
+
+            <h2 class="story-title"><a href="https://rtfeldman.com/rust-to-zig" target="_blank" rel="noopener">Roc Compiler Achieves Feature Parity After Rust-to-Zig Rewrite</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">For the past year and a half, the team building Roc 's compiler has been rewriting our 300,000 lines of Rust code into Zig , for reasons I'll recap below. We recently passed an exciting milestone: feature parity with the original compiler! Since the Bun project recently shared an experience report of their rewrite in the other direction (from Zig to Rust, although that's only the tip of the iceberg of differences between our rewrites), this seems like a nice time to reflect on how our move from Rust to Zig is going. Hitting this milestone made it possible to update Brendan Hansknecht 's charming 2024 WASM-4 game, Rocci Bird (with art by Luke DeVault) to use the new compiler. It's a nice example because the whole game is under a thousand lines of Roc code, and you can play it on itch.io or right here via WebAssembly :</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The Roc compiler team successfully rewrote 300,000 lines of Rust code into Zig, reaching feature parity with the original compiler. This project offers a contrasting perspective to other high-profile rewrites, such as Bun's move from Zig to Rust, underscoring diverse motivations for language choices in performance-critical software. The milestone was demonstrated by updating a WASM-4 game, showcasing the new compiler's functionality.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion questioned the article's claims about Zig's memory safety features, particularly regarding use-after-free detection, and debated the general necessity of low-level languages for high-performance compilers. While some praised Zig's incremental builds as a significant advantage over Rust, others expressed skepticism about the long-term absence of similar improvements in Rust. Commenters also inquired about Roc's specific use cases and its competitive landscape, and some criticized the project's language selection process for lacking a scientific approach. Minor technical points, such as potential bugs in Roc's pattern matching examples and general concerns about Rust's build times and storage consumption, were also raised.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>rtfeldman.com</span>
+        <span>·</span>
+        <span>488 pts</span>
+        <span>·</span>
+        <span>257 comments</span>
+        <span>·</span>
+        <span>by jorangreef</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://rtfeldman.com/rust-to-zig" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48933149" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">AI/ML 🤖</div>
+
+            <h2 class="story-title"><a href="https://blog.lyc8503.net/en/post/llm-classifier/" target="_blank" rel="noopener">Detecting LLM-Generated Texts with Classical Machine Learning</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Detecting LLM-Generated Web Fiction with &quot;Classical&quot; Machine Learning (AIGC Text Detection) Previous post Next post Back to top Share post A (Somewhat) Successful Attempt – scikit-learn SVM Attack and Defense – Bypassing Detection(?) This article is currently an experimental machine translation and may contain errors.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The article explores the use of 'classical' machine learning, specifically scikit-learn SVM, for detecting LLM-generated text. It describes a partially successful experimental approach, including considerations for both detection and potential bypasses. This suggests that while traditional ML can offer some utility in this domain, it faces challenges in robustly identifying AI-generated content.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant skepticism regarding the long-term viability of LLM text detection, suggesting that text lacks sufficient inherent signals for reliable provenance. Some propose alternative approaches like 'proof of work' systems or gauging authorial effort. There's interest in practical applications, such as browser extensions for automatic detection, while others highlight that humans remain effective detectors and point to the success of small encoder-only transformers for this task.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>blog.lyc8503.net</span>
+        <span>·</span>
+        <span>188 pts</span>
+        <span>·</span>
+        <span>129 comments</span>
+        <span>·</span>
+        <span>by uneven9434</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://blog.lyc8503.net/en/post/llm-classifier/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48936880" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Music 🎶</div>
+
+            <h2 class="story-title"><a href="https://www.pigeonsandplanes.com/read/music-piracy-what-cd-oink-nine-inch-nails-streaming" target="_blank" rel="noopener">The Lost Joy of Music Piracy</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Pigeons &amp; Planes is all about music discovery, supporting new artists, and delivering the best music curation online and IRL. Pigeons &amp; Planes is all about music discovery, supporting new artists, and delivering the best music curation online and IRL. Pigeons &amp; Planes is all about music discovery, supporting new artists, and delivering the best music curation online and IRL. Pigeons &amp; Planes is all about music discovery, supporting new artists, and delivering the best music curation online and IRL. Pigeons &amp; Planes is all about music discovery, supporting new artists, and delivering the best music curation online and IRL.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The article reflects on a bygone era of music piracy, highlighting a sense of loss for the unique discovery methods and community aspects it fostered. This nostalgia suggests that current streaming models, while convenient, may lack certain cultural and social dimensions that were once integral to music consumption.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News commenters largely reminisce about the communal and discovery aspects of early music piracy, such as sharing collections within friend groups and the role of iPods. Many note that piracy remains necessary for accessing music unavailable on streaming platforms. Users fondly recall specific P2P sites like OiNK and Soulseek for their curated communities and unique discovery experiences, though some acknowledge that while piracy persists, the 'magic' of those early sites is largely gone.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>pigeonsandplanes.com</span>
+        <span>·</span>
+        <span>785 pts</span>
+        <span>·</span>
+        <span>528 comments</span>
+        <span>·</span>
+        <span>by mcgin</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.pigeonsandplanes.com/read/music-piracy-what-cd-oink-nine-inch-nails-streaming" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48930454" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">Generative AI 🎧</div>
+
+            <h2 class="story-title"><a href="https://www.zhinit.dev/blog/training-a-kick-drum-diffusion-model" target="_blank" rel="noopener">Training a Generative AI Kick Drum Model on Low-VRAM Linux Desktops</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: I always roll my eyes when I see LLM weirdos talk about getting models to run on &quot;old&quot; hardware and finding out it's hardware that's still better than what most people have access to. It doesn't make it any less impressive to those who know what hardware requirements for LLMs usually is/are but for those with no idea it usually ends up reinforcing bitterness towards it as they feel annoyed that their own hardware is somehow worse and yet are unable to upgrade because of said LLMs stealing all th</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The article outlines a practical approach to training a generative AI model specifically for kick drums on a Linux desktop, utilizing only 6GB of VRAM. This highlights the growing feasibility of developing specialized AI audio tools on more accessible, older hardware. It suggests a trend towards democratizing AI model creation for niche applications.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion pointed to similar existing tools like Synplant's 'Genopatch' and Emergent Drums 2. Some users questioned the necessity of AI for kick drum generation, suggesting simpler synthesis, while others proposed broader applications such as using AI to enhance public domain jazz music. The article was also praised for its technical inspiration, though specific technical details like tensor shape and the absence of compressor modeling were queried.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>zhinit.dev</span>
+        <span>·</span>
+        <span>120 pts</span>
+        <span>·</span>
+        <span>60 comments</span>
+        <span>·</span>
+        <span>by zhinit</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.zhinit.dev/blog/training-a-kick-drum-diffusion-model" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48935687" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-07-16.html">
+        <small>Previous issue</small>
+        <strong>← July 16, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
