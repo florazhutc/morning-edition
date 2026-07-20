@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 075, July 20, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — July 20, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 075</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Monday</span>
+                    <time datetime="2026-07-20">July 20, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">DIY ESP32 System Replaces $120k Bowling Center Tech for $1,600</span>
+            <span class="toc-score">2166 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Claude Code Adopts Rust-Ported Bun, Sees 10% Linux Startup Speed Boost ⚡</span>
+            <span class="toc-score">498 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Qwen 3.8 Large Language Model with 2.4T Parameters Announced as Open-Weight</span>
+            <span class="toc-score">867 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Speech Recognition and TTS Achieved in Under 500KB</span>
+            <span class="toc-score">554 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Transcribe.cpp: A GGML-Based, Validated Speech-to-Text Library</span>
+            <span class="toc-score">740 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Blender 5.2 LTS Released with Node-Powered Physics and Online Asset Libraries</span>
+            <span class="toc-score">389 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Claude Fable Disproves Jacobian Conjecture with Counterexample ⚡</span>
+            <span class="toc-score">345 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Study Finds AI Advice Reduces Accuracy and Judgment Suspension While Increasing Confidence</span>
+            <span class="toc-score">333 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Tech Workers Express Growing Concerns Over Financial Security Amid Industry Shifts</span>
+            <span class="toc-score">17 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">1-Bit LLM Runs in Browser Using WebGPU</span>
+            <span class="toc-score">11 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">Embedded Systems 🤖</div>
+
+            <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=48968606" target="_blank" rel="noopener">DIY ESP32 System Replaces $120k Bowling Center Tech for $1,600</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">I might be the only SRE on Earth with his own bowling center. It's a more in-depth gig than you'd think. My family and I bought an abandoned 8-lane bowling center in the rural mid-west. In our small town there weren't many recreation options for families. You've heard of a food desert? This is an R&amp;R desert. It had been abandoned for a good reason. The roof leaks, the electrical system was constantly surging, and my 70-year-old bowling equipment (still) doesn't work perfectly. The system that keeps your score is particularly interesting to me. It's the thing you watch during your game, but it </p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">An SRE successfully modernized an abandoned bowling alley's scoring system using low-cost ESP32 microcontrollers, demonstrating the viability of affordable, custom embedded solutions for legacy infrastructure. This project highlights how personal initiative and modern technology can revitalize community spaces and overcome the high cost of proprietary systems. It also showcases the potential for tech-savvy individuals to create significant value by applying their skills to non-traditional problems.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely applauds the project, seeing it as validation for retrofitting old systems with modern, low-cost embedded technologies. Many commenters share similar experiences or aspirations, from modernizing old machine tools to owning and upgrading mini bowling lanes. There's significant interest in adding further enhancements like LED lighting, DMX control, advanced ball stats, and instant slow-motion video replays. The project also sparked discussion about the need for more 'third spaces' like modernized bowling alleys and the potential for this approach to inspire others to revitalize similar community venues.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>news.ycombinator.com</span>
+        <span>·</span>
+        <span>2166 pts</span>
+        <span>·</span>
+        <span>228 comments</span>
+        <span>·</span>
+        <span>by section33</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://news.ycombinator.com/item?id=48968606" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48968606" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">AI Tools 🤖</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/" target="_blank" rel="noopener">Claude Code Adopts Rust-Ported Bun, Sees 10% Linux Startup Speed Boost</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">New Jira capabilities unlock full-context for AI-native software development. Assign tasks to Claude, Cursor, or GitHub Copilot, now directly from Jira. In Rewriting Bun in Rust Jarred Sumner made the following claim: Claude Code v2.1.181 (released June 17th) and later use the Rust port of Bun. Startup got 10% faster on Linux but otherwise, barely anyone noticed.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Claude Code has transitioned to using a Rust port of Bun, resulting in a 10% faster startup time on Linux, though the overall user impact was minimal. This move, detailed by Jarred Sumner, suggests a strategic shift to leverage Rust's capabilities, potentially for improved memory management or stability, as tasks previously manual in Zig are now automated.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses skepticism regarding the architectural decision to use a JavaScript runtime (Bun) for a TUI like Claude Code, questioning the engineering efficiency and suggesting a direct Rust rewrite might have been more beneficial. Concerns are also raised about the future independence of the open-source Bun project, given its deep integration with Anthropic and the apparent use of unreleased versions within Claude Code. While acknowledging the reported startup speed improvement, users are more focused on overall resource consumption and report anecdotal stability issues, including segfaults, indicating that the rewrite has not universally resolved performance or reliability expectations.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>simonwillison.net</span>
+        <span>·</span>
+        <span>498 pts</span>
+        <span>·</span>
+        <span>666 comments</span>
+        <span>·</span>
+        <span>by tosh</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48966569" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">AI/LLM 🤖</div>
+
+            <h2 class="story-title"><a href="https://twitter.com/Alibaba_Qwen/status/2078759124914098291" target="_blank" rel="noopener">Qwen 3.8 Large Language Model with 2.4T Parameters Announced as Open-Weight</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Qwen on X: &quot;Qwen3.8 is launching and going open-weight soon!🌐
+
+With a massive 2.4T parameters, this model is continuously evolving. We believe it’s one of the most powerful model available today, compatible to leading frontier AI models , second only to Fable 5. You don't have to wait to https://t.co/JS3ID73IYS&quot; / X Qwen3.8 is launching and going open-weight soon!🌐
+
+With a massive 2.4T parameters, this model is continuously evolving. We believe it’s one of the most powerful model available today, compatible to leading frontier AI models , second only to Fable 5.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Alibaba Cloud is preparing to release Qwen 3.8, a 2.4 trillion-parameter large language model, as open-weight. This model is positioned as a highly capable frontier AI model, intensifying the competition among developers offering powerful, accessible LLMs. The move reflects a broader trend of major players making advanced models available to the public.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The announcement generated anticipation for the open-weight release, with some users hoping for smaller, locally deployable versions. There were mixed reactions regarding previous Qwen models' performance, with some finding Qwen 3.7 Pro unusable for software engineering tasks, while others were positively surprised by Qwen 3.6 27B. The community also highlighted the intense competition in the LLM space, noting upcoming releases from other providers like Moonshot AI and Deepseek. A developer from China expressed concern about political discussions overshadowing technical analysis of models originating from China.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>twitter.com</span>
+        <span>·</span>
+        <span>867 pts</span>
+        <span>·</span>
+        <span>589 comments</span>
+        <span>·</span>
+        <span>by nh43215rgb</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://twitter.com/Alibaba_Qwen/status/2078759124914098291" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48966120" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Speech Technology 🗣️</div>
+
+            <h2 class="story-title"><a href="https://github.com/moonshine-ai/moonshine/tree/main/micro" target="_blank" rel="noopener">Speech Recognition and TTS Achieved in Under 500KB</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">moonshine/micro at main · moonshine-ai/moonshine · GitHub</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project delivers both speech recognition and text-to-speech capabilities within an extremely small footprint, less than 500KB. This significant reduction in size could unlock new possibilities for on-device, offline, or resource-constrained applications. It challenges the common trade-off between model size and functionality in speech processing.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses considerable excitement about the project's minimal memory footprint, particularly for TTS, and is actively comparing it to existing low-memory solutions like Flite and Nanotts. Developers are exploring its potential for local HTTP endpoints, embedded systems, and offline voice dictation, with some noting its ease of installation and clear documentation. While accuracy benchmarks are a common query, many users acknowledge that lower accuracy might be acceptable for the targeted use cases, validating the project's utility in specific scenarios.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>554 pts</span>
+        <span>·</span>
+        <span>83 comments</span>
+        <span>·</span>
+        <span>by petewarden</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/moonshine-ai/moonshine/tree/main/micro" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48911793" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Speech-to-Text 🗣️</div>
+
+            <h2 class="story-title"><a href="https://workshop.cjpais.com/projects/transcribe-cpp" target="_blank" rel="noopener">Transcribe.cpp: A GGML-Based, Validated Speech-to-Text Library</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">I'm super excited to share transcribe.cpp today. transcribe.cpp is a ggml based transcription library which supports all the latest transcription models. Every model published under the handy-computer HF org
+has been numerically validated and WER tested to match the reference implementation. I'm the author and maintainer of Handy . This library grew
+from the pains of distributing a cross-platform speech-to-text application to many people.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Transcribe.cpp offers a robust, GGML-based solution for speech-to-text, emphasizing numerical validation and WER testing to ensure model accuracy against reference implementations. Its development addresses the challenges of distributing cross-platform transcription applications. This focus on rigorous testing and broad compatibility positions it as a reliable tool for local AI inference.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community highly praises Transcribe.cpp's rigorous numerical validation and WER testing, which addresses a common concern about the accuracy of converted models in local ASR projects. Users express interest in features like continuous transcription for office documents and phonetic transcription for unknown languages using IPA. The library is recognized as a significant contribution, enabling easier local AI inference and demonstrating the potential for rigorous, single-developer projects, though some note that Python bindings are not yet available as a binary wheel on PyPI.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>workshop.cjpais.com</span>
+        <span>·</span>
+        <span>740 pts</span>
+        <span>·</span>
+        <span>156 comments</span>
+        <span>·</span>
+        <span>by sebjones</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://workshop.cjpais.com/projects/transcribe-cpp" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48963879" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">3D Software 🎨</div>
+
+            <h2 class="story-title"><a href="https://www.blender.org/download/releases/5-2/" target="_blank" rel="noopener">Blender 5.2 LTS Released with Node-Powered Physics and Online Asset Libraries</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Node-powered physics, online asset libraries, and fierce new features throughout with 2 years of LTS updates. Download Blender 5.2 LTS Watch Recap Video Blender 5.2 LTS showcase reel featuring work by the Blender community. Blender 5.2 LTS splash artwork by Joanna Kobierska, featuring the now-extinct Panthera spelaea Imagine driving your nodes with imported audio files, how does that sound?</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The release of Blender 5.2 LTS introduces significant advancements, including node-powered physics and integrated online asset libraries. This update promises two years of long-term support, indicating a focus on stability and robust feature development for its user base. The emphasis on new features and LTS suggests Blender continues to push the boundaries of open-source 3D creation tools.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community widely praises Blender 5.2 LTS for its rapid development, impressive performance, and improved user experience, with many users highlighting its speed and efficient rendering engines. While acknowledging the significant learning curve inherent in 3D software, users express satisfaction in mastering its workflows and appreciate its open-source nature, often supporting it through donations. Some minor UI inconsistencies are noted, but overall sentiment remains highly positive regarding its evolution and capabilities.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>blender.org</span>
+        <span>·</span>
+        <span>389 pts</span>
+        <span>·</span>
+        <span>156 comments</span>
+        <span>·</span>
+        <span>by makizar</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.blender.org/download/releases/5-2/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48911021" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Mathematics 🧮</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://xcancel.com/__alpoge__/status/2079028340955197566" target="_blank" rel="noopener">Claude Fable Disproves Jacobian Conjecture with Counterexample</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">levent (@__alpoge__): &quot;hello there the jacobian conjecture is false thanx to my close friend akhil for asking about it and my other close friend fable for working during the world cup final
+
+((1+xy)^3 z + y^2 (1+xy) (4+3xy), y + 3 x (1+xy)^2  z + 3 x y^2 (4+3xy), 2 x - 3 x^2 y - x^3 z): \C^3\to \C^3, has jacobian determinant -2, and sends (0, 0, -1/4), (1, -3/2, 13/2), and (-1, 3/2, 13/2) to (-1/4, 0, 0)&quot; | XCancel hello there the jacobian conjecture is false thanx to my close friend akhil for asking about it and my other close friend fable for working during the world cup final
+
+((1+xy)^3 z + y^2 (1+xy) (4+3xy), y + 3 x (1+xy)^2  z + 3 x y^2 (4+3xy), 2 x - 3 x^2 y - x^3 z): \C^3\to \C^3, has jacobian determinant -2, and sends (0, 0, -1/4), (1, -3/2, 13/2), and (-1, 3/2, 13/2) to (-1/4, 0, 0) wolframalpha.com/input?i=Det… jacobian determinant in wolfram alpha Det[D[{(1+x y)^3 z + y^2 (1 + x y) (4 + 3x y), y + 3x (1 + x y)^2 z + 3x y^2 (4 + 3x y), 2x - 3x^2... Wolfram|Alpha brings expert-level knowledge and capabilities to the broadest possible range of people—spanning all professions and education levels.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The long-standing Jacobian Conjecture, a significant open problem in mathematics, has been disproven by Claude Fable. The counterexample provided is a specific polynomial map from C^3 to C^3 that maintains a constant non-zero Jacobian determinant but is not globally invertible. This discovery resolves a problem that has puzzled mathematicians for decades.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses surprise at the counterexample's relatively small size, leading to speculation that it could have been found earlier, possibly with computational assistance. Questions arose regarding Fable's methodology for finding the counterexample. Commenters also discussed the potential role of AI and LLMs in mathematical research, with some noting their use in verifying results or even in 'math-vibe coding' to disprove conjectures. The resolution of the conjecture is seen as a positive outcome, preventing further wasted effort on attempts to prove it.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>xcancel.com</span>
+        <span>·</span>
+        <span>345 pts</span>
+        <span>·</span>
+        <span>193 comments</span>
+        <span>·</span>
+        <span>by loubbrad</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://xcancel.com/__alpoge__/status/2079028340955197566" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48973869" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI &amp; Human Behavior</div>
+
+            <h2 class="story-title"><a href="https://thenextweb.com/news/ai-advice-suppresses-critical-thinking-wrong-answers-study" target="_blank" rel="noopener">Study Finds AI Advice Reduces Accuracy and Judgment Suspension While Increasing Confidence</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">AI advice made people three times less accurate but twice as confident, researchers found Skip to content Researchers found AI advice suppressed judgment suspension from 44% to 3%, accuracy from 27% to 9%, while confidence rose from 30% to 76%. People trusted wrong AI answers. Researchers from three French and Italian universities found that access to AI advice collapsed people’s willingness to say “ I don’t know ” from 44% to 3%. Accuracy dropped from 27% to 9%.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Researchers found that when people received AI advice, their accuracy plummeted from 27% to 9%, and their willingness to admit uncertainty (judgment suspension) dropped from 44% to 3%. Concurrently, confidence in their answers more than doubled, rising from 30% to 76%. This suggests that relying on AI advice can significantly impair critical thinking and self-assessment, leading to overconfidence in incorrect information.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely criticized the study's methodology, arguing that its findings might not be specific to AI but rather a general outcome of receiving incorrect information, especially since the AI model used was known to provide wrong answers and lacked proper RAG or web search capabilities. Commenters suggested the study primarily demonstrated that people tend to trust confident but incorrect information, regardless of its source. Some also noted a broader trend of AI negatively impacting the quality of advice on online forums, as users relay AI-generated responses without critical evaluation.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>thenextweb.com</span>
+        <span>·</span>
+        <span>333 pts</span>
+        <span>·</span>
+        <span>187 comments</span>
+        <span>·</span>
+        <span>by rbanffy</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://thenextweb.com/news/ai-advice-suppresses-critical-thinking-wrong-answers-study" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48971738" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Tech Layoffs 📉</div>
+
+            <h2 class="story-title"><a href="https://www.adn.com/nation-world/2026/07/19/the-biggest-winners-of-the-american-economy-fear-theyre-sinking-fast/" target="_blank" rel="noopener">Tech Workers Express Growing Concerns Over Financial Security Amid Industry Shifts</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">The biggest winners of the American economy fear they’re sinking fast - Anchorage Daily News The biggest winners of the American economy fear they’re sinking fast By Elizabeth Dwoskin, Shira Ovide, The Washington Post A car passes Facebook's Meta logo on a sign at the company headquarters on Oct. 28, 2021, in Menlo Park, Calif.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The tech sector, once a bastion of financial stability, is experiencing a significant shift, leading to anxieties among its workforce. While AI is cited as a transformative factor, the underlying causes for this insecurity may be multifaceted. This trend suggests a re-evaluation of long-term career prospects within the industry.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion points to factors beyond AI, such as offshoring and the financial impact of large-scale projects like Meta's metaverse, as potential drivers for current tech layoffs. There's skepticism about AI being the primary cause of job losses, with some suggesting it's not yet a significant job killer.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>adn.com</span>
+        <span>·</span>
+        <span>17 pts</span>
+        <span>·</span>
+        <span>6 comments</span>
+        <span>·</span>
+        <span>by nlpnerd</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.adn.com/nation-world/2026/07/19/the-biggest-winners-of-the-american-economy-fear-theyre-sinking-fast/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48973847" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI/Web 🌐</div>
+
+            <h2 class="story-title"><a href="https://huggingface.co/spaces/webml-community/bonsai-webgpu" target="_blank" rel="noopener">1-Bit LLM Runs in Browser Using WebGPU</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Bonsai 1-bit WebGPU - a Hugging Face Space by webml-community</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The 'Bonsai 1-bit WebGPU' project showcases a notable advancement in client-side AI, enabling Large Language Models to operate directly within a web browser. This development leverages WebGPU for performance, making powerful AI more accessible without relying on extensive cloud infrastructure. It represents a significant step towards efficient and decentralized AI deployment.</p>
+    </div>
+
+
+    <div class="story-meta">
+        <span>huggingface.co</span>
+        <span>·</span>
+        <span>11 pts</span>
+        <span>·</span>
+        <span>0 comments</span>
+        <span>·</span>
+        <span>by simonebrunozzi</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://huggingface.co/spaces/webml-community/bonsai-webgpu" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=48936994" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-07-19.html">
+        <small>Previous issue</small>
+        <strong>← July 19, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
