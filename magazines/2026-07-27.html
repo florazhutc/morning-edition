@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 082, July 27, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — July 27, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 082</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Monday</span>
+                    <time datetime="2026-07-27">July 27, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">CheapSecurity Offers Lightweight, Self-Hosted CCTV for Linux SBCs</span>
+            <span class="toc-score">128 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Android May Soon Restrict On-Device ADB</span>
+            <span class="toc-score">987 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">EU Commission Proposes Browser-Level Privacy Settings to End Cookie Banners</span>
+            <span class="toc-score">977 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">London Gatwick Launches Robotic Airport Parking Service</span>
+            <span class="toc-score">277 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">PGSimCity Visualizes PostgreSQL Internals with Game-Inspired Interface</span>
+            <span class="toc-score">539 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">US Citizen Charged After Privacy-Focused Phone Wipes During Airport Search</span>
+            <span class="toc-score">684 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Google Discloses $94.1B SpaceX Stock Holding, Represents 6% Stake</span>
+            <span class="toc-score">325 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Multiway Turing Machines Explored</span>
+            <span class="toc-score">21 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Paper CLI: Daily Journaling for Developers</span>
+            <span class="toc-score">7 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Astrophysicist Launches Browser-Based AR/VR Black Hole Simulation with Relativistic Physics</span>
+            <span class="toc-score">287 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">Security Software 🔒</div>
+
+            <h2 class="story-title"><a href="https://github.com/gmrandazzo/CheapSecurity" target="_blank" rel="noopener">CheapSecurity Offers Lightweight, Self-Hosted CCTV for Linux SBCs</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - gmrandazzo/CheapSecurity · GitHub</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">CheapSecurity is a Python-based, self-hosted CCTV solution designed for Linux Single Board Computers, focusing on lightweight operation. It integrates V4L2 for video capture, applies image processing for enhanced night vision, and uses basic frame differencing for motion detection. The system provides web streaming, video recording, and notification capabilities via Telegram or email.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community frequently compares CheapSecurity to established projects like Motion and Frigate, questioning its unique value proposition. Users express concerns about finding suitable USB cameras for SBCs, highlighting common webcam limitations in enclosures, focus, and low-light performance. There's also skepticism regarding the effectiveness of its basic frame-differencing motion detection, with users reporting false positives from similar systems. Additionally, some users requested UI screenshots or GIFs, and others sought camera recommendations for Raspberry Pi setups.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>128 pts</span>
+        <span>·</span>
+        <span>26 comments</span>
+        <span>·</span>
+        <span>by zeldone</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/gmrandazzo/CheapSecurity" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49059398" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🤖 Android Development</div>
+
+            <h2 class="story-title"><a href="https://kitsumed.github.io/blog/posts/android-may-soon-restrict-on-device-adb/" target="_blank" rel="noopener">Android May Soon Restrict On-Device ADB</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Android May Soon Restrict On-Device ADB, Affecting Shizuku, libadb and Developers | Kitsumed Blog Why On-Device ADB Is Not Really Used by Bad Actors Scenario 2: A Developer on Android 11+ Using Wireless ADB Scenario 3: A Developer Using ADB over TCP/IP Before we dive in, please note that this is not an official Google announcement.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Android may introduce restrictions on on-device ADB, potentially impacting developer tools and workflows that rely on this functionality. While not officially confirmed by Google, this change could affect applications like Shizuku and libadb, raising concerns among developers about future platform openness. The rationale for such a restriction, particularly regarding its effectiveness against 'bad actors,' is also being debated.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely views potential ADB restrictions as another step in Android's increasing lockdown, drawing parallels to iOS and expressing concern that the platform is losing its openness. Many question the practical security benefits, arguing that the targeted attack vectors are not realistic for most users. There is widespread disappointment and alarm among developers, who anticipate the need for workarounds and criticize Google's perceived trend of limiting user and developer control. Some express frustration with Google's engagement with community feedback and advocate for more open mobile operating systems.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>kitsumed.github.io</span>
+        <span>·</span>
+        <span>987 pts</span>
+        <span>·</span>
+        <span>489 comments</span>
+        <span>·</span>
+        <span>by shscs911</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://kitsumed.github.io/blog/posts/android-may-soon-restrict-on-device-adb/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49045159" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Web Privacy 🍪</div>
+
+            <h2 class="story-title"><a href="https://killthecookiebanner.eu/" target="_blank" rel="noopener">EU Commission Proposes Browser-Level Privacy Settings to End Cookie Banners</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">The EU Commission has finally proposed a solution: set your privacy preferences in the browser once, and never see another banner. Unfortunately, the tracking industry is pushing back – and so far, they’ve been successful. But the law is clear: online tracking is prohibited by default. Therefore, the tracking industry needs you to waive your rights. This results in up to 90% of people saying “YES” – even though only around 3% actually want to be tracked online.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The EU Commission has proposed a browser-based solution for privacy preferences, aiming to eliminate persistent cookie banners and simplify user consent. This initiative faces strong opposition from the tracking industry, which currently leverages dark patterns to secure user agreement for tracking. The current system often leads to a high rate of consent despite a low genuine desire for online tracking, highlighting a significant gap between user preference and industry practice.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community questions if the proposed browser-level solution will effectively address 'legitimate interest' loopholes and advocates for simpler 'refuse all' options or default cookie isolation. Many commenters believe current cookie banners do not constitute informed consent and express frustration over the slow implementation of robust privacy controls. Some users rely on browser-native protections as a workaround, while others fundamentally argue that tracking should simply cease, eliminating the need for banners entirely.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>killthecookiebanner.eu</span>
+        <span>·</span>
+        <span>977 pts</span>
+        <span>·</span>
+        <span>467 comments</span>
+        <span>·</span>
+        <span>by rapnie</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://killthecookiebanner.eu/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49057175" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Airport Tech ✈️</div>
+
+            <h2 class="story-title"><a href="https://aerospaceglobalnews.com/news/gatwick-airport-robotic-parking-stanley-robotics/" target="_blank" rel="noopener">London Gatwick Launches Robotic Airport Parking Service</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">London Gatwick introduces robotic parking service London Gatwick has become the first UK airport to introduce robotic parking, allowing passengers to leave their car in a private drop-off cabin. Autonomous robots park it in a secure storage area and car owners don’t need to hand over their keys. The new service, launched in partnership with Stanley Robotics, is now available to book ahead of its first customer journeys in August. Eliminating the hassle of searching for a parking space, the technology gets passengers from their car to the terminal more quickly while making more efficient use of airport parking capacity.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">London Gatwick is the first UK airport to introduce a robotic parking service, partnering with Stanley Robotics. Passengers drop off their cars in a private cabin, and autonomous robots park them in a secure area, eliminating the need to hand over keys or search for spaces. This innovation aims to streamline the airport experience, getting passengers to the terminal faster while optimizing parking capacity.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community reaction is mixed, with some users expressing skepticism about the process, such as the need to park in a garage first or concerns about car alarms being triggered. However, others find the service 'pretty cool' and reasonably priced compared to traditional airport parking, viewing it as a convenient alternative to public transport or long-stay options despite anticipating initial issues.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>aerospaceglobalnews.com</span>
+        <span>·</span>
+        <span>277 pts</span>
+        <span>·</span>
+        <span>241 comments</span>
+        <span>·</span>
+        <span>by agotterer</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://aerospaceglobalnews.com/news/gatwick-airport-robotic-parking-stanley-robotics/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49058669" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Database Internals 💾</div>
+
+            <h2 class="story-title"><a href="https://nikolays.github.io/PGSimCity/" target="_blank" rel="noopener">PGSimCity Visualizes PostgreSQL Internals with Game-Inspired Interface</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">It almost certainly contains inaccuracies in both the model and
+          explanations. Open an issue or
+          send a pull request .</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">PGSimCity offers a novel, game-like visualization tool to explain the complex internal workings of PostgreSQL. This approach aims to make intricate database concepts more accessible and engaging for users. Despite acknowledging potential inaccuracies in its model and explanations, the project's innovative educational method has generated considerable interest.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely praises PGSimCity's innovative and engaging visualization of PostgreSQL internals, appreciating its game-inspired design for simplifying complex technical processes. Many users expressed a desire for increased interactivity, suggesting features like custom query input and user-controlled navigation to enhance the learning experience beyond a guided tour. Feedback also included suggestions to reduce visual clutter and questions regarding the project's accuracy given its rapid development.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>nikolays.github.io</span>
+        <span>·</span>
+        <span>539 pts</span>
+        <span>·</span>
+        <span>56 comments</span>
+        <span>·</span>
+        <span>by jonbaer</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://nikolays.github.io/PGSimCity/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49063754" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Privacy &amp; Law</div>
+
+            <h2 class="story-title"><a href="https://www.techspot.com/news/113236-us-prosecutors-charge-atlanta-man-after-grapheneos-phone.html" target="_blank" rel="noopener">US Citizen Charged After Privacy-Focused Phone Wipes During Airport Search</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">US prosecutors charge Atlanta man after GrapheneOS phone wipes itself during airport search | TechSpot Serving tech enthusiasts for over 25 years. TechSpot means tech analysis and advice you can trust . A hot potato: A federal case in Atlanta is raising questions about a privacy-focused mobile operating system, with prosecutors arguing that its features were used to erase evidence. The US Department of Justice is attempting to prosecute Atlanta resident Sam Tunick under a federal statute that makes it a crime to destroy property in an effort to prevent it from being seized.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A US citizen faces federal charges after his GrapheneOS phone automatically wiped during an airport search, prompting prosecutors to argue its privacy features were used to destroy evidence. This case highlights the legal complexities surrounding privacy-focused operating systems and the potential legal consequences of using features designed to protect data during government scrutiny. It also raises broader questions about the extent of government power at borders and the rights of individuals to digital privacy.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion centers on the legal implications of using duress PINs or self-wiping phones during border searches, with many questioning the extent of government power at national borders versus individual privacy rights. Commenters suggest technical workarounds like wiping devices before travel and restoring from backup, or using decoy operating systems. There's also concern that the charges may be politically motivated, given the individual's alleged association with the 'Cop City' protest movement.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>techspot.com</span>
+        <span>·</span>
+        <span>684 pts</span>
+        <span>·</span>
+        <span>489 comments</span>
+        <span>·</span>
+        <span>by eecc</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.techspot.com/news/113236-us-prosecutors-charge-atlanta-man-after-grapheneos-phone.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49063022" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Investments 💰</div>
+
+            <h2 class="story-title"><a href="https://www.wsj.com/tech/google-discloses-94-1-billion-in-spacex-stock-marking-6-stake-91655d7c" target="_blank" rel="noopener">Google Discloses $94.1B SpaceX Stock Holding, Represents 6% Stake</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: Hopefully they made this investment pre-IPO at some vastly lower valuation because otherwise… …this is a not going to end well for them.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Google's disclosed $94.1 billion stake in SpaceX represents a substantial return on its initial $900 million investment, reportedly achieving over 100x gains in a decade. This successful venture underscores Alphabet's strategic prowess in identifying and nurturing high-growth companies, positioning it as a significant player in corporate investments.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community notes that Google's (Alphabet's) investment in SpaceX was an early, public one, with an initial $900 million stake yielding over 100x returns in a decade. Many view this as one of the most successful corporate investments in recent history, highlighting Alphabet's strong track record in venture capital and M&amp;A. Some commenters compare Alphabet's investment strategy to that of Berkshire Hathaway, noting its significant holdings in various companies like SpaceX and Anthropic.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>wsj.com</span>
+        <span>·</span>
+        <span>325 pts</span>
+        <span>·</span>
+        <span>300 comments</span>
+        <span>·</span>
+        <span>by 1vuio0pswjnm7</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.wsj.com/tech/google-discloses-94-1-billion-in-spacex-stock-marking-6-stake-91655d7c" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49057574" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Theoretical Computer Science 🧠</div>
+
+            <h2 class="story-title"><a href="https://bulletins.wolframphysics.org/2021/02/multiway-turing-machines/" target="_blank" rel="noopener">Multiway Turing Machines Explored</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: &quot;Like Turing before me, I have reinvented the nondeterministic computing machine...&quot; -- Wolfram, probably...</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The discussion centers on Multiway Turing Machines, a variant of the foundational computational model. Community insights connect this concept to nondeterministic computing and suggest potential mathematical relationships, such as with braid theory.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community comments include a humorous remark about the 'reinvention' of nondeterministic computing, possibly referencing Wolfram's work. Another comment points to a mathematical connection between braids and computation.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>bulletins.wolframphysics.org</span>
+        <span>·</span>
+        <span>21 pts</span>
+        <span>·</span>
+        <span>3 comments</span>
+        <span>·</span>
+        <span>by marysminefnuf</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://bulletins.wolframphysics.org/2021/02/multiway-turing-machines/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49062259" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Developer Tools 🛠️</div>
+
+            <h2 class="story-title"><a href="https://paper.rewrlution.com" target="_blank" rel="noopener">Paper CLI: Daily Journaling for Developers</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Paper is a journaling CLI for developers. One line a day, in the terminal you already have open. When review season comes, you have receipts — and a coach that knows your work. Your tools remember what shipped. Your PRs know what you changed.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Paper provides a command-line interface for developers to maintain a daily journal, integrating directly into their existing terminal workflow. This tool aims to create a structured record of daily contributions, offering 'receipts' for review season and aiding in personal reflection. Its design helps developers track shipped work and changes made in PRs, serving as a 'coach' that understands their work.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Early feedback suggests a demand for a journaling tool integrated into developer workflows.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>paper.rewrlution.com</span>
+        <span>·</span>
+        <span>7 pts</span>
+        <span>·</span>
+        <span>4 comments</span>
+        <span>·</span>
+        <span>by dmsehuang</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://paper.rewrlution.com" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49063339" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">Physics Simulation ⚛️</div>
+
+            <h2 class="story-title"><a href="https://blackhole.plav.in" target="_blank" rel="noopener">Astrophysicist Launches Browser-Based AR/VR Black Hole Simulation with Relativistic Physics</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">We have a black hole at home — with actual relativistic physics, live in your browser. I'm Sasha (Alexander) Plavin, an astrophysicist at Harvard's Black Hole Initiative studying quasars and black hole environments. I work with raytracing/radiative transfer simulations professionally, and wanted to make one anyone can play with — so I built this app. Put the black hole onto your screen (any browser), or directly into your room with AR or VR (requires WebXR, for example Chrome on Android, or any VR headset). When looking around, pay attention to unintuitive relativistic effects: rays bending ar</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">An astrophysicist developed a browser-based application that simulates a black hole with physically accurate relativistic effects. This tool allows users to experience complex astronomical phenomena in AR or VR, making advanced scientific visualization accessible to a broader audience. It aims to demonstrate unintuitive relativistic effects in an interactive format.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Users reported mixed experiences with AR functionality, specifically distortion issues on certain devices. The discussion also touched on the psychological impact of large objects in VR, triggering phobias for some. While many praised its 'mind bending' effects and visual fidelity to Event Horizon Telescope renderings, some questioned the simulation's physical accuracy, particularly regarding accretion disk brightness and overall 'visualization grade' versus true physical accuracy.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>blackhole.plav.in</span>
+        <span>·</span>
+        <span>287 pts</span>
+        <span>·</span>
+        <span>85 comments</span>
+        <span>·</span>
+        <span>by aplavin</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://blackhole.plav.in" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49021270" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-07-26.html">
+        <small>Previous issue</small>
+        <strong>← July 26, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
