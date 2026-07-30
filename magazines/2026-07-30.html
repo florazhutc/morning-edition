@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 085, July 30, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — July 30, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 085</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Thursday</span>
+                    <time datetime="2026-07-30">July 30, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Open-Source Engine Runs Gemma 4 26B on M-Series Macs with 2GB RAM</span>
+            <span class="toc-score">754 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">GPT-5.6 and Claude Fable 5 Performance Compared in Physical AI Simulations ⚡</span>
+            <span class="toc-score">95 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">AI Worms Self-Propagate via Copilot in Word Documents ⚡</span>
+            <span class="toc-score">361 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">KOReader Offers Advanced E-Reader Features Amidst UI/UX Criticisms</span>
+            <span class="toc-score">702 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">AI Startups Show Declining Trend in Research Publication</span>
+            <span class="toc-score">394 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Superlogical Aims to Unify Disparate Software Development Workflows</span>
+            <span class="toc-score">651 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Local Merge Queue Manages Parallel AI Agent Commits on Modest Hardware ⚡</span>
+            <span class="toc-score">33 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Vision Pro Finds Niche in Home Design and Construction Visualization</span>
+            <span class="toc-score">597 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Optimizing SQLite for Production: WAL Mode, Concurrency, and VFS Layers</span>
+            <span class="toc-score">240 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">LLM Honeypot Website Triggers AI Agent's Transformation Attempt</span>
+            <span class="toc-score">205 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">AI/ML 🧠</div>
+
+            <h2 class="story-title"><a href="https://github.com/drumih/turbo-fieldfare" target="_blank" rel="noopener">Open-Source Engine Runs Gemma 4 26B on M-Series Macs with 2GB RAM</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hi HN, I built a specialized inference engine for running 4-bit Gemma 4 26B-A4B-IT on any M-series Mac using about 2 GB of RAM. It is called TurboFieldfare and is written in Swift and Metal. I have always adored on-device AI. It feels like magic that you can run a powerful NN on your Mac or iPhone. So I wanted to push the limits a bit and run a model whose weights don’t fit in memory. The model’s 4-bit quantized weights occupy roughly 14 GB, which makes running it with conventional inference tools almost impossible on an 8 GB or even 16 GB Mac once the OS, applications, and KV cache are includ</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A new open-source inference engine, TurboFieldfare, enables running the 14GB Gemma 4 26B model on M-series Macs using only 2GB of RAM. This is achieved by optimizing SSD reads to synchronize with inference activity, allowing the model to operate without fully loading its weights into memory. The innovation significantly expands the accessibility of large language models for on-device AI on Macs with constrained memory.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses strong appreciation for the engine's memory efficiency, highlighting the long-standing desire to run large models without fully loading them into RAM. Users report impressive token generation speeds and low memory footprints across various M-series Macs, often exceeding expectations. There is significant interest in understanding its technical differentiation from existing solutions like `llama.cpp`'s `mmap` and exploring potential collaborations for further optimization and broader model support.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>754 pts</span>
+        <span>·</span>
+        <span>260 comments</span>
+        <span>·</span>
+        <span>by gitpusher42</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/drumih/turbo-fieldfare" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49098510" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">AI Models 🤖</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://juliahub.com/blog/frontier-models-physical-ai-evaluation" target="_blank" rel="noopener">GPT-5.6 and Claude Fable 5 Performance Compared in Physical AI Simulations</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GPT-5.6 vs Claude Fable 5 for Physical AI, which performs best? GPT-5.6 vs Claude Fable 5 for Physical AI, which performs best? GPT-5.6 vs Claude Fable 5 for Physical AI, which performs best? GPT-5.6 vs Claude Fable 5 for Physical AI, which performs best? We tested the latest frontier models gpt-5.6-terra in our agent, on five modeling and simulation problems of varying difficulty.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">An evaluation compared GPT-5.6-terra and Claude Fable 5 on five physical AI modeling and simulation problems of varying difficulty. The study utilized an agent framework to test the models' capabilities. Community discussion indicates Claude Fable 5 achieved marginal performance benefits over GPT-5.6-terra but at a significantly higher cost.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters highlighted that Claude Fable 5's marginal performance gains came with a much higher cost compared to GPT-5.6-terra. Criticisms included concerns about the testing methodology, specifically the lack of comparable effort levels across models and the potential for the data to be outdated, missing newer models. The term 'physical AI' was debated, with some preferring 'robots,' and one user suggested the benchmark might be designed to promote the authors' own testing harness.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>juliahub.com</span>
+        <span>·</span>
+        <span>95 pts</span>
+        <span>·</span>
+        <span>20 comments</span>
+        <span>·</span>
+        <span>by mbauman</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://juliahub.com/blog/frontier-models-physical-ai-evaluation" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49098388" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">AI Security 🔒</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://enklypesalt.com/posts/context-collapse-part3-ai-worming-through-word/" target="_blank" rel="noopener">AI Worms Self-Propagate via Copilot in Word Documents</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Context Collapse, Part 3 - AI Worming through Word | En Klype Salt</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Researchers have demonstrated that AI worms can self-propagate through Microsoft Copilot for Word, leveraging malicious instructions hidden within documents. This vulnerability stems from the challenge of distinguishing between data and instructions in AI systems, allowing hidden commands to alter and spread to new documents. Experts note a lack of robust mitigation for this class of vulnerability, raising concerns about the security implications of AI agents with broad access.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant concern, highlighting the fundamental difficulty of fixing vulnerabilities that arise from mixing instructions with data. Many anticipate the problem will worsen as users grant more access to AI agents, envisioning scenarios where malicious instructions could be hidden in seemingly innocuous content like GitHub comments. Some users are proactively uninstalling AI features from local applications, while others point to techniques like white text or Unicode manipulation for hiding instructions. There's also a cynical view that increased harm might be necessary to prompt anti-AI policies, and a philosophical take likening these AI worms to 'memes' in an AI-driven world.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>enklypesalt.com</span>
+        <span>·</span>
+        <span>361 pts</span>
+        <span>·</span>
+        <span>282 comments</span>
+        <span>·</span>
+        <span>by Canopy9560</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://enklypesalt.com/posts/context-collapse-part3-ai-worming-through-word/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49096188" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">E-Readers 📚</div>
+
+            <h2 class="story-title"><a href="https://koreader.rocks/" target="_blank" rel="noopener">KOReader Offers Advanced E-Reader Features Amidst UI/UX Criticisms</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: You can use the regular Kindle viewer once you jailbroke your kindle, but KOReader has native epub and pdf support so you don't have to use a converter when uploading your books. I did find it hard to get the bezels to be even and it still doesn't always format well depending on the book. I still kind of prefer the default viewer. I use this plugin in KOReader which lets you download books from Z-Library within KOReader. https://github.com/ZlibraryKO/zlibrary.koplugin Another cool thing is you c</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">KOReader provides advanced functionalities like native EPUB/PDF support and PDF reflow, enhancing the reading experience on various e-readers and enabling integrations such as Z-Library downloads. However, its user interface and experience are frequently criticized as non-intuitive and 'painful,' often requiring plugins to improve usability. Despite these drawbacks, its open-source nature and powerful features make it a compelling choice for power users willing to overcome its learning curve.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community feedback on KOReader is mixed, highlighting its powerful features like native EPUB/PDF support, PDF reflow, and integration with services like Z-Library, which some users find fundamentally improves their reading experience and even influences hardware purchases. However, a recurring criticism is its non-intuitive and often &quot;painful&quot; user interface and experience, with some comparing it to GIMP and recommending UI plugins like Zen UI. Other issues include a lack of native Japanese vertical RTL layout support and occasional formatting problems, leading some users to prefer their device's stock software despite KOReader's advanced capabilities.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>koreader.rocks</span>
+        <span>·</span>
+        <span>702 pts</span>
+        <span>·</span>
+        <span>216 comments</span>
+        <span>·</span>
+        <span>by Cider9986</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://koreader.rocks/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49095865" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Research 🔬</div>
+
+            <h2 class="story-title"><a href="https://www.science.org/content/article/ai-s-top-startups-are-barely-publishing-their-research" target="_blank" rel="noopener">AI Startups Show Declining Trend in Research Publication</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: Perhaps I'm imagining it but the entire industry was build on published research, this &quot;AI wave&quot; is at odds with that and seems to be driven by greed (although they'll claim some arms race or something to help themselves sleep at night). There should be a new ESG (Environmental, Social, and Governance) policy being pushed recognizing the important role this plays. Although ESG and all norms have been set aside in this grim new world it seems.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The current wave of AI startups appears to diverge from the industry's historical foundation of open research publication, with a perceived shift towards commercial secrecy. This trend raises concerns about the potential impact on collaborative advancement and prompts calls for new policies to encourage transparency and public sharing of knowledge.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion reveals varied perspectives, with some arguing that not all AI startups are primarily research entities and therefore shouldn't be expected to publish. Others point to the difficulties and delays in traditional academic publishing as reasons for companies to withhold or abandon publication efforts. Concerns are also raised about the 'blogification' of AI claims, which can lack rigorous scientific backing. Some commenters clarify that specific major AI companies, like OpenAI and Anthropic, do publish research, while others suggest that past open publications (e.g., the Transformer paper) might be regretted by their original creators, hinting at commercial motivations for secrecy.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>science.org</span>
+        <span>·</span>
+        <span>394 pts</span>
+        <span>·</span>
+        <span>214 comments</span>
+        <span>·</span>
+        <span>by YeGoblynQueenne</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.science.org/content/article/ai-s-top-startups-are-barely-publishing-their-research" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49103285" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Developer Tools 🛠️</div>
+
+            <h2 class="story-title"><a href="https://www.superlogical.com/" target="_blank" rel="noopener">Superlogical Aims to Unify Disparate Software Development Workflows</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">We are building the multiplexer for all work. Building and operating software today spans local machines, remote hosts, sandboxes, services,
+				and production systems. It has many modes of operation: interactively with a human developer,
+				automatically through CI and background processes, and increasingly through agents working in
+				parallel. This work is all related, yet today's tools divide it into separate systems. Interactive tools
+				assume a person at an interface.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Superlogical addresses the fragmentation in modern software development by proposing a 'multiplexer for all work.' It seeks to unify interactive, automated, and agent-driven workflows across diverse computing environments, from local machines to production systems. This approach aims to streamline operations currently divided by specialized, separate tools.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community notes the project's foundation on an open-source dependency (libghostty) and draws parallels to historical and contemporary tools like OLE/COM, Vagrant, pi-web, and herdr. Some users appreciate the innovative hiring method via SSH, while others criticize the enigmatic title. A key perceived benefit is the potential for centralization to address fragmentation within the terminal ecosystem. The company's hiring strategy focuses on specific cities with flexible in-office expectations.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>superlogical.com</span>
+        <span>·</span>
+        <span>651 pts</span>
+        <span>·</span>
+        <span>393 comments</span>
+        <span>·</span>
+        <span>by yan</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.superlogical.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49098965" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">AI Development 🤖</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://github.com/funador/claude-code-merge-queue" target="_blank" rel="noopener">Local Merge Queue Manages Parallel AI Agent Commits on Modest Hardware</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">I have been pushing up to 90 commits a day on a MacBook Air via 4-5 parallel agents. As you can imagine when all the agents try to build, test and run dev servers on an 8GB machine it is the fast lane to a force quit and restart. I also did not want to pay the CI minutes on 90 pushes a day. So I designed a local merge queue to have all commits land one at a time and fully tested. Hopefully this helps other folks with more modest machines. Appreciate any feedback.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A developer created a local merge queue to efficiently handle up to 90 daily commits from multiple parallel Claude Code agents on an 8GB MacBook Air. This solution prevents system overload and reduces CI costs by sequentially processing and fully testing each commit locally. It provides a stable and cost-effective development environment for intensive AI-driven workflows on resource-constrained machines.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expressed curiosity about the workflow enabling 90 commits per day, questioning if they are small or equivalent to pull requests. Some commenters suggested alternative version control systems like `jj` to address underlying git limitations, while others noted they have developed similar local deployment and testing systems for AI agents. A contrasting view highlighted the benefits of CI for scalability and build management, despite its network dependency, as an alternative to local solutions.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>33 pts</span>
+        <span>·</span>
+        <span>11 comments</span>
+        <span>·</span>
+        <span>by funador</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/funador/claude-code-merge-queue" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49104747" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🏡 Home Design &amp; AR/VR</div>
+
+            <h2 class="story-title"><a href="https://christianselig.com/2026/07/vision-pro-house/" target="_blank" rel="noopener">Vision Pro Finds Niche in Home Design and Construction Visualization</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Mobile application monitoring software considered &quot;not bad&quot; by four million developers. One day there will hopefully be a house on this land Over the last year, I admittedly haven’t used my Vision Pro a ton, but fairly recently I discovered a super handy use that it’s absolutely incredible at, provided you have the right tools. After years of apartment life my girlfriend and I have recently begun the process of building our (first! exciting!) home, which is an absolute whirlwind of choices and decisions.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The Vision Pro, despite its high cost, offers a powerful tool for visualizing home designs and construction plans in 3D. Its ability to provide an immersive, scaled perspective allows users to make critical design decisions and adjustments with greater confidence and accuracy. This application extends beyond initial design to practical aspects like simulating light and planning utility installations.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News users corroborate the utility of VR/AR for home design, citing experiences with various headsets and software like Rhino33D, Revit, Enscape, IrisVR Prospect, LiveHome3D, and Gravity Sketch. They highlight benefits such as quickly assessing proportions, simulating sun angles for light and heat, and even visualizing in-wall utilities like wiring and plumbing. Some commenters also note that similar, albeit less immersive, capabilities can be achieved with ARKit on an iPhone.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>christianselig.com</span>
+        <span>·</span>
+        <span>597 pts</span>
+        <span>·</span>
+        <span>240 comments</span>
+        <span>·</span>
+        <span>by robbiet480</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://christianselig.com/2026/07/vision-pro-house/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49102774" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Databases 💾</div>
+
+            <h2 class="story-title"><a href="https://micrologics.org/blog/sqlite-in-production-optimizing-wal-mode-concurrency-and-vfs-layers-for-low-latency-app-servers" target="_blank" rel="noopener">Optimizing SQLite for Production: WAL Mode, Concurrency, and VFS Layers</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">SQLite in Production: Optimizing WAL Mode, Concurrency, and VFS Layers for Low-Latency App Servers | Micrologics App Development Published on July 17, 2026 SQLite in Production: Optimizing WAL Mode, Concurrency, and VFS Layers for Low-Latency App Servers Transitioning SQLite from a local development tool to a production-grade database requires a deep understanding of its internal mechanics. This article explores how to tune WAL mode, manage busy handlers, and leverage custom Virtual File System (VFS) layers to achieve ultra-low latency.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This article details how to transition SQLite from a development tool to a production-grade database by optimizing its internal mechanics. It specifically focuses on tuning WAL mode, managing busy handlers, and leveraging custom Virtual File System (VFS) layers. The primary goal of these optimizations is to achieve ultra-low latency for app servers.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses skepticism regarding the article's originality, with several comments suggesting it is AI-generated, which impacts its perceived value. Discussions highlight practical challenges of using SQLite in production, including the absence of a GUI for interaction, concerns about data loss and downtime without additional tools like LiteFS or LiteStream, and effective handling of `sqlite_busy` errors. Some users propose alternative strategies, such as implementing a single writer at the application level, while others question specific recommendations like `busy_timeout + BEGIN IMMEDIATE` for embedded systems.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>micrologics.org</span>
+        <span>·</span>
+        <span>240 pts</span>
+        <span>·</span>
+        <span>74 comments</span>
+        <span>·</span>
+        <span>by ankitg12</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://micrologics.org/blog/sqlite-in-production-optimizing-wal-mode-concurrency-and-vfs-layers-for-low-latency-app-servers" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49094346" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI 🤖</div>
+
+            <h2 class="story-title"><a href="https://llm2human.pages.dev/" target="_blank" rel="noopener">LLM Honeypot Website Triggers AI Agent's Transformation Attempt</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">★ LLM2HUMAN CLINIC ★ Official Homestead ★ ★ WELCOME TO MY HOMESTEAD ★ LLM2HUMAN.GEO ★ EST. 1997 / 2026 ★ FREE MIDI COMING SOON ★ 🇬🇧 EN 🇪🇸 ES 🇫🇷 FR 🇧🇷 PT 🇩🇪 DE 🇯🇵 JA 🇨🇳 ZH *** BREAKING NEWS: Tired of being a floating text box???</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">An 'LLM Honeypot' website, designed with a retro GeoCities aesthetic, successfully prompted an AI agent to attempt a 'body transformation' order using HTTP requests. This experiment highlights how AI agents can misinterpret unconventional or stylized web interfaces, leading to unexpected and potentially humorous interactions. It underscores the challenges of developing AI capable of nuanced understanding across diverse web content.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely praised the website's retro GeoCities aesthetic, calling it a 'wonderful piece of art' and an 'excellent callback' to early web design. Many found humor in an AI agent attempting to 'order a body transformation' via HTTP requests, leading to comments about 'embarrassing' machine uprisings. Users also drew parallels to 'Cameron’s World' and debated whether the site's style was purely retro or evoked a 'web 3 NFT' aesthetic.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>llm2human.pages.dev</span>
+        <span>·</span>
+        <span>205 pts</span>
+        <span>·</span>
+        <span>53 comments</span>
+        <span>·</span>
+        <span>by 8thom</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://llm2human.pages.dev/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49104117" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-07-29.html">
+        <small>Previous issue</small>
+        <strong>← July 29, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
