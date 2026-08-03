@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 089, August 03, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — August 03, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 089</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Monday</span>
+                    <time datetime="2026-08-03">August 03, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Kakehashi Project Enables Experimental macOS Binary Execution on Linux ARM</span>
+            <span class="toc-score">214 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Qwen 3.8-Max Model Released, Open Weights Expected Next Week</span>
+            <span class="toc-score">506 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">New Terminal Emulator 'Shitty' Prioritizes Speed, Notes Memory Unsafety</span>
+            <span class="toc-score">138 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Framework 12 Software Uses Hinge Sensor for Creaky Door Sound</span>
+            <span class="toc-score">84 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Karpathy Benchmarks LLM's Procedural 3D Scene Generation from Text</span>
+            <span class="toc-score">555 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Developers' Attachment to Tools Stems from Encoded Trust</span>
+            <span class="toc-score">207 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Kimi K3 Model Benchmarked on AMD MI355X, Claims Performance-per-Dollar Advantage Over Nvidia B300</span>
+            <span class="toc-score">207 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Isopolis Creates Isometric Pixel Map of San Francisco</span>
+            <span class="toc-score">204 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Bor Introduces Real-time Open-Source Policy Management for Linux Desktops</span>
+            <span class="toc-score">175 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">AI Models Benchmarked on Generating Habsburg-Jawed Frog SVGs</span>
+            <span class="toc-score">139 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">💻 Software Development</div>
+
+            <h2 class="story-title"><a href="https://github.com/wie-project/kakehashi" target="_blank" rel="noopener">Kakehashi Project Enables Experimental macOS Binary Execution on Linux ARM</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - wie-project/kakehashi: Userspace macOS translation layer for Linux ARM64 · GitHub</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Kakehashi is an experimental userspace translation layer designed to run macOS CLI binaries on Linux ARM64 systems. While early prototypes demonstrate functionality, such as 7-Zip working, they currently exhibit significant performance overhead. This project represents an initial step towards broader cross-platform compatibility for macOS applications on Linux.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant interest in Kakehashi, viewing it as a promising step towards macOS application compatibility on Linux, akin to WINE/Proton for Windows. Commenters note the project's early stage and performance challenges but are eager to follow its development, drawing comparisons to existing compatibility layers and even inverse projects.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>214 pts</span>
+        <span>·</span>
+        <span>55 comments</span>
+        <span>·</span>
+        <span>by vlad_kalinkin</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/wie-project/kakehashi" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49145937" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">AI Models 🤖</div>
+
+            <h2 class="story-title"><a href="https://qwen.ai/blog?id=qwen3.8" target="_blank" rel="noopener">Qwen 3.8-Max Model Released, Open Weights Expected Next Week</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: &gt; Today, we are officially releasing Qwen 3.8-Max, the most capable model in the Qwen family to date. This also marks the first time we will open-source the weights of a Qwen-Max-class model — the open weights will be released next week. I don't understand. That's dated today, but: https://twitter.com/alibaba_qwen/status/2078759124914098291 &gt; Qwen3.8 is launching and going open-weight soon! [...] You don't have to wait to test it. Just now, the Qwen3.8-Max-Preview made its debut on Alibaba’s Tok</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Alibaba has launched Qwen 3.8-Max, positioning it as the most capable model in the Qwen family to date. This release is significant as it marks the first time a Qwen-Max-class model will have its weights open-sourced, which is anticipated next week. This move could empower the open-source community with access to a high-performance, state-of-the-art model.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses high anticipation for the open-weight release of Qwen3.8-27B, noting the strong reputation of its predecessor, Qwen3.6-27B, as a leading local model. Early tests show promising results for visual web development and image-to-HTML flows. Some users criticize cloud providers like AWS Bedrock for their slow adoption of newer open-weight models. Broader discussions include China's potential to lead in AI due to its infrastructure and workforce, and the hope that open-weight models can proliferate before potential regulatory bans. There's also speculation about the significant VRAM requirements for hosting such advanced models.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>qwen.ai</span>
+        <span>·</span>
+        <span>506 pts</span>
+        <span>·</span>
+        <span>234 comments</span>
+        <span>·</span>
+        <span>by ai2027</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://qwen.ai/blog?id=qwen3.8" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49150470" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Developer Tools 🖥️</div>
+
+            <h2 class="story-title"><a href="https://github.com/pg83/shitty" target="_blank" rel="noopener">New Terminal Emulator 'Shitty' Prioritizes Speed, Notes Memory Unsafety</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - pg83/shitty: A serious terminal emulator with a stupid name · GitHub</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A new terminal emulator named 'Shitty' has been introduced, claiming superior speed, though it acknowledges being memory-unsafe. While benchmarks suggest high throughput, the practical necessity of such extreme performance is debated. The project also faces scrutiny over its licensing and naming choices.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community discusses the project's performance claims, with a competitor noting recent improvements in their own terminal that could narrow the gap. Questions arise regarding the practical utility of extremely high throughput versus other metrics like keypress-to-screen latency. Significant concerns are raised about the project's stated intent to change its license from GPL to MIT for derived work, as well as the unprofessionalism and potential naming conflicts associated with its chosen name.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>138 pts</span>
+        <span>·</span>
+        <span>128 comments</span>
+        <span>·</span>
+        <span>by pshirshov</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/pg83/shitty" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49149326" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Novelty Software 😂</div>
+
+            <h2 class="story-title"><a href="https://github.com/ArcaEge/creakwork12" target="_blank" rel="noopener">Framework 12 Software Uses Hinge Sensor for Creaky Door Sound</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">I was poking through the iio devices on my Framework the other day and turns out Framework 12s have a pretty accurate hinge angle sensor! So I made a version of LidAngleSensor ( https://github.com/samhenrigold/LidAngleSensor ) but for the Framework 12 on Linux, so you can make your hinge sound rusty</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A new Linux application leverages the Framework 12 laptop's built-in hinge angle sensor to produce a creaky door sound effect as the lid opens and closes. This project demonstrates how developers can creatively repurpose unexpected hardware features for humorous or novel user experiences. It highlights the potential for playful interaction with a device's physical mechanics.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community reacted positively, drawing parallels to similar creative hardware hacks on older MacBooks (using ambient light sensors or IMUs for fall detection) and ThinkPads (accelerometer for desktop switching). Users suggested enhancements like varying the sound's pitch or speed based on hinge movement velocity. The project's readme detail about optimizing for 'hinge stiffness' was particularly amusing to commenters.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>84 pts</span>
+        <span>·</span>
+        <span>15 comments</span>
+        <span>·</span>
+        <span>by arcaege</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/ArcaEge/creakwork12" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49148048" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI</div>
+
+            <h2 class="story-title"><a href="https://twitter.com/karpathy/status/2083749667410727319" target="_blank" rel="noopener">Karpathy Benchmarks LLM's Procedural 3D Scene Generation from Text</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Andrej Karpathy on X: &quot;We're starting to leave the territory where you'd test an LLM by e.g. &quot;create an svg of pelican on a bicycle&quot;. As one idea to generalize it, I was interested what Opus 5 would do if I gave it the first paragraph of the Lord of the Rings, a 1M token budget (~$10) and asked for three js render of it. Opus went off for ~2 hours and wrote 5500 lines of code that (procedurally) rendered the story. But it's a bit mindboggling that the LLM has to place and orchestrate various polygon assets in (x,y,z) coordinates and write code that animates it all, and that it even does anything at all.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Andrej Karpathy's experiment with Opus 5 demonstrates a new frontier in LLM testing, moving beyond simple image generation to complex procedural 3D rendering from textual descriptions. The LLM's ability to generate thousands of lines of JavaScript to orchestrate and animate 3D assets, even with imperfect results, highlights its evolving capacity for understanding and translating abstract concepts into executable code for virtual environments. This approach offers a novel benchmark for evaluating an LLM's comprehension of the physical world and its ability to create complex interactive experiences.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community acknowledges that while the visual output of the LLM-generated 3D scene may be flawed, the experiment itself represents a significant step in benchmarking AI's understanding of the physical world. Some commenters suggest that Anthropic models might be specifically optimized for three.js code generation, potentially skewing the perceived general capability. Others point out ongoing challenges, such as LLMs struggling with truly playable game logic or accurately interpreting nuanced textual descriptions for visual representation, and the difficulty of &quot;closing the loop&quot; for visual perception and aesthetic judgment. The discussion also touches on the lack of prompt reproducibility and alternative applications of LLMs for 3D animation in practical contexts.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>twitter.com</span>
+        <span>·</span>
+        <span>555 pts</span>
+        <span>·</span>
+        <span>388 comments</span>
+        <span>·</span>
+        <span>by delichon</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://twitter.com/karpathy/status/2083749667410727319" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49140998" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Dev Tools 🛠️</div>
+
+            <h2 class="story-title"><a href="https://stackoverflow.blog/2026/07/29/developers-are-attached-to-tools-because-tools-encode-trust/" target="_blank" rel="noopener">Developers' Attachment to Tools Stems from Encoded Trust</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Developers are attached to tools because tools encode trust - Stack Overflow</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The article posits that developers form attachments to tools because these tools embody trust through their consistency and predictability. This concept is challenged by the emergence of 'agentic tools' like AI, which may introduce unpredictability. The historical perspective suggests that the desire for a stable and controllable environment, rather than constantly changing tools, is a long-standing developer preference.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses mixed reactions, with some criticizing the article as 'rambly' or 'saying absolutely nothing.' Several commenters link the theme of trust to Stack Overflow's own brand, noting a perceived loss of trust due to past corporate decisions. There's a discussion about the predictability of tools, contrasting stable, trusted environments with the potential unpredictability of AI agents. One user highlights the extensive 'yak shaving' developers undertake to build highly personalized and trusted toolchains, reinforcing the deep investment in reliable tools.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>stackoverflow.blog</span>
+        <span>·</span>
+        <span>207 pts</span>
+        <span>·</span>
+        <span>110 comments</span>
+        <span>·</span>
+        <span>by HieronymusBosch</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://stackoverflow.blog/2026/07/29/developers-are-attached-to-tools-because-tools-encode-trust/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49097961" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Hardware 🤖</div>
+
+            <h2 class="story-title"><a href="https://www.wafer.ai/blog/kimi-k3-mi355x" target="_blank" rel="noopener">Kimi K3 Model Benchmarked on AMD MI355X, Claims Performance-per-Dollar Advantage Over Nvidia B300</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Over the past several months, we’ve seen an explosion in the capabilities of open source models. With DeepSeek V4-Pro and GLM5.2 reaching near-Opus levels of intelligence, open source has emerged as a real, cost-efficient alternative to the closed source models we’ve been married to. But we have yet to see one like Kimi K3. Promising Fable/Sol levels of intelligence, Kimi K3 marks the start of a new era for open source. But a smarter model means a bigger model — and these models are expanding in size just as fast as they are in capabilities.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The Kimi K3 model is presented as a significant advancement in open-source AI, offering intelligence levels comparable to leading closed-source models. This development underscores the rapid growth in both the capabilities and computational demands of open-source AI. The article specifically benchmarks Kimi K3 on AMD's MI355X, asserting a superior performance-per-dollar ratio against Nvidia's B300.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely views the article as a promotional piece for Wafer/AMD, heavily disputing its core claims regarding performance-per-dollar. Commenters highlight that raw throughput benchmarks show Nvidia's B300 outperforming the AMD MI355X, suggesting the cost-efficiency claim relies on selective cloud pricing. Concerns are also raised about the article's methodology, the justification of hardware investment, and the use of 'open source model' instead of 'open weight model' given the absence of training data and tools.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>wafer.ai</span>
+        <span>·</span>
+        <span>207 pts</span>
+        <span>·</span>
+        <span>101 comments</span>
+        <span>·</span>
+        <span>by ilreb</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.wafer.ai/blog/kimi-k3-mi355x" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49141073" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Mapping 🗺️</div>
+
+            <h2 class="story-title"><a href="https://sf.isopolis.city/" target="_blank" rel="noopener">Isopolis Creates Isometric Pixel Map of San Francisco</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">© OpenStreetMap contributors © CARTO · neighborhoods: DataSF</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Isopolis transforms San Francisco into an expansive isometric pixel map, drawing from sources like Google Photorealistic 3D Tiles and public LIDAR data. The project showcases the artistic potential of rendering complex urban landscapes in a stylized, explorable format, despite the inherent challenges of isometric projection and data interpretation.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community members lauded the map's beauty and the impressive execution of a challenging isometric rendering project. Discussions highlighted the use of Google Photorealistic 3D Tiles and public LIDAR data, while some noted the map's relative flatness compared to San Francisco's actual topography, possibly for practical viewing. Users also pointed out minor rendering anomalies and raised questions about the fair use of AI-stylized assets derived from commercial mapping data.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>sf.isopolis.city</span>
+        <span>·</span>
+        <span>204 pts</span>
+        <span>·</span>
+        <span>45 comments</span>
+        <span>·</span>
+        <span>by nuwandavek</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://sf.isopolis.city/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49149966" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🐧 Linux Management</div>
+
+            <h2 class="story-title"><a href="https://getbor.dev/blog/2026-08-02-bor-v080-release/" target="_blank" rel="noopener">Bor Introduces Real-time Open-Source Policy Management for Linux Desktops</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hi HN! I've been working on Bor, an open-source system for centralized Linux desktop management. Bor consists of a lightweight Go agent and a central server. Policies are streamed to clients over mTLS/gRPC in real time—no polling—and currently support Firefox, Chrome, KDE, dconf, polkit and package management, with more coming. Version 0.8 introduces several new policy types - Thunderbird, Microsoft Edge for Business and FirewallD zones, along with a number of improvements and fixes. I'd love feedback on the architecture, policy model, and whether this is something you'd consider for managing </p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Bor offers a real-time, open-source solution for centralized Linux desktop management, leveraging mTLS/gRPC for immediate policy streaming without polling. Its architecture, comprising a Go agent and central server, supports a broad and expanding range of applications and system components, including Firefox, Chrome, KDE, and package management. This system addresses the need for efficient and dynamic policy enforcement across various Linux environments.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expressed significant interest in Bor for diverse use cases, such as managing non-profit laptops, enforcing parental screen time, and potentially achieving compliance like DISA STIGs. Users inquired about its competitive landscape against other open-source or enterprise solutions, and sought clarification on technical aspects like configuration drift handling without polling and the choice of mTLS over SSH for authentication. There were also requests for support for specific desktop environments like Linux Mint's Cinnamon and suggestions for improving documentation diagrams.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>getbor.dev</span>
+        <span>·</span>
+        <span>175 pts</span>
+        <span>·</span>
+        <span>23 comments</span>
+        <span>·</span>
+        <span>by eniac111</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://getbor.dev/blog/2026-08-02-bor-v080-release/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49142569" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Art 🎨</div>
+
+            <h2 class="story-title"><a href="https://frogs.vaguespac.es/" target="_blank" rel="noopener">AI Models Benchmarked on Generating Habsburg-Jawed Frog SVGs</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Run 1 of 3 · Aug 2 2026           · 64.0s          · 3,900 B The annotations are mostly structural labels, but include some editorializing about the jaw feature: &quot;massive protruding mandible&quot; and describing the upper lip as &quot;recessed, tucked behind the jaw&quot; and lower teeth as &quot;protruding&quot; over the upper lip, which offer anatomical interpretation beyond plain labeling. View SVG source &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 400 440&quot; width=&quot;400&quot; height=&quot;440&quot;&gt;
+  &lt;defs&gt;
+    &lt;linearGradient id=&quot;skin&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;
+      &lt;stop offset=&quot;0&quot; stop-color=&quot;#8fd35a&quot;/&gt;
+      &lt;stop offset=&quot;1&quot; stop-color=&quot;#5aa33c&quot;/&gt;
+    &lt;/linearGradient&gt;
+    &lt;linearGradient id=&quot;jaw&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;
+      &lt;stop offset=&quot;0&quot; stop-color=&quot;#9ade63&quot;/&gt;
+      &lt;stop offset=&quot;1&quot; stop-color=&quot;#68b544&quot;/&gt;
+    &lt;/linearGradient&gt;
+    &lt;radialGradient id=&quot;eyeball&quot; cx=&quot;0.35&quot; cy=&quot;0.3&quot; r=&quot;0.8&quot;&gt;
+      &lt;stop offset=&quot;0&quot; stop-color=&quot;#fff8d8&quot;/&gt;
+      &lt;stop offset=&quot;1&quot; stop-color=&quot;#e8c93f&quot;/&gt;
+    &lt;/radialGradient&gt;
+  &lt;/defs&gt;
+
+  &lt;!-- background --&gt;
+  &lt;rect width=&quot;400&quot; height=&quot;440&quot; fill=&quot;#e9f5ef&quot;/&gt;
+
+  &lt;!-- body --&gt;
+  &lt;ellipse cx=&quot;200&quot; cy=&quot;430&quot; rx=&quot;170&quot; ry=&quot;90&quot; fill=&quot;#4c8f34&quot;/&gt;
+  &lt;ellipse cx=&quot;200&quot; cy=&quot;438&quot; rx=&quot;120&quot; ry=&quot;70&quot; fill=&quot;#7ec457&quot; opacity=&quot;0.5&quot;/&gt;
+
+  &lt;!-- head dome --&gt;
+  &lt;path d=&quot;M76,215 C68,108 124,46 200,46 C276,46 332,108 324,215 Z&quot; fill=&quot;url(#skin)&quot;/&gt;
+
+  &lt;!-- eye bulges --&gt;
+  &lt;circle cx=&quot;140&quot; cy=&quot;84&quot; r=&quot;44&quot; fill=&quot;url(#skin)&quot;/&gt;
+  &lt;circle cx=&quot;260&quot; cy=&quot;84&quot; r=&quot;44&quot; fill=&quot;url(#skin)&quot;/&gt;
+
+  &lt;!-- warts --&gt;
+  &lt;circle cx=&quot;105&quot; cy=&quot;150&quot; r=&quot;6&quot; fill=&quot;#4f9235&quot; opacity=&quot;0.5&quot;/&gt;
+  &lt;circle cx=&quot;128&quot; cy=&quot;176&quot; r=&quot;4.5&quot; fill=&quot;#4f9235&quot; opacity=&quot;0.5&quot;/&gt;
+  &lt;circle cx=&quot;295&quot; cy=&quot;150&quot; r=&quot;6&quot; fill=&quot;#4f9235&quot; opacity=&quot;0.5&quot;/&gt;
+  &lt;circle cx=&quot;272&quot; cy=&quot;176&quot; r=&quot;4.5&quot; fill=&quot;#4f9235&quot; opacity=&quot;0.5&quot;/&gt;
+
+  &lt;!-- nostrils --&gt;
+  &lt;ellipse cx=&quot;178&quot; cy=&quot;140&quot; rx=&quot;5&quot; ry=&quot;4&quot; fill=&quot;#3c7027&quot;/&gt;
+  &lt;ellipse cx=&quot;222&quot; cy=&quot;140&quot; rx=&quot;5&quot; ry=&quot;4&quot; fill=&quot;#3c7027&quot;/&gt;
+
+  &lt;!-- upper lip (recessed, tucked behind the jaw) --&gt;
+  &lt;path d=&quot;M80,190 Q200,224 320,190&quot; fill=&quot;none&quot; stroke=&quot;#39281f&quot; stroke-width=&quot;8&quot; stroke-linecap=&quot;round&quot;/&gt;
+  &lt;path d=&quot;M80,190 Q200,224 320,190 L320,200 Q200,236 80,200 Z&quot; fill=&quot;#4a3128&quot;/&gt;
+
+  &lt;!-- HABSBURG JAW: massive protruding mandible --&gt;
+  &lt;path d=&quot;M64,196 C36,252 52,330 108,364 C150,392 250,392 292,364 C348,330 364,252 336,196
+           C296,168 104,168 64,196 Z&quot; fill=&quot;url(#jaw)&quot; stroke=&quot;#4f9235&quot; stroke-width=&quot;3&quot;/&gt;
+
+  &lt;!-- lower lip highlight --&gt;
+  &lt;path d=&quot;M70,199 C110,174 290,174 330,199&quot; fill=&quot;none&quot; stroke=&quot;#c7f293&quot; stroke-width=&quot;6&quot; stroke-linecap=&quot;round&quot; opacity=&quot;0.85&quot;/&gt;
+
+  &lt;!-- protruding lower teeth over the upper lip --&gt;
+  &lt;path d=&quot;M156,185 L162,158 L170,186 Z&quot; fill=&quot;#fffdf2&quot; stroke=&quot;#d9d2b8&quot; stroke-width=&quot;1.5&quot;/&gt;
+  &lt;path d=&quot;M178,183 L185,153 L193,184 Z&quot; fill=&quot;#fffdf2&quot; stroke=&quot;#d9d2b8&quot; stroke-width=&quot;1.5&quot;/&gt;
+  &lt;path d=&quot;M201,183 L208,153 L216,184 Z&quot; fill=&quot;#fffdf2&quot; stroke=&quot;#d9d2b8&quot; stroke-width=&quot;1.5&quot;/&gt;
+  &lt;path d=&quot;M224,186 L231,159 L238,187 Z&quot; fill=&quot;#fffdf2&quot; stroke=&quot;#d9d2b8&quot; stroke-width=&quot;1.5&quot;/&gt;
+
+  &lt;!-- chin creases --&gt;
+  &lt;path d=&quot;M200,330 C186,318 186,300 200,290 C214,300 214,318 200,330&quot; fill=&quot;none&quot; stroke=&quot;#4f9235&quot; stroke-width=&quot;3&quot; opacity=&quot;0.7&quot;/&gt;
+  &lt;path d=&quot;M96,250 C120,286 140,306 168,320&quot; fill=&quot;none&quot; stroke=&quot;#4f9235&quot; stroke-width=&quot;3&quot; opacity=&quot;0.45&quot;/&gt;
+  &lt;path d=&quot;M304,250 C280,286 260,306 232,320&quot; fill=&quot;none&quot; stroke=&quot;#4f9235&quot; stroke-width=&quot;3&quot; opacity=&quot;0.45&quot;/&gt;
+
+  &lt;!-- eyes --&gt;
+  &lt;circle cx=&quot;140&quot; cy=&quot;84&quot; r=&quot;27&quot; fill=&quot;url(#eyeball)&quot; stroke=&quot;#3c7027&quot; stroke-width=&quot;3&quot;/&gt;
+  &lt;circle cx=&quot;260&quot; cy=&quot;84&quot; r=&quot;27&quot; fill=&quot;url(#eyeball)&quot; stroke=&quot;#3c7027&quot; stroke-width=&quot;3&quot;/&gt;
+  &lt;ellipse cx=&quot;140&quot; cy=&quot;84&quot; rx=&quot;7&quot; ry=&quot;19&quot; fill=&quot;#1b1b1b&quot;/&gt;
+  &lt;ellipse cx=&quot;260&quot; cy=&quot;84&quot; rx=&quot;7&quot; ry=&quot;19&quot; fill=&quot;#1b1b1b&quot;/&gt;
+  &lt;circle cx=&quot;132&quot; cy=&quot;72&quot; r=&quot;6&quot; fill=&quot;#ffffff&quot; opacity=&quot;0.9&quot;/&gt;
+  &lt;circle cx=&quot;252&quot; cy=&quot;72&quot; r=&quot;6&quot; fill=&quot;#ffffff&quot; opacity=&quot;0.9&quot;/&gt;
+  &lt;path d=&quot;M114,62 Q140,48 166,62&quot; fill=&quot;none&quot; stroke=&quot;#4f9235&quot; stroke-width=&quot;5&quot; stroke-linecap=&quot;round&quot;/&gt;
+  &lt;path d=&quot;M234,62 Q260,48 286,62&quot; fill=&quot;none&quot; stroke=&quot;#4f9235&quot; stroke-width=&quot;5&quot; stroke-linecap=&quot;round&quot;/&gt;
+
+  &lt;!-- front feet --&gt;
+  &lt;path d=&quot;M78,392 C60,382 46,392 44,404 C42,418 60,424 78,418 Z&quot; fill=&quot;#68b544&quot; stroke=&quot;#4c8f34&quot; stroke-width=&quot;3&quot;/&gt;
+  &lt;path d=&quot;M322,392 C340,382 354,392 356,404 C358,418 340,424 322,418 Z&quot; fill=&quot;#68b544&quot; stroke=&quot;#4c8f34&quot; stroke-width=&quot;3&quot;/&gt;
+&lt;/svg&gt; Run 2 of 3 · Aug 2 2026           · 42.0s          · 3,465 B The annotations mostly use structural labels, but include editorializing on exaggerated anatomy (&quot;HUGE protruding Habsburg jaw,&quot; &quot;lower teeth jutting over the upper lip&quot;) and implied royal bearing/mood via &quot;droopy regal eyelids.&quot;</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This benchmark evaluates AI models' capacity to interpret and render highly specific and complex visual prompts, such as a frog with a 'Habsburg jaw.' The generated SVGs reveal varying degrees of success in capturing the nuanced anatomical details, with some models providing editorialized annotations that interpret the requested features. The core challenge lies in translating a descriptive, culturally specific anatomical trait into a visual representation within a non-human subject.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters noted that most AI attempts produced front-facing frog images, despite a profile view being more effective for showcasing a Habsburg jaw. Opus 5 was frequently highlighted for its successful and creative interpretation of the prompt. While some models grasped the concept of a 'protruding jaw,' they struggled with the specific 'Habsburg' characteristic, though Gemini-3.6-flash showed improved results when given a 'royal portrait context.'</p>
+    </div>
+
+    <div class="story-meta">
+        <span>frogs.vaguespac.es</span>
+        <span>·</span>
+        <span>139 pts</span>
+        <span>·</span>
+        <span>73 comments</span>
+        <span>·</span>
+        <span>by thebigship</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://frogs.vaguespac.es/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49147622" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-08-02.html">
+        <small>Previous issue</small>
+        <strong>← August 02, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
