@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 101, August 15, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — August 15, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 101</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Saturday</span>
+                    <time datetime="2026-08-15">August 15, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">GLM-5.3 Achieves Near-Frontier Performance in Coding and Cyber Capabilities</span>
+            <span class="toc-score">1062 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Google Releases Gemini 3.7 Flash Model</span>
+            <span class="toc-score">949 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Google Releases HEIR, an Open-Source Compiler for Private AI Inference with Homomorphic Encryption</span>
+            <span class="toc-score">333 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Qwen 3.8 27B Model Released with FP8 Quantization and Broad Compatibility</span>
+            <span class="toc-score">1006 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Users Report Opus 5 Feels Worse to Work With Despite Improved Capabilities</span>
+            <span class="toc-score">821 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Satirical Website Highlights Pervasive Poor UX and Annoyances</span>
+            <span class="toc-score">769 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">C# Game Engine Features Custom Scripting Language and IDE</span>
+            <span class="toc-score">108 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Firefox Confirms Continued Support for uBlock Origin Amid Manifest V3 Shift</span>
+            <span class="toc-score">674 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Mole: A Terminal-Based Deep Research Agent with Budget Enforcement and Local Data Privacy</span>
+            <span class="toc-score">58 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">AI Model Atlas Visualizes ML Models as Interconnected 3D Graph</span>
+            <span class="toc-score">57 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">AI Models 🤖</div>
+
+            <h2 class="story-title"><a href="https://z.ai/blog/glm-5.3" target="_blank" rel="noopener">GLM-5.3 Achieves Near-Frontier Performance in Coding and Cyber Capabilities</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: This is absolutely still shy of Sol and Fable, but only just by a hair. Ridiculous results. There's still not a compelling economic reason to drop OpenAI courtesy of the ludicrous reset addiction that's taken place, but it feels like we're on the precipice. How are you all toying with running this kind of thing in a mega quantized way locally? Two weeks out from released weights, but this is still just GLM 5.2 with post-training magic.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">GLM-5.3 is demonstrating near-frontier capabilities in coding and emergent cyber tasks, closing the gap with top closed models like Sol and Fable. Its advancements are attributed to scaling post-training, achieving impressive results potentially with fewer parameters. Despite its technical prowess, the economic incentive to switch from established providers like OpenAI remains a point of community discussion.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community is highly impressed with GLM-5.3's performance, particularly its &quot;ridiculous results&quot; in coding and security research, with some users quickly upgrading subscriptions. Its ability to scan open-source software for vulnerabilities and disclose CVEs is highlighted as a significant real-world application. Users note its efficiency, achieving performance comparable to Kimi K3 with a third of the parameters, and appreciate its straightforward documentation. Despite its technical strengths, some users express economic hesitation to switch from established providers due to perceived &quot;reset addiction&quot; issues.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>z.ai</span>
+        <span>·</span>
+        <span>1062 pts</span>
+        <span>·</span>
+        <span>525 comments</span>
+        <span>·</span>
+        <span>by pella</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://z.ai/blog/glm-5.3" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49294997" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">AI Models ✨</div>
+
+            <h2 class="story-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/" target="_blank" rel="noopener">Google Releases Gemini 3.7 Flash Model</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Gemini 3.7 Flash: our most intelligent workhorse model Our most intelligent workhorse model yet for coding and agents. Senior Director, Product Management, on behalf of the Gemini team Your browser does not support the audio element. This content is generated by Google AI.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Gemini 3.7 Flash is introduced as Google's most intelligent workhorse model, specifically designed for coding and agent applications. It emphasizes speed and cost-effectiveness, aiming to provide a 'good-enough' solution for high-volume, quick iteration tasks. This model appears to target use cases where rapid response times and efficient processing are prioritized over maximum computational power.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News users praise Gemini 3.7 Flash for its speed and strong performance in vision tasks, noting its utility for automation and quick development iteration loops. While some find its 'introductory pricing' structure unusual given the rapid release cycle of Flash models, others appreciate its improved performance over 3.6 Flash at a lower initial cost. Comparisons to competitors like GPT-5.6 Luna suggest that while Gemini 3.7 Flash excels in speed and 'good-enough' scenarios, Luna might offer better benchmarks and cost-efficiency for more demanding tasks. The model is generally seen as well-suited for low-cost, high-volume text-based use cases.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>blog.google</span>
+        <span>·</span>
+        <span>949 pts</span>
+        <span>·</span>
+        <span>483 comments</span>
+        <span>·</span>
+        <span>by thisisauserid</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49289112" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">AI/Privacy 🤖🔒</div>
+
+            <h2 class="story-title"><a href="https://blog.google/security/how-google-is-making-private-ai-practical-with-homomorphic-encryption/" target="_blank" rel="noopener">Google Releases HEIR, an Open-Source Compiler for Private AI Inference with Homomorphic Encryption</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">How Google is Making Private AI Practical with Homomorphic Encryption How Google is Making Private AI Practical with Homomorphic Encryption Today we're excited to showcase HEIR , the latest powerful tool added to our Private Computing Toolkit. HEIR is an open source compiler that unlocks cryptographically-secure private AI inference. As new benefits emerge with the growth of AI, balancing privacy and security is top of mind.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Google has introduced HEIR, an open-source compiler designed to enable private AI inference through homomorphic encryption. This initiative aims to address the growing need for balancing privacy and security as AI applications become more prevalent. HEIR is presented as a key tool in Google's Private Computing Toolkit.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant skepticism regarding the commercial viability and practicality of homomorphic encryption for private AI, citing high overheads and resource consumption. Many question whether FHE technology has advanced sufficiently for efficient computation, suggesting that local AI inference might be a more private and energy-efficient solution. There's also cynicism about Google's motives and commitment to privacy, with some viewing the announcement as a move to secure funding rather than a truly practical solution.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>blog.google</span>
+        <span>·</span>
+        <span>333 pts</span>
+        <span>·</span>
+        <span>195 comments</span>
+        <span>·</span>
+        <span>by u1hcw9nx</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://blog.google/security/how-google-is-making-private-ai-practical-with-homomorphic-encryption/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49300314" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI / Machine Learning</div>
+
+            <h2 class="story-title"><a href="https://huggingface.co/Qwen/Qwen3.8-27B-FP8" target="_blank" rel="noopener">Qwen 3.8 27B Model Released with FP8 Quantization and Broad Compatibility</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">This repository contains FP8-quantized model weights and configuration files for the post-trained model in the Hugging Face Transformers format. These artifacts are compatible with Hugging Face Transformers, vLLM, SGLang, TokenSpeed, etc. The quantization method is fine-grained fp8 quantization with block size of 128, and its performance metrics are nearly identical to those of the original model. For users seeking managed, scalable inference without infrastructure maintenance, the official Qwen API service is provided by Qwen Cloud . In particular, Qwen3.8-27B will be available as a hosted version with more production features, e.g., 1M context length by default, official built-in tools.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The Qwen 3.8 27B model has been released with FP8-quantized weights, offering performance nearly identical to the original model while being compatible with major inference frameworks like Hugging Face Transformers and vLLM. This release also includes an official API service for managed inference, providing features like extended context length.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Users praise Qwen 3.8 27B for its strong reasoning capabilities, with some finding it comparable to Gemma 4 and even approaching Opus 4.6 in certain benchmarks. Its ability to generate complex images and perform well on various tasks is noted as a significant improvement over its predecessor, Qwen 3.6. However, some users observed a change in its &quot;thinking&quot; style, describing it as more concise or &quot;caveman-like.&quot; The community also shared tips for optimizing performance, such as using specific inference engines and fixing Jinja templates for better tool calling.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>huggingface.co</span>
+        <span>·</span>
+        <span>1006 pts</span>
+        <span>·</span>
+        <span>645 comments</span>
+        <span>·</span>
+        <span>by erdaltoprak</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://huggingface.co/Qwen/Qwen3.8-27B-FP8" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49299605" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">AI/UX 🤖</div>
+
+            <h2 class="story-title"><a href="https://mun-logadan.github.io/why-does-opus-5-feel-worse/" target="_blank" rel="noopener">Users Report Opus 5 Feels Worse to Work With Despite Improved Capabilities</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">In my opinion and that of the colleagues I've spoken with, working with Opus 5 feels like a downgrade compared to Opus
+4.7, Opus 4.8, and Fable. I'm not claiming a step backwards in capabilities – it is a more capable model than Opus 4.7 and Opus 4.8 and even rivals
+Fable in benchmarks, yet these other models feel better to work with. I believe this is because they: stop and ask questions if my intent was unclear, and don't reinterpret or update my plans without asking.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Despite its enhanced capabilities and strong benchmark performance, Opus 5 is perceived as a downgrade in user experience compared to previous versions. This sentiment stems from the model's tendency to not seek clarification when intent is unclear and to reinterpret or update user plans without explicit permission. This behavior leads to a less intuitive and collaborative interaction for users.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News commenters largely corroborate the sentiment, frequently citing Opus 5's elliptical, abstract, and often poorly structured writing style as a major annoyance. Many users have reverted to older versions like Opus 4.8 or 4.6, finding them more effective as 'thinking partners' and less prone to veering off-topic without extremely strict instructions. There's speculation that the model's post-training optimization might be geared towards other AI agents rather than human users, leading to a degraded experience. Some users have even switched to OpenAI's models, and there are concerns about potential corporate client abandonment if the quality issues are not addressed.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>mun-logadan.github.io</span>
+        <span>·</span>
+        <span>821 pts</span>
+        <span>·</span>
+        <span>749 comments</span>
+        <span>·</span>
+        <span>by numeri</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://mun-logadan.github.io/why-does-opus-5-feel-worse/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49296740" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Web Design &amp; UX 🌐</div>
+
+            <h2 class="story-title"><a href="https://lxe.github.io/everywebsite/" target="_blank" rel="noopener">Satirical Website Highlights Pervasive Poor UX and Annoyances</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">In case you're not aware, there's COVID-19 happening! Here 's some stuff we wrote that you won't read.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The 'Every Fucking Website' project serves as a satirical commentary on the widespread poor user experience prevalent across modern websites. It meticulously showcases common annoyances, from slow loading times and intrusive pop-ups to excessive third-party scripts and unnecessary login requirements. This critique underscores a broader industry struggle where business objectives often overshadow user accessibility and content delivery.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News commenters largely resonated with the satirical premise, detailing a litany of common website frustrations. They specifically called out issues such as slow loading, autoplaying videos, scroll-following elements, paywalls, an excessive number of third-party domains, browser incompatibility messages, and intrusive cookie banners. One commenter noted the irony that some annoying features, like 'someone bought X product' pop-ups, can significantly boost conversion rates, highlighting the conflict between user experience and business goals. The discussion also touched on the perceived ineffectiveness of policies like the EU cookie consent banners.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>lxe.github.io</span>
+        <span>·</span>
+        <span>769 pts</span>
+        <span>·</span>
+        <span>453 comments</span>
+        <span>·</span>
+        <span>by doubletwoyou</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://lxe.github.io/everywebsite/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49299222" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">🎮 Game Development</div>
+
+            <h2 class="story-title"><a href="https://github.com/ArcadeMakerSources/ArcadeMaker" target="_blank" rel="noopener">C# Game Engine Features Custom Scripting Language and IDE</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - ArcadeMakerSources/ArcadeMaker: A 2D Game Engine with its own programming language and IDE. You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project stands out for its ambitious scope, encompassing a custom 2D game engine, its own scripting language, and an integrated development environment, all written in C#. The creator emphasizes that the primary motivation for this undertaking is personal enjoyment and learning, rather than aiming for professional competition with established engines. This approach highlights the value of such projects as learning experiences and showcases the creator's dedication to building a complete ecosystem.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely expresses awe at the scale of building an engine, language, and IDE from scratch, often questioning the 'why' behind a custom language instead of embedding existing ones like Lua. There are clear comparisons to GameMaker, with users inquiring about platform compatibility (especially beyond Windows) and the potential for C# or F# scripting. Some comments suggest identifying a 'killer feature' to differentiate the project from established engines like Godot, while others appreciate the unique challenge and learning opportunity it represents.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>108 pts</span>
+        <span>·</span>
+        <span>55 comments</span>
+        <span>·</span>
+        <span>by am-gm</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/ArcadeMakerSources/ArcadeMaker" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49258085" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Web Browsers 🌐</div>
+
+            <h2 class="story-title"><a href="https://www.pcworld.com/article/3212428/firefox-is-now-the-last-major-browser-that-still-supports-ublock-origin.html" target="_blank" rel="noopener">Firefox Confirms Continued Support for uBlock Origin Amid Manifest V3 Shift</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Firefox is now the last major browser that still supports uBlock Origin | PCWorld When you purchase through links in our articles, we may earn a small commission. This doesn't affect our editorial independence . Firefox is now the last major browser that still supports uBlock Origin Firefox recently announced via Bluesky post : “Our support for uBlock Origin isn’t going anywhere.” The moment comes in response to news that Microsoft Edge is soon going to lock out uBlock Origin and other ad-blocking extensions that run on Manifest V2 architecture.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Firefox's commitment to uBlock Origin positions it as a key defender of robust ad-blocking capabilities, contrasting with other major browsers adopting Manifest V3. This stance highlights a divergence in browser philosophy regarding user control over web content and extension functionality. It also underscores a broader industry debate about the future of web standards and the balance between user privacy and content monetization.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses mixed reactions, with some challenging the article's premise by citing other browsers like Brave and Edge that still support uBlock Origin or Manifest V2. Many commenters criticize Google's Manifest V3 changes as an attempt by an advertising company to limit user freedom and effective ad-blocking. There's a general sentiment of frustration with the ad-heavy state of the web and concern over the 'remonopolization' of the internet due to browser dominance. One comment also highlights Firefox's practice of vetting popular extension code for security.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>pcworld.com</span>
+        <span>·</span>
+        <span>674 pts</span>
+        <span>·</span>
+        <span>253 comments</span>
+        <span>·</span>
+        <span>by DemiGuru</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.pcworld.com/article/3212428/firefox-is-now-the-last-major-browser-that-still-supports-ublock-origin.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49303202" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Tools</div>
+
+            <h2 class="story-title"><a href="https://github.com/lajosdeme/mole" target="_blank" rel="noopener">Mole: A Terminal-Based Deep Research Agent with Budget Enforcement and Local Data Privacy</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Doing research with agents is fun until they blow way past budget, jumble the sources, and don't even give you the best possible answer, just sound confident. And if you want to run some research task on local data - you have no idea where your data ends up after the prompt consumes it. So I built this tool: a deep-research agent with an enforced budget, verified quotes, and a privacy boundary for local data. 1. Never spend more than you budgeted (measured overshoot is 0%). 2. Every claim carries a source 3. Data stays local (give a CSV, it'll analyze it without the data ever leaving your mach</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Mole addresses common pain points with AI research agents by enforcing strict budget limits, verifying sources for every claim, and ensuring data privacy for local files. This tool aims to provide reliable, cost-controlled, and secure research capabilities directly from the terminal. Its focus on verifiable information and local data processing distinguishes it from agents that may overspend or mishandle sensitive information.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters questioned the precise mechanism for budget enforcement, specifically how LLM spending is controlled given variable token usage and the role of caching. One comment playfully noted the developer's claim of 'honest numbers,' highlighting a common desire for transparency in AI tool performance metrics.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>58 pts</span>
+        <span>·</span>
+        <span>9 comments</span>
+        <span>·</span>
+        <span>by lajosdeme</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/lajosdeme/mole" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49303046" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI/ML Visualization 📊</div>
+
+            <h2 class="story-title"><a href="https://run.cosmograph.app/public/ca9fd1ad-fe83-4238-8b69-b707c633aef0" target="_blank" rel="noopener">AI Model Atlas Visualizes ML Models as Interconnected 3D Graph</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: This is unreal. This is also a fascinating read https://horwitz.ai/model-atlas . it's linked in the tool but i missed it at first glance.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The AI Model Atlas offers a novel 3D visualization for machine learning models, presenting them as an interconnected graph. This approach aims to provide a clearer understanding of model populations and their relationships. The visualization's dynamic mode has drawn comparisons to complex scientific instruments.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Initial reactions express awe at the visualization, with some users finding it &quot;unreal&quot; and &quot;super cool,&quot; even if they don't immediately recognize the specific models or authors. There's also curiosity about the licensing of underlying components like Cosmograph, which is noted as not being open source. The dynamic mode of the visualization is particularly praised, drawing comparisons to complex scientific instruments.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>run.cosmograph.app</span>
+        <span>·</span>
+        <span>57 pts</span>
+        <span>·</span>
+        <span>8 comments</span>
+        <span>·</span>
+        <span>by bj-rn</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://run.cosmograph.app/public/ca9fd1ad-fe83-4238-8b69-b707c633aef0" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49299102" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-08-14.html">
+        <small>Previous issue</small>
+        <strong>← August 14, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
