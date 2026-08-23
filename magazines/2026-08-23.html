@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 109, August 23, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — August 23, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 109</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Sunday</span>
+                    <time datetime="2026-08-23">August 23, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Rust Glancer Introduces Low-Memory Rust LSP Alternative</span>
+            <span class="toc-score">407 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">terminal-code Brings VS Code to the Terminal</span>
+            <span class="toc-score">87 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Study Links AI Homework Use to Higher Scores and Lower Exam Performance</span>
+            <span class="toc-score">372 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">AI Startups Embrace Number-Labs Naming Scheme</span>
+            <span class="toc-score">353 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Passkey-Powered Encryption Enables Anonymous Age Verification</span>
+            <span class="toc-score">39 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Software Optimization Costs Decline, Prompting Debate on Modern Performance</span>
+            <span class="toc-score">626 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Canada to Match US Tariffs 'Dollar for Dollar' After Trade Talks Collapse ⚡</span>
+            <span class="toc-score">571 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Factors Influencing Perceived Intelligence of Local LLMs</span>
+            <span class="toc-score">257 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Anthropic Confirms A/B Test Reducing Claude Code Effort Levels ⚡</span>
+            <span class="toc-score">179 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Initial Impressions: Codex vs. Claude for Coding Tasks ⚡</span>
+            <span class="toc-score">168 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">Software Development 💻</div>
+
+            <h2 class="story-title"><a href="https://rust-glancer.github.io/blog/hello-world/" target="_blank" rel="noopener">Rust Glancer Introduces Low-Memory Rust LSP Alternative</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">I want to present a project that I've been working on for the past 4 months: an alternative Rust LSP implementation that is built with a focus on low memory usage. It can use very little memory (target &lt;100mb for reasonable projects). There are caveats, these are described below. It allows immediate indexing after restart: if your project was indexed, restarting the editor will not require re-indexing. Your browser does not support embedded videos.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Rust Glancer aims to significantly reduce memory consumption for Rust Language Server Protocol (LSP) implementations, targeting less than 100MB for typical projects. This initiative also promises immediate indexing upon editor restart, addressing a common performance bottleneck. Such an improvement could greatly benefit developers working on large Rust codebases or those with resource-constrained systems.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses strong enthusiasm for a more memory-efficient Rust LSP, noting that `rust-analyzer` often consumes substantial resources and can lead to system slowdowns. Many commenters draw parallels to `rust-analyzer`'s own origins as a performance-focused alternative to `rls`. The author's transparent use of LLMs as a development tool is also viewed positively, with some hoping Rust Glancer gains traction to address issues like `rust-analyzer`'s lack of disk caching.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>rust-glancer.github.io</span>
+        <span>·</span>
+        <span>407 pts</span>
+        <span>·</span>
+        <span>99 comments</span>
+        <span>·</span>
+        <span>by matklad</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://rust-glancer.github.io/blog/hello-world/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49393052" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">💻 Developer Tools</div>
+
+            <h2 class="story-title"><a href="https://terminal-code.com" target="_blank" rel="noopener">terminal-code Brings VS Code to the Terminal</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">$ curl -fsSL https://tode.sh/install | bash tode --ssh &lt;ssh args&gt; run terminal-code on an ssh server tode --goto &lt;f:l:c&gt; opens a file at a line and column tode --split right opens terminal-code in a terminal split pane to the right tode --review opens on the source control panel</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">terminal-code enables users to run a VS Code-like environment directly within their terminal, leveraging protocols such as kitty graphics for enhanced rendering. This approach aims to provide a full IDE experience with potential performance benefits, especially for remote development scenarios where traditional GUI forwarding can be slow. It offers a more integrated workflow for developers who prefer terminal-centric environments or frequently work on remote servers.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community shows significant interest, particularly for its potential to improve remote development workflows where VS Code via RDP or X11 can be sluggish. Users are curious about the underlying technology, such as the kitty graphics protocol, and inquire about its performance and feature parity compared to the standard VS Code GUI. Some comments also include humorous takes and suggestions for achieving similar layouts using other terminal tools like zellij.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>terminal-code.com</span>
+        <span>·</span>
+        <span>87 pts</span>
+        <span>·</span>
+        <span>20 comments</span>
+        <span>·</span>
+        <span>by robpruzan</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://terminal-code.com" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49364296" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Education 📚</div>
+
+            <h2 class="story-title"><a href="https://www.economist.com/graphic-detail/2026/08/18/does-ai-stop-children-from-learning" target="_blank" rel="noopener">Study Links AI Homework Use to Higher Scores and Lower Exam Performance</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">https://archive.is/w1eng https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6868618</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A study revealed that students using AI for homework saw an 18% increase in assignment scores and reduced completion times, yet their exam scores dropped by 20% compared to peers. This suggests that relying on AI for task completion may hinder genuine learning and knowledge retention, potentially by bypassing the cognitive effort crucial for deep understanding.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely views AI's impact as exposing existing flaws in the education system, where students are conditioned to prioritize grades over learning. Many argue that AI acts as an 'amplifier of bad' study habits, allowing students to complete assignments without internalizing the material. Commenters suggest that the problem is pedagogical, emphasizing the need for a system that encourages genuine learning and treats failure as a signal for improvement, rather than just a means to an end.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>economist.com</span>
+        <span>·</span>
+        <span>372 pts</span>
+        <span>·</span>
+        <span>371 comments</span>
+        <span>·</span>
+        <span>by dash2</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.economist.com/graphic-detail/2026/08/18/does-ai-stop-children-from-learning" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49357530" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">AI Industry Trends 💡</div>
+
+            <h2 class="story-title"><a href="https://quantumi.sh/public/labs.html" target="_blank" rel="noopener">AI Startups Embrace Number-Labs Naming Scheme</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">You may have heard of the speech synthesis company ElevenLabs. Recently a friend mentioned they knew someone who worked at a company called Twelve Labs that does AI for video (it feels like it must have been intended to play on the fact that ElevenLabs does audio, but I don't know for sure). Jokingly, I googled &quot;thirteenlabs&quot; and was surprised to find an AI for 3D scenery project. 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 Numbers 0-99 annotated with links to companies using it + &quot;labs&quot; as their name.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A notable trend has emerged in the AI sector where companies adopt a 'NumberLabs' naming convention, exemplified by ElevenLabs, Twelve Labs, and ThirteenLabs. This pattern suggests a desire for memorable, sequential branding within the rapidly expanding AI landscape. The proliferation of such names indicates either a saturation of unique naming options or a strategic attempt to associate with established, successful predecessors.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community confirms the prevalence of the 'NumberLabs' naming trend, citing examples like the '23Labs Hackathon' co-hosted by ElevenLabs and Twelve Labs. Users noted the difficulty in registering new names following this pattern due to high demand. Some comments critiqued the generic design often associated with these AI startup websites, while others humorously pointed out the remaining available numerical names and drew parallels to similar naming trends in other industries.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>quantumi.sh</span>
+        <span>·</span>
+        <span>353 pts</span>
+        <span>·</span>
+        <span>108 comments</span>
+        <span>·</span>
+        <span>by jemoka</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://quantumi.sh/public/labs.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49400408" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Privacy &amp; Security 🔒</div>
+
+            <h2 class="story-title"><a href="https://loginwithone.com/" target="_blank" rel="noopener">Passkey-Powered Encryption Enables Anonymous Age Verification</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">This project has been kicking around in my head since I first heard about the webauthn PRF extension in early 2024. I've slowly chipped away at it since, and finally got things to a shareable state over the summer thanks to a very fun parental leave. Headed back to work tomorrow, so I figure there's no time like the present. tldr: A client-held encryption key derived during passkey authentication encrypts all sensitive user data prior to persistence so that only the user is able to decrypt and reuse that data on their device. This allows short-lived, privacy-preserving age proofs to be issued </p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project introduces a method for anonymous age verification by leveraging passkey authentication to derive a client-held encryption key. This key encrypts all sensitive user data before persistence, ensuring only the user can decrypt and reuse their information on their device. The approach aims to provide short-lived, privacy-preserving age proofs without the service ever storing user identity data in the clear.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community questioned the necessity of storing encrypted data post-verification and sought clarification on whether the service ever sees plaintext identity documents, particularly during initial verification or when reusing saved IDs. Concerns were also raised about the project's compliance with evolving age verification laws, which some believe aim for more extensive KYC requirements. There was interest in integrating such a system with existing identity providers like Google.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>loginwithone.com</span>
+        <span>·</span>
+        <span>39 pts</span>
+        <span>·</span>
+        <span>18 comments</span>
+        <span>·</span>
+        <span>by mikeysight</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://loginwithone.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49361478" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Software Performance 💻</div>
+
+            <h2 class="story-title"><a href="https://danluu.com/perf-opt/" target="_blank" rel="noopener">Software Optimization Costs Decline, Prompting Debate on Modern Performance</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">There's no reason for software to be slow anymore The other day, I saw a viral tweet saying that people talking about how LLMs are causing slow, bloated, code are going to eat crow once they re-write everything in super-optimized assembly. We're not quite at the point where we want to write everything in assembly , but some variant of what Nolan Lawson said about testing, you can choose how many bugs you want now , which I less eloquently noted here , is becoming more true for performance. In response to a comment in my last post that the cost of formerly specialized performance work has dropped by many orders of magnitude and performance work that used to require a person or team that had a rare set of skills can be done by anyone who can type a few sentences 1 , which means that you can do all sorts of optimizations that used to be too expensive to be worthwhile for all but the largest scale or most lucrative projects, Marc Brooker responded with Completely agree with your closing point.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The article posits that the cost of achieving software performance has drastically decreased, making advanced optimizations accessible beyond large-scale projects. This shift is attributed to the ability to automate or simplify performance-related tasks, challenging the notion that LLMs inherently lead to slow, bloated code.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely disputes the article's premise, with many users observing that modern software is slower and more resource-intensive than ever. Common culprits cited include excessive web requests, the inherent bloat from LLMs, and a general decline in optimization efforts in contemporary operating systems and applications. Some commenters recall a &quot;golden era&quot; of faster software (e.g., Windows XP, OS X Snow Leopard) and point to specific examples like ChatGPT's macOS app consuming significant memory.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>danluu.com</span>
+        <span>·</span>
+        <span>626 pts</span>
+        <span>·</span>
+        <span>481 comments</span>
+        <span>·</span>
+        <span>by Jach</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://danluu.com/perf-opt/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49395628" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Trade Policy 📈</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://www.bbc.com/news/articles/cvgvyy4x2mvo" target="_blank" rel="noopener">Canada to Match US Tariffs 'Dollar for Dollar' After Trade Talks Collapse</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Canada says it will match US tariffs 'dollar for dollar' as trade talks break down Canada says it will match US tariffs 'dollar for dollar' as trade talks break down Nadine Yousif , Senior Canada reporter and Prime Minister Mark Carney said progress in the talks was not enough to meet Canada's objectives A fresh wave of US tariffs on a wide array of Canadian goods came into effect on Saturday after a last-minute breakdown in trade talks.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Canada has announced it will implement reciprocal tariffs against the United States following the breakdown of last-minute trade negotiations. This move signals Canada's firm stance against US demands and its unwillingness to concede, potentially escalating trade tensions between the two nations. The failure of talks suggests a hardening of positions, with both sides now facing economic consequences from the imposed tariffs.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely supports Canada's decision to reciprocate US tariffs, viewing it as a necessary stand against perceived US overreach and unfair demands, which reportedly included restricting Canada's trade with other countries and rolling back cultural content promotion. Many commenters express frustration with the US administration's negotiation tactics and a loss of trust in its trade agreements, while also noting disappointment that other nations previously 'caved' to similar pressures. Some hope Canada's firm stance might encourage other countries to push back collectively.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>bbc.com</span>
+        <span>·</span>
+        <span>571 pts</span>
+        <span>·</span>
+        <span>1352 comments</span>
+        <span>·</span>
+        <span>by tartoran</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.bbc.com/news/articles/cvgvyy4x2mvo" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49397074" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI &amp; Machine Learning</div>
+
+            <h2 class="story-title"><a href="https://forum.level1techs.com/t/why-your-local-llm-feels-dumber-than-it-is/253917" target="_blank" rel="noopener">Factors Influencing Perceived Intelligence of Local LLMs</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Why your local LLM feels dumber than it is - Machine Learning, LLMs, &amp; AI - Level1Techs Forums</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The perceived 'dumbness' of local LLMs often stems from suboptimal configurations rather than inherent model limitations. Aggressive quantization, especially of the KV cache, and poor context window management significantly degrade performance and logical reasoning. Users can achieve impressive results with local models by carefully selecting quantization levels and optimizing system prompts.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that local LLMs, even when quantized, are surprisingly capable, with some users finding 4-bit quantized models indistinguishable from commercial alternatives in internal tests. Many emphasize the importance of avoiding aggressive quantization, particularly for the KV cache, to maintain model quality, even if it means slower inference. System prompts and effective context window management are highlighted as critical for performance. While tools like Ollama are praised for ease of setup, concerns exist regarding their default quantization settings impacting logic. Users also value the control over model quality offered by local deployments compared to external APIs.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>forum.level1techs.com</span>
+        <span>·</span>
+        <span>257 pts</span>
+        <span>·</span>
+        <span>84 comments</span>
+        <span>·</span>
+        <span>by felineflock</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://forum.level1techs.com/t/why-your-local-llm-feels-dumber-than-it-is/253917" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49402232" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">LLM Performance 🧪</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://twitter.com/argofowl/status/2091150597374537729" target="_blank" rel="noopener">Anthropic Confirms A/B Test Reducing Claude Code Effort Levels</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">🥔🥔🥔 on X: &quot;update: it's server-side, not the app
+
+anthropic enrols fable 5 sessions on claude code 2.1.236+ into an experiment that shrinks the effort scale, older versions and opus 5 are left alone
+
+probably an a/b test, so not everyone will see it
+
+if &quot;high&quot; feels like &quot;low&quot; for you,&quot; / X 🥔🥔🥔 on X: &quot;update: it's server-side, not the app
+
+anthropic enrols fable 5 sessions on claude code 2.1.236+ into an experiment that shrinks the effort scale, older versions and opus 5 are left alone
+
+probably an a/b test, so not everyone will see it
+
+if &quot;high&quot; feels like &quot;low&quot; for you,&quot; update: it's server-side, not the app
+
+anthropic enrols fable 5 sessions on claude code 2.1.236+ into an experiment that shrinks the effort scale, older versions and opus 5 are left alone
+
+probably an a/b test, so not everyone will see it
+
+if &quot;high&quot; feels like &quot;low&quot; for you, you're in the test group
+
+holy fuck anthropic, you guys are unbearable sometimes if fable felt dumber this week, it's not you ❗❗❗
+
+since 2.1.237 the model reads &quot;high&quot; effort as 10 out of 100, the exact number &quot;low&quot; used to be
+
+and the changelog doesn't say a word
+
+i spent my whole afternoon convinced t3 code and my own app were broken before i went theo you have to see this bullshit @ theo</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Anthropic is conducting an A/B test on Claude Code that re-maps how 'effort' settings are interpreted, causing 'high' effort requests to be processed at a significantly lower numerical value. This server-side change, affecting specific model versions, has led to user frustration over perceived performance degradation without explicit communication. The incident highlights the challenges of opaque model updates and A/B testing in production, where changes in underlying configurations can significantly impact user experience and trust.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Users reported a noticeable decrease in model performance, with some downgrading subscriptions due to Fable becoming 'useless.' Concerns were raised regarding the opacity of token-based billing when model behavior and 'effort' levels are controlled by operators with potentially misaligned incentives. Some speculated about broader 'optimization' practices, including dynamic model routing and usage limit adjustments. An Anthropic team member confirmed the issue, explaining it as an API serving configuration test that maps numerical effort values differently, causing 'high' effort settings to be interpreted at a lower numerical scale.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>twitter.com</span>
+        <span>·</span>
+        <span>179 pts</span>
+        <span>·</span>
+        <span>163 comments</span>
+        <span>·</span>
+        <span>by matthieu_bl</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://twitter.com/argofowl/status/2091150597374537729" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49401549" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI Development 💻</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://allaboutcoding.ghinda.com/a-week-of-using-codex-more-than-claude/" target="_blank" rel="noopener">Initial Impressions: Codex vs. Claude for Coding Tasks</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Quick impressions: A week of using Codex more than Claude | All about coding Ruby and Rails technical content written by Lucian Ghinda Some quick and very personal impressions from using Codex more than Claude this week (I will do a full analysis during the weekend hopefully). (1) While I tried this year to keep Claude and Codex on par, having the same set of plugins/skills and so on, Claude had more skills, as I created skills out of some sessions and not all of them were ported to Codex. Fix for this is simple: Point Codex at the Claude skills folder and ask it to transform them for Claude</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The initial comparison revealed that Claude had more pre-configured skills due to unported sessions, a workflow issue that is easily rectifiable. However, Codex is noted for being significantly faster and more concise in its outputs, avoiding the verbosity often associated with Claude. This efficiency difference can be a key factor in developer productivity.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community clarifies that the comparison is specifically between Codex TUI/CLI (likely with GPT-5.6-Sol) and Claude Code TUI/CLI (likely with Claude-Opus-5). Users generally praise Codex for its speed, conciseness, and 'business-like' output, contrasting it with Claude's tendency for verbose responses. Some users report hitting usage limits with Claude, leading them to explore more cost-effective alternatives. A common concern with harnesses like Codex is the complexity of managing permission flows. Interestingly, some developers are combining both models, using Claude to orchestrate Codex for iterative problem-solving. There's also a broader discussion encouraging users to critically assess whether the latest and most expensive models are truly necessary for their specific workflows.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>allaboutcoding.ghinda.com</span>
+        <span>·</span>
+        <span>168 pts</span>
+        <span>·</span>
+        <span>183 comments</span>
+        <span>·</span>
+        <span>by speckx</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://allaboutcoding.ghinda.com/a-week-of-using-codex-more-than-claude/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49393051" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-08-22.html">
+        <small>Previous issue</small>
+        <strong>← August 22, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
