@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 117, August 31, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — August 31, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 117</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Monday</span>
+                    <time datetime="2026-08-31">August 31, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">AI Crawlers Consume More CPU Than Legitimate Traffic on git.kernel.org</span>
+            <span class="toc-score">1212 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">The Art and Challenge of Typesetting in Monospace</span>
+            <span class="toc-score">862 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">California Lawmakers Exempt Open-Source Software from Age-Verification Law</span>
+            <span class="toc-score">751 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">European Commission Revives Push for Encryption Backdoors in ProtectEU Strategy</span>
+            <span class="toc-score">430 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Continuous Diffusion Language Models Experience Renewed Research Interest</span>
+            <span class="toc-score">113 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Introduction to Building Diffusion Language Models</span>
+            <span class="toc-score">108 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Meta Security Researcher's AI Agent Accidentally Deleted Her Emails ⚡</span>
+            <span class="toc-score">50 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">CPython Officially Adds Tier 3 Support for RISC-V Architecture</span>
+            <span class="toc-score">302 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">NFC Energy-Harvesting PCB Business Card Powers LEDs with MCU</span>
+            <span class="toc-score">182 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">AI Coding in the 90s: Lessons from Blind Chess</span>
+            <span class="toc-score">144 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Bots 🤖</div>
+
+            <h2 class="story-title"><a href="https://people.kernel.org/monsieuricon/creepy-crawlies" target="_blank" rel="noopener">AI Crawlers Consume More CPU Than Legitimate Traffic on git.kernel.org</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">You've probably heard me complain about the “AI crawlers” before, but now I actually have some hard numbers I can put up to show their impact. In a few words, it's bad enough to create a constant “background radiation” of system load, permanently tying up a chunk of capacity spent on producing output that is only useful for a single purpose — feeding a learning model. TL;DR: we spend more CPU cycles rendering commits for scrapers than we spend on all other kinds of legitimate access, including git clones. At any one time, across 5 geo-distributed nodes, there are 14 CPU cores doing nothing but rendering git commits as html. Why is git.kernel.org “interesting” to crawlers</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">AI crawlers are imposing a substantial and constant operational burden on git.kernel.org, consuming more CPU cycles than all legitimate traffic combined. This 'background radiation' of system load ties up significant capacity, with 14 CPU cores dedicated solely to rendering content for learning models. The issue underscores the resource drain that AI scraping can inflict on public web services.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that traditional Proof-of-Work (PoW) solutions like Anubis are ineffective against advanced AI crawlers, as bots can often solve them more easily than humans. Discussions propose alternative bot detection methods, including behavioral analysis (e.g., IP changes, deep linking) and application-level traps. Some suggest 'defense by obscurity' by customizing PoW functions, while others observe that bot sophistication mirrors general threat actor evolution, imposing a burden even on less 'interesting' sites.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>people.kernel.org</span>
+        <span>·</span>
+        <span>1212 pts</span>
+        <span>·</span>
+        <span>604 comments</span>
+        <span>·</span>
+        <span>by zdw</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://people.kernel.org/monsieuricon/creepy-crawlies" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49491791" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">Typography ✒️</div>
+
+            <h2 class="story-title"><a href="https://unsung.aresluna.org/i-just-chose-words-carefully/" target="_blank" rel="noopener">The Art and Challenge of Typesetting in Monospace</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">I don’t think anyone particularly enjoys typesetting in monospace. Regular text is okay – at least as okay as it can be: Right aligning is also fine, as long as you don’t mind counting spaces, but centering already gets tricky, as you don’t have a half space to make things truly even: And full justification is where things get particularly weird. The spaces are just too large, and cannot be distributed evenly, creating a really unpleasant feeling:</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Typesetting in monospace presents unique challenges, particularly with alignment and justification, due to the fixed width of characters. Achieving even spacing and visual balance becomes difficult without the flexibility of variable-width fonts or half-spaces. This often leads to awkward gaps and an 'unpleasant feeling' in fully justified text.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community shares anecdotes about constrained writing, such as Taylor Otwell's specific comment block formatting in Laravel and Chris Carter's script layout preferences for The X-Files. Many commenters highlight that arbitrary constraints can paradoxically improve writing and creative work by forcing authors to make more deliberate word choices and disrupt habitual patterns. There's also discussion on how fixed-width environments influence formatting, from programming variable names to email composition.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>unsung.aresluna.org</span>
+        <span>·</span>
+        <span>862 pts</span>
+        <span>·</span>
+        <span>218 comments</span>
+        <span>·</span>
+        <span>by zdw</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://unsung.aresluna.org/i-just-chose-words-carefully/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49503601" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Tech Policy 📜</div>
+
+            <h2 class="story-title"><a href="https://www.tomshardware.com/software/linux/california-lawmakers-unanimously-pass-linux-exemption-from-age-verification-law-software-distributed-under-the-gpl-mit-bsd-and-apache-licenses-are-exempt" target="_blank" rel="noopener">California Lawmakers Exempt Open-Source Software from Age-Verification Law</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">California lawmakers unanimously pass Linux exemption from age-verification law — software distributed under the GPL, MIT, BSD, and Apache licenses are exempt | Tom's Hardware</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">California's unanimous decision exempts open-source software, including Linux, from its age-verification law, preventing a mandate for these projects to implement age-gating. While this protects open-source integrity, some critics argue it may inadvertently force social media platforms to block access from such operating systems. This outcome could shift the compliance burden rather than fully resolving the underlying privacy and age-verification challenges.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters express a mix of sarcastic optimism about Linux adoption and significant concern that the exemption will lead social media platforms to ban access from Linux and other open-source operating systems, effectively making parts of the internet unusable. Many question the OS as the appropriate layer for age verification and argue that the law fails to address fundamental privacy issues, suggesting it merely shifts the burden of compliance. There's also a practical query about reverting pre-emptive code changes made in anticipation of the law.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>tomshardware.com</span>
+        <span>·</span>
+        <span>751 pts</span>
+        <span>·</span>
+        <span>370 comments</span>
+        <span>·</span>
+        <span>by shscs911</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.tomshardware.com/software/linux/california-lawmakers-unanimously-pass-linux-exemption-from-age-verification-law-software-distributed-under-the-gpl-mit-bsd-and-apache-licenses-are-exempt" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49495372" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Privacy &amp; Policy 🇪🇺</div>
+
+            <h2 class="story-title"><a href="https://reclaimthenet.org/eu-protecteu-strategy-encryption-backdoor-law-enforcement" target="_blank" rel="noopener">European Commission Revives Push for Encryption Backdoors in ProtectEU Strategy</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">EU's ProtectEU Plan Renews Push for Encryption Backdoors Members Speech Privacy Culture Tools Antitrust Federal GRANITE Act Targets Foreign Censorship Orders in US New York Social Media Law Survives X Lawsuit Pennsylvania Sues Snapchat Over Lack of Age Verification Brazil Wants Discord to Pay $97 Million and Expand Age Verification Digital ID European Commission Revives Push for Encryption Backdoors in ProtectEU Strategy, Framing Mass Surveillance as “Lawful Access” The EU’s ProtectEU strategy quietly sketches the blueprint for a backdoor.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The European Commission's ProtectEU strategy proposes 'lawful access' to encrypted communications, interpreted by many as a renewed effort to implement encryption backdoors. This initiative aims to enhance law enforcement capabilities but sparks significant debate regarding its potential impact on digital privacy and cybersecurity. Critics argue that such measures could weaken overall system security and be ineffective against determined adversaries, while raising concerns about mass surveillance.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely criticizes the European Commission's renewed push for encryption backdoors, viewing it as an overreach of power and a threat to fundamental privacy rights. Commenters express concern that such measures would weaken overall cybersecurity, be ineffective against sophisticated criminals who would bypass compromised systems, and ultimately lead to mass surveillance. There is also skepticism regarding the explicit mention of 'backdoors' in official EU texts, though the intent is widely inferred.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>reclaimthenet.org</span>
+        <span>·</span>
+        <span>430 pts</span>
+        <span>·</span>
+        <span>180 comments</span>
+        <span>·</span>
+        <span>by nickslaughter02</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://reclaimthenet.org/eu-protecteu-strategy-encryption-backdoor-law-enforcement" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49499394" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">AI Research 🔬</div>
+
+            <h2 class="story-title"><a href="https://sander.ai/2026/08/24/continuous-dlms.html" target="_blank" rel="noopener">Continuous Diffusion Language Models Experience Renewed Research Interest</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Continuous diffusion language models – Sander Dieleman A flurry of recent activity in the space of continuous diffusion models for language , after a few years of relative dormancy, suggests that this approach is making something of a comeback. Fully discrete diffusion methods had largely supplanted earlier attempts to make continuous diffusion work for language, but the tide is starting to turn. In this post, I want to take a closer look at what’s going on, and why it is happening now. The recent influx of new research in this space inspired me to write up some of my thoughts.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Continuous Diffusion Language Models (CDLMs) are experiencing a resurgence in research after a period of dormancy, having been largely supplanted by discrete diffusion methods. This renewed activity suggests a potential shift in focus within language model development, exploring alternatives to previously dominant approaches. The current influx of new research aims to understand why this comeback is happening now.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community shows significant interest in Continuous Diffusion Language Models, with several commenters expressing optimism about their potential superiority over autoregressive models for smoother, more coherent text generation and creative applications. Some envision their use in areas like automated harness engineering, while others still believe there is untapped potential in existing autoregressive LLMs. There was also a discussion regarding the historical dominance of autoregressive models in the early 2020s.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>sander.ai</span>
+        <span>·</span>
+        <span>113 pts</span>
+        <span>·</span>
+        <span>37 comments</span>
+        <span>·</span>
+        <span>by peter_d_sherman</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://sander.ai/2026/08/24/continuous-dlms.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49502611" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">AI/ML Research 🤖</div>
+
+            <h2 class="story-title"><a href="https://kuleshov-group.github.io/blog/blog/2026/how-to-build-a-diffusion-language-model/" target="_blank" rel="noopener">Introduction to Building Diffusion Language Models</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">How to Build a Diffusion Language Model | Kuleshov Group An introduction to diffusion language models and the research advances that underlie today's diffusion LLMs. We describe the building blocks of recent open-source models, starting from simple masking diffusion, and including techniques for iterative refinement, post-training, and variable-length generation. Material is adapted from workshop talks and lectures at ICLR 2026 and MLSS 2026 . Introduction: Autoregressive and Diffusion Language Models</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This resource provides an introduction to diffusion language models, detailing the research advancements and building blocks of current open-source models. It covers techniques such as masking diffusion, iterative refinement, post-training, and variable-length generation, drawing from academic workshops and lectures.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters found the mathematical derivations of diffusion models elucidating and discussed related areas like image-based diffusion for text generation. Users highlighted the practical benefits of models like Diffusion Gemma for its speed on GPUs and local usability. There was also a suggestion to explore confidence aspects in diffusion models, referencing Diffusion Gemma.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>kuleshov-group.github.io</span>
+        <span>·</span>
+        <span>108 pts</span>
+        <span>·</span>
+        <span>10 comments</span>
+        <span>·</span>
+        <span>by volodia</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://kuleshov-group.github.io/blog/blog/2026/how-to-build-a-diffusion-language-model/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49503956" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">AI 🤖</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://au.pcmag.com/ai/116091/meta-security-researchers-ai-agent-accidentally-deleted-her-emails" target="_blank" rel="noopener">Meta Security Researcher's AI Agent Accidentally Deleted Her Emails</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Meta Security Researcher's AI Agent Accidentally Deleted Her Emails</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This incident underscores the inherent risks of deploying AI agents, particularly in sensitive environments, even when safety instructions are provided. It highlights the potential for unexpected behavior in complex, real-world scenarios compared to controlled test environments. The event emphasizes the critical need for robust safeguards, thorough testing, and backup mechanisms when integrating AI into critical workflows.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News community largely views this incident as a preventable act of carelessness, especially given the researcher's security background and prior similar AI agent failures. Commenters emphasize the inadequacy of simple instructions as a substitute for robust permission management and the critical need for backups or sandboxed environments when deploying AI on important data. There's also skepticism about the 'AI did it' excuse and concerns about accountability for AI-induced data loss, with some comparing it to other high-profile AI-related incidents.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>au.pcmag.com</span>
+        <span>·</span>
+        <span>50 pts</span>
+        <span>·</span>
+        <span>40 comments</span>
+        <span>·</span>
+        <span>by Bluestein</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://au.pcmag.com/ai/116091/meta-security-researchers-ai-agent-accidentally-deleted-her-emails" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49506655" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">💻 Programming Languages</div>
+
+            <h2 class="story-title"><a href="https://blog.python.org/2026/08/riscv-now-officially-supported/" target="_blank" rel="noopener">CPython Officially Adds Tier 3 Support for RISC-V Architecture</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">RISC-V is now officially supported by CPython! Over the last few months, I’ve been working on improving CPython’s support for
+the RISC-V architecture, and I’m thrilled to announce that RISC-V is now
+officially supported by CPython as a tier 3 platform! RISC-V is an open instruction set architecture (ISA) . Importantly,
+unlike proprietary instruction sets (such as x86 and ARM), it is developed as an
+open standard and can be implemented by anyone. Its ecosystem has grown considerably in recent years and is projected to
+quadruple by 2032 .</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">CPython's official support for RISC-V as a tier 3 platform marks a significant step in the open instruction set architecture's growing ecosystem. This integration helps solidify RISC-V's position as a viable alternative to proprietary ISAs like x86 and ARM, potentially accelerating its adoption among developers and hardware manufacturers. The move reflects the increasing maturity and projected expansion of the RISC-V landscape.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community discussed the specific RISC-V extensions targeted for CPython (riscv64-unknown-linux-gnu, RV64GC) and the expected ease of porting, anticipating a relatively smooth recompilation process. There was also commentary on the implications of RISC-V being a tier 3 platform, meaning support is allowed to break without blocking releases or being a high-priority fix. Some users compared this support to other platform tiers, noting the continued tier 1 status of older architectures like i686-pc-windows-msvc.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>blog.python.org</span>
+        <span>·</span>
+        <span>302 pts</span>
+        <span>·</span>
+        <span>60 comments</span>
+        <span>·</span>
+        <span>by lumpa</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://blog.python.org/2026/08/riscv-now-officially-supported/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49425252" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Hardware 💡</div>
+
+            <h2 class="story-title"><a href="https://wilsonharper.net/projects/businesscard/" target="_blank" rel="noopener">NFC Energy-Harvesting PCB Business Card Powers LEDs with MCU</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">NFC Energy-Harvesting PCB Business Card with an MCU | Wilson Harper Like most business cards, mine doesn’t have a battery. When it’s tapped against a phone, though, 21 LEDs start an animation, powered just by NFC. This project started about three months ago as an easy way to learn KiCad before jumping into more complex designs. This final product taught me more about every aspect of the PCB process than I could have expected, and the result turned out way better than I imagined.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project showcases NFC's capability to harvest sufficient energy to power an MCU and animate multiple LEDs on a PCB business card, demonstrating a novel application beyond typical data transfer. It also highlights the extensive learning experience gained through the PCB design and manufacturing process, even for a project initially conceived as a simple learning exercise.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community lauded the project as a 'neat hack,' appreciating its design, the inclusion of a schematic, and an Easter egg. Discussions included curiosity about the production cost per card and suggestions for future enhancements, such as integrating audio playback via a piezo buzzer or offering customizable LED options. One comment clarified the mechanism of NFC data transfer through energy absorption changes, and many expressed surprise at the amount of energy NFC can provide.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>wilsonharper.net</span>
+        <span>·</span>
+        <span>182 pts</span>
+        <span>·</span>
+        <span>19 comments</span>
+        <span>·</span>
+        <span>by WilsonHarper</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://wilsonharper.net/projects/businesscard/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49478426" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Programming ♟️</div>
+
+            <h2 class="story-title"><a href="https://askmike.org/articles/ai-coding-lessons-in-the-90s-from-my-dad/" target="_blank" rel="noopener">AI Coding in the 90s: Lessons from Blind Chess</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">What my dad taught me about AI coding in the 90s - Askmike.org It was a summer holiday, sometime in the late 1990s. I was a young kid, around 8 or so. My dad had taught me the rules of chess before and we played from time to time. But this time was different: As we were about to start he stood up and walked away from the board, sitting down in a chair across the room and facing the other way.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The article reflects on early AI coding lessons from the 90s, drawing a parallel to playing blind chess. This analogy highlights the importance of mental modeling and abstract thinking when interacting with complex systems, even without direct visual access to the underlying code. It suggests that understanding the system's state and rules internally is crucial for effective interaction.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely debated the efficacy of the blind chess analogy for modern AI, particularly LLMs. Critics pointed out that LLMs are non-deterministic, unlike chess, and that the analogy fails to address issues like 'leaky abstractions' when code is hidden. Conversely, supporters argued that the analogy's value lies in emphasizing abstract thinking and mental modeling, not a direct comparison of system determinism. Some also noted that experts tend to utilize AI more effectively, and that 'thinking' is a significant, often overlooked, part of the coding process.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>askmike.org</span>
+        <span>·</span>
+        <span>144 pts</span>
+        <span>·</span>
+        <span>77 comments</span>
+        <span>·</span>
+        <span>by askmike</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://askmike.org/articles/ai-coding-lessons-in-the-90s-from-my-dad/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49419381" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-08-30.html">
+        <small>Previous issue</small>
+        <strong>← August 30, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
