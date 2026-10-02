@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 149, October 02, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — October 02, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 149</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Friday</span>
+                    <time datetime="2026-10-02">October 02, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Google Unveils Gemini 4 Argon with 1M Token Limit for Complex Workflows and Code Migration</span>
+            <span class="toc-score">1655 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Pi 1.0 Released as a Stable, Minimal, and Extensible Agent Harness</span>
+            <span class="toc-score">1334 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Rust Compiler Achieves 4.57% Wall-Time Speedup in Two Months</span>
+            <span class="toc-score">259 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Rhun: An Open-Source Code Editor Written in Assembly</span>
+            <span class="toc-score">55 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Turbopuffer v3 Redesigns Storage Architecture for Broader Search and SQL Capabilities</span>
+            <span class="toc-score">338 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Audionaut: An Open-Source, Cross-Platform Multitrack Audio Editor</span>
+            <span class="toc-score">19 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">StreetComplete Launches Public Beta for iOS</span>
+            <span class="toc-score">568 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Book of Shapes: A Collection of Generative SVG Patterns</span>
+            <span class="toc-score">266 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">OpenDLSS Offers Bit-Exact Vulkan Reimplementation of NVIDIA DLSS 5</span>
+            <span class="toc-score">257 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Cloudflare Introduces Clef Open-Weight Decision Models and RL Fine-Tuning Platform</span>
+            <span class="toc-score">524 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">AI Models 🤖</div>
+
+            <h2 class="story-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" target="_blank" rel="noopener">Google Unveils Gemini 4 Argon with 1M Token Limit for Complex Workflows and Code Migration</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Gemini 4 Argon: our next era of frontier intelligence Gemini 4 Argon delivers frontier performance in complex workflows across real-world software engineering, enterprise knowledge work like legal and finance, and cybersecurity defense. SVP, Google DeepMind and Chief AI Architect, Google Google’s new Gemini 4 Argon model brings advanced reasoning to complex, long-horizon professional tasks. The model features an industry-leading 1 million token limit for deep, multi-step problem solving.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Google's new Gemini 4 Argon model is designed for advanced reasoning in complex, long-horizon professional tasks, featuring an industry-leading 1 million token limit. It targets demanding workflows in software engineering, enterprise knowledge work, and cybersecurity. Notably, the model is being used internally at Google for large-scale C/C++ to Rust codebase migrations, showcasing its practical application in significant engineering challenges.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community observes a continuous 'leapfrogging' in AI capabilities among frontier labs, challenging the 'winner-takes-all' theory. A significant point of discussion is Gemini 4 Argon's internal use at Google for migrating hundreds of thousands of lines of C/C++ code to Rust, which many consider more impactful than the model itself. However, there's frustration among subscribers about the model's delayed public availability, questioning the value of premium plans when new models are not immediately accessible.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>blog.google</span>
+        <span>·</span>
+        <span>1655 pts</span>
+        <span>·</span>
+        <span>1145 comments</span>
+        <span>·</span>
+        <span>by bradleyg223</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49913571" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">AI Agents 🤖</div>
+
+            <h2 class="story-title"><a href="https://earendil.com/posts/pi-1-0/" target="_blank" rel="noopener">Pi 1.0 Released as a Stable, Minimal, and Extensible Agent Harness</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Today we are proudly shipping Pi 1.0: a hardened, minimal, extensible agent
+harness that you can make your own. Hundreds of thousands of people around the
+world use Pi every week. Many of you submit issues and pull requests. Over the
+course of many months, we have used that feedback to improve, harden and evolve
+Pi into a stable piece of software that people and businesses can depend on. We care about holding that line.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The release of Pi 1.0 signifies a commitment to stability and reliability, evolving from extensive user feedback into a dependable software for both individuals and businesses. Its design as a minimal and extensible agent harness positions it as a versatile tool, capable of being adapted for various general-purpose OS tasks beyond its initial coding agent focus.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community perceives the 1.0 release as a declaration of API stability rather than a focus on new features. Users commend Pi's minimalism and efficiency, particularly for running local AI models without performance overhead, and appreciate its potential as a general-purpose OS agent. Discussions also include specific technical points like bundled features and font choices, alongside suggestions for alternative minimal tools.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>earendil.com</span>
+        <span>·</span>
+        <span>1334 pts</span>
+        <span>·</span>
+        <span>423 comments</span>
+        <span>·</span>
+        <span>by sergiotapia</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://earendil.com/posts/pi-1-0/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49926069" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🚀 Performance</div>
+
+            <h2 class="story-title"><a href="https://nnethercote.github.io/2026/09/30/how-to-speed-up-the-rust-compiler-in-september-2026.html" target="_blank" rel="noopener">Rust Compiler Achieves 4.57% Wall-Time Speedup in Two Months</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">How to speed up the Rust compiler in September 2026 | Nicholas Nethercote My last
+post on the Rust compiler’s performance was two months ago and a lot has happened
+since then. The measurements for the period 2026-07-29 to 2026-09-28 can be seen here . The mean wall-time reduction was 4.57%, which is a remarkable improvement in
+just two months. Of the 629 benchmark measurements, 555 of them improved and
+only 74 regressed.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The Rust compiler has achieved a notable 4.57% reduction in mean wall-time over a two-month period, with the vast majority of benchmarks showing improvement. This significant progress indicates successful ongoing optimization efforts aimed at enhancing developer experience. The improvements demonstrate a continued commitment to compiler efficiency.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community sentiment is mixed, with some users commending the measurable performance improvements, attributing them to open-source donations and noting that speedups occurred even alongside borrow checker enhancements. However, others still find Rust's compilation speed a significant drawback compared to languages like Go, hindering rapid iteration. Concerns were raised about the compiler's slowness in complex or sandboxed build environments, prompting discussions on underlying performance issues and potential for further investment from large AI companies. Users also shared practical tips like splitting crates for parallel compilation.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>nnethercote.github.io</span>
+        <span>·</span>
+        <span>259 pts</span>
+        <span>·</span>
+        <span>143 comments</span>
+        <span>·</span>
+        <span>by trickypr</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://nnethercote.github.io/2026/09/30/how-to-speed-up-the-rust-compiler-in-september-2026.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49920896" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Developer Tools 💻</div>
+
+            <h2 class="story-title"><a href="https://rhun.app/" target="_blank" rel="noopener">Rhun: An Open-Source Code Editor Written in Assembly</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">I found that I'm not using even 1/3 of vim/vscode features anymore. That's wht I'm building rhun - a small code editor for Linux, Windows and Apple silicon Macs. It obviously has Vim mode, a terminal, Git diffs and a panel for Claude Code or Codex sessions. The editor and pixel renderer share an x86-64 assembly core. For Apple silicon, a build-time translator converts that core to AArch64, with separate platform adapters around it. The latest release can draft commit messages using a local Ollama model or an existing Claude Code or Codex subscription. It's a solo project, MIT licensed and stil</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Rhun is an open-source code editor uniquely built with an x86-64 assembly core, translated for AArch64, prioritizing extreme performance and a minimal footprint over extensive features. This unconventional approach allows it to integrate modern AI capabilities for tasks like commit message drafting while maintaining a small binary size and fast operation.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community praises Rhun for its exceptional speed, responsiveness, and minimal footprint across various platforms, with its sub-1MB binary size being a significant highlight. While some users express skepticism about assembly's performance advantage over highly optimized compiled languages and request features like LSP or remote development, the developer emphasizes a commitment to maintaining current performance and resource efficiency by limiting new additions.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>rhun.app</span>
+        <span>·</span>
+        <span>55 pts</span>
+        <span>·</span>
+        <span>31 comments</span>
+        <span>·</span>
+        <span>by vladcodes</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://rhun.app/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49926726" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Search Technology 🔎</div>
+
+            <h2 class="story-title"><a href="https://turbopuffer.com/blog/rip-vector-database" target="_blank" rel="noopener">Turbopuffer v3 Redesigns Storage Architecture for Broader Search and SQL Capabilities</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">tpuf v3 is coming: follow along turbopuffer v3 is coming: follow our progress September 30, 2026 • Dan Harrison (Engineer) We are changing turbopuffer's storage architecture to take search to the next
+level. turbopuffer v3 changes how documents and indexes are laid out, written,
+compacted, and queried in turbopuffer. It will allow us to make search faster in
+every respect — including text, regex, and vector search — but it also lays the
+foundation to move many more SQL queries to turbopuffer and make them fast.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Turbopuffer v3 marks a significant architectural shift, moving away from a vector-primary index to a more generalized storage system. This redesign aims to enhance all search types—including text, regex, and vector—and integrate SQL queries more effectively. The change suggests a maturation in search engine design, where vector capabilities become an integrated feature rather than the sole focus of a specialized database.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community views Turbopuffer's architectural shift as a parallel to the evolution of NoSQL databases, with some suggesting a return to more traditional SQL approaches. Commenters note that the 'vector database' term may have been a misnomer, as these systems were primarily about retrieval, and similar architectural changes are being adopted by other projects and tools like LanceDB and TopK, which treat ANN as a secondary index. The rapid cycles of AI tech are also highlighted.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>turbopuffer.com</span>
+        <span>·</span>
+        <span>338 pts</span>
+        <span>·</span>
+        <span>89 comments</span>
+        <span>·</span>
+        <span>by razin</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://turbopuffer.com/blog/rip-vector-database" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49923466" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Audio Editing 🎶</div>
+
+            <h2 class="story-title"><a href="https://github.com/kvoltmer/Audionaut" target="_blank" rel="noopener">Audionaut: An Open-Source, Cross-Platform Multitrack Audio Editor</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - kvoltmer/Audionaut: Audionaut professional audio editing and audio recording · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Audionaut is a newly announced open-source, cross-platform multitrack audio editor, developed over 3-4 years. Its design is influenced by the Sound Designer II workflow, focusing on region-based editing and playlist export. A key feature highlighted by the developer is its 'one undo step per agent edit,' intended to build user trust.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community showed positive reception for Audionaut, appreciating its open-source and cross-platform nature. Users congratulated the developer on the project's release after years of work. There was specific interest in its performance, particularly regarding latency with numerous tracks, and recognition of its unique 'one undo step per agent edit' system as a significant trust-building feature.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>19 pts</span>
+        <span>·</span>
+        <span>5 comments</span>
+        <span>·</span>
+        <span>by vltmrkls</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/kvoltmer/Audionaut" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49931031" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Mapping 🗺️</div>
+
+            <h2 class="story-title"><a href="https://github.com/streetcomplete/StreetComplete/issues/5421" target="_blank" rel="noopener">StreetComplete Launches Public Beta for iOS</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">:-D · Issue #5421 · streetcomplete/StreetComplete · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">StreetComplete, a popular and user-friendly OpenStreetMap editor, has released a public beta for its iOS version. This expansion makes the mapping tool accessible to a wider audience, potentially increasing contributions to OpenStreetMap data. The project received funding from the German Federal Ministry of Education and Research and NLnet, underscoring support for open-source mapping initiatives.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant excitement for the StreetComplete iOS public beta, viewing it as an excellent introduction to OpenStreetMap and a means to facilitate social mapping. Commenters acknowledged the project's funding from the German government and NLnet. While generally positive, some users shared past negative experiences with 'pedantic' community interactions and noted minor UI issues in the beta, such as difficulties canceling forms. One user also mentioned preferring EveryDoor, another mapping app, for its focus on stores.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>568 pts</span>
+        <span>·</span>
+        <span>151 comments</span>
+        <span>·</span>
+        <span>by Snowly</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/streetcomplete/StreetComplete/issues/5421" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49920160" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Design &amp; Generative Art 🎨</div>
+
+            <h2 class="story-title"><a href="https://bookofshapes.com/" target="_blank" rel="noopener">Book of Shapes: A Collection of Generative SVG Patterns</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">A collection of minimal, generative and customizable
+          SVG-patterns.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Book of Shapes provides a curated collection of minimal, generative, and customizable SVG patterns. This resource offers designers and developers a versatile toolkit for creating unique visual elements. Its focus on generative design allows for dynamic and adaptable graphic assets.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community praised the aesthetic appeal of the patterns, drawing comparisons to other generative art projects. Users discussed similar personal projects involving SVG generation for wallpapers and questioned the originality in relation to existing platforms like turtletoy. There was also interest in using these patterns for presentation design and a general query about the target audience and practical applications.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>bookofshapes.com</span>
+        <span>·</span>
+        <span>266 pts</span>
+        <span>·</span>
+        <span>23 comments</span>
+        <span>·</span>
+        <span>by eustoria</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://bookofshapes.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49894430" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Graphics 🎮</div>
+
+            <h2 class="story-title"><a href="https://github.com/maanHimself/OpenDLSS-NR" target="_blank" rel="noopener">OpenDLSS Offers Bit-Exact Vulkan Reimplementation of NVIDIA DLSS 5</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - maanHimself/OpenDLSS-NR: A Vulkan reimplementation of NVIDIA's DLSS 5 Neural Rendering network, bit-exact against the original. You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">OpenDLSS is a Vulkan-based reimplementation of NVIDIA's DLSS 5 neural rendering network, notably claiming to be 'bit-exact' against the original. This project represents a significant technical achievement in reverse engineering and reproducing a complex proprietary rendering technology. Its 'bit-exact' nature suggests a precise replication of NVIDIA's advanced upscaling and frame generation capabilities.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant surprise and impressiveness regarding the 'bit-exact' claim, questioning the technical 'sorcery' involved. Concerns were raised about the project's performance, with 8ms for 1080p resolution being deemed potentially expensive, and whether this matches the original DLSS. There's also discussion about the utility of such a reimplementation without access to NVIDIA's proprietary weights and the company's strategy for distributing game-specific versus generalized models. Some users also noted the absence of the z-buffer as an input and expressed disinterest due to an LLM-generated README.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>257 pts</span>
+        <span>·</span>
+        <span>118 comments</span>
+        <span>·</span>
+        <span>by sagacity</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/maanHimself/OpenDLSS-NR" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49906100" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI/ML 🤖</div>
+
+            <h2 class="story-title"><a href="https://blog.cloudflare.com/clef-decision-models/" target="_blank" rel="noopener">Cloudflare Introduces Clef Open-Weight Decision Models and RL Fine-Tuning Platform</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Introducing Clef: our open-source decision models, and new RL fine-tuning platform | Cloudflare Blog Skip to content</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Cloudflare has launched Clef, a platform featuring open-weight decision models and an RL fine-tuning capability. These models are designed to be more efficient than large language models for binary decisions, offering a competitive alternative to existing solutions. While the weights are openly available, the training data and pipeline remain proprietary.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community notes that Clef provides open weights, not fully open-source models, as the training data and pipeline are not public. Users are comparing Clef's performance and pricing against existing decision models like Jev and Kev. While some Clef models, like decider-4B, are praised for better performance and lower latency, the initial pricing for Clef is significantly higher than Jev, though Clef-flash offers a more competitive rate. Self-hosting is suggested as a cost-effective alternative.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>blog.cloudflare.com</span>
+        <span>·</span>
+        <span>524 pts</span>
+        <span>·</span>
+        <span>182 comments</span>
+        <span>·</span>
+        <span>by jasondavies</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://blog.cloudflare.com/clef-decision-models/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49923692" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-10-01.html">
+        <small>Previous issue</small>
+        <strong>← October 01, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
