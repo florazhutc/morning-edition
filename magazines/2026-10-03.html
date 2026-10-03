@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 150, October 03, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — October 03, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 150</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Saturday</span>
+                    <time datetime="2026-10-03">October 03, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Pyxel: A Python Retro Game Engine with Integrated Art and Sound Editors</span>
+            <span class="toc-score">84 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Greg Kroah-Hartman Discusses LLM Limitations in Kernel Security Bug Discovery</span>
+            <span class="toc-score">242 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Audionaut Debuts as Open-Source, Cross-Platform Multitrack Audio Editor</span>
+            <span class="toc-score">138 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Open-Source AI Generates LEGO Models Using LDraw Language</span>
+            <span class="toc-score">114 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">FLUX 3 Image Unveils Bounding Box Control for Precise AI Image Composition</span>
+            <span class="toc-score">346 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Court Rules Utah's VPN Law Demands Technical Impossibility, Siding with EFF</span>
+            <span class="toc-score">638 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Claude Opus 5.5 Generates Paintings with Code and Simulated Oil Paint</span>
+            <span class="toc-score">277 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Redis Creator's DwarfStar 4 (ds4) Enables Local LLM Inference</span>
+            <span class="toc-score">244 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">New AI 'Ataraxos' Masters Stratego, Defeating Top Human Player</span>
+            <span class="toc-score">218 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Muse Gadgets Introduces Open Source Hardware SDKs for DIY Projects</span>
+            <span class="toc-score">198 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">Game Development 🎮</div>
+
+            <h2 class="story-title"><a href="https://github.com/kitao/pyxel" target="_blank" rel="noopener">Pyxel: A Python Retro Game Engine with Integrated Art and Sound Editors</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hi HN, I'm the creator of Pyxel, a free, MIT-licensed retro game engine for Python. I've been developing it since 2018, and it recently passed 18,000 stars on GitHub. Pyxel includes pixel art, tilemap, sound, and music editors, so you can create a game's visuals and audio as well as write its code in Python. The engine itself is implemented in Rust. Games run on Windows, macOS, Linux, and the web, as well as supported Linux-based retro handhelds. You can share a URL to launch a Pyxel game hosted on GitHub directly in a browser. You can also create games entirely in your browser with Pyxel Code</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Pyxel provides a comprehensive retro game development environment, combining Python for game logic with a Rust-implemented engine and built-in pixel art, tilemap, sound, and music editors. Its multi-platform support, including web and retro handhelds, enhances accessibility for creators. The project's sustained development since 2018 and significant GitHub star count underscore its appeal for crafting nostalgic game experiences.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community members lauded Pyxel for its ease of setup and the enjoyable experience of quickly creating pixel-based animations and retro effects. Some users appreciated the engine's inherent limitations as satisfying creative challenges. There was also interest in the possibility of writing games in pure Rust and questions about its differences from PyGame and its AI policy.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>84 pts</span>
+        <span>·</span>
+        <span>8 comments</span>
+        <span>·</span>
+        <span>by kitao</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/kitao/pyxel" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49928215" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Security</div>
+
+            <h2 class="story-title"><a href="https://www.youtube.com/watch?v=NnV_cWeoo5Q" target="_blank" rel="noopener">Greg Kroah-Hartman Discusses LLM Limitations in Kernel Security Bug Discovery</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: It's great to hear about $topic from someone no-nonsense and in-the-know like Greg KH. You can verify all of this too - since, well Linux kernel. (As opposed to what Microsoft or Apple claims to fix as far as LLM finds.) Mythos may not be great today but it is not far fetched to imagine bug discovery, analysis and fixes can be made much quicker, accurate and even newly possible with specialized models trained on say Linux kernel specifics - with codemap/coding standards/threat models, good and b</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Greg Kroah-Hartman's analysis reveals that current LLM-driven security tools, such as Mythos, have a minimal impact on Linux kernel development, with many reported vulnerabilities being false positives, already fixed, or lacking detail. This highlights the significant gap between LLM capabilities and the nuanced understanding required for effective, actionable bug identification and resolution in complex software systems. The findings underscore the continued critical role of human expertise and review in maintaining software security and sustainability.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters appreciated Greg KH's candid and grounded analysis, particularly his debunking of the Mythos project's claims. Many noted that the 79 'vulnerabilities' reported by Mythos ultimately amounted to only one hour of kernel development work, with most being non-issues or already resolved. The community emphasized that this illustrates the current limitations of LLMs in security, reinforcing the belief that human developers and reviewers remain essential for robust software systems. There was also discussion about the legal implications of LLM training data and its potential impact on open-source projects.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>youtube.com</span>
+        <span>·</span>
+        <span>242 pts</span>
+        <span>·</span>
+        <span>75 comments</span>
+        <span>·</span>
+        <span>by usernomdeguerre</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.youtube.com/watch?v=NnV_cWeoo5Q" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49929391" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🎶 Audio Software</div>
+
+            <h2 class="story-title"><a href="https://github.com/kvoltmer/Audionaut" target="_blank" rel="noopener">Audionaut Debuts as Open-Source, Cross-Platform Multitrack Audio Editor</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - kvoltmer/Audionaut: Audionaut professional audio editing and audio recording · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Audionaut is a new open-source, cross-platform multitrack audio editor, developed with an initial focus on replicating the Sound Designer II workflow for multi-channel recordings. Its design aims to offer a flexible and accessible tool for audio editing across various operating systems. This project addresses a need for more open-source options in the professional audio editing space.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community welcomed Audionaut's launch, praising its open-source and cross-platform nature. Early user feedback highlighted areas for improvement, such as the need for more intuitive file import methods and customizable keyboard shortcuts. Users also expressed interest in advanced features like automatic content removal for podcasts, robust region/label management, and inquired about its performance with numerous tracks and the rationale behind choosing the JUCE framework.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>138 pts</span>
+        <span>·</span>
+        <span>46 comments</span>
+        <span>·</span>
+        <span>by vltmrkls</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/kvoltmer/Audionaut" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49931031" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">AI/Design 🧱</div>
+
+            <h2 class="story-title"><a href="https://github.com/anteloc/ldraw-nova" target="_blank" rel="noopener">Open-Source AI Generates LEGO Models Using LDraw Language</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hi there :-) New on HN, first time posting. Past year, around December, I started experimenting with making ChatGPT and Claude generate source code in LDraw language. This LDraw is literally an &quot;assembly&quot; language, a low-level programming language that describes how to assemble LEGO pieces together into models, one placement instruction at a time. When executed by specific tools, like e.g. LDView, LeoCAD, Studio... these instructions become LEGO CAD models, that can be interacted with, modified, etc. Or, in other words: one LDraw source file in .mpd or .ldr format is equivalent to one LEGO CAD</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project leverages large language models to generate LDraw code, a low-level language for assembling LEGO pieces. By producing these detailed instructions, the AI can design buildable, physical LEGO models. This demonstrates a step towards agentic LLMs capable of creating tangible designs.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community shows significant interest in AI's potential for physical design, with some users sharing similar experiences using LLMs to modify 3D models (e.g., 3mf files, FreeCAD). There's excitement about future applications, such as cataloging LEGO collections or designing functional LEGO Technic mechanisms. One user also referenced an academic paper on using LLMs for LDraw model building, indicating existing research in this area.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>114 pts</span>
+        <span>·</span>
+        <span>44 comments</span>
+        <span>·</span>
+        <span>by antelocnova</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/anteloc/ldraw-nova" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49937916" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">AI Image Generation 🎨</div>
+
+            <h2 class="story-title"><a href="https://bfl.ai/models/flux-3-image" target="_blank" rel="noopener">FLUX 3 Image Unveils Bounding Box Control for Precise AI Image Composition</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">FLUX 3 Image: Maximum control over every pixel | Black Forest Labs Lay out the image exactly how you want using bounding boxes.​​​​‌﻿‍﻿​‍​‍‌‍﻿﻿‌﻿​‍‌‍‍‌‌‍‌﻿‌‍‍‌‌‍﻿‍​‍​‍​﻿‍‍​‍​‍‌﻿​﻿‌‍​‌‌‍﻿‍‌‍‍‌‌﻿‌​‌﻿‍‌​‍﻿‍‌‍‍‌‌‍﻿﻿​‍​‍​‍﻿​​‍​‍‌‍‍​‌﻿​‍‌‍‌‌‌‍‌‍​‍​‍​﻿‍‍​‍​‍​‍﻿﻿‌﻿​﻿‌﻿‌​‌﻿‌‌‌‍‌​‌‍‍‌‌‍﻿﻿​‍﻿﻿‌‍‍‌‌‍﻿‍‌﻿‌​‌‍‌‌‌‍﻿‍‌﻿‌​​‍﻿﻿‌‍‌‌‌‍‌​‌‍‍‌‌﻿‌​​‍﻿﻿‌‍﻿‌‌‍﻿﻿‌‍‌​‌‍‌‌​﻿﻿‌‌﻿​​‌﻿​‍‌‍‌‌‌﻿​﻿‌‍‌‌‌‍﻿‍‌﻿‌​‌‍​‌‌﻿‌​‌‍‍‌‌‍﻿﻿‌‍﻿‍​﻿‍﻿‌‍‍‌‌‍‌​​﻿﻿‌‌‍‌‍‌‍﻿​‌﻿‌‌‌﻿‍​​﻿​﻿‌​‍‌‌‍﻿‌‌‍​‌‌‍‌﻿‌‍‌‌‌​﻿​‌‍​‌‌‍﻿‍‌‍‌​‌‍‍‌‌‍﻿‍‌‍‌﻿​﻿‍﻿‌﻿‌​‌﻿‍‌‌﻿​​‌‍‌‌​﻿﻿‌‌‍‌‍‌‍﻿​‌﻿‌‌‌﻿‍​​﻿​﻿‌​‍‌‌‍﻿‌‌‍​‌‌‍‌﻿‌‍‌‌‌​﻿​‌‍​‌‌‍﻿‍‌‍‌​‌‍‍‌‌‍﻿‍‌‍‌﻿​﻿‍﻿‌﻿​​‌‍​‌‌﻿‌​‌‍‍​​﻿﻿‌‌‍​﻿‌‍﻿﻿‌‍﻿‌‌﻿​​‌‍﻿﻿‌﻿​﻿‌‍‌‌​‍﻿‍‌‍​‍‌‍﻿﻿‌‍‌​‌﻿‍‌​‍‌‌​﻿‌‌‌​​‍‌‌﻿﻿‌‍‍﻿‌‍‌‌‌﻿‍‌​‍‌‌​﻿​﻿‌​‌​​‍‌‌​﻿​﻿‌​‌​​‍‌‌​﻿​‍​﻿​‍‌‍​﻿‌‍​‍​﻿​​​‍‌‌​﻿​‍​﻿​‍​‍‌‌​﻿‌‌‌​‌​​‍﻿‍‌‍​﻿‌‍‍​‌‍‍‌‌‍﻿​‌‍‌​‌﻿​‍‌‍‌‌‌‍﻿‍​‍‌‌​﻿‌‌‌​​‍‌‌﻿﻿‌‍‍﻿‌‍‌‌‌﻿‍‌​‍‌‌​﻿​﻿‌​‌​​‍‌‌​﻿​﻿‌​‌​​‍‌‌​﻿​‍​﻿​‍‌‍​﻿‌‍​‍​﻿​​‌﻿​﻿​‍‌‌​﻿​‍​﻿​‍​‍‌‌​﻿‌‌‌​‌​​‍﻿‍‌﻿‌​‌‍‌‌‌﻿‍​‌﻿‌​​﻿﻿﻿‌‍​‍‌‍​‌‌﻿​﻿‌‍‌‌‌‌‌‌‌﻿​‍‌‍﻿​​﻿﻿‌​‍‌‌​﻿​‍‌​‌‍‌﻿​﻿‌﻿‌​‌﻿‌‌‌‍‌​‌‍‍‌‌‍﻿﻿​‍‌‍‌‍‍‌‌‍‌​​﻿﻿‌‌‍‌‍‌‍﻿​‌﻿‌‌‌﻿‍​​﻿​﻿‌​‍‌‌‍﻿‌‌‍​‌‌‍‌﻿‌‍‌‌‌​﻿​‌‍​‌‌‍﻿‍‌‍‌​‌‍‍‌‌‍﻿‍‌‍‌﻿​‍‌‍‌﻿‌​‌﻿‍‌‌﻿​​‌‍‌‌​﻿﻿‌‌‍‌‍‌‍﻿​‌﻿‌‌‌﻿‍​​﻿​﻿‌​‍‌‌‍﻿‌‌‍​‌‌‍‌﻿‌‍‌‌‌​﻿​‌‍​‌‌‍﻿‍‌‍‌​‌‍‍‌‌‍﻿‍‌‍‌﻿​‍‌‍‌﻿​​‌‍​‌‌﻿‌​‌‍‍​​﻿﻿‌‌‍​﻿‌‍﻿﻿‌‍﻿‌‌﻿​​‌‍﻿﻿‌﻿​﻿‌‍‌‌​‍﻿‍‌‍​‍‌‍﻿﻿‌‍‌​‌﻿‍‌​‍‌‌​﻿‌‌‌​​‍‌‌﻿﻿‌‍‍﻿‌‍‌‌‌﻿‍‌​‍‌‌​﻿​﻿‌​‌​​‍‌‌​﻿​﻿‌​‌​​‍‌‌​﻿​‍​﻿​‍‌‍​﻿‌‍​‍​﻿​​​‍‌‌​﻿​‍​﻿​‍​‍‌‌​﻿‌‌‌​‌​​‍﻿‍‌‍​﻿‌‍‍​‌‍‍‌‌‍﻿​‌‍‌​‌﻿​‍‌‍‌‌‌‍﻿‍​‍‌‌​﻿‌‌‌​​‍‌‌﻿﻿‌‍‍﻿‌‍‌‌‌﻿‍‌​‍‌‌​﻿​﻿‌​‌​​‍‌‌​﻿​﻿‌​‌​​‍‌‌​﻿​‍​﻿​‍‌‍​﻿‌‍​‍​﻿​​‌﻿​﻿​‍‌‌​﻿​‍​﻿​‍​‍‌‌​﻿‌‌‌​‌​​‍﻿‍‌﻿‌​‌‍‌‌‌﻿‍​‌﻿‌​​‍‌‍‌﻿​​‌‍‌‌‌﻿​‍‌﻿​﻿‌﻿​​‌‍‌‌‌‍​﻿‌﻿‌​‌‍‍‌‌﻿‌‍‌‍‌‌​﻿﻿‌‌﻿​​‌﻿‌‌‌‍​‍‌‍﻿​‌‍‍‌‌﻿​﻿‌‍‍​‌‍‌‌‌‍‌​​‍​‍‌﻿﻿‌ Le Festival du Soleil, generated from bounding boxes and a scene prompt View the element table​​​​‌﻿‍﻿​‍​‍‌‍﻿﻿‌﻿​‍‌‍‍‌‌‍‌﻿‌‍‍‌‌‍﻿‍​‍​‍​﻿‍‍​‍​‍‌﻿​﻿‌‍​‌‌‍﻿‍‌‍‍‌‌﻿‌​‌﻿‍‌​‍﻿‍‌‍‍‌‌‍﻿﻿​‍​‍​‍﻿​​‍​‍‌‍‍​‌﻿​‍‌‍‌‌‌‍‌‍​‍​‍​﻿‍‍​‍​‍​‍﻿﻿‌﻿​﻿‌﻿‌​‌﻿‌‌‌‍‌​‌‍‍‌‌‍﻿﻿​‍﻿﻿‌‍‍‌‌‍﻿‍‌﻿‌​‌‍‌‌‌‍﻿‍‌﻿‌​​‍﻿﻿‌‍‌‌‌‍‌​‌‍‍‌‌﻿‌​​‍﻿﻿‌‍﻿‌‌‍﻿﻿‌‍‌​‌‍‌‌​﻿﻿‌‌﻿​​‌﻿​‍‌‍‌‌‌﻿​﻿‌‍‌‌‌‍﻿‍‌﻿‌​‌‍​‌‌﻿‌​‌‍‍‌‌‍﻿﻿‌‍﻿‍​﻿‍﻿‌‍‍‌‌‍‌​​﻿﻿‌‌‍‌‍‌‍﻿​‌﻿‌‌‌﻿‍​​﻿​﻿‌​‍‌‌‍﻿‌‌‍​‌‌‍‌﻿‌‍‌‌‌​﻿​‌‍​‌‌‍﻿‍‌‍‌​‌‍‍‌‌‍﻿‍‌‍‌﻿​﻿‍﻿‌﻿‌​‌﻿‍‌‌﻿​​‌‍‌‌​﻿﻿‌‌‍‌‍‌‍﻿​‌﻿‌‌‌﻿‍​​﻿​﻿‌​‍‌‌‍﻿‌‌‍​‌‌‍‌﻿‌‍‌‌‌​﻿​‌‍​‌‌‍﻿‍‌‍‌​‌‍‍‌‌‍﻿‍‌‍‌﻿​﻿‍﻿‌﻿​​‌‍​‌‌﻿‌​‌‍‍​​﻿﻿‌‌‍​﻿‌‍﻿﻿‌‍﻿‌‌﻿​​‌‍﻿﻿‌﻿​﻿‌‍‌‌​‍﻿‍‌‍‌​‌‍‌‌‌‍﻿‌‌‍﻿﻿​‍﻿‍‌﻿‌​‌‍​‌‌‍​‍‌‍﻿​‌‍‌‌‌‌​﻿‌﻿‌‌‌‍﻿‌‌‍﻿‌‌‍​‌‌﻿​‍‌﻿‍‌​﻿﻿﻿‌‍​‍‌‍​‌‌﻿​﻿‌‍‌‌‌‌‌‌‌﻿​‍‌‍﻿​​﻿﻿‌​‍‌‌​﻿​‍‌​‌‍‌﻿​﻿‌﻿‌​‌﻿‌‌‌‍‌​‌‍‍‌‌‍﻿﻿​‍‌‍‌‍‍‌‌‍‌​​﻿﻿‌‌‍‌‍‌‍﻿​‌﻿‌‌‌﻿‍​​﻿​﻿‌​‍‌‌‍﻿‌‌‍​‌‌‍‌﻿‌‍‌‌‌​﻿​‌‍​‌‌‍﻿‍‌‍‌​‌‍‍‌‌‍﻿‍‌‍‌﻿​‍‌‍‌﻿‌​‌﻿‍‌‌﻿​​‌‍‌‌​﻿﻿‌‌‍‌‍‌‍﻿​‌﻿‌‌‌﻿‍​​﻿​﻿‌​‍‌‌‍﻿‌‌‍​‌‌‍‌﻿‌‍‌‌‌​﻿​‌‍​‌‌‍﻿‍‌‍‌​‌‍‍‌‌‍﻿‍‌‍‌﻿​‍‌‍‌﻿​​‌‍​‌‌﻿‌​‌‍‍​​﻿﻿‌‌‍​﻿‌‍﻿﻿‌‍﻿‌‌﻿​​‌‍﻿﻿‌﻿​﻿‌‍‌‌​‍﻿‍‌‍‌​‌‍‌‌‌‍﻿‌‌‍﻿﻿​‍﻿‍‌﻿‌​‌‍​‌‌‍​‍‌‍﻿​‌‍‌‌‌‌​﻿‌﻿‌‌‌‍﻿‌‌‍﻿‌‌‍​‌‌﻿​‍‌﻿‍‌​‍‌‍‌﻿​​‌‍‌‌‌﻿​‍‌﻿​﻿‌﻿​​‌‍‌‌‌‍​﻿‌﻿‌​‌‍‍‌‌﻿‌‍‌‍‌‌​﻿﻿‌‌﻿​​‌﻿‌‌‌‍​‍‌‍﻿​‌‍‍‌‌﻿​﻿‌‍‍​‌‍‌‌‌‍‌​​‍​‍‌﻿﻿‌ 5 rows​​​​‌﻿‍﻿​‍​‍‌‍﻿﻿‌﻿​‍‌‍‍‌‌‍‌﻿‌‍‍‌‌‍﻿‍​‍​‍​﻿‍‍​‍​‍‌﻿​﻿‌‍​‌‌‍﻿‍‌‍‍‌‌﻿‌​‌﻿‍‌​‍﻿‍‌‍‍‌‌‍﻿﻿​‍​‍​‍﻿​​‍​‍‌‍‍​‌﻿​‍‌‍‌‌‌‍‌‍​‍​‍​﻿‍‍​‍​‍​‍﻿﻿‌﻿​﻿‌﻿‌​‌﻿‌‌‌‍‌​‌‍‍‌‌‍﻿﻿​‍﻿﻿‌‍‍‌‌‍﻿‍‌﻿‌​‌‍‌‌‌‍﻿‍‌﻿‌​​‍﻿﻿‌‍‌‌‌‍‌​‌‍‍‌‌﻿‌​​‍﻿﻿‌‍﻿‌‌‍﻿﻿‌‍‌​‌‍‌‌​﻿﻿‌‌﻿​​‌﻿​‍‌‍‌‌‌﻿​﻿‌‍‌‌‌‍﻿‍‌﻿‌​‌‍​‌‌﻿‌​‌‍‍‌‌‍﻿﻿‌‍﻿‍​﻿‍﻿‌‍‍‌‌‍‌​​﻿﻿‌‌‍‌‍‌‍﻿​‌﻿‌‌‌﻿‍​​﻿​﻿‌​‍‌‌‍﻿‌‌‍​‌‌‍‌﻿‌‍‌‌‌​﻿​‌‍​‌‌‍﻿‍‌‍‌​‌‍‍‌‌‍﻿‍‌‍‌﻿​﻿‍﻿‌﻿‌​‌﻿‍‌‌﻿​​‌‍‌‌​﻿﻿‌‌‍‌‍‌‍﻿​‌﻿‌‌‌﻿‍​​﻿​﻿‌​‍‌‌‍﻿‌‌‍​‌‌‍‌﻿‌‍‌‌‌​﻿​‌‍​‌‌‍﻿‍‌‍‌​‌‍‍‌‌‍﻿‍‌‍‌﻿​﻿‍﻿‌﻿​​‌‍​‌‌﻿‌​‌‍‍​​﻿﻿‌‌‍​﻿‌‍﻿﻿‌‍﻿‌‌﻿​​‌‍﻿﻿‌﻿​﻿‌‍‌‌​‍﻿‍‌‍‌​‌‍‌‌‌‍﻿‌‌‍﻿﻿​‍﻿‍‌﻿​‍‌‍﻿﻿‌﻿‌﻿‌﻿​﻿‌‌​﻿‌﻿‌‌‌‍‌‍‌‍‌‍‌‍‍‌‌﻿‍​​﻿﻿﻿‌‍​‍‌‍​‌‌﻿​﻿‌‍‌‌‌‌‌‌‌﻿​‍‌‍﻿​​﻿﻿‌​‍‌‌​﻿​‍‌​‌‍‌﻿​﻿‌﻿‌​‌﻿‌‌‌‍‌​‌‍‍‌‌‍﻿﻿​‍‌‍‌‍‍‌‌‍‌​​﻿﻿‌‌‍‌‍‌‍﻿​‌﻿‌‌‌﻿‍​​﻿​﻿‌​‍‌‌‍﻿‌‌‍​‌‌‍‌﻿‌‍‌‌‌​﻿​‌‍​‌‌‍﻿‍‌‍‌​‌‍‍‌‌‍﻿‍‌‍‌﻿​‍‌‍‌﻿‌​‌﻿‍‌‌﻿​​‌‍‌‌​﻿﻿‌‌‍‌‍‌‍﻿​‌﻿‌‌‌﻿‍​​﻿​﻿‌​‍‌‌‍﻿‌‌‍​‌‌‍‌﻿‌‍‌‌‌​﻿​‌‍​‌‌‍﻿‍‌‍‌​‌‍‍‌‌‍﻿‍‌‍‌﻿​‍‌‍‌﻿​​‌‍​‌‌﻿‌​‌‍‍​​﻿﻿‌‌‍​﻿‌‍﻿﻿‌‍﻿‌‌﻿​​‌‍﻿﻿‌﻿​﻿‌‍‌‌​‍﻿‍‌‍‌​‌‍‌‌‌‍﻿‌‌‍﻿﻿​‍﻿‍‌﻿​‍‌‍﻿﻿‌﻿‌﻿‌﻿​﻿‌‌​﻿‌﻿‌‌‌‍‌‍‌‍‌‍‌‍‍‌‌﻿‍​​‍‌‍‌﻿​​‌‍‌‌‌﻿​‍‌﻿​﻿‌﻿​​‌‍‌‌‌‍​﻿‌﻿‌​‌‍‍‌‌﻿‌‍‌‍‌‌​﻿﻿‌‌﻿​​‌﻿‌‌‌‍​‍‌‍﻿​‌‍‍‌‌﻿​﻿‌‍‍​‌‍‌‌‌‍‌​​‍​‍‌﻿﻿‌ [ { &quot;id&quot; : &quot; Fr_Text_1 &quot; , &quot;bbox&quot; : [ 10, 200, 170, 800 ] , &quot;desc&quot; : &quot;\&quot;LE FESTIVAL DU SOLEIL\&quot; written in a thin, elegant, serif typeface in a light cream color&quot; } , { &quot;id&quot; : &quot; town_1 &quot; , &quot;bbox&quot; : [ 280, 700, 420, 1000 ] , &quot;desc&quot; : &quot;faint lights and small buildings of a coastal town at the foot of the hills&quot; } , { &quot;id&quot; : &quot; dome_1 &quot; , &quot;bbox&quot; : [ 250, 150, 650, 850 ] , &quot;desc&quot; : &quot;a massive, smooth parabolic dome of pale concrete&quot; } , { &quot;id&quot; : &quot; swimmers_1 &quot; , &quot;bbox&quot; : [ 580, 200, 720, 800 ] , &quot;desc&quot; : &quot;dozens of small, silhouetted figures scattered in the dark water, wading&quot; } , { &quot;id&quot; : &quot; crowd_1 &quot; , &quot;bbox&quot; : [ 740, 0, 1000, 1000 ] , &quot;desc&quot; : &quot;a large crowd of people seated on the beach in casual, light-colored summer attire&quot; } ] Text-to-image with strong prompt following and a native understanding of composition.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">FLUX 3 Image introduces a novel approach to AI image generation by allowing users to define image composition with bounding boxes. This feature provides maximum control over element placement, aiming to improve prompt following and enable precise layout. Such granular control could significantly enhance the utility of AI image tools for design and specific visual content creation.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely praises FLUX 3 Image's user experience, particularly the 'amazing' and 'steerable' interface for placing elements, which is seen as a key differentiator. Users note its potential for 'granular iteration' and practical applications like UI element replacement. However, some examples were criticized for quality, and a test image failed on specific details. There's also a strong desire for open weights or local model releases and questions about its capability for highly precise tasks like generating accurate frame-by-frame sprite sequences.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>bfl.ai</span>
+        <span>·</span>
+        <span>346 pts</span>
+        <span>·</span>
+        <span>75 comments</span>
+        <span>·</span>
+        <span>by minimaxir</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://bfl.ai/models/flux-3-image" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49925974" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Legal Tech ⚖️</div>
+
+            <h2 class="story-title"><a href="https://www.eff.org/deeplinks/2026/10/court-agrees-eff-utahs-vpn-law-demands-technical-impossibility" target="_blank" rel="noopener">Court Rules Utah's VPN Law Demands Technical Impossibility, Siding with EFF</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Court Agrees with EFF: Utah’s VPN Law Demands a Technical Impossibility | Electronic Frontier Foundation Skip to main content Email updates on news, actions, and events in your area. If you use technology, this fight is yours. EFFecting Change: Protect the Vote on October 8 Court Agrees with EFF: Utah’s VPN Law Demands a Technical Impossibility</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A court has sided with the EFF, declaring Utah's VPN law technically impossible to implement. This ruling highlights a common challenge where legislation, particularly concerning internet technology, is drafted without sufficient technical understanding. Such laws often place an undue burden on platforms, demanding unfeasible compliance measures.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community questions the technical feasibility of reliably detecting VPN traffic, noting that any proxy can obscure a connection's origin. There's debate on whether the internet still effectively routes around censorship, with some arguing that state-of-the-art methods in countries like China and Iran challenge this truism. Commenters also express frustration over how technically impossible laws can pass without expert consultation, raising concerns about legislative competence and potential First Amendment violations regarding instructions on bypassing restrictions. Broader anxieties about government control over the internet are also evident.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>eff.org</span>
+        <span>·</span>
+        <span>638 pts</span>
+        <span>·</span>
+        <span>288 comments</span>
+        <span>·</span>
+        <span>by hn_acker</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.eff.org/deeplinks/2026/10/court-agrees-eff-utahs-vpn-law-demands-technical-impossibility" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49927754" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Generative AI 🎨</div>
+
+            <h2 class="story-title"><a href="https://stillwet.art/" target="_blank" rel="noopener">Claude Opus 5.5 Generates Paintings with Code and Simulated Oil Paint</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Summer Evening on the Meadows before the Town Claude Opus 5.5, after Caspar David Friedrich. The model wrote every brushstroke as code and a simulation of oil paint carried them out, replayed here sped up. Round 2 · Claude Opus 5.5, high reasoning The thing about round two is that it almost moved something in me, especially the winter one.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Claude Opus 5.5 demonstrates a unique approach to AI-generated art by writing brushstroke code executed within a simulated oil paint environment. This method allows the LLM to control the painting process at a granular level, potentially offering a new paradigm for generative art beyond traditional diffusion models. The inclusion of a 'look' tool further suggests an iterative, feedback-driven creative process.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community observes that LLMs like Opus are increasingly competing with diffusion models in art generation, with some speculating on Anthropic's internal development of these capabilities. While many find the technical achievement impressive, some users note an 'uncanny valley' effect due to nonsensical elements in the generated landscapes. There is significant interest in understanding the specific techniques employed, drawing comparisons to other code-based AI painting projects, and acknowledging the iterative, sometimes 'catastrophic,' nature of the creative process. Commenters also debated the artistic merit of the output, with some likening it to amateur work, and reinforced the idea of AI as a tool rather than an artist.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>stillwet.art</span>
+        <span>·</span>
+        <span>277 pts</span>
+        <span>·</span>
+        <span>88 comments</span>
+        <span>·</span>
+        <span>by alstonite</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://stillwet.art/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49928566" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">AI/ML Tools 🛠️</div>
+
+            <h2 class="story-title"><a href="https://dwarfstar.sh/" target="_blank" rel="noopener">Redis Creator's DwarfStar 4 (ds4) Enables Local LLM Inference</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">DwarfStar 4 (ds4): Local DeepSeek V4.1, Qwen and GLM Skip to content</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">DwarfStar 4 (ds4) is a new local LLM inference engine from the creator of Redis, optimized for models like DeepSeek, Qwen, and GLM. It is primarily designed for high-end Apple Silicon, leveraging Metal, but also supports SSD streaming for larger models or systems with less RAM. This focus on optimized local execution aims to make powerful LLMs more accessible on personal hardware.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community praises ds4's performance on high-end Apple Silicon, with users reporting excellent speed and long context windows for models like DeepSeek and Qwen on M5 Max 128GB systems. Discussions frequently center on hardware requirements, specifically 96GB+ RAM and the use of SSD streaming for larger models. There's also interest in forks providing shared library bindings for other languages and comparisons to alternative specialized inference engines.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>dwarfstar.sh</span>
+        <span>·</span>
+        <span>244 pts</span>
+        <span>·</span>
+        <span>65 comments</span>
+        <span>·</span>
+        <span>by fibo</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://dwarfstar.sh/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49936575" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI &amp; Gaming</div>
+
+            <h2 class="story-title"><a href="https://arstechnica.com/science/2026/10/ai-finally-beat-the-best-stratego-player-in-history-and-did-it-on-a-budget/" target="_blank" rel="noopener">New AI 'Ataraxos' Masters Stratego, Defeating Top Human Player</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">With most information hidden, the game Stratego had stumped AI—until now - Ars Technica Size Small Standard Large Width * Standard Wide Links Standard Orange Deep Blue took down Garry Kasparov at chess in 1997, AlphaGo beat Lee Sedol at Go in 2016, and poker bots have been beating professionals for years. But one classic game called Stratego held out. Even DeepMind, with its exceptional budget, couldn’t build a machine that reliably beat the best human players.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Stratego, a game with significant hidden information, had long resisted AI mastery, even by well-funded efforts like DeepMind. The new AI, Ataraxos, achieved superior performance against the best human player with significantly less training data and computational resources. This demonstrates a notable advancement in AI's ability to handle complex strategic games with incomplete information.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters expressed nostalgia for Stratego, with some surprised it posed such a challenge for AI given its apparent simplicity. Many were impressed by Ataraxos's efficiency, noting it learned much faster and with fewer resources than previous attempts. The community also highlighted the significance of this achievement compared to earlier, less successful AI efforts in Stratego, and discussed the applicability of similar approaches to other hidden-information games like Hanabi.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>arstechnica.com</span>
+        <span>·</span>
+        <span>218 pts</span>
+        <span>·</span>
+        <span>109 comments</span>
+        <span>·</span>
+        <span>by PaulHoule</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://arstechnica.com/science/2026/10/ai-finally-beat-the-best-stratego-player-in-history-and-did-it-on-a-budget/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49933740" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">Hardware &amp; DIY Tech 🛠️</div>
+
+            <h2 class="story-title"><a href="https://gadgets.muse.ai" target="_blank" rel="noopener">Muse Gadgets Introduces Open Source Hardware SDKs for DIY Projects</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Muse Gadgets: Open source hardware for your Muse Muse gadgets are open source devices you build yourself. Program an off-the-shelf ESP32 board or set up a Raspberry Pi with our SDKs, then connect Muse to your displays, buttons, sensors, actuators, and whatever else you’ve got lying on your workbench. .,,ywwya@$BB$awwyy,_
+                             .,wdD8O8$$8U88@88@88$8@8B8Byy_
+                          .y@OUdI882@U8$8$Ud8888$@$@888B88BBy_
+                        .@GUU]|2UUUAU8sUVYA8V8$U$I8$$8U8$888@8@;
+                       aVjUV9U?UzXi|)!!!!!!!'!!!!!?Yf9d888888B8B@_
+                     .8$UuU2$Y9+r:.;uyuoU&amp;&amp;&amp;&amp;&amp;$@&amp;@ayy;;!'f88@8@8$B;
+                    .UjaV}UX)!coU66666$$888888@BBBBBBB@@@;/!U@d88@By
+                    8]|||8i(:UU66UU8$$88B888BB8B8@BB8BBBB@@y.c888@88;
+                   dijt2ji!cUUUUU68U$8$8888888888@@BB@@@@BB@@/)288@8$. &lt;U1Utda:cUU$UUU8U888888888$@$BBBB@88B8@BB@B@.!U888Bb
+                  z|jVzd!iU8UUUUUUUU688@8888888@88@@8B8B@8B@@B@-cU8B8B.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Muse Gadgets provides open-source SDKs for ESP32 and Raspberry Pi, enabling users to build custom hardware devices that integrate with the Muse ecosystem. This initiative aims to expand Muse's functionality by allowing makers to connect their own displays, sensors, and actuators. It leverages popular DIY platforms to foster community-driven hardware development.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses a mixed reaction, acknowledging the 'objectively cool tech' and 'fun idea' behind the DIY hardware integration. However, a significant portion of users voice strong skepticism and distrust towards Meta, citing privacy concerns and a reluctance to integrate Meta's ecosystem into their homes. While some appreciate the open-source direction, the prevailing sentiment is caution regarding Meta's data practices.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>gadgets.muse.ai</span>
+        <span>·</span>
+        <span>198 pts</span>
+        <span>·</span>
+        <span>86 comments</span>
+        <span>·</span>
+        <span>by anant</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://gadgets.muse.ai" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49937504" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-10-02.html">
+        <small>Previous issue</small>
+        <strong>← October 02, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
