@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 152, October 05, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — October 05, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 152</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Monday</span>
+                    <time datetime="2026-10-05">October 05, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Utility Disables Apple Intelligence on macOS 27, Recovers Disk Space</span>
+            <span class="toc-score">627 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Bob Cringely, Documentarian and Early Apple Employee, Has Died</span>
+            <span class="toc-score">887 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Strata Enables Qwen 3.8 Flash Next (125B) Inference on Consumer Hardware with High Performance</span>
+            <span class="toc-score">830 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">New macOS Tool Offers Deep AI Search for Photos and Video Frames</span>
+            <span class="toc-score">154 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Benchmarking AI Decision Models Against LLM-as-a-Judge and Traditional Classifiers</span>
+            <span class="toc-score">90 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Browser-Based Python Course Teaches Coding Through Visual Drawing</span>
+            <span class="toc-score">37 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Browser-Native IDE Recreates Classic Visual Basic 6 Experience</span>
+            <span class="toc-score">279 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">F1 Drivers Frustrated by Software Glitch in Bahrain</span>
+            <span class="toc-score">230 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">30-Minute Pendulum Clock Built from Discarded Materials in Glashütte</span>
+            <span class="toc-score">207 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Self-Hosted HTTP Tunnels with SSH and Nginx Explained</span>
+            <span class="toc-score">155 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">💻 Software Tools</div>
+
+            <h2 class="story-title"><a href="https://github.com/omlahore/RemoveMacAI" target="_blank" rel="noopener">Utility Disables Apple Intelligence on macOS 27, Recovers Disk Space</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - omlahore/RemoveMacAI: Turn off Apple Intelligence on macOS 27 and get its disk space back. You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A new utility allows macOS users to disable Apple Intelligence features and reclaim associated disk space. This development highlights growing user concerns about system bloat and the desire for greater control over pre-installed software and resource consumption on Apple devices.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion reveals a widespread desire among users to remove various forms of bloatware from Apple devices, including old simulator images and excessive 'system' storage on iOS. Many commenters draw parallels to the need for 'de-crufting' Windows installations, expressing frustration with Apple's increasingly bloated and locked-down operating systems. While some defend the local AI models as small and useful, others are considering moving away from Apple entirely due to these issues. It was also noted that the utility is a wrapper around another existing project.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>627 pts</span>
+        <span>·</span>
+        <span>420 comments</span>
+        <span>·</span>
+        <span>by privacyisntdead</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/omlahore/RemoveMacAI" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49957116" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">Tech &amp; Media 📺</div>
+
+            <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=49949438" target="_blank" rel="noopener">Bob Cringely, Documentarian and Early Apple Employee, Has Died</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">I heard from a friend of the family that Bob passed away in his sleep early Saturday. Very sad news. Bob, who's real name was Mark Stevens, was an early employee of Apple and was best known for his PBS documentaries, especially &quot;Triumph of the Nerds&quot;. He will be missed.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Bob Cringely, whose real name was Mark Stevens, was a notable figure in the early technology landscape, recognized for his tenure as an early Apple employee. He gained widespread acclaim for his PBS documentaries, most notably 'Triumph of the Nerds,' which offered accessible insights into the burgeoning tech industry. His work played a crucial role in documenting and popularizing the stories of Silicon Valley's pioneers.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses sadness over Bob Cringely's passing, fondly recalling his influential documentaries such as 'Triumph of the Nerds' and 'Plane Crazy,' and his book 'Accidental Empires.' Many found his work inspiring and entertaining, with some noting his recent personal struggles and return to blogging. However, some comments also highlight past controversies concerning his journalistic practices. His legacy is largely remembered for making early tech history engaging and understandable for a wide audience.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>news.ycombinator.com</span>
+        <span>·</span>
+        <span>887 pts</span>
+        <span>·</span>
+        <span>192 comments</span>
+        <span>·</span>
+        <span>by paveworld</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://news.ycombinator.com/item?id=49949438" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49949438" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI/ML</div>
+
+            <h2 class="story-title"><a href="https://github.com/Niko1221/Strata" target="_blank" rel="noopener">Strata Enables Qwen 3.8 Flash Next (125B) Inference on Consumer Hardware with High Performance</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - Niko1221/Strata: Qwen3.8-Flash-Next on any consumer hardware: one-click install for Windows / Linux. Strata inference engine, OpenAI/Anthropic API on localhost, optional image input. You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The Strata project offers a one-click solution for running the Qwen 3.8 Flash Next (125B) model on consumer GPUs like the RTX 4090, achieving impressive speeds of over 100 tokens per second. This development significantly lowers the barrier to entry for local large language model inference, providing an OpenAI/Anthropic API-compatible engine for Windows and Linux users. It pushes the boundaries of what's possible for high-performance AI on personal hardware.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community feedback highlights the ease of installation and impressive speed, with users reporting 124 t/s on an RTX 4090 and 60 t/s on an R9700 with DDR4. However, there is skepticism regarding the quality of sub-4-bit quantizations, with one user noting higher error rates in a vision benchmark compared to llama.cpp. While some find the speed and accessibility 'game-changing,' others express reservations about accuracy and quality, suggesting a mixed reception regarding its overall performance compared to established alternatives like Dwarfstar and llama.cpp.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>830 pts</span>
+        <span>·</span>
+        <span>365 comments</span>
+        <span>·</span>
+        <span>by snehesht</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/Niko1221/Strata" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49953495" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">AI/macOS 💻</div>
+
+            <h2 class="story-title"><a href="https://github.com/allenv0/SCM" target="_blank" rel="noopener">New macOS Tool Offers Deep AI Search for Photos and Video Frames</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - allenv0/SCM: Deep AI search for every photo and every frame of video in any folder on macOS · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A new GitHub project, SCM, introduces deep AI search capabilities for every photo and video frame within any folder on macOS. This granular indexing promises detailed content discovery but raises significant concerns regarding the computational time and resources required for processing large video libraries. The approach highlights a key trade-off between comprehensive media indexing and processing overhead for local AI applications.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion centers on the performance implications of processing every video frame, with users expressing concerns about the extensive time needed for large media collections. Suggestions for technical optimization include utilizing Apple's Vision framework for OCR and exploring smaller Video-Language Models (VLMs) like Qwen-VL for improved video encoding over CLIP. Potential use cases identified include searching stock photography and assisting video editors, while some broader questions were raised regarding copyright for LLM-generated code.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>154 pts</span>
+        <span>·</span>
+        <span>70 comments</span>
+        <span>·</span>
+        <span>by allenleee</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/allenv0/SCM" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49952111" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">AI Benchmarking 📊</div>
+
+            <h2 class="story-title"><a href="https://developers.redhat.com/articles/2026/10/02/benchmarking-ai-decision-models-against-traditional-guardrails" target="_blank" rel="noopener">Benchmarking AI Decision Models Against LLM-as-a-Judge and Traditional Classifiers</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Benchmarking AI decision models against traditional guardrails | Red Hat Developer Skip to main content Benchmarking AI decision models against traditional guardrails Benchmarking guardrail efficacy of decision models against traditional guardrail methodologies Related topics: AI inference Artificial intelligence Platform engineering Security Related products: Red Hat OpenShift AI Red Hat AI As enterprise generative AI applications move to production, platform engineers face a key challenge: balancing the flexibility of LLM-as-a-judge guardrails with the reliability and portability of traditional classifiers that require custom training data.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Enterprises deploying generative AI applications face a critical challenge in selecting appropriate guardrails, needing to balance the flexibility of LLM-as-a-judge models with the reliability and portability of traditional classifiers. Benchmarking studies are evaluating the efficacy of various AI decision models, including newer approaches like Jev, against established methodologies to determine optimal solutions for production environments.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely disputes the article's premise, arguing that models like Jev offer distinct advantages such as confidence scoring and superior performance in multi-step reasoning tasks, making them fundamentally different from LLM-as-a-judge or traditional classifiers. Commenters highlight Jev's potential as a fast, cost-efficient, general-purpose classifier ideal for prototyping, especially where high-volume, simple classifications make LLMs impractical. There is also discussion about the importance of calibration for conditional-branching decisions in agentic stacks.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>developers.redhat.com</span>
+        <span>·</span>
+        <span>90 pts</span>
+        <span>·</span>
+        <span>32 comments</span>
+        <span>·</span>
+        <span>by tomncooper</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://developers.redhat.com/articles/2026/10/02/benchmarking-ai-decision-models-against-traditional-guardrails" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49933476" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Education 📚</div>
+
+            <h2 class="story-title"><a href="https://scimigo.com/en/learn/build-with-python/01-draw-with-python" target="_blank" rel="noopener">Browser-Based Python Course Teaches Coding Through Visual Drawing</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hi HN, I built this because I watched my daughter struggle at learning Python. I made something that runs only in the browser with visuals rather than relying on CLI/terminal output. No need to worry about python installation, package versions, venv etc. The lab runs with Pyodide in a web worker, and the program output is a picture by the side of the code block. A user would experiment with the code, and see the immediate changes in the visual output. The course has 13 modules, with the first 6 foundation modules free, module 7-13 with free readings but guide labs for a one-time price of $49. </p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This beginner Python course simplifies the learning process by running entirely in the browser and visualizing code output as drawings, bypassing traditional setup complexities. The immediate visual feedback aims to make abstract programming concepts more concrete and engaging for new learners. This approach could be particularly effective for those who struggle with command-line interfaces or prefer a more interactive learning experience.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community feedback is mixed, with some users praising the intuitive interface and the concept of visual code output. However, significant criticism highlights issues with the course content, including a lack of clear terminology, missing information, and pre-completed tasks in initial modules. Concerns were also raised about the $49 price, with some comparing it unfavorably to free alternatives like CMU Academy and questioning the value offered.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>scimigo.com</span>
+        <span>·</span>
+        <span>37 pts</span>
+        <span>·</span>
+        <span>12 comments</span>
+        <span>·</span>
+        <span>by davidwshao</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://scimigo.com/en/learn/build-with-python/01-draw-with-python" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49956771" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Software Development 💻</div>
+
+            <h2 class="story-title"><a href="https://wieslawsoltes.github.io/VB6/" target="_blank" rel="noopener">Browser-Native IDE Recreates Classic Visual Basic 6 Experience</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: Nice job - definitely consider implementing at least a little bit of the Win32 API layer! For kicks I tried importing an old highschool VB6 map editor at it which uses BitBlt but sadly it didn't work.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project offers a browser-based recreation of the classic Visual Basic 6 IDE, allowing users to develop and 'compile' applications into HTML. While praised for its functional approach, some community members noted visual inaccuracies compared to the original VB6 interface. The initiative taps into nostalgia for VB6's integrated development loop and its efficient property grid UI.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters appreciate the project's functionality, including the ability to compile apps to HTML, but many point out visual discrepancies like crooked elements and missing bevel edges, suggesting improvements using existing CSS frameworks. There's significant nostalgia for VB6's development environment, particularly its property grid control and instant F1 help, with some lamenting the shift away from such integrated UIs in modern web and mobile development. One user clarified that it's a retro IDE producing HTML/JavaScript, not a direct VB6 emulation. The author's other extensive open-source contributions, including a C# browser IDE, were also highlighted.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>wieslawsoltes.github.io</span>
+        <span>·</span>
+        <span>279 pts</span>
+        <span>·</span>
+        <span>95 comments</span>
+        <span>·</span>
+        <span>by wiso</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://wieslawsoltes.github.io/VB6/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49956681" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Motorsports 🏎️</div>
+
+            <h2 class="story-title"><a href="https://www.motorsport.com/f1/news/horrible-totally-unacceptable-powerless-f1-drivers-frustrated-by-bahrain-f1-software-glitch/10861968/" target="_blank" rel="noopener">F1 Drivers Frustrated by Software Glitch in Bahrain</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">&quot;Horrible, totally unacceptable&quot; - Powerless F1 drivers frustrated by Bahrain F1 software glitch Bubba Wallace &quot;paid the price on our front tires&quot; in battle for Vegas win Bubba Wallace &quot;paid the price on our front tires&quot; in battle for Vegas win How Elfyn Evans made WRC history in Hollywood blockbuster Sardinia decider How Elfyn Evans made WRC history in Hollywood blockbuster Sardinia decider</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A software glitch rendered F1 drivers 'powerless' during the Bahrain race, underscoring the critical role of technology in modern motorsports. This incident highlights how complex software systems, despite enabling advanced performance, also introduce vulnerabilities that can directly impact race outcomes. The ability to deploy rapid, in-field updates suggests a highly agile, though potentially risky, operational environment.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expressed surprise at the ability to deploy critical software updates in the field without extensive prior QA, questioning the underlying processes. An ex-F1 technician clarified that Ilmore, the ECU provider for all cars, likely caused the bug, which was resolved by disabling a faulty configuration. There was also discussion regarding the shared nature of the firmware and F1's control over individual cars, with some noting a pattern of similar issues in recent seasons.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>motorsport.com</span>
+        <span>·</span>
+        <span>230 pts</span>
+        <span>·</span>
+        <span>199 comments</span>
+        <span>·</span>
+        <span>by llm_nerd</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.motorsport.com/f1/news/horrible-totally-unacceptable-powerless-f1-drivers-frustrated-by-bahrain-f1-software-glitch/10861968/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49959869" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">DIY 🛠️</div>
+
+            <h2 class="story-title"><a href="https://niklasroy.com/gtc/" target="_blank" rel="noopener">30-Minute Pendulum Clock Built from Discarded Materials in Glashütte</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">This is a functional 30-minute pendulum clock entirely from discarded materials—cardboard, zip ties, tape, a yardstick, and a paperclip escapement, built in the German Eldorado of precision watchmaking: Glashütte. It also acts as a reference clock for GTC, a new satirical universal time standard.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project showcases a functional 30-minute pendulum clock constructed entirely from everyday trash, a striking contrast to its origin in Glashütte, a renowned center for precision watchmaking. Beyond its material ingenuity, the clock also serves as a reference for a new satirical universal time standard, adding a layer of commentary on timekeeping conventions.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters appreciated the project's charm and allegorical potential, drawing parallels to other clock-related endeavors, from vintage computer projects to live YouTube streams. Some noted the irony of its construction versus high-precision mechanical watches, while others highlighted the embedded detail about the abolishment of the leap second. One comment offered a correction regarding the physics of pendulum periods.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>niklasroy.com</span>
+        <span>·</span>
+        <span>207 pts</span>
+        <span>·</span>
+        <span>32 comments</span>
+        <span>·</span>
+        <span>by r0r0</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://niklasroy.com/gtc/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49930439" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">Networking 🌐</div>
+
+            <h2 class="story-title"><a href="https://vincent.bernat.ch/en/blog/2026-http-over-ssh" target="_blank" rel="noopener">Self-Hosted HTTP Tunnels with SSH and Nginx Explained</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Self-hosted HTTP tunnels with SSH and nginx A friend wants to proofread your work-in-progress blog post, but its preview
+only runs on localhost:8080 . Some run as a
+commercial service, like ngrok or Cloudflare Quick Tunnels . Some are
+self-hostable but require a specific client, like frp or localtunnel . Some only require a plain SSH client but rely on a specific SSH server, like sish .</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This article details a method for creating self-hosted HTTP tunnels using SSH and Nginx, enabling users to expose local development environments to external parties. It provides an alternative to commercial tunneling services and other self-hostable tools that often require specific client software or server configurations. The approach focuses on leveraging widely available tools for secure, temporary access.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community discussion highlights several alternative tunneling solutions, including `sish` (an SSH server for tunneling with advanced features), `iroh` (for https over iroh, requiring no port forwarding or public IP), and `DNTLS` (focused on private party sharing). Concerns were raised regarding the article's proposed method, with one commenter calling it 'over-complicated' and citing significant security risks, such as allowing attackers to direct traffic to arbitrary local ports. Suggestions for improved security included using SSH SOCKS5 proxies or Nginx with client certificates. The broader conversation also touched on the need for simpler ways to deploy applications to public servers.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>vincent.bernat.ch</span>
+        <span>·</span>
+        <span>155 pts</span>
+        <span>·</span>
+        <span>34 comments</span>
+        <span>·</span>
+        <span>by renehsz</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://vincent.bernat.ch/en/blog/2026-http-over-ssh" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=49958569" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-10-04.html">
+        <small>Previous issue</small>
+        <strong>← October 04, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
