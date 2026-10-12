@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 159, October 12, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — October 12, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 159</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Monday</span>
+                    <time datetime="2026-10-12">October 12, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Andrej Karpathy Notes Widening Gap in LLM Capability Understanding</span>
+            <span class="toc-score">522 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Debate Emerges Over Passkey Security, Portability, and User Control</span>
+            <span class="toc-score">738 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">PS2 Games Statically Recompiled to WebAssembly for Browser Play</span>
+            <span class="toc-score">96 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">APSW: A Python Wrapper for Advanced SQLite Use</span>
+            <span class="toc-score">83 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Third Yandex Cloud Data Center Targeted</span>
+            <span class="toc-score">598 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Nanolathe Rebuilds Total Annihilation with Modern Open-Source Engine</span>
+            <span class="toc-score">563 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">NYC Finalizes 'Click to Cancel' Rule, Effective October 2026</span>
+            <span class="toc-score">516 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Browser Fingerprinting Replaces Cookies for Cross-Device User Tracking</span>
+            <span class="toc-score">473 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">LineageOS 24 Released Ahead of 10-Year Anniversary</span>
+            <span class="toc-score">436 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Terence Tao's 'Math 2.0' Vision Prompts Discussion on AI's Impact on Mathematical Research</span>
+            <span class="toc-score">435 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Society 🤖</div>
+
+            <h2 class="story-title"><a href="https://twitter.com/karpathy/status/2109361546505966046" target="_blank" rel="noopener">Andrej Karpathy Notes Widening Gap in LLM Capability Understanding</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Andrej Karpathy on X: &quot;Dusting off this tweet from April because this gap in shared understanding of LLM capability is *widening*. It's now less &quot;two groups of people speaking past each other&quot; and more a sharp funnel. - Napkin math somewhere around 6B people (~75% of the population) have barely co… / X Andrej Karpathy on X: &quot;Dusting off this tweet from April because this gap in shared understanding of LLM capability is *widening*. It's now less &quot;two groups of people speaking past each other&quot; and more a sharp funnel.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Andrej Karpathy observes a significant and growing disparity in the understanding of large language model capabilities. He characterizes this gap as evolving from a simple communication breakdown to a 'sharp funnel,' indicating a profound divergence in perception. This suggests that a vast portion of the global population has minimal exposure to LLMs, leading to a widening chasm between expert and public comprehension of AI's potential.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters largely agree with the existence of a disconnect, particularly between internal AI developers and external users, and between tech-savvy individuals and the general public. Some question the magnitude of the advantage held by internal teams, suggesting that while their models may be more 'eager' or scalable, the practical capabilities for a broad range of productive work might be more limited. Many observe that non-technical professionals often underestimate the automatability of their own jobs. A key point raised is the lack of clear return on investment (ROI) for ordinary businesses to heavily invest in advanced LLM access, which may hinder wider adoption and understanding. The discussion also touches on the eventual 'wave' of LLM capabilities reaching the general public, with uncertainty about its future form and accessibility.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>twitter.com</span>
+        <span>·</span>
+        <span>522 pts</span>
+        <span>·</span>
+        <span>763 comments</span>
+        <span>·</span>
+        <span>by albertzeyer</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://twitter.com/karpathy/status/2109361546505966046" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50047422" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🔐 Security</div>
+
+            <h2 class="story-title"><a href="https://nonfunctional.substack.com/p/passkeys-are-a-trap-do-not-use-them" target="_blank" rel="noopener">Debate Emerges Over Passkey Security, Portability, and User Control</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: This is a (very long and) well-written treatise against passkeys in their common and disparate forms. It's worth reading, and brings up several interesting and often concerning points. I don't agree with the conclusion, though. TOTP is great, flexible, and keeps the user in control; however, using a passkey in a flexible password manager (Bitwarden, keepass, 1Password, etc) really does continue to give the user control. And the user experience is dramatically easier than filling in TOTP codes. T</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The article critically examines passkeys, highlighting concerns about user control, portability, and potential device lock-in, particularly when compared to methods like TOTP. While acknowledging some benefits, it suggests that the common implementations of passkeys may present unforeseen drawbacks. The author's nuanced perspective, despite a provocative title, indicates a complex discussion around the future of authentication.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters express significant concerns regarding passkey portability and the risk of being tied to a single device, preferring the flexibility of password managers or TOTP. The role of remote attestation is a contentious point, with some viewing it as a threat to freedom, though it's noted that attestation is typically only required during registration and prompts users. There's also discussion about the article's strong, 'trap'-like title potentially alienating passkey advocates, despite the author's more balanced addendum.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>nonfunctional.substack.com</span>
+        <span>·</span>
+        <span>738 pts</span>
+        <span>·</span>
+        <span>418 comments</span>
+        <span>·</span>
+        <span>by laurex</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://nonfunctional.substack.com/p/passkeys-are-a-trap-do-not-use-them" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50048312" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Gaming Tech 🎮</div>
+
+            <h2 class="story-title"><a href="https://github.com/snuri00/ps2-web-recomp" target="_blank" rel="noopener">PS2 Games Statically Recompiled to WebAssembly for Browser Play</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - snuri00/ps2-web-recomp: PS2 games in the browser: static recompilation to WebAssembly with a native runtime · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project demonstrates the feasibility of statically recompiling complex console games like those from the PS2 to WebAssembly. By enabling games to run directly in a browser with a native runtime, it showcases WebAssembly's power for high-performance emulation and preservation of legacy software. This approach could significantly broaden access to classic gaming titles without requiring dedicated emulators.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community praised the impressive recompilation work, drawing parallels to similar projects like PS Vita recompilation that also leverage WebAssembly for emulation. Discussions included technical inquiries about handling timing-sensitive hardware and the extent of static recompilation versus core system emulation. Users also expressed interest in expanding the concept, such as compiling the recompilation tool itself to WebAssembly, and wished for broader platform support like Steam Deck compatibility or older GPU support.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>96 pts</span>
+        <span>·</span>
+        <span>43 comments</span>
+        <span>·</span>
+        <span>by deadxwarrior</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/snuri00/ps2-web-recomp" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50052251" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Python Libraries 🐍</div>
+
+            <h2 class="story-title"><a href="https://github.com/rogerbinns/apsw" target="_blank" rel="noopener">APSW: A Python Wrapper for Advanced SQLite Use</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - rogerbinns/apsw: Another Python SQLite wrapper · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">APSW is a Python wrapper for SQLite that provides direct access to many of SQLite's advanced features, distinguishing itself from the standard library's more generic `sqlite3` module. It is favored by developers seeking to maximize SQLite's capabilities, offering greater control and optimization. This allows for more nuanced database interactions than typically available through a generic DBAPI interface.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely praises APSW as 'the SQLite lover's SQLite library,' highlighting its ability to leverage SQLite's full potential beyond the standard library's generic DBAPI. Users appreciate its direct approach for better performance, sane transactional semantics, and the option to statically link custom SQLite implementations. The library's presence in Debian and the maintainer's responsiveness were also noted, though one user inquired about retrieving column names from empty query results.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>83 pts</span>
+        <span>·</span>
+        <span>21 comments</span>
+        <span>·</span>
+        <span>by tosh</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/rogerbinns/apsw" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50045273" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Cyberwarfare ⚔️</div>
+
+            <h2 class="story-title"><a href="https://status.yandex.cloud/en/incidents/2136" target="_blank" rel="noopener">Third Yandex Cloud Data Center Targeted</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: Great! More news like this Maybe this would remind ordinary russians that killing innocent civilians every day in Kyiv is not good</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The targeting of a third Yandex Cloud data center highlights an escalating trend where critical digital infrastructure becomes a direct target in conflicts. This development prompts questions about the future design and resilience of data centers, potentially driving a shift towards more decentralized or hardened facilities. Such attacks underscore the increasing strategic importance of compute resources in modern geopolitical landscapes.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion views the attack as a retaliatory action following previous strikes on Ukrainian telecom infrastructure, with some linking it to broader geopolitical escalations. Commenters note the increasing priority of data centers as targets in modern warfare, speculating on future architectural changes like decentralization or the construction of fortified facilities. There is also commentary on the impact on Russia's IT sector, including talent loss and infrastructure damage.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>status.yandex.cloud</span>
+        <span>·</span>
+        <span>598 pts</span>
+        <span>·</span>
+        <span>727 comments</span>
+        <span>·</span>
+        <span>by defly</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://status.yandex.cloud/en/incidents/2136" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50040547" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Gaming 🎮</div>
+
+            <h2 class="story-title"><a href="https://nanolathe.gg" target="_blank" rel="noopener">Nanolathe Rebuilds Total Annihilation with Modern Open-Source Engine</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Nanolathe — Open-source RTS engine. Play the Total Annihilation demo. Staged engine footage Modern GPU renderer · Silent Total Annihilation, rebuilt for modern computers. Play the classic through a modern, MIT-licensed engine you can study, modify and build on.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Nanolathe offers a modern, open-source engine for Total Annihilation, allowing players to experience the classic RTS with updated graphics and performance. Its MIT license encourages community modification and development, potentially extending the game's longevity and accessibility on contemporary systems.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters frequently highlight &quot;Beyond All Reason&quot; (BAR) as a leading open-source spiritual successor to Total Annihilation, often comparing it to the Spring engine. Other spiritual successors like &quot;Supreme Commander&quot; and &quot;Planetary Annihilation&quot; are also mentioned, with active communities noted for the former. One user reported difficulties with Nanolathe's error messages and documentation.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>nanolathe.gg</span>
+        <span>·</span>
+        <span>563 pts</span>
+        <span>·</span>
+        <span>215 comments</span>
+        <span>·</span>
+        <span>by jttnr</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://nanolathe.gg" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50045984" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Consumer Rights ⚖️</div>
+
+            <h2 class="story-title"><a href="https://www.nyc.gov/main/click-to-cancel" target="_blank" rel="noopener">NYC Finalizes 'Click to Cancel' Rule, Effective October 2026</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">NYC’s “Click to Cancel” rule is now in effect As of October 1, 2026, you can file a complaint against businesses that make it hard to cancel subscriptions Too often, businesses force their customers through confusing, time-consuming hurdles to cancel unwanted subscriptions. This first-in-the-nation municipal rule protects consumers from such subscription traps. The Department of Consumer and Worker Protection (DCWP) will enforce this rule, which has been finalized and will take effect on October 1, 2026.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">New York City has finalized a 'Click to Cancel' rule, set to take effect in October 2026, aimed at protecting consumers from difficult subscription cancellation processes. This first-of-its-kind municipal regulation mandates that businesses offer a simple cancellation mechanism, mirroring the ease of initial consent. The Department of Consumer and Worker Protection will be responsible for enforcing this measure against 'subscription traps'.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion highlights concerns about potential loopholes, such as cancellation fees, and expresses skepticism regarding the city's enforcement capabilities. Commenters note similar 'click to cancel' policies already exist in California and Brazil, with the European Commission also planning a 'Digital Fairness Act' that includes this principle. There is general appreciation for the rule's intent, despite some reservations about its practical impact.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>nyc.gov</span>
+        <span>·</span>
+        <span>516 pts</span>
+        <span>·</span>
+        <span>253 comments</span>
+        <span>·</span>
+        <span>by gregsadetsky</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.nyc.gov/main/click-to-cancel" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50045946" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Privacy &amp; Web Tech 🔒</div>
+
+            <h2 class="story-title"><a href="https://royfish.dev/fingerprints-are-the-new-cookies" target="_blank" rel="noopener">Browser Fingerprinting Replaces Cookies for Cross-Device User Tracking</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Now open it on your phone or some other device and your nickname will be different and just as consistent. Most websites you visit get paid to show ads and indirectly run my script that lets me know you’re the … . I can use it to decide what ads you’ll see. Pretty soon I’d know more about you than your friends do - perhaps more than you know yourself. And I prefer my ads to be relevant… sometimes they show me exactly what I need!</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Browser fingerprinting allows websites to uniquely identify users across multiple devices without relying on traditional cookies. This method enables the creation of detailed user profiles for highly targeted advertising, potentially giving advertisers more insight into individuals than their close acquaintances or even themselves. It represents a significant shift in online tracking capabilities, moving beyond explicit consent mechanisms.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News commenters largely agree that fingerprinting is a more pervasive privacy concern than cookies, with many pointing to JavaScript as the primary enabler of high-entropy data collection without user consent. While some note that even basic HTTP headers leak substantial information, others question why browsers don't gate powerful APIs behind consent or offer better spoofing mechanisms. A counterpoint suggests that fingerprinting may be impractical and unstable for long-term commercial tracking, despite its theoretical capabilities.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>royfish.dev</span>
+        <span>·</span>
+        <span>473 pts</span>
+        <span>·</span>
+        <span>235 comments</span>
+        <span>·</span>
+        <span>by royfish</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://royfish.dev/fingerprints-are-the-new-cookies" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50048642" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Mobile OS 📱</div>
+
+            <h2 class="story-title"><a href="https://lineageos.org/Changelog-32/" target="_blank" rel="noopener">LineageOS 24 Released Ahead of 10-Year Anniversary</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Changelog 32 - Slick Seventeen, Awesome Applications, Universal USB Tools – LineageOS Changelog 32 - Slick Seventeen, Awesome Applications, Universal USB Tools Written on October 11, 2026  by Nolen Johnson (npjohnson) We’re a bit sentimental about this release, as it precedes a really fun upcoming milestone. On December 24, 2026, LineageOS will celebrate 10 years.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">LineageOS 24, detailed in Changelog 32, marks a significant update for the custom Android distribution, arriving just before its 10-year anniversary. This release continues the project's commitment to extending device lifespans and introduces experimental support for a wider range of hardware, including x86_64 PCs and Apple Silicon Macs. The update also brings new applications and universal USB tools, reflecting ongoing development and expansion.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely praises LineageOS for extending the lifespan of older devices and providing a preferred Android experience. However, users express a desire for clearer communication regarding newly supported devices and encounter issues such as GPS inaccuracies and perceived camera quality degradation compared to stock ROMs. Some also note inconsistencies in build availability across different device models.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>lineageos.org</span>
+        <span>·</span>
+        <span>436 pts</span>
+        <span>·</span>
+        <span>179 comments</span>
+        <span>·</span>
+        <span>by timschumi</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://lineageos.org/Changelog-32/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50040276" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🧮 Math &amp; AI Research</div>
+
+            <h2 class="story-title"><a href="https://teorth.github.io/tao-web/slides/math-2-0-caltech-2026.pdf" target="_blank" rel="noopener">Terence Tao's 'Math 2.0' Vision Prompts Discussion on AI's Impact on Mathematical Research</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: It is nice to see some sanity back in the conversation! I'm still not sure about math-2.0 (humans+AI will make fundamentally more progress): - AI and computer usage take a mental toll on humans and humans will overlook radical improvements. - AI may be good at finding useless things like &quot;P==NP, but the complexity is O(n**4242424242424242)&quot;. In other words, useless. - Humans become formalists and lose traditional sources of inspiration. Maybe interacting with Lean should be left to specialists, </p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Terence Tao's 'Math 2.0' concept suggests a future where human-AI collaboration drives fundamental mathematical progress. This vision, however, elicits concerns regarding the potential for AI to generate trivial or 'useless' solutions and the mental burden on human researchers. It also highlights a potential shift away from traditional mathematical inspiration towards formalism.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community discussion largely focused on the practical implications of AI in mathematics and specific examples. Several commentators critiqued Tao's cancer medicine analogy, arguing that applied sciences often operate with incomplete mechanistic understanding. Concerns were also raised about AI's potential to alter career paths for junior mathematicians, diminish community collaboration by automating proof discovery, and the risk of humans overlooking radical improvements. Despite some viewing the debate as a 'grieving process' for traditional methods, it was clarified that Tao generally maintains a positive outlook on AI's future role in the field.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>teorth.github.io</span>
+        <span>·</span>
+        <span>435 pts</span>
+        <span>·</span>
+        <span>449 comments</span>
+        <span>·</span>
+        <span>by Anon84</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://teorth.github.io/tao-web/slides/math-2-0-caltech-2026.pdf" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50043026" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-10-11.html">
+        <small>Previous issue</small>
+        <strong>← October 11, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
