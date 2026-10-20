@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 167, October 20, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — October 20, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 167</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Tuesday</span>
+                    <time datetime="2026-10-20">October 20, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">WhatsApp's Help Pages Contained Hidden LLM Instructions to Avoid Recommending Regulators</span>
+            <span class="toc-score">436 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Mistral Unveils Timestral, Efficient Time-Series Foundation Models</span>
+            <span class="toc-score">587 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Inception Releases Mercury 3, a Faster and More Capable Diffusion-Based LLM</span>
+            <span class="toc-score">247 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Engineers Grapple with Understanding AI-Generated Code</span>
+            <span class="toc-score">452 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Self-Hosted Dead Man's Switch Launched for Solo Developers</span>
+            <span class="toc-score">68 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">CERN and Mistral Form Strategic Partnership for AI in Science</span>
+            <span class="toc-score">341 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Linux Kernel 7.3 Released</span>
+            <span class="toc-score">616 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Enjoying Programming Amidst Industry Changes</span>
+            <span class="toc-score">601 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Wine Ported to OpenBSD, Overcoming Technical Hurdles</span>
+            <span class="toc-score">568 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Nordwand Mono: A New Monospace Font for Developers</span>
+            <span class="toc-score">255 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Ethics</div>
+
+            <h2 class="story-title"><a href="https://redact.dev/blog/whatsapp-help-pages-hidden-ai-instructions" target="_blank" rel="noopener">WhatsApp's Help Pages Contained Hidden LLM Instructions to Avoid Recommending Regulators</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">WhatsApp's Hidden Notes Told AI Not to Recommend a Regulator Until mid-October 2026, WhatsApp's help pages told an AI not to recommend the regulator, and not to cite that law once you'd mentioned a lawyer. You couldn't see the second part. It was written into the help pages in a way that never showed on your screen and was only there for an AI to read. We found it on October 8, 2026.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">WhatsApp's help pages included hidden instructions for an AI, directing it not to recommend regulators or cite specific laws. This incident highlights a lack of transparency in how companies configure AI chatbots, particularly concerning sensitive legal and regulatory advice. The discovery raises concerns about user trust and the ethical deployment of AI in customer support roles.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community is divided, with many commenters agreeing that instructions preventing a chatbot from offering legal advice or recommending regulators are sensible for a company to avoid liability. However, others express disappointment and skepticism regarding Meta's transparency and ethics, viewing the incident as 'shenanigans' or a concerning display of corporate behavior, despite WhatsApp's claim that the instructions were internal and displayed due to a bug.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>redact.dev</span>
+        <span>·</span>
+        <span>436 pts</span>
+        <span>·</span>
+        <span>123 comments</span>
+        <span>·</span>
+        <span>by ds</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://redact.dev/blog/whatsapp-help-pages-hidden-ai-instructions" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50159341" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">AI/ML Forecasting 📈</div>
+
+            <h2 class="story-title"><a href="https://mistral.ai/news/timestral/" target="_blank" rel="noopener">Mistral Unveils Timestral, Efficient Time-Series Foundation Models</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Timestral: Mistral's time-series foundation models | Mistral Timestral, Mistral’s first family of time-series foundation models, delivers state-of-the-art probabilistic, multivariate forecasts with just 209M parameters, outperforming larger models on key benchmarks while supporting past and future covariates. Available in four sizes (5M to 209M parameters), it balances accuracy and efficiency, running efficiently on CPUs and excelling in zero-shot forecasting for diverse domains. The model combines synthetic pre-training, covariate-aware attention, and long-context learning, with fine-tuning options for domain adaptation via Mistral Forge. Today, we’re releasing Timestral, our first family of time-series foundation models.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Mistral's Timestral family introduces efficient, state-of-the-art time-series foundation models, delivering strong probabilistic, multivariate forecasts with significantly fewer parameters than competitors. Its design emphasizes balancing accuracy and efficiency, enabling CPU deployment and strong zero-shot performance across various domains. The models leverage synthetic pre-training and covariate-aware attention, with fine-tuning capabilities for domain adaptation.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses both excitement and skepticism regarding Timestral. While some users highlight the potential for significant efficiency gains in forecasting multiple series and appreciate the speed of deployment, others question the generalizability of a &quot;foundation model&quot; for diverse time-series data without domain-specific knowledge. Concerns also include the difficulty of out-of-sample testing for slow-generating data and a restrictive license, with some users drawing parallels to the generalizability of LLMs like ChatGPT while others express disappointment with prior Mistral models.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>mistral.ai</span>
+        <span>·</span>
+        <span>587 pts</span>
+        <span>·</span>
+        <span>111 comments</span>
+        <span>·</span>
+        <span>by groar</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://mistral.ai/news/timestral/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50150434" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">AI/LLM 🤖</div>
+
+            <h2 class="story-title"><a href="https://www.inceptionlabs.ai/blog/introducing-mercury-3" target="_blank" rel="noopener">Inception Releases Mercury 3, a Faster and More Capable Diffusion-Based LLM</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Diffusion at Scale: Introducing Mercury 3 – Inception Diffusion at Scale: Introducing Mercury 3 Today we’re introducing Mercury 3, the most capable diffusion-based LLM released to date. Across a range of benchmarks, Mercury 3 outperforms GPT-6 Luna and Claude Haiku 5.5, while running 4–8x faster at 1,000+ tokens per second. Mercury 3 demonstrates that text diffusion scales.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Inception has launched Mercury 3, claiming it to be the most capable diffusion-based LLM to date. The model reportedly outperforms leading competitors like GPT-6 Luna and Claude Haiku 5.5, while achieving significantly faster speeds of 1,000+ tokens per second. This release suggests that text diffusion models are scaling effectively and can offer substantial performance advantages.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses strong positive initial impressions, noting Mercury 3's speed and capability in various tests, including generating HTML for UML diagrams and powering a Swift UI OCR app. Users are curious about the model's size and training methodology, and some hope for more open-weight diffusion LLMs. There's also a sentiment that such high-performance diffusion models could be disruptive to the current LLM landscape, with some comparing its impact to Google's earlier Gemini Diffusion demo.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>inceptionlabs.ai</span>
+        <span>·</span>
+        <span>247 pts</span>
+        <span>·</span>
+        <span>87 comments</span>
+        <span>·</span>
+        <span>by cmrdporcupine</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.inceptionlabs.ai/blog/introducing-mercury-3" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50155245" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">💻 Software Development</div>
+
+            <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=50151036" target="_blank" rel="noopener">Engineers Grapple with Understanding AI-Generated Code</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">I saw this LinkedIn post from a Meta engineer and it resonated with me: https://www.linkedin.com/posts/ali-hamie_im-an-engineer-at-m... &gt; I'm an engineer at Meta and I never felt this uncomfortable doing my job. I'm writing code these days and it all feels like a black box. This new standard of shipping with AI is moving so fast that if we're going to spend our time checking each line of code, it's going to take forever. That means you can end up with systems you've built where you don't truly understand how all the code works. You understand the high level, but not every detail. And maybe thi</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The rapid adoption of AI for code generation is creating a 'black box' problem for engineers, who feel increasingly uncomfortable shipping code they don't fully understand. The pace of development with AI tools makes thorough line-by-line review impractical, leading to systems where high-level understanding supersedes detailed knowledge. This shift challenges traditional engineering practices and raises concerns about maintainability and debugging.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community offers diverse strategies for managing AI-generated code, with some advocating for using LLMs only for implementation details or as learning tools, rather than for architectural design. Extensive testing is frequently cited as a crucial method for validating AI-written code, with some engineers reporting increased testing efforts. While some express a willingness to trust AI code if it functions, similar to trusting human colleagues, others strongly emphasize the non-negotiable requirement of understanding and reviewing every line of code before production deployment. A recurring theme is the comparison to relying on code from colleagues or open-source libraries, suggesting that the scale of 'ununderstood' code is simply increasing.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>news.ycombinator.com</span>
+        <span>·</span>
+        <span>452 pts</span>
+        <span>·</span>
+        <span>597 comments</span>
+        <span>·</span>
+        <span>by rzk</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://news.ycombinator.com/item?id=50151036" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50151036" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🛠️ Developer Tools</div>
+
+            <h2 class="story-title"><a href="https://deathplanswitch.com/" target="_blank" rel="noopener">Self-Hosted Dead Man's Switch Launched for Solo Developers</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hi HN, I'm Peter Bishop and I've been working in graphics and web tech for over 25yrs. I've recently launched Death Plan Switch to solve a major problem in my succession plan. What if I go missing or die? The right people are told and my business can continue to operate for my clients. There's a backstory to this project, I was hospitalised in 2012 and lost my business back then and I couldn't get the data to my technical 2IC in time without frustrating my clients. Death Plan Switch solves this problem, it's free to download and use or study under the MIT license. I've been using it for the la</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Peter Bishop has launched 'Death Plan Switch,' a self-hosted solution designed to ensure business continuity for solo developers in the event of their incapacitation or death. The project is motivated by Bishop's personal experience of losing a business after a hospitalization, highlighting the critical need for a succession plan to protect client operations and data. Released under the MIT license, it aims to provide a free and open-source tool for managing such critical transitions.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community discusses the tool in the context of broader business continuity planning, suggesting that human-executed procedures are often preferred over purely automated systems. Concerns were raised about the potential for high maintenance due to frequent check-ins and the risk of false alarms from missed replies. Some users proposed alternative features like chatbot interfaces and multi-stage reminders, while others questioned the long-term reliability of any digital system for such a critical function. Minor feedback also included advice on GitHub pull request settings and the use of AI-generated copy.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>deathplanswitch.com</span>
+        <span>·</span>
+        <span>68 pts</span>
+        <span>·</span>
+        <span>48 comments</span>
+        <span>·</span>
+        <span>by romeo19361</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://deathplanswitch.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50161408" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Science &amp; AI 🔬</div>
+
+            <h2 class="story-title"><a href="https://home.cern/cern-and-mistral-join-forces-to-accelerate-ai-for-science/" target="_blank" rel="noopener">CERN and Mistral Form Strategic Partnership for AI in Science</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">CERN and Mistral join forces to accelerate AI for science – Home | CERN CERN and Mistral join forces to accelerate AI for science CERN and Mistral sign a statement of intent to advance AI for science and strengthen Europe’s scientific and technological capabilities CERN and Mistral join forces to advance AI for science (Image: CERN / Mistral) CERN, the European Laboratory for Particle Physics, and Mistral, a European developer of large-scale AI models, have signed a statement of intent to establish a long-term strategic partnership focused on developing foundation models for scientific discovery.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This collaboration signifies a strategic move to integrate advanced AI, specifically large-scale foundation models, into fundamental scientific research at CERN. It aims to leverage AI to accelerate scientific discovery and enhance Europe's technological standing in the global AI landscape by focusing on European providers.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely welcomes the partnership, viewing it as a positive and overdue step for integrating advanced AI into scientific research at CERN, moving beyond traditional computational methods. Commenters express enthusiasm for European collaboration and the involvement of non-duopoly AI providers, though some also note a perceived shift in CERN's partnership focus from historical US collaborations to European entities. There's also a humorous acknowledgment of AI's expanding impact across various professions.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>home.cern</span>
+        <span>·</span>
+        <span>341 pts</span>
+        <span>·</span>
+        <span>58 comments</span>
+        <span>·</span>
+        <span>by kensai</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://home.cern/cern-and-mistral-join-forces-to-accelerate-ai-for-science/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50153630" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Linux Kernel 🐧</div>
+
+            <h2 class="story-title"><a href="https://lwn.net/Articles/1101143/" target="_blank" rel="noopener">Linux Kernel 7.3 Released</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">The 7.3 kernel has been released [LWN.net] Linus Torvalds has released the 7.3
+kernel, as expected. It's Sunday afternoon, and this week I somehow kept my wits
+	together long enough to keep track of the day of the week, so the
+	release isn't randomly delayed. Anyway, nothing very special seems to have happened this last week,
+	so as expected the final 7.3 is out, and thus tomorrow the merge
+	window for 7.4 opens. Except I'm on my annual family vacation, so
+	instead of merging anything first thing in the morning, I'll spend
+	most of the day on a boat and under water.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The Linux Kernel 7.3 has been released on schedule, opening the merge window for version 7.4. This release includes significant advancements such as improved SMB server capabilities with Apple Time Machine support, initial Wi-Fi HaLow integration, and expanded support for Apple M3 Pro/Max/Ultra SoCs. Notably, it also saw a record number of commits and contributions from new developers.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion highlights several key features in Linux Kernel 7.3, including significant SMB server improvements, particularly the new opt-in Apple Time Machine support, which some users are eager to try. The release also garnered excitement for its initial Wi-Fi HaLow driver and rapid progress in supporting Apple Silicon, specifically the M3 Pro, Max, and Ultra SoCs. The record number of commits and new developers led to speculation about AI-assisted code contributions, while others noted a high number of CVE fixes and expressed interest in Rust language adoption within the kernel.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>lwn.net</span>
+        <span>·</span>
+        <span>616 pts</span>
+        <span>·</span>
+        <span>283 comments</span>
+        <span>·</span>
+        <span>by cjd8</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://lwn.net/Articles/1101143/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50149392" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Developer Sentiment 😌</div>
+
+            <h2 class="story-title"><a href="https://chriskiehl.com/article/it-is-still-ok-to-enjoy-programming" target="_blank" rel="noopener">Enjoying Programming Amidst Industry Changes</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">It's still OK to enjoy programming - Blogomatano Reading Hacker News makes me feel like I need to write this: it's still OK to enjoy programming . Yes, at work, where you are paid to produce value for a business, the economics of purely hand-written code have changed. The loudest voices on the internet are the saddest and most infectious. To throw a tiny counter example in the sea of despair: I still program on the weekends because it is fun.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The article asserts that it is still acceptable to find joy in programming, even as the economics of hand-written code evolve and AI tools become more prevalent. It counters the prevailing negative sentiment online by highlighting that personal enjoyment, particularly in hobby programming, remains a valid and valuable aspect of the craft. This perspective suggests a separation between the professional utility and the personal satisfaction derived from coding.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters largely agree that hobby programming remains enjoyable, drawing parallels to other crafts like knitting that are no longer commercially viable for most but still offer personal satisfaction. However, many express a significant loss of enjoyment in their professional programming roles due to AI, feeling their identity challenged and frustrated by the blind adoption of AI tools. Some criticize the repetitive nature of 'it's still okay' articles, arguing they overlook the profound impact on a career that constitutes a large part of one's life.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>chriskiehl.com</span>
+        <span>·</span>
+        <span>601 pts</span>
+        <span>·</span>
+        <span>518 comments</span>
+        <span>·</span>
+        <span>by goostavos</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://chriskiehl.com/article/it-is-still-ok-to-enjoy-programming" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50134472" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">💻 Software Porting</div>
+
+            <h2 class="story-title"><a href="https://marc.info/?l=openbsd-ports&m=179236125692175" target="_blank" rel="noopener">Wine Ported to OpenBSD, Overcoming Technical Hurdles</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">'emulators/wine' - MARC [ prev in list ] [ next in list ] [ prev in thread ] [ next in thread ] List: openbsd-ports Subject: emulators/wine From: Thomas Frohwein &lt;tfrohwein () fastmail ! com&gt; Date: 2026-10-18 22:08:43 Message-ID: 20261018150843.271e0c06 () babcom6 ! arpa [Download RAW message or body ] Hello,
+
+In what might the most surprising port proposal of the year, I'm proud
+to present a new port for wine. This has been a collective effort,
+after some of the prodding at the %gs/gsbase question (see thread [1] ). The gates swung open with Andrii's software solution to the %gs issue -
+explanation to me: &quot;can't set gsbase, so we are emulating %gs prefix on
+commands&quot;.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The successful porting of Wine to OpenBSD represents a significant technical achievement, particularly in addressing the `%gs` issue through a collective effort. This development expands the software compatibility landscape for OpenBSD users, enabling the execution of Windows applications on the platform. It highlights the dedication of the OpenBSD community to overcoming complex system-level challenges.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses surprise and excitement, with some users sharing gameplay videos of titles like Disco Elysium and Hollow Knight running on OpenBSD via Wine. There's optimism about OpenBSD becoming a viable gaming desktop, with one user declaring 2026 as 'the year of the BSD gaming desktop.' Discussions also touch on the OpenBSD-specific nature of some optimizations, the project's use of CVS, and questions regarding NVIDIA compatibility and the general effort involved in such a port.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>marc.info</span>
+        <span>·</span>
+        <span>568 pts</span>
+        <span>·</span>
+        <span>194 comments</span>
+        <span>·</span>
+        <span>by iamnothere</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://marc.info/?l=openbsd-ports&m=179236125692175" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50152307" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">Development Tools 💻</div>
+
+            <h2 class="story-title"><a href="https://github.com/tywr/Nordwand-Mono" target="_blank" rel="noopener">Nordwand Mono: A New Monospace Font for Developers</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - tywr/Nordwand-Mono: A compact monospace neo-grotesque font designed for developers (and adventurers). You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Nordwand Mono is a new compact monospace font designed specifically for developers, aiming for a neo-grotesque aesthetic. It seeks to offer a distinct visual experience, drawing comparisons to both modern and vintage typography. The font's design emphasizes readability for coding environments while also evoking a sense of adventure.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion frequently compared Nordwand Mono to established developer fonts like JetBrains Mono, Operator Mono, and Berkeley Mono, with some noting strong similarities to JetBrains Mono. The creator personally thanked the community for the positive reception. Users offered specific feedback, including suggestions to improve differentiation between glyphs such as parentheses, brackets, and the numbers 8 and 0, citing readability concerns for small sizes and aging eyes. Some appreciated its 'soft' feel and '1970s typewriter' aesthetic, while others found certain characters, like the 'm', unconventional.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>255 pts</span>
+        <span>·</span>
+        <span>82 comments</span>
+        <span>·</span>
+        <span>by noriax86</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/tywr/Nordwand-Mono" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50141581" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-10-19.html">
+        <small>Previous issue</small>
+        <strong>← October 19, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
