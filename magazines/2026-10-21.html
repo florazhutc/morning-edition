@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 168, October 21, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — October 21, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 168</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Wednesday</span>
+                    <time datetime="2026-10-21">October 21, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">DeepInfer: High-Performance Inference Framework for DeepSeek Models Released</span>
+            <span class="toc-score">2250 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Critical PHP Vulnerability Exploited Before Patch Release</span>
+            <span class="toc-score">858 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Permit Pending: A City Builder Simulating Mayoral Challenges and Bureaucracy</span>
+            <span class="toc-score">799 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Cloudflare Introduces tsrs: A Rust Port of TypeScript for WASM and Performance</span>
+            <span class="toc-score">413 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Voxtral 3 Unveils Voice Agent SDK and 50+ Language Speech Models</span>
+            <span class="toc-score">675 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Eight eMudhra Intermediate CA Private Keys Compromised</span>
+            <span class="toc-score">952 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Respan Launches Open-Source Rust AI Gateway with Plugin-Based Architecture</span>
+            <span class="toc-score">49 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">MicroG: Free-Libre Re-implementation of Google's Android User Space</span>
+            <span class="toc-score">409 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Hilbert Space: Exploring the Nature of Quantum Possibility</span>
+            <span class="toc-score">97 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Claim: C# Outperforms Rust in WASM Size, But Community Raises Concerns</span>
+            <span class="toc-score">65 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">AI/ML 🤖</div>
+
+            <h2 class="story-title"><a href="https://github.com/deepseek-ai/DeepInfer" target="_blank" rel="noopener">DeepInfer: High-Performance Inference Framework for DeepSeek Models Released</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - deepseek-ai/DeepInfer: DeepInfer: High-performance, large-scale inference framework for DeepSeek models · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">DeepInfer is presented as a high-performance, large-scale inference framework specifically for DeepSeek models, demonstrating impressive throughput and revenue generation capabilities. Its support for Huawei Ascend 950 NPUs is a notable feature, potentially impacting the global AI hardware market. This development could enable broader adoption and challenge existing market leaders.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community praises DeepInfer for its high throughput and low latency, with one user noting a switch from Claude to DeepSeek API due to its performance. The support for Huawei Ascend 950 NPUs is highlighted as a significant move that could empower smaller labs and challenge NVIDIA's market dominance. Some commentators view this as a strategic open-source initiative by China, with geopolitical implications for US AI development and venture capital. DeepSeek is also commended for its consistent delivery of products without excessive fanfare.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>2250 pts</span>
+        <span>·</span>
+        <span>856 comments</span>
+        <span>·</span>
+        <span>by ggcr</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/deepseek-ai/DeepInfer" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50163277" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Security</div>
+
+            <h2 class="story-title"><a href="https://news-web.php.net/php.announce/509" target="_blank" rel="noopener">Critical PHP Vulnerability Exploited Before Patch Release</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">https://cert.europa.eu/publications/security-advisories/2026... https://news.ycombinator.com/item?id=50167754</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A critical PHP vulnerability (CVE-2026-109618 / -109619) has been publicly exploited, affecting PHP versions from the past decade, prior to the official patch release. This has led to widespread concern among developers, with some taking their applications offline due to the immediate threat and lack of a direct fix. The exploit's early release has intensified the risk, prompting calls for an expedited patch.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community is highly alarmed, with reports of exploits circulating and attacks emerging. Many users are taking their applications offline, and some have confirmed successful database dumps on personal sites. There is significant frustration over the delayed patch release, though Cloudflare is reportedly mitigating the issue via its WAF. Concerns are high regarding the potential for widespread compromise, especially with the aid of LLMs for exploitation.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>news-web.php.net</span>
+        <span>·</span>
+        <span>858 pts</span>
+        <span>·</span>
+        <span>347 comments</span>
+        <span>·</span>
+        <span>by xd</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://news-web.php.net/php.announce/509" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50172041" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🎮 Gaming</div>
+
+            <h2 class="story-title"><a href="https://permit.petercai.com/" target="_blank" rel="noopener">Permit Pending: A City Builder Simulating Mayoral Challenges and Bureaucracy</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Permit Pending: build the city of your dreams, subject to approval You know exactly what this city needs. Now get it past the zoning board, the neighbors, the appeals court and the
+            next election. Permit Pending is a city simulation in the spirit of the classics, with one difference: you are not a god. You are an elected
+          mayor.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Permit Pending reimagines the classic city simulation genre by placing players in the role of an elected mayor rather than an omnipotent deity. The core gameplay revolves around navigating the complexities of zoning boards, public opinion, and legal appeals to implement urban development plans. This shift introduces a layer of political and bureaucratic challenge, reflecting the real-world difficulties of city planning.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters found the game's concept both humorous and relatable, particularly those with experience in construction, noting its realistic portrayal of bureaucratic hurdles. Some suggested its potential for real-world applications, such as a 'digital twin' model for urban planning or policymaker simulations. However, early players reported immersion issues due to unrealistic details in petitions, like population figures exceeding town size. The game also sparked discussions comparing it to other titles that critique the impact of rules and public input on development, and the historical challenges of creating master-planned cities like EPCOT.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>permit.petercai.com</span>
+        <span>·</span>
+        <span>799 pts</span>
+        <span>·</span>
+        <span>376 comments</span>
+        <span>·</span>
+        <span>by pcai</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://permit.petercai.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50170593" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Programming Languages 🦀</div>
+
+            <h2 class="story-title"><a href="https://blog.cloudflare.com/typescript-rust-port/" target="_blank" rel="noopener">Cloudflare Introduces tsrs: A Rust Port of TypeScript for WASM and Performance</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Introducing tsrs: a Port of TypeScript to Rust | Cloudflare Blog Skip to content</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">tsrs is a significant project that ports TypeScript to Rust, primarily driven by the need for a TypeScript compiler compatible with WASM-only sandboxes. While speed is a notable side-effect, the project's unique memory model in Rust has also provided valuable optimization insights that could benefit future official TypeScript releases. This initiative highlights the ongoing exploration of alternative language implementations for established tools.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community notes that the official TypeScript team is actively engaging with the tsrs project, learning from its performance optimizations and unique memory model designed to bridge the gap between GC-heavy languages and Rust. While speed is a significant benefit, commentators highlight that the primary motivation for tsrs was enabling TypeScript compilation within WASM-only environments. There's also discussion and some skepticism regarding the use of AI for large-scale code porting and the implications for open-source development.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>blog.cloudflare.com</span>
+        <span>·</span>
+        <span>413 pts</span>
+        <span>·</span>
+        <span>200 comments</span>
+        <span>·</span>
+        <span>by hnisjafx40</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://blog.cloudflare.com/typescript-rust-port/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50165953" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Speech Tech 🗣️</div>
+
+            <h2 class="story-title"><a href="https://mistral.ai/news/voxtral-3/" target="_blank" rel="noopener">Voxtral 3 Unveils Voice Agent SDK and 50+ Language Speech Models</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Voxtral 3: Voice Agent SDK &amp; Speech Models in 50+ Languages Merci de recevoir ce patient pour un avis dermatologique. Traitement en cours : crème à l’hydrocortisone. It says, &quot;Merci de recevoir ce patient pour un avis dermatologique.&quot; Your doctor is asking a dermatologist, Dr Martin, to see you. The next slot is Tuesday at 5:45 pm.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Voxtral 3 introduces a new Voice Agent SDK and speech models supporting over 50 languages, designed for real-time conversational AI. This platform integrates listening, reasoning, tool calling, and speaking capabilities to enable agents to retrieve information, interact with business systems, and complete tasks. It aims to provide a comprehensive solution for developing advanced voice-controlled applications.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community notes that Voxtral's previous open-weight STT model was well-regarded, with one user successfully implementing offline inference on commodity hardware. However, there is disappointment that Voxtral 3 is a closed model, which is seen as a setback for local deployments and continues a trend in the TTS/STT space. This has led to discussions about the ongoing need for open-source, local speech processing solutions, particularly for specialized applications.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>mistral.ai</span>
+        <span>·</span>
+        <span>675 pts</span>
+        <span>·</span>
+        <span>169 comments</span>
+        <span>·</span>
+        <span>by ilreb</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://mistral.ai/news/voxtral-3/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50168396" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Security 🔒</div>
+
+            <h2 class="story-title"><a href="https://emudhra.we-have-a-problem.com/" target="_blank" rel="noopener">Eight eMudhra Intermediate CA Private Keys Compromised</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">The private keys of eight eMudhra intermediate CA certificates have been compromised. They chain to roots trusted by the Mozilla, Microsoft, Apple and Chrome root programs and by many downstream trust stores. To demonstrate that the keys are compromised, the original reporter Wayne signed the following message with the private key of each of the eight intermediate CAs and reported it to the Root Program Teams on the 17th of October: proof.zip contains the message, and for each intermediate the certificate, its public key and a signature on the message. openssl x509 -in EM-DV-TLS-CA-G3B.crt.pem -noout -pubkey | diff - EM-DV-TLS-CA-G3B.pub.pem
+openssl dgst -sha384 -verify EM-DV-TLS-CA-G3B.pub.pem -signature EM-DV-TLS-CA-G3B.sig message.txt</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The private keys for eight eMudhra intermediate CA certificates, trusted by major root programs, have been compromised, posing a significant security risk. Reports indicate some private keys were trivially weak, potentially due to a flaw in the key generation script. This incident highlights critical vulnerabilities in certificate authority key management practices.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses a mixed sense of urgency regarding the compromise, with some noting the extreme weakness of the private keys (e.g., a single byte) and a flaw in the key generation script as the likely cause. While major browsers have rapid remediation tools, concerns are raised about the difficulty of updating embedded CA stores in other software. There are also allegations that the keys were publicly accessible and reports of them being used to issue a large number of certificates for domains like google.com.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>emudhra.we-have-a-problem.com</span>
+        <span>·</span>
+        <span>952 pts</span>
+        <span>·</span>
+        <span>401 comments</span>
+        <span>·</span>
+        <span>by galadran</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://emudhra.we-have-a-problem.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50166579" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">AI Infrastructure 🤖</div>
+
+            <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=50167583" target="_blank" rel="noopener">Respan Launches Open-Source Rust AI Gateway with Plugin-Based Architecture</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hey HN, this is Andy from Respan ( https://www.respan.ai ). We are building an open-source Rust AI gateway. It is a decoupled gateway, so everything is a plugin, including different providers, protocols (MCP, voice), modalities (images, videos), and gateway features (fallbacks, PII redaction, smart routing). Instead of packaging tons of providers and features into one gateway, Respan provides a small core and public interfaces that teams can use to assemble the AI infrastructure their application needs. That way, users can build their own features as additional plugins without having to change</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Respan introduces an open-source Rust AI gateway designed around a modular plugin system. This architecture allows teams to customize their AI infrastructure by integrating various providers, protocols, and features as plugins. The approach aims to provide flexibility, enabling users to build specific functionalities without altering the core gateway.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community's discussion centers on the practical challenges and design choices of a plugin-based AI gateway. A key concern is reliable token accounting and usage reporting across different providers, noting inconsistencies that complicate cost attribution. Users also debate the optimal boundary between core features and plugins, questioning the security implications of third-party plugins and the overall preference for a plugin system versus built-in provider support, citing potential complexity and security risks.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>news.ycombinator.com</span>
+        <span>·</span>
+        <span>49 pts</span>
+        <span>·</span>
+        <span>20 comments</span>
+        <span>·</span>
+        <span>by Andydy25</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://news.ycombinator.com/item?id=50167583" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50167583" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">📱 Mobile Tech</div>
+
+            <h2 class="story-title"><a href="https://github.com/microg/GmsCore/wiki" target="_blank" rel="noopener">MicroG: Free-Libre Re-implementation of Google's Android User Space</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">MicroG offers a free-libre alternative to Google Mobile Services, allowing users to run many Android applications without relying on Google's proprietary ecosystem. While it enhances user privacy and control, its functionality often depends on signature spoofing, which introduces potential security considerations. Achieving a fully open-source mobile experience remains challenging due to other proprietary software present on most Android devices.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Users discuss MicroG's effectiveness in running apps that typically depend on Google Play Services, noting some apps like SNCF-Connect may still encounter payment issues potentially linked to Google Pay. Concerns were raised about the security implications of signature spoofing, though it's acknowledged as necessary and often narrowly scoped on platforms like LineageOS. The community also points out that even with MicroG, a completely proprietary-free Android device is difficult to achieve. GrapheneOS is mentioned as offering a sandboxed solution for Google Play apps, making MicroG less recommended for that OS, while others share positive experiences using MicroG with LineageOS.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>409 pts</span>
+        <span>·</span>
+        <span>119 comments</span>
+        <span>·</span>
+        <span>by theanonymousone</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/microg/GmsCore/wiki" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50162177" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">⚛️ Quantum Physics</div>
+
+            <h2 class="story-title"><a href="https://www.quantamagazine.org/in-hilbert-space-all-things-are-quantumly-possible-20260826/" target="_blank" rel="noopener">Hilbert Space: Exploring the Nature of Quantum Possibility</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">In Hilbert Space, All Things Are Quantumly Possible | Quanta Magazine</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Hilbert space offers a mathematical framework for a vast array of quantum possibilities, yet these are not without constraint. Physical laws, such as energy conservation, fundamentally limit what is truly achievable within this theoretical construct. It serves as a powerful abstraction, requiring careful distinction from physical reality.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely challenges the assertion that 'all things are possible' in Hilbert space, stressing that physical laws and conservation principles still govern quantum phenomena. Commenters also emphasize that Hilbert space is a mathematical abstraction, a 'map' rather than the 'territory' of physical reality, with one user noting historical skepticism from John von Neumann.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>quantamagazine.org</span>
+        <span>·</span>
+        <span>97 pts</span>
+        <span>·</span>
+        <span>51 comments</span>
+        <span>·</span>
+        <span>by unprovable</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.quantamagazine.org/in-hilbert-space-all-things-are-quantumly-possible-20260826/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50175185" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">💻 Programming Languages</div>
+
+            <h2 class="story-title"><a href="https://github.com/zion-sati/NetWasm" target="_blank" rel="noopener">Claim: C# Outperforms Rust in WASM Size, But Community Raises Concerns</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - zion-sati/NetWasm: Compile C# and .NET CIL to small standalone Wasm with WASI (AOT with built-in Runtime and Precise GC) · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A new project, NetWasm, claims C# can produce smaller WebAssembly binaries than Rust, leveraging AOT compilation with a built-in runtime and precise garbage collection. This claim is met with skepticism, as critics point to potential unfair comparisons, such as post-processing of C# code not applied to other targets, and Rust's self-managed memory versus C#'s reliance on a garbage collector. The project's non-open-source status also raises considerations for developers evaluating the technology.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely disputes the claim that C# consistently beats Rust in WASM size, citing an unfair comparison where the C# code is post-processed and includes a built-in runtime/GC, unlike the Rust benchmarks. Some argue Rust binaries can be significantly smaller, or suggest Zig as a superior alternative for WASM size and performance. Concerns were also raised about the non-open-source nature of the `NetWasm` project, and some commenters questioned the overall relevance and appeal of WebAssembly for general application development.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>65 pts</span>
+        <span>·</span>
+        <span>18 comments</span>
+        <span>·</span>
+        <span>by sumnole</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/zion-sati/NetWasm" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50175510" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-10-20.html">
+        <small>Previous issue</small>
+        <strong>← October 20, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
