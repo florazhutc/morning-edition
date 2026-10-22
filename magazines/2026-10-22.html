@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 169, October 22, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — October 22, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 169</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Thursday</span>
+                    <time datetime="2026-10-22">October 22, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">DeepInfer: High-Performance Inference Framework for DeepSeek Models Released</span>
+            <span class="toc-score">2320 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">eMudhra Certificate Authority Keys Found to Be Extremely Weak and Easily Cracked</span>
+            <span class="toc-score">889 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">PHP Releases Urgent Security Updates for Critical RCE Vulnerabilities</span>
+            <span class="toc-score">738 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">PHP 8.2.35 Released to Address Critical Security Vulnerabilities</span>
+            <span class="toc-score">1034 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Omnara Launches Open-Source API for Durable AI Agents with Sandboxing and RBAC ⚡</span>
+            <span class="toc-score">80 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Google Publishes Rust Style Guide</span>
+            <span class="toc-score">305 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Railway Discloses Security Breach, Customer Environment Variables Potentially Compromised</span>
+            <span class="toc-score">463 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Claude Duet: A Proactive AI Agent for Task Management and Monitoring ⚡</span>
+            <span class="toc-score">380 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">EA Shuts Down BioWare Studio Amid 400 Job Cuts</span>
+            <span class="toc-score">634 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Achieving AI-style reasoning without an LLM</span>
+            <span class="toc-score">10 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">AI/ML 🤖</div>
+
+            <h2 class="story-title"><a href="https://github.com/deepseek-ai/DeepInfer" target="_blank" rel="noopener">DeepInfer: High-Performance Inference Framework for DeepSeek Models Released</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - deepseek-ai/DeepInfer: DeepInfer: High-performance, large-scale inference framework for DeepSeek models · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">DeepInfer is introduced as a high-performance, large-scale inference framework specifically designed for DeepSeek models, boasting significant throughput and revenue per GPU. This open-source release has strategic implications, potentially fostering broader adoption of DeepSeek models and alternative hardware, thereby challenging established market leaders in AI inference.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community recognizes DeepInfer's impressive performance, with reported throughput of 155 trillion tokens/day and $38 per card per hour revenue at off-peak pricing. Many comments delve into the geopolitical implications, viewing DeepSeek's open-sourcing as a strategic move by China to grow its AI economy, challenge US frontier labs, and support alternative hardware like Huawei Ascend NPUs, potentially disrupting NVIDIA's market dominance. Some users speculate about a future US exclusion order against DeepSeek. Despite these broader discussions, individual users express strong satisfaction with DeepSeek's models, praising their speed, performance, and the company's approach of delivering powerful tools without fanfare.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>2320 pts</span>
+        <span>·</span>
+        <span>885 comments</span>
+        <span>·</span>
+        <span>by ggcr</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/deepseek-ai/DeepInfer" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50163277" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Security</div>
+
+            <h2 class="story-title"><a href="https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/" target="_blank" rel="noopener">eMudhra Certificate Authority Keys Found to Be Extremely Weak and Easily Cracked</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Eight Bits of Trust; eMudhra's CA keys cracked in milliseconds One of eMudhra's certificate authority private keys is the number 4. Not a number that starts with 4, or the number 4 followed by a few hundred random digits, just, 4... Another one is 56, and another is 115. I know, because I recovered all of them from their public certificates on my laptop just now, and it took less than a second.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">eMudhra, a Certificate Authority, was found to have used extremely weak private keys, some as simple as single-digit numbers, which were easily recovered in milliseconds. This critical failure in cryptographic practice severely compromises the integrity of digital certificates issued by eMudhra. The incident highlights significant vulnerabilities in the trust chain, particularly for unpatchable devices that rely on these compromised certificates.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community noted the ease of discovery using Google's `paranoid_crypto` tool and expressed significant concern over the implications for unpatchable IoT devices, with some suggesting the compromised keys could be used for jailbreaking. While eMudhra claimed most affected keys were not in production and none issued end-entity certificates, the incident reignited discussions on the excessive number of trusted CAs and the need for stronger security measures like DANE or Certificate Transparency logs. The sheer simplicity of the compromised keys was also highlighted as a surprisingly 'silly' cause for such a severe security failure.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>scotthelme.co.uk</span>
+        <span>·</span>
+        <span>889 pts</span>
+        <span>·</span>
+        <span>422 comments</span>
+        <span>·</span>
+        <span>by hkc</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50177916" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Security 🔒</div>
+
+            <h2 class="story-title"><a href="https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/" target="_blank" rel="noopener">PHP Releases Urgent Security Updates for Critical RCE Vulnerabilities</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Today's PHP Security Release, and How We're Strengthening PHP Security — The PHP Foundation — Supporting, Advancing, and Developing the PHP Language Today's PHP Security Release, and How We're Strengthening PHP Security Earlier today, the PHP project released PHP 8.5.12, 8.4.27, 8.3.36, and 8.2.35. These releases fix two critical vulnerabilities that, under the right conditions, allow an unauthenticated attacker to execute code on servers running PHP. If you run PHP, it is imperative that you update now.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The PHP project has issued critical security releases (8.5.12, 8.4.27, 8.3.36, and 8.2.35) to patch severe vulnerabilities that could allow unauthenticated attackers to execute code remotely. Immediate updates are imperative for all PHP users to prevent potential exploitation. The incident also brought to light challenges in coordinated security disclosures, with some firms breaking embargoes.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community quickly shared mitigation strategies, such as Nginx rules, while expressing frustration over the handling of the security disclosure. Concerns were raised about embargo breaches by security firms like Chainguard and Calif, which published fixes or exploit videos prematurely. Some commenters criticized the PHP security team's communication and decision-making processes, particularly regarding consensus-based approaches and the perceived waste of a security audit.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>thephp.foundation</span>
+        <span>·</span>
+        <span>738 pts</span>
+        <span>·</span>
+        <span>362 comments</span>
+        <span>·</span>
+        <span>by ejohnso49</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50182987" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Security Update 🚨</div>
+
+            <h2 class="story-title"><a href="https://github.com/php/php-src/releases/tag/php-8.2.35" target="_blank" rel="noopener">PHP 8.2.35 Released to Address Critical Security Vulnerabilities</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Release PHP 8.2.35 · php/php-src · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">PHP 8.2.35 has been released to address critical security vulnerabilities, including a remote code execution (RCE) flaw. This update was part of a coordinated disclosure effort involving multiple security researchers and organizations. The severity of these issues has prompted a significant response from the PHP community.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community notes a coordinated disclosure of critical vulnerabilities, including a remote code execution (RCE) flaw, by Wiz, Calif, and OpenAI. While acknowledging the severity, some users with decades of experience describe this as one of the most significant PHP security events. Concerns were raised regarding the patch rollout, with some hosting providers experiencing delays in applying the updates.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>1034 pts</span>
+        <span>·</span>
+        <span>547 comments</span>
+        <span>·</span>
+        <span>by tuyuri</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/php/php-src/releases/tag/php-8.2.35" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50180873" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Tools</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://github.com/omnara-ai/omnara" target="_blank" rel="noopener">Omnara Launches Open-Source API for Durable AI Agents with Sandboxing and RBAC</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hey all, Kartik from Omnara ( https://omnara.com ) here. We're building an open-source API for running durable agents. You create an agent with an API call, and Omnara runs the agent loop, gives the agent sandboxes to run commands in, and handles secrets, permissions, and RBAC. Each agent's state is stored in Postgres, so agents survive restarts and cost nothing while idle. You can message them and stream their events over the API. You may remember us from our early days, when we made a remote-control phone app for Claude Code and Codex. Since the harness ran on a laptop back then, we had to b</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Omnara introduces an open-source API designed for durable AI agents, offering persistent state management via Postgres, sandboxed execution environments, and robust security features like RBAC. This platform aims to provide a cost-effective alternative to proprietary managed agent services by allowing agents to survive restarts and incur no cost while idle.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community notes a clear trend towards durable agents, citing similar offerings from Pi Durable, Cloudflare, and Vercel. Users shared their custom agent setups and similar open-source projects, indicating a strong interest in persistent, automated AI workflows. However, some expressed confusion regarding the distinctions between various AI orchestrators, automations, and harnesses, and raised questions about Omnara's specific advantages in context caching and agent lifecycle management compared to existing solutions.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>80 pts</span>
+        <span>·</span>
+        <span>25 comments</span>
+        <span>·</span>
+        <span>by kmansm27</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/omnara-ai/omnara" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50183892" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Development ⚙️</div>
+
+            <h2 class="story-title"><a href="https://google.github.io/styleguide/rustguide.html" target="_blank" rel="noopener">Google Publishes Rust Style Guide</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Use flat file layout for rust_library sources [chrome] Name source files and leaf modules after the primary user-defined item A use statement should import items from one module Qualify calls to top-level functions with a module name Type names should be imported and used unqualified</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Google's Rust Style Guide outlines conventions for project structure, including a flat file layout for library sources and specific naming for modules and files. It also details practices for `use` statements, requiring single-module imports, and dictates that type names should be imported and used unqualified. This guide aims to standardize Rust development within large projects like Chromium.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community shows mixed reactions to certain recommendations, such as applying `#[non_exhaustive]` to public enums and the preference for unqualified type names, with some arguing against them for clarity or compiler feedback reasons. Chromium's guideline for tiny, non-nested crates also sparked discussion. However, many users appreciate the guide's distinction between library and application code and its value as a consolidated resource for Rust styling, especially for those previously inferring styles from Google's projects.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>google.github.io</span>
+        <span>·</span>
+        <span>305 pts</span>
+        <span>·</span>
+        <span>185 comments</span>
+        <span>·</span>
+        <span>by kaycebasques</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://google.github.io/styleguide/rustguide.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50186010" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Security Breach 🔒</div>
+
+            <h2 class="story-title"><a href="https://blog.railway.com/p/security-disclosure-wednesday-october-21st" target="_blank" rel="noopener">Railway Discloses Security Breach, Customer Environment Variables Potentially Compromised</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Security Disclosure: Wednesday October 21st | Railway Blog Earlier this morning, Railway detected anomalous activity involving systems that store customer environment variables. After further investigation, our investigation to date indicates that an unauthorized third party may have accessed encrypted environment variables and, for some of them, obtained the decrypted contents. Environment variables may contain secrets such as API keys or database and registry credentials. We believe this is part of a series of attacks recently targeting platform companies with the aim of compromising AI inference providers.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Railway experienced a security incident where an unauthorized third party potentially accessed and decrypted customer environment variables, which often contain sensitive data like API keys and database credentials. This breach is believed to be part of a broader series of attacks targeting platform companies, specifically aiming to compromise AI inference providers. The incident highlights the critical vulnerability of platform services that store customer secrets, especially in the context of increasing attacks on AI infrastructure.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community reactions indicate immediate action by users to rotate compromised keys, though some faced issues with paused deployments preventing updates. Several users confirmed their stored secrets, including AI API keys, were actively exploited by third parties, with one reporting a small monetary loss. There's speculation on how these stolen AI keys are monetized. The incident is seen as part of a broader surge in cybersecurity attacks, with some expressing concern about the frequency of such breaches and a perceived lack of timely communication from Railway.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>blog.railway.com</span>
+        <span>·</span>
+        <span>463 pts</span>
+        <span>·</span>
+        <span>271 comments</span>
+        <span>·</span>
+        <span>by passenger</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://blog.railway.com/p/security-disclosure-wednesday-october-21st" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50188228" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">AI Agents 🤖</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://claude.com/product/claude-duet" target="_blank" rel="noopener">Claude Duet: A Proactive AI Agent for Task Management and Monitoring</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Claude Duet is a proactive agent that understands what needs your attention. It takes on tasks of all sizes, keeps working while you’re away, and waits for your ok when it matters. Available in Pro and Max plans in the US. Works with more than 6,000 connectors and plugins Claude Duet briefs you every morning, drafts next steps, then goes quiet until something needs you.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Claude Duet is introduced as a proactive AI agent designed to manage tasks, monitor communications, and draft next steps, operating continuously and awaiting user approval when necessary. It integrates with over 6,000 connectors and plugins, aiming to streamline daily workflows by handling routine tasks and surfacing critical information. This agent represents a step towards more autonomous AI assistants that anticipate user needs and operate with minimal direct oversight.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion highlights concerns regarding user experience, particularly the signup process, and the limited US-only availability. Significant data privacy and security worries are raised, especially concerning integrations with sensitive tools like password managers. Some users speculate on the business model, suggesting these agents could be high-margin due to flexible processing schedules. There's also general AI fatigue among some users, while others compare Duet to similar 'personal assistant' tools, noting the importance of powerful underlying models for trust and effectiveness.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>claude.com</span>
+        <span>·</span>
+        <span>380 pts</span>
+        <span>·</span>
+        <span>345 comments</span>
+        <span>·</span>
+        <span>by kuberwastaken</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://claude.com/product/claude-duet" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50186037" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Gaming 🎮</div>
+
+            <h2 class="story-title"><a href="https://www.theverge.com/games/1015647/ea-is-shutting-down-bioware" target="_blank" rel="noopener">EA Shuts Down BioWare Studio Amid 400 Job Cuts</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Amid a reported 400 job cuts, the legendary studio is closing. Amid a reported 400 job cuts, the legendary studio is closing. Jay Peters is a senior reporter covering technology, gaming, and more. He joined The Verge in 2019 after nearly two years at Techmeme. BioWare, the legendary studio behind RPGs like Mass Effect , Dragon Age , and Star Wars: Knights of the Old Republic , is shutting down, the company confirmed in a statement .</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The closure of BioWare, a studio celebrated for RPGs like Mass Effect and Dragon Age, is part of a larger restructuring by EA that includes 400 job cuts. This event underscores the volatile nature of the game development industry, where even legendary studios face significant challenges. It reflects a broader trend of consolidation and strategic shifts within major publishers.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses sadness over BioWare's closure but largely views it as the end of a long decline, noting that the original teams and creative spirit had largely dissipated over time due to talent turnover and shifts in game design. Commenters point to the challenging economics of game development, a 'startup' mentality in Western studios, and a recent industry-wide correction following rapid job growth as contributing factors. Some also reminisce about BioWare's pioneering role in player romance options, including same-gender relationships.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>theverge.com</span>
+        <span>·</span>
+        <span>634 pts</span>
+        <span>·</span>
+        <span>401 comments</span>
+        <span>·</span>
+        <span>by aaronbrethorst</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.theverge.com/games/1015647/ea-is-shutting-down-bioware" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50184586" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">🧠 AI/Machine Learning</div>
+
+            <h2 class="story-title"><a href="https://fleetingswallow.com/minotaur-ai-deep-dive-achieving-reasoning-without-a-language-model/" target="_blank" rel="noopener">Achieving AI-style reasoning without an LLM</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: Never seen that one before: &quot;Insufficient Storage The method could not be performed on the resource because the server is unable to store the representation needed to successfully complete the request. There is insufficient free space left in your storage allocation. Additionally, a 507 Insufficient Storage error was encountered while trying to use an ErrorDocument to handle the request.&quot;</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The provided source summary and community comments consist entirely of an &quot;Insufficient Storage&quot; error message. This technical issue prevents any analysis of the article's content or its implications for AI-style reasoning without LLMs. No relevant information for an analytical insight was supplied.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The Hacker News comments provided contain only an &quot;Insufficient Storage&quot; error message, not discussion related to the article's topic. Therefore, no community analysis can be generated from the supplied data.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>fleetingswallow.com</span>
+        <span>·</span>
+        <span>10 pts</span>
+        <span>·</span>
+        <span>1 comments</span>
+        <span>·</span>
+        <span>by edwardchalk</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://fleetingswallow.com/minotaur-ai-deep-dive-achieving-reasoning-without-a-language-model/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50192868" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-10-21.html">
+        <small>Previous issue</small>
+        <strong>← October 21, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
