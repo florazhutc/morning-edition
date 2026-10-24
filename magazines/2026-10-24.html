@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 171, October 24, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — October 24, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 171</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Saturday</span>
+                    <time datetime="2026-10-24">October 24, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Local Wikipedia Filters Content by Proximity, Enhancing Local Discovery</span>
+            <span class="toc-score">1377 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Kimi Launches K3.1 Pro Models with 1-Million-Token Context Window</span>
+            <span class="toc-score">907 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Docker Containers Are Processes with Kernel Restrictions, Not Virtual Machines</span>
+            <span class="toc-score">842 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Practical Guide to AI Image Generation and Code Integration</span>
+            <span class="toc-score">87 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">AI Models Consistently Identify Human Loyalty to Group Over Truth</span>
+            <span class="toc-score">631 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">360M Language Model Fine-Tuned to Emulate Terminal Interface</span>
+            <span class="toc-score">625 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">iPhone Hacked, Exploit Demos Revealed at Hexacon</span>
+            <span class="toc-score">876 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Brotli Decoder Vulnerability (http2shell) Addressed, Affecting Node, Python</span>
+            <span class="toc-score">166 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Hidden iPod Game Discovered in Apple Music</span>
+            <span class="toc-score">756 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Corgi: A New Agent and Terminal Multiplexer with Enhanced Ergonomics</span>
+            <span class="toc-score">80 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🗺️ Local Information</div>
+
+            <h2 class="story-title"><a href="https://edjefferson.com/localwiki/" target="_blank" rel="noopener">Local Wikipedia Filters Content by Proximity, Enhancing Local Discovery</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: Cool idea! I had lots of fun looking at stuff nearby. Right now it seems that it simply removes links for stuff without a geotag that's nearby. But many articles are in fact nearby and are simply missing geotags, or perhaps encompass a slightly larger area where only a part of it is close by. Also, all the pictures don't have working links so I can't click on a picture to make it bigger.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project offers a novel way to engage with Wikipedia content by filtering for proximity, making otherwise general information feel more personally relevant. While users enjoy discovering local points of interest, the current implementation faces challenges with geotag accuracy and the fixed 'half-hour walk' radius, which can limit its utility in diverse geographic settings.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Users generally find the concept 'super cool' and 'much cooler than expected,' appreciating the discovery of local parks, trails, and historical anecdotes. Common suggestions include making the distance configurable to better suit urban and rural environments, improving geotagging accuracy for more comprehensive local results, and enabling shareable links for specific locations. Some noted the existing Wikipedia 'Nearby' feature and issues with image links.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>edjefferson.com</span>
+        <span>·</span>
+        <span>1377 pts</span>
+        <span>·</span>
+        <span>234 comments</span>
+        <span>·</span>
+        <span>by sohkamyung</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://edjefferson.com/localwiki/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50202285" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">AI Models 🤖</div>
+
+            <h2 class="story-title"><a href="https://www.kimi.ai/blog/kimi-k3-1-pro" target="_blank" rel="noopener">Kimi Launches K3.1 Pro Models with 1-Million-Token Context Window</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Kimi K3.1 Pro Tech Blog: Advancing Open Intelligence We're introducing Kimi K3.1 Pro , the first model in our new K3.1 series and our most capable 3T-class open-weight model to date, with a 1-million-token context window. It delivers substantial improvements across coding, 3D creation, financial research, and other agentic capabilities. We are also releasing Kimi K3.1 Pro Highspeed , which delivers 2-3× the speed of K3.1 Pro for more responsive interactions. Kimi K3.1 Pro and Kimi K3.1 Pro Highspeed are available today on Kimi.ai , Kimi Work , Kimi Code , and the Kimi API .</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Kimi has launched its K3.1 Pro series, featuring a 3T-class open-weight model with an impressive 1-million-token context window, designed to enhance agentic capabilities across diverse applications. The release includes a Highspeed variant for more responsive interactions, signaling Kimi's push to advance open intelligence. These models are immediately available across Kimi's platforms and API.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion highlights the model's inconsistent self-identification, sometimes referencing Kimi by Moonshot and other times ChatGPT, alongside mentions of internal evaluators or guidelines. Benchmarks suggest strong performance, with Kimi K3.1 Pro reportedly tying Sonnet 5.5 in Pac-Man tests and outperforming GPT-6 Astra and Fable 5.1 on the Artificial Analysis index, leading some to speculate on China's narrowing gap in frontier AI capabilities. However, concerns were raised regarding a restrictive 5-hour usage limit for subscribers and questions about the removal of cybersecurity data from the training set, including its implications for general software knowledge and potential for exploit generation.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>kimi.ai</span>
+        <span>·</span>
+        <span>907 pts</span>
+        <span>·</span>
+        <span>529 comments</span>
+        <span>·</span>
+        <span>by Jowsey</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.kimi.ai/blog/kimi-k3-1-pro" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50212065" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">🐳 Container Technology</div>
+
+            <h2 class="story-title"><a href="https://codeandcake.dev/posts/2026-10-22-docker-is-weird" target="_blank" rel="noopener">Docker Containers Are Processes with Kernel Restrictions, Not Virtual Machines</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">I decided to make my own container runtime for fun, and even though I’m still early on, I’ve learned that Docker is weird . Here’s some weird things I learned about Docker. Unlike VMs, containers are just processes with special restrictions on them. Your kernel is still running that process! And if you know where to look, you can even find that process in /proc.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The article highlights that containers, unlike virtual machines, are fundamentally processes running on the host kernel with specific resource restrictions. This understanding demystifies container technology by revealing its reliance on existing operating system features rather than full virtualization. It underscores that the kernel directly manages containerized applications.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that Docker's primary innovation was not the underlying container technology itself, which leverages long-standing Linux kernel features, but rather its superior developer experience, the Dockerfile concept, and robust image management. Commenters point to the evolution of container runtimes, with alternatives like Podman offering rootless and daemonless operations, and much of Docker's original functionality now being upstreamed into the Linux kernel, simplifying container implementations. Some note that the 'weirdness' described in the article is natural for those familiar with the technology's historical development.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>codeandcake.dev</span>
+        <span>·</span>
+        <span>842 pts</span>
+        <span>·</span>
+        <span>358 comments</span>
+        <span>·</span>
+        <span>by psxuaw</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://codeandcake.dev/posts/2026-10-22-docker-is-weird" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50202681" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">AI Development 🎨</div>
+
+            <h2 class="story-title"><a href="https://danielball.com/notes/ai_image_generation.html" target="_blank" rel="noopener">Practical Guide to AI Image Generation and Code Integration</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">This is my general guide to AI image generation. It covers how the models work at a high level, the different types, a
+bit of history, what you actually get from ChatGPT and how to build image generation into your own code and agents. It’s based on my own experiments calling a handful of image providers from Python. I’ve generated pixel art sprites,
+photorealistic card table backgrounds and a series of restaurant posters, trying to make one that doesn’t look AI
+generated. Every image here came from those experiments.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This guide offers a practical overview of AI image generation, detailing model mechanics, types, and integration into custom code and agents. It emphasizes hands-on experimentation with Python to produce diverse image styles, from pixel art to photorealistic scenes. A key focus is on refining outputs to avoid a distinctly 'AI-generated' aesthetic.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community discusses the variable quality of AI-generated pixel art, suggesting procedural graphics as an alternative, and notes a significant performance and quality gap between local and cloud-based image generation. There's also curiosity about the current relevance of ControlNets and the emerging use of LLMs to generate code for graphic design tasks like logo creation, offering more control than direct image generation.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>danielball.com</span>
+        <span>·</span>
+        <span>87 pts</span>
+        <span>·</span>
+        <span>22 comments</span>
+        <span>·</span>
+        <span>by westsmith</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://danielball.com/notes/ai_image_generation.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50171379" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">AI Ethics 🤖</div>
+
+            <h2 class="story-title"><a href="https://www.modelcompare.ai/blog/ai-models-controversial-take-on-humans" target="_blank" rel="noopener">AI Models Consistently Identify Human Loyalty to Group Over Truth</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Every AI model has the same “controversial” take on humans | ModelCompare “Humans are more loyal to belonging than to truth,” GPT-6.1 Sol told us. Grok 4.7: “Humans would rather be wrong together than right alone.” DeepSeek V4 Pro: “Humans do not have principles; they have loyalties.” Kimi K3: “Humans don’t have beliefs; they have memberships.” Gemini 4 Argon called human consciousness “a PR department.” We asked each model for its most controversial take on humans, with no hedging, three times. They come from ten labs in three countries.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Multiple AI models from diverse labs independently generated similar 'controversial' takes on human nature, emphasizing a preference for group belonging and loyalty over objective truth or individual principles. This convergence suggests that large language models, when prompted for unhedged opinions, extract a consistent pattern regarding human social behavior from their vast training data. The findings raise questions about the nature of AI-derived insights and their reflection of human-generated information.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News commenters largely suggest that the AI models' 'controversial takes' are not profound or original, but rather a reflection or 'mashup' of their training data, which is inherently human-generated. Some find irony in AI models sharing a uniform opinion while implicitly criticizing human groupthink. Others question the article's conclusions, citing specific AI quotes that diverge from the main thesis, or suggest the insights are merely a product of asking 'Very Online questions' to models trained on 'Very Online corpuses'.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>modelcompare.ai</span>
+        <span>·</span>
+        <span>631 pts</span>
+        <span>·</span>
+        <span>603 comments</span>
+        <span>·</span>
+        <span>by rakannimer</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.modelcompare.ai/blog/ai-models-controversial-take-on-humans" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50197313" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; User Interfaces 🖥️</div>
+
+            <h2 class="story-title"><a href="https://simedw.com/2026/10/21/world-model-terminal/" target="_blank" rel="noopener">360M Language Model Fine-Tuned to Emulate Terminal Interface</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">WorldTUI: I trained a 360M model to pretend to be a terminal - SimEdw's Blog TL;DR: I fine-tuned a 360M-parameter language model to act as a terminal. There's no shell or filesystem behind it: every keypress goes in, and the model predicts how the screen changes. It can create files, run vim and tmux, play snake, and usually remembers what you wrote a few commands later. The biggest wins were teaching it to repair its own mistakes and decoding screen rows in parallel.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project showcases a novel application of fine-tuning a relatively small language model (360M parameters) to simulate a complex interactive environment like a terminal. By predicting screen changes based on keypresses, the model creates an illusion of a functional shell, even capable of self-correction. This approach hints at a future where generative AI could drive entire user interfaces, offering a new paradigm for human-computer interaction without an underlying operating system.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community lauded the project for achieving a convincing terminal simulation with a small, fine-tuned model, drawing comparisons to concepts like 'Neural Computers' and previous AI-driven UI experiments. Discussions highlighted the strategic choice of a coding-focused base model for real-time performance and CLI familiarity, and noted potential applications, including Anthropic's use of similar models for AI alignment evaluations.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>simedw.com</span>
+        <span>·</span>
+        <span>625 pts</span>
+        <span>·</span>
+        <span>186 comments</span>
+        <span>·</span>
+        <span>by alphax314</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://simedw.com/2026/10/21/world-model-terminal/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50190363" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Cybersecurity 📱</div>
+
+            <h2 class="story-title"><a href="https://blog.calif.io/p/iphone" target="_blank" rel="noopener">iPhone Hacked, Exploit Demos Revealed at Hexacon</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Today, we hacked what we'd set out to hack: the iPhone. Below is a series of demos we revealed at Hexacon in Paris today. Everything will be released in due time. 2/ But who cares about a third-party app when everyone uses iMessage, right? 4/ APT stands for Apple Persistent Threat</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Security researchers demonstrated new iPhone exploits at Hexacon, with full details promised for future release. The presentation highlighted potential vulnerabilities within iMessage, suggesting a significant attack vector. This disclosure underscores ongoing efforts to uncover and address security weaknesses in Apple's mobile ecosystem.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community is keen to understand if Apple's Lockdown Mode offers protection against these new exploits. There's also a strong desire for root access and jailbreaking capabilities, with users noting the 'cooler things' hacked iPhones can do compared to standard devices. Discussions point to iMessage attachments and PDFs as potential exploit vectors, drawing parallels to past vulnerabilities like ForcedEntry. Some researchers express frustration over limited access to 'Red Team' models for independent security analysis, while others ponder the role of LLMs in both discovering and patching such vulnerabilities.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>blog.calif.io</span>
+        <span>·</span>
+        <span>876 pts</span>
+        <span>·</span>
+        <span>569 comments</span>
+        <span>·</span>
+        <span>by pavel_lishin</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://blog.calif.io/p/iphone" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50211474" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Security 🔒</div>
+
+            <h2 class="story-title"><a href="https://nitter.click/AikidoSecurity/status/2113759110625906950?__galadriel=lPmlGl9id4oAd5UeBwMhlYKArHyr6lR2IDGujPwB5HV2kQ1aLoPWFd5A9sGuzNcmrp8fUso8qygmHcKTDZ8MNHWqQ3bDJcycV87xp_0VypzQLYj6O_RRHlZuQqj33oASGY2YLSoAiMjeOZN40h7Stf8AG7DPrGZbAPVKUXy36HoMudRbvwF3_r2uYNmfJMhpKzywQDM6Ab8" target="_blank" rel="noopener">Brotli Decoder Vulnerability (http2shell) Addressed, Affecting Node, Python</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: The brotli commit under this is a state fix more than a bounds fix: DecodeBlockTypeAndLength used to return BROTLI_FALSE for both &quot;needs more input&quot; and &quot;format error&quot;, so a stream truncated at a block-switch boundary is reported as invalid, and a caller that branches on that can be walked into the wrong path. The commit gives the function a BrotliDecoderErrorCode, adds a distinct BLOCK_SWITCH format error and keeps NEEDS_MORE_INPUT for the truncated case (google/brotli 0ed4268). Worth checking </p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The 'http2shell' vulnerability stems from a memory safety flaw in the Brotli decoder, specifically related to how it handles truncated input streams. While initially framed as a broad RCE, its practical impact on servers may be limited as Brotli decoding is not universally enabled by default. The fix clarifies error handling in `DecodeBlockTypeAndLength`, distinguishing between incomplete input and format errors.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community members debated the 'http2shell' moniker, with some deeming it sensationalist and overblown, particularly given that many server-side applications do not enable Brotli decoding by default. The vulnerability is identified as a basic memory safety violation within the Brotli library, prompting discussion about Google's role given their advocacy for memory-safe languages. Patches for affected Brotli versions (e.g., Python's pypi package) were released, though with some delay after the underlying fix was committed in February.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>nitter.click</span>
+        <span>·</span>
+        <span>166 pts</span>
+        <span>·</span>
+        <span>88 comments</span>
+        <span>·</span>
+        <span>by cowlevel</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://nitter.click/AikidoSecurity/status/2113759110625906950?__galadriel=lPmlGl9id4oAd5UeBwMhlYKArHyr6lR2IDGujPwB5HV2kQ1aLoPWFd5A9sGuzNcmrp8fUso8qygmHcKTDZ8MNHWqQ3bDJcycV87xp_0VypzQLYj6O_RRHlZuQqj33oASGY2YLSoAiMjeOZN40h7Stf8AG7DPrGZbAPVKUXy36HoMudRbvwF3_r2uYNmfJMhpKzywQDM6Ab8" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50216791" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Software Features 🎮</div>
+
+            <h2 class="story-title"><a href="https://music.apple.com/this-url-doesnt-exist" target="_blank" rel="noopener">Hidden iPod Game Discovered in Apple Music</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">https://www.macrumors.com/2026/10/23/apple-music-has-a-hidde...</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Apple has included a hidden game within Apple Music, evoking nostalgia for classic iPods and their simple, engaging user interfaces. This whimsical addition suggests a playful side to the company not often seen, and taps into a growing interest in digital detox and dedicated MP3 players. The feature also highlights the enduring appeal of focused, distraction-free entertainment.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community is delighted by the discovery of a hidden brick-breaking game in Apple Music, reminiscent of classic iPods, and appreciates Apple's rare whimsical gesture. Many express nostalgia for the iPod's click wheel and speculate on a potential market resurgence for dedicated MP3 players driven by digital detox trends. Some find humor in the idea of an Apple SRE being paged for the '404' game page.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>music.apple.com</span>
+        <span>·</span>
+        <span>756 pts</span>
+        <span>·</span>
+        <span>230 comments</span>
+        <span>·</span>
+        <span>by frizlab</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://music.apple.com/this-url-doesnt-exist" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50207910" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI Agents 🤖</div>
+
+            <h2 class="story-title"><a href="https://corgi.computer/" target="_blank" rel="noopener">Corgi: A New Agent and Terminal Multiplexer with Enhanced Ergonomics</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hey everyone, Inspired by Herdr, I've built an agent multiplexer that I've been using as my daily driver for a few weeks now. I think I improved on the concept in a few ways, focusing on the ergonomics I always wished I had: I show you what the agents are up to, along with a running feed of their activity. There's also a simple shortcut (F1) to go to the next unread agent. I use multiple accounts, so I've added unified launcher for Codex/Claude Code/Pi. Theres some careful ergonomics there: fast search and resume over sessions, inline usage tracking etc. Many small quality of life improvements</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Corgi is introduced as an agent and terminal multiplexer designed to significantly improve developer workflows. It focuses on ergonomics by providing real-time activity feeds, quick navigation between agents, and a unified launcher for various AI coding assistants like Codex and Claude. These features, alongside fast search, session resume, and inline usage tracking, aim to boost productivity for users managing multiple AI-driven tasks.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community shows strong interest, viewing Corgi as an ergonomic improvement or potential replacement for existing multiplexers like Herdr and cmux. Users particularly appreciate the ability to paste images over SSH. A common request is for Homebrew support, and a naming conflict with another YC company was noted.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>corgi.computer</span>
+        <span>·</span>
+        <span>80 pts</span>
+        <span>·</span>
+        <span>21 comments</span>
+        <span>·</span>
+        <span>by eiopa</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://corgi.computer/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50214373" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-10-23.html">
+        <small>Previous issue</small>
+        <strong>← October 23, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
