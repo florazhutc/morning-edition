@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 173, October 26, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — October 26, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 173</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Monday</span>
+                    <time datetime="2026-10-26">October 26, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Local Wikipedia Filters Articles by Proximity</span>
+            <span class="toc-score">1692 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Specialized CNN Outperforms Frontier LLMs in Skin Cancer Diagnosis</span>
+            <span class="toc-score">568 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Call for Greater Ambition in Software Development, Addressing AI Skepticism</span>
+            <span class="toc-score">810 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">PaperPilot: A Zero-Cloud, Pure-Rust PDF Engine with WASM</span>
+            <span class="toc-score">148 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Hurston-1 Open-Source TTS Model Supports Southern American and Regional African English Accents</span>
+            <span class="toc-score">61 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Cerebras Details Deployment of Trillion-Parameter AI Models</span>
+            <span class="toc-score">356 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">ADRs for AI: Versioned Deliberation Records for Human-AI Work</span>
+            <span class="toc-score">44 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">OpenAI and Anthropic Slash LLM Prices by Up to 80%</span>
+            <span class="toc-score">327 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Proc-CLI: Semantic Tool for Process and Port Management</span>
+            <span class="toc-score">14 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">RainbowSay Leverages AI for Interactive Language Learning from Media Content</span>
+            <span class="toc-score">8 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">📍 Location-Based App</div>
+
+            <h2 class="story-title"><a href="https://edjefferson.com/localwiki/" target="_blank" rel="noopener">Local Wikipedia Filters Articles by Proximity</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: Cool idea! I had lots of fun looking at stuff nearby. Right now it seems that it simply removes links for stuff without a geotag that's nearby. But many articles are in fact nearby and are simply missing geotags, or perhaps encompass a slightly larger area where only a part of it is close by. Also, all the pictures don't have working links so I can't click on a picture to make it bigger.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Local Wikipedia offers a novel way to explore nearby history and landmarks by filtering Wikipedia content based on proximity. While users appreciate the discovery of hyper-local information, the tool faces challenges with missing geotags, article scope, and technical issues like broken image links. Community feedback suggests a strong desire for configurable distance settings to enhance its utility across diverse geographic areas.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Users largely praised Local Wikipedia for making local history and landmarks more engaging and discoverable, noting a psychological effect where proximity enhances interest in otherwise mundane articles. Many suggested making the distance configurable to better suit urban and rural environments, and some pointed out existing Wikipedia features for nearby articles. Some users also noted inaccuracies in the 'half hour walk' radius and expressed a desire for more local content to be added.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>edjefferson.com</span>
+        <span>·</span>
+        <span>1692 pts</span>
+        <span>·</span>
+        <span>253 comments</span>
+        <span>·</span>
+        <span>by sohkamyung</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://edjefferson.com/localwiki/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50202285" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">AI in Healthcare 🩺</div>
+
+            <h2 class="story-title"><a href="https://lynchlab.net/llm-skin-cancer" target="_blank" rel="noopener">Specialized CNN Outperforms Frontier LLMs in Skin Cancer Diagnosis</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">A 10-year-old CNN outperforms frontier LLMs for skin cancer diagnosis | Lynch Lab Invasive melanoma on the ear, under 0.8 mm thick. Both LLMs called it a seborrhoeic keratosis and said it could be discharged. Clinical photograph on the left, dermoscopic image on the right. Images: MILK10k , MILK study team, CC BY-NC.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A decade-old convolutional neural network (CNN) has demonstrated superior accuracy in diagnosing skin cancer compared to leading large language models (LLMs). This highlights that for highly specialized tasks, purpose-built architectures with targeted training data often remain more effective than general-purpose AI models. The finding underscores the continued relevance of specialized AI solutions in critical domains like medical diagnostics.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that it's not surprising for a specialized model, trained specifically for image recognition in dermatology, to outperform general-purpose LLMs. Many commenters emphasized that LLMs are a tool, not a universal solution, drawing analogies to calculators outperforming LLMs at arithmetic. While acknowledging the CNN's current superiority for this specific task, some also pointed out the potential of LLMs if integrated with broader clinical data like patient notes or interactive questioning, suggesting the comparison might not fully capture LLMs' diagnostic capabilities in a richer context. One comment also referenced 'SkinGPT-4' as an LLM-based model that reportedly does outperform the CNN in some cases.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>lynchlab.net</span>
+        <span>·</span>
+        <span>568 pts</span>
+        <span>·</span>
+        <span>244 comments</span>
+        <span>·</span>
+        <span>by sungam</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://lynchlab.net/llm-skin-cancer" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50233779" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Software Development 🚀</div>
+
+            <h2 class="story-title"><a href="https://danluu.com/ambitious/" target="_blank" rel="noopener">Call for Greater Ambition in Software Development, Addressing AI Skepticism</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">“We should be more ambitious with the software we build” Since early this year, Michael Malis (of pgrust ) has been showing me interesting things he's done and saying [W]e should be more ambitious 1 with the software we build There is, understandably, a lot of skepticism about projects like pgrust because there are so many low-quality AI-generated projects out there. If I didn't know Malis and didn't look into it, I would just assume that pgrust was another vibe slopped project that's never going to work.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The article advocates for increased ambition in software development, challenging developers to build more complex and innovative projects. It acknowledges the prevalent skepticism surrounding AI-generated projects due to a proliferation of low-quality outputs. The core message is to push past this skepticism by demonstrating genuine quality and depth in new software initiatives.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees with the call for ambition, with many noting that AI can enable the creation of complex projects previously constrained by time, acting as a 'nerdsniping' tool. However, some caution that AI-generated code can be messy and overfit, leading to maintainability issues. There's a strong sentiment against merely building 'faster' versions of existing tools, advocating instead for diverse, uniquely specified projects that leverage individual competitive advantages. Examples of ambitious, complex projects built with or without AI assistance were shared, alongside observations about the generally poor quality of software outside the developer 'bubble'.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>danluu.com</span>
+        <span>·</span>
+        <span>810 pts</span>
+        <span>·</span>
+        <span>720 comments</span>
+        <span>·</span>
+        <span>by ltratt</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://danluu.com/ambitious/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50225695" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Document Processing 📄</div>
+
+            <h2 class="story-title"><a href="https://github.com/KrushnaVardhanReddy/PaperPilot" target="_blank" rel="noopener">PaperPilot: A Zero-Cloud, Pure-Rust PDF Engine with WASM</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - KrushnaVardhanReddy/PaperPilot: Your local AI copilot for documents · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">PaperPilot introduces a new zero-cloud, pure-Rust PDF engine leveraging WASM for local document AI capabilities. Its emergence has sparked discussion within the community regarding the proliferation of new PDF engine projects in Rust, with some questioning the need for new development over contributing to existing, mature libraries. There are also concerns about potential derivation from existing C-based engines like MuPDF and proper license disclosure.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses skepticism about the continuous development of new Rust PDF engines, suggesting that efforts might be better directed towards contributing to existing, mature projects like `pdf_oxide` or `printpdf`. A notable concern is raised regarding the potential derivation of PaperPilot's engine from `MuPDF` and the implications for license disclosure, specifically suggesting AGPLv3 if true. Users also shared alternative PDF tools like `typst` and `Bento PDF`, and proposed features such as password removal and signature support.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>148 pts</span>
+        <span>·</span>
+        <span>43 comments</span>
+        <span>·</span>
+        <span>by vardhan1237</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/KrushnaVardhanReddy/PaperPilot" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50238739" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">AI/TTS 🗣️</div>
+
+            <h2 class="story-title"><a href="https://huggingface.co/destined/hurston-1" target="_blank" rel="noopener">Hurston-1 Open-Source TTS Model Supports Southern American and Regional African English Accents</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hey HN, I’m open sourcing my Hurston-1 narrowband TTS model (Apache-2.0). It is very good with American English and does especially well with Southern American and Regional African English accents. Destined AI is based in Atlanta, and I built this because I’m amazed by what AI can do, and I wanted to help introduce and welcome more people to feel comfortable using and interacting with AI. Since 2021, I’ve been collecting fully consented voice data from over 20,000 people, 1M audio recordings, and over 1,800 hrs of audio captured to date. For this model, I used a small part of the data, 136 hrs</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Hurston-1 is an open-source text-to-speech model designed to improve AI accessibility by accurately rendering Southern American and Regional African English accents. Developed by Destined AI, it leverages a unique dataset of consented voice recordings to address underrepresentation in mainstream TTS systems. This initiative aims to make AI interactions more comfortable and inclusive for a broader range of users.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community members expressed confusion and sought clarification regarding the terminology used for 'Afro-English' and 'Regional African English' accents, questioning its scope and specific demographics. There was also a request for a live demo of the model, and appreciation for its focus on improving representation for Southern American accents, which are often poorly handled by existing TTS systems. Some users also inquired about the model's potential application to specific African accents and drew parallels to accent preservation in other AI dubbing services.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>huggingface.co</span>
+        <span>·</span>
+        <span>61 pts</span>
+        <span>·</span>
+        <span>25 comments</span>
+        <span>·</span>
+        <span>by Gcarter08</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://huggingface.co/destined/hurston-1" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50227330" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">AI Hardware 🤖</div>
+
+            <h2 class="story-title"><a href="https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras" target="_blank" rel="noopener">Cerebras Details Deployment of Trillion-Parameter AI Models</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">How Cerebras Deploys Trillion-Parameter AI Models How we deploy Trillion-parameter frontier models on Cerebras One of the most frequently asked questions we get is how we deploy large models on Cerebras wafer-scale chips. A single Cerebras WSE-3T wafer has 44 GB of on-chip memory, and trillion-parameter frontier models need terabytes for their weights alone. In this post, we’ll explain how we split a large frontier model across multiple WSE-3T wafers, to run multi-trillion parameter models at 1000-2000+ tokens per second.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Cerebras has detailed its method for deploying trillion-parameter AI models on its wafer-scale chips, addressing the significant memory requirements. By distributing these large models across multiple WSE-3T wafers, they achieve high-throughput inference, capable of processing 1000-2000+ tokens per second. This strategy allows them to overcome the memory constraints of individual chips for frontier models.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses skepticism regarding the currency of models available on Cerebras, noting that currently accessible options like GPT OSS 120b or Qwen 3.8 27B are often outdated or inaccurate, despite high token per second (TPS) rates. Commenters suggest Cerebras struggles with customer acquisition due to the high hardware investment required and a perceived lack of competitive, cutting-edge models. There's also criticism directed at the company's team and business execution, despite acknowledging the underlying technology's potential, and concerns about benchmark claims versus actual deployment.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>cerebras.ai</span>
+        <span>·</span>
+        <span>356 pts</span>
+        <span>·</span>
+        <span>134 comments</span>
+        <span>·</span>
+        <span>by gmays</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50227356" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">AI Development 🤖</div>
+
+            <h2 class="story-title"><a href="https://adrs.systems" target="_blank" rel="noopener">ADRs for AI: Versioned Deliberation Records for Human-AI Work</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Why is this worth your time? Essentially, this solves two problems of AI-assisted programming: (a) the first problem is how to do oversight and what do oversight of and this is solved through the ORRCF (for Options, Recommendation, Rationale, Confidence, Falsifier) question format (in which models are supposed to surface all their doubts with fully fleshed out recommendations, with falsifier, to be approved or overridden) (b) the second problem is how to scaffold sustainable AI-written code; the ADRs (Architectural Deliberation Records, after Nygard's decision records) written by the models, s</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project introduces Architectural Deliberation Records (ADRs) and an ORRCF (Options, Recommendation, Rationale, Confidence, Falsifier) format to structure human-AI collaboration in programming. By versioning these records in Git, it aims to provide oversight for AI-assisted code and scaffold sustainable AI-written solutions. The system is designed to enable AI models to surface doubts and recommend solutions, which humans can then approve or override.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally agrees on the importance of retaining agent interactions but expresses skepticism about the proposed ADR approach. Several users reported negative experiences, citing issues like LLMs generating overly long or mislabeled records, leading to context bloat and degraded code quality. There was also discussion on the optimal placement of ADRs within version control, with some suggesting they belong alongside the code they justify. Some feedback also criticized the project's website for being unclear and verbose.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>adrs.systems</span>
+        <span>·</span>
+        <span>44 pts</span>
+        <span>·</span>
+        <span>26 comments</span>
+        <span>·</span>
+        <span>by lumbroso</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://adrs.systems" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50227041" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">AI Market Trends 📈</div>
+
+            <h2 class="story-title"><a href="https://minimaxir.com/2026/10/cheap-llms/" target="_blank" rel="noopener">OpenAI and Anthropic Slash LLM Prices by Up to 80%</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">OpenAI and Anthropic cut their LLM prices by up to 80% within a few months. | Max Woolf's Blog Skip to content Let’s look at a quick timeline of the major LLM model announcements from both OpenAI and Anthropic over the past few months. All pricing numbers provided are input MTok / output MTok / cache read MTok . OpenAI announced GPT-5.6 Sol and Luna.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">OpenAI and Anthropic have significantly reduced their LLM pricing, with cuts up to 80% within a few months. This aggressive pricing strategy likely reflects intense competition in the rapidly evolving LLM market, driven by new entrants and increasing efficiency. It suggests a shift towards commoditization of foundational models, where cost-effectiveness becomes a critical differentiator.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News commenters largely attribute the price reductions to fierce competition from alternative LLMs, including cheaper open-source and international models like Kimi, GLM, and DeepSeek. Some suggest the cuts are due to improved operational efficiencies, such as better caching methods and optimized models, or the need to utilize existing GPU capacity. A more cynical view posits that these price cuts, alongside calls for regulation, could be a strategic move to disadvantage competitors, particularly open models from China. Concerns were also raised about the sustainability of such aggressive pricing, with some fearing a 'race to the bottom' or an 'AI winter' for expensive applications.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>minimaxir.com</span>
+        <span>·</span>
+        <span>327 pts</span>
+        <span>·</span>
+        <span>318 comments</span>
+        <span>·</span>
+        <span>by minimaxir</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://minimaxir.com/2026/10/cheap-llms/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50236102" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">System Utility 🛠️</div>
+
+            <h2 class="story-title"><a href="https://proc-cli.com/" target="_blank" rel="noopener">Proc-CLI: Semantic Tool for Process and Port Management</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">proc | Semantic CLI tool for process management. Target by port, PID, name or path. Target processes by port, PID, name or path. proc is a semantic CLI tool for process management on macOS, Linux and Windows. Find what's on a port, why it's there, and stop it, in one command you'd guess on the first try.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Proc-CLI provides a semantic command-line interface for managing processes and ports across macOS, Linux, and Windows. It allows users to identify and terminate processes based on various criteria such as port, PID, name, or path. The tool aims to simplify common system administration tasks by offering intuitive commands that are easily guessable.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">A user questioned the design choice of using commas to separate multiple targets instead of multiple arguments.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>proc-cli.com</span>
+        <span>·</span>
+        <span>14 pts</span>
+        <span>·</span>
+        <span>2 comments</span>
+        <span>·</span>
+        <span>by yazeedaloyoun</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://proc-cli.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50239041" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">Language Learning 🗣️</div>
+
+            <h2 class="story-title"><a href="https://rainbowsay.ai/" target="_blank" rel="noopener">RainbowSay Leverages AI for Interactive Language Learning from Media Content</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Learn or teach a language from TV shows, movies and podcasts with AI — RainbowSay Skip to content Learn Teach Research a language from the shows you already love . RainbowSay listens along with your favorite series, videos and podcasts. It pauses at the end of each sentence and shows you what was just said — translation, vocabulary, grammar. Real voices, real pace, one sentence at a time.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">RainbowSay offers an AI-powered platform for learning or teaching languages by integrating with TV shows, movies, and podcasts. It pauses content at sentence breaks to display translations, vocabulary, and grammar, providing an immersive yet structured learning experience. This method aims to teach languages using real voices and natural pacing, one sentence at a time.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community highlights a significant usability concern regarding the lack of transparency about supported languages. Users are frustrated that this essential information is not clearly listed, even in the FAQ, forcing them to sign up to determine if their desired language is available.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>rainbowsay.ai</span>
+        <span>·</span>
+        <span>8 pts</span>
+        <span>·</span>
+        <span>1 comments</span>
+        <span>·</span>
+        <span>by gigapotential</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://rainbowsay.ai/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50237773" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-10-25.html">
+        <small>Previous issue</small>
+        <strong>← October 25, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
