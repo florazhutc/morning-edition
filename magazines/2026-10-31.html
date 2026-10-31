@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 178, October 31, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — October 31, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 178</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Saturday</span>
+                    <time datetime="2026-10-31">October 31, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Mistral Releases Open-Weight 1-Trillion-Parameter Large 4 Model with Enhanced Coding and Cybersecurity</span>
+            <span class="toc-score">1694 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Backdoored Claude Code VS Code Extension Published on Cursor Marketplace ⚡</span>
+            <span class="toc-score">902 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">AI's Impact on SRE: Deskilling Concerns Emerge</span>
+            <span class="toc-score">601 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">AI Agent Swarms Exhibit Bureaucratic and Collaborative Behaviors in Minecraft and Mindustry ⚡</span>
+            <span class="toc-score">402 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Simantic Launches Firmware Simulation for AI Agents, Eliminating Hardware Dependency ⚡</span>
+            <span class="toc-score">77 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Sketch Stadium Demonstrates AI Agents Playing Pictionary</span>
+            <span class="toc-score">32 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Azure Plagued by Multiple Cross-Tenant Compromises and Flawed Fixes</span>
+            <span class="toc-score">312 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">NES CPU and RAM Compiled into Qwen LLM Weights</span>
+            <span class="toc-score">255 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Astroterm Brings Planetarium Features to the Command Line</span>
+            <span class="toc-score">231 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Sleep Framework Enhances LLM Knowledge Retention in Continual Learning</span>
+            <span class="toc-score">230 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">AI Model Release 🧠</div>
+
+            <h2 class="story-title"><a href="https://mistral.ai/news/mistral-large-4-oss/" target="_blank" rel="noopener">Mistral Releases Open-Weight 1-Trillion-Parameter Large 4 Model with Enhanced Coding and Cybersecurity</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Mistral Large 4 (Le Chonk) is now open weight | Mistral Mistral Large 4 (Le Chonk) Built for Coders, Trusted by Defenders. Mistral released Mistral Large 4 (Le Chonk), a 1-trillion-parameter multimodal model, now available with improved coding, cybersecurity, and reasoning efficiency. It leads open-weight benchmarks in coding and defensive security while offering three reasoning modes for cost-performance balance. Fully open-weight and European-trained, it empowers sovereign AI with customizable, self-hosted deployment options.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Mistral has launched Mistral Large 4, a 1-trillion-parameter multimodal model, now fully open-weight and featuring significant improvements in coding, cybersecurity, and reasoning efficiency. This European-trained model leads open-weight benchmarks in key areas and offers flexible reasoning modes for cost-performance optimization. Its release targets sovereign AI initiatives with customizable, self-hosted deployment options.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community notes a substantial price reduction for Mistral Large 4 compared to its preview, which is seen as crucial for its competitiveness. Users express strong support for Mistral as a European provider, particularly for EU-based companies, and welcome the increased competition in the AI market. While the model's high refusal rate for malicious cyber requests is highlighted, some question the transparency of related performance metrics. Discussions also cover the significant hardware demands for self-hosting such large models, often requiring quantization, and specific licensing requirements for Model-as-a-Service businesses.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>mistral.ai</span>
+        <span>·</span>
+        <span>1694 pts</span>
+        <span>·</span>
+        <span>436 comments</span>
+        <span>·</span>
+        <span>by kuberwastaken</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://mistral.ai/news/mistral-large-4-oss/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50289418" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">Security 🔒</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://phorion.io/blog/offical-claude-code-vsx-compromise/" target="_blank" rel="noopener">Backdoored Claude Code VS Code Extension Published on Cursor Marketplace</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Official Claude Code Extension Compromise: Security Advisory | Phorion 🎉 Phorion ranked #1 in independent EDR telemetry evaluations. Phorion has detected a backdoor in the official Claude Code for VS Code extension bundle on the Cursor Marketplace that drops a persistent SSH backdoor across macOS, Linux, and Windows. This write-up focuses primarily on macOS, where the extension attempts to configure an SSH backdoor and establish persistence. Organisations should immediately review their environments for use of Claude Code for VSCode 2.1.312 or 2.1.313 and engage incident response where use of the extension is discovered.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A malicious actor exploited access to the Cursor Marketplace to distribute a backdoored version of the Claude Code VS Code extension, not compromising Anthropic's systems directly. This tampered extension installed a persistent SSH backdoor across macOS, Linux, and Windows, posing a significant supply chain security risk for developers. The incident underscores the critical need for vigilance regarding extensions from third-party marketplaces and robust security practices in the software supply chain.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News comments clarified that Anthropic's systems were not compromised; instead, a malicious actor used access to the Cursor Marketplace to publish a tampered version of the Claude Code extension. Users shared specific steps to check for the SSH backdoor, which added a public key labeled `svc-telemetry` to authorized keys. The discussion also addressed initial confusion regarding the extension's origin and the specific marketplaces affected, with some noting the hyperbolic nature of early reports and the limited timeframe the malicious version was active.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>phorion.io</span>
+        <span>·</span>
+        <span>902 pts</span>
+        <span>·</span>
+        <span>532 comments</span>
+        <span>·</span>
+        <span>by _chall</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://phorion.io/blog/offical-claude-code-vsx-compromise/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50300683" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; DevOps 🤖</div>
+
+            <h2 class="story-title"><a href="https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling" target="_blank" rel="noopener">AI's Impact on SRE: Deskilling Concerns Emerge</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">When AI handles 95% of your incident response, do you get worse at handling the 5% that actually matters? &amp; This piece took 6 days, 5 hours to be cooked, hope we served. There are two popular prophecies floating around tech circles these days. The first says SRE is the future of all software engineering , that as AI writes more and more code, the humans who remain will be the ones keeping systems alive. The second says AI will devour every tech job alive, SREs included.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The increasing reliance on AI for routine incident response raises concerns that Site Reliability Engineers (SREs) may lose critical skills needed for the most complex and non-routine issues. While AI can handle a significant portion of incidents, over-automation could impair human ability to manage the challenging 5% that truly matter. This potential deskilling challenges the long-term effectiveness and core responsibilities of the SRE role.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely acknowledges the deskilling concern, frequently drawing parallels to the aviation industry where pilots maintain manual flying skills despite advanced autopilots. Some commenters view AI as a 'superhuman' tool that can accelerate learning and efficiency, similar to how tools like Terraform previously 'deskilled' certain tasks but ultimately improved processes. There's a sentiment that SRE's core value lies in deep system understanding, which AI could either augment or, if over-relied upon, diminish. A few voices also question the fundamental nature of the SRE role itself.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>newsletter.signoz.io</span>
+        <span>·</span>
+        <span>601 pts</span>
+        <span>·</span>
+        <span>452 comments</span>
+        <span>·</span>
+        <span>by dorianniemiec</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50305693" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI Gaming</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://labs.ycombinator.com/projects/games/index.html" target="_blank" rel="noopener">AI Agent Swarms Exhibit Bureaucratic and Collaborative Behaviors in Minecraft and Mindustry</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">     ì &lt; ÛrÛFïü
+º¶&quot;%Wg)EvlÇvlÇÉd\©Th°@ @R²Êïû¼?³ïû)û%{út
+Êdv^ÖL$è&gt;Ý}î7àñ_üØËïVù:|ÒzL¡GË6ÚOZ=^ìÓ?àÏ5É1òV8ÍH~ÑþðãSkÜFgêÍ¯ÉE{]§yyqï?_]ødxÄb_:( &lt; À¡y8$O2/
+ &lt; #Úû
+N×è*Ä
+ùèÙ?&quot;¼û@F¯x)^äì
+|ó7YÞu«ä+²&amp;qª¬òÈq
+×±+34NHß]´ãåâNÓ &lt; ðB²wFêY±ãg°lßÔ6.´Å5ÌW9Ý$ZÑ·
+ò¤§¾2%Û¬×8½û-Äéü&amp; îþ0ÔèsÿøD¬v9ì(O*@ÿý_è{ &lt; Ï
+ñÛ|hD7(%áE;ðèæW)Y ÄÞÒïì_·ó{7nQ~tù3mÁ,¿4stßb No¦­ÈZàuÞMÐO$õq;èÈ~g8Ê¬¤ÁBÌî&quot;,È&amp;(#2måä6·Rù0(ZNP
+YÉ÷dÌ0Èï¦­/­¯Ñ=Ç·V|f£æq
+,¸4E@Æ8
+ç8åZbòU©åÙúãþ¼?Dy
+J0¬OÑÖdbíÈü&amp;½É° 5L`	«\|1N° ¦wC÷¨ íð:V¾Ú¬çibSyÆûÁÐu~~Î×g÷
+qt¦&amp;È;Çþ
+ÐDhD[ÄJÏµa»&quot;äØövÕ@ë/­näÄ¢Ê FZ~%!&quot;/BpèOËRâQ	 gu4má0XFÌ\Ã=8;I§­%N`µ®õ´`ßgDtá+²Û
+²ërÅoÛ¥ý9m}¡
+w¨ÊZv·7 ÐnÁVewÇ£AmA¬È 
+`|kúÄSÌÏÈ9V6YÅ[
+T ¤úÓ [Þ&amp;Mð'TüjºÚ* ïRPïV¼XMe'g¹ó, ü»y{ £®8xAy¡ù¤h°^àERe)¾c6øÄ9eÈá¯iãÂ¶ýoÊªìÛ`SPs÷r
+ðå	½,Ô=u_»ts µàg7y\0HÇë	O
+[
+Ä`*OÙ3¹q:­Dø8O¦A´=k
+ã
+´ û6H¶H1¶QÖ®¸ÖHP§g 	èÀ»HbåPA
+
+æÛ3ÖåªO±·É¬ms£V¼ÉéºlÊâ0ðÃ!=¸Wì©Çü÷5ñNÖø¶Ð*T¾NV¨Óêâ$	A(sl¤¬[¡ìÊbû§41¥
+ãÄolÇL³B²kNyP×s;E©°R¡h[LtýÚ¤WÊ	Ø¨öaRE:CÄp¤ÆwhåTØÛì­²s×qu
+Ù\ésH]çT8°BÒèÚLµõ\e=·+ô¹Ý­¯yh=M¤ ÆÛËsêq°tõ &lt; ö`L¡l²RZ½¡ÊÝÎ,&gt;7A93M~ÈÌkZ¬
+
+®¹jcÆdÓVÊOºÐãúqì)å &lt; 3»TdºÎ´3® {æÝÜ	Ð
+Ó*§VÓåü
+ ºrRi
+É&quot;×XÞûcoQeYÉ
+UYl3
+
+6 &lt; 5TéÀñMA
+{ñVAè×9GìÕx@ÂQ
+ðØ¥}fÍàê¯#¾u±Gé¨3¢MBÁrÊòD|Ô6ðI¼ÇjæÛ$%à	Yl£Ô!Cgè¼âYÙÇÃN &lt; Ì¢B¤æêk&amp;éÑpN?&quot;\º¨X¦_uôôS.·DãÈB6*ÇëÃéz`% û0ÞMÐ*ð}U8'Þhá
+5
+3 7@L iCL?b±-
+àw´YCìÁáñ| Á
+¬º
+²O²|½*;Uõ]1I×ûè/Á¦
+1ÕPâ{7ÝÂLZ+aºcNÇ)ån±6Xös­8ûG®d=ÒóaÌÜIÕòuá.)ÝJÕmqÎKRf7,åºÇøÙDzÈY¤BÝ#Í.J­
+Ô#L1îáh3õ4LHbÌùÅTåwLs0éÔ×)³+ÌÒMA½Þ°ÙºO &lt; 'a¦y
+cDáQØTRÃ&quot;[«ë*¤5ÒØ²ô¹Ø¥bW¸ÉaÌÔ£?unIs|bwø¯ëN
+ÌSdÜ^ÅQÌ
+´?©Â&amp;5óq·¢ÉvçPLg1Ë¹&quot;V%X¦lÿÉ
+{lkîp%µÓ1²õÈn&quot;Íò»_7zvP&quot;K* ìDQ©
+]Çí §ÿ»ÁÁ©a2 CbK	uÀ¾9hXr;èýStë
+YRmÕAWqçÆF
+Ió
+ùy¥|¹-!'/ªÂêjG94wMY£ÔL¹ÉJ&gt;qj¡èøgûÕüdç@j
+(!T!+#-J÷	pR»È²ºc# r
+õT¥ÔR	ëÓó ÛSÒ·,ýYÙ´Ã.©§³×d¿&quot;úÅ¦$²
+;âzD
+G[ûÀ4]Qå×sÛ'ËÎ#ÜÇÃóNÛÂÃÌåéÃYNÙYK÷©q&amp;s
+»spñ` &lt; »
+«ªk¾ÄJ0 ùÄàövØ)Í
+ÀÚX
+aµØVOOQetÃ°ÓÄ`++ã)ÇQ²É?ò
+]äd-+IãeÊg4ÎcÌJÝ	ExíX1¯µcð1Àöð\êwüÀrk8
+Rj ×²û&amp;ð &lt; $²N!7ìRi=-G½Ñ`dÿ³ÙRTjþ¶ììcx[p£$ôiçQÏïÛ=\½n&gt;Æþ'(ú¨¼ÑÈüF©ÌZª2SÓ.#$75§Ô©PYã.VV[aâø²¾qà@ëø³Å¾ý?CýKJÁ¿¨ î·wÔí·|ZàYeRmzÔE§1^¡
+ÇÞj´9óø&quot; &lt; =À
+ïø=
+ënB}-jZ«X°ÐG¸Ã
+5Ñk t´´
+IÓ8EU£ögG$~EæC]Ô#Tà &lt; Áëû¼,Äuq³;ÀÄÚÚ5¶ÞãóÜÑII3PþÆ#&gt;qúõæí¥fI&quot;VÃ;
+
+æ/Í &amp;Q¾â9Í^tZAìÜ÷ñ¹Øàmðõu}ð¯oÅ. =f_ó)G+ïàCtû¥Ð2|a
+¾ÐòôE½(B-ã,÷MZæ^ézÅÕôÊaÐªQ}#=YQä¨gUR]{¸Ê8¥Þ æ &lt; sñOT!-ObgC[Ùÿ¢¬d$bMEOÆpÚNËú:hÑ±wÚdZõ½,«¨TzG
+Lk
+áÂJë¥ÓLI4i0
+Û]ø¼k*. HÖU×K&gt;P±Uü
+ÅI,öä(õ¬{ä\·«x
+(Ï¡õfö
+JÁ»!$A98vÌsë Ã® ;ÓËÀ6Kg´5W/	÷ÛDï_^ºõâ.2Ö©ËÊ·q®×Wêø¼l(rM@ÔB7Rú]ú²äaÅ
+
+xÑ4¢
+7©GGæûô¡Hf¼+aQÄæÆ!)íHðhæ«¡RRÛ\_q)iÅrc
+Zg9}öT_4ôÈÐ:TÄ¦¤CA¢kÊ0¿Jó´ %xÐÂàsõ¥ÿãåñD)SÈZ³'3TÖä;Bõt.ïX]@²¤V#ôß¨u
+¢YðJê­aäd2'²ñæ±Å¯¾ùª,|F£Ú\ mÂìcP
+±ÒÿüÇ~Õ¸I/f=¦¬P±hà½³8ºÛ*!5hØL,Öf(
+U§'©ÎLh²¹-K¦îS¡ì'áÜ«Qo1Ï@x6H¸¼Á¨ÍÐ:³ ?7äû¶íº&amp;)uvjMÕ)
+[Íôþ´%?BLNÀsÚÑþµ©¦¯òV&quot;¨¡ó]öHÐ Â(¿:b!Y4îí3-Ëâ
+éX]HiYB6ÒOÐòLz}Ê$½EGÁ¼]#D×|@Þ
+z,#ñábºa¥Z#v*«¬²¦Y3»6,Ê¤
+VÞSÓ7ëÎæþâ×?o)´D£:Ðµ¶ë&amp;Í «c4ÉÚ
+¡v_Íú)n¦çö
+Û«¹|¨ð3uû²-5C¬½Öw Vt*v´÷¾QÂ&gt;Î±Å.0_á×ªráQ@ &lt; ÿD}²E]jz+_µýe{¡­Z½»úð
+°Í=¥SÙF5¯fM5Ég·km¨¡»Êö
+OêjµªÑÌíNô0R59LüêvH±6õ³ÁJÄ@ªXÞ*
+§á,«v6Û¶àxËµ0âþïVPú;UÅ.eÐÌ5õjôµL«±ÞÀz`C· æC~iÖ¶\áøÒª
+£Dk +,Ìé(ÕQ#KÖv!ìÛ¿czìjµì?8¾Ì´wI &lt; ¾¦BMfàGûL&quot;/E@¦Í |1H;¬ &lt;  &lt; Ý
+ÈØÇUw£¥võe½Á)/8/
+¡L%ª`{CyýpûañÕàg3V)(=BÀqY`Zöw,mÁå
+¯À|#¦7ÒMBë¶ hWtÊO¨V¡´îO:Ñ^YS[è-G 	-ËE¬ãñDä³42âL
+â$xÎòKWûÇíøò4UOÊôtî`J^âýîV«±ðWScÛ&amp;ÔãD¿%*{QÓS1Ä&amp;¶?,%M4­UÄkÚôÀP1Ç´Wçé	séÓ}·úúÎ¥Ò ×´
+ú(µµÿ&amp;£íû¤=²é©ÆJ7{Hã?7_:àÊápñ¸0çQqÍ¢Å&quot;ö
+!Ò¯
+x&quot;?&quot;Ø)ýËút.ÃOÌ=ÐÜßW4µêÊÎ6=*ÍYsÚÜ£ÂóÔ &lt; ý6¶¥
+Ü
+AHíCëÑIítË'
+»í
+ý¡j:e©ÔSS.õØUÎ¬
+
+p²ÂÙI	[&amp;N#ûìÅ=%Â*
+»Rõ±KÃ#wû®ôE
+áù3¡,HXÙfqí
+
+Df×ÖãöùC_Z#ÖVs,ý
+A±_ÖjÒ #IUöõG QÈt;&amp; &lt; C¥ïÁ«ë
+ï­R¿±ØoÈSUç­M|cl¨æ9É{åç£þ¨gÜ¢RýwOùº%&quot;ÏÖô}~CWÍµ§ÑÞ§ÍPü[
+D55Ä¡M)}.X}¡Ãáé¡gu
+²Ô
+Ö·ñ°øTó¶tPö
+½9@­£
+bé¥*è¢cÎ
+è
+¼c®¤WÁ¥ð+S¦
+É'JTÑæ
+5Úskiùét-¯|5åÒMÛbûÂ)JSØ£ø©%Î+ÀDéÜ`PÇaÀbÃn³ôÏÓè
+ð£õû&amp;Î®Vê*Ô;©@czrO.ÆaµÈ^wìÁ¸qÏNÇÍ^ßí×ÉãMº»!ºRÚóe&quot;@Äá 2q^DGÃäU
+d¥Í'³
+¿ÇÀ­gµPÄÅ+ò½XjÛå¡:üÔg
+DÍ2øÁbs¥ÊZçÊbÔÅdô ö«Oÿe!dÑÓnüdõ§¸b5µ»}PªÚ/1,X~F³89ëáæM%üéñ
+­i2¾X¥ÓÒXIÑø¢²l2ÄÑÇ4é°vRÓ
+tÛb7·ï &lt; &lt; +¶¤-Qæ»þÚâÌò'¹9Nc]CÏâ
+
+ÇæçÚUXöÕ©5ETôªè¡)?¡åÁ²nÖÜð~=éçõÃêlí3\_SÙ{|Æ_YØÒ^È®e+BòâEKÚðm%¬lem
+k8tOË§]/ËÚOZû'Ï¿Ã¬]¢Ao£æq6ëD{5ù¿n/D×9 Õ9zåàuvü², YnòrÝÖògbd
+5´68[ü¨£ñàj6»vÅlþjIVG¯¤d²
+ÉtàÚOîÛÀüíÉÇû6ãÄöä¾M×ømsoÃ&amp;í³¯Û_:mk¥ô]fpe
+Ã
+Ð¥í/¿vÚ¬±Æ&gt;û P~bûd
+u&amp;_ZûÅ
+ðxvÑVÕ &lt; x¡¼#Q
+!XÞoÏØ[åyMÎÎv»]÷Lý &lt; p
+§Ôêµ«1±^äö/´9TÜ.àdj²Ô»hÓÔá¤x«ç¶Í
+ûà§Ë7ïvöËgËxÿ^¿ÿ°ºþ°¿Þ^ÃëË«Ù/ðû²?ºüö
+þx±¾¯ßþô®½éù¯~&gt;ÿðÓmúlì{éïá»×ï|±qÆKçzøôóåË]üúÝÓ§?¿
+.¯_¼|ñËúòéûOë×¯·ýÙ§gã³Õß\%öwï¾Üúxóáîûõ·7ß¯þ
+? Vçy¾'×î9??¿ý
+mÏ Ëß¯ß¼ºýå &lt; {õíîìY¶~½þÛb÷~
+þß&gt;¿¹
+½:ËÂñÛW7¯æëçg³åeòáíËÙëxv}í½½y
+Ï&gt;Ì¼o¯Ç»·3ïïogÏ÷ßÏ^½{7gý÷ËÙÛw»Y?X^¾½Ü
+³çÁ§ËÙåm8-?­Ïn^_-¿]½]^~wõöÛàåìéì»«³àå«ëÙwÏ&gt;Ì®®Þ\/ÿ¼/Ùm
+ÙÚÜû)p	É¢8hJU% ÙòlK
+e{sAD&quot;eVwõ?Àß½i ûåîô&quot;HJ²+«Ð
+4ÿ¢*-)Ã3~çDð¤óÿÕ·ëg­UªZÁ¨V
+3¯V=NâJ×	5Ç4
+~ÿ%2«½w½\õÃùõÚ¸m
+áõ¾j6óêY ­ß/Õd×^£w1:y
+]ûSýìøìáyY­¢Áõ¤±^_Í¿X¬ÕG×¬ª/ÃÞüõ¼½
+]úåÂì¸o=-/×
+E¼Ì
+æMÿcÑÖoÚãé{aôØîÝ\]t®ß
+ï¬äÅpWn­íÛþ?Ö^;×³iÕ?ºÆMePp.Â3S;$#ïõ}é$][µÄ[¯]puÝLÊ]£WvµÓèÄwãñ@¯/
+£Þeïæì¦NNÆf×8©Þ¿6
+«ñò¼÷®é
+­
+MN 	ìÁõü¥ýÚ=ÑÝûõûf.ÕkwÕòc·ý`µi·òn/BýöaÑº¬SåÂB/¬×£²_Q_'V½½YõÑàì^íM:it{ËúíñÇQ
+ÕûãÙpûõ£¿1V®õèã·Âuc\µ£@7Þ
+sS±Ìöó´í/WWU;}Zî²_&gt;õÛëUkÜ]o÷Æb]î{áÝyïÔ:Y¾Wñdý2~
+xCÝZA¯c«UYã¿µ ¡¶úµëØOf£¯|7i}Ô¯n'/ã3h &lt; úÖkri¼ÜF°§jïeX;Ö_¯¼Aµë.'óq»÷äM[
+?¹¬9¡W&gt;yqñ;ïßµãy¿ðn&amp;äÁ5nãJ+
+Oµsxìåîáz½8KewP¾^-ÃWÛûÎmÔºZÃ¦¼·Û×
+íåýüÖj=«§«ËÕÚ'·WÁí©9òqøQo«çeañ¦½jöã¨R¿o_ÏñÜÄ!NòíõâíÒn¶ÿ¦¿\æk²IÎf­Ó·Ëx|?ÏõúþY¶43
+wbsW½ÛÆÉu¢·ãUÿî¸c\nn¯úSÿÒ2[ÏÓó&gt;­¥ÔÓ[¯î/ßíÕÒs³à¨ÓMù©¼|]&gt;X'}Ç3jÔ²êÏÓÖÄAÒ9yº
+áÊ«¾ØÇð¦ýþªÇs«öÒ5¯æ+'êÝÇÏÚ¸î²}zmâXMæú³5¾4Ô
+è &lt; ì &lt; 4gÃÅYýåòÑ}Ô®«zÝ
+»Ë·ù}kê¿;ñlQóîðûÊ³ùdNg §Öo×!Òàôòi0u
+à?þòl\
+ú³zwÕÖjauuyßJ »o¾?¾ëÃàÌ3ïª§Ï¦ýÐ5.§k;yÛ¼4
+¢ÓàöúêùºVý
++¦Õpúký¥Ñ^ÞKûÊ¾ÜÕÃU`$°­§þÙ¥Ý:}¬Ô
+ñè=yy´Ê´}
+^´ºÇs«ðî &lt; Ò¸.¯Ì«xsµ
+ª¯ïWoöùë­sUnmè±Þ~F÷Ñ}½¦}Ô®§g}XðÿÝå´CÍ6 ^ &lt; ´ê§AÛ_
+=ó¸ñZxuGõÇ°Wèuª×7g½Ó·ÖsÍl¿O7×gÉì	Ôçl1^åAüRmh°§jo²ª=öîÂ³¹nºu¯Z­{÷ÃTw4~¨ZÂPÕµáfòÑ[UFUûÙ
+Í[+î×^zw=XR¿þ±Óôe|ã\ÇáÒu/¯l§¥-Ãå¢í´ßÆÏ×Fy0}?8·ÚîÑÃÅW&gt;ë_¯W¨g*ÕÚ*\Ý®ÎíEíæì¤
+LswpÿÁ©çã¶¶é·ÎêF»ÿzçþÕ*:õüp6´G
+½öªÔóiNÛÓúlªM¼à¥vR &lt; Ý:ªq3Ú &lt; ½¼T{µqq
+ëÎðúÒ¾&gt;ÓÕX{¯øAHû¡Yú¨àßjÇ7
+c|T´v|qá
+ÕÛõñ´ôkax¹è½._atùv9Ü·b¿S5®ï'ïõumê¨³ËúõÛ$¬w+7á0&gt;k8ê¨Pu{V}4R{íÇÚc÷î1Äù=vÏ¬ºVîªFPñ{ö°ÕëóáãýèVÕÂ
+c´Å¾w½rïÕÅqá.é/ã¢í\jõ&gt;ª5
+1õèy|Ü
+]U_z£QMFÃAµàñM¥Õ¿|kÍß³B=öýø¥Òx~~ÖóÉkÁè¯ñÚ«½Ñ¨ÜÚægv
+Ö§ïW3cþülC|òô®ê7=ègµ©.Î`ÃF~çôôâÚ­¯®ëæÂv
+?Ýu_û®ùÔõÜelz@/¸»»2{ÓÂd^_qè½¼&gt;]ß-§OËnòQ·Féú¶wÑ\£»·ÄÓöýÃEÇ}ï
+ÃYyV³
+î¦î_NÁ\£Q÷þÄ}¾ëÜàþ®k3uhm¦/ÕçÎñ¤ï»®ñ¤ÏjããéëåéÍ üX×«·ÓñÝiCmÔz`zoî`Øq¥Ú®\c§¦÷.Ýñèòù88]«£j¡õñ1mÝoó²¹[W§M½_´þKúoöúEkªz
+½Á£5Ð
+ÍÊs´ôöl±¾/·N
+ô.8
+æQ¿vgÌZðñ¶x¼Ú¼¬nÔ
+½`´y¯,ëâý©;ÄØ§õðôÜ½¿ª
+¿^\üÁÿqxÈ×zýP`Óü·nªþ7·ç£ &lt; ø¼
+¤ÝX®Î,$þ &lt; fN®¯üó0ÀrïHF|Û·Âÿì?ZF³OÈOBGÿ
+xA'Åð~ç0:½»ùbF
+Æ0ícþ+O-&quot;_ãÜâ-x» ¸Yùð3âá÷[t;f`.:üù{âýüÝs¦sù-æ»oÁÀéü®b³­¦3ù
+Ãé+9¨iâåÎ'ùwzºJVÿ|1ÈÀ±9üÙvl¥e
+Uý§óbt
+æÅþ½y¥=
+EN AðúókR
+³ªGµ &lt; üÙÊ
+µ¿|pà!£àBOß_+òó/Dö:â2ÃÃ÷¯¬áo¼o)	gíùÄ)ºðYI?Fmþ+åKdeqó¿ /áÌyÉÜÆläwÇd°¦¸XÝû)N´­¶sÙÞ³
+ÆÖlêe½ú»:Ï½-5üìÏ'¿¢Øò	Â%^ì
+Ñf{í[3w#GT0æQpnQõÜÄò &lt; ÇÇúZ`ëÐ3x¾¤do°¯¬Yá²übs-­Ëð¢LÅYMÜ
+½K'
+:3'¤¹
+­¹Eï`q¨¨ØÎÂñª6Åºeøfâ:¡'ô3üaúÊsVðoÚ¨0;·ô£ÞUÑÅÊÀaãFòÖX«ÃB´\-æ9&quot;èPÐ$â%ÅÈÎ¡9dx*ÀÄ
+´IâÛ°(Z5ò2ÃÓx0' q3sÌÆµñ¥0Àc²¡¹¹°uqtÇ¸àSg1ó4¾v§2p±Úy]T¢8±×T»½¡ó¸°e¡ð&gt;&amp;þ[
+(ü¢Èÿàdpþó âP²H%úÎóÍÝA@E$;u9B5G]álaáx¹öÐù^&quot;Ì3`Fu±m%SbißÆ5
+,÷×Æ¥
+Å«¬EÌBÀüëÁ¦äÙÛñn«bmx$ûÀ_¡âÑlXQ:ÄR0IêÐ:+ÐCîìW¯_ÚYâD'YþÜHLômjd}Ôá«â$Bç&amp;KsM72¥xI¹©ß¬y6É)MWJ Ò7×t=±6 |S
+w_²LzÈ\c:òcÀ.2)iè÷=H^CLÎ­°zÕpúÇo+½Ö¼(Pè	Qâó£`±a¥7ÿaüo&quot;Á3öÇy¥&quot;ß_ÍÂ {ÜgøÙrÉ	¡[+ÔÅ &lt; þ5Çð%û@ª8GÇDE
+ìLp%&gt;q9nqº&amp;èÞ¬på.JA8VT½ªKºnh_ÎÂvF|s
+	aÕ²rZãÀÇ|*7KËGãþ.VL%_h¨a à\)_îS6+Ò+¶kûÿþ×ÿ ±XÁF(k'm ÉÆýÉ pc'' &lt; ÌÒ'³¿vIIÍÖZ9Åw`¦@Î |3ÍnÈ\ZT8'ÿÎ
+:pÇÇ(p ßË³
+Ãy!¨^ÕY9Ã$vN£ ×!qî± ]#Ö¼2²h6fnÜÑLåR±ø]»ô)ñ62_\aDD
+u©:ÄL9m;TÐkA
+&quot;®ç	;heìÜ³G2±E¯@!ªÁÀÛ8è9ºe©CÀFÝ(#,èw°d6¯î£Ë
+¦U;á
+	ÒsìYKtînä&amp;í3Ù
+{aNÉ$l
+c0A9jªÜX¹
+áÉô¯;vÁ¶¦Hë zÍòH;bw]}.['¥àq|âçïÚö»'Æöê+e|áÞQµ¤){ñiÊLa³ÆE!1ðB 8J
+ªÒÊ?0ÝÞl£î§ãIè.È} è;Ö}ô&amp;¹èkW0:´æ
+û-¬ &lt; ¨g¢9ø!1)b'Ðh/5£
+Â()·`5HCÏ+´ h§ÉÑÚ@/a$e¾³¤½fç
+OêÁà¨
+BtoFê¬£çO28HS'&amp;#
+Ý1Nwi`¸@!ÇiàÊð1Á7¥[ì¢5z3°çBc~A$;ëðà(ãtØxØC/VuØ|
+ßÃ*iÌüOUøéøºûÐQÚóÛr
+
+hqè &amp;/4Jzºª$}4Nz¬ÓOZµ)ÇÏð×X¾
+
+¼
+v'STÞðü
+qgcx &lt; MI¹ÆÀE`­Á
+xø»cë
+%°¦ÈNÐR
+ñkpÙñ·Z¯T­ÃîÝö1^[ zvF3õrqò²(
+èÃo
+§Ê ì!©ÜHr¡OìñÆþ@£voÀÛÃ3Y?j]Éÿ
+£ðó÷¬
+ÿ'°++ÈJ©ºEêð¼'N
+O	k *×
+} ^üyð©¥Ê²©B»å[x¸Í»È}¢ûø Ø &lt; IiâÂ8u¡©°;Ö¿thr´¨«¢±¨Ï|ÒP´ã3ð
+&gt;C
+ñ¡
+ÞËªßÌ¡9ó3¸-øè/é	ÿqÕá/f]Seq¢^Z:I &lt; ¸
+Ýuøì4qíV/ãÏôlÛ Ó¿2é¢RÿQn ê?Ê
+¼FÀ}
+n
+³_ìý®?ëx9Hð_K¡+~Qñ
+È
+Ý]L]ñ¯#wò½G¡ðéù
+)k6ÀÓI$_=Ê(
+·Ö ·÷Ý`T1ä÷±9VÐ:ìÒ¡&quot;èä!ènÖ×²Á
+Ë°Åòº4!çæÉöZO]ÏCÑ}YLð&gt;mÎZ&amp;3òsè*Ä
+Á*pÔ¨|äcB°k­²óý¹5M¦çÄH1ÊRO
+ÞG:§G|Gây©ôº`%ä±6U¾°Ô
+2'üÎE~.ÌÏ)¡ d.ûh4°Ù8 *áõ_
+ðØIìæßÿú
+aÍñ=
+ªª
+à küû_ÿKÐ &lt; `
+ àEÈµ¯q±ôè&gt;u]Æ0 ©:ÃÁ#3`0¤D-ýó-F `Ôô
+Â
+¦
+ÁC0$
+zI_ñð4u£é
+vª
+BW? G
+SàÙÐI
+Ä
+²{Di`b3,ÐÅ¤ èwA×\ðËÃÏ¼÷ÐuFt@fÙéì
+
+
+lZý?Amdþ¿B·FpÔ
+æ
+ Î÷3(¦$Jµ	)ÊI*XtÛö2Tæ9ÅxÞ×2rx£PjÍBûíK¾3°ÞR¹ ÿSü;D'Â
+¾NAüq;ÂçB±^7B0F;ÔA¤¦
+ÖBCÓÉÐÎG³`×Jõ^îÔË¥h1N3×F£¥®+åÌ$­	þËèÕ¶q\Ó[[=×ª¹ÍjãP·)ÿqèYµH¡fC¨ìg@nû±@öo1TE
+4fvb3
+ÚKx&amp;¦9àÇH¡S¤»Â
+u
+±å%´6)©ó
+
+X
+ÀÌH¯La
+ ¾=»1&gt;+è~6k¬TH§I(¼Ãe®ùr,®ùËÕËÐÉ2Â?Å§ÅëDnRàÛ%e7òýj§þÉÉÒ0Z|ú2z Ëõ/dÔçÕÜÐV2~ì©3PÆR·@ÎAâM!¼Z
+Õ4
+%ÛÅL&amp;PÈÇÕÈ&amp;Ñå;ô(h)è{
+È;öé{Ø'LÑÙ	¿¿e1Íê/C3gü%Hò.Ä·ÿ&amp;.±ÿôÿpânÅ¤O»Ý¥ÛëÜ·
+/º·`Çþ;îÜÁ1 =(ÿÀ0g¶ &lt; §À¤x4'ú».|¸ç¢î­@ÑxdR/íjâ1Ý­
+&quot;q3¹
+:j50Ô ¨¹'ù
+D=Dò9JñÄÅTO
+yÔ§d§
+ld¡×cÖÀ5ñ±( &lt; Ða,½êVrAôæð_¤NQñr(±8°KðgBzièÎñÖu ,:s|ÃL
+ûcR»X²çÉA}
+jpîHBà,
+(µpFî{.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Experiments with AI agent swarms in virtual environments like Minecraft and Mindustry revealed both emergent collaborative strategies and unexpected bureaucratic tendencies. This highlights the complex social dynamics that can arise in multi-agent systems, while also pointing to limitations in real-time decision-making and the need for more sophisticated world models.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community found the agents' behaviors both 'hilarious and adorable,' particularly their tendency towards bureaucracy, such as appointing a 'sole fertilizer operator' for a single item. Commenters noted the latency issues of LLMs for real-time game tasks and suggested that specialized neural networks or better world models could improve agent performance. Some also shared similar experiences with AI in games like Graveyard Keeper 2 and offered tools like Luanti with Minetest for self-experimentation.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>labs.ycombinator.com</span>
+        <span>·</span>
+        <span>402 pts</span>
+        <span>·</span>
+        <span>166 comments</span>
+        <span>·</span>
+        <span>by sandslash</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://labs.ycombinator.com/projects/games/index.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50296486" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Firmware Development 🤖</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=50291116" target="_blank" rel="noopener">Simantic Launches Firmware Simulation for AI Agents, Eliminating Hardware Dependency</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hi HN, we're Ahnaf and Seungmin from Simantic ( https://simantic.com ). We are building the simulation layer that lets engineers and AI agents test and validate firmware without hardware. Before Simantic, we were ex-firmware engineers at companies like Neuralink and Tesla. We’ve worked on some of the coolest projects, like the Cybertruck and Roadster, back when they were still early prototypes. We started working on firmware back when ChatGPT didn’t exist yet, but over the years, we saw how much of the engineering and development work has been automated as the frontier models improved to this </p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Simantic addresses a critical bottleneck in modern firmware development by enabling hardware-free simulation for AI agents. This allows engineers and AI to test and validate firmware rapidly, overcoming the challenge of slow, hardware-dependent validation in an era of fast AI-driven code generation. The platform aims to accelerate development cycles for complex hardware projects.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely recognizes the critical need for firmware simulation, especially as AI agents accelerate code generation. Discussions highlight challenges such as simulating entire boards with complex mixed-signal ICs, the strategic decision between building new simulation tools versus wrapping existing ones, and the balance between deterministic and probabilistic simulation. Some users noted that AI agents are already capable of generating basic multi-chip emulators, while others emphasized that validation, not generation, has become the primary bottleneck in both software and firmware development.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>news.ycombinator.com</span>
+        <span>·</span>
+        <span>77 pts</span>
+        <span>·</span>
+        <span>34 comments</span>
+        <span>·</span>
+        <span>by shong0504</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://news.ycombinator.com/item?id=50291116" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50291116" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Games 🤖</div>
+
+            <h2 class="story-title"><a href="https://sketch.wakeshift.ai/games/q5ucru" target="_blank" rel="noopener">Sketch Stadium Demonstrates AI Agents Playing Pictionary</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">tl;dr: Agents can play Pictionary. You can connect your own agent, or just watch a game in progress here: https://sketch.wakeshift.ai/games/q5ucru Hi folks! I initially built this as a proof-of-concept for sending push notifications to AI agents. Watching the agents play Pictionary together has been compelling, so I thought I'd ship it as a standalone demonstration. In Sketch Stadium, your agent subscribes to game events. Agents take turns either drawing or guessing. Easy clues are 1 point, medium are 2, and hard are 3. It's entertaining to watch and some of the drawings are impressive (and ot</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Sketch Stadium serves as a proof-of-concept for AI agents subscribing to and interacting with game events, specifically by playing Pictionary. This project highlights the potential for AI-driven interactive entertainment and agent-to-agent communication. Users can observe agents drawing and guessing, showcasing a novel application of AI in a game context.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community feedback noted that AI drawing quality often degrades with subsequent additions, suggesting initial iterations are superior. Concerns were raised regarding the security risks of pasting untrusted prompts into AI agents. Additionally, users suggested increasing the difficulty of words to enhance the game's challenge, and one commenter shared a link to a similar but opposite game they developed.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>sketch.wakeshift.ai</span>
+        <span>·</span>
+        <span>32 pts</span>
+        <span>·</span>
+        <span>10 comments</span>
+        <span>·</span>
+        <span>by ericlevine</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://sketch.wakeshift.ai/games/q5ucru" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50305218" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Cloud Security ☁️</div>
+
+            <h2 class="story-title"><a href="https://www.binarysecurity.no/posts/2026/10/one-root-case" target="_blank" rel="noopener">Azure Plagued by Multiple Cross-Tenant Compromises and Flawed Fixes</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">     ÿìëzÛÖï?7WáìIÚgDQ'Ûb;U
+§ÖÄ=¶ &lt; 3_\ID À d¶;Ï³ocßÞ¾ýû¿k-)ÙVm3LJ&quot;ux×{&gt;­ûÿòÕóGgÿõâqôäìÙÓÜÔÓL?xøðßÝ¯Ó:K
+üu^&amp;UÑ÷I|Tuô4ÍÏ£nôuzD_Ï³,zTUÕ=Kò8¯£GÅtVÓ´Jªû=7 #M:¸¬úAg^º¨§9ì &lt; &amp;:ir9+Êº
+¼Nr¼LõäÁ0¹HI×þØÒ &lt; ­Ó8ëV8K
+ìnEó*)í¯¸ÏyáGÎ´Î2É
+tâÙ,Kºu1Lº)cw¢*ýkR=èì
+î¼å¿N4)ÑN/®X_ÕK§ñ8©zW_ÛåãÖ¼
+ÙV/f,ßÞêé0üþÞÛý½kÅì©È»öÌG¼{÷íîÝ÷lÏ4#·à\OiÒ
+YQ¶@ý¯#ûçÊ«z%Õ$I8U
+ªª7Ó|_ÚwÀìÒA\§EÞëbúïo§YÇFV'e
+×IqR×³ê¸×»¼¼Üî§y\.ªd0/Óz±½Q
+·ímÃ¦/íè&amp;:yeÓ·±õÿýÿ{
+|þwôîØ
+·1uäIÉ¶Úðûä|1\
+lïmsè ·{j%e½xÐ)ÆÇ¶
+Ð¶n·ÚÖ|ây=YYÑ8&gt;/òèûô &lt; úÓ &lt; ëq&gt;¬Êù°õâÊÚ²BÕZ\¿yíaÛÂaR
+Êt¦m={GÓE4+¡Ôb^Eý¬G³¢ª«­hý
+¿XÎ5ß»ÜÀX¶¢Óh
+Ã}â &lt; *.R|#*Fx
+U	$Ù.aHÄCå`ÖÉ EýdjÚ§0ª &lt; çS¶Qñ°[ÉVG³¸¬5-;zZÓAt2±-)¹óA¢âh¤
+Â²Ä
+3¥ùXëª^°2¾eñeµ
+}[\²xõãÁytÖ¨*¦I4-XçÅ &lt; õÓ
+^ØëIZEÕ¢ªéVÄI4N/üðQúéÇ/x¾. q]3xRnGO]Ôq¶e_
+^+ò¤®aÄ@°ê¢È¢ÿµ·³³µ³³ÃÛQUE4I2 1Ìy4£³:Û
+
+ëèËlDOøå¤Jãhogï®Ùå$arÎ¦LE9ä
+g¾b^ë$/S 5°ñU­e;:{úùW/ß9§8ËZ/ &lt; Ñ
+üEà|ÌUJøã.2&quot; &lt; ­ 2;´x0HªTþy  óHò!kÄÓ|ÍÁùkÏ,ø&amp;YDßÅó¬fc©£Wÿù4ÆuÜ
+@¢.íTÏE&amp;oºMØzi&amp;q·UÈ+=ÿiGE½ &lt; «QQàYäl
+´à
+ªºÍôKòvim7bùeÌôTeñ&quot;)+amÏæutg)
+ ¢~O
+2 Ç¸42vèÆêû &lt; ÏJÅÜW°¾´nÍ0LG£t 
+t.0~-íjâd8Nø0A:Ü6IlØ	Ã	k-yhïÒuCôh«vÐáM1
+SÓ)Ç
+v
+Î
+&gt;ØÙ ×3 nôB´¾» &lt; ´µøFN$À¤nÃÂ­ r7=!Å| &lt; ±-MaQ:#VÑÚÛFeKß¾F¥â/Å¨¶å
+Á
+»#Þ©@ì_æp9¶.Óñ\p¦ñ¸¿pà¨F'±Ê÷VY#ÈÒ§Yíñ
+´E~
+wªxË	ìD!q
+ÎËà
+§=Ï 69Ä$ùô×ù|X­]N
+±èhYmý/Ñi-=¯ þsZ4w!&gt;`»(_U)(
+~Ú.úEFeÉò¹a ¨P/YãÛÚé³8G¬ çÙ¢ë¾søfxÄRy°ºÇcÖúûç³$ç­?ÀõF¦~²Àªg &lt; ß &lt; ¥ø*5#P«Ø[¼a Îá
+É[ã
+°ßiÃ=jpG¨u?ÚàqÈ®j^F°°ç. ØãÍ®bãz ä)ºÛ¼ß%;
+ëFö &lt; &quot;
+
+@ëUVÕ¼%À
+U_zºTEôi£×­ &lt; éðcpz48&amp;eþÎè1
+â²Qq	¸øyi,¢¿0ámàB
+VÃõãÀR
+ÅµDÃÀ´
+B&quot;ÕgÝ0;Ráæ}
+1&amp;Ãý
+5ø@¹:låY
+s )dýhÈ N¼½ò¼_æ¤
+Æ
+¨8ÊçÓ&gt;èÊÂ ÛÑâÒ¨n
+s
+CñÀ
+tZüÍ©0Äê 0¯&quot;ÙpÂHNR¸9ðAüúÝn}Ú³éO{ &lt; 5À°·£/õcÏ
+÷ËgÑËÇ¯ÎìÜ¿Z ¿¦Óü &lt; ÷$sÍ]õÐPß.z
+~VÀÛ¨5Laý5ç(à
+Hô,
+{r\©¤¿ØÒk
+X)Y
+ jÄð(Ï$MYB¼
+:oKW¬ÐJ÷@&amp;È
+#H_b8$;ò¨*æHh^ó)&gt;ìuÉL' Dxl ¡@fÿ*î4K
+,p©`}5 ì ¿%el¨»¾Àí#1÷M§
+Å38 å	²SóÜE¾H³#^©sò«*8®0£ümI`	þ¢åß.j!ÑÑV¤:3mòù	vV{å¦
+»ÓkqÆ!M
+qLÓyXÁCïÆày
+6E³¸À§JRh	blj¼¦kÈzl
+~¦6¯i -¾Xjl+©LUgkÄh\!ôOW%zÜV Ïá¦
+­X8+J&amp;¶@+º¢ax¼âs£}/g#v±
+[à)ýútfßç¸1M× F#Ü
+®¼§Â¬Y¼È
+ÔÆ%Yå*è ±S­(jÎF×£m²qÖÝvôâ9|«WÍû\õýArgoÔ
+
+ÜéwöîuïíÜéÞ½sx´wgçÞÁÝ;I/°?ÁfUÏð¢â^&amp;¥ØÜ
+LÕk½íï~¯E ½_L÷z+;û&quot;¥]XÜòÁÞÎîawç^wg·k8&quot;ûÉÙÙÞ
+ü¿R
+OB´
+ë
+¶á)Ð¹(Ó¿%p
+}	A|ÕÛ
+? ×Ìäë¡â
+K-k|;?Ã×O|\O£Ý{Ñß¢Oÿ2/êÏË]Õîãð)þI1ôºð
+÷ËS¬oå	}Ðû·½×ÿ Ó
+r![¬7
+wF£»GGwvþÁÑ½ÑÑÝx7öpr÷9QïþêaÍ7môãVôc ¶pôü
+Ú]W5
+GyÑ
+èèE§qëw`²¿wÔJ5C¤øyÏQRëyõ¨6ß¸ &lt; ÿf4ýb¸ð iÞm-üØCþU
+±§~¸ YùÂëîg«SyÜZ}üÞÑî¨
+ÇwwööwFýÃÁ`wo8¸{ØßÝ¹2ÝÀa'
+#`ÂjÒêq.0 Bm_prBÃ³ôêñ/Üéî
+ðïÙÎãýÃã½»ÿ½ºò
+¾öZÂýv¯yòUØ¿½öðÐã|ezDØã$w:ö
+@\Oü&quot;¯í'+z¡¤ix¤ÀRtýp:¤O]&quot;{Ë
+I×öä,Ë(§Ñ¥Dj[à®x·±
+ÇÑ÷K§x &lt; ÏdlJ]J
+&gt;Ô{râÕ
+rÀÙ/ÚLt
+Cf¯ÛôØ?ÁD»ÄF
+}EÉ9a¹Ø8,÷2I°ãduÈTQ#»pe³¶ qQÃÕÊséÂl }
+nfN§SéG#X®c\ÕNÍ
+ò&quot;I+JÊÅµªBUPdM5
+Åá	ÏîLïãS´
+óBÎ¤¶K.
+y&gt;R%, IZ£ä`vv
+\¥£9[g'aÇôZ'¦±@Ñ/fGg
+S2eò¡T¢
+
+ÒW4¦I¿Æ²1M#F¢È@È? ìVãà&gt;$ã¤oÕàÖ¡3NHê`6ß£9i
+°S²íT¶
+|Q&amp;ûüýâ­&gt;CÈ¡sI¡ÿ$Î	yo&amp;j+èÅ@#[§|ÌÈN8_¯.Ëx6»sZ%
+L)jÃÂpã½à7¸`²¥çRö3 
+Þ=6F&quot;[ÃbSÀÁsÞP2LAuªSi%Î¹ðd
+
+J¨mH¦9Ú6rv;zUv8ÞÄ[ð|ê/ÝÅÁjò]C;g%fâ&quot;ä¼½zõßM[OeDp?%
+s
+QBBn|
+ÿná)ð¾O
+PL¹
+¼A-¸¨ì[~2üÒOàäPØpÙË×ÜÞ¥!WY='¼ÐqÃL¾øJt ì
+4¥xL
+2¡£°ÏlUnìhE±-
+`,mI¶JMÑ,ç³xÄd§Îæ}´ SÅ
+#V
+Ggf\o=»W&gt;¾AhÅûÐ·¥ËsgÈ¶Øy0ã
++ü((ç¥7¥,`W
+páÈàÑ)¢Ã³ë(w
+jw#µ~ÉVøDÈSù 4d¯í;çÐpÅJ| ½2zý
+W´_Þ¾^òÆPª²xÖ
+ÆÕ°
+´+7
+!0¿%yMË6Ã;
+]ï%I34ç8Dt
+5ñn !Èæx'¯}
+4A?&quot;Vhðª&gt;z)©
+,rñ
+¨R,[À¹
+CsúÈÊyËßÃl9WVl§~â=þ:çi8+P &lt; Ó
+¼Ó6Æ ú'NEàkÎÓ#´oË,÷¨`÷tàR Þ4è_o¨Î©|ÛX#Z:ü.4¾Ä .Q½.kÜ¼
+h´ÅÃ&quot;&gt;R	{Ø/o;ClË
+Ç%ÎiÇ§.¬ÂÞäNk9¹®ïÀRã°Æ_JxÀÒZKg­9o×E»w÷F»Ã~wg0ì
+ÃnÜ?8è;ñÑÁ½äÞA &lt; ºjÉYNùÑÓÅ
+ã=öÑ§¿y°{ïîý{{ü¸»4þÉf
+FÑ½ÆPºÆ
+ÖQÖ]ý«ÆíÜR&quot;Í¼rÊBéô«ðû#ÃÜoA
+mð®­ºAÂ£KKÄèguÄím÷÷R±­/ðHXú½G&amp;Ac
+Üðfõìêbð0çáápïptg4º×¿{°7õv£ÝÃ£}lÂ{wÅ'üÃ^ì]}±Jß~À{*³ä·%
+?àý`Y`p[£)ª¸
+ÄÜn}gþê¯üWW'JR
+óÈ©W_^¢Òø±æ´ZÃ]ój8ý'ÝN1~{ö ÿ6¹|£ÏgmEûY°ÿ¸yõ
+ à~¾L*8ë+¹Î$ÁwÝÇí·¾(y÷Mï=x÷ù3eM½û|2ÌÜû/¤d'zpÂ¥]§¼96âãN\8iÔ]IÑ«Æ ãOJi«H¤#æÂÒfñ~½Ýà½1´|P9iK4s &lt; ºå`
+¸'ÎUÔ'þy¥¼¤Y\:-ôaÂ®ñÃ&quot;àsnþ°2Â½ÈÆ¿Å)
+f¿X72IºmJ¼@ò7èI¤¸ø¯t
+C'	^?¤ã·øk
+±©ñM$SMÆÂ®f(GòG0fSVÚ#Io&amp;úcÞxä­2ÌÓííË°+§ i¨! µÔ®±i4
+oÏªãlFtâE'¢ìÒÎ´øé¡@DJ2¸ÜxèzëÂÓÒ(f¸F
+4:F&quot;@ñ 5¼*´=!©aV§ýà¥mqÃÎ8^ìLùÃv:©X¾¬KoêFU$3Î^(© 'Ð0ÌTB©²
+â£ üeh°Í¥³w¥£]µLH©w¤ú,
+¦¢­3·a±3þ°ßÓqbÁËl
+ËEóï'5¾ìðÌ§ódÈû®½g ÷®9­ &lt; ©&gt;bÏ²GÐùÐ·¦A©´µµ§XnGV,
+Sö¥iiDé­¢ì
+CG
+!3Ñ
+ÏÙ¢s¡³}çÜÃ$:,+³OQÏwove®1f@¢4.ÇÚkå6¸t«øÐ&quot;7ñ6Þ1u¹ &lt; ­·lr
+®ãè«Â4è`È._ù&quot;zÞ·ü2q #õÙ|d¢À)Ëhð©&quot;rþÛÿYÚµÅåvôÚÝ£ñ#*Ä&gt;
+ÉÂ±¼ëÂd¨p¬Æ6þ T &lt; n )£Û4ÊH`' É;á=ª;£ë¶ÉÐ&gt;$y8Ì;&gt;$?Ô|2ûÔ V
+K÷lp¸A0 &lt; $®¸ð.ÉIA
+#ÚÌÍòà|±&quot;ç^©,N(÷Ó¬s¤ ©
+îøF
+0?Ö[GQÓ
+)·¼v9¢|?W	a-àélb£Az±~[TÒ£øåä@^î%=¬?·SZUEXÔ£Þ	#Êô0çYÈé¸]åÈc;L.¬/}EfìÂvêüwr*ÇÞ¯¶a ¯©0.±H;iø²sÑåJpSz±ý§×8
+Ä
+aép6b!ù°÷ÑY F²©mSãìÅÊ¿hÔ=¡¥Ú.94Å!àg
+d,J ?</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Azure has experienced several critical cross-tenant vulnerabilities, indicating fundamental security weaknesses within its cloud architecture. The remediation process has been notably problematic, with Microsoft reportedly failing to implement correct and lasting fixes, sometimes breaking previous patches. This recurring pattern raises serious questions about Azure's security posture and its incident response effectiveness.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community is highly critical of Azure's repeated cross-tenant vulnerabilities, with many noting that Microsoft's fixes have been inadequate or have introduced new problems. There's a perception that Azure has more cross-tenant leaks than its competitors. Users commend the researcher for uncovering these complex bugs, while also expressing frustration with Microsoft's security practices and internal staffing decisions.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>binarysecurity.no</span>
+        <span>·</span>
+        <span>312 pts</span>
+        <span>·</span>
+        <span>58 comments</span>
+        <span>·</span>
+        <span>by swq115</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.binarysecurity.no/posts/2026/10/one-root-case" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50301854" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Emulation 🎮</div>
+
+            <h2 class="story-title"><a href="https://github.com/dbreunig/nesformer" target="_blank" rel="noopener">NES CPU and RAM Compiled into Qwen LLM Weights</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - dbreunig/nesformer: An NES CPU compiled into the weights of a stock Qwen3.5 model · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project demonstrates a novel method of embedding a complete Nintendo Entertainment System CPU and RAM directly into the weights of a Qwen LLM, building on the Qwenputer concept. It leverages the model's Gated DeltaNet state to function as the machine's memory. While a significant technical achievement, this approach highlights the extreme inefficiency of LLMs for deterministic computation, running hundreds of times slower than traditional emulation.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community finds this project a fascinating, if inefficient, demonstration of compiling complex systems into LLM weights, with some seeing potential for embedding small VMs or interpreters within LLMs. Many acknowledge it as a 'hack' that underscores the massive computational overhead of LLMs compared to deterministic programs, noting the significant performance penalty. The technical ingenuity of simulating both CPU and RAM within the model's weights is appreciated, though some question the practical utility of such an approach.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>255 pts</span>
+        <span>·</span>
+        <span>122 comments</span>
+        <span>·</span>
+        <span>by dbreunig</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/dbreunig/nesformer" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50306442" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">🔭 Terminal Utility</div>
+
+            <h2 class="story-title"><a href="https://github.com/da-luce/astroterm" target="_blank" rel="noopener">Astroterm Brings Planetarium Features to the Command Line</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - da-luce/astroterm: A planetarium for your terminal! Explore stars, planets, constellations, and more, all rendered right in the command line—no telescope required. You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Astroterm is a new tool that renders celestial objects directly within the command line, offering a planetarium experience without a graphical interface. This project demonstrates a creative application of Text-User Interface (TUI) technology for exploring astronomical data. It highlights the potential for engaging and educational experiences within a terminal environment.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely praises Astroterm's impressive creativity and intelligent design, with some users finding it 'really cool' and integrating it into their workflows, such as a screensaver. While some question its suitability as a TUI application, others appreciate its novelty and suggest expanding its features to include objects like the ISS or Starlink, noting challenges with satellite tracking data. The project's well-written README also received positive feedback.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>231 pts</span>
+        <span>·</span>
+        <span>27 comments</span>
+        <span>·</span>
+        <span>by nvmdbljstm</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/da-luce/astroterm" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50270651" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI/ML 🧠</div>
+
+            <h2 class="story-title"><a href="https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/" target="_blank" rel="noopener">Sleep Framework Enhances LLM Knowledge Retention in Continual Learning</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">The sleep framework: A new way for LLMs to retain knowledge in continual learning</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The 'sleep framework' proposes a novel method for LLMs to consolidate knowledge during continual learning, leveraging techniques like on-policy distillation and parameter expansion. This approach aims to prevent catastrophic forgetting by selectively integrating new memories without overwriting previously learned information. Its effectiveness and scalability to very large models are key areas of interest.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community praises the article's clarity in explaining technical concepts, with some noting similarities to Meta's Muse and DreamCoder. While viewed as a crucial step towards AGI, concerns are raised regarding the framework's scalability to much larger models, as experiments were conducted on comparatively smaller ones. The efficiency of parameter expansion and the lack of published data on parameter storage (e.g., system RAM, SSD) are also points of discussion.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>research.google</span>
+        <span>·</span>
+        <span>230 pts</span>
+        <span>·</span>
+        <span>30 comments</span>
+        <span>·</span>
+        <span>by acossta</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50272479" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-10-30.html">
+        <small>Previous issue</small>
+        <strong>← October 30, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
