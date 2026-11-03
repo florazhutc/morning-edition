@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 181, November 03, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — November 03, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 181</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Tuesday</span>
+                    <time datetime="2026-11-03">November 03, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">LLMs Like Astra Can Read and Write Neural Network Weights, Improving Models Like Qwen</span>
+            <span class="toc-score">2790 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">HackerTube: AI-Generated YouTube Clone Curates Videos from Hacker News</span>
+            <span class="toc-score">2841 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">HackerBooks: An AI-Generated Index of Books Mentioned on HN</span>
+            <span class="toc-score">1828 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Ubuntu Delays Patch for Critical Linux Kernel TCP Vulnerability (CVE-2026-98432)</span>
+            <span class="toc-score">1552 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">PostgreSQL 19 Release Delayed as AI Tools Uncover More Bugs</span>
+            <span class="toc-score">829 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Subvocal Smart Glasses Translate Internal Speech to Text</span>
+            <span class="toc-score">733 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">NIST Releases Cybersecurity Guide for Self-Employed and Solopreneurs</span>
+            <span class="toc-score">252 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Linux System Call Website and API Receives Major Update</span>
+            <span class="toc-score">225 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Momentic Launches AI Agents for End-to-End Application Bug Detection</span>
+            <span class="toc-score">147 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Hacker Times Renders Hacker News in a Newspaper-Style Format</span>
+            <span class="toc-score">331 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">AI Capabilities 🧠</div>
+
+            <h2 class="story-title"><a href="https://rikiyat.github.io/blog/weight-space-programming/" target="_blank" rel="noopener">LLMs Like Astra Can Read and Write Neural Network Weights, Improving Models Like Qwen</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Sparks of Weight-Space Programming: LLMs can natively read &amp; write neural network weights Sparks of Weight-Space Programming: LLMs can natively read &amp; write neural network weights We find that frontier LLMs are surprisingly good at natively reading and writing neural network weights , well past what we’d expect from humans or conventional algorithms. This might be a big deal for both optimization and interpretability. Just by looking at the raw weights, GPT-6 Astra can tell what a network was trained to do .</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Frontier LLMs, exemplified by GPT-6 Astra, demonstrate an unexpected ability to natively read and write neural network weights. This capability allows them to understand a network's function and directly edit its parameters to improve performance, such as enhancing a small Qwen model's math skills. This breakthrough could significantly impact AI optimization and interpretability, offering new avenues for model development and understanding.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses a mix of awe and skepticism, with some calling the capability 'insane' while others caution against overstating the results. Debate centers on the reported '5x improvement' in Qwen's math skills, with one user suggesting the baseline was misrepresented due to a 'thinking mode' where the model looped. There's also discussion on whether this is an emergent capability or a consequence of specific training data and existing research in dynamic weight generation. Some commenters also suggest the paper might conflate distinct findings.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>rikiyat.github.io</span>
+        <span>·</span>
+        <span>2790 pts</span>
+        <span>·</span>
+        <span>853 comments</span>
+        <span>·</span>
+        <span>by dbreunig</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://rikiyat.github.io/blog/weight-space-programming/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50341174" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Content Curation 🤖</div>
+
+            <h2 class="story-title"><a href="https://karpathy.bearblog.dev/hacker-tube/" target="_blank" rel="noopener">HackerTube: AI-Generated YouTube Clone Curates Videos from Hacker News</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">It was Friday night at 11pm, I was tired, I went to YouTube to watch something and realized that I was looking at an enshittified wall of slop. Insanely exaggerated thumbnails, dumb recommendations of the same tired topics, truly terrible idiocracy-grade content. I'm sure this algorithm works well for the median person on the internet, but it definitely does not work for me. So this morning (Saturday) I took a hold of my Opus 5.5 and gave it the task: Let's write our own YouTube clone based on whatever videos have been recommended on Hacker News. And Opus came back with: hackertube.org !</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">HackerTube exemplifies how AI tools can rapidly create alternative content platforms, offering a curated experience distinct from mainstream &quot;enshittified&quot; feeds. This project underscores a user-driven demand for disaggregated content recommendations, potentially empowering individuals to build personalized media ecosystems. It suggests a future where AI facilitates the creation of niche platforms that challenge established content monopolies.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely praises HackerTube as a successful example of content feed disaggregation, offering &quot;pure nerd content&quot; and a better hit rate than personalized YouTube feeds for many users. Commenters highlight the potential for AI to facilitate such custom content curation and software development, viewing it as a way to challenge existing monopolies. However, some express concerns about the long-term moderation challenges and sustainability if such niche platforms gain widespread popularity.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>karpathy.bearblog.dev</span>
+        <span>·</span>
+        <span>2841 pts</span>
+        <span>·</span>
+        <span>632 comments</span>
+        <span>·</span>
+        <span>by karpathy</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://karpathy.bearblog.dev/hacker-tube/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50319510" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Books 🤖📚</div>
+
+            <h2 class="story-title"><a href="https://hackerbooks.org" target="_blank" rel="noopener">HackerBooks: An AI-Generated Index of Books Mentioned on HN</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Saw Karpathy's HackerTube and wanted the same thing for books. So I had Claude build one (Opus 5.5). It's ~16.5k books that at least two different HN commenters brought up, from 2007 till now. Each book links back to the comments that mentioned it. Data is downloadable from the about page. To be clear: Claude wrote almost all of it, including the data pipeline and the site. I mostly steered and made calls, bought the domain name, etc. It counts mentions, so it's not perfect (praising a book and trashing it both count). If your favourite book is missing or matched to the wrong thing, tell me.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">HackerBooks is an AI-generated index of approximately 16,500 books mentioned in Hacker News comments since 2007, with each entry linking back to its original mentions. The creator highlights that Claude (Opus 5.5) developed nearly all of the project, including the data pipeline and website, showcasing advanced AI capabilities in end-to-end project development. This initiative demonstrates an innovative approach to curating community-driven data using large language models.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community is actively engaging with HackerBooks, requesting features such as a fiction-only filter and reporting missing book entries. There's a discussion about a potential decline in book mentions on HN since 2022, with some speculating on the influence of LLMs. Commenters also recall similar past projects that are no longer maintained, expressing hope for the longevity of HackerBooks, and one user shared a related project they developed.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>hackerbooks.org</span>
+        <span>·</span>
+        <span>1828 pts</span>
+        <span>·</span>
+        <span>303 comments</span>
+        <span>·</span>
+        <span>by roansh</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://hackerbooks.org" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50326821" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Security 🔒</div>
+
+            <h2 class="story-title"><a href="https://chalmovsky.com/posts/wtf-ubuntu" target="_blank" rel="noopener">Ubuntu Delays Patch for Critical Linux Kernel TCP Vulnerability (CVE-2026-98432)</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">In case you missed it: CVE-2026-98432 is a critical (CVSS 9.8)
+bug in the Linux kernel's TCP code. It's been there since 2016, so virtually every Linux server on the planet
+has it, and it can be hit remotely. Anthropic says it built a working exploit that gets root on a server. Debian patched it on October 16 . Ubuntu still doesn't have a patch more than two weeks later.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A critical Linux kernel TCP vulnerability, present since 2016 and remotely exploitable, remains unpatched in Ubuntu's default repositories weeks after disclosure and Debian's fix. Despite a CVSS score of 9.8, Ubuntu initially prioritized it as 'High,' leading to community concern over the delay and lack of transparent communication. This situation highlights the tension between rapid patching of severe vulnerabilities and the stability testing required for widespread distribution updates.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses frustration over Ubuntu's delayed patch for CVE-2026-98432, noting that fixes are only available in 'proposed' repositories and not yet in stable updates. There's significant debate regarding Ubuntu's 'High' priority rating for a 9.8 CVSS vulnerability, with some pointing to a low EPSS score (&lt;1%) suggesting low real-world exploitability, while others cite Anthropic's claim of a root exploit. Canonical's product team has acknowledged the feedback, confirming fixes in -proposed and a published blog post, but users still desire more proactive official communication and clarity on the patching timeline.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>chalmovsky.com</span>
+        <span>·</span>
+        <span>1552 pts</span>
+        <span>·</span>
+        <span>647 comments</span>
+        <span>·</span>
+        <span>by chalmovsky</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://chalmovsky.com/posts/wtf-ubuntu" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50337608" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Software Development 🐛</div>
+
+            <h2 class="story-title"><a href="http://rhaas.blogspot.com/2026/10/postgres-19-is-late-and-its-ais-fault.html" target="_blank" rel="noopener">PostgreSQL 19 Release Delayed as AI Tools Uncover More Bugs</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Robert Haas: Postgres 19 is late, and it's AI's fault Over the past decade, the timing of PostgreSQL major releases has become very predictable: no earlier than the middle of September, and no later than the middle of October. This year is going to be different. PostgreSQL 19 most likely won’t be released until November, and it’s not impossible that the project could decide to postpone the release further. Moreover, this year, several rather large features were reverted quite late in the beta period: UPDATE/DELETE FOR PORTION OF , SQL Property Graph Queries (SQL/PGQ), and ALTER TABLE … MERGE PARTITION/SPLIT PARTITION were all reverted between August 27 and September 15.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The PostgreSQL 19 release is significantly delayed, with several major features reverted late in the beta cycle. This postponement is attributed to a substantial increase in bug discovery, largely facilitated by AI-assisted tools. The project faces the challenge of addressing a higher volume of identified issues, impacting its predictable release schedule.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely views AI-assisted bug discovery as a positive development, likening it to 'repaying technical debt' and improving code quality, even in mature codebases. Commenters note AI's strong performance in 'read-only search tasks' like bug identification compared to 'write tasks' such as feature generation. However, a significant challenge highlighted is the need to scale verification and fixing processes, as the increased rate of bug discovery now outpaces the capacity for validation and resolution by maintainers.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>rhaas.blogspot.com</span>
+        <span>·</span>
+        <span>829 pts</span>
+        <span>·</span>
+        <span>498 comments</span>
+        <span>·</span>
+        <span>by soheilpro</span>
+    </div>
+
+    <div class="story-links">
+        <a href="http://rhaas.blogspot.com/2026/10/postgres-19-is-late-and-its-ais-fault.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50312408" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Wearable Tech 👓</div>
+
+            <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=50340088" target="_blank" rel="noopener">Subvocal Smart Glasses Translate Internal Speech to Text</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hi HN, we're Aarush and Arnav from The Subvocal Company (YC F26) ( https://subvocal.company/ ). We’re building smart glasses that let you talk to your computer without talking out loud. You can mouth words silently and discreetly and the glasses decode them to text at the speed of speech. Here's a video of Dave from YC trying it out: https://www.youtube.com/watch?v=9QdX1eObVYI (Edit: you don't actually have to move your lips or even open your mouth for this to work! Since the RF can see inside your mouth the system can be fine tuned on &quot;internal speech&quot;. This isn't the automatic tongue movemen</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Subvocal has developed smart glasses that convert internal speech into text, allowing users to interact with computers silently and discreetly. This technology bypasses the need for audible vocalization or even visible lip movement, offering a novel solution for hands-free computing and accessibility in environments where traditional voice dictation is impractical. Its ability to decode 'internal speech' represents a significant advancement in human-computer interface.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expressed strong enthusiasm for the product, highlighting its potential for accessibility, particularly for individuals with physical limitations or those working in open-plan offices. Users appreciated the 'sci-fi' nature of the technology and its potential for hands-free computing in noisy environments. Several commenters requested design considerations like adjustable nose pads and compatibility with existing prescription glasses, while others envisioned future integrations with broader smart glasses platforms. A privacy concern was raised, referencing Google's past hesitation with similar internal speech detection due to potential for correlating sensitive user data.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>news.ycombinator.com</span>
+        <span>·</span>
+        <span>733 pts</span>
+        <span>·</span>
+        <span>348 comments</span>
+        <span>·</span>
+        <span>by aarushyadav</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://news.ycombinator.com/item?id=50340088" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50340088" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Cybersecurity Guides 🔒</div>
+
+            <h2 class="story-title"><a href="https://www.nist.gov/news-events/news/2026/11/self-employed-solopreneur-nist-has-cybersecurity-guide-just-you" target="_blank" rel="noopener">NIST Releases Cybersecurity Guide for Self-Employed and Solopreneurs</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">NIST Has a Cybersecurity Guide Just for You | NIST Skip to main content Official websites use .gov A .gov website belongs to an official government organization in the United States. Secure .gov websites use HTTPS A lock ( ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">NIST has released a cybersecurity guide aimed at self-employed individuals and solopreneurs. However, community feedback suggests the guide may miss its mark due to inaccessible language and jargon. Critics argue it lacks practical, actionable advice for its non-technical target audience.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News commenters largely express skepticism regarding the guide's effectiveness for its intended audience. Many criticize its use of jargon and academic titling, arguing it fails to simplify cybersecurity for non-technical self-employed individuals. There's a consensus that while well-intentioned, the guide may lack practical, actionable advice, with some users specifically requesting more accessible resources and validation of its content.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>nist.gov</span>
+        <span>·</span>
+        <span>252 pts</span>
+        <span>·</span>
+        <span>74 comments</span>
+        <span>·</span>
+        <span>by tomrod</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.nist.gov/news-events/news/2026/11/self-employed-solopreneur-nist-has-cybersecurity-guide-just-you" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50340619" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Linux Development 🐧</div>
+
+            <h2 class="story-title"><a href="https://syscall.sh/" target="_blank" rel="noopener">Linux System Call Website and API Receives Major Update</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">I first released those in back in 2020 and now I finally added more architectures, Kernel selector, syscall descriptions and a few other niceties. It should work a bit better on mobile devices too but I am no CSS expert. The API is at https://api.syscall.sh</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The updated Linux System Call website and API now offers expanded support for various architectures and kernel versions, alongside detailed syscall descriptions. This enhancement significantly improves its utility for developers working with low-level Linux programming. The added features make it a more comprehensive and accessible resource for understanding system call intricacies.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community generally praises the updated resource, finding it valuable for learning and development, particularly for specific architectures like aarch64. Discussions include suggestions for kernel-level improvements regarding string handling in syscalls, methods for verifying syscall values directly on a system, and clarifications on architecture-specific syscall number placement. Users also inquired about the project's build process and potential staleness, with one commenter mentioning a related CLI tool they developed.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>syscall.sh</span>
+        <span>·</span>
+        <span>225 pts</span>
+        <span>·</span>
+        <span>52 comments</span>
+        <span>·</span>
+        <span>by guitmz</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://syscall.sh/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50334704" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">AI Testing 🧪</div>
+
+            <h2 class="story-title"><a href="https://momentic.ai/" target="_blank" rel="noopener">Momentic Launches AI Agents for End-to-End Application Bug Detection</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">AI QA Engineer &amp; AI Testing Platform | Momentic Mo is an AI QA engineer that tests your app end to end. Verify critical flows and find bugs from a prompt. Trusted in production by teams shipping every day. &quot;Our team's experience with Momentic has been great.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Momentic introduces an AI QA engineer, Mo, designed for end-to-end application testing to identify bugs and verify critical user flows. This platform leverages AI agents to interact with applications, aiming for high recall in bug detection. It allows teams to find bugs from a simple prompt.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community questions Momentic's competitive edge against self-hosted LLMs with custom Playwright harnesses or open-source alternatives, citing concerns over its cloud-based speed and cost. Users also raised technical inquiries about the agents' ability to manage failure modes like infinite retry loops. Furthermore, a user reported an unexpected email sharing incident with Slack upon login, prompting privacy concerns, while others expressed interest in benchmarks with source code access.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>momentic.ai</span>
+        <span>·</span>
+        <span>147 pts</span>
+        <span>·</span>
+        <span>98 comments</span>
+        <span>·</span>
+        <span>by wuweiweiwu</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://momentic.ai/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50339913" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">UI/UX ✨</div>
+
+            <h2 class="story-title"><a href="https://hackertimes.ca/" target="_blank" rel="noopener">Hacker Times Renders Hacker News in a Newspaper-Style Format</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">I thought it would be fun to browse HN as if it were a newspaper. The site updates once an hour. Enjoy!</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Hacker Times reimagines the Hacker News interface with a newspaper-inspired design, updating hourly to offer a different browsing experience. This approach aims to encourage users to engage with content more deeply than the traditional high-density HN layout. It reflects a broader community interest in alternative UIs for content discovery.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community notes a recurring trend of similar HN redesign projects, with several examples shared. While some users express strong preference for Hacker News's classic, high-density interface, others appreciate Hacker Times for its improved readability and ability to encourage deeper engagement with articles. Questions were raised regarding the value proposition of a full site versus a browser extension and the potential negative association with the New York Times brand.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>hackertimes.ca</span>
+        <span>·</span>
+        <span>331 pts</span>
+        <span>·</span>
+        <span>104 comments</span>
+        <span>·</span>
+        <span>by polpenn</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://hackertimes.ca/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50346981" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-11-02.html">
+        <small>Previous issue</small>
+        <strong>← November 02, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
