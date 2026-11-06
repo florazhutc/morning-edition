@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 184, November 06, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — November 06, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 184</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Friday</span>
+                    <time datetime="2026-11-06">November 06, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Unix `*` Password Placeholder Exposes Magic String Vulnerabilities</span>
+            <span class="toc-score">2770 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">AI Exposes Decades of Technical Debt, Prompting Cybersecurity Reckoning</span>
+            <span class="toc-score">1279 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Claude Code Transmits User Email Addresses in HTTP User-Agent Headers ⚡</span>
+            <span class="toc-score">1256 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Bilateral Cochlear Implant User Details Psychophysics Experience ⚡</span>
+            <span class="toc-score">182 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Kino AI Launches as an AI Media Manager and Collaborative Video Editor</span>
+            <span class="toc-score">107 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Two-Person Lab Develops Text-to-Image Model for $20K, Challenging High-Compute Paradigms</span>
+            <span class="toc-score">244 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Firenook Offers Rust-Based Firebase Emulators with Significant Performance Improvements</span>
+            <span class="toc-score">140 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Kagi Opens Web Search to All Users Without Account Requirement</span>
+            <span class="toc-score">694 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Mark Cuban Alleges Meta Knowingly Profits $16B from AI Deepfake Scam Ads</span>
+            <span class="toc-score">391 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Hackintosh Explored: Running macOS on Non-Apple Hardware and the ARM Transition</span>
+            <span class="toc-score">339 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Security</div>
+
+            <h2 class="story-title"><a href="https://sshhole.com" target="_blank" rel="noopener">Unix `*` Password Placeholder Exposes Magic String Vulnerabilities</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">back in old unix your password hash just sat in /etc/passwd , right next to your username. in 1980 bill joy put a * there for an account called daemon . nobody's supposed to ever log in as it. a * isn't a hash, so no password can match it. Address github.com/dspinellis/unix-history-repo/blob/BSD-3/etc/passwd</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The historical Unix practice of using `*` in `/etc/passwd` to denote an unmatchable password illustrates the pitfalls of in-band signaling. This 'magic string' can be misinterpreted by authentication systems, potentially leading to vulnerabilities when cryptographic functions mishandle its special meaning. Modern software development should prioritize explicit error handling over overloaded string semantics to prevent such ambiguities.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Commenters highlight that the `*` character, intended to prevent password matches, creates a vulnerability due to in-band signaling, particularly in how `crypt` and `sshd` validate passwords. They criticize musl-libc for an incomplete workaround and advocate for a 'no magic strings' rule, preferring explicit failure values over special string interpretations. The discussion also touches on the broader argument that long-standing 'battle-tested' software isn't inherently secure due to accumulated cruft.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>sshhole.com</span>
+        <span>·</span>
+        <span>2770 pts</span>
+        <span>·</span>
+        <span>673 comments</span>
+        <span>·</span>
+        <span>by josemrb</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://sshhole.com" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50378228" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">🤖 AI &amp; Cybersecurity</div>
+
+            <h2 class="story-title"><a href="https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability" target="_blank" rel="noopener">AI Exposes Decades of Technical Debt, Prompting Cybersecurity Reckoning</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">PHP2Shell Is a Wakeup Call for AI in Cybersecurity - IEEE Spectrum IEEE.org IEEE Xplore IEEE Standards IEEE Job Site More Sites The November issue of IEEE Spectrum is here! The PHP2Shell Vulnerability Heralds Cybersecurity Hell Aerospace AI Biomedical Climate Tech Computing Consumer Electronics Energy History of Technology Robotics Semiconductors Telecommunications Transportation</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">AI is increasingly exposing long-standing technical debt and critical cybersecurity vulnerabilities, exemplified by issues like PHP2Shell. This development is prompting a necessary reckoning with decades of accumulated software issues. While initially challenging, it could lead to more secure software in the long term.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community views AI as a tool that, despite initially exposing numerous zero-days and CVEs, could ultimately lead to more secure software. Many believe AI lowers the cost of addressing technical debt, enabling developers to improve code quality and address years of accumulated issues. However, some question whether this is a true 'payoff' or an 'endless treadmill' of fixes, noting that AI is also changing risk calculations for security certifications. There is also speculation that AI might incidentally discover nation-state backdoors.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>spectrum.ieee.org</span>
+        <span>·</span>
+        <span>1279 pts</span>
+        <span>·</span>
+        <span>744 comments</span>
+        <span>·</span>
+        <span>by pseudolus</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50364336" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">AI Privacy 🤖🔒</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://github.com/anthropics/claude-code/issues/107757" target="_blank" rel="noopener">Claude Code Transmits User Email Addresses in HTTP User-Agent Headers</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Bug Report: Privacy violation in User-Agent header · Issue #107757 · anthropics/claude-code · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Claude Code was found to embed user email addresses within HTTP User-Agent headers when making requests, raising significant privacy concerns. While some APIs might require such identification, this behavior occurred without explicit user consent in other contexts. Anthropic has acknowledged the issue and is implementing fixes to prevent the transmission of user emails.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Users reported an increase in spam emails, attributing it to Claude Code's behavior. The community questioned the extent of Claude's access to user details and external resources without explicit permission. While some noted that specific APIs, like the SEC API, mandate email in the User-Agent, Anthropic employees confirmed the privacy violation and announced a forthcoming update to remove email addresses from the model's context. A privacy plugin (`cc-plugin-privacy`) was also released in version 2.1.317+ as an initial mitigation.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>1256 pts</span>
+        <span>·</span>
+        <span>398 comments</span>
+        <span>·</span>
+        <span>by motoroco</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/anthropics/claude-code/issues/107757" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50385272" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Health &amp; Technology 👂</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://claude.ai/artifact/L8qsMc3SorytGW3LA81nYf" target="_blank" rel="noopener">Bilateral Cochlear Implant User Details Psychophysics Experience</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Content is user-generated and unverified.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A bilateral cochlear implant user provides a personal account of their psychophysics, detailing their unique auditory perception. This perspective highlights the significant challenges in replicating natural hearing with current implant technology, particularly concerning speech and music processing. Experts note that limitations at the auditory nerve interface remain a major hurdle despite extensive research.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News commenters, including an ENT surgeon with bilateral cochlear implants, highlighted the significant limitations at the auditory nerve interface that hinder improvements in speech and music processing with current technology. Discussions also touched on the nuanced perception of sound versus physical vibrations, with one user suggesting voice transformation software like Voicemod might aid understanding. The GitHub repository for the data was shared, and one comment praised the work as a 'best use of AI'.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>claude.ai</span>
+        <span>·</span>
+        <span>182 pts</span>
+        <span>·</span>
+        <span>84 comments</span>
+        <span>·</span>
+        <span>by mi-rae</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://claude.ai/artifact/L8qsMc3SorytGW3LA81nYf" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50381033" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Video Editing &amp; AI 🎬</div>
+
+            <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=50368804" target="_blank" rel="noopener">Kino AI Launches as an AI Media Manager and Collaborative Video Editor</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hi HN! I'm Luke from Kino ( https://kino.ai ). Kino lets you make great videos with your agents and your teammates. Storage of footage and assets, a rich video editor, and review links for teammates are all bundled into one. Your colleagues and Codex / Claude Code can work on the same timeline with review notes and footage all in one place. See a basic overview at https://kino.ai/walkthrough-video and our launch video (made entirely with Kino!) at https://kino.ai/launch-video Opus 5.5 can edit videos and make great motion graphics now. But with a raw agent harness, you need to describe tiny ed</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Kino AI integrates media management, a rich video editor, and collaboration tools, enabling both human teammates and AI agents to work on the same video timeline. This platform aims to streamline the video creation process by simplifying asset storage, editing, and review workflows. It offers a more controlled and user-friendly approach to AI-driven video editing compared to direct interaction with raw AI agent harnesses.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely praises Kino AI for simplifying complex video editing and media organization, which users often find overwhelming with traditional tools. Many appreciate its ease of use and enhanced control compared to direct AI agent interaction, noting its effectiveness for solo creators and specific use cases like competition videos. Users have expressed interest in features such as eye-contact correction and templates, while also inquiring about the underlying technical choices.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>news.ycombinator.com</span>
+        <span>·</span>
+        <span>107 pts</span>
+        <span>·</span>
+        <span>35 comments</span>
+        <span>·</span>
+        <span>by lukeigel</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://news.ycombinator.com/item?id=50368804" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50368804" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">Generative AI 🎨</div>
+
+            <h2 class="story-title"><a href="https://www.linum.ai/field-notes/pjit-21k" target="_blank" rel="noopener">Two-Person Lab Develops Text-to-Image Model for $20K, Challenging High-Compute Paradigms</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">My brother and I run a 2-person lab that trains our own generative video models from scratch. The ultimate goal is a set of creative tools that make it easier for anyone to make animation. Video models today are too slow/expensive and lack sufficient controls. Creativity is an iterative process. You make, you tweak, you get better. In our opinion, they're not usable yet for storytelling. When we set out to build Linum v3 (our next video model) earlier this year, the primary goal was to bring the cost envelope of inference down significantly. If our model is fast and cheap, it's the first step </p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">This project demonstrates a significant reduction in the cost of training generative AI models, addressing a major barrier to making advanced creative tools more accessible. By prioritizing efficiency, the developers aim to enable iterative creative processes for animation and storytelling that are currently hindered by slow and expensive models. This approach challenges the prevailing high-compute strategies often employed by larger research labs.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expressed considerable praise and surprise regarding the model's $20K training cost, viewing it as a remarkable achievement in efficiency compared to prior models. Many commenters highlighted how this low-cost approach could disrupt the compute-intensive strategies of larger labs. While generally impressed with the image quality, users pointed out common text-to-image model limitations, such as issues with rendering hands. There was significant interest in the training methodology, including details on the 660M image dataset, the decision to omit a VAE, and requests for the full training recipe to be released.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>linum.ai</span>
+        <span>·</span>
+        <span>244 pts</span>
+        <span>·</span>
+        <span>23 comments</span>
+        <span>·</span>
+        <span>by schopra909</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.linum.ai/field-notes/pjit-21k" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50368208" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Developer Tools 🛠️</div>
+
+            <h2 class="story-title"><a href="https://firenook.dev/" target="_blank" rel="noopener">Firenook Offers Rust-Based Firebase Emulators with Significant Performance Improvements</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hi HN, we have been developing with Firebase for a long time, and the only way Firebase developers can build apps without directly costing them is using the official Firebase Emulator Suite. However, the issue with this suite is, it's dependent and running on Java with a old Console UI (not updated in years), that was not built to support tons and millions of data and has pretty bad developer experience. For a long time, we were hitting Out of Memory on even high specs laptop while developing and the worst part is while this happens all the persists data keep getting lost. We were honestly fru</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The official Firebase Emulator Suite is criticized for its Java dependency, poor performance, high memory consumption, and outdated UI, leading to developer frustration and data loss. Firenook addresses these issues by providing Rust-based emulators that offer substantial improvements, including 40x faster writes and 10x less RAM. This initiative significantly enhances the local development experience for Firebase users.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses strong positive reception for Firenook, acknowledging its solution to long-standing issues with the official Firebase emulators, such as Google's neglect of the developer experience. Discussions also include questions about outgrowing Firebase, the potential for self-hosting, and interest in replacing cloud production services. Another Rust-based open-source Firebase Realtime Database project was also mentioned as a potential collaboration.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>firenook.dev</span>
+        <span>·</span>
+        <span>140 pts</span>
+        <span>·</span>
+        <span>18 comments</span>
+        <span>·</span>
+        <span>by sanjevirau</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://firenook.dev/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50378643" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Search Engine 🔍</div>
+
+            <h2 class="story-title"><a href="https://kagi.com/changelog#11820" target="_blank" rel="noopener">Kagi Opens Web Search to All Users Without Account Requirement</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Nov 5th, 2026 - Your friends and family can finally try Kagi # As many of you know, we don't run ads anywhere . Instead, we are active on social media and online communities to stay close to you, build a great product, and rely on word of mouth . We've heard that it can be hard to recommend a search engine when your friends can't try it without creating an account. That's changed: anyone, anywhere, can now visit kagi.com and search the web .</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Kagi has removed the need for an account to use its web search, a strategic move to lower the barrier to entry and facilitate word-of-mouth adoption. This change addresses a key hurdle for potential new users, aligning with Kagi's reliance on community engagement and product quality for growth. The company anticipates this will significantly increase trials and expand its user base.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community response highlights a core of happy, long-term Kagi subscribers who appreciate features like custom site rankings. However, recurring concerns include the $10/month subscription cost, particularly for users who don't fully leverage AI features or find API usage excluded from their plan. Users also express a desire for specific enhancements, such as DNS-based safesearch and better map integration, while some new users are considering Kagi as an alternative due to growing dissatisfaction with the quality of results from other major search engines.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>kagi.com</span>
+        <span>·</span>
+        <span>694 pts</span>
+        <span>·</span>
+        <span>369 comments</span>
+        <span>·</span>
+        <span>by elashri</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://kagi.com/changelog#11820" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50383740" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">💸 Digital Fraud &amp; AI Scams</div>
+
+            <h2 class="story-title"><a href="https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html" target="_blank" rel="noopener">Mark Cuban Alleges Meta Knowingly Profits $16B from AI Deepfake Scam Ads</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Mark Cuban says Facebook knowingly runs AI deepfake scam ads as Meta docs reveal $16 billion in fraud-linked revenue Skip to navigation Skip to main content Skip to right column</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Mark Cuban's accusation, supported by internal Meta documents, suggests the company knowingly profits from AI deepfake scam advertisements. This raises significant concerns about platform accountability and the ethical implications of monetizing fraudulent content, particularly as AI-generated scams become more sophisticated. The reported $16 billion in fraud-linked revenue underscores the scale of the problem and the potential for systemic negligence or deliberate inaction.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community expresses significant frustration with Meta's perceived inaction on scam ads, with users reporting that their attempts to flag obvious violations are often dismissed. Commenters widely believe Meta knowingly profits from these fraudulent activities, citing the reported $16 billion figure and suggesting a double standard for large advertisers. There are strong calls for increased platform accountability, advertiser liability, and even legal consequences for executives, with some noting similar issues on other major platforms and across Facebook Marketplace.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>finance.yahoo.com</span>
+        <span>·</span>
+        <span>391 pts</span>
+        <span>·</span>
+        <span>181 comments</span>
+        <span>·</span>
+        <span>by randycupertino</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50385870" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">Operating Systems &amp; Hardware 💻</div>
+
+            <h2 class="story-title"><a href="https://www.naut.ca/blog/2026/11/05/the-hackintosh-reborn-with-ai/" target="_blank" rel="noopener">Hackintosh Explored: Running macOS on Non-Apple Hardware and the ARM Transition</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">A &quot;Hackintosh&quot; is the feat of running macOS on non-Apple hardware, and has a history dating back to the late 1980s. Almost a decade ago, I released a hackintosh guide on running macOS 10.14 through a VM with an x86 host. At the time KVM and PCI passthrough were relatively new technologies, and this guide allowed near-native performance with GPU acceleration. A few years passed by, and we saw Apple release the first ARM-based Mac in 2021, the M1 MacBook Air. The timing was impeccable, Intel was unable to create competitive processors (due to being stuck on the 14nm node), and Apple had powerful and efficient ARM chips already being shipped in their iPhones.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The Hackintosh movement, historically focused on running macOS on x86 non-Apple hardware, leveraged technologies like KVM and PCI passthrough for near-native performance. Apple's subsequent transition to ARM-based M-series chips marked a significant turning point, challenging the traditional Hackintosh approach while highlighting Apple's hardware innovation. This shift has redefined the technical hurdles and possibilities for running macOS outside of official Apple ecosystems.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News commenters largely express a preference for running Linux on Apple's highly-regarded hardware, citing dissatisfaction with macOS despite acknowledging the superior performance and design of Apple's M-series chips and laptops. Many recall positive past experiences with Hackintosh, while others look to projects like Asahi Linux for future compatibility. The discussion highlights a perception that Apple's primary value now resides in its hardware innovation rather than its operating system.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>naut.ca</span>
+        <span>·</span>
+        <span>339 pts</span>
+        <span>·</span>
+        <span>187 comments</span>
+        <span>·</span>
+        <span>by rubatuga</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.naut.ca/blog/2026/11/05/the-hackintosh-reborn-with-ai/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50383057" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-11-05.html">
+        <small>Previous issue</small>
+        <strong>← November 05, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
