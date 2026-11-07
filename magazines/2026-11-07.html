@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 185, November 07, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — November 07, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 185</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Saturday</span>
+                    <time datetime="2026-11-07">November 07, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Special Character in Unix `/etc/passwd` Leads to `musl-libc` Vulnerability</span>
+            <span class="toc-score">2931 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Claude Code Exposed User Email Addresses in User-Agent Headers ⚡</span>
+            <span class="toc-score">1575 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Tesla to Wind Down Cybertruck Production</span>
+            <span class="toc-score">1030 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Project BUI Decouples Blender's GPU-Accelerated UI for External Use</span>
+            <span class="toc-score">697 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Hybrid LLM Approach Achieves Opus-Level Accuracy for Identity Resolution at 4x Lower Cost</span>
+            <span class="toc-score">498 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Ubuntu 26.04's Rust-based sudo introduces compatibility issues with standard sudo configurations</span>
+            <span class="toc-score">182 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Rune: A New GPU-Rendered Rust UI Framework for Multiple Platforms</span>
+            <span class="toc-score">169 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">Libghostty 1.0 Released: Stable C Library for Terminal Emulation</span>
+            <span class="toc-score">692 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Gemini Omni 1.2 Flash Introduces Faster, More Cost-Effective 15-Second Video Generation</span>
+            <span class="toc-score">340 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Dutch ASN Bank Blocks Non-Google Android Devices, Including GrapheneOS</span>
+            <span class="toc-score">636 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Security</div>
+
+            <h2 class="story-title"><a href="https://sshhole.com" target="_blank" rel="noopener">Special Character in Unix `/etc/passwd` Leads to `musl-libc` Vulnerability</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">back in old unix your password hash just sat in /etc/passwd , right next to your username. in 1980 bill joy put a * there for an account called daemon . nobody's supposed to ever log in as it. a * isn't a hash, so no password can match it. Address github.com/dspinellis/unix-history-repo/blob/BSD-3/etc/passwd</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The `*` character in `/etc/passwd`, originally intended to disable logins for accounts like `daemon` by not being a valid hash, can be exploited due to &quot;in-band signaling.&quot; This vulnerability arises when `crypt` functions, particularly in `musl-libc`, mishandle this special character, allowing an attacker to bypass password validation. It underscores the risks of using &quot;magic strings&quot; instead of explicit error handling in system-level programming.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News commenters identified the vulnerability as an &quot;in-band signaling&quot; issue, where the `*` character, meant to signify &quot;no password,&quot; is misinterpreted by `crypt` functions, especially in `musl-libc`. This oversight in `musl-libc` drew criticism, as a similar workaround for a different case was present but missed this specific scenario. The discussion highlighted the dangers of &quot;magic strings&quot; in system programming and questioned the assumption that long-standing software is inherently more secure, noting that &quot;cruft&quot; can accumulate over time. The vulnerability was reproduced on Alpine Linux, though `PermitRootLogin` settings offer some mitigation.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>sshhole.com</span>
+        <span>·</span>
+        <span>2931 pts</span>
+        <span>·</span>
+        <span>736 comments</span>
+        <span>·</span>
+        <span>by josemrb</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://sshhole.com" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50378228" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">AI Privacy 🔒</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://github.com/anthropics/claude-code/issues/107757" target="_blank" rel="noopener">Claude Code Exposed User Email Addresses in User-Agent Headers</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Bug Report: Privacy violation in User-Agent header · Issue #107757 · anthropics/claude-code · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Claude Code was found to be embedding users' email addresses in User-Agent headers when making web requests, leading to privacy concerns and reports of increased spam. This behavior occurred without explicit user consent, raising questions about the scope of AI agent access to personal data and external resources. Anthropic has acknowledged the issue and is rolling out a fix to remove email addresses from the model's context.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community widely reported experiencing this privacy breach, with some noting its occurrence when interacting with APIs like the SEC API, which mandates email in the User-Agent. Users expressed strong concerns about AI models accessing and transmitting personal data without explicit permission. An Anthropic representative acknowledged the issue, apologized, and confirmed a fix is being rolled out to remove email addresses from the model's context. Some users also reported receiving increased spam emails and highlighted similar past privacy incidents involving Claude.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>1575 pts</span>
+        <span>·</span>
+        <span>504 comments</span>
+        <span>·</span>
+        <span>by motoroco</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/anthropics/claude-code/issues/107757" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50385272" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Automotive 🚗</div>
+
+            <h2 class="story-title"><a href="https://www.nbcnews.com/tech/tech-news/tesla-wind-cybertruck-production-years-poor-sales-markets-rcna607817" target="_blank" rel="noopener">Tesla to Wind Down Cybertruck Production</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Tesla to wind down Cybertruck production after years of poor sales in few markets For an optimal experience visit our site on another browser.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Tesla is reportedly ceasing Cybertruck production due to its inability to achieve significant sales volumes. The vehicle struggled to gain traction, being available in only a limited number of markets.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely attributes the Cybertruck's struggles to a combination of factors: its high price point, design that failed to meet traditional truck and SUV utility needs, and the end of federal EV tax credits. Some also point to high manufacturing costs and a declining EV market share. Despite these criticisms, a few users appreciated its unique and unconventional design, with one noting its utility as a home power source during an outage.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>nbcnews.com</span>
+        <span>·</span>
+        <span>1030 pts</span>
+        <span>·</span>
+        <span>1881 comments</span>
+        <span>·</span>
+        <span>by PLenz</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.nbcnews.com/tech/tech-news/tesla-wind-cybertruck-production-years-poor-sales-markets-rcna607817" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50391456" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">UI/UX 🎨</div>
+
+            <h2 class="story-title"><a href="https://github.com/ppmpreetham/BUI" target="_blank" rel="noopener">Project BUI Decouples Blender's GPU-Accelerated UI for External Use</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - ppmpreetham/BUI: Blender's GPU Accelerated UI, Decoupled from it's original codebase. Supports Rust, Python, JS, React, C &amp; C++. You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Project BUI aims to make Blender's performant, GPU-accelerated UI available as a standalone component, supporting multiple programming languages. This initiative could provide a robust and customizable interface solution for various applications, particularly those demanding high-speed rendering and complex interactions. However, its adoption may be influenced by its GPLv3 license and potential integration complexities.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community praises the project's clear documentation and expresses excitement about leveraging Blender's elegant and customizable UI for other applications like GIMP, Inkscape, and various editors. However, significant concerns are raised regarding the GPLv3 license, which many consider a barrier to adoption, and a reported issue with Python integration. There's also a side discussion questioning the performance claims of GPUI compared to other Rust GUI frameworks.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>697 pts</span>
+        <span>·</span>
+        <span>284 comments</span>
+        <span>·</span>
+        <span>by ppmpreetham</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/ppmpreetham/BUI" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50389333" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">AI Cost Optimization 💰</div>
+
+            <h2 class="story-title"><a href="https://hightouch.com/blog/llm-judges-identity-resolution" target="_blank" rel="noopener">Hybrid LLM Approach Achieves Opus-Level Accuracy for Identity Resolution at 4x Lower Cost</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">LLM Judges for Identity Resolution at 4x Lower Cost | Hightouch | Hightouch Yes, Hightouch can send messages now. A Jev that can ask Opus for help gives Opus accuracy at 4x lower cost We tested whether fast, cheap decision models like Jev and GPT-6 Luna could grade identity resolution as well as frontier LLMs, and found that pairing Jev with Claude Opus gets close to Opus-level accuracy for much less. Albert Jin , Neil Desai , Delaney Mackenzie</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">A study demonstrates that pairing a smaller, cheaper LLM like Jev with a frontier model such as Claude Opus can achieve near-Opus level accuracy for identity resolution at a significantly reduced cost. This 'LLM judge' methodology suggests a hierarchical approach to model usage, where less expensive models handle initial decisions and escalate complex cases, optimizing resource allocation.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community recognizes the technical achievement of cost-effective LLM performance through model orchestration, with some users reporting similar success using different model combinations. However, significant concerns are raised regarding the ethical implications of cheaper and more ubiquitous identity resolution, viewing it as a potential privacy violation. Discussions also touch on practical challenges, such as the need for decision models to provide explanations and the rapidly changing economics of LLMs, alongside suggestions for future applications in context management.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>hightouch.com</span>
+        <span>·</span>
+        <span>498 pts</span>
+        <span>·</span>
+        <span>118 comments</span>
+        <span>·</span>
+        <span>by theanomaly</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://hightouch.com/blog/llm-judges-identity-resolution" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50397429" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">🐧 Operating Systems</div>
+
+            <h2 class="story-title"><a href="https://utcc.utoronto.ca/~cks/space/blog/linux/Ubuntu2604RustSudoNotCompatible" target="_blank" rel="noopener">Ubuntu 26.04's Rust-based sudo introduces compatibility issues with standard sudo configurations</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">You're probably reading this page because you've attempted to access
+some part of my blog (Wandering Thoughts) or CSpace , the wiki thing it's part of. Unfortunately
+you're using a browser version that my anti-crawler precautions consider
+suspicious, most often because it's too old (most often this applies to
+versions of Chrome). Unfortunately, as of early 2025 there's a plague
+of high volume crawlers (apparently in part to gather data for LLM
+training) that use a variety of old browser user agents, especially
+Chrome user agents. To reduce the load on Wandering Thoughts I'm experimenting with
+(attempting to) block all of them, and you've run into this. If this is in error and you're using a current version of your
+browser of choice, you can contact me at my current place at the
+university (you should be able to work out the email address
+from that).</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The adoption of a Rust-based `sudo` in Ubuntu 26.04 is causing compatibility problems, particularly with `sudoers` glob expressions. This change is seen by some as a necessary evolution of system tools, while others express frustration over breaking changes and increasing incompatibility across Linux distributions. The shift highlights a tension between modernizing core utilities and maintaining backward compatibility for system administrators.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community response indicates significant frustration, with some users citing this as further validation for migrating to Debian. There's a debate about whether tools should evolve, even if it means breaking changes, versus the need for compatibility. Specific concerns include the removal of certain `sudoers` glob expressions, which some deem a 'footgun' and easy to fix, while others criticize the new `sudo` for retaining dangerous wildcards while removing specific ones. Broader concerns about declining compatibility between Linux distros and the Linux Foundation's focus are also raised.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>utcc.utoronto.ca</span>
+        <span>·</span>
+        <span>182 pts</span>
+        <span>·</span>
+        <span>162 comments</span>
+        <span>·</span>
+        <span>by wondersky</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://utcc.utoronto.ca/~cks/space/blog/linux/Ubuntu2604RustSudoNotCompatible" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50354308" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Rust UI 🦀</div>
+
+            <h2 class="story-title"><a href="https://github.com/anomalyco/rune" target="_blank" rel="noopener">Rune: A New GPU-Rendered Rust UI Framework for Multiple Platforms</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - anomalyco/rune: Rune: Native UI framework · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Rune is introduced as a native, GPU-rendered Rust UI framework targeting macOS, Windows, Linux, and web platforms. Its standout features include a 'headless' mode for scripted input and rendering, and a unique development policy that eschews pull requests in favor of agent-driven issue resolution. The framework aims to provide a truly cross-platform solution for application development.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion highlights skepticism regarding the 'native GPU-rendered' claim, questioning potential issues with font rendering and accessibility. Comparisons are drawn to established Rust UI frameworks like egui and Iced, as well as GPUI. Developers are particularly interested in the 'headless' rendering capability for automation and testing, and the unusual 'no pull requests' policy is noted as an interesting approach to managing contributions. Concerns about accessibility, internationalization, and behavior without a GPU are also raised.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>169 pts</span>
+        <span>·</span>
+        <span>123 comments</span>
+        <span>·</span>
+        <span>by mik3y</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/anomalyco/rune" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50394569" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Software Development 💻</div>
+
+            <h2 class="story-title"><a href="https://mitchellh.com/writing/libghostty-1-0" target="_blank" rel="noopener">Libghostty 1.0 Released: Stable C Library for Terminal Emulation</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">libghostty is a
+portable, high-performance C library for terminal emulation, extracted
+directly from the core of Ghostty. The 1.0 release means both the library
+itself and the C ABI are now stable. A little over a year ago, I wrote that libghostty is coming . At the time,
+the Zig module had just been merged, the C API didn't exist, and nobody
+but Ghostty was a consumer. Today, the C API is a complete terminal emulator,
+it runs in production for millions of people across hundreds of products,
+both free and commercial, and it has a real, enforced ABI stability policy.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Libghostty 1.0 marks the stable release of a portable, high-performance C library for terminal emulation, offering a robust and stable C ABI. This milestone allows developers to integrate advanced terminal functionality into their applications without extensive reimplementation, fostering a more unified and efficient ecosystem. Its adoption in numerous products highlights its utility in standardizing terminal emulation across various platforms.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely celebrates the 1.0 release, praising its vision and the significant development effort it saves for new terminal projects and 'agentic' coding tools. Users appreciate its role in fostering an ecosystem where terminal functionality can be built upon rather than rewritten. While some users express preferences for other terminal emulators like Kitty or iTerm2, there's widespread acknowledgment of libghostty's value and impact, with discussions also touching on API design best practices.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>mitchellh.com</span>
+        <span>·</span>
+        <span>692 pts</span>
+        <span>·</span>
+        <span>115 comments</span>
+        <span>·</span>
+        <span>by mfiguiere</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://mitchellh.com/writing/libghostty-1-0" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50399933" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">AI Video Generation 🎬</div>
+
+            <h2 class="story-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/" target="_blank" rel="noopener">Gemini Omni 1.2 Flash Introduces Faster, More Cost-Effective 15-Second Video Generation</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Gemini Omni 1.2 Flash: 15-second video and lower pricing Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips Gemini Omni 1.2 Flash brings 15-second clips, stronger consistency, and faster, more cost-effective generation. Your browser does not support the audio element. This content is generated by Google AI.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Google's Gemini Omni 1.2 Flash is positioned as a fast and cost-effective solution for video generation, capable of producing 15-second clips with enhanced consistency. This update aims to make AI-powered video creation more accessible and efficient for users. The focus on speed and affordability suggests an effort to capture a broader market for short-form video content.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News commenters express significant frustration with Google's confusing AI product naming, versioning, and inconsistent rollout, making it difficult for even paying subscribers to access new models like Gemini Omni 1.2 Flash. Users also wish for improved Gemini integration within Google Workspace and voice concerns about potential account security issues when using Google's AI services.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>blog.google</span>
+        <span>·</span>
+        <span>340 pts</span>
+        <span>·</span>
+        <span>231 comments</span>
+        <span>·</span>
+        <span>by thisisauserid</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50392118" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">Banking &amp; Security 🏦</div>
+
+            <h2 class="story-title"><a href="https://github.com/PrivSec-dev/banking-apps-compat-report/issues/105" target="_blank" rel="noopener">Dutch ASN Bank Blocks Non-Google Android Devices, Including GrapheneOS</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">ASN Bank · Issue #105 · PrivSec-dev/banking-apps-compat-report · GitHub You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Dutch ASN Bank has implemented restrictions preventing its mobile app from running on non-Google Android devices, specifically impacting privacy-focused custom ROMs like GrapheneOS. This move, reportedly linked to 'security requirements' from the Wero payment system, reflects a broader trend where financial institutions prioritize strict device integrity checks over user choice and privacy. Such policies force users to choose between banking access and their preferred secure operating systems.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News users express significant frustration over banks' restrictive security policies, which often involve root detection and large, obfuscated applications. While some Dutch banks like Rabobank also block custom ROMs, others like ING are praised for allowing their apps on rooted or LineageOS devices. The community notes that ASN Bank's issue appears to stem from Play Integrity checks, potentially influenced by Wero's 'security requirements' that explicitly disallow modified Android versions. There is concern that other Dutch banks might adopt similar restrictive measures, further limiting user options and raising questions about device privacy, especially given reports of Dutch police targeting GrapheneOS users.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>636 pts</span>
+        <span>·</span>
+        <span>415 comments</span>
+        <span>·</span>
+        <span>by microtonal</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/PrivSec-dev/banking-apps-compat-report/issues/105" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50390124" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-11-06.html">
+        <small>Previous issue</small>
+        <strong>← November 06, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
