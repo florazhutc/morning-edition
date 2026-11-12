@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 190, November 12, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — November 12, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 190</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Thursday</span>
+                    <time datetime="2026-11-12">November 12, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Tim Peters, Author of 'The Zen of Python,' Has Died</span>
+            <span class="toc-score">1289 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">AI Agents Rediscover Previously Mapped Maya Site, Highlighting Both Potential and Verification Needs ⚡</span>
+            <span class="toc-score">1010 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Foldable Flight Showcases World Record Paper Airplanes</span>
+            <span class="toc-score">1258 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">Smart Home Devices Should Function Without Internet Connectivity</span>
+            <span class="toc-score">1173 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Nvidia Reportedly Preparing to Oust CEO Jensen Huang</span>
+            <span class="toc-score">1138 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Gemini Decisions API Launched for Fast Multimodal Decision Evaluation</span>
+            <span class="toc-score">475 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">AWS Releases Official Local API Emulator</span>
+            <span class="toc-score">894 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">United Airlines Bans AI Agents from Booking Flights ⚡</span>
+            <span class="toc-score">588 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Apple Developing 'Harbor' Mac App for Easy Local AI Model Execution and Inference Clustering</span>
+            <span class="toc-score">536 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">GPT-6 Astra Achieves Weight-Space Programming, Sparks Debate on Linear Program Integration</span>
+            <span class="toc-score">288 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🐍 Python Community</div>
+
+            <h2 class="story-title"><a href="https://discuss.python.org/t/in-memoriam-tim-peters-1952-2026/110028" target="_blank" rel="noopener">Tim Peters, Author of 'The Zen of Python,' Has Died</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">In Memoriam: Tim Peters 1952–2026 - Core Development - Discussions on Python.org</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Tim Peters, a foundational figure in the Python community, passed away. He was widely recognized for authoring 'The Zen of Python' and making significant contributions to projects like SpamBayes and the Python Cookbook. His approachable demeanor and willingness to foster discussion profoundly influenced countless developers, shaping the language and its community.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community mourns the loss of Tim Peters, remembering him as a brilliant and kind individual who profoundly impacted the Python ecosystem. Many commenters highlighted his authorship of 'The Zen of Python' and his extensive contributions to various projects, including SpamBayes and the Python Cookbook. He was revered as a mentor, actively engaging with developers on platforms like Usenet, python-dev, and StackOverflow, where his insightful, approachable, and often light-hearted answers fostered learning and discussion. His willingness to help both novices and experts, coupled with his ability to inspire a love for the language, left a lasting impression on many developers.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>discuss.python.org</span>
+        <span>·</span>
+        <span>1289 pts</span>
+        <span>·</span>
+        <span>152 comments</span>
+        <span>·</span>
+        <span>by ayhanfuat</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://discuss.python.org/t/in-memoriam-tim-peters-1952-2026/110028" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50450488" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Archaeology 🏛️</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://pietromiotti.com/latest/maya-site" target="_blank" rel="noopener">AI Agents Rediscover Previously Mapped Maya Site, Highlighting Both Potential and Verification Needs</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">My AI Agents (Re)discovered a Maya Site in 72 Hours My AI Agents (Re)discovered a Maya Site in 72 Hours Update (11 November): it turns out the site had already been mapped in Estrada-Belli et al. The agents missed it while going through the literature, so they rediscovered it rather than discovered it (it just wasn't in the register of Mexico's National Institute of Anthropology and History, INAH, yet). The rest of the story still holds.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">AI agents demonstrated a powerful capability for sifting through vast datasets to identify archaeological sites, effectively 'rediscovering' a Maya location previously mapped but not officially registered. However, the agents' failure to cross-reference existing academic literature underscores the critical need for human oversight and rigorous verification of AI-generated findings. This incident highlights that while AI can accelerate discovery, it does not replace comprehensive human expertise and validation.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community quickly pointed out that the Maya site had been previously mapped, with the author confirming this oversight by the AI agents and themselves. While many expressed excitement about AI's potential in data analysis across various fields, a significant sentiment revolved around skepticism and the 'blind faith in LLM agents.' Commenters emphasized the crucial need for expert archaeological verification, rigorous checking of AI outputs, and the importance of human capacity and domain expertise over headline-grabbing AI claims.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>pietromiotti.com</span>
+        <span>·</span>
+        <span>1010 pts</span>
+        <span>·</span>
+        <span>371 comments</span>
+        <span>·</span>
+        <span>by eyvindn</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://pietromiotti.com/latest/maya-site" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50452455" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">Crafts &amp; Hobbies ✈️</div>
+
+            <h2 class="story-title"><a href="https://www.foldableflight.com" target="_blank" rel="noopener">Foldable Flight Showcases World Record Paper Airplanes</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Foldable Flight: The Best Paper Airplanes in the World! Shop from our collection of paper airplane products, or enjoy folding the best paper airplanes in the world! This World Record prototype can fly over 300 feet!!! Unite holds the world record for time aloft at 31.2 seconds! Tutorials for Arrowhead have been viewed over 100 million times!</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Paper airplane design, despite its simple materials, can achieve impressive feats of aerodynamics, as demonstrated by world records for distance and time aloft. The widespread popularity of online tutorials suggests a strong public interest in accessible, hands-on engineering and creative projects. This blend of simple craft and complex performance makes paper airplanes a compelling subject.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community response highlights a deep nostalgic connection to paper airplanes, with many users sharing personal stories of childhood enjoyment, coping mechanisms during difficult times, and intergenerational bonding. There's appreciation for the Foldable Flight website and its creator, though some users expressed surprise at the complexity or length of certain folding tutorials. The comments collectively underscore the enduring appeal of this simple yet engaging craft.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>foldableflight.com</span>
+        <span>·</span>
+        <span>1258 pts</span>
+        <span>·</span>
+        <span>167 comments</span>
+        <span>·</span>
+        <span>by vismit2000</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.foldableflight.com" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50424581" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">Smart Home 🏠</div>
+
+            <h2 class="story-title"><a href="https://docodethatmatters.com/home-automation-overnight-success/" target="_blank" rel="noopener">Smart Home Devices Should Function Without Internet Connectivity</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Smart home devices should work without the internet — Do Code That Matters AI;DR: I wrote the first draft, AI helped me edit and rewrite it, and I made the final pass. The rules, setups, and talks are my own. TLDR; Nothing core in my house depends on a vendor’s server. If the internet goes down, the house keeps running.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The core principle of a resilient smart home system is its ability to operate independently of external internet services and vendor servers. This local-first approach ensures continued functionality during internet outages and enhances user control over their devices. Prioritizing local operation minimizes reliance on cloud infrastructure, making the system more robust and private.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community strongly advocates for local-only smart home setups, emphasizing protocols like Zigbee and Z-Wave, or devices that support open-source firmware like Tasmota. Many users prioritize hardware that functions without cloud dependency, even if it requires flashing custom firmware. Home Assistant's 'IoT Class' is cited as a useful metric for identifying local-first integrations, highlighting a preference for 'Local Push' or 'Local Polling' over cloud-dependent solutions. The difficulty in finding readily available local-only devices in mainstream stores is a common frustration.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>docodethatmatters.com</span>
+        <span>·</span>
+        <span>1173 pts</span>
+        <span>·</span>
+        <span>438 comments</span>
+        <span>·</span>
+        <span>by skittleson</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://docodethatmatters.com/home-automation-overnight-success/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50441707" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Corporate Leadership 💼</div>
+
+            <h2 class="story-title"><a href="https://www.wsj.com/business/nvidia-is-preparing-to-oust-nvidia-ceo-jensen-huang-30f421ad" target="_blank" rel="noopener">Nvidia Reportedly Preparing to Oust CEO Jensen Huang</a></h2>
+            <div class="story-summary-source">Source: Hacker News / Algolia context</div>
+        <p class="story-summary">Community discussion highlights: This is certainly fast after the NYT article on his second affair. I suspect this was in the works after the original affair + export scandal.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Nvidia is reportedly preparing to remove CEO Jensen Huang, with recent allegations of a second affair accelerating the process. This move is seen as a response to serious personal conduct issues, which are particularly sensitive given Nvidia's critical strategic importance to national interests. While Huang is credited with Nvidia's pivotal role in the deep learning revolution, the allegations against him are considered too severe to overlook.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community speculates that the current situation stems from a series of events, including past export scandals and an earlier affair, with the second affair acting as a catalyst. Many acknowledge Jensen Huang's critical role in Nvidia's success and the deep learning revolution, but argue that the severity of the allegations, particularly concerning a CEO of a strategically vital company, outweighs his contributions. Commenters highlight Nvidia's importance to national interests, suggesting that the public nature of this potential ousting indicates the gravity of the situation, leading to a sense of disappointment over the perceived loss of a knowledgeable and 'human' tech leader.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>wsj.com</span>
+        <span>·</span>
+        <span>1138 pts</span>
+        <span>·</span>
+        <span>1526 comments</span>
+        <span>·</span>
+        <span>by jbredeche</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.wsj.com/business/nvidia-is-preparing-to-oust-nvidia-ceo-jensen-huang-30f421ad" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50459703" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">AI API Release 🚀</div>
+
+            <h2 class="story-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/" target="_blank" rel="noopener">Gemini Decisions API Launched for Fast Multimodal Decision Evaluation</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Gemini Decisions API: Fast multimodal decisions Gemini Decisions API: Fast, calibrated multimodal decisions Introducing the Gemini Decisions API, powered by our new Gemini Decision 1 model. Evaluate up to 1,000 yes/no, choice, and rubric-scoring questions in a fast, single pass across text, images, audio, video, and PDFs. Your browser does not support the audio element.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">The Gemini Decisions API introduces a new multimodal decision model capable of evaluating up to 1,000 questions across diverse data formats, including text, images, audio, video, and PDFs. This broad input capability, particularly for audio and video, distinguishes it from existing models, offering a comprehensive solution for complex decision-making tasks. While its pricing is noted as higher, its unique multimodal processing could justify the cost for specific use cases.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community highlights the Gemini Decisions API's groundbreaking multimodal input capabilities, especially its support for audio, video, and PDF, as a significant differentiator and a potential game-changer for decision AI. While some express surprise at the delayed emergence of such a comprehensive tool, others note its higher cost compared to existing text-based decision models. Despite the pricing concerns, the ability to process diverse media types is seen as extremely valuable for specific applications, prompting discussions on current decision model usage and comparisons with alternative offerings.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>blog.google</span>
+        <span>·</span>
+        <span>475 pts</span>
+        <span>·</span>
+        <span>145 comments</span>
+        <span>·</span>
+        <span>by iamdelirium</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50456791" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">Cloud Emulation ☁️</div>
+
+            <h2 class="story-title"><a href="https://github.com/aws/aws-emulator" target="_blank" rel="noopener">AWS Releases Official Local API Emulator</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">GitHub - aws/aws-emulator: AWS Emulator is a local emulator of the AWS APIs. You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">AWS has introduced a local emulator for its APIs, addressing a long-standing challenge for developers in creating efficient local test environments for cloud deployments. This official tool aims to simplify development workflows by allowing testing without direct cloud interaction. However, its current limitations, particularly in security feature testing, suggest it may serve as a complementary tool rather than a complete replacement for live AWS environments or specialized third-party solutions.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community shows a strong interest in an official AWS local emulator, recognizing its potential to solve the 'massive problem' of local testing for AWS deployments and support 'agentic development.' However, skepticism exists regarding its long-term maintenance and whether it's a fully supported product. A significant point of concern is the explicit limitation that it cannot test critical security features like IAM policies or cross-account access. Some users speculate it leverages AWS's internal Smithy specification for accuracy, while others wonder about its ability to emulate complex behaviors like `cdk deploy`. The release is also seen as a potential disruptor to existing third-party emulators like LocalStack.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>github.com</span>
+        <span>·</span>
+        <span>894 pts</span>
+        <span>·</span>
+        <span>248 comments</span>
+        <span>·</span>
+        <span>by super_linear</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://github.com/aws/aws-emulator" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50456631" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Airline Policy ✈️</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/" target="_blank" rel="noopener">United Airlines Bans AI Agents from Booking Flights</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">United Airlines bans AI agents from booking flights on behalf of travelers - CBS News United Airlines said on Wednesday that it is banning artificial intelligence agents from making flight reservations on behalf of travelers, citing security risks and the possibility that such actions could violate federal rules. Many consumers are turning to AI agents such as Meta's Muse and OpenAI's dots to complete tasks ranging from researching products and tracking down deals to making purchases. To make an airline booking, an AI agent requires access to a customer's personal information, including credentials like payment information. United has a problem with that, saying that &quot;sharing account credentials with personal, third-party, AI assistants can expose sensitive information, and actions taken by these tools may result in unintended purchases, account changes, or use of MileagePlus miles.&quot;</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">United Airlines has prohibited AI agents from making flight reservations, citing security risks associated with sharing sensitive customer data and the potential for unintended purchases or account changes. This policy highlights airlines' efforts to maintain control over the booking process and prevent new intermediaries from impacting their revenue streams and direct customer interactions.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely perceives United's ban as an attempt by airlines to control pricing and prevent customers from easily finding the best deals, contributing to an adversarial relationship with merchants. Many question the enforceability of such a ban, suggesting users will find ways to circumvent it with browser-based AI tools. Commenters also criticize airlines' existing complex booking interfaces, hidden fees, and upselling practices, viewing AI agents as a potential tool to navigate these challenges and promote a more transparent market.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>cbsnews.com</span>
+        <span>·</span>
+        <span>588 pts</span>
+        <span>·</span>
+        <span>609 comments</span>
+        <span>·</span>
+        <span>by herpderperator</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50458900" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Apple AI 🍎</div>
+
+            <h2 class="story-title"><a href="https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/" target="_blank" rel="noopener">Apple Developing 'Harbor' Mac App for Easy Local AI Model Execution and Inference Clustering</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Apple has new Mac app coming to make running local AI models easy - 9to5Mac Skip to main content Apple has new Mac app coming to make running local AI models easy Ryan Christoffel | Nov 10 2026 - 11:15 am PT Leaker Aaron Perris has discovered evidence of a new Mac app in the works at Apple called Harbor, which makes it easy to run local AI models across one or more Macs. New ‘Harbor’ app revealed at Apple: ‘turns your Mac into a private AI inference server’</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Apple is reportedly developing a new Mac application called 'Harbor' designed to simplify the process of running local AI models. This initiative suggests Apple's strategic focus on on-device AI, leveraging its powerful M-series chips and potentially offering a private inference server solution. The app's ability to cluster multiple Macs for pooled memory indicates a push towards scaling local AI capabilities beyond a single machine's limits.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community views Apple as a strong contender in the local AI space, citing its M-series chips and advancements in model distillation for efficient on-device performance. Some users express a willingness to pay for Apple's local AI solutions as a cost-effective alternative to cloud-based services. There's also discussion around existing local AI tools like llama.app, Ollama, and lm-studio, with a desire for a vendor-supported solution that avoids bloatware. The revealed clustering feature, allowing multiple Macs to pool memory for larger models or more concurrent requests, is seen as a significant advantage.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>9to5mac.com</span>
+        <span>·</span>
+        <span>536 pts</span>
+        <span>·</span>
+        <span>545 comments</span>
+        <span>·</span>
+        <span>by linolevan</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50446520" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Machine Learning 🧠</div>
+
+            <h2 class="story-title"><a href="https://nathan.rs/posts/weight-space-lp/" target="_blank" rel="noopener">GPT-6 Astra Achieves Weight-Space Programming, Sparks Debate on Linear Program Integration</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Can a Linear Program Do Weight-Space Programming? Last week, MIT CSAIL published Sparks of Weight-Space Programming . Given the raw weights of a small network, GPT-6 Astra could tell which game it had been trained to play. Given only a game’s rules, it could write the weights of a small network from scratch and beat networks trained with PPO for 100 million steps. No gradients, no training loop, just reasoning about what the weights compute.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">MIT CSAIL's 'weight-space programming' with GPT-6 Astra demonstrates a novel approach where AI directly reasons about and manipulates neural network weights, bypassing traditional gradient-based training. Astra's capability to generate effective network weights from rules alone, outperforming networks trained with extensive PPO, suggests a paradigm shift in model development. This method could offer a more direct and interpretable way to design and optimize AI behaviors.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community actively discusses the potential for linear programming (LP) solvers to integrate with and enhance weight-space programming, suggesting LPs could become valuable tools for precise weight editing and optimization. Commenters propose that traditional mathematical programming might replace or augment reinforcement learning loops, particularly for enforcing strict constraints in multi-objective problems. There is also curiosity regarding the fundamental differences between weight-space programming and backpropagation, and whether the connection to LPs was an original human insight or an LLM-derived one.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>nathan.rs</span>
+        <span>·</span>
+        <span>288 pts</span>
+        <span>·</span>
+        <span>42 comments</span>
+        <span>·</span>
+        <span>by emschwartz</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://nathan.rs/posts/weight-space-lp/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50452655" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-11-11.html">
+        <small>Previous issue</small>
+        <strong>← November 11, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
