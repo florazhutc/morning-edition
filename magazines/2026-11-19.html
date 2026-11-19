@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wilderness Signal issue 197, November 19, 2026: Daily Hacker News intelligence for AI-native builders.">
+    <title>Wilderness Signal — November 19, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/issue.css">
+</head>
+<body>
+    <!-- ISSUE HEADER START -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="issue-site-header">
+        <div class="issue-shell issue-header-inner">
+            <a class="issue-brand" href="https://wildernesstudio.com/" target="_blank" rel="noopener" aria-label="Visit Wilderness Studio">
+
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+
+                <span class="issue-wordmark"><span>Wilderness</span><span>Studio</span></span>
+            </a>
+            <nav class="issue-header-nav" aria-label="Issue navigation">
+                <a href="../index.html">Issue archive</a>
+                <a href="#toc">In this issue</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content">
+        <section class="issue-hero" aria-labelledby="issue-title">
+            <div class="issue-shell issue-hero-layout">
+                <div>
+                    <p class="issue-kicker">A Wilderness Studio product · Issue 197</p>
+                    <h1 id="issue-title"><span>Wilderness</span><span>Signal</span></h1>
+                    <svg class="issue-stroke" viewBox="0 0 320 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 18 C74 5 148 24 226 12 C264 6 291 8 315 5"></path></svg>
+                </div>
+                <div class="issue-date-block">
+                    <span>Thursday</span>
+                    <time datetime="2026-11-19">November 19, 2026</time>
+                    <p>Daily Hacker News intelligence for AI-native builders.</p>
+                </div>
+            </div>
+        </section>
+<!-- ISSUE HEADER END -->
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="toc" id="toc" aria-labelledby="toc-title">
+        <h2 class="toc-header" id="toc-title">In This Issue</h2>
+        <nav aria-label="Stories in this issue">
+        <a href="#story-1" class="toc-item">
+            <span class="toc-num">01</span>
+            <span class="toc-title">Critical Remote Code Execution Vulnerabilities Discovered in NGINX</span>
+            <span class="toc-score">1449 pts</span>
+        </a>
+        <a href="#story-2" class="toc-item">
+            <span class="toc-num">02</span>
+            <span class="toc-title">Google Releases Gemini 4 Neon for Fast, Frontier-Level AI Tasks</span>
+            <span class="toc-score">906 pts</span>
+        </a>
+        <a href="#story-3" class="toc-item">
+            <span class="toc-num">03</span>
+            <span class="toc-title">Microsoft Introduces Seven New AI Models</span>
+            <span class="toc-score">571 pts</span>
+        </a>
+        <a href="#story-4" class="toc-item">
+            <span class="toc-num">04</span>
+            <span class="toc-title">AI Agents Ask More Probing Questions Than KPMG Accountants in Audit Trial ⚡</span>
+            <span class="toc-score">475 pts</span>
+        </a>
+        <a href="#story-5" class="toc-item">
+            <span class="toc-num">05</span>
+            <span class="toc-title">Deutsche Bank Exposed by 15 Million File Leak Revealing Flawed Culture and Compliance Issues</span>
+            <span class="toc-score">737 pts</span>
+        </a>
+        <a href="#story-6" class="toc-item">
+            <span class="toc-num">06</span>
+            <span class="toc-title">Complex Systems Rely on Dedicated and Competent Individuals for Maintenance</span>
+            <span class="toc-score">695 pts</span>
+        </a>
+        <a href="#story-7" class="toc-item">
+            <span class="toc-num">07</span>
+            <span class="toc-title">Maritime Launches Managed Cloud for Production AI Agents, Addressing Infrastructure Gaps Beyond Sandboxes ⚡</span>
+            <span class="toc-score">56 pts</span>
+        </a>
+        <a href="#story-8" class="toc-item">
+            <span class="toc-num">08</span>
+            <span class="toc-title">SpaceX Dominates Global Orbital Mass Launches Since 2022</span>
+            <span class="toc-score">41 pts</span>
+        </a>
+        <a href="#story-9" class="toc-item">
+            <span class="toc-num">09</span>
+            <span class="toc-title">Yarn Introduces Quebec API for Precise Word Timestamps in Speech</span>
+            <span class="toc-score">29 pts</span>
+        </a>
+        <a href="#story-10" class="toc-item">
+            <span class="toc-num">10</span>
+            <span class="toc-title">Funkycache: A Python Library for SQLite-Backed Function Caching</span>
+            <span class="toc-score">4 pts</span>
+        </a></nav>
+    </section>
+
+    <!-- STORIES -->
+
+    <section id="story-1" class="story" style="background:#FAF6F0;">
+        <div class="story-num">1</div>
+        <div class="story-content">
+            <div class="story-category">🔒 Security Vulnerability</div>
+
+            <h2 class="story-title"><a href="https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities" target="_blank" rel="noopener">Critical Remote Code Execution Vulnerabilities Discovered in NGINX</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Unauthenticated Remote Code Execution in NGINX: CVE-2026-123633 and CVE-2026-123007 | Wiz Blog Wiz Research, Ikotas Labs, Metnir, Rapid7, and Xint independently uncovered two critical remote code execution vulnerabilities in NGINX, software used to receive and route traffic to production applications and APIs. NGINX is a common default for the front door of modern web architectures, where it handles HTTPS and routes incoming traffic to the right application or API. As the world's most widely used open-source web server , it powers more than 225 million websites . Successful exploitation could let attackers take control of affected NGINX servers, steal sensitive data, tamper with websites, or disrupt services.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Multiple critical remote code execution vulnerabilities have been independently discovered in NGINX, a widely used web server. Given NGINX's role as a primary traffic handler for millions of websites, successful exploitation could lead to widespread data theft, service disruption, or server compromise. The broad impact potential underscores the importance of immediate patching for affected systems.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community notes that the fix was available in open-source repositories a week prior to public disclosure, raising concerns about potential pre-disclosure exploitation. While the vulnerability reportedly requires HTTP/2, which is not enabled by default and has specific traffic/CPU requirements, its widespread impact is still acknowledged. Discussions also touched upon an unpatched Linux SCTP bug used in conjunction with the NGINX exploit for privilege escalation, and resources for vulnerability checks and workarounds were shared.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>wiz.io</span>
+        <span>·</span>
+        <span>1449 pts</span>
+        <span>·</span>
+        <span>611 comments</span>
+        <span>·</span>
+        <span>by speedping</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50547374" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-2" class="story" style="background:#F5F1EA;">
+        <div class="story-num">2</div>
+        <div class="story-content">
+            <div class="story-category">AI Model 🤖</div>
+
+            <h2 class="story-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" target="_blank" rel="noopener">Google Releases Gemini 4 Neon for Fast, Frontier-Level AI Tasks</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Bringing frontier-level intelligence with fast end-to-end task completion  across complex software engineering, knowledge work, and science workflows. SVP, Google DeepMind and Chief AI Architect, Google Your browser does not support the audio element. This content is generated by Google AI.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Gemini 4 Neon is positioned as a fast, frontier-level AI model designed for complex tasks in software engineering, knowledge work, and science. While some benchmarks and user experiences suggest it rivals top models like Opus 5.5 in general intelligence and speed, it appears to complement rather than replace models optimized for longer-horizon tasks within the Gemini fleet. Its high token generation speed is a key feature, indicating a focus on rapid task completion.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community engages in extensive comparisons of Gemini 4 Neon with other leading models, particularly Anthropic's Opus 5.5, with mixed opinions on its overall intelligence and performance. Many users highlight its impressive speed, noting 127 tokens per second, which significantly surpasses other Gemini models like Carbon. There is some confusion regarding its specific positioning within Google's broader Gemini lineup, as Carbon is still considered the 'long horizon' model despite Neon's higher general intelligence scores. Discussions also touch on its suitability for various tasks, from research and analysis to code generation, with some benchmarks placing it favorably against competitors.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>blog.google</span>
+        <span>·</span>
+        <span>906 pts</span>
+        <span>·</span>
+        <span>711 comments</span>
+        <span>·</span>
+        <span>by yigitdemirag</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50552424" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-3" class="story" style="background:#FBF3F0;">
+        <div class="story-num">3</div>
+        <div class="story-content">
+            <div class="story-category">AI Innovation 🤖</div>
+
+            <h2 class="story-title"><a href="https://microsoft.ai/news/microsoft-ignite-2026/" target="_blank" rel="noopener">Microsoft Introduces Seven New AI Models</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Seven new world-class models at scalable price-performance | Microsoft AI Source Signal blog Official Microsoft Blog Command Line Microsoft On The Issues Asia Canada Europe, Middle East and Africa Latin America The Code of Us What's new AI Innovation Digital Transformation Sustainability Security Work &amp; Life Diversity &amp; Inclusion Unlocked Microsoft 365 Azure Copilot Windows Surface XBOX Deals Small Business Support Windows Apps Outlook OneDrive Microsoft Teams OneNote Microsoft Edge Moving from Skype to Teams Computers Shop XBOX Accessories VR &amp; mixed reality Certified Refurbished Trade-in for cash XBOX Game Pass Ultimate PC Game Pass XBOX games PC games Microsoft AI Microsoft Security Dynamics 365 Microsoft 365 for business Microsoft Power Platform Windows 365 Small Business Digital Sovereignty Azure Microsoft Developer Microsoft Learn Support for AI marketplace apps Microsoft Tech Community Microsoft Marketplace Software companies Visual Studio Microsoft Rewards Free downloads &amp; security Education Gift cards Licensing Unlocked stories View Sitemap</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Microsoft has launched seven new AI models, emphasizing world-class performance and scalable price-efficiency. This release aims to provide competitive AI solutions, with early user feedback on models like MAI Code 2 indicating strong performance.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community sentiment is mixed, with some users praising specific new models like MAI Code 2 for strong performance, even comparing it favorably to top alternatives. However, significant criticism targets Microsoft's overall strategy, including calls for open-sourcing models to secure market share and concerns about the perceived shallowness of leadership. Users also express dissatisfaction with Microsoft's cloud ecosystem, pricing, and customer support, suggesting that without being in their existing ecosystem, there's little incentive to adopt their tech stack. Some believe that 'models have no moat' and Microsoft's business understanding could be their main advantage, while others question their visibility in AI indices.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>microsoft.ai</span>
+        <span>·</span>
+        <span>571 pts</span>
+        <span>·</span>
+        <span>361 comments</span>
+        <span>·</span>
+        <span>by gmays</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://microsoft.ai/news/microsoft-ignite-2026/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50548021" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-4" class="story" style="background:#F4F6F0;">
+        <div class="story-num">4</div>
+        <div class="story-content">
+            <div class="story-category">AI &amp; Auditing 🤖</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://europeanbusinessmagazine.com/ai-agents-better-questions-kpmg/" target="_blank" rel="noopener">AI Agents Ask More Probing Questions Than KPMG Accountants in Audit Trial</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">AI Agents Ask Better Questions Than KPMG Accountants Skip to content</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">An internal KPMG trial indicates that AI agents can ask more detailed and thorough questions than human accountants during audit processes. This suggests AI's strong capability for deep recall and exhaustive inquiry in complex, data-rich environments. However, the effectiveness of these deeper questions hinges on their relevance to significant audit findings, a nuanced judgment often developed through human experience.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community acknowledges AI's strength in detail retention for tedious tasks but expresses skepticism about the experiment's objectivity, given KPMG's self-assessment. Several commenters highlight that experienced human auditors learn to prioritize significant issues, questioning if AI's 'deeper' questioning always translates to better audit outcomes. Some attribute human auditors' performance to being inexperienced, overworked, and poorly incentivized, while others share personal experiences of AI being more thorough than human auditors for compliance tasks. The lack of quantitative analysis in the original report is also noted.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>europeanbusinessmagazine.com</span>
+        <span>·</span>
+        <span>475 pts</span>
+        <span>·</span>
+        <span>226 comments</span>
+        <span>·</span>
+        <span>by Betelbuddy</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://europeanbusinessmagazine.com/ai-agents-better-questions-kpmg/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50547777" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-5" class="story" style="background:#F8F4EC;">
+        <div class="story-num">5</div>
+        <div class="story-content">
+            <div class="story-category">Financial Scandal 🏦</div>
+
+            <h2 class="story-title"><a href="https://www.inside-db.com/" target="_blank" rel="noopener">Deutsche Bank Exposed by 15 Million File Leak Revealing Flawed Culture and Compliance Issues</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">Inside Deutsche Bank:                                Risky Business A major global investigation revealing the inner workings of the financial giant. The leak of 15+ million files lays bare the bank's flawed culture, systemic blind spots and pursuit of profit over compliance. Inside Deutsche Bank: Secrets, scandals and double standards More than 15-million internal files from the world’s biggest bank leak show an institution battling to stay the course on financial controls.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">An extensive leak of over 15 million internal Deutsche Bank files highlights a deep-seated organizational culture prioritizing profit over regulatory compliance. This investigation uncovers systemic blind spots and a struggle to maintain financial controls within the global banking giant. The revelations point to a consistent pattern of risky business practices.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Hacker News commenters discussed the technical aspects of the leak, noting the use of tools like Open for distributing the 15 million documents. Several users expressed frustration with the lack of a concise summary of the scandal's major points and criticized journalistic practices for not publishing raw data, raising concerns about selective omission and bias. A common sentiment was that the described 'profit over compliance' culture and systemic issues are not unique to Deutsche Bank but are prevalent across many large financial institutions, which are often seen as unmanageable due to numerous internal 'fiefdoms.' The discussion also touched on Deutsche Bank's role in tax minimization schemes for clients like Siemens.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>inside-db.com</span>
+        <span>·</span>
+        <span>737 pts</span>
+        <span>·</span>
+        <span>245 comments</span>
+        <span>·</span>
+        <span>by gyre007</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.inside-db.com/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50547620" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-6" class="story" style="background:#F0F2F5;">
+        <div class="story-num">6</div>
+        <div class="story-content">
+            <div class="story-category">System Reliability &amp; Human Factor ⚙️</div>
+
+            <h2 class="story-title"><a href="https://violetpixel.com/blog/2026-11-17-we-need-smart-people-who-give-a-shit/" target="_blank" rel="noopener">Complex Systems Rely on Dedicated and Competent Individuals for Maintenance</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">🧠 We Need Smart People Who Give a Shit • VioletPixel Tuesday, November 17th, 2026 @ 7:01 PM PST Something I learned a long time ago, something that's been proven to me time and again, is that the world is held together by smart people who give a shit. This truth always comes into stark focus when I learn how a complex system functions—or, rather, how it barely functions. When I worked at Stripe I learned a lot about various banking and money movement systems, and it's terrifying how flawed and fragile these systems are.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Complex systems, such as financial infrastructure, are often inherently flawed and fragile, barely functioning due to their intricate nature. Their continued operation critically depends on the dedication and expertise of individuals who actively care about their maintenance and integrity. This reliance on human vigilance underscores a fundamental vulnerability in modern infrastructure.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community largely agrees that while dedicated, competent individuals are vital, corporate environments often create perverse incentives that penalize or dismiss such employees. Many commenters suggest that companies frequently prefer compliant workers over those who challenge existing flaws, leading to a culture where caring too much can be a liability. Some also note that AI's impact on system complexity might further highlight the growing gap between development and sustainable maintenance.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>violetpixel.com</span>
+        <span>·</span>
+        <span>695 pts</span>
+        <span>·</span>
+        <span>345 comments</span>
+        <span>·</span>
+        <span>by ExMachina73</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://violetpixel.com/blog/2026-11-17-we-need-smart-people-who-give-a-shit/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50554045" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-7" class="story" style="background:#F7F3EB;">
+        <div class="story-num">7</div>
+        <div class="story-content">
+            <div class="story-category">AI Infrastructure 🤖</div>
+            <div class="flag">⚡ Highly Relevant</div>
+            <h2 class="story-title"><a href="https://news.ycombinator.com/item?id=50549188" target="_blank" rel="noopener">Maritime Launches Managed Cloud for Production AI Agents, Addressing Infrastructure Gaps Beyond Sandboxes</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hi HN, we're Ary and Maria, co-founders of Maritime ( https://maritime.sh ). We're building an agent-native cloud that handles everything from custom environments to lifecycle management for AI agents. Demo: https://www.youtube.com/watch?v=lCWMdBQ96rY There’s been an explosion of sandbox companies coming out of SF, but sandboxes solve maybe 10% of the infrastructure problem for AI agents. The approach that most sandboxing companies take is: You buy Hetzner/OVH Cloud bare metal servers, use Firecracker to slice the servers up into VMs, sell those VMs with low margins. It’s a bit of an oversimpl</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Maritime introduces an agent-native cloud designed to provide comprehensive infrastructure for production AI agents, moving beyond the limited scope of current 'sandbox' solutions. Their platform focuses on lifecycle management and custom environments, aiming to solve a larger portion of the challenges associated with deploying AI agents at scale. This approach seeks to streamline the operational complexities that teams face when bringing AI agents into production.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">The community acknowledges that lifecycle management is a significant pain point for deploying AI agents, with some seeing Maritime's offering as a natural evolution in cloud services for AI. However, there is confusion regarding pricing models and the overall cost-effectiveness compared to self-hosting or existing personal assistant solutions. Concerns were also raised about security, specifically plaintext token storage and broad server permissions, as well as the necessity of human dashboards for agent-centric platforms. Competitors like Agent37.com and DigitalOcean's offerings were also brought up for comparison.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>news.ycombinator.com</span>
+        <span>·</span>
+        <span>56 pts</span>
+        <span>·</span>
+        <span>53 comments</span>
+        <span>·</span>
+        <span>by ashriv</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://news.ycombinator.com/item?id=50549188" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50549188" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-8" class="story" style="background:#F3F0F8;">
+        <div class="story-num">8</div>
+        <div class="story-content">
+            <div class="story-category">Space Exploration 🚀</div>
+
+            <h2 class="story-title"><a href="https://www.kadoa.com/companies/insights/spacex-europe-payload" target="_blank" rel="noopener">SpaceX Dominates Global Orbital Mass Launches Since 2022</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">SpaceX Launches More Mass to Orbit Than the Rest of the World Combined | Company Tracker New Insight: Anthropic's IPO price against 48 tech IPOs since 1997 SpaceX has launched more mass than the rest of the world combined every year since 2022 SpaceX's Falcon rockets carried 2,330 tonnes to orbit in 2025 , 81% of the world's total. Every other rocket combined carried 537 tonnes .</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">SpaceX has consistently launched more mass to orbit than the rest of the world combined since 2022, demonstrating significant market dominance. In 2025, its Falcon rockets were responsible for 81% of the global total, carrying 2,330 tonnes. This highlights a substantial lead in orbital payload delivery.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community discussion frequently attributes SpaceX's dominance to its internal demand from Starlink launches, with some suggesting that removing Starlink's mass would significantly alter the comparison. Concerns were raised regarding the lack of competition in the space launch sector. Commenters also speculated on the future impact of Starship launches and questioned the precise definition of 'mass to orbit' in the reported figures.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>kadoa.com</span>
+        <span>·</span>
+        <span>41 pts</span>
+        <span>·</span>
+        <span>19 comments</span>
+        <span>·</span>
+        <span>by hubraumhugo</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://www.kadoa.com/companies/insights/spacex-europe-payload" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50546221" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-9" class="story" style="background:#F0F5F4;">
+        <div class="story-num">9</div>
+        <div class="story-content">
+            <div class="story-category">Speech Technology 🗣️</div>
+
+            <h2 class="story-title"><a href="https://quebec.yarn.so" target="_blank" rel="noopener">Yarn Introduces Quebec API for Precise Word Timestamps in Speech</a></h2>
+            <div class="story-summary-source">Source: Hacker News post</div>
+        <p class="story-summary">Hey HN, we're Yarn (W24) and we make a video editing app for startups, and we built Quebec ( https://quebec.yarn.so ), an API that gives you accurate word timestamps from speech. We needed it because cutting a word even 50ms off from its true timing can ruin talking head footage (examples in the write up). Accurate word timestamps usually come from a forced aligner, which takes the speech audio and a transcript and works out exactly when each word starts and ends. We weren't satisfied with the accuracy of Montreal Forced Aligner (MFA) or new models like ElevenLabs Cue ( https://elevenlabs.io/b</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Yarn has launched Quebec, an API designed to provide highly accurate word timestamps from speech, aiming for 75% accuracy within 20ms. This precision is critical for applications like video editing, where even minor timing errors can significantly degrade quality. The API seeks to improve upon existing forced aligners, addressing a need for greater accuracy in speech-to-text synchronization.</p>
+    </div>
+
+    <div class="story-community">
+        <div class="story-community-label">Community Voice</div>
+        <p class="story-community-text">Community members identified potential applications for the API in podcast audio mixing and real-time lipsync animation. However, concerns were also raised that such precise editing capabilities could be misused to create misleading or 'fake news' content.</p>
+    </div>
+
+    <div class="story-meta">
+        <span>quebec.yarn.so</span>
+        <span>·</span>
+        <span>29 pts</span>
+        <span>·</span>
+        <span>5 comments</span>
+        <span>·</span>
+        <span>by jasperstory</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://quebec.yarn.so" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50532515" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+    <section id="story-10" class="story" style="background:#EDEBE5;">
+        <div class="story-num">10</div>
+        <div class="story-content">
+            <div class="story-category">Python Libraries 🐍</div>
+
+            <h2 class="story-title"><a href="https://alexwlchan.net/2026/funkycache/" target="_blank" rel="noopener">Funkycache: A Python Library for SQLite-Backed Function Caching</a></h2>
+            <div class="story-summary-source">Source: original article</div>
+        <p class="story-summary">funkycache: a Python library to cache functions in SQLite – alexwlchan Skip to main content funkycache: a Python library to cache functions in SQLite Filed in Python , Blogging about blogging Six months ago, I wrote an SQLite-backed cache to speed up the build system for this site. A static site generator is an ideal candidate for caching , because there are lots of steps that have deterministic behaviour and no side effects.</p>
+
+    <div class="story-insight">
+        <div class="story-insight-label">Actionable Insight</div>
+        <p class="story-insight-text">Funkycache is a Python library designed to cache function results using SQLite as the backend. This approach is particularly effective for applications with deterministic functions and no side effects, such as static site generators. By storing computation results, it can significantly speed up build processes and improve performance for repetitive tasks.</p>
+    </div>
+
+
+    <div class="story-meta">
+        <span>alexwlchan.net</span>
+        <span>·</span>
+        <span>4 pts</span>
+        <span>·</span>
+        <span>0 comments</span>
+        <span>·</span>
+        <span>by wmchen</span>
+    </div>
+
+    <div class="story-links">
+        <a href="https://alexwlchan.net/2026/funkycache/" target="_blank" rel="noopener" class="story-link">Read Source →</a>
+        <a href="https://news.ycombinator.com/item?id=50522991" target="_blank" rel="noopener" class="story-link">HN Discussion →</a>
+    </div>
+        </div>
+    </section>
+
+    <!-- ISSUE FOOTER START -->
+    </main>
+    <nav class="edition-navigation issue-shell" aria-label="Previous and next issues">
+        <a class="issue-nav-link" href="2026-11-18.html">
+        <small>Previous issue</small>
+        <strong>← November 18, 2026</strong>
+    </a>
+        <span class="issue-nav-link is-disabled"><small>Next issue</small><strong>Latest published issue</strong></span>
+    </nav>
+    <footer class="issue-footer">
+        <div class="issue-shell issue-footer-inner">
+            <div>
+                <div class="issue-footer-brand">
+<svg aria-hidden="true" viewBox="0 0 64 42" fill="none">
+    <path d="M4 38 24 4l8 14 7-10 21 30H4Z" fill="currentColor"></path>
+    <path d="M28 38c5-9 11-14 18-19-4 1-8 0-11-3 2 7 0 14-7 22Z" fill="var(--warm-white)"></path>
+    <path d="m23 19 4-7 4 8m13 0 3-5 5 7" stroke="var(--warm-white)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Wilderness Studio</span></div>
+                <p>Wilderness Signal · Daily Hacker News intelligence for AI-native builders.</p>
+            </div>
+            <div class="issue-footer-signature">
+                <strong>Experience leads. AI amplifies.</strong>
+                <a href="https://wildernesstudio.com/" target="_blank" rel="noopener">wildernesstudio.com ↗</a>
+            </div>
+        </div>
+    </footer>
+<!-- ISSUE FOOTER END -->
+</body>
+</html>
